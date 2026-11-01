@@ -677,7 +677,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	pshm_alloc	0xc000000000266bd4	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	pshm_rmid	0xc000000000267218	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	ptcinit	0xc00000000013ee90	panic	1	out	undocumented
-6.5.30/unix.IP27	ptrace	0xc0000000001be340	panic	1	out	undocumented
+6.5.30/unix.IP27	ptrace	0xc0000000001be340	panic	1	out	documented
 6.5.30/unix.IP27	qcntlioctl	0xc00000000005c408	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	ql_bridge_rev_b_war	0xc0000000000cf0d4	cmn_err	23	out	undocumented
 6.5.30/unix.IP27	ql_find_bus_mode	0xc0000000000ce850	cmn_err	14	out	undocumented
@@ -804,7 +804,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	tg_init_cfgs	0xc0000000000d8714	assfail	1	out	undocumented
 6.5.30/unix.IP27	ti_doname	0xc0000000000b7c38	cmn_err	6	out	undocumented
 6.5.30/unix.IP27	tick_actions	0xc0000000000461e0	cmn_err	2	out	undocumented
-6.5.30/unix.IP27	timeout	0xc0000000001b3498	cmn_err	1	out	undocumented
+6.5.30/unix.IP27	timeout	0xc0000000001b3498	cmn_err	1	out	documented
 6.5.30/unix.IP27	timeout_nothrd	0xc0000000001b3564	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	tlbmiss	0xc0000000001a75e8	assfail	1	out	undocumented
 6.5.30/unix.IP27	tlbmiss	0xc0000000001a75e8	cmn_err	1	out	undocumented
@@ -1609,7 +1609,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	pshm_alloc	0xa800000020222760	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	pshm_rmid	0xa800000020222da4	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	ptcinit	0xa800000020116f30	panic	1	out	undocumented
-6.5.30/unix.IP30	ptrace	0xa8000000201829ac	panic	1	out	undocumented
+6.5.30/unix.IP30	ptrace	0xa8000000201829ac	panic	1	out	documented
 6.5.30/unix.IP30	qcntlioctl	0xa80000002002c610	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	ql_find_bus_mode	0xa80000002009fc34	cmn_err	14	out	undocumented
 6.5.30/unix.IP30	ql_ha_info_from_ctlr_get	0xa800000020098a1c	cmn_err	1	out	undocumented
@@ -1715,7 +1715,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	tcp_usrreq	0xa8000000201128b8	panic	1	out	undocumented
 6.5.30/unix.IP30	tg_init_cfgs	0xa8000000200b0b30	assfail	1	out	undocumented
 6.5.30/unix.IP30	ti_doname	0xa80000002007fdb8	cmn_err	6	out	undocumented
-6.5.30/unix.IP30	timeout	0xa800000020177568	cmn_err	1	out	undocumented
+6.5.30/unix.IP30	timeout	0xa800000020177568	cmn_err	1	out	documented
 6.5.30/unix.IP30	timeout_nothrd	0xa800000020177634	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	tlbmiss	0xa80000002016ee10	assfail	1	out	undocumented
 6.5.30/unix.IP30	tlbmiss	0xa80000002016ee10	cmn_err	1	out	undocumented
@@ -2543,7 +2543,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	pshm_alloc	0xc000000000316940	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	pshm_rmid	0xc000000000316f84	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	ptcinit	0xc0000000001dabfc	panic	1	out	undocumented
-6.5.30/unix.IP35	ptrace	0xc00000000026dd08	panic	1	out	undocumented
+6.5.30/unix.IP35	ptrace	0xc00000000026dd08	panic	1	out	documented
 6.5.30/unix.IP35	qcntlioctl	0xc00000000008419c	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	ql_find_bus_mode	0xc00000000012c72c	cmn_err	14	out	undocumented
 6.5.30/unix.IP35	ql_ha_info_from_ctlr_get	0xc00000000012545c	cmn_err	1	out	undocumented
@@ -2675,7 +2675,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	tcp_usrreq	0xc0000000001d6584	panic	1	out	undocumented
 6.5.30/unix.IP35	tg_init_cfgs	0xc00000000016acc4	assfail	1	out	undocumented
 6.5.30/unix.IP35	ti_doname	0xc0000000000fa7d4	cmn_err	6	out	undocumented
-6.5.30/unix.IP35	timeout	0xc000000000261ca0	cmn_err	1	out	undocumented
+6.5.30/unix.IP35	timeout	0xc000000000261ca0	cmn_err	1	out	documented
 6.5.30/unix.IP35	timeout_nothrd	0xc000000000261d6c	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	tlbmiss	0xc00000000025618c	assfail	1	out	undocumented
 6.5.30/unix.IP35	tlbmiss	0xc00000000025618c	cmn_err	1	out	undocumented

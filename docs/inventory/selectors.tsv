@@ -91,8 +91,8 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	89	0xc000000000232b94			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	90	0xc000000000232b80			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	91	0xc000000000232b6c			out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	92	0xc000000000232b20	get_current_cred		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	93	0xc000000000232af8	get_current_cred		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	92	0xc000000000232b20	get_current_cred		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	93	0xc000000000232af8	get_current_cred		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	94	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	95	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	96	0xc000000000231848		yes	out	undocumented
@@ -1352,8 +1352,8 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	89	0xa8000000201ecb84			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	90	0xa8000000201ecb70			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	91	0xa8000000201ecb5c			out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	92	0xa8000000201ecb10	get_current_cred		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	93	0xa8000000201ecae8	get_current_cred		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	92	0xa8000000201ecb10	get_current_cred		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	93	0xa8000000201ecae8	get_current_cred		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	94	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	95	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	96	0xa8000000201eba10		yes	out	undocumented
@@ -2583,8 +2583,8 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	89	0xc0000000002e1f90			out	undocumented
 6.5.30/unix.IP35	compare	90	0xc0000000002e1874			out	undocumented
 6.5.30/unix.IP35	compare	91	0xc0000000002e25e8			out	undocumented
-6.5.30/unix.IP35	compare	92	0xc0000000002e27bc	get_current_cred		out	undocumented
-6.5.30/unix.IP35	compare	93	0xc0000000002e2214	get_current_cred		out	undocumented
+6.5.30/unix.IP35	compare	92	0xc0000000002e27bc	get_current_cred		out	documented
+6.5.30/unix.IP35	compare	93	0xc0000000002e2214	get_current_cred		out	documented
 6.5.30/unix.IP35	compare	103	0xc0000000002e115c			out	undocumented
 6.5.30/unix.IP35	compare	104	0xc0000000002e0444			out	undocumented
 6.5.30/unix.IP35	compare	105	0xc0000000002e19dc			out	undocumented
