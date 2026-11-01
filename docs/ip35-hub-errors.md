@@ -394,6 +394,17 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   record's doubleword at +0x18 plus the crosstalk address modulo the size. When `a4` bit 3 is set the result is ORed with
   0x3800000000000000 (formed by `li` 7 and `dsll32` 27) whether or not it was zero, so a miss with that flag
   returns 0x3800000000000000. Established.
+- `hubii_ixtt_get` (`6.5.30/unix.IP35`, address 0xc0000000000631b8, 124 bytes, 32-byte frame): reads one Hub register
+  that belongs to the node a crosstalk widget is attached to, and stores it where the caller points. It always
+  returns 0. `a0` is the widget vertex and `a1` the address that receives a doubleword (kept in `s8`). It gets the widget
+  information with `xwidget_info_get(a0)` (0xc0000000000975e8) and the master vertex with `xwidget_info_master_get`
+  (0xc000000000097700), clears the record slot at 0(sp) and calls `hwgraph_info_get_LBL(master, "_node", &record)`
+  (0xc000000000340d70; the string is at 0xc000000001524ef8), whose result is not tested. It takes the lock at record +792
+  with `mutex_spinlock` (0xc000000000331f6c), reads the doubleword at `0x9200000001c00000` + (the halfword at record
+  +10 << 33) + 496 (the pool word 0xc000000001644288 holds the negated base, which the code subtracts), stores it as
+  the doubleword at `a1`, and releases the lock with `mutex_spinunlock(record + 792, level)` (0xc000000000331fb8). Its
+  callers are two sites in `xbridge_attach`. The name's "ixtt" and the register at offset 496: unknown here beyond this
+  access. Established.
 
 ## Interrupt dispatch
 
@@ -542,6 +553,20 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   number << 33) + 8 x (widget number & 0xff) + 712 and tests its bit 63. When that is set it stores
   `(widget number & 0xff) | 0x10` as the doubleword at the same base + (node number << 33) + 904; when clear it
   stores nothing. Which two Hub registers these are, and what bit 63 and the 0x10 bit mean: unknown here. Established.
+- `hub_widgetdev_enable` (`6.5.30/unix.IP35`, address 0xc000000000078e0c, 160 bytes, 48-byte frame): gives one device
+  behind a crosstalk widget permission to use the Hub, by setting its bit in the node's permission word; it is the
+  counterpart of `hub_widgetdev_shutdown`. It returns no value that a caller can use (`v0` is left holding whatever the last
+  call or address computation produced). `a0` is the widget vertex and `a1` the device number (saved at 16(sp)). It gets the
+  widget number with `xwidget_info_get(a0)` (0xc0000000000975e8) and `xwidget_info_id_get` (0xc0000000000976cc), the master
+  vertex with `xwidget_info_master_get` (0xc000000000097700), and calls `hwgraph_info_get_LBL(master, "_node",
+  &record)` (0xc000000000340d70; the string is at 0xc000000001527bc0) with the record slot at sp + 0. A zero record
+  returns without doing anything (the branch at 0xc000000000078e68). Otherwise the register block is the doubleword at
+  `0x9200000001c00000` (pool word 0xc000000001644020) + (the halfword at record +10 << 33), and the word it changes is the
+  doubleword at +288 of it. The bit number is `a1 + 8 x (widget number & 0xff) - 64`; the bit is formed with a variable
+  shift, which uses only the low six bits of that number. When the bit is already set nothing is written. When it is clear
+  the routine stores the old value ORed with the bit (the store is in the delay slot of the branch at
+  0xc000000000078ea4). The same bit numbering is the one `hub_widgetdev_shutdown` clears. Which Hub register +288 is:
+  unknown here. Established.
 
 ## Network interface error interrupts
 
@@ -596,3 +621,25 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   `cmn_err` call, so before the call) and then calls `cmn_err(4, "Hub nasid %d got a PIO Write error from widget %d,
   cleaning up and continuing", NASID, widget)` (string at 0xc000000001521e60). Which hardware condition bit 48 of
   those registers reports: unknown here. Established.
+- `hub_error_count_enable` (`6.5.30/unix.IP35`, address 0xc00000000005b564, 172 bytes, 32-byte frame): turns on the
+  periodic error counting of one node, returning 0 when it starts it and -1 when it does not. `a0` is the node's NASID
+  (a signed compare, so a negative NASID or one of 128 or more returns -1 at once). The compact node number is the halfword
+  at `nasid_to_compact_node` (0xc000000001646f00) + 2 x NASID; -1 there returns -1. The counting record is the
+  doubleword at `hub_err_count` (0xc000000001650990, which is 1024 bytes after `kl_error_log` at 0xc000000001650590,
+  the pool word at 0xc00000000163de20) + 8 x node, a pointer; the word at the start of what it points to is the
+  enabled flag, and when that is nonzero the routine returns -1. When it is zero it calls `blkclr(record, 64)` (0xc00000000004791c)
+  and `timeout(hub_error_count_update, NASID, 100, 1, record)` (0xc000000000261ca0; `hub_error_count_update`,
+  at 0xc00000000005b4f0, comes from the pool word 0xc00000000163de78; the fourth argument is the constant 1 and the
+  fifth the record pointer). The store of 1
+  into the enabled flag sits in the delay slot of that call. It then returns 0 (set at 0xc00000000005b60c). The `syssgi` handler calls it. What `hub_error_count_update` counts, and the unit of the 100: unknown here.
+  Established.
+- `hubii_check_widget_disabled` (`6.5.30/unix.IP35`, address 0xc00000000005b000, 104 bytes, no stack frame): says whether
+  the Hub's I/O interface has shut down a crosstalk widget, either through the widget's own register or because the
+  whole link to crosstalk has failed. It returns 1 or 0. `a0` is the NASID and `a1` the widget number. The register
+  index is `a1` for a widget below 8 and `a1 - 7` otherwise (a signed compare at 0xc00000000005b000), the same
+  mapping `hub_setup_prb` uses. It reads the doubleword at `0x9200000001c00000` (pool word 0xc000000001644020) + (NASID <<
+  33) + 408 + 8 x index and returns 1 when any of its bits 51 to 48 (mask 15 << 48) is set. Otherwise it reads the
+  doubleword at the same base + (NASID << 33) + 8 and returns 1 when bit 32 of it is set, and 0 when it is clear (the
+  value 0 comes from the delay slot at 0xc00000000005b05c, the value 1 from the one at 0xc00000000005b064). The same
+  bit 32 of the +8 doubleword is the one `hubii_eint_handler` reports as a failed link to crosstalk. Which fields
+  bits 51 to 48 of the per-widget registers are: unknown here. Established.
