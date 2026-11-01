@@ -259,8 +259,8 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   With the write flag set it calls `huberror_process_wrb_error(a0 & 7, address)`. With it clear it calls
   `huberror_process_rrb_error(a0 & 7, address, the 0x200 bit as a 32-bit value, field)`. Any layout other than 1 or 2
   calls `cmn_err(20, "huberror_process_stack_entry, bad type 0x%x")` (0xc000000001521ce0); the code after it loads
-  four unset stack words and rejoins the flag test, but the level-20 report is expected not to return. The meaning of
-  the record fields in hardware terms: unknown here. Established.
+  four unset stack words and rejoins the flag test, but the level-20 report is expected not to return. Which hardware condition each
+  record field reports: unknown here. Established.
 - `hubiio_crb_free` (`6.5.30/unix.IP35`, address 0xc00000000005ac38, 160 bytes, 32-byte frame): releases one entry of
   the Hub's table of outstanding I/O requests and waits until the Hub reports the release done. `a0` is the node's
   error record (its halfword at +10 is the NASID) and `a1` the entry number. It returns nothing (single exit,
@@ -270,7 +270,7 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   masking it with 0xfffbfffffffffffd (pool word 0xc000000001644210), which clears bits 50 and 1 and keeps every
   other bit. It then stores `entry | 0x10` into the doubleword at base + 0x390, reads that doubleword back and, while
   bit 4 (0x10) is still set, calls `us_delay(1)` and reads it again; the loop has no bound. When the bit is clear it
-  returns. The hardware meaning of the register at +0x390 and of bit 1 of the entry word: unknown here; the
+  returns. Which hardware feature the register at +0x390 and bit 1 of the entry word belong to: unknown here. The
   routine's callers treat bit 50 of the same word as the marker that an entry is already free. Established.
 
 ## Hub programmed-I/O windows
@@ -337,8 +337,9 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   clearing bits 47 to 43), ORed with bit 43, ANDed with 0xfffffbc000c000ff (pool word 0xc000000001644280), ORed with
   bit 42 when the mode is not 1, ANDed with 0xffffffffffffff00 and ORed with `a2 & 0xff`. The result keeps old bits 63
   to 48, 41 to 38, 23 and 22, has bit 43 set, has bit 42 set exactly when the mode is not 1, has `a2`'s low byte in
-  bits 7 to 0, and has bits 47 to 44, 37 to 24 and 21 to 8 clear. The hardware meaning of the register and its bits is
-  unknown here; the per-widget role is inferred from the index mapping and the callers' widget arguments. Established.
+  bits 7 to 0, and has bits 47 to 44, 37 to 24 and 21 to 8 clear. Which hardware feature the register and its bits belong to is
+  unknown here. That each register serves one widget is inferred from the index mapping and the callers' widget
+  arguments. Established.
 - `hub_set_piomode` (`6.5.30/unix.IP35`, address 0xc000000000062f70, 240 bytes, 64-byte frame): reprograms the Hub's
   nine per-widget registers (through `hub_setup_prb`) for one node while the node's doubleword at +0x110 of its
   register block is held at zero. `a0` is the NASID and `a1` is passed through as the mode argument of every
@@ -351,7 +352,7 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   a1)`; with it set `hub_setup_prb(a0, 0, 3, a1)`. Then for widget numbers 8 to 15 it calls `hub_setup_prb(a0, n, 3,
   a1)`. It restores the saved value at block +0x110. The return value is the doubleword read back from +0x110 (the
   `ld` in the delay slot at 0xc000000000063008) when this is not the console node, and the result of `putbuf_unlock`
-  when it is. The hardware meaning of block +0x20 bit 17 and of +0x110: unknown here. Established.
+  when it is. Which hardware feature block +0x20 bit 17 and block +0x110 belong to: unknown here. Established.
 - `hub_piomap_free` (`6.5.30/unix.IP35`, address 0xc00000000006252c, 236 bytes, 48-byte frame): gives back a window
   that `hub_piomap_alloc` made, freeing the Hub's window register when the last user lets go. `a0` is the window
   record: its word at +0x20 is the vertex, the halfword at +0x24 the use count, the byte at +0x26 the entry number and
