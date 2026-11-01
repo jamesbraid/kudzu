@@ -2495,7 +2495,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0xcf8	364	hwgraph_traverse	dwarf+symtab	c90201767292		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP22boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0xe64	144	hwgraph_path_to_vertex	dwarf+symtab	5aa10de74afd		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0xef4	44	hwgraph_path_to_dev	dwarf+symtab	0648507f3cae		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0xf20	96	hwgraph_link_add	dwarf+symtab	151c5a877442		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0xf20	96	hwgraph_link_add	dwarf+symtab	151c5a877442		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP22boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0xf80	132	hwgraph_device_add	dwarf+symtab	7a4d2240e197		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x1004	344	hwgraph_block_device_add	dwarf+symtab	80d39c4a8a1f		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x115c	344	hwgraph_char_device_add	dwarf+symtab	7c4c3d0d8ce0		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
@@ -5287,7 +5287,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x218	120	kern_malloc	dwarf+symtab	868bffc98101		out:3	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.22/usr/cpu/sysgen/IP22boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x290	116	kern_calloc	dwarf+symtab	e944db3f1e48		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x304	200	kern_realloc	dwarf+symtab	5a85d2f59d56		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x3cc	88	kern_free	dwarf+symtab	25617193182d		out:3	named-only	docs/syscalls.md#entries	Entries
+6.5.22/usr/cpu/sysgen/IP22boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x3cc	88	kern_free	dwarf+symtab	25617193182d		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP22boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x424	76	kmem_arena_create	dwarf+symtab	d4984ccc997f		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x470	28	kmem_arena_destroy	dwarf+symtab	5957077049f4		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x48c	100	kmem_arena_alloc	dwarf+symtab	4d0efe95bd78		out:3	undocumented		
@@ -5403,7 +5403,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x254	156	kern_malloc	dwarf+symtab	010eb67653b3		out:3	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.22/usr/cpu/sysgen/IP22boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x2f0	116	kern_calloc	dwarf+symtab	e944db3f1e48		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x364	200	kern_realloc	dwarf+symtab	e87b52b9f999		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x42c	352	kern_free	dwarf+symtab	eebbb2aa7d46		out:3	named-only	docs/syscalls.md#entries	Entries
+6.5.22/usr/cpu/sysgen/IP22boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x42c	352	kern_free	dwarf+symtab	eebbb2aa7d46		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP22boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x58c	76	kmem_arena_create	dwarf+symtab	d4984ccc997f		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x5d8	28	kmem_arena_destroy	dwarf+symtab	5957077049f4		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x5f4	100	kmem_arena_alloc	dwarf+symtab	4d0efe95bd78		out:3	undocumented		
@@ -11840,7 +11840,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x9c	132	strncpy	dwarf+symtab	7cfa5fbce052		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x120	84	strcpy	dwarf+symtab	f7e6e8b86831		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x174	36	strchr	dwarf+symtab	f33858367dfc		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x198	124	strrchr	dwarf+symtab	111f68a65f0b		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x198	124	strrchr	dwarf+symtab	111f68a65f0b		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x214	168	strcat	dwarf+symtab	38cffb7d2ed7		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x2bc	176	strstr	dwarf+symtab	76fa414f3684		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x36c	88	strspn	dwarf+symtab	f0b1f0f8e024		out:3	undocumented		
@@ -18652,7 +18652,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xccc	348	hwgraph_traverse	dwarf+symtab	c02f9d392fdc		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xe28	144	hwgraph_path_to_vertex	dwarf+symtab	e888cded3666		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xeb8	44	hwgraph_path_to_dev	dwarf+symtab	8c583995b6de		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xee4	92	hwgraph_link_add	dwarf+symtab	83753e93bdb2		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xee4	92	hwgraph_link_add	dwarf+symtab	83753e93bdb2		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xf40	132	hwgraph_device_add	dwarf+symtab	d7817c0c8f04		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xfc4	344	hwgraph_block_device_add	dwarf+symtab	3b7054890eb0		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x111c	344	hwgraph_char_device_add	dwarf+symtab	cc1fb4cd42a8		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
@@ -21046,8 +21046,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5574	316	component_serial_number_get	dwarf	eeb1eedc6b95		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x56b0	424	board_serial_number_get	dwarf+symtab	7db91a8e8706		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5858	184	membank_pathname_get	dwarf+symtab	890d62b5b0c4		out:2	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5910	180	membank_check_mixed_hidensity	dwarf+symtab	10749f4f8a9f		out:2	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x59c4	168	mem_mixed_hidensity_banks	dwarf+symtab	dd19c057e571		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5910	180	membank_check_mixed_hidensity	dwarf+symtab	10749f4f8a9f		out:2	located	docs/klconfig.md#memory-bank-checks	Memory bank checks
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x59c4	168	mem_mixed_hidensity_banks	dwarf+symtab	dd19c057e571		in	located	docs/klconfig.md#memory-bank-checks	Memory bank checks
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5a6c	44	nodevertex_widgetnum_get	dwarf+symtab	6a38531f5eaf		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5a98	108	nodevertex_xbow_peer_get	dwarf+symtab	2294a4d2e946		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5b04	248	get_nic_string	dwarf	b756814dda4e		out:2	undocumented		
@@ -22329,7 +22329,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x1e8	112	kern_malloc	dwarf+symtab	2b5ffb1c8830		out:3	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.22/usr/cpu/sysgen/IP27boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x258	104	kern_calloc	dwarf+symtab	2dff0924d3b6		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x2c0	176	kern_realloc	dwarf+symtab	bbef1660ad55		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x370	88	kern_free	dwarf+symtab	c645c1574bc9		out:3	named-only	docs/syscalls.md#entries	Entries
+6.5.22/usr/cpu/sysgen/IP27boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x370	88	kern_free	dwarf+symtab	c645c1574bc9		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP27boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x3c8	76	kmem_arena_create	dwarf+symtab	d36d048e5412		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x414	28	kmem_arena_destroy	dwarf+symtab	610109b348ab		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x430	88	kmem_arena_alloc	dwarf+symtab	800a10bde9f3		out:3	undocumented		
@@ -22452,7 +22452,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x21c	148	kern_malloc	dwarf+symtab	930b19d83114		out:3	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.22/usr/cpu/sysgen/IP27boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x2b0	104	kern_calloc	dwarf+symtab	2dff0924d3b6		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x318	176	kern_realloc	dwarf+symtab	58d92553ee58		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x3c8	620	kern_free	dwarf+symtab	19c9ac23c8b4		out:3	named-only	docs/syscalls.md#entries	Entries
+6.5.22/usr/cpu/sysgen/IP27boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x3c8	620	kern_free	dwarf+symtab	19c9ac23c8b4		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP27boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x634	76	kmem_arena_create	dwarf+symtab	d36d048e5412		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x680	28	kmem_arena_destroy	dwarf+symtab	610109b348ab		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x69c	88	kmem_arena_alloc	dwarf+symtab	f23b23fcf633		out:3	undocumented		
@@ -30570,7 +30570,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(libc_src.o)	shared-kernel	n64	.text	0x9c	136	strncpy	dwarf+symtab	1ee05fa5dab1		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(libc_src.o)	shared-kernel	n64	.text	0x124	84	strcpy	dwarf+symtab	de0d909fb422		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(libc_src.o)	shared-kernel	n64	.text	0x178	36	strchr	dwarf+symtab	55dabc5243f9		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(libc_src.o)	shared-kernel	n64	.text	0x19c	124	strrchr	dwarf+symtab	be136f59c45e		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(libc_src.o)	shared-kernel	n64	.text	0x19c	124	strrchr	dwarf+symtab	be136f59c45e		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(libc_src.o)	shared-kernel	n64	.text	0x218	168	strcat	dwarf+symtab	5829d7a8d48e		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(libc_src.o)	shared-kernel	n64	.text	0x2c0	176	strstr	dwarf+symtab	c6e3891f3adc		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(libc_src.o)	shared-kernel	n64	.text	0x370	88	strspn	dwarf+symtab	29159d138ead		out:3	undocumented		
@@ -37687,7 +37687,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xccc	348	hwgraph_traverse	dwarf+symtab	c02f9d392fdc		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xe28	144	hwgraph_path_to_vertex	dwarf+symtab	e888cded3666		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xeb8	44	hwgraph_path_to_dev	dwarf+symtab	8c583995b6de		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xee4	92	hwgraph_link_add	dwarf+symtab	83753e93bdb2		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xee4	92	hwgraph_link_add	dwarf+symtab	83753e93bdb2		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xf40	132	hwgraph_device_add	dwarf+symtab	d7817c0c8f04		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xfc4	344	hwgraph_block_device_add	dwarf+symtab	3b7054890eb0		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x111c	344	hwgraph_char_device_add	dwarf+symtab	cc1fb4cd42a8		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
@@ -40467,7 +40467,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x1e8	112	kern_malloc	dwarf+symtab	2b5ffb1c8830		out:3	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.22/usr/cpu/sysgen/IP30boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x258	104	kern_calloc	dwarf+symtab	2dff0924d3b6		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x2c0	176	kern_realloc	dwarf+symtab	bbef1660ad55		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x370	88	kern_free	dwarf+symtab	c645c1574bc9		out:3	named-only	docs/syscalls.md#entries	Entries
+6.5.22/usr/cpu/sysgen/IP30boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x370	88	kern_free	dwarf+symtab	c645c1574bc9		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP30boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x3c8	76	kmem_arena_create	dwarf+symtab	d36d048e5412		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x414	28	kmem_arena_destroy	dwarf+symtab	610109b348ab		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x430	88	kmem_arena_alloc	dwarf+symtab	800a10bde9f3		out:3	undocumented		
@@ -40583,7 +40583,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x21c	148	kern_malloc	dwarf+symtab	930b19d83114		out:3	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.22/usr/cpu/sysgen/IP30boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x2b0	104	kern_calloc	dwarf+symtab	2dff0924d3b6		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x318	176	kern_realloc	dwarf+symtab	58d92553ee58		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x3c8	360	kern_free	dwarf+symtab	ed19f4c023ec		out:3	named-only	docs/syscalls.md#entries	Entries
+6.5.22/usr/cpu/sysgen/IP30boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x3c8	360	kern_free	dwarf+symtab	ed19f4c023ec		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP30boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x530	76	kmem_arena_create	dwarf+symtab	d36d048e5412		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x57c	28	kmem_arena_destroy	dwarf+symtab	610109b348ab		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x598	88	kmem_arena_alloc	dwarf+symtab	f23b23fcf633		out:3	undocumented		
@@ -53775,7 +53775,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0xcf8	364	hwgraph_traverse	dwarf+symtab	c90201767292		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0xe64	144	hwgraph_path_to_vertex	dwarf+symtab	5aa10de74afd		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0xef4	44	hwgraph_path_to_dev	dwarf+symtab	0648507f3cae		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0xf20	96	hwgraph_link_add	dwarf+symtab	151c5a877442		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0xf20	96	hwgraph_link_add	dwarf+symtab	151c5a877442		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0xf80	132	hwgraph_device_add	dwarf+symtab	7a4d2240e197		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x1004	344	hwgraph_block_device_add	dwarf+symtab	80d39c4a8a1f		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x115c	344	hwgraph_char_device_add	dwarf+symtab	7c4c3d0d8ce0		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
@@ -56383,7 +56383,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x218	120	kern_malloc	dwarf+symtab	868bffc98101		out:3	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.22/usr/cpu/sysgen/IP32boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x290	116	kern_calloc	dwarf+symtab	e944db3f1e48		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x304	200	kern_realloc	dwarf+symtab	5a85d2f59d56		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x3cc	88	kern_free	dwarf+symtab	25617193182d		out:3	named-only	docs/syscalls.md#entries	Entries
+6.5.22/usr/cpu/sysgen/IP32boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x3cc	88	kern_free	dwarf+symtab	25617193182d		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP32boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x424	76	kmem_arena_create	dwarf+symtab	d4984ccc997f		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x470	28	kmem_arena_destroy	dwarf+symtab	5957077049f4		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x48c	100	kmem_arena_alloc	dwarf+symtab	4d0efe95bd78		out:3	undocumented		
@@ -56500,7 +56500,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x254	156	kern_malloc	dwarf+symtab	010eb67653b3		out:3	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.22/usr/cpu/sysgen/IP32boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x2f0	116	kern_calloc	dwarf+symtab	e944db3f1e48		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x364	200	kern_realloc	dwarf+symtab	e87b52b9f999		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x42c	412	kern_free	dwarf+symtab	8c7b134321fc		out:3	named-only	docs/syscalls.md#entries	Entries
+6.5.22/usr/cpu/sysgen/IP32boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x42c	412	kern_free	dwarf+symtab	8c7b134321fc		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP32boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x5c8	76	kmem_arena_create	dwarf+symtab	d4984ccc997f		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x614	28	kmem_arena_destroy	dwarf+symtab	5957077049f4		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x630	100	kmem_arena_alloc	dwarf+symtab	4d0efe95bd78		out:3	undocumented		
@@ -67598,7 +67598,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0xcbc	32	eeprom_str	dwarf+symtab	a0bb46ae3640		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0xcdc	32	eeprom_config_str	dwarf+symtab	b9c0eee87cf5		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0xcfc	144	vector_eeprom_str	dwarf+symtab	2a4f7fe71b23		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0xd8c	196	l1_mfg_string	dwarf+symtab	66b1766fb5a8		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0xd8c	196	l1_mfg_string	dwarf+symtab	66b1766fb5a8		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0xe50	224	is_iobrick	dwarf+symtab	bbe494af19d1		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0xf30	400	cbrick_uid_get	dwarf+symtab	9d74832c7e57		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0x10c0	300	peer_iobrick_uid_get	dwarf+symtab	699636e7dd3e		out:3	undocumented		
@@ -67606,7 +67606,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0x130c	188	nonpeer_iobrick_uid_get	dwarf+symtab	a2bda2f0eb95		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0x13c8	124	iobrick_uid_get	dwarf+symtab	5927f1331489		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0x1444	200	ibrick_mac_addr_get	dwarf+symtab	40385e4a0c9a		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0x150c	352	eeprom_vertex_info_set	dwarf+symtab	c5a68e953c35		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0x150c	352	eeprom_vertex_info_set	dwarf+symtab	c5a68e953c35		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0x166c	160	random_eeprom_ch	dwarf+symtab	8374660bad58		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0x170c	500	fake_a_part_number	dwarf+symtab	2582651fe190		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0x1900	132	fake_a_serial_number	dwarf+symtab	84e8cc9fcead		out:3	undocumented		
@@ -68690,7 +68690,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xccc	348	hwgraph_traverse	dwarf+symtab	179666ceb30e		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xe28	144	hwgraph_path_to_vertex	dwarf+symtab	31f5f28c049a		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xeb8	44	hwgraph_path_to_dev	dwarf+symtab	8c583995b6de		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xee4	92	hwgraph_link_add	dwarf+symtab	83753e93bdb2		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xee4	92	hwgraph_link_add	dwarf+symtab	83753e93bdb2		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xf40	132	hwgraph_device_add	dwarf+symtab	99c3ba720c98		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xfc4	344	hwgraph_block_device_add	dwarf+symtab	3b7054890eb0		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x111c	344	hwgraph_char_device_add	dwarf+symtab	cc1fb4cd42a8		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
@@ -71073,7 +71073,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x4b78	100	get_actual_nasid	dwarf+symtab	537560159efc		out:2	located	docs/klconfig.md#lookup-routines	Lookup routines
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x4bdc	248	nasid_slice_to_cpuinfo	dwarf+symtab	c4f3e4437390		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x4cd4	228	xbow_port_io_enabled	dwarf+symtab	aaca4e9860cb		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x4db8	144	board_to_full_path	dwarf+symtab	41fd8b9291ab		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x4db8	144	board_to_full_path	dwarf+symtab	41fd8b9291ab		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x4e48	404	board_to_path	dwarf+symtab	fe42446016cf		in	located	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x4fdc	152	get_module_id	dwarf+symtab	96606ff45c86		out:2	located	docs/klconfig.md#lookup-routines	Lookup routines
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x5074	52	get_xbow_peer	dwarf+symtab	15f6607e1ccb		out:2	located	docs/klconfig.md#lookup-routines	Lookup routines
@@ -71082,8 +71082,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x51c8	316	component_serial_number_get	dwarf	b5f25eaa4929		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x5304	508	board_serial_number_get	dwarf+symtab	4a695d98eeb1		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x5500	140	membank_pathname_get	dwarf+symtab	135c4e2da9f3		out:2	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x558c	220	membank_check_mixed_hidensity	dwarf+symtab	9e3e148ffd3e		out:2	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x5668	168	mem_mixed_hidensity_banks	dwarf+symtab	dd19c057e571		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x558c	220	membank_check_mixed_hidensity	dwarf+symtab	9e3e148ffd3e		out:2	located	docs/klconfig.md#memory-bank-checks	Memory bank checks
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x5668	168	mem_mixed_hidensity_banks	dwarf+symtab	dd19c057e571		in	located	docs/klconfig.md#memory-bank-checks	Memory bank checks
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x5710	44	nodevertex_widgetnum_get	dwarf+symtab	187e48b1394f		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x573c	120	nodevertex_xbow_peer_get	dwarf+symtab	8028fc2ece75		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x57b4	248	get_nic_string	dwarf	2b81bd298cf4		out:2	undocumented		
@@ -72029,7 +72029,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x327f0	160	klhwg_add_disabled_cpu	dwarf+symtab	3337f72d5645		in	located	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x32890	448	klhwg_add_cpu	dwarf+symtab	4e803c37cea4		in	located	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x32a50	104	klhwg_add_mem	dwarf+symtab	761974cad7d0		in	located	docs/hwgraph.md#routines	Routines
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x32ab8	604	init_pebrick	dwarf+symtab	e19448dc695a		out:2	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x32ab8	604	init_pebrick	dwarf+symtab	e19448dc695a		out:2	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x32d14	616	klhwg_add_xbow	dwarf+symtab	4c9ad06194a4		in	located	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x32f7c	88	pimm_bearing_node	dwarf	50f72bda2a61		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x32fd4	1356	klhwg_add_node	dwarf+symtab	841770c1137e		in	located	docs/hwgraph.md#routines	Routines
@@ -72318,7 +72318,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x1e8	112	kern_malloc	dwarf+symtab	2b5ffb1c8830		out:3	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.22/usr/cpu/sysgen/IP35boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x258	104	kern_calloc	dwarf+symtab	2dff0924d3b6		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x2c0	176	kern_realloc	dwarf+symtab	bbef1660ad55		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x370	88	kern_free	dwarf+symtab	c645c1574bc9		out:3	named-only	docs/syscalls.md#entries	Entries
+6.5.22/usr/cpu/sysgen/IP35boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x370	88	kern_free	dwarf+symtab	c645c1574bc9		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP35boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x3c8	76	kmem_arena_create	dwarf+symtab	d36d048e5412		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x414	28	kmem_arena_destroy	dwarf+symtab	610109b348ab		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x430	88	kmem_arena_alloc	dwarf+symtab	800a10bde9f3		out:3	undocumented		
@@ -72441,7 +72441,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x21c	148	kern_malloc	dwarf+symtab	930b19d83114		out:3	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.22/usr/cpu/sysgen/IP35boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x2b0	104	kern_calloc	dwarf+symtab	2dff0924d3b6		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x318	176	kern_realloc	dwarf+symtab	58d92553ee58		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x3c8	620	kern_free	dwarf+symtab	3592b35d2f68		out:3	named-only	docs/syscalls.md#entries	Entries
+6.5.22/usr/cpu/sysgen/IP35boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x3c8	620	kern_free	dwarf+symtab	3592b35d2f68		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP35boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x634	76	kmem_arena_create	dwarf+symtab	d36d048e5412		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x680	28	kmem_arena_destroy	dwarf+symtab	610109b348ab		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x69c	88	kmem_arena_alloc	dwarf+symtab	f23b23fcf633		out:3	undocumented		
@@ -89323,8 +89323,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001e878	172	device_component_canonical_name_get	symtab	eee50c19b922		in	understood	docs/hwgraph.md#disabled-device-hints	Disabled-device hints
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001ea60	424	board_serial_number_get	symtab	2123a2279557		in	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001ec08	184	membank_pathname_get	symtab	9292eec24d85		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001ecc0	180	membank_check_mixed_hidensity	symtab	557d8dd078ab		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001ed74	168	mem_mixed_hidensity_banks	symtab	9a589bf0280a		in	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001ecc0	180	membank_check_mixed_hidensity	symtab	557d8dd078ab		out:1	understood	docs/klconfig.md#memory-bank-checks	Memory bank checks
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001ed74	168	mem_mixed_hidensity_banks	symtab	9a589bf0280a		in	understood	docs/klconfig.md#memory-bank-checks	Memory bank checks
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001ee1c	44	nodevertex_widgetnum_get	symtab	e33715cd68d4		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001ee48	108	nodevertex_xbow_peer_get	symtab	6e9fa6793ce4		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001efac	168	get_first_string	symtab	ceae7639c034		out:1	undocumented		
@@ -92417,7 +92417,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001424bc	136	strncpy	symtab	1ee05fa5dab1		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000142544	84	strcpy	symtab	de0d909fb422		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000142598	36	strchr	symtab	55dabc5243f9		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001425bc	124	strrchr	symtab	be136f59c45e		out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001425bc	124	strrchr	symtab	be136f59c45e		out:1	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000142638	168	strcat	symtab	5829d7a8d48e		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001426e0	176	strstr	symtab	c6e3891f3adc		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000142790	88	strspn	symtab	29159d138ead		out:1	undocumented		
@@ -92972,7 +92972,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000017e408	112	kern_malloc	symtab	6ecfca01f1d3		out:1	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000017e478	104	kern_calloc	symtab	f9681631a73f		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000017e4e0	176	kern_realloc	symtab	1ec67e1a36d3		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000017e590	88	kern_free	symtab	dc86d4d819dc		out:1	named-only	docs/syscalls.md#entries	Entries
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000017e590	88	kern_free	symtab	dc86d4d819dc		out:1	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000017e5e8	76	kmem_arena_create	symtab	910182cc1f17		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000017e634	28	kmem_arena_destroy	symtab	7f9fb9b8be74		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000017e650	88	kmem_arena_alloc	symtab	22cf525e7372		out:1	undocumented		
@@ -95785,7 +95785,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000029579c	348	hwgraph_traverse	symtab	19e2050980c1		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000002958f8	144	hwgraph_path_to_vertex	symtab	6562ee81bbd8		in	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000295988	44	hwgraph_path_to_dev	symtab	aae17cd188d3		in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000002959b4	92	hwgraph_link_add	symtab	537829eb00c7		in	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000002959b4	92	hwgraph_link_add	symtab	537829eb00c7		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000295a10	132	hwgraph_device_add	symtab	279fc115ee4f		in	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000295a94	344	hwgraph_block_device_add	symtab	bb2cc27c9d68		in	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000295bec	344	hwgraph_char_device_add	symtab	381e98fa8f93		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
@@ -105544,7 +105544,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201288d4	136	strncpy	symtab	1ee05fa5dab1		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002012895c	84	strcpy	symtab	de0d909fb422		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201289b0	36	strchr	symtab	55dabc5243f9		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201289d4	124	strrchr	symtab	be136f59c45e		out:1	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201289d4	124	strrchr	symtab	be136f59c45e		out:1	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020128a50	168	strcat	symtab	5829d7a8d48e		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020128af8	176	strstr	symtab	c6e3891f3adc		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020128ba8	88	strspn	symtab	29159d138ead		out:1	undocumented		
@@ -105907,7 +105907,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020148768	112	kern_malloc	symtab	726417fdc0e1		out:1	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201487d8	104	kern_calloc	symtab	b52f48de04c3		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020148840	176	kern_realloc	symtab	f56bdf6d152d		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201488f0	88	kern_free	symtab	d12e344c40e4		out:1	named-only	docs/syscalls.md#entries	Entries
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201488f0	88	kern_free	symtab	d12e344c40e4		out:1	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020148948	76	kmem_arena_create	symtab	69422079ea69		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020148994	28	kmem_arena_destroy	symtab	ed7e7c59727b		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201489b0	88	kmem_arena_alloc	symtab	c4477dc15ea6		out:1	undocumented		
@@ -108525,7 +108525,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002023cd3c	348	hwgraph_traverse	symtab	75798f71a7b5		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002023ce98	144	hwgraph_path_to_vertex	symtab	b6e3fe39c6fe		in	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002023cf28	44	hwgraph_path_to_dev	symtab	1cd3300054a2		in	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002023cf54	92	hwgraph_link_add	symtab	a171222b9ac5		in	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002023cf54	92	hwgraph_link_add	symtab	a171222b9ac5		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002023cfb0	132	hwgraph_device_add	symtab	494463f15611		in	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002023d034	344	hwgraph_block_device_add	symtab	a5eb8e69e02c		in	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002023d18c	344	hwgraph_char_device_add	symtab	8eb46260d4f3		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
@@ -116755,31 +116755,31 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000044370	100	find_lboard	symtab	67280654a1a1		in	understood	docs/klconfig.md#the-same-routines-in-the-other-builds	The same routines in the other builds
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000443d4	108	find_lboard_class	symtab	818af0d59444		in	understood	docs/klconfig.md#the-same-routines-in-the-other-builds	The same routines in the other builds
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000044440	120	find_lboard_slot_class	symtab	3eefb13db501		in	understood	docs/klconfig.md#the-same-routines-in-the-other-builds	The same routines in the other builds
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000444b8	328	find_component	symtab	d2afe0312931		out:1	located	docs/klconfig.md#lookup-routines	Lookup routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000044600	32	find_first_component	symtab	107a3fd3e03f		out:1	located	docs/klconfig.md#lookup-routines	Lookup routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000444b8	328	find_component	symtab	d2afe0312931		out:1	understood	docs/klconfig.md#ip35-lookups	IP35 lookups
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000044600	32	find_first_component	symtab	107a3fd3e03f		out:1	understood	docs/klconfig.md#ip35-lookups	IP35 lookups
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000044620	124	find_lboard_modslot	symtab	049110a0a765		in	understood	docs/klconfig.md#the-same-routines-in-the-other-builds	The same routines in the other builds
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004469c	104	find_lboard_module	symtab	eef758bfb48e		in	understood	docs/klconfig.md#the-same-routines-in-the-other-builds	The same routines in the other builds
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000044704	132	find_lboard_module_class	symtab	450484c16a35		in	understood	docs/klconfig.md#the-same-routines-in-the-other-builds	The same routines in the other builds
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000044788	436	nic_name_convert	symtab	1419797336c5		in	named-only	docs/hwgraph.md#disabled-device-hints	Disabled-device hints
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004493c	352	is_master_baseio	symtab	86b34fbd9093		out:1	located	docs/klconfig.md#lookup-routines	Lookup routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004493c	352	is_master_baseio	symtab	86b34fbd9093		out:1	understood	docs/klconfig.md#ip35-lookups	IP35 lookups
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000044a9c	524	get_board_name	symtab	9080a5b94f9f		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000044ca8	328	get_cnode_cpu	symtab	bacd5ce6c070		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000044df0	20	get_cpu_cnode	symtab	5cbbddab0529		out:1	understood	docs/klconfig.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000044e04	48	get_cpu_slice	symtab	bf0bce390449		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000044e34	244	get_cpuinfo	symtab	5f16d17bf8ef		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000044f28	100	get_actual_nasid	symtab	321ca88e4603		out:1	located	docs/klconfig.md#lookup-routines	Lookup routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000044f28	100	get_actual_nasid	symtab	321ca88e4603		out:1	understood	docs/klconfig.md#ip35-lookups	IP35 lookups
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000044f8c	248	nasid_slice_to_cpuinfo	symtab	77f5d0735cad		in	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000045084	228	xbow_port_io_enabled	symtab	2e6a7ba67e5d		in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000045168	144	board_to_full_path	symtab	4300b54af816		in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000451f8	404	board_to_path	symtab	8002a1aa71ec		in	located	docs/hwgraph.md#routines	Routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004538c	152	get_module_id	symtab	a0a2843e2e7c		out:1	located	docs/klconfig.md#lookup-routines	Lookup routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000045424	52	get_xbow_peer	symtab	7016a679a9c9		out:1	located	docs/klconfig.md#lookup-routines	Lookup routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000045168	144	board_to_full_path	symtab	4300b54af816		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000451f8	404	board_to_path	symtab	8002a1aa71ec		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004538c	152	get_module_id	symtab	a0a2843e2e7c		out:1	understood	docs/klconfig.md#ip35-lookups	IP35 lookups
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000045424	52	get_xbow_peer	symtab	7016a679a9c9		out:1	understood	docs/klconfig.md#ip35-lookups	IP35 lookups
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000045458	144	cpu_cycles_adjust	symtab	1fe8005849d6		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000454e8	144	device_component_canonical_name_get	symtab	7cdda66638a6		in	located	docs/hwgraph.md#disabled-device-hints	Disabled-device hints
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000454e8	144	device_component_canonical_name_get	symtab	7cdda66638a6		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000456b4	536	board_serial_number_get	symtab	aaf68d44b9ff		in	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000458cc	140	membank_pathname_get	symtab	7f940a367595		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000045958	220	membank_check_mixed_hidensity	symtab	3464e069929f		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000045a34	168	mem_mixed_hidensity_banks	symtab	95ccf6270824		in	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000045958	220	membank_check_mixed_hidensity	symtab	3464e069929f		out:1	understood	docs/klconfig.md#memory-bank-checks	Memory bank checks
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000045a34	168	mem_mixed_hidensity_banks	symtab	95ccf6270824		in	understood	docs/klconfig.md#memory-bank-checks	Memory bank checks
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000045adc	44	nodevertex_widgetnum_get	symtab	ee1b5b8c7f44		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000045b08	120	nodevertex_xbow_peer_get	symtab	f899f17cae82		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000045c78	168	get_first_string	symtab	b74a48b99a18		out:1	undocumented		
@@ -117332,9 +117332,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000064ae0	152	decode_int_serial	symtab	242f863bdcfa		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000064b78	124	encode_str_serial	symtab	2cd004612598		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000064bf4	124	decode_str_serial	symtab	f4b3980510ff		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000064c70	72	module_lookup	symtab	624121312e00		out:1	located	docs/hwgraph.md#modules	Modules
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000064c70	72	module_lookup	symtab	624121312e00		out:1	understood	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000064cb8	108	cmoduleid_lookup	symtab	0c9008d0d0f7		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000064d24	108	cnodemodule_lookup	symtab	461d23e29488		in	located	docs/hwgraph.md#modules	Modules
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000064d24	108	cnodemodule_lookup	symtab	461d23e29488		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000064d90	336	module_add_node	symtab	f542e9e67ff8		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000064ee0	508	module_probe_snum	symtab	0146a0701470		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000650dc	356	module_init	symtab	c087285c60bd		out:1	undocumented		
@@ -117597,7 +117597,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006f230	8	VEC_addrerr	symtab	664dc2d10956		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006f240	68	VEC_tlbmiss	symtab	43b6ef505b0b		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006f284	560	dprintf	symtab	c9f749a9ae8c		out:1	named-only	docs/klconfig.md#lookup-routines	Lookup routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006f6b0	40	rbrick_register	symtab	e74421b08471		out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006f6b0	40	rbrick_register	symtab	e74421b08471		out:1	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006f6d8	36	rbrick_lookup	symtab	7bc8dd49d011		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006f6fc	36	iobrick_register	symtab	67a189a9cf04		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006f720	32	iobrick_lookup	symtab	5be121bc02ba		out:1	undocumented		
@@ -117629,29 +117629,29 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000071ec4	196	_msub_sd	symtab	c309ad969bea		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000071f88	444	_cvts_d	symtab	c225eca48527		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000072150	472	checkfp	symtab	b3c848b4e16b		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000072328	128	klhwg_invent_alloc	symtab	b1c41f8c49d1		in	located	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000723a8	276	klhwg_cpu_invent_info	symtab	76bf1afdc6cc		in	located	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000724bc	284	klhwg_disabled_cpu_invent_info	symtab	66f61b5fa7ef		in	located	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000725d8	140	klhwg_baseio_inventory_add	symtab	5169767f0781		in	located	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000072664	152	klhwg_hub_invent_info	symtab	b79920f1e652		in	located	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000726fc	576	klhwg_mem_invent_info	symtab	8281f94cc0f2		in	located	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000007293c	212	klhwg_add_hub	symtab	ad27cadacd40		in	located	docs/hwgraph.md#routines	Routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000072a10	160	klhwg_add_disabled_cpu	symtab	d3fa5da940cd		in	located	docs/hwgraph.md#routines	Routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000072ab0	448	klhwg_add_cpu	symtab	19a3cb3992e9		in	located	docs/hwgraph.md#routines	Routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000072c70	104	klhwg_add_mem	symtab	2b8dc0ff13df		in	located	docs/hwgraph.md#routines	Routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000072cd8	604	init_pebrick	symtab	b834dbdb9731		out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000072328	128	klhwg_invent_alloc	symtab	b1c41f8c49d1		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000723a8	276	klhwg_cpu_invent_info	symtab	76bf1afdc6cc		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000724bc	284	klhwg_disabled_cpu_invent_info	symtab	66f61b5fa7ef		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000725d8	140	klhwg_baseio_inventory_add	symtab	5169767f0781		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000072664	152	klhwg_hub_invent_info	symtab	b79920f1e652		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000726fc	576	klhwg_mem_invent_info	symtab	8281f94cc0f2		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000007293c	212	klhwg_add_hub	symtab	ad27cadacd40		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000072a10	160	klhwg_add_disabled_cpu	symtab	d3fa5da940cd		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000072ab0	448	klhwg_add_cpu	symtab	19a3cb3992e9		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000072c70	104	klhwg_add_mem	symtab	2b8dc0ff13df		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000072cd8	604	init_pebrick	symtab	b834dbdb9731		out:1	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000072f34	692	klhwg_add_xbow	symtab	80b03ada86f8		in	located	docs/hwgraph.md#routines	Routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000073268	1356	klhwg_add_node	symtab	dc761ae36295		in	located	docs/hwgraph.md#routines	Routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000737b4	280	klhwg_add_all_xbows	symtab	7de3ff08e3b9		in	located	docs/hwgraph.md#routines	Routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000738cc	456	klhwg_add_all_routers	symtab	cc087141dfa4		in	located	docs/hwgraph.md#routines	Routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000073a94	652	klhwg_connect_one_router	symtab	447869ada404		in	located	docs/hwgraph.md#routines	Routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000073d20	376	klhwg_connect_routers	symtab	e0f3cb18e6de		in	located	docs/hwgraph.md#routines	Routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000073e98	600	klhwg_connect_hubs	symtab	b45cc60aa5c7		in	located	docs/hwgraph.md#routines	Routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000740f0	560	klhwg_device_disable_hints_add	symtab	d38138eec679		in	located	docs/hwgraph.md#disabled-device-hints	Disabled-device hints
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000073268	1356	klhwg_add_node	symtab	dc761ae36295		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000737b4	280	klhwg_add_all_xbows	symtab	7de3ff08e3b9		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000738cc	456	klhwg_add_all_routers	symtab	cc087141dfa4		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000073a94	652	klhwg_connect_one_router	symtab	447869ada404		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000073d20	376	klhwg_connect_routers	symtab	e0f3cb18e6de		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000073e98	600	klhwg_connect_hubs	symtab	b45cc60aa5c7		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000740f0	560	klhwg_device_disable_hints_add	symtab	d38138eec679		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000074320	512	klhwg_dimm_flavor_info_print	symtab	98dcea721783		in	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000074520	560	klhwg_premium_std_dimm_mix_check	symtab	8fc1232a5722		in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000074750	348	klhwg_add_all_modules	symtab	1cf9caa606e7		in	located	docs/hwgraph.md#modules	Modules
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000748ac	212	klhwg_add_all_nodes	symtab	6214b4baf845		in	located	docs/hwgraph.md#routines	Routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000074750	348	klhwg_add_all_modules	symtab	1cf9caa606e7		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000748ac	212	klhwg_add_all_nodes	symtab	6214b4baf845		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000074980	428	fpunit_fpstore_s	symtab	f8c9434ed365		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000074b2c	268	get_freemem_start	symtab	03595a322ca6		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000074c38	220	setup_replication_mask	symtab	f0a685380db0		in	named-only	docs/klconfig.md#early-platform-setup	Early platform setup
@@ -117984,7 +117984,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009175c	32	eeprom_str	symtab	94cbd77a71d0		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009177c	32	eeprom_config_str	symtab	a6f8185b357d		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009179c	144	vector_eeprom_str	symtab	fc3e08f00707		in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009182c	196	l1_mfg_string	symtab	98ae3f3d5694		out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009182c	196	l1_mfg_string	symtab	98ae3f3d5694		out:1	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000918f0	224	is_iobrick	symtab	b4677fa46f41		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000919d0	400	cbrick_uid_get	symtab	d44e350b39dc		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000091b60	300	peer_iobrick_uid_get	symtab	f0873d3d90fe		out:1	undocumented		
@@ -117992,7 +117992,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000091dac	188	nonpeer_iobrick_uid_get	symtab	6d07614ab3b1		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000091e68	124	iobrick_uid_get	symtab	925c195415d2		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000091ee4	200	ibrick_mac_addr_get	symtab	e4f1078eb42b		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000091fac	352	eeprom_vertex_info_set	symtab	f646b252724f		out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000091fac	352	eeprom_vertex_info_set	symtab	f646b252724f		out:1	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009210c	160	random_eeprom_ch	symtab	5ba1bd9d381b		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000921ac	500	fake_a_part_number	symtab	3eab26bc8d12		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000923a0	132	fake_a_serial_number	symtab	583305d51392		out:1	undocumented		
@@ -120286,7 +120286,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001de228	136	strncpy	symtab	1ee05fa5dab1		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001de2b0	84	strcpy	symtab	de0d909fb422		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001de304	36	strchr	symtab	55dabc5243f9		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001de328	124	strrchr	symtab	be136f59c45e		out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001de328	124	strrchr	symtab	be136f59c45e		out:1	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001de3a4	168	strcat	symtab	5829d7a8d48e		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001de44c	176	strstr	symtab	c6e3891f3adc		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001de4fc	88	strspn	symtab	29159d138ead		out:1	undocumented		
@@ -121068,7 +121068,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000022c2e0	112	kern_malloc	symtab	073e9c2b7a36		out:1	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000022c350	104	kern_calloc	symtab	6118d95859f3		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000022c3b8	176	kern_realloc	symtab	11f0e508a3ef		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000022c468	88	kern_free	symtab	1d90c6e19de1		out:1	named-only	docs/syscalls.md#entries	Entries
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000022c468	88	kern_free	symtab	1d90c6e19de1		out:1	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000022c4c0	76	kmem_arena_create	symtab	924984c85191		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000022c50c	28	kmem_arena_destroy	symtab	41e9741f7853		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000022c528	88	kmem_arena_alloc	symtab	38538d5e3333		out:1	undocumented		
@@ -123839,7 +123839,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003411fc	348	hwgraph_traverse	symtab	902268332f18		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000341358	144	hwgraph_path_to_vertex	symtab	edc58ad53339		in	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003413e8	44	hwgraph_path_to_dev	symtab	32928a6baf45		in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000341414	92	hwgraph_link_add	symtab	c3475661a0d0		in	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000341414	92	hwgraph_link_add	symtab	c3475661a0d0		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000341470	132	hwgraph_device_add	symtab	a944db8c65af		in	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003414f4	344	hwgraph_block_device_add	symtab	30ad19c0e7b2		in	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000034164c	344	hwgraph_char_device_add	symtab	3ee56e113057		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
@@ -129971,7 +129971,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xccc	348	hwgraph_traverse	dwarf+symtab	c02f9d392fdc		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xe28	144	hwgraph_path_to_vertex	dwarf+symtab	e888cded3666		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xeb8	44	hwgraph_path_to_dev	dwarf+symtab	8c583995b6de		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xee4	92	hwgraph_link_add	dwarf+symtab	83753e93bdb2		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xee4	92	hwgraph_link_add	dwarf+symtab	83753e93bdb2		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xf40	132	hwgraph_device_add	dwarf+symtab	d7817c0c8f04		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xfc4	344	hwgraph_block_device_add	dwarf+symtab	3b7054890eb0		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x111c	344	hwgraph_char_device_add	dwarf+symtab	cc1fb4cd42a8		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
@@ -132362,8 +132362,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x57a4	316	component_serial_number_get	dwarf	eeb1eedc6b95		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x58e0	424	board_serial_number_get	dwarf+symtab	57d0b29c12a1		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5a88	184	membank_pathname_get	dwarf+symtab	890d62b5b0c4		out:2	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5b40	180	membank_check_mixed_hidensity	dwarf+symtab	10749f4f8a9f		out:2	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5bf4	168	mem_mixed_hidensity_banks	dwarf+symtab	dd19c057e571		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5b40	180	membank_check_mixed_hidensity	dwarf+symtab	10749f4f8a9f		out:2	located	docs/klconfig.md#memory-bank-checks	Memory bank checks
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5bf4	168	mem_mixed_hidensity_banks	dwarf+symtab	dd19c057e571		in	located	docs/klconfig.md#memory-bank-checks	Memory bank checks
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5c9c	44	nodevertex_widgetnum_get	dwarf+symtab	6a38531f5eaf		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5cc8	108	nodevertex_xbow_peer_get	dwarf+symtab	2294a4d2e946		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5d34	248	get_nic_string	dwarf	b756814dda4e		out:2	undocumented		
@@ -133647,7 +133647,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x1e8	112	kern_malloc	dwarf+symtab	2b5ffb1c8830		out:3	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.30/usr/cpu/sysgen/IP27boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x258	104	kern_calloc	dwarf+symtab	2dff0924d3b6		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x2c0	176	kern_realloc	dwarf+symtab	bbef1660ad55		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x370	88	kern_free	dwarf+symtab	c645c1574bc9		out:3	named-only	docs/syscalls.md#entries	Entries
+6.5.30/usr/cpu/sysgen/IP27boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x370	88	kern_free	dwarf+symtab	c645c1574bc9		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP27boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x3c8	76	kmem_arena_create	dwarf+symtab	d36d048e5412		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x414	28	kmem_arena_destroy	dwarf+symtab	610109b348ab		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x430	88	kmem_arena_alloc	dwarf+symtab	800a10bde9f3		out:3	undocumented		
@@ -133772,7 +133772,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x21c	148	kern_malloc	dwarf+symtab	930b19d83114		out:3	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.30/usr/cpu/sysgen/IP27boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x2b0	104	kern_calloc	dwarf+symtab	2dff0924d3b6		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x318	176	kern_realloc	dwarf+symtab	58d92553ee58		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x3c8	620	kern_free	dwarf+symtab	19c9ac23c8b4		out:3	named-only	docs/syscalls.md#entries	Entries
+6.5.30/usr/cpu/sysgen/IP27boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x3c8	620	kern_free	dwarf+symtab	19c9ac23c8b4		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP27boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x634	76	kmem_arena_create	dwarf+symtab	d36d048e5412		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x680	28	kmem_arena_destroy	dwarf+symtab	610109b348ab		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x69c	88	kmem_arena_alloc	dwarf+symtab	f23b23fcf633		out:3	undocumented		
@@ -142252,7 +142252,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(libc_src.o)	shared-kernel	n64	.text	0x9c	136	strncpy	dwarf+symtab	1ee05fa5dab1		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(libc_src.o)	shared-kernel	n64	.text	0x124	84	strcpy	dwarf+symtab	de0d909fb422		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(libc_src.o)	shared-kernel	n64	.text	0x178	36	strchr	dwarf+symtab	55dabc5243f9		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(libc_src.o)	shared-kernel	n64	.text	0x19c	124	strrchr	dwarf+symtab	be136f59c45e		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(libc_src.o)	shared-kernel	n64	.text	0x19c	124	strrchr	dwarf+symtab	be136f59c45e		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(libc_src.o)	shared-kernel	n64	.text	0x218	168	strcat	dwarf+symtab	5829d7a8d48e		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(libc_src.o)	shared-kernel	n64	.text	0x2c0	176	strstr	dwarf+symtab	c6e3891f3adc		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(libc_src.o)	shared-kernel	n64	.text	0x370	88	strspn	dwarf+symtab	29159d138ead		out:3	undocumented		
@@ -149895,7 +149895,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xccc	348	hwgraph_traverse	dwarf+symtab	c02f9d392fdc		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xe28	144	hwgraph_path_to_vertex	dwarf+symtab	e888cded3666		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xeb8	44	hwgraph_path_to_dev	dwarf+symtab	8c583995b6de		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xee4	92	hwgraph_link_add	dwarf+symtab	83753e93bdb2		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xee4	92	hwgraph_link_add	dwarf+symtab	83753e93bdb2		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xf40	132	hwgraph_device_add	dwarf+symtab	d7817c0c8f04		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xfc4	344	hwgraph_block_device_add	dwarf+symtab	3b7054890eb0		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x111c	344	hwgraph_char_device_add	dwarf+symtab	cc1fb4cd42a8		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
@@ -152691,7 +152691,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x1e8	112	kern_malloc	dwarf+symtab	2b5ffb1c8830		out:3	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.30/usr/cpu/sysgen/IP30boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x258	104	kern_calloc	dwarf+symtab	2dff0924d3b6		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x2c0	176	kern_realloc	dwarf+symtab	bbef1660ad55		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x370	88	kern_free	dwarf+symtab	c645c1574bc9		out:3	named-only	docs/syscalls.md#entries	Entries
+6.5.30/usr/cpu/sysgen/IP30boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x370	88	kern_free	dwarf+symtab	c645c1574bc9		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP30boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x3c8	76	kmem_arena_create	dwarf+symtab	d36d048e5412		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x414	28	kmem_arena_destroy	dwarf+symtab	610109b348ab		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x430	88	kmem_arena_alloc	dwarf+symtab	800a10bde9f3		out:3	undocumented		
@@ -152809,7 +152809,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x21c	148	kern_malloc	dwarf+symtab	930b19d83114		out:3	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.30/usr/cpu/sysgen/IP30boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x2b0	104	kern_calloc	dwarf+symtab	2dff0924d3b6		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x318	176	kern_realloc	dwarf+symtab	58d92553ee58		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x3c8	360	kern_free	dwarf+symtab	ed19f4c023ec		out:3	named-only	docs/syscalls.md#entries	Entries
+6.5.30/usr/cpu/sysgen/IP30boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x3c8	360	kern_free	dwarf+symtab	ed19f4c023ec		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP30boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x530	76	kmem_arena_create	dwarf+symtab	d36d048e5412		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x57c	28	kmem_arena_destroy	dwarf+symtab	610109b348ab		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x598	88	kmem_arena_alloc	dwarf+symtab	f23b23fcf633		out:3	undocumented		
@@ -167262,7 +167262,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0xcf8	364	hwgraph_traverse	dwarf+symtab	c90201767292		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0xe64	144	hwgraph_path_to_vertex	dwarf+symtab	5aa10de74afd		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0xef4	44	hwgraph_path_to_dev	dwarf+symtab	0648507f3cae		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0xf20	96	hwgraph_link_add	dwarf+symtab	151c5a877442		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0xf20	96	hwgraph_link_add	dwarf+symtab	151c5a877442		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0xf80	132	hwgraph_device_add	dwarf+symtab	7a4d2240e197		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x1004	344	hwgraph_block_device_add	dwarf+symtab	80d39c4a8a1f		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x115c	344	hwgraph_char_device_add	dwarf+symtab	7c4c3d0d8ce0		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
@@ -170110,7 +170110,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x218	120	kern_malloc	dwarf+symtab	868bffc98101		out:3	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.30/usr/cpu/sysgen/IP32boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x290	116	kern_calloc	dwarf+symtab	e944db3f1e48		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x304	200	kern_realloc	dwarf+symtab	5a85d2f59d56		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x3cc	88	kern_free	dwarf+symtab	25617193182d		out:3	named-only	docs/syscalls.md#entries	Entries
+6.5.30/usr/cpu/sysgen/IP32boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x3cc	88	kern_free	dwarf+symtab	25617193182d		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP32boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x424	76	kmem_arena_create	dwarf+symtab	d4984ccc997f		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x470	28	kmem_arena_destroy	dwarf+symtab	5957077049f4		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/kmem.a(kern_heap.o)	shared-kernel	n32	.text	0x48c	100	kmem_arena_alloc	dwarf+symtab	4d0efe95bd78		out:3	undocumented		
@@ -170229,7 +170229,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x254	156	kern_malloc	dwarf+symtab	010eb67653b3		out:3	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.30/usr/cpu/sysgen/IP32boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x2f0	116	kern_calloc	dwarf+symtab	e944db3f1e48		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x364	200	kern_realloc	dwarf+symtab	e87b52b9f999		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x42c	404	kern_free	dwarf+symtab	d8bd901d9a66		out:3	named-only	docs/syscalls.md#entries	Entries
+6.5.30/usr/cpu/sysgen/IP32boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x42c	404	kern_free	dwarf+symtab	d8bd901d9a66		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP32boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x5c0	76	kmem_arena_create	dwarf+symtab	d4984ccc997f		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x60c	28	kmem_arena_destroy	dwarf+symtab	5957077049f4		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/kmem_debug.a(kern_heap.o)	shared-kernel	n32	.text	0x628	100	kmem_arena_alloc	dwarf+symtab	4d0efe95bd78		out:3	undocumented		
@@ -177622,7 +177622,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x9c	132	strncpy	dwarf+symtab	7cfa5fbce052		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x120	84	strcpy	dwarf+symtab	f7e6e8b86831		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x174	36	strchr	dwarf+symtab	f33858367dfc		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x198	124	strrchr	dwarf+symtab	111f68a65f0b		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x198	124	strrchr	dwarf+symtab	111f68a65f0b		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x214	168	strcat	dwarf+symtab	38cffb7d2ed7		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x2bc	176	strstr	dwarf+symtab	76fa414f3684		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x36c	88	strspn	dwarf+symtab	f0b1f0f8e024		out:3	undocumented		
@@ -183581,7 +183581,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0xcbc	32	eeprom_str	dwarf+symtab	a0bb46ae3640		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0xcdc	32	eeprom_config_str	dwarf+symtab	b9c0eee87cf5		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0xcfc	144	vector_eeprom_str	dwarf+symtab	2a4f7fe71b23		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0xd8c	196	l1_mfg_string	dwarf+symtab	66b1766fb5a8		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0xd8c	196	l1_mfg_string	dwarf+symtab	66b1766fb5a8		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0xe50	224	is_iobrick	dwarf+symtab	bbe494af19d1		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0xf30	400	cbrick_uid_get	dwarf+symtab	9d74832c7e57		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0x10c0	300	peer_iobrick_uid_get	dwarf+symtab	699636e7dd3e		out:3	undocumented		
@@ -183589,7 +183589,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0x130c	188	nonpeer_iobrick_uid_get	dwarf+symtab	a2bda2f0eb95		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0x13c8	124	iobrick_uid_get	dwarf+symtab	5927f1331489		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0x1444	200	ibrick_mac_addr_get	dwarf+symtab	40385e4a0c9a		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0x150c	352	eeprom_vertex_info_set	dwarf+symtab	c5a68e953c35		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0x150c	352	eeprom_vertex_info_set	dwarf+symtab	c5a68e953c35		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0x166c	160	random_eeprom_ch	dwarf+symtab	8374660bad58		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0x170c	500	fake_a_part_number	dwarf+symtab	2582651fe190		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o	shared-kernel	n64	.text	0x1900	132	fake_a_serial_number	dwarf+symtab	84e8cc9fcead		out:3	undocumented		
@@ -184905,7 +184905,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xccc	348	hwgraph_traverse	dwarf+symtab	179666ceb30e		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xe28	144	hwgraph_path_to_vertex	dwarf+symtab	31f5f28c049a		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xeb8	44	hwgraph_path_to_dev	dwarf+symtab	8c583995b6de		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xee4	92	hwgraph_link_add	dwarf+symtab	83753e93bdb2		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xee4	92	hwgraph_link_add	dwarf+symtab	83753e93bdb2		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xf40	132	hwgraph_device_add	dwarf+symtab	99c3ba720c98		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0xfc4	344	hwgraph_block_device_add	dwarf+symtab	3b7054890eb0		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x111c	344	hwgraph_char_device_add	dwarf+symtab	cc1fb4cd42a8		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
@@ -187468,7 +187468,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x4da8	100	get_actual_nasid	dwarf+symtab	537560159efc		out:2	located	docs/klconfig.md#lookup-routines	Lookup routines
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x4e0c	248	nasid_slice_to_cpuinfo	dwarf+symtab	c4f3e4437390		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x4f04	228	xbow_port_io_enabled	dwarf+symtab	aaca4e9860cb		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x4fe8	144	board_to_full_path	dwarf+symtab	41fd8b9291ab		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x4fe8	144	board_to_full_path	dwarf+symtab	41fd8b9291ab		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x5078	404	board_to_path	dwarf+symtab	fe42446016cf		in	located	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x520c	152	get_module_id	dwarf+symtab	96606ff45c86		out:2	located	docs/klconfig.md#lookup-routines	Lookup routines
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x52a4	52	get_xbow_peer	dwarf+symtab	15f6607e1ccb		out:2	located	docs/klconfig.md#lookup-routines	Lookup routines
@@ -187477,8 +187477,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x53f8	316	component_serial_number_get	dwarf	b5f25eaa4929		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x5534	536	board_serial_number_get	dwarf+symtab	3c4b6a34e181		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x574c	140	membank_pathname_get	dwarf+symtab	0713a9b23b8d		out:2	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x57d8	220	membank_check_mixed_hidensity	dwarf+symtab	9e3e148ffd3e		out:2	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x58b4	168	mem_mixed_hidensity_banks	dwarf+symtab	dd19c057e571		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x57d8	220	membank_check_mixed_hidensity	dwarf+symtab	9e3e148ffd3e		out:2	located	docs/klconfig.md#memory-bank-checks	Memory bank checks
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x58b4	168	mem_mixed_hidensity_banks	dwarf+symtab	dd19c057e571		in	located	docs/klconfig.md#memory-bank-checks	Memory bank checks
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x595c	44	nodevertex_widgetnum_get	dwarf+symtab	40e69bddcbf2		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x5988	120	nodevertex_xbow_peer_get	dwarf+symtab	0391b644f071		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x5a00	248	get_nic_string	dwarf	50d1eb911a96		out:2	undocumented		
@@ -188406,7 +188406,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2f334	120	moduleid_to_decompressed_rack	dwarf	07afb9b5d9ff		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2f3ac	148	brick_lookup	dwarf	7c0aa14866bc		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2f440	240	brick_register	dwarf	5c146c92c353		out:2	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2f530	40	rbrick_register	dwarf+symtab	619b503b3466		out:2	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2f530	40	rbrick_register	dwarf+symtab	619b503b3466		out:2	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2f558	36	rbrick_lookup	dwarf+symtab	74e7b2a6a633		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2f57c	36	iobrick_register	dwarf+symtab	a439deb98c8b		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2f5a0	32	iobrick_lookup	dwarf+symtab	799c55c97966		out:2	undocumented		
@@ -188452,7 +188452,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x32890	160	klhwg_add_disabled_cpu	dwarf+symtab	615583d296de		in	located	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x32930	448	klhwg_add_cpu	dwarf+symtab	5443a4338c8e		in	located	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x32af0	104	klhwg_add_mem	dwarf+symtab	dd1362a5f7cc		in	located	docs/hwgraph.md#routines	Routines
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x32b58	604	init_pebrick	dwarf+symtab	a5e27eb71359		out:2	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x32b58	604	init_pebrick	dwarf+symtab	a5e27eb71359		out:2	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x32db4	692	klhwg_add_xbow	dwarf+symtab	5d1ac7e50685		in	located	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x33068	128	pimm_bearing_node	dwarf	46d071e05227		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x330e8	1356	klhwg_add_node	dwarf+symtab	bd36ab75d16e		in	located	docs/hwgraph.md#routines	Routines
@@ -188737,7 +188737,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x1e8	112	kern_malloc	dwarf+symtab	2b5ffb1c8830		out:3	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.30/usr/cpu/sysgen/IP35boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x258	104	kern_calloc	dwarf+symtab	2dff0924d3b6		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x2c0	176	kern_realloc	dwarf+symtab	bbef1660ad55		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x370	88	kern_free	dwarf+symtab	c645c1574bc9		out:3	named-only	docs/syscalls.md#entries	Entries
+6.5.30/usr/cpu/sysgen/IP35boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x370	88	kern_free	dwarf+symtab	c645c1574bc9		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP35boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x3c8	76	kmem_arena_create	dwarf+symtab	d36d048e5412		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x414	28	kmem_arena_destroy	dwarf+symtab	610109b348ab		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kmem.a(kern_heap.o)	shared-kernel	n64	.text	0x430	88	kmem_arena_alloc	dwarf+symtab	800a10bde9f3		out:3	undocumented		
@@ -188862,7 +188862,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x21c	148	kern_malloc	dwarf+symtab	930b19d83114		out:3	named-only	docs/hwgraph.md#inventory-records-and-the-checks-made-on-the-way	Inventory records and the checks made on the way
 6.5.30/usr/cpu/sysgen/IP35boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x2b0	104	kern_calloc	dwarf+symtab	2dff0924d3b6		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x318	176	kern_realloc	dwarf+symtab	58d92553ee58		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x3c8	620	kern_free	dwarf+symtab	3592b35d2f68		out:3	named-only	docs/syscalls.md#entries	Entries
+6.5.30/usr/cpu/sysgen/IP35boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x3c8	620	kern_free	dwarf+symtab	3592b35d2f68		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP35boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x634	76	kmem_arena_create	dwarf+symtab	d36d048e5412		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x680	28	kmem_arena_destroy	dwarf+symtab	610109b348ab		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kmem_debug.a(kern_heap.o)	shared-kernel	n64	.text	0x69c	88	kmem_arena_alloc	dwarf+symtab	f23b23fcf633		out:3	undocumented		

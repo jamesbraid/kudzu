@@ -127,6 +127,36 @@ All of these leaf routines are the same, instruction for instruction, in the 6.5
   of `pda_s`), whose first doubleword (`pernode_pdaindr`) points at the table of node data pointers
   indexed by compact node. The member names and offsets are from the kernel's DWARF. Established.
 
+### IP35 lookups
+
+- `find_component` (`6.5.30/unix.IP35` `0xc0000000000444b8`, 328 bytes)
+  has the IP27 body with the IP35 NASID position for the component pointers (bits 33 to 39, shifted
+  back left 33). It scans the word offsets from +36 for the first component whose type byte equals
+  a2, after the one in a1 when a1 is nonzero, and calls `dprintf` with "find_component: Bad pointer:
+  0x%x\n" when a1 is not among them. Established.
+- `find_first_component` (`6.5.30/unix.IP35` `0xc000000000044600`, 32 bytes)
+  has the same instructions as the IP27 routine: it calls `find_component` with a1 of 0 and the type
+  moved to a2, and returns its result. Established.
+- `get_actual_nasid` (`6.5.30/unix.IP35` `0xc000000000044f28`, 100 bytes)
+  has the same instructions as the IP27 routine: it calls `find_first_component` for type 2 and
+  returns the board's halfword at +32 for an enabled hub, the hub's byte at +24 for a disabled one,
+  and -1 for a null board or a board without a hub. Established.
+- `get_module_id` (`6.5.30/unix.IP35` `0xc00000000004538c`, 152 bytes)
+  is the IP27 routine with the IP35 NASID shift and the PE-brick check: when bits 12 to 15 of the
+  doubleword at `0x9000000034000000` plus the NASID shifted left 33 (address from gp+2256, the load
+  at 0xc000000000045398) equal `0xc`, it calls `chk_for_pebrick` for the start board instead of
+  reading the directory. It then calls `find_lboard` for type 17 and returns the module halfword at
+  +14, or -1. Established.
+- `is_master_baseio` (`6.5.30/unix.IP35` `0xc00000000004493c`, 352 bytes)
+  differs from the IP27 routine in its search: it calls `find_lboard_module` with the module alone
+  and ignores the slot argument. It searches the node's own list (or the `chk_for_pebrick` board for
+  a PE-brick node), then, when nothing is found, the list of the node's `xbow_peer` (+34304 of
+  `nodepda_s`, `0x8600`) unless that is -1, with the same PE-brick check. It returns the found
+  board's byte at +9 masked with `0x20`, or 0. Established.
+- `get_xbow_peer` (`6.5.30/unix.IP35` `0xc000000000045424`, 52 bytes)
+  is the IP27 routine over the IP35 `nasid_to_compact_node` (address from gp-23376) with `xbow_peer`
+  at +34304 (`0x8600`) of `nodepda_s`, loaded at 0xc000000000045454. Established.
+
 ### The same routines in the other builds
 
 The 6.5.22 and 6.5.30 `kernel.o` objects were compared with the linked 6.5.30 kernel by instruction text, with addresses and relocation targets removed; IP35 rows were read in full for the NASID change.
@@ -136,12 +166,9 @@ The 6.5.22 and 6.5.30 `kernel.o` objects were compared with the linked 6.5.30 ke
 | `find_lboard` | `6.5.30/unix.IP35` | `0xc000000000044370` | 100 | board walk by exact type at +5; NASID taken from bits 33 to 39 (`dsrl32` by 1, `andi 0x7f`, `dsll32` by 1) | Established |
 | `find_lboard_class` | `6.5.30/unix.IP35` | `0xc0000000000443d4` | 108 | board walk by class (+5 masked `0xf0`); IP35 NASID position | Established |
 | `find_lboard_slot_class` | `6.5.30/unix.IP35` | `0xc000000000044440` | 120 | board walk by class and slot byte at +10; IP35 NASID position | Established |
-| `find_component` | `6.5.30/unix.IP35` | `0xc0000000000444b8` | 328 | component scan of the +36 offsets by type byte; bad-pointer message through `dprintf`; IP35 NASID position | Established |
-| `find_first_component` | `6.5.30/unix.IP35` | `0xc000000000044600` | 32 | calls `find_component` with a previous pointer of 0 | Established |
 | `find_lboard_modslot` | `6.5.30/unix.IP35` | `0xc000000000044620` | 124 | board walk by module halfword at +14 and slot byte at +10; IP35 NASID position | Established |
 | `find_lboard_module` | `6.5.30/unix.IP35` | `0xc00000000004469c` | 104 | board walk by module halfword at +14; IP35 NASID position | Established |
 | `find_lboard_module_class` | `6.5.30/unix.IP35` | `0xc000000000044704` | 132 | board walk by module at +14 and class at +5; IP35 NASID position | Established |
-| `get_actual_nasid` | `6.5.30/unix.IP35` | `0xc000000000044f28` | 100 | hub (type 2) enabled: `brd_nasid` at +32; disabled: hub `physid` at +24; same instructions as IP27 | Established |
 | `find_lboard` | `6.5.30/usr/cpu/sysgen/IP27boot/kernel.o` | `0x4764` | 100 | board walk by exact type at +5; same instructions as the IP27 linked kernel | Established |
 | `find_lboard` | `6.5.22/usr/cpu/sysgen/IP27boot/kernel.o` | `0x4534` | 100 | board walk by exact type at +5; unchanged from 6.5.30 | Established |
 | `find_lboard` | `6.5.30/usr/cpu/sysgen/IP35boot/kernel.o` | `0x41f0` | 100 | board walk by exact type at +5; same instructions as the IP35 linked kernel | Established |
@@ -376,3 +403,28 @@ The configuration header also locates the console record: the word at +16 of the
   call `printf` with "WARNING: Illegal value for r10k_bpmode (see mtune/kernel)\n". Finally a
   processor whose `get_cpu_irr` shifted right 8 is 9 adds one to `any_r10k_cpus`, and every
   processor calls `flush_tlb` and `flush_cache`. Established.
+
+## Memory bank checks
+
+- `membank_check_mixed_hidensity` (`6.5.30/unix.IP27` `0xc00000000001ecc0`, 180 bytes)
+  takes a NASID, finds the node's first board through the directory, calls `find_lboard` for type
+  17 and `find_first_component` for type 3 (memory), neither result tested for null. It reads the
+  eight bank-size halfwords at +60 to +74 of the memory component (Linux `membnk_bnksz`, megabytes;
+  the load at 0xc00000000001ed34) and keeps the largest (starting from 0) and the smallest
+  (starting from 1024). It returns 1 when the largest is 512 and the smallest is not, and 0
+  otherwise. An empty bank has size 0, so a node with one 512 MB bank and an empty bank counts
+  as mixed. Established.
+- `mem_mixed_hidensity_banks` (`6.5.30/unix.IP27` `0xc00000000001ed74`, 168 bytes)
+  returns 1 as soon as a call to `membank_check_mixed_hidensity` returns nonzero for a node, scanning compact
+  nodes below `maxnodes` (the word at gp+7348) and skipping entries of `compact_to_nasid_node`
+  (address from gp-20736, loaded at 0xc00000000001eda4) that are -1; it returns 0 when no node
+  qualifies. Established.
+- `membank_check_mixed_hidensity` (`6.5.30/unix.IP35` `0xc000000000045958`, 220 bytes)
+  is the IP27 routine with the IP35 NASID shift and a call to `chk_for_pebrick` for the start board
+  when the node's register at `0x9000000034000000` (plus the NASID shifted left 33) has `0xc` in
+  bits 12 to 15. The bank sizes and the 512 MB test are as on IP27: it returns 1 when the largest
+  bank is 512 and the smallest is not, and 0 otherwise. Established.
+- `mem_mixed_hidensity_banks` (`6.5.30/unix.IP35` `0xc000000000045a34`, 168 bytes)
+  is the IP27 routine over the IP35 `compact_to_nasid_node` (address from gp-23360) and `maxnodes`
+  (gp+10284; the table load at 0xc000000000045a64); it calls `membank_check_mixed_hidensity` for each
+  node that has a NASID, and returns 1 at the first nonzero result and 0 otherwise. Established.

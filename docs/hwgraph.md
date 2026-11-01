@@ -323,3 +323,155 @@ Each node, hub and processor vertex gets a "_detail_invent" label holding a smal
 - `klhwg_update_xbox_rps` (`6.5.30/unix.IP27` `0xc000000000041720`, 136 bytes)
   is `klhwg_update_rps` for the "xbox_rps" edge: it calls `hwgraph_edge_get` and
   `hwgraph_info_get_LBL` the same way, and the instructions differ only in scheduling. Established.
+
+## IP35 differences
+
+The 6.5.30 IP35 kernel builds the same graph with the IP35 NASID position, its own table sizes and data offsets, and the PE-brick check of [klconfig.md](klconfig.md) before each directory read. The per-node and per-processor fields move: in `6.5.30/unix.IP35` `xbow_vhdl` is at +34300 of `nodepda_s`, `xbow_peer` +34304, `slotdesc` +34328, `module_id` +34330, `module` +34336, `hubstats` +34760, `hwg_node_name` +35952, `node_vertex` +35968 and `pdinfo` +35976; in `pda_s`, `p_slice` is at +1320, `p_cpunamestr` +1688 and `pdinfo` +1856 (all from the kernel's DWARF). The strings are reached from gp-21664 (`0xc000000001526690`), the board-name strings from gp-23392 (`0xc00000000151a460`).
+
+- `board_to_path` (`6.5.30/unix.IP35` `0xc0000000000451f8`, 404 bytes)
+  names boards by module only: it calls `sprintf` with "module/%M/%s", the module halfword at +14
+  and a kind string, with no slot. The kinds by class (+5 masked with `0xf0`) are those of IP27
+  (`node`, `io` for `0x20` and `0x80`, `metarouter` for type 51 and `repeaterrouter` for 52 with
+  `hasmetarouter` at gp+5268 raised, `router`, `midplane`, `unknown`) plus class `0x70`, whose types
+  name I/O bricks: 113 "Ibrick", 114 "Pbrick", 115 "Xbrick", 116 "Nbrick", 117 "PEbrick", 118
+  "PXbrick", 119 "IXbrick", 120 "CGbrick", any other "iobrick". Linux's header names I-, P- and
+  X-brick types in that order (`KLTYPE_IBRICK`, `KLTYPE_PBRICK`, `KLTYPE_XBRICK`) under a class it
+  does not give a value. Established.
+- `klhwg_add_all_nodes` (`6.5.30/unix.IP35` `0xc0000000000748ac`, 212 bytes)
+  is the IP27 routine with the IP35 NASID shift for the GDA lookup and `numnodes` read from gp+10276
+  (loop branch at `0xc000000000074910`, a `bnezl`); it calls `klhwg_add_node`,
+  `klhwg_add_all_xbows`, `klhwg_add_all_routers`, `klhwg_connect_routers`, `klhwg_connect_hubs`,
+  `router_guardians_set` and `klhwg_device_disable_hints_add` in the same order. Established.
+- `klhwg_add_hub` (`6.5.30/unix.IP35` `0xc00000000007293c`, 212 bytes)
+  matches the IP27 routine instruction for instruction except for the string block and the
+  `hubstats` offset, +34760 (`0x87c8`) of `nodepda_s`; it calls `hwgraph_path_add`,
+  `device_master_set`, `hwgraph_info_add_LBL`, `klhwg_hub_invent_info`, `init_hub_stats` and
+  `sndrv_attach` as there. Established.
+- `klhwg_add_mem` (`6.5.30/unix.IP35` `0xc000000000072c70`, 104 bytes)
+  matches the IP27 routine except for the string address and one reordered load; it calls
+  `hwgraph_path_add` for "memory", then `device_master_set` and `klhwg_mem_invent_info`.
+  Established.
+- `klhwg_add_disabled_cpu` (`6.5.30/unix.IP35` `0xc000000000072a10`, 160 bytes)
+  matches the IP27 routine except for the string addresses: it creates `disabled/cpu/<letter>` from
+  `physid` (+24) and calls `mark_cpuvertex_as_cpu`, `device_master_set` and
+  `klhwg_disabled_cpu_invent_info`. Established.
+- `klhwg_add_cpu` (`6.5.30/unix.IP35` `0xc000000000072ab0`, 448 bytes)
+  differs from the IP27 routine in the processor vertex path: with the slice from `p_slice` (+1320
+  of `pda_s`), it creates `cpubus/<n>/<letter>` where n is bit 1 of the slice and the letter is
+  `'a'` plus bit 0, so the four processors of a node sit two to a bus. The edge under `cpu` is still
+  named `'a'` plus the whole slice. The other steps, the `pda_s` offsets (+1856 `pdinfo`, +1688
+  `p_cpunamestr`) and the `assfail` at line 546 are as on IP27; it calls `mark_cpuvertex_as_cpu`,
+  `hwgraph_edge_get`, `hwgraph_edge_add`, `klhwg_cpu_invent_info` and `kmem_alloc_node`.
+  Established.
+- `klhwg_invent_alloc` (`6.5.30/unix.IP35` `0xc000000000072328`, 128 bytes)
+  calls `kern_malloc` and fills the record as on IP27 from the IP35 `module_id` (+34330) and
+  `slotdesc` (+34328) of `nodepda_s`. Established.
+- `klhwg_add_all_xbows` (`6.5.30/unix.IP35` `0xc0000000000737b4`, 280 bytes)
+  differs from the IP27 routine in three ways: it takes the NASID from the IP35
+  `compact_to_nasid_node` (address from gp-21632); when the node's register at `0x9000000034000000`
+  (plus the NASID shifted left 33) has `0xc` in bits 12 to 15 it calls `chk_for_pebrick` for the
+  first board; and it searches for type 66 (`0x42`; Linux `KLTYPE_PBRICK_XBOW`) instead of 65. It
+  calls `find_lboard` and `klhwg_add_xbow` as there. Established.
+- `klhwg_hub_invent_info` (`6.5.30/unix.IP35` `0xc000000000072664`, 152 bytes)
+  calls `klhwg_invent_alloc` for the same 32-byte class-14 record and fills it as on IP27 (enable
+  flag at +4, 4 at +20, the component's revision byte (+3) as the word at +12, the doubleword at +88
+  of the component at +24), then
+  calls `hwgraph_info_add_LBL` and `hwgraph_info_export_LBL` for "_detail_invent". It makes neither
+  revision check: the IP35 kernel issues no down-revision hub warning here. Established.
+- `klhwg_cpu_invent_info` (`6.5.30/unix.IP35` `0xc0000000000723a8`, 276 bytes)
+  calls `klhwg_invent_alloc` for the same 36-byte record and fills the same fields, taking the slice
+  from `p_slice` at +1320 of `pda_s`. It records the first processor's speed in the static word at
+  gp-32348 but never compares later speeds and never calls `ip27log_getenv`. The PRID check (below
+  2342, `cmn_err` level 4 with "CPU %d (%v) is downrev (%x)") is kept. Established.
+- `klhwg_mem_invent_info` (`6.5.30/unix.IP35` `0xc0000000000726fc`, 576 bytes)
+  calls `klhwg_invent_alloc` for the same 80-byte record and fills the same per-bank fields from
+  "DisableMemMask" and "DisableMemSz" through `ip27log_getenv`, with two differences: a disabled
+  bank's recorded size is 32 shifted left by the "DisableMemSz" digit (IP27 uses 4), and there is no
+  PROM read and no 256 MB warning. Established.
+- `klhwg_add_node` (`6.5.30/unix.IP35` `0xc000000000073268`, 1356 bytes)
+  follows the IP27 routine with the IP35 tables and offsets and adds PE-brick handling. It takes the
+  NASID from `compact_to_nasid_node` (address from gp-21632) and calls `chk_for_pebrick` for the
+  first board when the node's register at `0x9000000034000000` plus the NASID shifted left 33 has
+  `0xc` in bits 12 to 15. For each type-17 board, after `board_to_path` and `hwgraph_path_add`
+  (failure reported with `cmn_err` level 0 and "Node vertex creation failed.  Path == %s"), it calls
+  `find_component` for type 38: (1) with such a component, it raises a static counter (the word at
+  gp-32344) and skips the board once the counter exceeds `num_pebricks` (gp+10280); otherwise it
+  calls `init_pebrick` with the board, the component and the vertex, takes the NASID from the
+  component's halfword at +58 and the compact node from `nasid_to_compact_node` for it (address from
+  gp-21656), and calls `eeprom_vertex_info_set` with 1056 (`0x420`), that NASID and the vertex. Such
+  a board is treated as having an enabled hub even when its hub's enable bit is clear, gets no
+  `module` lookup, no `cpubus` directory and no `hub` vertex; (2) without one, it calls
+  `board_to_full_path`, cuts the result at its last "/" with `strrchr`, and calls `hwgraph_link_add`
+  to link the board vertex's path under that directory with the last name. The node fields are then
+  set as on IP27 at the IP35 offsets (`hwg_node_name` +35952, `pdinfo` +35976, `slotdesc` +34328,
+  `module_id` +34330, `module` +34336), with `assfail` at line 1045 for a failed name allocation.
+  `klhwg_add_mem` gets the NASID, or the hub's `physid` for a disabled hub. For an ordinary board it
+  creates `cpubus` (on failure `cmn_err` level 0 with "klhwg_add_node: Cannot create CPUBUS
+  directory\n") and, for subnodes 0 and 1 whose `cnode_subnode_to_cpu` is not -1, creates
+  `cpubus/<n>` (`sprintf` with "%d"), marks it with `mark_subnodevertex_as_subnode`, and calls the
+  unnamed routine at `0xc0000000000731e8` with the node vertex and NASID; when that returns nonzero
+  it calls `eeprom_vertex_info_set` with `0x110` ORed with the subnode, the NASID and the subnode
+  vertex. The processor and hub steps follow IP27 ("klhwg_add_node: Cannot create CPU directory\n"
+  on failure; `klhwg_add_cpu`, `klhwg_add_disabled_cpu`, `klhwg_add_hub`). Established.
+- `klhwg_add_all_modules` (`6.5.30/unix.IP35` `0xc000000000074750`, 348 bytes)
+  walks `modules` (`0xc0000000016511a0`, address from gp-21648) up to `nummodules` (the word at
+  gp+5544) as on IP27, but names the second vertex "module/%M/L1" instead of ".../elsc". After
+  creating it (`assfail` at line 1776 on failure) and adding "_elsc" with the value 1, it calls
+  `kern_malloc` for 32 bytes and `l1_mfg_string` with that buffer, the address 40 bytes into the
+  module record and the module number; when that returns 0 it adds the buffer under "_nic", and
+  otherwise it calls `kern_free` on it. It calls `sndrv_attach` on the vertex either way.
+  Established.
+- `cnodemodule_lookup` (`6.5.30/unix.IP35` `0xc000000000064d24`, 108 bytes)
+  scans `modules` (address from gp-22528) up to `nummodules` (gp+5544) and returns the first record
+  whose halfword at +8 (loaded at 0xc000000000064d58) equals a0; unlike IP27 it compares only that
+  one halfword per record, or returns 0. Established.
+- `module_lookup` (`6.5.30/unix.IP35` `0xc000000000064c70`, 72 bytes)
+  is the IP27 routine over the IP35 `modules` (gp-22528) and `nummodules` (gp+5544): it returns the
+  first record whose first halfword (loaded at 0xc000000000064c90) equals a0, or 0. Established.
+- `klhwg_add_all_routers` (`6.5.30/unix.IP35` `0xc0000000000738cc`, 456 bytes)
+  keeps only the vertex creation of the IP27 routine: for each compact node below `maxnodes`
+  (gp+10284) it takes the NASID from `compact_to_nasid_node`, finds the first board through the
+  directory (or `chk_for_pebrick` for a PE-brick node), and for each router-class board
+  (`find_lboard_class` with 49) that is not a duplicate (bit 2 of the byte at +9) calls
+  `board_to_path` and `hwgraph_path_add` under the root, reporting a failure with `cmn_err` level 0
+  and "Router vertex creation failed.  Path == %s". It reads no router NIC and makes no
+  down-revision check. Established.
+- `klhwg_connect_routers` (`6.5.30/unix.IP35` `0xc000000000073d20`, 376 bytes)
+  is the IP27 routine with the IP35 tables, `maxnodes` from gp+10284, the IP35 NASID position and a
+  call to `chk_for_pebrick` instead of the directory read for a PE-brick node; it calls
+  `find_lboard_class` with 49 and `klhwg_connect_one_router` for each router-class board.
+  Established.
+- `klhwg_connect_one_router` (`6.5.30/unix.IP35` `0xc000000000073a94`, 652 bytes)
+  is the IP27 routine with three changes: once the board is known to have exactly one component it
+  calls `rbrick_register` with the board's module halfword (+14); it scans router ports 1 to 8
+  rather than 1 to 6 (records still at +72 of the component, offset word at +76, 8 bytes each); and
+  it uses the IP35 tables and NASID position. The messages ("Can't find router: %s", the
+  component-count message, "Can't create edge: ...") and the `arg_maxnodes` rules are as on IP27; it
+  calls `board_to_path`, `hwgraph_traverse`, `is_specified`, `sprintf` and `hwgraph_edge_add` in the
+  same way. Established.
+- `klhwg_connect_hubs` (`6.5.30/unix.IP35` `0xc000000000073e98`, 600 bytes)
+  is the IP27 routine with the IP35 tables, `maxnodes` from gp+10284, the IP35 NASID position,
+  `arg_maxnodes` from gp-21640, and a call to `chk_for_pebrick` instead of the directory read for a
+  PE-brick node. It reads the hub port record at +60 and +64 of the hub component as on IP27, calls
+  `board_to_path` and `hwgraph_traverse` for both ends, and adds the "link" edge with
+  `hwgraph_edge_add`, with the same three messages. Established.
+- `klhwg_disabled_cpu_invent_info` (`6.5.30/unix.IP35` `0xc0000000000724bc`, 284 bytes)
+  calls `klhwg_invent_alloc` for the same two records (36 bytes of class 1, 92 bytes of class 70)
+  and fills the first as on IP27, with the same PRID warning, but leaves the second as allocated: no
+  diagnostic value, text, processor number or `physid` is written into it before it is exported as
+  "_diag_reason" (92 bytes). Established.
+- `klhwg_baseio_inventory_add` (`6.5.30/unix.IP35` `0xc0000000000725d8`, 140 bytes)
+  matches the IP27 routine except for the string block: it calls `klhwg_invent_alloc` (class 21, 32
+  bytes) and `nvram_prom_version_get`, and adds and exports "_detail_invent". Established.
+- `device_component_canonical_name_get` (`6.5.30/unix.IP35` `0xc0000000000454e8`, 144 bytes)
+  writes "/hw/module/%M/slot/%s/pci/%d" with the module halfword (+14), a board name and `physid`
+  with bit 4 cleared; there is no slot-name lookup. The board name comes from a call to
+  `nic_name_convert` on the text at +153 for record version 2 or more; for older records it shows
+  the same fault as IP27, copying "xwidget" into the output and then formatting with an unwritten
+  stack buffer. As on IP27 the null-board test comes after the module load (at 0xc0000000000454e8),
+  so it does not protect that load. Established.
+- `klhwg_device_disable_hints_add` (`6.5.30/unix.IP35` `0xc0000000000740f0`, 560 bytes)
+  is the IP27 routine with `numnodes` from gp+10276, the IP35 tables and NASID position, and a call
+  to `chk_for_pebrick` for a PE-brick node's first board. It calls `device_admin_table_init`, then
+  `device_component_canonical_name_get` and `device_admin_table_update` ("DISABLE", "yes") for each
+  disabled component of each non-duplicate class-`0x20` board. Established.
