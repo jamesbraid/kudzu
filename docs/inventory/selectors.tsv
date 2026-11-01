@@ -3,16 +3,16 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1	0xc000000000233298	0xc000000000234990	yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	2	0xc00000000023327c	getbuf_stats		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	3	0xc00000000023326c	0xc000000000234a84	yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	4	0xc000000000233228	cap_able		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	4	0xc000000000233228	cap_able		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	5	0xc000000000233208			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	6	0xc0000000002331cc			out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	7	0xc0000000002331a8	cap_able		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	7	0xc0000000002331a8	cap_able		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	8	0xc00000000023317c	mutex_lock	yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	9	0xc00000000023317c	mutex_lock	yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	10	0xc00000000023317c	mutex_lock	yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	11	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	12	0xc000000000233170			out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	13	0xc000000000233150	copyin		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	13	0xc000000000233150	copyin		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	14	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	15	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	16	0xc000000000231848		yes	out	undocumented
@@ -52,15 +52,15 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	50	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	51	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	52	0xc000000000233044	settimeofday		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	53	0xc000000000233008	setmustrun		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	54	0xc000000000232fe0	gettimetrim		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	53	0xc000000000233008	setmustrun		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	54	0xc000000000232fe0	gettimetrim		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	55	0xc000000000232fc0	sprofil		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	56	0xc000000000232fac	0xc000000000235ebc		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	57	0xc000000000232f8c	sigstack		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	58	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	59	0xc000000000232f84			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	60	0xc000000000232f64	_sigaltstack		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	61	0xc000000000232e70	cap_able		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	61	0xc000000000232e70	cap_able		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	62	0xc000000000232e4c	vhost_local		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	63	0xc000000000232e10			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	64	0xc000000000232de0		yes	out	undocumented
@@ -68,7 +68,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	66	0xc000000000232da8			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	67	0xc000000000232d90			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	68	0xc000000000232d54			out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	69	0xc000000000232d38	sgi_mconfig		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	69	0xc000000000232d38	sgi_mconfig		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	70	0xc000000000232d24			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	71	0xc000000000232d10			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	72	0xc000000000232cfc			out	undocumented
@@ -105,7 +105,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	103	0xc000000000232af0			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	104	0xc000000000232ac4			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	105	0xc000000000232a90			out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	106	0xc000000000232a78	sgi_symtab		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	106	0xc000000000232a78	sgi_symtab		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	107	0xc000000000232a70			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	108	0xc000000000232a60	removetsave		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	109	0xc000000000232a00	fdt_gethi		out	undocumented
@@ -148,8 +148,8 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	146	0xc000000000232768	path_to_handle		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	147	0xc000000000232750	path_to_fshandle		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	148	0xc000000000232738	fd_to_handle		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	149	0xc00000000023271c	cap_able		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	150	0xc000000000232700	cap_able		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	149	0xc00000000023271c	cap_able		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	150	0xc000000000232700	cap_able		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	151	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	152	0xc0000000002326c0			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	153	0xc0000000002326a4	xfs_fsoperations		out	undocumented
@@ -164,12 +164,12 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	162	0xc000000000232690	0xc000000000235750	yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	163	0xc00000000023264c			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	164	0xc000000000232638			out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	165	0xc000000000232624	query_cyclecntr_size		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	166	0xc000000000232610	query_fasttimer		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	165	0xc000000000232624	query_cyclecntr_size		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	166	0xc000000000232610	query_fasttimer		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	167	0xc000000000232690	0xc000000000235750	yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	168	0xc000000000231878			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	169	0xc000000000231848		yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	170	0xc0000000002325e0	cap_able		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	170	0xc0000000002325e0	cap_able		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	171	0xc0000000002325c8	cachefs_sys		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	172	0xc0000000002325b0	nfs_notify		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	173	0xc000000000232598	lockd_sys		out	undocumented
@@ -193,10 +193,10 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	191	0xc000000000232484			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	192	0xc000000000233298	0xc000000000234990	yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	193	0xc000000000232450		yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	194	0xc00000000023240c	cap_able		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	195	0xc0000000002323ec	part_operation		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	194	0xc00000000023240c	cap_able		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	195	0xc0000000002323ec	part_operation		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	196	0xc000000000231848		yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	197	0xc0000000002323c8	cap_able		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	197	0xc0000000002323c8	cap_able		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	198	0xc000000000233298	0xc000000000234990	yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	199	0xc000000000232450		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	200	0xc000000000231848		yes	out	undocumented
@@ -207,17 +207,17 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	205	0xc000000000232378	kaio_suspend		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	206	0xc000000000232360	dba_getstats		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	207	0xc000000000232340			out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	208	0xc000000000232324	pmoctl		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	208	0xc000000000232324	pmoctl		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	209	0xc00000000023231c			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	210	0xc000000000232314		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	211	0xc000000000232314		yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	212	0xc0000000002322fc	numa_tune		in	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	212	0xc0000000002322fc	numa_tune		in	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	213	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	214	0xc0000000002322ec	nosys		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	215	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	216	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	217	0xc000000000231848		yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	218	0xc0000000002322d8	numa_stats_get		in	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	218	0xc0000000002322d8	numa_stats_get		in	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	219	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	220	0xc0000000002322c4	dyield		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	221	0xc00000000023326c	0xc000000000234a84	yes	out	undocumented
@@ -226,11 +226,11 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	224	0xc000000000232274	fchproj		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	225	0xc00000000023225c	arsess_ctl		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	226	0xc000000000232240	arsess_op		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	227	0xc0000000002320c8	as_lookup_current		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	227	0xc0000000002320c8	as_lookup_current		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	228	0xc0000000002320a4	xfs_itable		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	229	0xc000000000232094	xfs_swapext		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	230	0xc000000000231848		yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	231	0xc000000000232068	numalinkstats_up2date		in	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	231	0xc000000000232068	numalinkstats_up2date		in	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	232	0xc000000000232058	dba_clearstats		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	233	0xc000000000232048			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	234	0xc000000000232004	sprintf		out	documented
@@ -249,7 +249,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	247	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	248	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	249	0xc000000000231848		yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	250	0xc000000000231fa0	copyin		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	250	0xc000000000231fa0	copyin		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	251	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	252	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	253	0xc000000000231848		yes	out	undocumented
@@ -364,8 +364,8 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	362	0xc000000000231f68	nosys	yes	out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	363	0xc000000000231f58	xfs_mk_sharedro		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	364	0xc000000000231f48	xfs_clear_sharedro		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	365	0xc000000000231f2c	cap_able		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	366	0xc000000000231f10	cap_able		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	365	0xc000000000231f2c	cap_able		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	366	0xc000000000231f10	cap_able		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	367	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	368	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	369	0xc000000000231848		yes	out	undocumented
@@ -399,18 +399,18 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	397	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	398	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	399	0xc000000000231848		yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	400	0xc000000000231ef0	copyin		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	401	0xc000000000231ea0	cap_able	yes	out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	400	0xc000000000231ef0	copyin		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	401	0xc000000000231ea0	cap_able	yes	out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	402	0xc000000000231e60			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	403	0xc000000000231e2c			out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	404	0xc000000000231e10	cap_able		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	405	0xc000000000231df4	cap_able		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	406	0xc000000000231dd8	cap_able		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	407	0xc000000000231ea0	cap_able	yes	out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	404	0xc000000000231e10	cap_able		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	405	0xc000000000231df4	cap_able		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	406	0xc000000000231dd8	cap_able		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	407	0xc000000000231ea0	cap_able	yes	out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	408	0xc000000000231dc8			out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	409	0xc000000000231dac	copyout		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	410	0xc000000000231d84	qlfc_get_controller_count		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	411	0xc000000000231d64	copyin		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	409	0xc000000000231dac	copyout		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	410	0xc000000000231d84	qlfc_get_controller_count		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	411	0xc000000000231d64	copyin		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	412	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	413	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	414	0xc000000000231848		yes	out	undocumented
@@ -1010,8 +1010,8 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1008	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1009	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1010	0xc000000000231848		yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1011	0xc000000000231d04	vtop		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1012	0xc000000000231ce8	cap_able		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1011	0xc000000000231d04	vtop		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1012	0xc000000000231ce8	cap_able		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1013	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1014	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1015	0xc000000000231cbc			out	undocumented
@@ -1053,7 +1053,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1051	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1052	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1053	0xc000000000231c74	caienfk		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1054	0xc000000000231c1c	as_lookup_current		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1054	0xc000000000231c1c	as_lookup_current		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1055	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1056	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1057	0xc000000000231848		yes	out	undocumented
@@ -1063,9 +1063,9 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1061	0xc000000000231bf8	umount_dev		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1062	0xc000000000231bdc	nfs_generic_cmd		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1063	0xc000000000231bc4	krpc_cmd		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1064	0xc000000000231ba0	cap_able		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1065	0xc000000000231b78	cap_able		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1066	0xc000000000231b4c	cap_able		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1064	0xc000000000231ba0	cap_able		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1065	0xc000000000231b78	cap_able		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1066	0xc000000000231b4c	cap_able		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1067	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1068	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1069	0xc000000000231848		yes	out	undocumented
@@ -1102,7 +1102,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1100	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1101	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1102	0xc000000000231848		yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1103	0xc000000000231b34	numa_tests		in	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1103	0xc000000000231b34	numa_tests		in	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1104	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1105	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1106	0xc000000000231848		yes	out	undocumented
@@ -1200,7 +1200,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1198	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1199	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1200	0xc000000000231b04			out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1201	0xc000000000231ac0	cap_able		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1201	0xc000000000231ac0	cap_able		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1202	0xc000000000231a98			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1203	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1204	0xc000000000231848		yes	out	undocumented
@@ -1212,7 +1212,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1210	0xc000000000231a80	syssgi_getjlimit		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1211	0xc000000000231a68	syssgi_setjlimit		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1212	0xc000000000231a50	syssgi_getjusage		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1213	0xc000000000231a30	copyin		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1213	0xc000000000231a30	copyin		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1214	0xc000000000231a20	syssgi_getjid		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1215	0xc000000000231a0c	syssgi_killjob		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1216	0xc0000000002319f4	syssgi_makenewjob		out	undocumented
@@ -1230,14 +1230,14 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1228	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1229	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1230	0xc000000000231848		yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1231	0xc000000000231980	copyin		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1232	0xc000000000231960	copyin		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1233	0xc000000000231940	copyin		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1234	0xc000000000231920	copyin		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1235	0xc000000000231900	copyin		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1236	0xc0000000002318e0	copyin		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1237	0xc0000000002318c0	copyin		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1238	0xc0000000002318a0	copyin		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1231	0xc000000000231980	copyin		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1232	0xc000000000231960	copyin		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1233	0xc000000000231940	copyin		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1234	0xc000000000231920	copyin		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1235	0xc000000000231900	copyin		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1236	0xc0000000002318e0	copyin		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1237	0xc0000000002318c0	copyin		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1238	0xc0000000002318a0	copyin		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1239	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1240	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	1241	0xc000000000231848		yes	out	undocumented
@@ -1264,16 +1264,16 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1	0xa8000000201ed274	0xa8000000201ee880	yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	2	0xa8000000201ed258	getbuf_stats		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	3	0xa8000000201ed248	0xa8000000201eea24	yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	4	0xa8000000201ed204	cap_able		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	4	0xa8000000201ed204	cap_able		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	5	0xa8000000201ed1e4			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	6	0xa8000000201ed1a8			out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	7	0xa8000000201ed198	sys_setled		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	7	0xa8000000201ed198	sys_setled		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	8	0xa8000000201ed16c	mutex_lock	yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	9	0xa8000000201ed16c	mutex_lock	yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	10	0xa8000000201ed16c	mutex_lock	yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	11	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	12	0xa8000000201ed160			out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	13	0xa8000000201ed140	copyin		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	13	0xa8000000201ed140	copyin		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	14	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	15	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	16	0xa8000000201eba10		yes	out	undocumented
@@ -1313,15 +1313,15 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	50	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	51	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	52	0xa8000000201ed034	settimeofday		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	53	0xa8000000201ecff8	setmustrun		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	54	0xa8000000201ecfd0	gettimetrim		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	53	0xa8000000201ecff8	setmustrun		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	54	0xa8000000201ecfd0	gettimetrim		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	55	0xa8000000201ecfb0	sprofil		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	56	0xa8000000201ecf9c	0xa8000000201efac4		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	57	0xa8000000201ecf7c	sigstack		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	58	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	59	0xa8000000201ecf74			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	60	0xa8000000201ecf54	_sigaltstack		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	61	0xa8000000201ece60	cap_able		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	61	0xa8000000201ece60	cap_able		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	62	0xa8000000201ece3c	vhost_local		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	63	0xa8000000201ece00			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	64	0xa8000000201ecdd0		yes	out	undocumented
@@ -1329,7 +1329,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	66	0xa8000000201ecd98			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	67	0xa8000000201ecd80			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	68	0xa8000000201ecd44			out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	69	0xa8000000201ecd28	sgi_mconfig		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	69	0xa8000000201ecd28	sgi_mconfig		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	70	0xa8000000201ecd14			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	71	0xa8000000201ecd00			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	72	0xa8000000201eccec			out	undocumented
@@ -1366,7 +1366,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	103	0xa8000000201ecae0			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	104	0xa8000000201ecab4			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	105	0xa8000000201eca80			out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	106	0xa8000000201eca68	sgi_symtab		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	106	0xa8000000201eca68	sgi_symtab		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	107	0xa8000000201eca60			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	108	0xa8000000201eca50	removetsave		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	109	0xa8000000201ec9f0	fdt_gethi		out	undocumented
@@ -1409,8 +1409,8 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	146	0xa8000000201ec758	path_to_handle		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	147	0xa8000000201ec740	path_to_fshandle		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	148	0xa8000000201ec728	fd_to_handle		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	149	0xa8000000201ec70c	cap_able		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	150	0xa8000000201ec6f0	cap_able		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	149	0xa8000000201ec70c	cap_able		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	150	0xa8000000201ec6f0	cap_able		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	151	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	152	0xa8000000201ec6b0			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	153	0xa8000000201ec694	xfs_fsoperations		out	undocumented
@@ -1425,12 +1425,12 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	162	0xa8000000201ec680	0xa8000000201ef358	yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	163	0xa8000000201ec63c			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	164	0xa8000000201ec628			out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	165	0xa8000000201ec614	query_cyclecntr_size		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	166	0xa8000000201ec600	query_fasttimer		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	165	0xa8000000201ec614	query_cyclecntr_size		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	166	0xa8000000201ec600	query_fasttimer		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	167	0xa8000000201ec680	0xa8000000201ef358	yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	168	0xa8000000201eba40			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	169	0xa8000000201eba10		yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	170	0xa8000000201ec5d0	cap_able		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	170	0xa8000000201ec5d0	cap_able		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	171	0xa8000000201ec5b8	cachefs_sys		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	172	0xa8000000201ec5a0	nfs_notify		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	173	0xa8000000201ec588	lockd_sys		out	undocumented
@@ -1454,10 +1454,10 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	191	0xa8000000201ec47c			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	192	0xa8000000201ed274	0xa8000000201ee880	yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	193	0xa8000000201ec448		yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	194	0xa8000000201ec404	cap_able		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	194	0xa8000000201ec404	cap_able		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	195	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	196	0xa8000000201eba10		yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	197	0xa8000000201ec3e0	cap_able		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	197	0xa8000000201ec3e0	cap_able		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	198	0xa8000000201ed274	0xa8000000201ee880	yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	199	0xa8000000201ec448		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	200	0xa8000000201eba10		yes	out	undocumented
@@ -1468,7 +1468,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	205	0xa8000000201ec390	kaio_suspend		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	206	0xa8000000201ec378	dba_getstats		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	207	0xa8000000201ec358			out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	208	0xa8000000201ec33c	pmoctl		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	208	0xa8000000201ec33c	pmoctl		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	209	0xa8000000201ec334			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	210	0xa8000000201ec32c		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	211	0xa8000000201ec32c		yes	out	undocumented
@@ -1510,7 +1510,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	247	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	248	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	249	0xa8000000201eba10		yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	250	0xa8000000201ec188	copyin		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	250	0xa8000000201ec188	copyin		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	251	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	252	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	253	0xa8000000201eba10		yes	out	undocumented
@@ -1625,8 +1625,8 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	362	0xa8000000201ec150	nosys	yes	out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	363	0xa8000000201ec140	xfs_mk_sharedro		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	364	0xa8000000201ec130	xfs_clear_sharedro		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	365	0xa8000000201ec114	cap_able		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	366	0xa8000000201ec0f8	cap_able		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	365	0xa8000000201ec114	cap_able		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	366	0xa8000000201ec0f8	cap_able		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	367	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	368	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	369	0xa8000000201eba10		yes	out	undocumented
@@ -1660,18 +1660,18 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	397	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	398	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	399	0xa8000000201eba10		yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	400	0xa8000000201ec0d8	copyin		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	401	0xa8000000201ec088	cap_able	yes	out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	400	0xa8000000201ec0d8	copyin		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	401	0xa8000000201ec088	cap_able	yes	out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	402	0xa8000000201ec048			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	403	0xa8000000201ec014			out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	404	0xa8000000201ebff8	cap_able		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	405	0xa8000000201ebfdc	cap_able		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	406	0xa8000000201ebfc0	cap_able		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	407	0xa8000000201ec088	cap_able	yes	out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	404	0xa8000000201ebff8	cap_able		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	405	0xa8000000201ebfdc	cap_able		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	406	0xa8000000201ebfc0	cap_able		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	407	0xa8000000201ec088	cap_able	yes	out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	408	0xa8000000201ebfb0			out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	409	0xa8000000201ebf94	copyout		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	410	0xa8000000201ebf6c	qlfc_get_controller_count		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	411	0xa8000000201ebf4c	copyin		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	409	0xa8000000201ebf94	copyout		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	410	0xa8000000201ebf6c	qlfc_get_controller_count		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	411	0xa8000000201ebf4c	copyin		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	412	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	413	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	414	0xa8000000201eba10		yes	out	undocumented
@@ -2271,8 +2271,8 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1008	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1009	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1010	0xa8000000201eba10		yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1011	0xa8000000201ebeec	vtop		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1012	0xa8000000201ebed0	cap_able		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1011	0xa8000000201ebeec	vtop		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1012	0xa8000000201ebed0	cap_able		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1013	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1014	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1015	0xa8000000201ebea4			out	undocumented
@@ -2314,7 +2314,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1051	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1052	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1053	0xa8000000201ebe5c	caienfk		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1054	0xa8000000201ebe04	as_lookup_current		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1054	0xa8000000201ebe04	as_lookup_current		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1055	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1056	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1057	0xa8000000201eba10		yes	out	undocumented
@@ -2324,9 +2324,9 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1061	0xa8000000201ebde0	umount_dev		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1062	0xa8000000201ebdc4	nfs_generic_cmd		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1063	0xa8000000201ebdac	krpc_cmd		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1064	0xa8000000201ebd88	cap_able		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1065	0xa8000000201ebd60	cap_able		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1066	0xa8000000201ebd34	cap_able		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1064	0xa8000000201ebd88	cap_able		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1065	0xa8000000201ebd60	cap_able		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1066	0xa8000000201ebd34	cap_able		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1067	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1068	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1069	0xa8000000201eba10		yes	out	undocumented
@@ -2461,7 +2461,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1198	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1199	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1200	0xa8000000201ebd04			out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1201	0xa8000000201ebcc0	cap_able		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1201	0xa8000000201ebcc0	cap_able		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1202	0xa8000000201ebc98			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1203	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1204	0xa8000000201eba10		yes	out	undocumented
@@ -2473,7 +2473,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1210	0xa8000000201ebc80	syssgi_getjlimit		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1211	0xa8000000201ebc68	syssgi_setjlimit		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1212	0xa8000000201ebc50	syssgi_getjusage		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1213	0xa8000000201ebc30	copyin		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1213	0xa8000000201ebc30	copyin		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1214	0xa8000000201ebc20	syssgi_getjid		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1215	0xa8000000201ebc0c	syssgi_killjob		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1216	0xa8000000201ebbf4	syssgi_makenewjob		out	undocumented
@@ -2491,14 +2491,14 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1228	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1229	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1230	0xa8000000201eba10		yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1231	0xa8000000201ebb80	copyin		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1232	0xa8000000201ebb60	copyin		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1233	0xa8000000201ebb40	copyin		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1234	0xa8000000201ebb20	copyin		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1235	0xa8000000201ebb00	copyin		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1236	0xa8000000201ebae0	copyin		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1237	0xa8000000201ebac0	copyin		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1238	0xa8000000201ebaa0	copyin		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1231	0xa8000000201ebb80	copyin		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1232	0xa8000000201ebb60	copyin		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1233	0xa8000000201ebb40	copyin		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1234	0xa8000000201ebb20	copyin		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1235	0xa8000000201ebb00	copyin		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1236	0xa8000000201ebae0	copyin		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1237	0xa8000000201ebac0	copyin		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1238	0xa8000000201ebaa0	copyin		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1239	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1240	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1241	0xa8000000201eba10		yes	out	undocumented
@@ -2510,7 +2510,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1247	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1248	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1249	0xa8000000201eba10		yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1250	0xa8000000201eba68	heart_rev		in	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1250	0xa8000000201eba68	heart_rev		in	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1251	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1252	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	1253	0xa8000000201eba10		yes	out	undocumented
@@ -2525,7 +2525,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	1	0xc0000000002e1888	0xc0000000002e4450	yes	out	undocumented
 6.5.30/unix.IP35	compare	2	0xc0000000002e2330	getbuf_stats		out	undocumented
 6.5.30/unix.IP35	compare	3	0xc0000000002e0dac			out	undocumented
-6.5.30/unix.IP35	compare	4	0xc0000000002e1b28	cap_able		out	undocumented
+6.5.30/unix.IP35	compare	4	0xc0000000002e1b28	cap_able		out	documented
 6.5.30/unix.IP35	compare	5	0xc0000000002e16ac			out	undocumented
 6.5.30/unix.IP35	compare	6	0xc0000000002e09f0			out	undocumented
 6.5.30/unix.IP35	compare	7	0xc0000000002e1da0			out	undocumented
@@ -2534,7 +2534,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	10	0xc0000000002e11ac	mutex_lock	yes	out	undocumented
 6.5.30/unix.IP35	compare	11	0xc0000000002e0598		yes	out	undocumented
 6.5.30/unix.IP35	compare	12	0xc0000000002e0ecc			out	undocumented
-6.5.30/unix.IP35	compare	13	0xc0000000002e1bf8	copyin		out	undocumented
+6.5.30/unix.IP35	compare	13	0xc0000000002e1bf8	copyin		out	documented
 6.5.30/unix.IP35	compare	20	0xc0000000002e1738	setsid		out	undocumented
 6.5.30/unix.IP35	compare	21	0xc0000000002e2754	setpgid		out	undocumented
 6.5.30/unix.IP35	compare	22	0xc0000000002e0744	sysconf		out	undocumented
@@ -2547,7 +2547,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	41	0xc0000000002e1b10	getgroups		out	undocumented
 6.5.30/unix.IP35	compare	52	0xc0000000002e2d9c	settimeofday		out	undocumented
 6.5.30/unix.IP35	compare	53	0xc0000000002e0d54			out	undocumented
-6.5.30/unix.IP35	compare	54	0xc0000000002e1e50	gettimetrim		out	undocumented
+6.5.30/unix.IP35	compare	54	0xc0000000002e1e50	gettimetrim		out	documented
 6.5.30/unix.IP35	compare	55	0xc0000000002e1bd0			out	undocumented
 6.5.30/unix.IP35	compare	56	0xc0000000002e2f50	0xc0000000002e5b84		out	undocumented
 6.5.30/unix.IP35	compare	57	0xc0000000002e1490	sigstack		out	undocumented
@@ -2588,7 +2588,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	103	0xc0000000002e115c			out	undocumented
 6.5.30/unix.IP35	compare	104	0xc0000000002e0444			out	undocumented
 6.5.30/unix.IP35	compare	105	0xc0000000002e19dc			out	undocumented
-6.5.30/unix.IP35	compare	106	0xc0000000002e2d00	sgi_symtab		out	undocumented
+6.5.30/unix.IP35	compare	106	0xc0000000002e2d00	sgi_symtab		out	documented
 6.5.30/unix.IP35	compare	107	0xc0000000002e1314			out	undocumented
 6.5.30/unix.IP35	compare	108	0xc0000000002e2320	removetsave		out	undocumented
 6.5.30/unix.IP35	compare	109	0xc0000000002e1ca4			out	undocumented
@@ -2629,8 +2629,8 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	146	0xc0000000002e0fc0			out	undocumented
 6.5.30/unix.IP35	compare	147	0xc0000000002e2824	path_to_fshandle		out	undocumented
 6.5.30/unix.IP35	compare	148	0xc0000000002e1f60			out	undocumented
-6.5.30/unix.IP35	compare	149	0xc0000000002e2bc4	cap_able		out	undocumented
-6.5.30/unix.IP35	compare	150	0xc0000000002e1848	cap_able		out	undocumented
+6.5.30/unix.IP35	compare	149	0xc0000000002e2bc4	cap_able		out	documented
+6.5.30/unix.IP35	compare	150	0xc0000000002e1848	cap_able		out	documented
 6.5.30/unix.IP35	compare	151	0xc0000000002e0594		yes	out	undocumented
 6.5.30/unix.IP35	compare	152	0xc0000000002e0b58			out	undocumented
 6.5.30/unix.IP35	compare	153	0xc0000000002e25a8			out	undocumented
@@ -2645,7 +2645,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	162	0xc0000000002e1130			out	undocumented
 6.5.30/unix.IP35	compare	163	0xc0000000002e0528			out	undocumented
 6.5.30/unix.IP35	compare	164	0xc0000000002e258c			out	undocumented
-6.5.30/unix.IP35	compare	165	0xc0000000002e2fe0	query_cyclecntr_size		out	undocumented
+6.5.30/unix.IP35	compare	165	0xc0000000002e2fe0	query_cyclecntr_size		out	documented
 6.5.30/unix.IP35	compare	166	0xc0000000002e1f1c			out	undocumented
 6.5.30/unix.IP35	compare	167	0xc0000000002e1224	0xc0000000002e5418	yes	out	undocumented
 6.5.30/unix.IP35	compare	168	0xc0000000002e2738			out	undocumented
@@ -2672,7 +2672,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	191	0xc0000000002e07d8			out	undocumented
 6.5.30/unix.IP35	compare	192	0xc0000000002e1888	0xc0000000002e4450	yes	out	undocumented
 6.5.30/unix.IP35	compare	193	0xc0000000002e14b0			out	undocumented
-6.5.30/unix.IP35	compare	194	0xc0000000002e2968	cap_able		out	undocumented
+6.5.30/unix.IP35	compare	194	0xc0000000002e2968	cap_able		out	documented
 6.5.30/unix.IP35	compare	195	0xc0000000002e10e0			out	undocumented
 6.5.30/unix.IP35	compare	196	0xc0000000002e20d8	xpmem_copy		out	undocumented
 6.5.30/unix.IP35	compare	197	0xc0000000002e1984			out	undocumented
@@ -2688,10 +2688,10 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	209	0xc0000000002e04e8			out	undocumented
 6.5.30/unix.IP35	compare	210	0xc0000000002e1a38			out	undocumented
 6.5.30/unix.IP35	compare	211	0xc0000000002e1a40			out	undocumented
-6.5.30/unix.IP35	compare	212	0xc0000000002e1508	numa_tune		in	undocumented
+6.5.30/unix.IP35	compare	212	0xc0000000002e1508	numa_tune		in	documented
 6.5.30/unix.IP35	compare	213	0xc0000000002e0598		yes	out	undocumented
 6.5.30/unix.IP35	compare	214	0xc0000000002e2618	nosys		out	documented
-6.5.30/unix.IP35	compare	218	0xc0000000002e212c	numa_stats_get		in	undocumented
+6.5.30/unix.IP35	compare	218	0xc0000000002e212c	numa_stats_get		in	documented
 6.5.30/unix.IP35	compare	220	0xc0000000002e0f60			out	undocumented
 6.5.30/unix.IP35	compare	221	0xc0000000002e2640			out	undocumented
 6.5.30/unix.IP35	compare	222	0xc0000000002e2808	chproj		out	undocumented
@@ -2703,13 +2703,13 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	228	0xc0000000002e0ac0			out	undocumented
 6.5.30/unix.IP35	compare	229	0xc0000000002e2114	xfs_swapext		out	undocumented
 6.5.30/unix.IP35	compare	230	0xc0000000002e0598		yes	out	undocumented
-6.5.30/unix.IP35	compare	231	0xc0000000002e1eb8	numalinkstats_up2date		in	undocumented
+6.5.30/unix.IP35	compare	231	0xc0000000002e1eb8	numalinkstats_up2date		in	documented
 6.5.30/unix.IP35	compare	232	0xc0000000002e2f98	dba_clearstats		out	undocumented
 6.5.30/unix.IP35	compare	233	0xc0000000002e1760			out	undocumented
 6.5.30/unix.IP35	compare	234	0xc0000000002e2774	sprintf		out	documented
 6.5.30/unix.IP35	compare	235	0xc0000000002e21d0			out	undocumented
 6.5.30/unix.IP35	compare	236	0xc0000000002e10bc			out	undocumented
-6.5.30/unix.IP35	compare	250	0xc0000000002e2884	copyin		out	undocumented
+6.5.30/unix.IP35	compare	250	0xc0000000002e2884	copyin		out	documented
 6.5.30/unix.IP35	compare	300	0xc0000000002e0788			out	undocumented
 6.5.30/unix.IP35	compare	301	0xc0000000002e2430			out	undocumented
 6.5.30/unix.IP35	compare	350	0xc0000000002e219c	nosys	yes	out	documented
@@ -2721,46 +2721,46 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	362	0xc0000000002e0814			out	undocumented
 6.5.30/unix.IP35	compare	363	0xc0000000002e2958	xfs_mk_sharedro		out	undocumented
 6.5.30/unix.IP35	compare	364	0xc0000000002e124c			out	undocumented
-6.5.30/unix.IP35	compare	365	0xc0000000002e2268	cap_able		out	undocumented
-6.5.30/unix.IP35	compare	366	0xc0000000002e1af0	cap_able		out	undocumented
-6.5.30/unix.IP35	compare	400	0xc0000000002e2aa0	copyin		out	undocumented
+6.5.30/unix.IP35	compare	365	0xc0000000002e2268	cap_able		out	documented
+6.5.30/unix.IP35	compare	366	0xc0000000002e1af0	cap_able		out	documented
+6.5.30/unix.IP35	compare	400	0xc0000000002e2aa0	copyin		out	documented
 6.5.30/unix.IP35	compare	401	0xc0000000002e0c8c			out	undocumented
 6.5.30/unix.IP35	compare	402	0xc0000000002e0840			out	undocumented
 6.5.30/unix.IP35	compare	403	0xc0000000002e1fc0			out	undocumented
-6.5.30/unix.IP35	compare	404	0xc0000000002e2be0	cap_able		out	undocumented
+6.5.30/unix.IP35	compare	404	0xc0000000002e2be0	cap_able		out	documented
 6.5.30/unix.IP35	compare	405	0xc0000000002e18ac			out	undocumented
-6.5.30/unix.IP35	compare	406	0xc0000000002e28a0	cap_able		out	undocumented
+6.5.30/unix.IP35	compare	406	0xc0000000002e28a0	cap_able		out	documented
 6.5.30/unix.IP35	compare	407	0xc0000000002e2284			out	undocumented
 6.5.30/unix.IP35	compare	408	0xc0000000002e11fc			out	undocumented
 6.5.30/unix.IP35	compare	409	0xc0000000002e28dc			out	undocumented
-6.5.30/unix.IP35	compare	410	0xc0000000002e12ac	ls_get_controller_count		out	undocumented
-6.5.30/unix.IP35	compare	411	0xc0000000002e1acc	copyin		out	undocumented
+6.5.30/unix.IP35	compare	410	0xc0000000002e12ac	ls_get_controller_count		out	documented
+6.5.30/unix.IP35	compare	411	0xc0000000002e1acc	copyin		out	documented
 6.5.30/unix.IP35	compare	501	0xc0000000002e2d64	xvm_sgi		out	undocumented
 6.5.30/unix.IP35	compare	600	0xc0000000002e1424	acctctl		out	undocumented
 6.5.30/unix.IP35	compare	650	0xc0000000002e2b30	pcb_fpc_csr_initstate		out	undocumented
-6.5.30/unix.IP35	compare	1011	0xc0000000002e1b98	vtop		out	undocumented
-6.5.30/unix.IP35	compare	1012	0xc0000000002e2b14	cap_able		out	undocumented
+6.5.30/unix.IP35	compare	1011	0xc0000000002e1b98	vtop		out	documented
+6.5.30/unix.IP35	compare	1012	0xc0000000002e2b14	cap_able		out	documented
 6.5.30/unix.IP35	compare	1015	0xc0000000002e0e4c			out	undocumented
 6.5.30/unix.IP35	compare	1046	0xc0000000002e1bc0	sv_context_switch		out	undocumented
 6.5.30/unix.IP35	compare	1047	0xc0000000002e1e98			out	undocumented
 6.5.30/unix.IP35	compare	1048	0xc0000000002e2bb0	mri_test_dolock		out	undocumented
 6.5.30/unix.IP35	compare	1053	0xc0000000002e171c	caienfk		out	undocumented
-6.5.30/unix.IP35	compare	1054	0xc0000000002e26ac	as_lookup_current		out	undocumented
+6.5.30/unix.IP35	compare	1054	0xc0000000002e26ac	as_lookup_current		out	documented
 6.5.30/unix.IP35	compare	1060	0xc0000000002e2180	sgicell		out	undocumented
 6.5.30/unix.IP35	compare	1061	0xc0000000002e0688			out	undocumented
 6.5.30/unix.IP35	compare	1062	0xc0000000002e0ce0	nfs_generic_cmd		out	undocumented
 6.5.30/unix.IP35	compare	1063	0xc0000000002e1aa4			out	undocumented
-6.5.30/unix.IP35	compare	1064	0xc0000000002e2a7c	cap_able		out	undocumented
+6.5.30/unix.IP35	compare	1064	0xc0000000002e2a7c	cap_able		out	documented
 6.5.30/unix.IP35	compare	1065	0xc0000000002e13d8			out	undocumented
-6.5.30/unix.IP35	compare	1066	0xc0000000002e234c	cap_able		out	undocumented
-6.5.30/unix.IP35	compare	1103	0xc0000000002e1e80	numa_tests		in	undocumented
+6.5.30/unix.IP35	compare	1066	0xc0000000002e234c	cap_able		out	documented
+6.5.30/unix.IP35	compare	1103	0xc0000000002e1e80	numa_tests		in	documented
 6.5.30/unix.IP35	compare	1200	0xc0000000002e0dec			out	undocumented
 6.5.30/unix.IP35	compare	1201	0xc0000000002e2538			out	undocumented
 6.5.30/unix.IP35	compare	1202	0xc0000000002e0a40			out	undocumented
 6.5.30/unix.IP35	compare	1210	0xc0000000002e2300	syssgi_getjlimit		out	undocumented
 6.5.30/unix.IP35	compare	1211	0xc0000000002e308c	syssgi_setjlimit		out	undocumented
 6.5.30/unix.IP35	compare	1212	0xc0000000002e1a84			out	undocumented
-6.5.30/unix.IP35	compare	1213	0xc0000000002e2a5c	copyin		out	undocumented
+6.5.30/unix.IP35	compare	1213	0xc0000000002e2a5c	copyin		out	documented
 6.5.30/unix.IP35	compare	1214	0xc0000000002e2520			out	undocumented
 6.5.30/unix.IP35	compare	1215	0xc0000000002e13a8			out	undocumented
 6.5.30/unix.IP35	compare	1216	0xc0000000002e1e38	syssgi_makenewjob		out	undocumented
@@ -2768,13 +2768,13 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	1218	0xc0000000002e2e0c	syssgi_joinjob		out	undocumented
 6.5.30/unix.IP35	compare	1219	0xc0000000002e1458			out	undocumented
 6.5.30/unix.IP35	compare	1220	0xc0000000002e2b78	syssgi_waitjob		out	undocumented
-6.5.30/unix.IP35	compare	1231	0xc0000000002e1df8	copyin		out	undocumented
-6.5.30/unix.IP35	compare	1232	0xc0000000002e2b58	copyin		out	undocumented
+6.5.30/unix.IP35	compare	1231	0xc0000000002e1df8	copyin		out	documented
+6.5.30/unix.IP35	compare	1232	0xc0000000002e2b58	copyin		out	documented
 6.5.30/unix.IP35	compare	1233	0xc0000000002e0f10			out	undocumented
-6.5.30/unix.IP35	compare	1234	0xc0000000002e1e18	copyin		out	undocumented
+6.5.30/unix.IP35	compare	1234	0xc0000000002e1e18	copyin		out	documented
 6.5.30/unix.IP35	compare	1235	0xc0000000002e1ffc			out	undocumented
-6.5.30/unix.IP35	compare	1236	0xc0000000002e2bfc	copyin		out	undocumented
+6.5.30/unix.IP35	compare	1236	0xc0000000002e2bfc	copyin		out	documented
 6.5.30/unix.IP35	compare	1237	0xc0000000002e18e0			out	undocumented
-6.5.30/unix.IP35	compare	1238	0xc0000000002e28bc	copyin		out	undocumented
+6.5.30/unix.IP35	compare	1238	0xc0000000002e28bc	copyin		out	documented
 6.5.30/unix.IP35	compare	1260	0xc0000000002e229c			out	undocumented
-6.5.30/unix.IP35	compare	8194	0xc0000000002e03e4	cap_able		out	undocumented
+6.5.30/unix.IP35	compare	8194	0xc0000000002e03e4	cap_able		out	documented
