@@ -1345,3 +1345,43 @@ and returns `a1`. It translates nothing. It is the doubleword at 0xc000000001416
 Releases the in-use mark of a hub DMA mapping. `a0` is the record. With the word at record +12 having bit 1 set, it clears that bit (an AND with -3) and returns (the store at 0xc00000000003bc58); with bit 1 clear and bit 2 set it returns without a change; with both clear it calls
 `cmn_err(4, "%v: hub_dmamap_done already done with dmamap\n", the word at record +0)` (0xc0000000001fcbd4; the text is 96 bytes into the string area) and returns. No return value is set on purpose. It is the doubleword at 0xc0000000014167a0 in the hub's table of crosstalk operations; its one direct
 caller is `xtalk_dmamap_done`. No branch-likely instruction.
+
+## SCSI host, PCI bridge and hub control calls
+
+- `scsiha_ioctl` (`6.5.30/unix.IP27`, address 0xc0000000000bc638, 556 bytes, 112-byte frame): **established.** The control-call entry of the SCSI host adapter. `a0`
+(`s1`) is the device vertex, `a1` (`s0`) the command, `a2` a user pointer (kept at sp+64) and `a4` the caller's credentials (kept at sp+56). Bits 18 to 26 of `a0`
+are tested first: any nonzero value returns 6 and nothing else runs. Otherwise `scsi_ctlr_info_get` (0xc0000000000c2a78) is called on `a0` and its result, the
+controller record, is kept at sp+48 without a null test. The commands are compared in this order:
+  - 29446 (0x7306) jumps to the path code. It takes the connection point (`hwgraph_connectpt_get`) and the controller number (`device_controller_num_get`); a
+    negative number releases the handles and returns 0. Otherwise it calls `hwgraph_path_to_dev` on the doubleword at gp-15600; on -1 it calls `hwgraph_path_add`, and in
+    both cases it formats a path with `sprintf` and calls `hwgraph_traverse`. A traverse result of 2 also adds an edge with `hwgraph_edge_add`. Then it stores the
+    controller number at record +76 and calls the record's routine pointer (the doubleword at +40) with the word at record +0, the command and the controller
+    number. The return value of that call is discarded and the routine returns 0. No user copy happens on this path.
+  - 29473 (0x7321) is reached only after the 16-byte copy and the ABI step below. It needs the capability `1 << 37` (`cap_able_cred`, 0xc000000000287350, on the
+    credentials in `a4`). Without it the routine returns 1. With it, the command is passed to the record's routine pointer as for the general case below.
+  - Commands below 11 (a signed compare with `slti`) go straight to the record's routine pointer. They copy nothing in: the third argument is a 16-byte buffer from
+    `kmem_zalloc` (0xc00000000017e344) that is not copied into.
+  - Commands 11 and up, other than 0x7306, copy 16 bytes from the user pointer into that buffer with `copyin` (0xc00000000001f990). A failed copy returns 14.
+    After a good copy the routine calls `get_current_abi` (0xc0000000003c3cac). When bit 2 (value 4) of its result is clear, the doubleword at buffer +8 is
+    replaced by its upper 32 bits, zero-extended. The command 0x7321 check and the capability check then run as above, and everything else goes to the record's
+    routine pointer.
+  - The routine pointer call is `(word at record +0, command, buffer)`, and its result is the routine's result. Every route after the allocation, which is every
+    command except 0x7306, frees the buffer with `kern_free` (0xc00000000017e590) before it returns. The early return of 6 and the 0x7306 path allocate nothing.
+  Error numbers: 6 (bits 18 to 26 of `a0` set), 1 (capability missing for 0x7321), 14 (failed copy).
+- `pcibr_ioctl` (`6.5.30/unix.IP27`, address 0xc0000000000715b8, 368 bytes, 80-byte frame): **established.** The control-call entry of the PCI bridge. `a0` is the
+vertex, `a1` (`s0`) the command and `a2` a user pointer kept at sp+40. Before any command is compared, the routine takes the connection point of `a0`
+(`hwgraph_connectpt_get`), its fast-info pointer (`hwgraph_fastinfo_get`, kept at sp+32) and releases the connection point. Commands:
+  - 26369 (0x6701) needs `cap_able` on `1 << 37` (0xc00000000028741c; failure returns 1). It copies 16 bytes from the user pointer to sp+16 (failure returns 14).
+    The word at sp+16 goes to `pcibr_device_slot_get` (0xc000000000071530). A result of 255 returns 5. Otherwise, if the doubleword at sp+24 is zero the routine
+    returns 0. If it is nonzero, it calls `pcibr_priority_bits_set` (0xc000000000074a2c) with the fast-info pointer, the slot masked to a byte and `a2` = 1, leaving
+    `a3` as it arrived, and returns 0.
+  - 26370 (0x6702) has the same capability and copy, into sp+0. The word at sp+0 goes to `pcibr_device_slot_get`; 255 returns 5. If the doubleword at sp+8 is
+    zero the routine returns 0; otherwise it calls `pcibr_priority_bits_set` with the fast-info pointer, the slot masked to a byte, `a2` = 0 and `a3` = 255, and
+    returns 0.
+  - 28673 (0x7001), 28674 (0x7002) and 28675 (0x7003) make no further call and return 1.
+  - Any other command returns 0.
+  Error numbers: 1 (capability missing), 14 (failed copy), 5 (slot 255).
+- `hubspc_ioctl` (`6.5.30/unix.IP27`, address 0xc00000000006bd7c, 124 bytes, 64-byte frame): **established.** This routine compares no command number. It saves
+the six argument registers, calls `device_info_get` (0xc0000000001734d0) on the vertex in `a0` and branches on its result as a 32-bit value. Result 0 restores the six
+registers and calls `mem_refcnt_ioctl` (0xc00000000027a210) with them, then returns that call's result. Result 1 returns 0. Any other result returns 19 and calls
+nothing.

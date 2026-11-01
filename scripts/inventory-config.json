@@ -40,7 +40,32 @@
     "send_functions": [],
     "ranges": [],
     "min_decimal": 1000,
-    "dispatchers": [],
+    "dispatchers": [
+      {
+        "type": "compare",
+        "name": "scsi host adapter control calls",
+        "binaries": [
+          "6.5.30/unix.IP27"
+        ],
+        "functions": "^scsiha_ioctl$",
+        "range": [
+          "0x7306",
+          "0x7321"
+        ]
+      },
+      {
+        "type": "compare",
+        "name": "PCI bridge control calls",
+        "binaries": [
+          "6.5.30/unix.IP27"
+        ],
+        "functions": "^pcibr_ioctl$",
+        "range": [
+          "0x6701",
+          "0x7003"
+        ]
+      }
+    ],
     "classes": [],
     "docs": [
       "docs/*.md"
@@ -124,7 +149,7 @@
       ],
       "reason": "kernel-image: The linked kernels. Only the hardware-facing and boot-critical subsystems are in scope for now: PROM interface and KLCONFIG, hardware graph, interrupts, NUMA and memory initialisation, node and router topology, the I/O attach framework, and the debug and panic entry points.",
       "patterns": [
-        "(?!(?:kl(?:_|hwg|config|cfg|[A-Z])|find_lboard|get_lboard|lboard|board_|prom|arcs|ARCS|elsc|ip27|ip30|ip32|ip35|sn0|sn1|hub|router|net_|nic_|hwgraph|hwgfs|hwg_|graph_|labelcl|device_|dev_|inventory|intr|vector|ecc|mlreset|ml_|setup_|numa|nasid|cnode|compact_to|mld|mem_|memory|meminit|xbow|xtalk|xbridge|xswitch|xconn|xioba|pcibr|pciio|pciiox|bridge|heart|crime|mace|ioc3|gioio|giobr|fru|i2c|sio_i2c|idbg|panic|cmn_err|assfail)).+"
+        "(?!(?:kl(?:_|hwg|config|cfg|[A-Z])|find_lboard|get_lboard|lboard|board_|prom|arcs|ARCS|elsc|ip27|ip30|ip32|ip35|sn0|sn1|hub|router|net_|nic_|hwgraph|hwgfs|hwg_|graph_|labelcl|device_|dev_|inventory|intr|vector|ecc|mlreset|ml_|setup_|numa|nasid|cnode|compact_to|mld|mem_|memory|meminit|xbow|xtalk|xbridge|xswitch|xconn|xioba|pcibr|scsiha_ioctl|pciio|pciiox|bridge|heart|crime|mace|ioc3|gioio|giobr|fru|i2c|sio_i2c|idbg|panic|cmn_err|assfail)).+"
       ]
     },
     {
@@ -159,7 +184,7 @@
       ],
       "reason": "kernel-platform-objects: Platform core and debugger objects hold both hardware-facing code and generic code, so the name rule of the kernel image applies to them as well.",
       "patterns": [
-        "(?!(?:kl(?:_|hwg|config|cfg|[A-Z])|find_lboard|get_lboard|lboard|board_|prom|arcs|ARCS|elsc|ip27|ip30|ip32|ip35|sn0|sn1|hub|router|net_|nic_|hwgraph|hwgfs|hwg_|graph_|labelcl|device_|dev_|inventory|intr|vector|ecc|mlreset|ml_|setup_|numa|nasid|cnode|compact_to|mld|mem_|memory|meminit|xbow|xtalk|xbridge|xswitch|xconn|xioba|pcibr|pciio|pciiox|bridge|heart|crime|mace|ioc3|gioio|giobr|fru|i2c|sio_i2c|idbg|panic|cmn_err|assfail)).+"
+        "(?!(?:kl(?:_|hwg|config|cfg|[A-Z])|find_lboard|get_lboard|lboard|board_|prom|arcs|ARCS|elsc|ip27|ip30|ip32|ip35|sn0|sn1|hub|router|net_|nic_|hwgraph|hwgfs|hwg_|graph_|labelcl|device_|dev_|inventory|intr|vector|ecc|mlreset|ml_|setup_|numa|nasid|cnode|compact_to|mld|mem_|memory|meminit|xbow|xtalk|xbridge|xswitch|xconn|xioba|pcibr|scsiha_ioctl|pciio|pciiox|bridge|heart|crime|mace|ioc3|gioio|giobr|fru|i2c|sio_i2c|idbg|panic|cmn_err|assfail)).+"
       ]
     },
     {

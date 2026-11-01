@@ -49,6 +49,7 @@
     "xconn",
     "xioba",
     "pcibr",
+    "scsiha_ioctl",
     "pciio",
     "pciiox",
     "bridge",
