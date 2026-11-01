@@ -130,7 +130,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	error_check_poisoned_state	0xc00000000003621c	assfail	1	out	undocumented
 6.5.30/unix.IP27	error_lookup_inst_type	0xc000000000036060	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	ether_detach	0xc000000000126bb8	cmn_err	2	out	undocumented
-6.5.30/unix.IP27	exit	0xc000000000209308	cmn_err	1	out	undocumented
+6.5.30/unix.IP27	exit	0xc000000000209308	cmn_err	1	out	documented
 6.5.30/unix.IP27	failsoft_avoid	0xc00000000019dca8	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	failsoft_panic_check	0xc00000000019e190	cmn_err	4	out	undocumented
 6.5.30/unix.IP27	failsoftd	0xc00000000019eaf8	cmn_err	1	out	undocumented
@@ -1039,7 +1039,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	error_mark_page	0xa80000002001d5c4	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	error_reclaim_page	0xa80000002001d5e8	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	ether_detach	0xa8000000200fec5c	cmn_err	2	out	undocumented
-6.5.30/unix.IP30	exit	0xa8000000201c5f7c	cmn_err	1	out	undocumented
+6.5.30/unix.IP30	exit	0xa8000000201c5f7c	cmn_err	1	out	documented
 6.5.30/unix.IP30	failsoft_avoid	0xa80000002016632c	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	failsoft_panic_check	0xa8000000201667d0	cmn_err	4	out	undocumented
 6.5.30/unix.IP30	failsoftd	0xa8000000201670c8	cmn_err	1	out	undocumented
@@ -1950,7 +1950,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	error_check_poisoned_state	0xc00000000005c9a4	assfail	1	out	undocumented
 6.5.30/unix.IP35	error_lookup_inst_type	0xc00000000005c7e8	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	ether_detach	0xc0000000001c2928	cmn_err	2	out	undocumented
-6.5.30/unix.IP35	exit	0xc0000000002b950c	cmn_err	1	out	undocumented
+6.5.30/unix.IP35	exit	0xc0000000002b950c	cmn_err	1	out	documented
 6.5.30/unix.IP35	failsoft_avoid	0xc00000000024c6a4	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	failsoft_panic_check	0xc00000000024cb8c	cmn_err	4	out	undocumented
 6.5.30/unix.IP35	failsoftd	0xc00000000024d51c	cmn_err	1	out	undocumented

@@ -54,7 +54,7 @@ Rows in scope are the ones the finish line counts; rows out of scope are listed 
 | Binary group | Scope | Binaries | Functions in | Functions out |
 |---|---|---:|---:|---:|
 | kernel-image | narrow | 3 | 3077 | 38624 |
-| kernel-platform-objects | narrow | 12 | 1358 | 4104 |
-| kernel-platform-drivers | in | 274 | 4627 | 0 |
-| kernel-other-objects | out | 3094 | 0 | 65272 |
+| kernel-platform-objects | narrow | 27 | 2919 | 9141 |
+| kernel-platform-drivers | in | 596 | 9840 | 0 |
+| kernel-other-objects | out | 6651 | 0 | 138532 |
 <!-- os-inventory:end -->

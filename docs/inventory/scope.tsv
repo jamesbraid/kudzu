@@ -1,5 +1,5 @@
 group	scope	binaries	functions_in	functions_out	reason
 kernel-image	narrow	3	3077	38624	The linked kernels. Only the hardware-facing and boot-critical subsystems are in scope for now: PROM interface and KLCONFIG, hardware graph, interrupts, NUMA and memory initialisation, node and router topology, the I/O attach framework, and the debug and panic entry points.
-kernel-platform-objects	narrow	12	1358	4104	Platform core and debugger objects hold both hardware-facing code and generic code, so the name rule of the kernel image applies to them as well.
-kernel-platform-drivers	in	274	4627	0	Objects that exist only for the NUMA, hardware-graph, crossbar, bridge, node-board and attach machinery of the in-scope subsystems.
-kernel-other-objects	out	3094	0	65272	Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.
+kernel-platform-objects	narrow	27	2919	9141	Platform core and debugger objects hold both hardware-facing code and generic code, so the name rule of the kernel image applies to them as well.
+kernel-platform-drivers	in	596	9840	0	Objects that exist only for the NUMA, hardware-graph, crossbar, bridge, node-board and attach machinery of the in-scope subsystems.
+kernel-other-objects	out	6651	0	138532	Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.

@@ -159,7 +159,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	157	0xc000000000232690	0xc000000000235750	yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	158	0xc000000000232690	0xc000000000235750	yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	159	0xc000000000232690	0xc000000000235750	yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	160	0xc000000000232680	nosys		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	160	0xc000000000232680	nosys		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	161	0xc000000000232690	0xc000000000235750	yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	162	0xc000000000232690	0xc000000000235750	yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	163	0xc00000000023264c			out	undocumented
@@ -213,7 +213,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	211	0xc000000000232314		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	212	0xc0000000002322fc	numa_tune		in	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	213	0xc000000000231848		yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	214	0xc0000000002322ec	nosys		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	214	0xc0000000002322ec	nosys		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	215	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	216	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	217	0xc000000000231848		yes	out	undocumented
@@ -349,19 +349,19 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	347	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	348	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	349	0xc000000000231848		yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	350	0xc000000000231f78	nosys	yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	351	0xc000000000231f78	nosys	yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	352	0xc000000000231f78	nosys	yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	353	0xc000000000231f78	nosys	yes	out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	350	0xc000000000231f78	nosys	yes	out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	351	0xc000000000231f78	nosys	yes	out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	352	0xc000000000231f78	nosys	yes	out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	353	0xc000000000231f78	nosys	yes	out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	354	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	355	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	356	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	357	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	358	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	359	0xc000000000231848		yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	360	0xc000000000231f68	nosys	yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	361	0xc000000000231f68	nosys	yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	362	0xc000000000231f68	nosys	yes	out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	360	0xc000000000231f68	nosys	yes	out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	361	0xc000000000231f68	nosys	yes	out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	362	0xc000000000231f68	nosys	yes	out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	363	0xc000000000231f58	xfs_mk_sharedro		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	364	0xc000000000231f48	xfs_clear_sharedro		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	365	0xc000000000231f2c	cap_able		out	undocumented
@@ -1420,7 +1420,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	157	0xa8000000201ec680	0xa8000000201ef358	yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	158	0xa8000000201ec680	0xa8000000201ef358	yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	159	0xa8000000201ec680	0xa8000000201ef358	yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	160	0xa8000000201ec670	nosys		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	160	0xa8000000201ec670	nosys		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	161	0xa8000000201ec680	0xa8000000201ef358	yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	162	0xa8000000201ec680	0xa8000000201ef358	yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	163	0xa8000000201ec63c			out	undocumented
@@ -1474,7 +1474,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	211	0xa8000000201ec32c		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	212	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	213	0xa8000000201eba10		yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	214	0xa8000000201ec31c	nosys		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	214	0xa8000000201ec31c	nosys		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	215	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	216	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	217	0xa8000000201eba10		yes	out	undocumented
@@ -1610,19 +1610,19 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	347	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	348	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	349	0xa8000000201eba10		yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	350	0xa8000000201ec160	nosys	yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	351	0xa8000000201ec160	nosys	yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	352	0xa8000000201ec160	nosys	yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	353	0xa8000000201ec160	nosys	yes	out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	350	0xa8000000201ec160	nosys	yes	out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	351	0xa8000000201ec160	nosys	yes	out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	352	0xa8000000201ec160	nosys	yes	out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	353	0xa8000000201ec160	nosys	yes	out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	354	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	355	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	356	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	357	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	358	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	359	0xa8000000201eba10		yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	360	0xa8000000201ec150	nosys	yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	361	0xa8000000201ec150	nosys	yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	362	0xa8000000201ec150	nosys	yes	out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	360	0xa8000000201ec150	nosys	yes	out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	361	0xa8000000201ec150	nosys	yes	out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	362	0xa8000000201ec150	nosys	yes	out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	363	0xa8000000201ec140	xfs_mk_sharedro		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	364	0xa8000000201ec130	xfs_clear_sharedro		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	365	0xa8000000201ec114	cap_able		out	undocumented
@@ -2690,7 +2690,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	211	0xc0000000002e1a40			out	undocumented
 6.5.30/unix.IP35	compare	212	0xc0000000002e1508	numa_tune		in	undocumented
 6.5.30/unix.IP35	compare	213	0xc0000000002e0598		yes	out	undocumented
-6.5.30/unix.IP35	compare	214	0xc0000000002e2618	nosys		out	undocumented
+6.5.30/unix.IP35	compare	214	0xc0000000002e2618	nosys		out	documented
 6.5.30/unix.IP35	compare	218	0xc0000000002e212c	numa_stats_get		in	undocumented
 6.5.30/unix.IP35	compare	220	0xc0000000002e0f60			out	undocumented
 6.5.30/unix.IP35	compare	221	0xc0000000002e2640			out	undocumented
@@ -2712,12 +2712,12 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	250	0xc0000000002e2884	copyin		out	undocumented
 6.5.30/unix.IP35	compare	300	0xc0000000002e0788			out	undocumented
 6.5.30/unix.IP35	compare	301	0xc0000000002e2430			out	undocumented
-6.5.30/unix.IP35	compare	350	0xc0000000002e219c	nosys	yes	out	undocumented
+6.5.30/unix.IP35	compare	350	0xc0000000002e219c	nosys	yes	out	documented
 6.5.30/unix.IP35	compare	351	0xc0000000002e1de0			out	undocumented
-6.5.30/unix.IP35	compare	352	0xc0000000002e219c	nosys	yes	out	undocumented
-6.5.30/unix.IP35	compare	353	0xc0000000002e219c	nosys	yes	out	undocumented
+6.5.30/unix.IP35	compare	352	0xc0000000002e219c	nosys	yes	out	documented
+6.5.30/unix.IP35	compare	353	0xc0000000002e219c	nosys	yes	out	documented
 6.5.30/unix.IP35	compare	360	0xc0000000002e16f0			out	undocumented
-6.5.30/unix.IP35	compare	361	0xc0000000002e081c	nosys		out	undocumented
+6.5.30/unix.IP35	compare	361	0xc0000000002e081c	nosys		out	documented
 6.5.30/unix.IP35	compare	362	0xc0000000002e0814			out	undocumented
 6.5.30/unix.IP35	compare	363	0xc0000000002e2958	xfs_mk_sharedro		out	undocumented
 6.5.30/unix.IP35	compare	364	0xc0000000002e124c			out	undocumented
