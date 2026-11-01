@@ -61,7 +61,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	59	0xc000000000232f84			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	60	0xc000000000232f64	_sigaltstack		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	61	0xc000000000232e70	cap_able		out	documented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	62	0xc000000000232e4c	vhost_local		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	62	0xc000000000232e4c	vhost_local		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	63	0xc000000000232e10			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	64	0xc000000000232de0		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	65	0xc000000000232de0		yes	out	undocumented
@@ -1322,7 +1322,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	59	0xa8000000201ecf74			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	60	0xa8000000201ecf54	_sigaltstack		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	61	0xa8000000201ece60	cap_able		out	documented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	62	0xa8000000201ece3c	vhost_local		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	62	0xa8000000201ece3c	vhost_local		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	63	0xa8000000201ece00			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	64	0xa8000000201ecdd0		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	65	0xa8000000201ecdd0		yes	out	undocumented
@@ -2555,7 +2555,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	59	0xc0000000002e2318			out	undocumented
 6.5.30/unix.IP35	compare	60	0xc0000000002e2150			out	undocumented
 6.5.30/unix.IP35	compare	61	0xc0000000002e08cc			out	undocumented
-6.5.30/unix.IP35	compare	62	0xc0000000002e0a6c	vhost_local		out	undocumented
+6.5.30/unix.IP35	compare	62	0xc0000000002e0a6c	vhost_local		out	documented
 6.5.30/unix.IP35	compare	63	0xc0000000002e1668			out	undocumented
 6.5.30/unix.IP35	compare	64	0xc0000000002e105c			out	undocumented
 6.5.30/unix.IP35	compare	65	0xc0000000002e1054			out	undocumented
