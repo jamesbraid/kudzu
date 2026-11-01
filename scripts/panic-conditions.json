@@ -38,5 +38,15 @@
  "6.5.30/unix.IP27|0xc000000000034d2c": "The bnez t3 at 0x34ad0 branches (t3 nonzero) into 0x34d20, or the beqz t8 at 0x34ad8 branches (t8 zero) into 0x34d20.",
  "6.5.30/unix.IP27|0xc000000000034d50": "The bltz at at 0x34afc branches (at negative) into 0x34d44.",
  "6.5.30/unix.IP27|0xc000000000034d70": "The bltz v0 at 0x34b04 branches (v0 negative) into 0x34d64.",
- "6.5.30/unix.IP27|0xc000000000034da0": "The bnez v0 at 0x34cf0 branches (v0 nonzero) into 0x34d84. The sn0 error dump call at 0x34d88 runs before this call."
+ "6.5.30/unix.IP27|0xc000000000034da0": "The bnez v0 at 0x34cf0 branches (v0 nonzero) into 0x34d84. The sn0 error dump call at 0x34d88 runs before this call.",
+ "6.5.30/unix.IP27|0xc000000000034dd4": "No branch precedes the call in its routine: the routine begins at 0x34db0 and runs straight through to the call. Whether it runs depends on its callers, which this listing does not show.",
+ "6.5.30/unix.IP27|0xc000000000034fc0": "The bgez t0 at 0x34fb0 does not branch (t0 negative), so the code falls through to 0x34fb8. The same block is also entered by unconditional branches at 0x34fdc, 0x34fec, 0x35004, 0x35014, 0x35024 and 0x3502c.",
+ "6.5.30/unix.IP27|0xc000000000039c08": "The bnez v0 at 0x39bf0 branches (v0 nonzero) into 0x39c04.",
+ "6.5.30/unix.IP27|0xc00000000003bbc8": "The beqz a4 at 0x3bba4 branches (a4 zero) into 0x3bbbc.",
+ "6.5.30/unix.IP27|0xc00000000003bc24": "The beqz a4 at 0x3bc00 branches (a4 zero) into 0x3bc18.",
+ "6.5.30/unix.IP27|0xc00000000003bc78": "The beqz a6 at 0x3bc50 branches (a6 zero) into 0x3bc64, and the bnez a3 at 0x3bc64 does not branch (a3 zero).",
+ "6.5.30/unix.IP27|0xc00000000003bf74": "The beq s3,a2 at 0x3bde8 branches (s3 equals a2) into 0x3bf68, or the beq s3,t8 at 0x3bf1c branches (s3 equals t8) into 0x3bf68.",
+ "6.5.30/unix.IP27|0xc00000000003bf90": "The beqz v0 at 0x3be1c branches (v0 zero) into 0x3bf84.",
+ "6.5.30/unix.IP27|0xc00000000003bfac": "The unconditional b at 0x3bf40 jumps into 0x3bfa0.",
+ "6.5.30/unix.IP27|0xc00000000003c64c": "The beqz v0 at 0x3c5d4 branches (the traverse call at 0x3c5cc returned zero) into 0x3c5e8. The beq v0,a2 at 0x3c5f4 does not branch (v0 is not -1), and the beqz v0 at 0x3c610 does not branch (the pointer loaded at 0x3c60c is nonzero)."
 }

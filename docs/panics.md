@@ -8,7 +8,7 @@ Each row gives the call address, the callee, the message the call passes, and th
 
 Grades: a message that is shown is established from the binary. `not resolved` means the scan could not follow the register: it is set on two paths that join before the call, or it comes from a pointer the routine loads at run time. A condition is established when the branch that decides the call was read in the disassembly; `not established` means no branch in the listing reaches the call.
 
-Counts: 890 call sites in 253 routines; 40 have a written condition, 850 do not yet.
+Counts: 890 call sites in 253 routines; 50 have a written condition, 840 do not yet.
 
 ## 6.5.30 IP27 kernel
 
@@ -253,7 +253,7 @@ Unlabelled code at 0xc000000000034db0, after the recorded end of `hubiio_crb_err
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000034dd4 | cmn_err | level 4, `Hub nasid %d got a PIO Write error from widget %d, cleaning up and continuing` | not yet read |
+| 0xc000000000034dd4 | cmn_err | level 4, `Hub nasid %d got a PIO Write error from widget %d, cleaning up and continuing` | No branch precedes the call in its routine: the routine begins at 0x34db0 and runs straight through to the call. Whether it runs depends on its callers, which this listing does not show. |
 
 ### `hubii_eint_handler`
 
@@ -261,7 +261,7 @@ Routine at 0xc000000000034ed4.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000034fc0 | cmn_err | level 0, format not resolved (add of unknown at 0xc000000000034fc4 (join at 0xc000000000034fb8)) | not yet read |
+| 0xc000000000034fc0 | cmn_err | level 0, format not resolved (add of unknown at 0xc000000000034fc4 (join at 0xc000000000034fb8)) | The bgez t0 at 0x34fb0 does not branch (t0 negative), so the code falls through to 0x34fb8. The same block is also entered by unconditional branches at 0x34fdc, 0x34fec, 0x35004, 0x35014, 0x35024 and 0x3502c. |
 
 ### `kl_panic`
 
@@ -295,7 +295,7 @@ Routine at 0xc000000000039bac.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000039c08 | cmn_err | level 0, format not resolved (add of unknown at 0xc000000000039c0c (join at 0xc000000000039c04)) | not yet read |
+| 0xc000000000039c08 | cmn_err | level 0, format not resolved (add of unknown at 0xc000000000039c0c (join at 0xc000000000039c04)) | The bnez v0 at 0x39bf0 branches (v0 nonzero) into 0x39c04. |
 
 ### `intr_reserve_hardwired`
 
@@ -311,7 +311,7 @@ Routine at 0xc00000000003bb80.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000003bbc8 | cmn_err | level 4, `%v: hub_dmamap_addr re-uses dmamap.\n` | not yet read |
+| 0xc00000000003bbc8 | cmn_err | level 4, `%v: hub_dmamap_addr re-uses dmamap.\n` | The beqz a4 at 0x3bba4 branches (a4 zero) into 0x3bbbc. |
 
 ### `hub_dmamap_list`
 
@@ -319,7 +319,7 @@ Routine at 0xc00000000003bbdc.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000003bc24 | cmn_err | level 4, `%v: hub_dmamap_list re-uses dmamap\n` | not yet read |
+| 0xc00000000003bc24 | cmn_err | level 4, `%v: hub_dmamap_list re-uses dmamap\n` | The beqz a4 at 0x3bc00 branches (a4 zero) into 0x3bc18. |
 
 ### `hub_dmamap_done`
 
@@ -327,7 +327,7 @@ Routine at 0xc00000000003bc38.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000003bc78 | cmn_err | level 4, `%v: hub_dmamap_done already done with dmamap\n` | not yet read |
+| 0xc00000000003bc78 | cmn_err | level 4, `%v: hub_dmamap_done already done with dmamap\n` | The beqz a6 at 0x3bc50 branches (a6 zero) into 0x3bc64, and the bnez a3 at 0x3bc64 does not branch (a3 zero). |
 
 ### `sub_0xc00000000003bcb8`
 
@@ -335,9 +335,9 @@ Unlabelled code at 0xc00000000003bcb8, after the recorded end of `hub_dmalist_dr
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000003bf74 | cmn_err | level 4, `%v hub_intr_alloc could not allocate interrupt\n` | not yet read |
-| 0xc00000000003bf90 | assfail | `intr_hdl`, line 788 (file argument not copied) | not yet read |
-| 0xc00000000003bfac | cmn_err | level not resolved, `Could not reserve an interrupt bit for cpu  %d and dev %v\n` | not yet read |
+| 0xc00000000003bf74 | cmn_err | level 4, `%v hub_intr_alloc could not allocate interrupt\n` | The beq s3,a2 at 0x3bde8 branches (s3 equals a2) into 0x3bf68, or the beq s3,t8 at 0x3bf1c branches (s3 equals t8) into 0x3bf68. |
+| 0xc00000000003bf90 | assfail | `intr_hdl`, line 788 (file argument not copied) | The beqz v0 at 0x3be1c branches (v0 zero) into 0x3bf84. |
+| 0xc00000000003bfac | cmn_err | level not resolved, `Could not reserve an interrupt bit for cpu  %d and dev %v\n` | The unconditional b at 0x3bf40 jumps into 0x3bfa0. |
 
 ### `hub_device_inquiry`
 
@@ -345,7 +345,7 @@ Routine at 0xc00000000003c59c.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000003c64c | cmn_err | level 6, `Inquiry Info for %v\n` | not yet read |
+| 0xc00000000003c64c | cmn_err | level 6, `Inquiry Info for %v\n` | The beqz v0 at 0x3c5d4 branches (the traverse call at 0x3c5cc returned zero) into 0x3c5e8. The beq v0,a2 at 0x3c5f4 does not branch (v0 is not -1), and the beqz v0 at 0x3c610 does not branch (the pointer loaded at 0x3c60c is nonzero). |
 | 0xc00000000003c660 | cmn_err | level 6, `\tDevices shutdown [ ` | not yet read |
 | 0xc00000000003c698 | cmn_err | level 6, ` %d` | not yet read |
 | 0xc00000000003c6d8 | cmn_err | level 6, `]\n` | not yet read |
