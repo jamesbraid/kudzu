@@ -1,7 +1,7 @@
 table	rows	out_of_scope	understood	understood_with_open	understood_distinct	templated	located	named_only	undocumented	no_software_dependency	pct_understood	pct_located_or_better	pct_mentioned	pct_done	unresolved_sites	truncated	audited_real_pct	audited_sample	audited_date	computes	reused	multi_unit	shared_address	input
 binaries	7277	0	0	0	0	0	0	7	7270	0	0.0	0.0	0.1	0.0							0			
-functions	15836	186297	505	55	428	0	1151	2849	11331	0	3.2	10.5	28.4	3.2							0	0	16	
-functions (distinct names)	2783	22115	255	14	254	0	0	400	2128	0	9.2	9.2	23.5	9.2							0			
+functions	15836	186297	520	56	438	0	1169	2822	11325	0	3.3	10.7	28.5	3.3							0	0	16	
+functions (distinct names)	2783	22115	261	14	260	0	0	395	2127	0	9.4	9.4	23.6	9.4							0			
 mmio	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0	0						0			
 tokens	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 ioctls	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -1064,7 +1064,7 @@ functions in 6.5.22/usr/cpu/sysgen/IP27boot/kbd.o	0	42	0	0	0	0	0	0	0	0	0.0	0.0	0
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/kdsp.a(kdsp_di.o)	0	134	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/kdsp.a(kdsp_events.o)	0	25	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/kdsp.a(audutil.o)	0	94	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	297	1062	9	0	9	0	120	50	118	0	3.0	43.4	60.3	3.0							0	0	0	
+functions in 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	297	1062	10	0	10	0	125	45	117	0	3.4	45.5	60.6	3.4							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/keyboard.a(pckbd.o)	0	14	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/kitchen_sync.o	0	10	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/klidbg.o	19	0	0	0	0	0	0	0	19	0	0.0	0.0	0.0	0.0							0	0	0	
@@ -3260,7 +3260,7 @@ functions in 6.5.22/usr/cpu/sysgen/IP35boot/kbd.o	0	42	0	0	0	0	0	0	0	0	0.0	0.0	0
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/kdsp.a(kdsp_di.o)	0	134	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/kdsp.a(kdsp_events.o)	0	25	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/kdsp.a(audutil.o)	0	94	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	277	1017	8	0	8	0	110	54	105	0	2.9	42.6	62.1	2.9							0	0	0	
+functions in 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	277	1017	9	0	9	0	114	50	104	0	3.2	44.4	62.5	3.2							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/keyboard.a(pckbd.o)	0	14	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/kitchen_sync.o	0	10	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/klidbg.o	19	0	0	0	0	0	0	0	19	0	0.0	0.0	0.0	0.0							0	0	0	
@@ -3868,9 +3868,9 @@ functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_irix_memmgmt.o)	0	1	0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_irix_root.o)	0	2	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_snapshot.o)	0	60	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvmidbg.o	0	39	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.30/unix.IP27	1113	12371	170	9	169	0	46	218	679	0	15.3	19.4	39.0	15.3							0	0	0	
+functions in 6.5.30/unix.IP27	1113	12371	180	10	179	0	42	213	678	0	16.2	19.9	39.1	16.2							0	0	0	
 functions in 6.5.30/unix.IP30	890	12197	127	5	127	0	2	171	590	0	14.3	14.5	33.7	14.3							0	0	5	
-functions in 6.5.30/unix.IP35	1074	14056	142	41	142	0	63	219	650	0	13.2	19.1	39.5	13.2							0	0	0	
+functions in 6.5.30/unix.IP35	1074	14056	143	41	143	0	67	215	649	0	13.3	19.6	39.6	13.3							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP22boot/isdnchan.o	0	75	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/acl.a(acl.o)	0	16	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/acl_hwg.o	0	3	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -4161,7 +4161,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP27boot/kbd.o	0	42	0	0	0	0	0	0	0	0	0.0	0.0	0
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/kdsp.a(kdsp_di.o)	0	134	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/kdsp.a(kdsp_events.o)	0	25	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/kdsp.a(audutil.o)	0	94	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	297	1064	9	0	9	0	120	50	118	0	3.0	43.4	60.3	3.0							0	0	0	
+functions in 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	297	1064	10	0	10	0	125	45	117	0	3.4	45.5	60.6	3.4							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/keyboard.a(pckbd.o)	0	14	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/kitchen_sync.o	0	10	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/klidbg.o	19	0	0	0	0	0	0	0	19	0	0.0	0.0	0.0	0.0							0	0	0	
@@ -6567,7 +6567,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP35boot/kbd.o	0	42	0	0	0	0	0	0	0	0	0.0	0.0	0
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/kdsp.a(kdsp_di.o)	0	134	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/kdsp.a(kdsp_events.o)	0	25	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/kdsp.a(audutil.o)	0	94	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	277	1041	8	0	8	0	110	54	105	0	2.9	42.6	62.1	2.9							0	0	0	
+functions in 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	277	1041	9	0	9	0	114	50	104	0	3.2	44.4	62.5	3.2							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/keyboard.a(pckbd.o)	0	14	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/kitchen_sync.o	0	10	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/klidbg.o	19	0	0	0	0	0	0	0	19	0	0.0	0.0	0.0	0.0							0	0	0	
