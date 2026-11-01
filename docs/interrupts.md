@@ -347,7 +347,11 @@ An IP35 node has up to four processors behind two processor interfaces. The kern
   at 0xc000000000060fe0) has no flag yet it sets the flag and calls `intr_reserve_level` for every
   entry of `hardwired_intr` (`0xc000000001531598`, 128 bytes into `cause_intr_tbl`, from gp-22616),
   with `cmn_err` level 0 and "intr_reserve_hardwired: Can't reserve level %d." for a failure. So the
-  first enabled processor on each interface gets the hardwired levels. Established.
+  first enabled processor on each interface gets the hardwired levels. The walk ends, rather than
+  skips on, the first processor that is disabled (the `cpu_enabled` test at 0xc000000000060fb8), on
+  another node (the `p_nodeid` compare at 0xc000000000060fd8) or at or above `maxcpus`, so a node
+  whose first processor is disabled reserves nothing, and the second interface's table is reserved
+  only when every processor before its first one passes those tests. Established.
 
 The IP35 `hardwired_intr` table (`.data` at `0xc000000001531598`) has the IP27 entries with three changes and four additions: level 4 is named "Bedrock/L1" and has flag `0x8`, the IO error moves from level 121 to 102, and the table adds 120 "CPU A Nack count == NACK_CMP", 121 "CPU B Nack count == NACK_CMP", 119 "Local Block Error" and 118 "Local XBar Error", all with flags 0. Linux has no IP35 support, so these levels have no public cross-check. Established for the table.
 - `intr_target_from_desc` (`6.5.30/unix.IP35` `0xc00000000005fc64`, 184 bytes)
