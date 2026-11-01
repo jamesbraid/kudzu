@@ -41,3 +41,19 @@ Routines of the NUMAlink router code in the IRIX 6.5.30 IP35 kernel (`6.5.30/uni
   and `sndrv_attach(vertex)`, copies the kernel word `router_poll_ticks` to the word
   `p_routertick` and returns 0. When the board lookup fails it logs "Couldn't locate board structure for %v" and goes
   on to the port loop with no board. The router register fields beyond the bits named above: unknown here. Inferred.
+- `router_print_state_specific` (`6.5.30/unix.IP35`, address 0xc000000000043c64, 504 bytes): prints the error state of
+  one router, but only once for each requester. `a0` is the router state record, `a1` the opaque first argument of the
+  print routine, `a2` the print routine (called as `a2(a1, format, ...)`) and `a3` a one-byte requester mask. It takes
+  the record's lock at ri +572 (`mutex_spinlock`). If `a3` shares a bit with the byte at ri +568 (`ri_print`) it
+  releases the lock and returns, doing nothing; otherwise it ORs `a3` into that byte, releases the lock and goes on.
+  When the byte at +0x8594 of the node's per-node block is nonzero (the block is reached through the pointer at
+  absolute address -15360, indexed by the halfword at ri +2; the byte says the vector unit is busy) it prints "vector
+  unit busy for cnode %d.Waiting....", calls `timeout_poll` (address 0xc000000000043a94) for the node's NASID with
+  0x60c020, 0x8000000000000000 and a count of 0x100, and clears that byte. It then calls an unnamed static routine at
+  0xc000000000043b1c with the record (the printing continues only when it returns 0), prints "ROUTER ERROR STATE:" and
+  the line "/hw/module/%M/" with the module number from ri +504, reads router register 0 with `router_reg_read`
+  (address 0xc0000000000427ec) and passes it, with the port mask byte ri +8, to `show_rr_status_rev_id` (address
+  0xc000000000057590). Then, for each of ports 1 to 8 whose bit is set in the mask at ri +8, it reads that port's
+  register at (port index + 2) & 1 shifted left 11, plus ((port index + 2) & 0xe) shifted left 15, plus 8, and calls
+  `show_rr_error_status` (address 0xc0000000000573a0) with the low 34 bits of it, the port number, `a1`, `a2` and 0.
+  The routine returns nothing. What the register at the offset formed above holds is unknown here. Established.

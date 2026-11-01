@@ -205,3 +205,115 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   sleeps on `sv_wait(node record +0x310, 25, node record +0x318, ...)`, and then searches again. The routine returns
   the entry address in every successful case. Which Hub register the window register at +0x160 is, and what the
   entry's word at +0x28 holds: unknown here. Inferred.
+- `hubpi_spool_get_next` (`6.5.30/unix.IP35`, address 0xc000000000059ca0, 560 bytes): takes the next entry from the
+  Hub's error spool for the current processor side. `a0` points to the doubleword that receives the entry, and `a1` to
+  a second doubleword that receives a companion word in one case; the return value is 0, 1 or 2. It gets the node's
+  NASID with `get_nasid`, raises the interrupt level with `spl7` (the symbol `splerr` is the same address,
+  0xc00000000006201c) and lowers it with `splx` (address 0xc000000000062054) on every exit. The side S is bit 0 of the
+  byte at +0x528 of the processor's per-processor block, reached through `pdaindr` and the halfword at absolute
+  address -15320; the node index is the halfword at absolute address -15318. It works on the node's error log
+  `kl_error_log[node]` (the log `hub_error_init` allocated): the read position is the doubleword at log + 8 x S +
+  0x2210 and the write position the doubleword at log + 8 x S + 0x2230. With no log, or a read position of 0, it
+  returns 0. When the two positions differ it reads one doubleword from the uncached address (read position OR
+  0x9600000000000000 plus NASID shifted left 33) into `*a0`, adds 8 to the read position, subtracts the log's spool
+  size (the doubleword at log +0x2250) from it when the new position is aligned to that size, and returns 1. When the
+  positions are equal it reads the Hub's spool header registers for side S into `*a0` and `*a1` (the words at
+  0x9200000001000430 and 0x9200000001000440 for side 0,
+  0x9200000001000450 and 0x9200000001000460 for side 1); if the first word is negative (bit 63 set) it writes 0 to the
+  register at 0x9200000001000448 or 0x9200000001000468, sets the write position to the doubleword read from the
+  register at 0x9200000001000418 or 0x9200000001000420, calls `klsave_spool_registers(*a0, *a1, 2)` (address
+  0xc000000000059acc) and returns 2; otherwise it returns 0. What the registers at those addresses are called is
+  unknown here. Inferred.
+
+## Interrupt dispatch
+
+- `intr` (`6.5.30/unix.IP35`, address 0xc0000000000604bc, 636 bytes, 48-byte frame): the kernel's top-level processor
+  interrupt dispatcher. `a0` is the exception frame (passed on to the handler), `a2` the saved Status register value
+  and `a3` the Cause register value; the pending lines are the bits 15:8 of the bitwise AND of `a2` and `a3`. It
+  returns a word from the dispatch table, or 0. On entry it checks bits 5:4 of the per-processor word at absolute
+  address -16312: if both are set it calls `check_delay_tlbflush(0)` (address 0xc000000000266ed8), and after the
+  handler it calls `check_delay_tlbflush(1)` when bit 4 is still set. When bit 5 of the doubleword at absolute address
+  -15744 is set it brackets the dispatch with
+  `log_tstamp_event(0x66, 0, 0, 0, 0)`
+  on entry and
+  `log_tstamp_event(0x65, 0x66, 0, 0, 0)`
+  on exit. If no line is both enabled and pending it calls an unnamed static routine at 0xc000000000060260 and returns 0.
+  Otherwise it adds one to the word at +208 of the per-processor structure the doubleword at absolute address -15088
+  points to, and tests the Cause bits in this fixed order: 0x4000, 0x800, 0x2000,
+  0x8000, 0x1000, 0x100,
+  0x400, 0x200, using the first one set. For the line n (bit n+8 of Cause) it reads the 16-byte entry of the table
+  `cause_intr_tbl` (address 0xc000000001531518) at 16 x n: the handler pointer at +0, the interrupt level at +8 and a
+  word at +12. It loads the word at +12 as the return value, calls `splx` (address 0xc000000000062054) with the level
+  and then calls the handler with `a0`. The line whose bit is 0x100 uses entry 0, 0x200 entry 1,
+  0x400 entry 2, 0x800 entry 3,
+  0x1000 entry 4, 0x2000 entry 5,
+  0x4000 entry 6 and 0x8000 entry 7. When none of the eight bits is set it calls `intr_stray(frame)` (address
+  0xc00000000005ee4c) and returns 0. What the entries' +12 words hold is unknown here. Established.
+
+## Hub widget shutdown
+
+- `hub_widgetdev_shutdown` (`6.5.30/unix.IP35`, address 0xc000000000078eac, 528 bytes): when a device behind a
+  crosstalk widget is shut down, stops the Hub from using it and releases the request buffers (CRBs) still waiting on
+  it. `a0` is the widget vertex and `a1` the device number on that widget (0 to 7, or 4 and above for the interrupt
+  kind of request, as the code uses it). It gets the widget from `xwidget_info_get`, its number from
+  `xwidget_info_id_get` and its master vertex from `xwidget_info_master_get`, and reads the master's node record with
+  `hwgraph_info_get_LBL(master, "_node", ...)`. With no record, or a node number (halfword at record +10) of -1, it
+  does nothing. Otherwise the Hub register block is the pool word 0x9200000001c00000 plus the node number shifted left 33.
+  It clears one bit of the doubleword at +0x120 of that block: bit number (`a1` + 8 x (widget number & 0xff) - 64), so
+  each (widget, device) pair owns a bit in a 64-bit permission word. It then walks the 15 CRBs (32 bytes apart from
+  block +0x400) and picks the ones that belong to the device. With the kernel flag `free_error_crbs` zero, a CRB
+  counts when bit 50 of its first word is set; with it nonzero, it counts unless bit 55 is set or bit 50 is clear (the
+  test in the code is: valid, or not already flagged as error). A counted CRB belongs to this device when, for a
+  device number below 4, the 2-bit field in bits 41:40 of the first word equals `a1` (the routine tests for inequality
+  and frees on a zero), and for a device number of 4 or more when the 3-bit field in bits 42:40 is zero. Such a CRB is
+  released with `hubiio_crb_free(record, crb)` (address 0xc00000000005ac38) and counted. When the kernel flag
+  `free_error_crbs_print` is nonzero each release prints "Releasing %s CRB 0x%x[Freed so far %d]" ("Interrupt" or
+  "Data" as the name) and, after the walk, "Freed %d CRBS on nasid %d" with `cmn_err` level 6. The routine returns
+  nothing. Which Hub register the doubleword at +0x120 is, and what the bits 41:40 and 42:40 of a CRB word stand for,
+  are unknown here. Inferred.
+- `hubii_eint_init` (`6.5.30/unix.IP35`, address 0xc000000000058088, 452 bytes, 48-byte frame): connects the Hub's I/O
+  interface error interrupt for one node and programs where the Hub sends it. `a0` is the compact node number and the
+  routine returns nothing. It reads the node's Hub vertex from the word at +0x8c80 of the node's per-node block
+  (reached through the pointer at absolute address -15360, indexed by `a0`) and calls
+  `assfail("hub_v != GRAPH_VERTEX_NONE", "../ml/SN/SN1/huberror.c", 526)` when that is -1. It reads the node record
+  with `hwgraph_info_get_LBL(hub, "_node", ...)` and works in the Hub register block at the pool word
+  0x9200000001c00000 plus the node's NASID (halfword at record +10) shifted left 33. When bit 13 of the register
+  doubleword at block +0x128 is clear it clears bit 10 of that word (mask 0xfffffffffffffbff). It picks a processor
+  and interrupt level with `intr_heuristic(hub, 0, -1, 4, hub, "HUB IO error interrupt", &level)` (address
+  0xc00000000005fe04); a result of -1 calls `cmn_err(20, "hubii_eint_init: intr_reserve_level failed, cnode %d", a0)`
+  at level 20, which does not return. It connects the handler `hubii_eint_handler` (address 0xc00000000005b17c) with
+  `intr_connect_level(cpu, level, 0, handler, hub, 0)` (address 0xc00000000005f308); a negative result calls
+  `assfail("rv >= 0", "../ml/SN/SN1/huberror.c", 556)`. It then writes the register doubleword at block +0x138 with
+  the target: the 7-bit level plus bit 24 (0x1000000), masked with the pool word 0xfffffffffffe01ff
+  (0xc000000001644170), with the NASID of the chosen processor's node (`get_cpu_cnode` and `compact_to_nasid_node`, 8
+  bits) shifted left 9, bit 8 cleared and then set from bit 1 of the byte at +0x528 of that processor's per-processor
+  block (`pdaindr` indexed by the processor number). Which register fields these are (target NASID, processor slice
+  and vector) follows from the values, not from names in the code, and is inferred. Inferred.
+- `hub_device_inquiry` (`6.5.30/unix.IP35`, address 0xc000000000063234, 436 bytes): prints the Hub's access state for
+  one crosstalk widget. `a0` is a crossbar vertex and `a1` the widget number; the routine returns nothing. It formats
+  the widget number as text with `sprintf("%d")`, finds that child with `hwgraph_traverse(a0, text, &vertex)`, takes
+  the child's master with `device_master_get` and reads the master's node record with
+  `hwgraph_info_get_LBL(master, "_node", ...)`; if any of these fails it prints nothing. With a record, the Hub
+  register block is the pool word 0x9200000001c00000 plus the node number (record +10, halfword) shifted left 33, and
+  it reads three doublewords from it: +0x110 (outbound), +0x118 (inbound) and +0x120 (the per-device permission word,
+  the same word `hub_widgetdev_shutdown` clears bits of). It prints, all at `cmn_err` level 6: "Inquiry Info for %v"
+  with the widget vertex; "\tDevices shutdown [ " followed by " %d" for each device number i from 0 to 7 whose bit
+  number (8 x widget - 64 + i) is clear in the permission word, and "]"; "\tInbound access ? %s" with "yes" when bit
+  number `widget` of the inbound word is set and "no" otherwise; and "\tOutbound access ? %s" the same way with the
+  outbound word. The labels (outbound, inbound) are those of the printed text; which Hub registers the three
+  doublewords are: unknown here. Established.
+- `hubni_print_state` (`6.5.30/unix.IP35`, address 0xc0000000000589a8, 332 bytes, 80-byte frame): prints the Hub's
+  network-interface error state for one node, once for each requester. `a0` is the node's NASID, `a1` the opaque first
+  argument of the print routine, `a2` the print routine (called as `a2(a1, format, ...)`) and `a3` a requester mask.
+  The node's data block is reached from `nasid_to_compact_node[a0]` through the per-node table whose pointer is at
+  absolute address -15360. When `a3` is 2 it first waits for the block's lock at +0x8644 to be free: it calls
+  `mutex_spintrylock` (address 0xc000000000332174) up to
+  1,000,000 times with
+  `us_delay(1)` between tries, and when a try succeeds it releases the lock again at once with `mutex_spinunlock` (it
+  never holds the lock while printing). It then ORs `a3` into the word at block +0x8f08 with a load-linked and
+  store-conditional loop (the retry branch at 0xc000000000058a10 is branch-likely, `beqzl`). If any bit of `a3` was
+  already set in the old value it returns, so each requester prints at most once. Otherwise it prints "NI ERROR
+  STATE:" and the line "/module/%M/node" with the halfword at block +0x861a, and calls `show_ni_port_error` (address
+  0xc00000000005600c) with the doubleword read from the Hub register address 0x9200000001e80000 plus the NASID shifted
+  left 33 plus 0x100, `a1` and `a2`. It returns nothing. Which register that doubleword is, beyond the routine name
+  that decodes it: unknown here. Established.

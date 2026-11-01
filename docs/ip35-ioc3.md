@@ -82,3 +82,67 @@ Routines of the IOC3 PCI I/O controller code in the IRIX 6.5.30 IP35 kernel (`6.
   `xthread_setup(name, priority, flag word address, the handler wrapper at 0xc0000000000c6154, record + 0x30)`. The
   routine has no return value; the only returns are after the thread setup and after the first failure message. The
   record layout is read from the stores; no debug type names it. Established.
+- `ioc3_attach` (`6.5.30/unix.IP35`, address 0xc0000000000c5278, 1340 bytes): attaches an
+  IOC3 controller found on a PCI slot. `a0` is the IOC3's vertex. It maps the configuration space (space 7,
+  0x48 bytes) and the register space (space 8, 0x20180 bytes) with two calls to `pciio_pio_addr`; a failed
+  configuration mapping logs "%v/ioc3: unable to get PIO mapping for my CFG space" and a failed register mapping frees
+  the first map and logs the corresponding "MEM space" message, both at `cmn_err` level 1. It finds the two
+  neighbouring vertices with `hwgraph_traverse` (".host", then ".guest" below it, each defaulting to the previous
+  vertex when missing), adds the child "ioc3" to `a0` and links it under both with `hwgraph_edge_add`. It allocates
+  2888 bytes of soft state with `kmem_zalloc(0xb48)`, initialises the lock at +2876 ("is_ir_lock"), stores the new
+  vertex at +0, the host at +4, the guest at +8, the configuration window at +16 and the register window at +24,
+  clears the flag byte at +2885, and attaches the record with `hwgraph_fastinfo_set`. If both windows compare equal
+  under `hub_check_pci_equiv` to the console's configuration and memory windows (the kernel variables `console_cfg`
+  and `console_mem`), it records this controller in a global (the doubleword at 0xc000000001644dd8) as the console
+  controller. It registers an error handler (the routine at 0xc0000000000c5e18) on both the host and the guest with
+  `pciio_error_register`. It then programs the chip: it sets bits 0x8146 in the configuration word at +4, writes
+  0xff00 to the configuration word at +12, writes 0x7ae5e to the register word at +0x28 and 0xc0 to +0x34, masks every
+  interrupt with `ioc3_write_ireg(soft, -1, 1)` and writes 0xffffffff to the register word at +0x1c. If the vertex
+  name contains "Ibrick/xtalk/15/pci/4" it sets the flag byte at +2885 to 1 and selects the sub-device set from bits
+  15:12 of the doubleword at 0x9000000034000000 plus the NASID shifted left 33 (0x8000 gives 0xb1, 0x4000 gives 0x79,
+  anything else 0x91) with `ioc3_subdev_enables`; if the name contains neither "baseio" nor "menet" it reads the
+  serial number from the part with `nic_ioc3_vertex_info`. An unnamed static routine at 0xc0000000000c63c0 is called
+  with `a0`; when it returns 0 the routine stores 0 in the interrupt-object doubleword at +32 and the current
+  processor number (the halfword at absolute address -15320) in +40 and returns 0. Otherwise it duplicates the guest's
+  device descriptor, sets flag bit 4 and priority 0 and the interrupt name "IOC3 UART", makes it the guest's default,
+  allocates the interrupt with `pciio_intr_alloc` (a kind of 2 when the host is the guest and sub-device 0 is enabled
+  or the NIC string of the guest contains "030-1657-" or "030-1664-", else 1; a failure logs "ioc3_attach: unable to
+  allocate interrupt" and the routine goes no further), stores it at +32 and connects `ioc3_intr` (address
+  0xc0000000000c5b90) with `pciio_intr_connect`. It reads the processor that took the interrupt into +40 and the
+  processor the descriptor wanted into +42; if they differ it logs "Request to target IOC3 interrupts to CPU %d could
+  not be satisfied" at level 4. Otherwise it calls `ioc3_serial_attach(guest)`, and when bits 15:12 of the doubleword
+  at 0x9000000014000000 equal 0x4000 also `pckm_attach(guest)` and sets `console_device_attached` to 1 unless the
+  console controller recorded above is this one. It returns 0. Which chip fields the bits written to the configuration
+  and register words set: unknown here. Inferred.
+- `ioc3_handle_intr` (`6.5.30/unix.IP35`, address 0xc0000000000c5bac, 468 bytes): services the pending interrupts of
+  an IOC3 by calling the handlers registered with `ioc3_intr_connect`. `a0` is the controller's soft state, or 0 to
+  use the console controller recorded in the doubleword at gp+0x1668 (0xc000000001644dd8), and `a1` selects which
+  interrupt group is served: 0 clears bits 28:27 from the pending word (mask 0xe7ffffff), and a nonzero value clears
+  the low 23 bits (mask 0xff800000) when bit 0 of the controller's flag byte at +2884 is set. With neither soft state
+  it does nothing and returns. The pending word comes from an unnamed static routine at 0xc0000000000c518c, which
+  takes the controller lock (+2876), ANDs the register word at R +0x1c with the software enable word at +2880 and
+  releases the lock. The routine loops until that word is zero. In each pass it goes through the handler slots
+  (88-byte records starting at soft +48; the count is the word at +2864; offsets in the record are the mask at +0, the
+  handler at +8, the argument at +16, the flag word at +40, the semaphore at +48 and the deferral check at +80). A
+  slot whose mask shares bits with the pending word is served: with flag bit 0x1000 of the flag word clear it calls
+  the handler with the argument and the shared bits. With that bit set, a nonzero deferral-check pointer at record +80
+  is called first with the argument, and a zero answer sends the slot down the direct path; otherwise the slot's mask
+  is cleared from the hardware enables through `ioc3_write_ireg(soft, mask, 1)` and `vsema` (address
+  0xc00000000023559c) wakes the slot's thread on the semaphore. The bits it served are removed from the working copy.
+  After the pass it adds (served count minus one) to the word at +208 of the per-processor structure the doubleword at
+  absolute address -15088 points to, and if any pending bit is still unserved it logs "unknown IOC3 interrupt 0x%x"
+  with `cmn_err` level 1; then it reads the pending word again. It returns nothing. Inferred.
+- `ioc3_serial_kill` (`6.5.30/unix.IP35`, address 0xc0000000002218a8, 280 bytes, 32-byte frame): shuts down one
+  IOC3 serial port record, taking the firmware's console hook out of the way for the console port while it does so.
+  `a0` is the port record (as built by `ioc3_serial_attach`). If the pointer at record +8 is nonzero it calls the
+  routine at offset 40 of the table it points to, with no arguments. When this port is the console (the record equals
+  the doubleword `the_console_port` at gp+8224), the doubleword at the system parameter block address
+  0xa800000000001000 equals 0x53435241 (the ARC firmware signature word), the pointer stored at 0xa800000000001020 is
+  nonzero, the word that pointer addresses equals 0xfeeddead (sign-extended) and the entry at +128 of that table is
+  nonzero, it raises the interrupt level (`spl7`, address 0xc00000000006201c), saves the old level in the word at
+  gp+8220 and calls the table entry at +128 with 0. It then stores 0 in the word whose address is held at record +64
+  (the port's interrupt enable register, from how `ioc3_serial_attach` sets it up; that is inferred). For the console
+  under the same test it calls the table entry at +128 with 1 and restores the interrupt level from the word at
+  gp+8220 with `splx` (address 0xc000000000062054). It ends by storing 0 in the record word at +148 and returns
+  nothing. The table entry at +128 has no name; the 0 and 1 arguments suggest it turns the firmware console off and
+  on, which is inferred only from the two calls. Inferred.
