@@ -743,7 +743,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	scache_release	0xc0000000001cc440	cmn_err	2	out	undocumented
 6.5.30/unix.IP27	scsi_ctlr_nums_add	0xc0000000000253f0	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	scsi_device_update	0xc0000000000c4774	cmn_err	2	out	undocumented
-6.5.30/unix.IP27	sd_init	0xc00000000022ee54	cmn_err	2	out	undocumented
+6.5.30/unix.IP27	sd_init	0xc00000000022ee54	cmn_err	2	out	documented
 6.5.30/unix.IP27	sema_init	0xc000000000186d64	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	send_arp	0xc00000000011c3dc	cmn_err	2	out	undocumented
 6.5.30/unix.IP27	setcontext	0xc0000000001c0658	cmn_err	1	out	undocumented
@@ -837,7 +837,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	unp_disconnect	0xc00000000033e070	panic	1	out	undocumented
 6.5.30/unix.IP27	usrpci_device_register	0xc0000000000909b4	cmn_err	12	out	undocumented
 6.5.30/unix.IP27	usrvme_device_register	0xc00000000008a768	cmn_err	1	out	undocumented
-6.5.30/unix.IP27	uthread_setsigmask	0xc0000000001ce1f4	cmn_err	1	out	undocumented
+6.5.30/unix.IP27	uthread_setsigmask	0xc0000000001ce1f4	cmn_err	1	out	documented
 6.5.30/unix.IP27	utrace_init	0xc000000000239ccc	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	validate_pane_clip	0xc0000000000ed924	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	vattachreg	0xc0000000001e6bac	cmn_err	1	out	undocumented
@@ -1659,7 +1659,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	sbp2free	0xa8000000200a6f3c	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	scache_release	0xa8000000201906b8	cmn_err	2	out	undocumented
 6.5.30/unix.IP30	scsi_device_update	0xa800000020095c9c	cmn_err	2	out	undocumented
-6.5.30/unix.IP30	sd_init	0xa8000000201f4b38	cmn_err	2	out	undocumented
+6.5.30/unix.IP30	sd_init	0xa8000000201f4b38	cmn_err	2	out	documented
 6.5.30/unix.IP30	sema_init	0xa80000002014fc24	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	send_arp	0xa8000000200f4490	cmn_err	2	out	undocumented
 6.5.30/unix.IP30	send_nlm_cancel	0xa800000020080970	cmn_err	1	out	undocumented
@@ -1738,7 +1738,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	unp_connect2	0xa800000020312b28	panic	1	out	undocumented
 6.5.30/unix.IP30	unp_disconnect	0xa800000020312c20	panic	1	out	undocumented
 6.5.30/unix.IP30	usrpci_device_register	0xa80000002005d23c	cmn_err	12	out	undocumented
-6.5.30/unix.IP30	uthread_setsigmask	0xa8000000201923fc	cmn_err	1	out	undocumented
+6.5.30/unix.IP30	uthread_setsigmask	0xa8000000201923fc	cmn_err	1	out	documented
 6.5.30/unix.IP30	utrace_init	0xa8000000201f38d4	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	validate_pane_clip	0xa8000000200c5ba8	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	vattachreg	0xa8000000201ab62c	cmn_err	1	out	undocumented
@@ -2615,7 +2615,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	scsi_ctlr_nums_add	0xc00000000004cabc	assfail	2	out	undocumented
 6.5.30/unix.IP35	scsi_ctlr_nums_add	0xc00000000004cabc	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	scsi_device_update	0xc0000000001106bc	cmn_err	2	out	undocumented
-6.5.30/unix.IP35	sd_init	0xc0000000002ddabc	cmn_err	2	out	undocumented
+6.5.30/unix.IP35	sd_init	0xc0000000002ddabc	cmn_err	2	out	documented
 6.5.30/unix.IP35	sema_init	0xc000000000234ce8	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	send_arp	0xc0000000001b814c	cmn_err	2	out	undocumented
 6.5.30/unix.IP35	send_nlm_cancel	0xc0000000000fb390	cmn_err	1	out	undocumented
@@ -2713,7 +2713,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	usb_tablet_unload	0xc0000000001894b0	cmn_err	2	out	undocumented
 6.5.30/unix.IP35	usbaudio_ioctl	0xc000000000194a18	cmn_err	2	out	undocumented
 6.5.30/unix.IP35	usrvme_device_register	0xc0000000000b8184	cmn_err	1	out	undocumented
-6.5.30/unix.IP35	uthread_setsigmask	0xc00000000027db44	cmn_err	1	out	undocumented
+6.5.30/unix.IP35	uthread_setsigmask	0xc00000000027db44	cmn_err	1	out	documented
 6.5.30/unix.IP35	utrace_init	0xc0000000002e9994	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	validate_pane_clip	0xc000000000180044	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	vattachreg	0xc000000000295f78	cmn_err	1	out	undocumented
