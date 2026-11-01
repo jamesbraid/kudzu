@@ -8,7 +8,7 @@ Each row gives the call address, the callee, the message the call passes, and th
 
 Grades: a message that is shown is established from the binary. `not resolved` means the scan could not follow the register: it is set on two paths that join before the call, or it comes from a pointer the routine loads at run time. A condition is established when the branch that decides the call was read in the disassembly; `not established` means no branch in the listing reaches the call.
 
-Counts: 890 call sites in 253 routines; 91 have a written condition, 799 do not yet.
+Counts: 890 call sites in 253 routines; 97 have a written condition, 793 do not yet.
 
 ## 6.5.30 IP27 kernel
 
@@ -358,8 +358,8 @@ Routine at 0xc000000000040acc.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000040c20 | cmn_err | level 4, format not resolved (add of unknown at 0xc000000000040c24 (join at 0xc000000000040c14)) | not yet read |
-| 0xc000000000040c3c | cmn_err | level 0, format not resolved (add of unknown at 0xc000000000040c40 (join at 0xc000000000040c30)) | not yet read |
+| 0xc000000000040c20 | cmn_err | level 4, format not resolved (add of unknown at 0xc000000000040c24 (join at 0xc000000000040c14)) | Taken when the `bnez a2` at 0x40bb4 branches: a2 is 1 from the slti at 0x40bb0, so the halfword at s0+56 (loaded at 0x40bac) is below 2342. The report is level 4. |
+| 0xc000000000040c3c | cmn_err | level 0, format not resolved (add of unknown at 0xc000000000040c40 (join at 0xc000000000040c30)) | Reached when the `beql a5,a4` at 0x40c04 does not branch (a5 differs from a4). Branch-likely, so its delay slot at 0x40c08 is skipped, and the `b` at 0x40c0c jumps to 0x40c30. The report is level 0. |
 
 ### `klhwg_disabled_cpu_invent_info`
 
@@ -367,7 +367,7 @@ Routine at 0xc000000000040c4c.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000040d94 | cmn_err | level 4, format not resolved (add of unknown at 0xc000000000040d98 (join at 0xc000000000040d88)) | not yet read |
+| 0xc000000000040d94 | cmn_err | level 4, format not resolved (add of unknown at 0xc000000000040d98 (join at 0xc000000000040d88)) | Taken when the `bnez a2` at 0x40d20 branches: a2 is 1 from the slti at 0x40d1c, so the halfword at s3+56 (loaded at 0x40d18) is below 2342. The report is level 4. |
 
 ### `klhwg_hub_invent_info`
 
@@ -375,8 +375,8 @@ Routine at 0xc000000000040e30.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000040f0c | cmn_err | level not resolved, `INVALID CUSTOMER CONFIGURATION - DOWNREV Hub ASIC: rev %s (code=%d) at %v.` | not yet read |
-| 0xc000000000040f2c | cmn_err | level 4, format not resolved (join at 0xc000000000040f1c) | not yet read |
+| 0xc000000000040f0c | cmn_err | level not resolved, `INVALID CUSTOMER CONFIGURATION - DOWNREV Hub ASIC: rev %s (code=%d) at %v.` | Taken when the `bnez v1` at 0x40e94 branches: v1 is 1 from the slti at 0x40e8c, so the word stored at s0+12 (a3) is below 3. The `beqz v0` at 0x40e64 did not branch first (the call at 0x40e54 returned nonzero). The report is level 4 (a0, set at 0x40e60). |
+| 0xc000000000040f2c | cmn_err | level 4, format not resolved (join at 0xc000000000040f1c) | Reached when the `beqz v0` at 0x40e64 does not branch (the call at 0x40e54 returned nonzero), the `bnez v1` at 0x40e94 does not branch (a3 is at least 3), and the `beqz a0` at 0x40ea8 does not branch (a0 is 1 from the slti at 0x40ea0, so a3 is below 5). Then the `beqz a1` at 0x40eb4 branches, because a1 is zero: the word at 2352(gp) (loaded at 0x40eac) is at least 33. The report is level 4. |
 
 ### `klhwg_mem_invent_info`
 
@@ -384,7 +384,7 @@ Routine at 0xc000000000040f3c.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc0000000000411e8 | cmn_err | level 4, format not resolved (add of unknown at 0xc0000000000411ec (join at 0xc0000000000411d8)) | not yet read |
+| 0xc0000000000411e8 | cmn_err | level 4, format not resolved (add of unknown at 0xc0000000000411ec (join at 0xc0000000000411d8)) | Reached when the `bnel a5,a4` at 0x411bc does not branch, so a4 equals a5 (195, from the li at 0x411b8). The beq against 180 at 0x411b4 is not taken on this path. The branch-likely delay slot at 0x411c0 is skipped, and the `b` at 0x411c4 jumps to 0x411d8. The report is level 4, with s0 as a2. |
 
 ### `klhwg_add_hub`
 

@@ -87,6 +87,12 @@
  "6.5.30/unix.IP27|0xc00000000003c6d8": "The unconditional b at 0x3c6b4 jumps into 0x3c6cc.",
  "6.5.30/unix.IP27|0xc00000000003c710": "The unconditional b at 0x3c6fc jumps into 0x3c708.",
  "6.5.30/unix.IP27|0xc00000000003c734": "The unconditional b at 0x3c748 jumps into 0x3c728.",
+ "6.5.30/unix.IP27|0xc000000000040c20": "Taken when the `bnez a2` at 0x40bb4 branches: a2 is 1 from the slti at 0x40bb0, so the halfword at s0+56 (loaded at 0x40bac) is below 2342. The report is level 4.",
+ "6.5.30/unix.IP27|0xc000000000040c3c": "Reached when the `beql a5,a4` at 0x40c04 does not branch (a5 differs from a4). Branch-likely, so its delay slot at 0x40c08 is skipped, and the `b` at 0x40c0c jumps to 0x40c30. The report is level 0.",
+ "6.5.30/unix.IP27|0xc000000000040d94": "Taken when the `bnez a2` at 0x40d20 branches: a2 is 1 from the slti at 0x40d1c, so the halfword at s3+56 (loaded at 0x40d18) is below 2342. The report is level 4.",
+ "6.5.30/unix.IP27|0xc000000000040f0c": "Taken when the `bnez v1` at 0x40e94 branches: v1 is 1 from the slti at 0x40e8c, so the word stored at s0+12 (a3) is below 3. The `beqz v0` at 0x40e64 did not branch first (the call at 0x40e54 returned nonzero). The report is level 4 (a0, set at 0x40e60).",
+ "6.5.30/unix.IP27|0xc000000000040f2c": "Reached when the `beqz v0` at 0x40e64 does not branch (the call at 0x40e54 returned nonzero), the `bnez v1` at 0x40e94 does not branch (a3 is at least 3), and the `beqz a0` at 0x40ea8 does not branch (a0 is 1 from the slti at 0x40ea0, so a3 is below 5). Then the `beqz a1` at 0x40eb4 branches, because a1 is zero: the word at 2352(gp) (loaded at 0x40eac) is at least 33. The report is level 4.",
+ "6.5.30/unix.IP27|0xc0000000000411e8": "Reached when the `bnel a5,a4` at 0x411bc does not branch, so a4 equals a5 (195, from the li at 0x411b8). The beq against 180 at 0x411b4 is not taken on this path. The branch-likely delay slot at 0x411c0 is skipped, and the `b` at 0x411c4 jumps to 0x411d8. The report is level 4, with s0 as a2.",
  "6.5.30/unix.IP27|0xc000000000055f88": "The beqz at 0x55e94 branches (at zero) into 0x55f58, and the bnez v0 at 0x55f64 does not branch (v0 zero).",
  "6.5.30/unix.IP27|0xc000000000056988": "The bgez t9 at 0x566ac branches (t9 nonnegative) into 0x56904.",
  "6.5.30/unix.IP27|0xc000000000056aa8": "The beq a1,at at 0x569e0 branches (a1 equals at) into 0x56a8c."
