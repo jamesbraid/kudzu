@@ -8,7 +8,7 @@ Each row gives the call address, the callee, the message the call passes, and th
 
 Grades: a message that is shown is established from the binary. `not resolved` means the scan could not follow the register: it is set on two paths that join before the call, or it comes from a pointer the routine loads at run time. A condition is established when the branch that decides the call was read in the disassembly; `not established` means no branch in the listing reaches the call.
 
-Counts: 890 call sites in 253 routines; 30 have a written condition, 860 do not yet.
+Counts: 890 call sites in 253 routines; 40 have a written condition, 850 do not yet.
 
 ## 6.5.30 IP27 kernel
 
@@ -222,8 +222,8 @@ Routine at 0xc0000000000342ac.
 |---|---|---|---|
 | 0xc000000000034474 | cmn_err | level 20, `Invalid WRB error type: 0x%x` | The bne a0,at at 0x342d0 branches (a0 differs from at) into 0x3446c. |
 | 0xc000000000034494 | cmn_err | level 20, `Uncached Write error, physaddr 0x%x node: %d` | The bnez v0 at 0x342f8 branches (v0 nonzero) into 0x34484. |
-| 0xc0000000000344ac | cmn_err | level 20, format not resolved (add of unknown at 0xc0000000000344b0 (join at 0xc0000000000344a4)) | not yet read |
-| 0xc0000000000344c8 | cmn_err | level 20, `Cached write error, physaddr 0x%x` | not yet read |
+| 0xc0000000000344ac | cmn_err | level 20, format not resolved (add of unknown at 0xc0000000000344b0 (join at 0xc0000000000344a4)) | The beq v0,a5 at 0x34430 branches (v0 equals a5) into 0x344a4. |
+| 0xc0000000000344c8 | cmn_err | level 20, `Cached write error, physaddr 0x%x` | The beqz v0 at 0x3444c branches (v0 zero) into 0x344bc. |
 
 ### `huberror_process_stack_entry`
 
@@ -231,7 +231,7 @@ Routine at 0xc0000000000344d8.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000034580 | cmn_err | level 20, `huberror_process_stack_entry, bad type 0x%x` | not yet read |
+| 0xc000000000034580 | cmn_err | level 20, `huberror_process_stack_entry, bad type 0x%x` | The bne a2,a6 at 0x344fc branches (a2 differs from a6) into 0x34578. |
 
 ### `hubiio_crb_error_handler`
 
@@ -239,13 +239,13 @@ Routine at 0xc000000000034a30.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000034c7c | cmn_err | level 0, `Fatal %s on hub : %d` | not yet read |
-| 0xc000000000034c9c | cmn_err | level 0, `Fatal error (code : %d) on hub : %d` | not yet read |
-| 0xc000000000034cc4 | cmn_err | level 5, format not resolved (add of unknown at 0xc000000000034cb4 (unconditional jump at 0xc000000000034ca8)) | not yet read |
-| 0xc000000000034d2c | assfail | `(icrba.a_tnum >= BRIDGE_DMA_WRITE_REQ_TNUM_MIN) && (icrba.a_tnum <= BRIDGE_DMA_WRITE_REQ_TNUM_MAX)`, line 1804 (file argument not copied) | not yet read |
-| 0xc000000000034d50 | cmn_err | level 0, `Xtalk Packet with error bit set to hub %d` | not yet read |
-| 0xc000000000034d70 | cmn_err | level 0, `Uncorrectable data error detected on data  from Craylink to node %d` | not yet read |
-| 0xc000000000034da0 | cmn_err | level 0, `Unable to handle %s on hub %d` | not yet read |
+| 0xc000000000034c7c | cmn_err | level 0, `Fatal %s on hub : %d` | The bltz ra at 0x34af0 branches (ra negative) into 0x34c38. |
+| 0xc000000000034c9c | cmn_err | level 0, `Fatal error (code : %d) on hub : %d` | The beqz t1 at 0x34c44 branches (t1 zero) into 0x34c84. The sn0 error dump call at 0x34c88 runs before this call. |
+| 0xc000000000034cc4 | cmn_err | level 5, format not resolved (add of unknown at 0xc000000000034cb4 (unconditional jump at 0xc000000000034ca8)) | Not established. No branch in this listing enters 0x34cac, the block that holds the call; the unconditional b at 0x34ca8 leaves the code above it. |
+| 0xc000000000034d2c | assfail | `(icrba.a_tnum >= BRIDGE_DMA_WRITE_REQ_TNUM_MIN) && (icrba.a_tnum <= BRIDGE_DMA_WRITE_REQ_TNUM_MAX)`, line 1804 (file argument not copied) | The bnez t3 at 0x34ad0 branches (t3 nonzero) into 0x34d20, or the beqz t8 at 0x34ad8 branches (t8 zero) into 0x34d20. |
+| 0xc000000000034d50 | cmn_err | level 0, `Xtalk Packet with error bit set to hub %d` | The bltz at at 0x34afc branches (at negative) into 0x34d44. |
+| 0xc000000000034d70 | cmn_err | level 0, `Uncorrectable data error detected on data  from Craylink to node %d` | The bltz v0 at 0x34b04 branches (v0 negative) into 0x34d64. |
+| 0xc000000000034da0 | cmn_err | level 0, `Unable to handle %s on hub %d` | The bnez v0 at 0x34cf0 branches (v0 nonzero) into 0x34d84. The sn0 error dump call at 0x34d88 runs before this call. |
 
 ### `sub_0xc000000000034db0`
 
