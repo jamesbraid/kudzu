@@ -1063,3 +1063,69 @@ bridge to a processor address. a0 is the bridge vertex (s2), a1 is not read, a2 
 routine at 0xa800000020040dc4 (the same lookup `giobr_piomap_alloc` uses, inside the range of `giobr_attach`) is called with a0, the window
 index, the offset and the length; a zero result returns 0. Otherwise `xtalk_piotrans_addr(saved word, 0, helper result, a4, 0)`
 is called and its result returned. No branch-likely instruction. **Established.**
+- `heart_ithread_setup` (`6.5.30/unix.IP30`, occupies 108 bytes at address 0xa8000000200400bc): creates the interrupt thread
+for one Heart level. a0 is not read; a1 is the level and a2 a priority. The entry is `heart_ivec` (through the pointer at 0xa8000000204a9720) plus 64 times the level, and it is
+saved at sp+48. The priority used is the word `graphics_intr_pri` (0xa8000000204a70fc) when bit 0 of the entry word at +24 is set and a2 otherwise (`movz`). The routine
+formats the thread name "heart_ivec(%d)" with `sprintf` into a buffer at sp+0 and calls `xthread_setup(buffer, priority, entry + 24,
+0xa800000020040040, entry)`; the fourth argument is the pointer at 0xa8000000204a9750, which is `heart_intrd_start`. Its result is returned.
+No branch-likely instruction. **Established.**
+- `giobr_bridge_config` (`6.5.30/unix.IP30`, occupies 92 bytes at address 0xa800000020041d98): applies the GIO bridge
+configuration. a0 is the bridge vertex (saved at sp+0) and a1 is passed on (saved at sp+8). `gioio_info_get(a0)` and `gioio_info_mfast_get` give
+the bridge record. When the kernel word `showconfig` (0xa8000000204af7f0, read as the word at gp+4096) is non-zero it first calls `cmn_err(7,
+"%v: Setting GIO bridge configuration\n", a0)`. In every case it then calls the static routine at 0xa800000020041df4 (the symbol table includes it in this routine's range; its
+body is not read for this entry) with the doubleword at record +8 and a1, and returns that call's result. No branch-likely
+instruction. **Established.**
+- `xbow_update_llp_status` (`6.5.30/unix.IP30`, occupies 276 bytes at address 0xa80000002003d288): timer routine that folds
+the crossbow's per-link status words into running totals and reports bad link status. Its argument a0 is a crossbow vertex,
+saved at sp+0 and later passed on as a zero-extended 32-bit value. `hwgraph_fastinfo_get(a0)` gives the soft-state record (s3); the
+doubleword at +16 is the register block (s5), the word at +8 the crossbow's own widget vertex and the address record + 320 the
+start of a table of 16-byte total slots, one per link. The loop runs for link 0 to 7 with widget number 8 to 15 in s1. Every pass
+first calls `xbow_widget_lookup(word at record +8, widget)` and then `xwidget_name_get` on its result, whether or not the link is used.
+It reads two words of the link's 64-byte slot in the register block, at slot +300 (call it the status) and +316. If bit 31 of the
+status is set, it adds the top byte of the +316 word to the first eight-byte field of the link's total slot and bits 16 to 23 of it to
+the second eight-byte field, then (in that order: the +8 store first, then the +0 store in the delay slot of the next branch) stores both. When
+the status AND 0x7fffffe7 is non-zero (checked only when bit 31 was set) it calls `cmn_err(4, "link %d[%s]: bad status 0x%x\n", link, name, status)`. After
+the eighth link, if the word at record +452 is non-zero the routine reschedules itself with `timeout(self, a0 as an unsigned 32-bit
+value, 100)`; the function pointer comes from the cell at 0xa8000000204a9700, which holds the routine's own address. With that word zero the
+routine ends without rescheduling. The return value is not set by the routine: it is whatever the last call returned. No branch-likely
+instruction. **Established.**
+- `xbow_update_perf_counters` (`6.5.30/unix.IP30`, occupies 264 bytes at address 0xa80000002003cf74): timer routine that
+accumulates the crossbow's two hardware event counters into 64-bit totals. a0 is the crossbow vertex (s8), kept to
+reschedule. `hwgraph_fastinfo_get(a0)` gives the soft-state record (s4); the address record + 32 starts two 16-byte counter descriptors, and
+the address record + 448 is a spinlock. For descriptor 0 then 1, a descriptor whose byte at +5 is zero is skipped. Otherwise the lock is
+taken with `mutex_spinlock`, the counter register is read as the word the doubleword at descriptor +8 points to, and the
+new count is that word AND 0xfffff. The delta is (new count minus the word stored at descriptor +0) AND 0xfffff, zero-extended
+to 32 bits; it is added to the doubleword at record + 64 + 32 x (bits 20 to 22 of the register word) + 8 x (byte at descriptor +7). The new
+count is stored at descriptor +0 in the delay slot of the `mutex_spinunlock` call, which releases the lock with the saved level. Afterwards
+the routine calls `timeout(self, a0 as an unsigned 32-bit value, 4)` (the function pointer is the cell at 0xa8000000204a96f8, holding the routine's own
+address) and returns its result. No branch-likely instruction. **Established.**
+- `xbow_widget_present` (`6.5.30/unix.IP30`, occupies 100 bytes at address 0xa80000002003be48): says whether a widget's link
+is up. It is a leaf with no frame. a0 is the crossbow register block and a1 a widget number. The link slot is the 64-byte slot
+number (a1 AND 7) in the block. The routine loads the identification word at +4. A value 1 shifted left by its top nibble is formed and tested for zero; it never
+is zero, so that branch cannot be taken. If bits 12 to 27 of the word equal 0xd100 and bits 1 to 11 are zero and a1 equals 15 it returns 1.
+In every other case it returns the word at slot +316 ANDed with 0x20, that is 0 or 32. No branch-likely instruction. **Established.**
+- `heart_flow_control_connect` (`6.5.30/unix.IP30`, occupies 132 bytes at address 0xa800000020040208): connects the handler of
+a flow-control interrupt and leaves its level masked on every processor. a0 is a number n (kept as n + 1 in s7) and a1 the handler. It
+calls `heart_intr_preconn(0, (n + 1) AND 0xff, a1, a0)`, so the level is n + 1, the handler is a1 and the handler's argument is the original a0. It then calls
+`heart_imr_bits_rmw(register, 1 << (n + 1), 0)` (the shift is a 32-bit `sllv`, set up in the delay slot of the first call; a2 is zero) for the mask
+registers 0, 1, 2 and 3 in that order, clearing that bit in each. It returns the last call's value, the previous contents of register 3. No branch-likely
+instruction. **Established.**
+- `heart_flow_control_disconnect` (`6.5.30/unix.IP30`, occupies 104 bytes at address 0xa80000002004028c): masks one flow-control
+interrupt level on every processor. a0 is a number n; the bit is 1 << (n + 1) (a 32-bit `sllv`). It calls
+`heart_imr_bits_rmw(register, bit, 0)` for registers 0, 1, 2 and 3 in that order, clearing the bit in each, and returns the last call's value (register 3's previous contents). It does not
+touch the interrupt vector table. No branch-likely instruction. **Established.**
+- `ioc3_serial_kill` (`6.5.30/unix.IP30`, occupies 64 bytes at address 0xa800000020142f18): stops one IOC3 serial port. a0 is the port record (s0).
+When the doubleword at +8 (a2) is non-zero it calls the function pointer stored at +40 of the structure that doubleword points to, through `jalr`, with a0 unchanged and a2 holding
+that doubleword (the result is dropped; the delay slot is a nop). Whether or not it called, it then loads the doubleword at +64, stores a zero word at its address (offset 0) and a zero word at record +148, and
+returns the +64 doubleword. No branch-likely instruction. **Established.**
+- `pcibr_error_cleanup` (`6.5.30/unix.IP30`, occupies 84 bytes at address 0xa80000002004ca5c): clears the Bridge's pending error
+state. a0 is the bridge soft-state record (s0). The halfword at +114 is the chip kind. For kind 0 or 1 the second argument is 65; for any other kind it is the
+doubleword in the literal pool at 0xa8000000204a89d0, 0x00003cff00000041 (the load, from gp-24096, runs in the delay slot of the second compare and is overwritten by 65 when the
+kind is 1). It calls `pcireg_intr_reset_set(record, that value, a2 unset, 1, kind)` and then `pcireg_tflush_get(record)`, whose result is returned. a2 is not set by this
+routine, so it is whatever the caller left. No branch-likely instruction. **Established.**
+- `xtalk_pio_addr` (`6.5.30/unix.IP30`, occupies 248 bytes at address 0xa80000002003a7ec): gets a processor-visible address for a
+crosstalk window, using the cheap path when it can and a map otherwise. The arguments a0, a1, a2, a3, a4 and a5 are saved as s5, s4, s1, s0, s2 and s3. a4 is a pointer for an optional map result and a5 a flags word. A non-null a4 first
+has a zero doubleword stored through it. The routine calls `xtalk_piotrans_addr(a0, a1, a2, a3, a5)`; a non-zero result is returned at once. Otherwise it calls
+`xtalk_piomap_alloc(a0, a1, a2, a3, a3, a5)` (the fifth argument is a copy of a3), and a zero result returns zero. It then calls `xtalk_piomap_addr(map, a2, a3)`. A zero result calls `xtalk_piomap_free(map)` and
+returns zero. A non-zero result is stored through a4 as the map when a4 is non-null (as a doubleword), and the routine returns the address. When a4 is null the map is neither
+freed nor returned. No branch-likely instruction. **Established.**
