@@ -337,7 +337,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	idle_err	0xc00000000003959c	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	if_attach	0xc0000000001154c4	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	if_detach	0xc000000000115630	cmn_err	1	out	undocumented
-6.5.30/unix.IP27	if_efattach	0xc0000000000e5bec	cmn_err	4	out	undocumented
+6.5.30/unix.IP27	if_efattach	0xc0000000000e5bec	cmn_err	4	out	documented
 6.5.30/unix.IP27	if_efopen	0xc0000000000e5a58	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	if_egattach	0xc0000000000df8bc	cmn_err	6	out	undocumented
 6.5.30/unix.IP27	if_egdetach	0xc0000000000dfb5c	cmn_err	4	out	undocumented
@@ -1564,7 +1564,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	idle_err	0xa800000020023b04	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	if_attach	0xa8000000200ed578	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	if_detach	0xa8000000200ed6e4	cmn_err	1	out	undocumented
-6.5.30/unix.IP30	if_efattach	0xa8000000200bdeb8	cmn_err	4	out	undocumented
+6.5.30/unix.IP30	if_efattach	0xa8000000200bdeb8	cmn_err	4	out	documented
 6.5.30/unix.IP30	if_efopen	0xa8000000200bdd24	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	if_egattach	0xa8000000200b7ba0	cmn_err	6	out	undocumented
 6.5.30/unix.IP30	if_egdetach	0xa8000000200b7e3c	cmn_err	4	out	undocumented
@@ -2667,7 +2667,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	idle_err	0xc000000000060780	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	if_attach	0xc0000000001b1234	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	if_detach	0xc0000000001b13a0	cmn_err	1	out	undocumented
-6.5.30/unix.IP35	if_efattach	0xc000000000178184	cmn_err	4	out	undocumented
+6.5.30/unix.IP35	if_efattach	0xc000000000178184	cmn_err	4	out	documented
 6.5.30/unix.IP35	if_efopen	0xc000000000177ff0	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	if_egattach	0xc000000000171e6c	cmn_err	6	out	undocumented
 6.5.30/unix.IP35	if_egdetach	0xc000000000172108	cmn_err	4	out	undocumented
@@ -3483,7 +3483,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	usb_comp_update_tiles	0xc0000000000be708	cmn_err	13	out	undocumented
 6.5.30/unix.IP35	usb_comp_update_tiles	0xc0000000000be708	printf	10	out	undocumented
 6.5.30/unix.IP35	usb_dbg	0xc000000000206d84	icmn_err	1	out	undocumented
-6.5.30/unix.IP35	usb_pckm_init	0xc0000000000c6424	cmn_err	6	out	undocumented
+6.5.30/unix.IP35	usb_pckm_init	0xc0000000000c6424	cmn_err	6	out	documented
 6.5.30/unix.IP35	usb_pckm_rmalias	0xc0000000000c82f0	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	usb_tablet_unload	0xc0000000001894b0	cmn_err	2	out	undocumented
 6.5.30/unix.IP35	usbaudio_ioctl	0xc000000000194a18	cmn_err	2	out	undocumented

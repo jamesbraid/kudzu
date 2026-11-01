@@ -19,12 +19,12 @@ section	.debug_line	type SHT_MIPS_DWARF	3	6.5.30/unix.IP27	in	undocumented
 section	.debug_pubnames	type SHT_MIPS_DWARF	3	6.5.30/unix.IP27	in	undocumented
 section	.debug_typenames	type SHT_MIPS_DWARF	3	6.5.30/unix.IP27	in	undocumented
 section	.debug_weaknames	type SHT_MIPS_DWARF	1	6.5.30/unix.IP30	in	undocumented
-section	.lit8	type SHT_PROGBITS	3	6.5.30/unix.IP27	in	undocumented
+section	.lit8	type SHT_PROGBITS	3	6.5.30/unix.IP27	in	documented
 section	.rodata	type SHT_PROGBITS	5	6.5.30/unix.IP27	in	documented
 section	.sbss	type SHT_PROGBITS	3	6.5.30/unix.IP27	in	undocumented
 section	.sdata	type SHT_PROGBITS	3	6.5.30/unix.IP27	in	undocumented
 section	.shstrtab	type SHT_STRTAB	3	6.5.30/unix.IP27	in	undocumented
-section	.srdata	type SHT_PROGBITS	3	6.5.30/unix.IP27	in	undocumented
+section	.srdata	type SHT_PROGBITS	3	6.5.30/unix.IP27	in	documented
 section	.strtab	type SHT_STRTAB	3	6.5.30/unix.IP27	in	undocumented
 section	.symtab	type SHT_SYMTAB	3	6.5.30/unix.IP27	in	undocumented
 section	.text	type SHT_PROGBITS	3	6.5.30/unix.IP27	in	undocumented

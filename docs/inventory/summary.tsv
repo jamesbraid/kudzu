@@ -1,7 +1,7 @@
 table	rows	out_of_scope	understood	understood_with_open	understood_distinct	templated	located	named_only	undocumented	no_software_dependency	pct_understood	pct_located_or_better	pct_mentioned	pct_done	unresolved_sites	truncated	audited_real_pct	audited_sample	audited_date	computes	reused	multi_unit	shared_address	input
-binaries	7277	0	0	0	0	0	0	7	7270	0	0.0	0.0	0.1	0.0							0			
-functions	15836	186297	530	61	448	0	1160	2972	11174	0	3.3	10.7	29.4	3.3							0	0	16	
-functions (distinct names)	2783	22115	262	14	261	0	0	418	2103	0	9.4	9.4	24.4	9.4							0			
+binaries	7277	0	0	0	0	0	0	10	7267	0	0.0	0.0	0.1	0.0							0			
+functions	15836	186297	720	61	498	0	1237	2867	11012	0	4.5	12.4	30.5	4.5							0	0	16	
+functions (distinct names)	2783	22115	294	14	293	0	0	406	2083	0	10.6	10.6	25.2	10.6							0			
 mmio	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0	0						0			
 tokens	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 ioctls	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -1184,7 +1184,7 @@ functions in 6.5.22/usr/cpu/sysgen/IP27boot/nfs3.a(xattr_clnt.o)	0	10	0	0	0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/nfs3.a(xattr_subr.o)	0	2	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/nfsidbg.a(nfsidbg.o)	0	6	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/nfsstubs.a(nfsstubs.o)	0	10	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.22/usr/cpu/sysgen/IP27boot/nic.o	32	0	0	0	0	0	0	12	20	0	0.0	0.0	37.5	0.0							0	0	0	
+functions in 6.5.22/usr/cpu/sysgen/IP27boot/nic.o	32	0	29	0	29	0	3	0	0	0	90.6	100.0	100.0	90.6							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/nlmstubs.a(nlmstubs.o)	0	26	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/nolocks.a(cnolocks.o)	0	14	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/nolocks.a(asmnolocks.o)	0	16	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -2004,7 +2004,7 @@ functions in 6.5.22/usr/cpu/sysgen/IP30boot/nfs3.a(nfs3_vfsops.o)	0	9	0	0	0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/nfs3.a(xattr_clnt.o)	0	10	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/nfs3.a(xattr_subr.o)	0	2	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/nfsidbg.a(nfsidbg.o)	0	6	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.22/usr/cpu/sysgen/IP30boot/nic.o	29	0	0	0	0	0	0	12	17	0	0.0	0.0	41.4	0.0							0	0	0	
+functions in 6.5.22/usr/cpu/sysgen/IP30boot/nic.o	29	0	27	0	27	0	2	0	0	0	93.1	100.0	100.0	93.1							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/nlmstubs.a(nlmstubs.o)	0	26	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/nolocks.a(cnolocks.o)	0	14	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/nolocks.a(asmnolocks.o)	0	16	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -3355,7 +3355,7 @@ functions in 6.5.22/usr/cpu/sysgen/IP35boot/nfs3.a(xattr_clnt.o)	0	10	0	0	0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/nfs3.a(xattr_subr.o)	0	2	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/nfsidbg.a(nfsidbg.o)	0	6	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/ng1stubs.a(ng1stubs.o)	0	6	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.22/usr/cpu/sysgen/IP35boot/nic.o	32	0	0	0	0	0	0	12	20	0	0.0	0.0	37.5	0.0							0	0	0	
+functions in 6.5.22/usr/cpu/sysgen/IP35boot/nic.o	32	0	28	0	28	0	4	0	0	0	87.5	100.0	100.0	87.5							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/nlmstubs.a(nlmstubs.o)	0	26	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/nolocks.a(cnolocks.o)	0	14	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/nolocks.a(asmnolocks.o)	0	16	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -3868,9 +3868,9 @@ functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_irix_memmgmt.o)	0	1	0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_irix_root.o)	0	2	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_snapshot.o)	0	60	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvmidbg.o	0	39	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.30/unix.IP27	1113	12371	180	10	179	0	42	232	659	0	16.2	19.9	40.8	16.2							0	0	0	
-functions in 6.5.30/unix.IP30	890	12197	127	5	127	0	2	181	580	0	14.3	14.5	34.8	14.3							0	0	5	
-functions in 6.5.30/unix.IP35	1074	14056	153	46	153	0	58	236	627	0	14.2	19.6	41.6	14.2							0	0	0	
+functions in 6.5.30/unix.IP27	1113	12371	199	10	198	0	51	221	642	0	17.9	22.5	42.3	17.9							0	0	0	
+functions in 6.5.30/unix.IP30	890	12197	128	5	128	0	26	170	566	0	14.4	17.3	36.4	14.4							0	0	5	
+functions in 6.5.30/unix.IP35	1074	14056	154	46	154	0	85	225	610	0	14.3	22.3	43.2	14.3							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP22boot/isdnchan.o	0	75	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/acl.a(acl.o)	0	16	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/acl_hwg.o	0	3	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -4282,7 +4282,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP27boot/nfs3.a(xattr_clnt.o)	0	10	0	0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/nfs3.a(xattr_subr.o)	0	2	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/nfsidbg.a(nfsidbg.o)	0	5	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/nfsstubs.a(nfsstubs.o)	0	10	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.30/usr/cpu/sysgen/IP27boot/nic.o	32	0	0	0	0	0	0	12	20	0	0.0	0.0	37.5	0.0							0	0	0	
+functions in 6.5.30/usr/cpu/sysgen/IP27boot/nic.o	32	0	30	0	30	0	2	0	0	0	93.8	100.0	100.0	93.8							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/nlmstubs.a(nlmstubs.o)	0	25	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/nolocks.a(cnolocks.o)	0	14	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/nolocks.a(asmnolocks.o)	0	16	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -5111,7 +5111,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP30boot/nfs3.a(nfs3_vfsops.o)	0	9	0	0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/nfs3.a(xattr_clnt.o)	0	10	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/nfs3.a(xattr_subr.o)	0	2	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/nfsidbg.a(nfsidbg.o)	0	5	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.30/usr/cpu/sysgen/IP30boot/nic.o	29	0	0	0	0	0	0	12	17	0	0.0	0.0	41.4	0.0							0	0	0	
+functions in 6.5.30/usr/cpu/sysgen/IP30boot/nic.o	29	0	27	0	27	0	2	0	0	0	93.1	100.0	100.0	93.1							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/nlmstubs.a(nlmstubs.o)	0	25	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/nolocks.a(cnolocks.o)	0	14	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/nolocks.a(asmnolocks.o)	0	16	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -6665,7 +6665,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP35boot/nfs3.a(xattr_clnt.o)	0	10	0	0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/nfs3.a(xattr_subr.o)	0	2	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/nfsidbg.a(nfsidbg.o)	0	5	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/ng1stubs.a(ng1stubs.o)	0	6	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.30/usr/cpu/sysgen/IP35boot/nic.o	32	0	0	0	0	0	0	12	20	0	0.0	0.0	37.5	0.0							0	0	0	
+functions in 6.5.30/usr/cpu/sysgen/IP35boot/nic.o	32	0	28	0	28	0	4	0	0	0	87.5	100.0	100.0	87.5							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/nlmstubs.a(nlmstubs.o)	0	25	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/nolocks.a(cnolocks.o)	0	14	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/nolocks.a(asmnolocks.o)	0	16	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			

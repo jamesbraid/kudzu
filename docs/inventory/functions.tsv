@@ -4738,7 +4738,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xbbc8	28	test_and_set_int64	dwarf+symtab	d7bf6952a39d		out:2	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xbbe4	28	swap_int	dwarf+symtab	16dbf7b98860	shared-address	out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xbbe4	28	swap_long	symtab	16dbf7b98860	shared-address	out:2	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xbbe4	28	swap_ptr	symtab	16dbf7b98860	shared-address	out:2	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xbbe4	28	swap_ptr	symtab	16dbf7b98860	shared-address	out:2	named-only	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xbc00	40	compare_and_swap_int	dwarf+symtab	42942dafb2b7	shared-address	out:2	named-only	docs/syssgi.md#test-and-stub-selectors	Test and stub selectors
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xbc00	40	compare_and_swap_kt	symtab	42942dafb2b7	shared-address	out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xbc00	40	compare_and_swap_long	symtab	42942dafb2b7	shared-address	out:2	undocumented		
@@ -21922,7 +21922,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2e7b4	156	compare_and_dec_int_gt_hot2	dwarf+symtab	d83b57bfd2ff		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2e850	28	swap_int64	dwarf+symtab	1be725d32eca	shared-address	out:2	named-only	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2e850	28	swap_long	symtab	1be725d32eca	shared-address	out:2	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2e850	28	swap_ptr	symtab	1be725d32eca	shared-address	out:2	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2e850	28	swap_ptr	symtab	1be725d32eca	shared-address	out:2	named-only	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2e86c	152	compare_and_swap_int64	dwarf+symtab	e993d0870d2c	shared-address	out:2	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2e86c	152	compare_and_swap_kt	symtab	e993d0870d2c	shared-address	out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2e86c	152	compare_and_swap_long	symtab	e993d0870d2c	shared-address	out:2	undocumented		
@@ -24870,38 +24870,38 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/nfsstubs.a(nfsstubs.o)	shared-kernel	n64	.text	0x38	8	nfs_clearstat	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/nfsstubs.a(nfsstubs.o)	shared-kernel	n64	.text	0x40	8	stop_nfs	dwarf+symtab	78aa5094d5ec		out:3	named-only	docs/syssgi.md#thread-control-and-scheduling-selectors	Thread control and scheduling selectors
 6.5.22/usr/cpu/sysgen/IP27boot/nfsstubs.a(nfsstubs.o)	shared-kernel	n64	.text	0x48	8	nfs_icrash	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64		0x0		crc16	dwarf+symtab			in	named-only	docs/panics.md#nic_read_mfg	`nic_read_mfg`
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x68	52	nic_get_phase_bits	dwarf+symtab	e964f21e8b77		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x9c	44	nic_presence	dwarf+symtab	6d6833ceca2f		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xc8	68	nic_write	dwarf+symtab	a6203f5b06f2		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x10c	44	nic_read	dwarf+symtab	d48e6d01cac3		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x138	116	nic_write_byte	dwarf+symtab	a97ac3cdf271		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1ac	100	nic_read_byte	dwarf+symtab	47b4afd80f80		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x210	484	nic_next_scan	dwarf+symtab	71d15f651f53		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x3f4	40	nic_setup	dwarf+symtab	81a781f1088a		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x41c	400	nic_next	dwarf+symtab	db8237bd1100		in	named-only	docs/panics.md#sub_0xc0000000000692b8	`sub_0xc0000000000692b8`
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x5ac	316	nic_match_rom	dwarf+symtab	85e55a0d8b3a		in	named-only	docs/panics.md#sub_0xc0000000000692b8	`sub_0xc0000000000692b8`
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x6e8	400	nic_read_one_page	dwarf+symtab	bf51fb9cd3d0		in	named-only	docs/panics.md#nic_read_one_page	`nic_read_one_page`
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x878	788	nic_read_mfg	dwarf+symtab	e3ebaec03993		in	named-only	docs/panics.md#nic_read_mfg	`nic_read_mfg`
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xb8c	128	char2hex	dwarf+symtab	7bb5e4334828		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xc0c	140	chars2hex	dwarf+symtab	2fae8aedf6a3		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xc98	268	chars2print	dwarf+symtab	e75d037be9f4		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xda4	628	nic_eaddr	dwarf+symtab	7c661884830a		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1018	136	nic_access_mcr32	dwarf+symtab	e51d91ee4c4f		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x10a0	184	nic_get_eaddr	dwarf+symtab	7befa8c40a9c		in	named-only	docs/panics.md#nic_get_eaddr	`nic_get_eaddr`
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1158	1184	nic_mfg_next	dwarf+symtab	df4ad335765d		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x15f8	88	nic_info_get	dwarf+symtab	95a643a444b0		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1650	44	nic_vertex_info_get	dwarf+symtab	fc1dcc1547d4		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x167c	268	nic_vertex_info_set	dwarf+symtab	7e4b29ee3213		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1788	60	nic_vertex_info_match	dwarf+symtab	c036e62fa314		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x17c4	260	nic_access_hub	dwarf+symtab	2b864caeda03		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x18c8	36	nic_hub_vertex_info	dwarf+symtab	3e0abafb70a1		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x18ec	32	nic_bridge_vertex_info	dwarf+symtab	a862019d0b09		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x190c	32	nic_hq4_vertex_info	dwarf+symtab	a862019d0b09		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x192c	48	nic_ioc3_vertex_info	dwarf+symtab	e199daca4083		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x195c	88	nic_vmc_add	dwarf+symtab	31114cb60a87		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x19b4	12	nic_vmc_del	dwarf+symtab	ff9cc7fdb4a7		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x19c0	160	nic_vmc_check	dwarf+symtab	81fdec6a1784		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64		0x0		crc16	dwarf+symtab			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x68	52	nic_get_phase_bits	dwarf+symtab	e964f21e8b77		in	located	docs/nic.md#bus-access	Bus access
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x9c	44	nic_presence	dwarf+symtab	6d6833ceca2f		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xc8	68	nic_write	dwarf+symtab	a6203f5b06f2		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x10c	44	nic_read	dwarf+symtab	d48e6d01cac3		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x138	116	nic_write_byte	dwarf+symtab	a97ac3cdf271		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1ac	100	nic_read_byte	dwarf+symtab	47b4afd80f80		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x210	484	nic_next_scan	dwarf+symtab	71d15f651f53		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x3f4	40	nic_setup	dwarf+symtab	81a781f1088a		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x41c	400	nic_next	dwarf+symtab	db8237bd1100		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x5ac	316	nic_match_rom	dwarf+symtab	85e55a0d8b3a		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x6e8	400	nic_read_one_page	dwarf+symtab	bf51fb9cd3d0		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x878	788	nic_read_mfg	dwarf+symtab	e3ebaec03993		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xb8c	128	char2hex	dwarf+symtab	7bb5e4334828		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xc0c	140	chars2hex	dwarf+symtab	2fae8aedf6a3		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xc98	268	chars2print	dwarf+symtab	e75d037be9f4		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xda4	628	nic_eaddr	dwarf+symtab	7c661884830a		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1018	136	nic_access_mcr32	dwarf+symtab	e51d91ee4c4f		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x10a0	184	nic_get_eaddr	dwarf+symtab	7befa8c40a9c		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1158	1184	nic_mfg_next	dwarf+symtab	df4ad335765d		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x15f8	88	nic_info_get	dwarf+symtab	95a643a444b0		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1650	44	nic_vertex_info_get	dwarf+symtab	fc1dcc1547d4		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x167c	268	nic_vertex_info_set	dwarf+symtab	7e4b29ee3213		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1788	60	nic_vertex_info_match	dwarf+symtab	c036e62fa314		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x17c4	260	nic_access_hub	dwarf+symtab	2b864caeda03		in	understood	docs/nic.md#bus-access	Bus access
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x18c8	36	nic_hub_vertex_info	dwarf+symtab	3e0abafb70a1		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x18ec	32	nic_bridge_vertex_info	dwarf+symtab	a862019d0b09		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x190c	32	nic_hq4_vertex_info	dwarf+symtab	a862019d0b09		in	located	docs/nic.md#vertex-labels	Vertex labels
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x192c	48	nic_ioc3_vertex_info	dwarf+symtab	e199daca4083		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x195c	88	nic_vmc_add	dwarf+symtab	31114cb60a87		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x19b4	12	nic_vmc_del	dwarf+symtab	ff9cc7fdb4a7		in	understood	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x19c0	160	nic_vmc_check	dwarf+symtab	81fdec6a1784		in	understood	docs/nic.md#other-builds	Other builds
 6.5.22/usr/cpu/sysgen/IP27boot/nlmstubs.a(nlmstubs.o)	shared-kernel	n64		0x0		release_all_locks	dwarf+symtab			out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/nlmstubs.a(nlmstubs.o)	shared-kernel	n64	.text	0x8	8	lockd_cleanlocks	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/nlmstubs.a(nlmstubs.o)	shared-kernel	n64	.text	0x10	8	share_init	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
@@ -39934,7 +39934,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x68c4	156	compare_and_dec_int_gt_hot2	dwarf+symtab	d83b57bfd2ff		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x6960	28	swap_int64	dwarf+symtab	1be725d32eca	shared-address	out:2	named-only	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x6960	28	swap_long	symtab	1be725d32eca	shared-address	out:2	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x6960	28	swap_ptr	symtab	1be725d32eca	shared-address	out:2	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x6960	28	swap_ptr	symtab	1be725d32eca	shared-address	out:2	named-only	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x697c	152	compare_and_swap_int64	dwarf+symtab	e993d0870d2c	shared-address	out:2	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x697c	152	compare_and_swap_kt	symtab	e993d0870d2c	shared-address	out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x697c	152	compare_and_swap_long	symtab	e993d0870d2c	shared-address	out:2	undocumented		
@@ -42500,35 +42500,35 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/nfsidbg.a(nfsidbg.o)	shared-kernel	n64	.text	0x4a8	572	idbg_prrnode	dwarf+symtab	8758ea1e7e99		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/nfsidbg.a(nfsidbg.o)	shared-kernel	n64	.text	0x6e4	300	idbg_mntinfo	dwarf+symtab	832e4837c8b5		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/nfsidbg.a(nfsidbg.o)	shared-kernel	n64	.text	0x810	244	nfsidbginit	dwarf+symtab	31f618f822b9		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64		0x0		crc16	dwarf+symtab			in	named-only	docs/panics.md#nic_read_mfg	`nic_read_mfg`
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x68	44	nic_presence	dwarf+symtab	6d6833ceca2f		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x94	68	nic_write	dwarf+symtab	a6203f5b06f2		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xd8	44	nic_read	dwarf+symtab	d48e6d01cac3		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x104	116	nic_write_byte	dwarf+symtab	a97ac3cdf271		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x178	100	nic_read_byte	dwarf+symtab	47b4afd80f80		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1dc	484	nic_next_scan	dwarf+symtab	71d15f651f53		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x3c0	40	nic_setup	dwarf+symtab	81a781f1088a		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x3e8	400	nic_next	dwarf+symtab	db8237bd1100		in	named-only	docs/panics.md#sub_0xc0000000000692b8	`sub_0xc0000000000692b8`
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x578	316	nic_match_rom	dwarf+symtab	85e55a0d8b3a		in	named-only	docs/panics.md#sub_0xc0000000000692b8	`sub_0xc0000000000692b8`
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x6b4	400	nic_read_one_page	dwarf+symtab	bf51fb9cd3d0		in	named-only	docs/panics.md#nic_read_one_page	`nic_read_one_page`
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x844	788	nic_read_mfg	dwarf+symtab	e3ebaec03993		in	named-only	docs/panics.md#nic_read_mfg	`nic_read_mfg`
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xb58	128	char2hex	dwarf+symtab	7bb5e4334828		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xbd8	140	chars2hex	dwarf+symtab	2fae8aedf6a3		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xc64	268	chars2print	dwarf+symtab	e75d037be9f4		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xd70	628	nic_eaddr	dwarf+symtab	7c661884830a		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xfe4	136	nic_access_mcr32	dwarf+symtab	e51d91ee4c4f		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x106c	184	nic_get_eaddr	dwarf+symtab	7befa8c40a9c		in	named-only	docs/panics.md#nic_get_eaddr	`nic_get_eaddr`
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1124	1188	nic_mfg_next	dwarf+symtab	8800eb0eb1be		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x15c8	88	nic_info_get	dwarf+symtab	95a643a444b0		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1620	44	nic_vertex_info_get	dwarf+symtab	fc1dcc1547d4		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x164c	268	nic_vertex_info_set	dwarf+symtab	7e4b29ee3213		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1758	60	nic_vertex_info_match	dwarf+symtab	2e9718e25267		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1794	32	nic_bridge_vertex_info	dwarf+symtab	a862019d0b09		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x17b4	32	nic_hq4_vertex_info	dwarf+symtab	a862019d0b09		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x17d4	48	nic_ioc3_vertex_info	dwarf+symtab	e199daca4083		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1804	88	nic_vmc_add	dwarf+symtab	31114cb60a87		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x185c	12	nic_vmc_del	dwarf+symtab	ff9cc7fdb4a7		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1868	160	nic_vmc_check	dwarf+symtab	81fdec6a1784		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64		0x0		crc16	dwarf+symtab			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x68	44	nic_presence	dwarf+symtab	6d6833ceca2f		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x94	68	nic_write	dwarf+symtab	a6203f5b06f2		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xd8	44	nic_read	dwarf+symtab	d48e6d01cac3		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x104	116	nic_write_byte	dwarf+symtab	a97ac3cdf271		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x178	100	nic_read_byte	dwarf+symtab	47b4afd80f80		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1dc	484	nic_next_scan	dwarf+symtab	71d15f651f53		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x3c0	40	nic_setup	dwarf+symtab	81a781f1088a		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x3e8	400	nic_next	dwarf+symtab	db8237bd1100		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x578	316	nic_match_rom	dwarf+symtab	85e55a0d8b3a		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x6b4	400	nic_read_one_page	dwarf+symtab	bf51fb9cd3d0		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x844	788	nic_read_mfg	dwarf+symtab	e3ebaec03993		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xb58	128	char2hex	dwarf+symtab	7bb5e4334828		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xbd8	140	chars2hex	dwarf+symtab	2fae8aedf6a3		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xc64	268	chars2print	dwarf+symtab	e75d037be9f4		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xd70	628	nic_eaddr	dwarf+symtab	7c661884830a		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xfe4	136	nic_access_mcr32	dwarf+symtab	e51d91ee4c4f		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x106c	184	nic_get_eaddr	dwarf+symtab	7befa8c40a9c		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1124	1188	nic_mfg_next	dwarf+symtab	8800eb0eb1be		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x15c8	88	nic_info_get	dwarf+symtab	95a643a444b0		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1620	44	nic_vertex_info_get	dwarf+symtab	fc1dcc1547d4		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x164c	268	nic_vertex_info_set	dwarf+symtab	7e4b29ee3213		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1758	60	nic_vertex_info_match	dwarf+symtab	2e9718e25267		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1794	32	nic_bridge_vertex_info	dwarf+symtab	a862019d0b09		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x17b4	32	nic_hq4_vertex_info	dwarf+symtab	a862019d0b09		in	located	docs/nic.md#vertex-labels	Vertex labels
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x17d4	48	nic_ioc3_vertex_info	dwarf+symtab	e199daca4083		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1804	88	nic_vmc_add	dwarf+symtab	31114cb60a87		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x185c	12	nic_vmc_del	dwarf+symtab	ff9cc7fdb4a7		in	understood	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1868	160	nic_vmc_check	dwarf+symtab	81fdec6a1784		in	understood	docs/nic.md#other-builds	Other builds
 6.5.22/usr/cpu/sysgen/IP30boot/nlmstubs.a(nlmstubs.o)	shared-kernel	n64		0x0		release_all_locks	dwarf+symtab			out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/nlmstubs.a(nlmstubs.o)	shared-kernel	n64	.text	0x8	8	lockd_cleanlocks	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/nlmstubs.a(nlmstubs.o)	shared-kernel	n64	.text	0x10	8	share_init	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
@@ -55993,7 +55993,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xca98	28	test_and_set_int64	symtab	d7bf6952a39d		out:2	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xcab4	28	swap_int	symtab	16dbf7b98860	shared-address	out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xcab4	28	swap_long	symtab	16dbf7b98860	shared-address	out:2	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xcab4	28	swap_ptr	symtab	16dbf7b98860	shared-address	out:2	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xcab4	28	swap_ptr	symtab	16dbf7b98860	shared-address	out:2	named-only	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xcad0	40	compare_and_swap_int	symtab	42942dafb2b7	shared-address	out:2	named-only	docs/syssgi.md#test-and-stub-selectors	Test and stub selectors
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xcad0	40	compare_and_swap_kt	symtab	42942dafb2b7	shared-address	out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xcad0	40	compare_and_swap_long	symtab	42942dafb2b7	shared-address	out:2	undocumented		
@@ -71850,7 +71850,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x29fc8	48	compare_and_dec_int_gt_hot2	dwarf+symtab	4de61c2f4d97		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x29ff8	28	swap_int64	dwarf+symtab	a621ea59a77e	shared-address	out:2	named-only	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x29ff8	28	swap_long	symtab	a621ea59a77e	shared-address	out:2	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x29ff8	28	swap_ptr	symtab	a621ea59a77e	shared-address	out:2	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x29ff8	28	swap_ptr	symtab	a621ea59a77e	shared-address	out:2	named-only	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2a014	40	compare_and_swap_int64	dwarf+symtab	efbdd7ce0ed7	shared-address	out:2	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2a014	40	compare_and_swap_kt	symtab	efbdd7ce0ed7	shared-address	out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2a014	40	compare_and_swap_long	symtab	efbdd7ce0ed7	shared-address	out:2	undocumented		
@@ -74431,38 +74431,38 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/ng1stubs.a(ng1stubs.o)	shared-kernel	n64	.text	0x18	8	set_dma_in_progress	dwarf+symtab	87506497337c		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/ng1stubs.a(ng1stubs.o)	shared-kernel	n64	.text	0x20	8	set_gfx_lock	dwarf+symtab	87506497337c		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/ng1stubs.a(ng1stubs.o)	shared-kernel	n64	.text	0x28	8	ng1_earlyinit	dwarf+symtab	87506497337c		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64		0x0		crc16	dwarf+symtab			in	named-only	docs/panics.md#nic_read_mfg	`nic_read_mfg`
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x68	52	nic_get_phase_bits	dwarf+symtab	e964f21e8b77		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x9c	44	nic_presence	dwarf+symtab	6d6833ceca2f		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xc8	68	nic_write	dwarf+symtab	a6203f5b06f2		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x10c	44	nic_read	dwarf+symtab	d48e6d01cac3		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x138	116	nic_write_byte	dwarf+symtab	a97ac3cdf271		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1ac	100	nic_read_byte	dwarf+symtab	47b4afd80f80		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x210	484	nic_next_scan	dwarf+symtab	71d15f651f53		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x3f4	40	nic_setup	dwarf+symtab	81a781f1088a		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x41c	400	nic_next	dwarf+symtab	db8237bd1100		in	named-only	docs/panics.md#sub_0xc0000000000692b8	`sub_0xc0000000000692b8`
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x5ac	316	nic_match_rom	dwarf+symtab	85e55a0d8b3a		in	named-only	docs/panics.md#sub_0xc0000000000692b8	`sub_0xc0000000000692b8`
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x6e8	400	nic_read_one_page	dwarf+symtab	bf51fb9cd3d0		in	named-only	docs/panics.md#nic_read_one_page	`nic_read_one_page`
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x878	788	nic_read_mfg	dwarf+symtab	e3ebaec03993		in	named-only	docs/panics.md#nic_read_mfg	`nic_read_mfg`
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xb8c	128	char2hex	dwarf+symtab	7bb5e4334828		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xc0c	140	chars2hex	dwarf+symtab	2fae8aedf6a3		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xc98	268	chars2print	dwarf+symtab	e75d037be9f4		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xda4	628	nic_eaddr	dwarf+symtab	7c661884830a		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1018	136	nic_access_mcr32	dwarf+symtab	e51d91ee4c4f		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x10a0	184	nic_get_eaddr	dwarf+symtab	7befa8c40a9c		in	named-only	docs/panics.md#nic_get_eaddr	`nic_get_eaddr`
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1158	1184	nic_mfg_next	dwarf+symtab	df4ad335765d		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x15f8	88	nic_info_get	dwarf+symtab	95a643a444b0		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1650	44	nic_vertex_info_get	dwarf+symtab	fc1dcc1547d4		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x167c	268	nic_vertex_info_set	dwarf+symtab	7e4b29ee3213		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1788	60	nic_vertex_info_match	dwarf+symtab	c036e62fa314		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x17c4	260	nic_access_hub	dwarf+symtab	958b7d9a35b3		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x18c8	36	nic_hub_vertex_info	dwarf+symtab	3e0abafb70a1		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x18ec	32	nic_bridge_vertex_info	dwarf+symtab	a862019d0b09		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x190c	32	nic_hq4_vertex_info	dwarf+symtab	a862019d0b09		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x192c	48	nic_ioc3_vertex_info	dwarf+symtab	e199daca4083		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x195c	88	nic_vmc_add	dwarf+symtab	31114cb60a87		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x19b4	12	nic_vmc_del	dwarf+symtab	ff9cc7fdb4a7		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x19c0	160	nic_vmc_check	dwarf+symtab	81fdec6a1784		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64		0x0		crc16	dwarf+symtab			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x68	52	nic_get_phase_bits	dwarf+symtab	e964f21e8b77		in	located	docs/nic.md#bus-access	Bus access
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x9c	44	nic_presence	dwarf+symtab	6d6833ceca2f		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xc8	68	nic_write	dwarf+symtab	a6203f5b06f2		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x10c	44	nic_read	dwarf+symtab	d48e6d01cac3		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x138	116	nic_write_byte	dwarf+symtab	a97ac3cdf271		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1ac	100	nic_read_byte	dwarf+symtab	47b4afd80f80		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x210	484	nic_next_scan	dwarf+symtab	71d15f651f53		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x3f4	40	nic_setup	dwarf+symtab	81a781f1088a		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x41c	400	nic_next	dwarf+symtab	db8237bd1100		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x5ac	316	nic_match_rom	dwarf+symtab	85e55a0d8b3a		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x6e8	400	nic_read_one_page	dwarf+symtab	bf51fb9cd3d0		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x878	788	nic_read_mfg	dwarf+symtab	e3ebaec03993		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xb8c	128	char2hex	dwarf+symtab	7bb5e4334828		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xc0c	140	chars2hex	dwarf+symtab	2fae8aedf6a3		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xc98	268	chars2print	dwarf+symtab	e75d037be9f4		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xda4	628	nic_eaddr	dwarf+symtab	7c661884830a		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1018	136	nic_access_mcr32	dwarf+symtab	e51d91ee4c4f		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x10a0	184	nic_get_eaddr	dwarf+symtab	7befa8c40a9c		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1158	1184	nic_mfg_next	dwarf+symtab	df4ad335765d		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x15f8	88	nic_info_get	dwarf+symtab	95a643a444b0		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1650	44	nic_vertex_info_get	dwarf+symtab	fc1dcc1547d4		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x167c	268	nic_vertex_info_set	dwarf+symtab	7e4b29ee3213		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1788	60	nic_vertex_info_match	dwarf+symtab	c036e62fa314		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x17c4	260	nic_access_hub	dwarf+symtab	958b7d9a35b3		in	located	docs/nic.md#bus-access	Bus access
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x18c8	36	nic_hub_vertex_info	dwarf+symtab	3e0abafb70a1		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x18ec	32	nic_bridge_vertex_info	dwarf+symtab	a862019d0b09		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x190c	32	nic_hq4_vertex_info	dwarf+symtab	a862019d0b09		in	located	docs/nic.md#vertex-labels	Vertex labels
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x192c	48	nic_ioc3_vertex_info	dwarf+symtab	e199daca4083		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x195c	88	nic_vmc_add	dwarf+symtab	31114cb60a87		in	understood	docs/nic.md#other-builds	Other builds
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x19b4	12	nic_vmc_del	dwarf+symtab	ff9cc7fdb4a7		in	understood	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x19c0	160	nic_vmc_check	dwarf+symtab	81fdec6a1784		in	understood	docs/nic.md#other-builds	Other builds
 6.5.22/usr/cpu/sysgen/IP35boot/nlmstubs.a(nlmstubs.o)	shared-kernel	n64		0x0		release_all_locks	dwarf+symtab			out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/nlmstubs.a(nlmstubs.o)	shared-kernel	n64	.text	0x8	8	lockd_cleanlocks	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/nlmstubs.a(nlmstubs.o)	shared-kernel	n64	.text	0x10	8	share_init	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
@@ -85470,9 +85470,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64		0x0		cell_never	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		cgetdents	dwarf			out:1	named-only	docs/syscalls.md#entries	Entries
 6.5.30/unix.IP27	shared-kernel	n64		0x0		chainuli	dwarf			out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64		0x0		char2hex	dwarf			out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64		0x0		chars2hex	dwarf			out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64		0x0		chars2print	dwarf			out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64		0x0		char2hex	dwarf			out:1	located	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/unix.IP27	shared-kernel	n64		0x0		chars2hex	dwarf			out:1	located	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/unix.IP27	shared-kernel	n64		0x0		chars2print	dwarf			out:1	located	docs/nic.md#manufacturing-text	Manufacturing text
 6.5.30/unix.IP27	shared-kernel	n64		0x0		chdirec	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		check_bindings	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		check_cpuset	dwarf			out:1	undocumented		
@@ -85657,7 +85657,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64		0x0		cpuset_share_node	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		cpuset_vhand	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		cquotasync	dwarf			out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64		0x0		crc16	dwarf			out:1	named-only	docs/panics.md#nic_read_mfg	`nic_read_mfg`
+6.5.30/unix.IP27	shared-kernel	n64		0x0		crc16	dwarf			out:1	located	docs/nic.md#1-wire-primitives	1-Wire primitives
 6.5.30/unix.IP27	shared-kernel	n64		0x0		cread	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		csa_config_make	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		csa_config_write	dwarf			out:1	undocumented		
@@ -87241,15 +87241,15 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64		0x0		nfstcp_relclnt	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		nfswrite	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		nic_access	dwarf			in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64		0x0		nic_access_hub	dwarf			in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64		0x0		nic_match_rom	dwarf			in	named-only	docs/panics.md#sub_0xc0000000000692b8	`sub_0xc0000000000692b8`
-6.5.30/unix.IP27	shared-kernel	n64		0x0		nic_mfg_next	dwarf			in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64		0x0		nic_next_scan	dwarf			in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64		0x0		nic_presence	dwarf			in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64		0x0		nic_read	dwarf			in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64		0x0		nic_read_byte	dwarf			in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64		0x0		nic_write	dwarf			in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64		0x0		nic_write_byte	dwarf			in	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64		0x0		nic_access_hub	dwarf			in	located	docs/nic.md#bus-access	Bus access
+6.5.30/unix.IP27	shared-kernel	n64		0x0		nic_match_rom	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP27	shared-kernel	n64		0x0		nic_mfg_next	dwarf			in	located	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/unix.IP27	shared-kernel	n64		0x0		nic_next_scan	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP27	shared-kernel	n64		0x0		nic_presence	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP27	shared-kernel	n64		0x0		nic_read	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP27	shared-kernel	n64		0x0		nic_read_byte	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP27	shared-kernel	n64		0x0		nic_write	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP27	shared-kernel	n64		0x0		nic_write_byte	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
 6.5.30/unix.IP27	shared-kernel	n64		0x0		nm_access	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		nm_close	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		nm_create	dwarf			out:1	undocumented		
@@ -90092,7 +90092,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000482c4	156	compare_and_dec_int_gt_hot2	symtab	d83b57bfd2ff		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000048360	28	swap_int64	symtab	1be725d32eca	shared-address	out:1	named-only	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000048360	28	swap_long	symtab	1be725d32eca	shared-address	out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000048360	28	swap_ptr	symtab	1be725d32eca	shared-address	out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000048360	28	swap_ptr	symtab	1be725d32eca	shared-address	out:1	named-only	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000004837c	152	compare_and_swap_int64	symtab	e993d0870d2c	shared-address	out:1	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000004837c	152	compare_and_swap_kt	symtab	e993d0870d2c	shared-address	out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000004837c	152	compare_and_swap_long	symtab	e993d0870d2c	shared-address	out:1	undocumented		
@@ -90577,25 +90577,25 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000068b2c	160	fawlty_exec	symtab	056dbfd53ab8		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000068bcc	260	fawlty_resched	symtab	b96e46c8cf66		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000068cd0	60	fawlty_disk	symtab	13702734b5f3		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000068d74	52	nic_get_phase_bits	symtab	9203109b21ab		in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000069100	40	nic_setup	symtab	f4ed16eccf58		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000069128	400	nic_next	symtab	902f4996686b		in	named-only	docs/panics.md#sub_0xc0000000000692b8	`sub_0xc0000000000692b8`
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000693f4	400	nic_read_one_page	symtab	e5af677e3609		in	named-only	docs/panics.md#nic_read_one_page	`nic_read_one_page`
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000069584	788	nic_read_mfg	symtab	3d444dae3f72		in	named-only	docs/panics.md#nic_read_mfg	`nic_read_mfg`
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000069ab0	628	nic_eaddr	symtab	0cfe2cffadca		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000069d24	136	nic_access_mcr32	symtab	cc6a48c394d2		in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000069dac	184	nic_get_eaddr	symtab	97b9399e6d2f		in	named-only	docs/panics.md#nic_get_eaddr	`nic_get_eaddr`
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a304	88	nic_info_get	symtab	505ebbf7da4d		in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a35c	44	nic_vertex_info_get	symtab	2a1dbd02f0c6		in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a388	268	nic_vertex_info_set	symtab	03c24100cdea		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a494	60	nic_vertex_info_match	symtab	74010ec97d77		in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a5d4	36	nic_hub_vertex_info	symtab	06b860dd51d8		in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a5f8	32	nic_bridge_vertex_info	symtab	744ef720ad4a		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a618	32	nic_hq4_vertex_info	symtab	744ef720ad4a		in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a638	48	nic_ioc3_vertex_info	symtab	025d360ff4b3		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a668	88	nic_vmc_add	symtab	9d7f3181ac99		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a6c0	12	nic_vmc_del	symtab	ff9cc7fdb4a7		in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a6cc	160	nic_vmc_check	symtab	c03d3224f0a9		in	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000068d74	52	nic_get_phase_bits	symtab	9203109b21ab		in	understood	docs/nic.md#bus-access	Bus access
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000069100	40	nic_setup	symtab	f4ed16eccf58		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000069128	400	nic_next	symtab	902f4996686b		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000693f4	400	nic_read_one_page	symtab	e5af677e3609		in	understood	docs/nic.md#memory-reads	Memory reads
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000069584	788	nic_read_mfg	symtab	3d444dae3f72		in	understood	docs/nic.md#memory-reads	Memory reads
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000069ab0	628	nic_eaddr	symtab	0cfe2cffadca		in	understood	docs/nic.md#memory-reads	Memory reads
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000069d24	136	nic_access_mcr32	symtab	cc6a48c394d2		in	understood	docs/nic.md#bus-access	Bus access
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000069dac	184	nic_get_eaddr	symtab	97b9399e6d2f		in	understood	docs/nic.md#memory-reads	Memory reads
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a304	88	nic_info_get	symtab	505ebbf7da4d		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a35c	44	nic_vertex_info_get	symtab	2a1dbd02f0c6		in	understood	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a388	268	nic_vertex_info_set	symtab	03c24100cdea		in	understood	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a494	60	nic_vertex_info_match	symtab	74010ec97d77		in	understood	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a5d4	36	nic_hub_vertex_info	symtab	06b860dd51d8		in	understood	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a5f8	32	nic_bridge_vertex_info	symtab	744ef720ad4a		in	understood	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a618	32	nic_hq4_vertex_info	symtab	744ef720ad4a		in	understood	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a638	48	nic_ioc3_vertex_info	symtab	025d360ff4b3		in	understood	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a668	88	nic_vmc_add	symtab	9d7f3181ac99		in	understood	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a6c0	12	nic_vmc_del	symtab	ff9cc7fdb4a7		in	understood	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a6cc	160	nic_vmc_check	symtab	c03d3224f0a9		in	understood	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a76c	596	sn0drv_attach	symtab	523efd55d136		in	named-only	docs/panics.md#sn0drv_attach	`sn0drv_attach`
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a9c0	28	sndrv_attach	symtab	fc6d6d911582		out:1	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000006a9dc	44	sn0drv_open	symtab	d548db308532		in	undocumented		
@@ -98914,9 +98914,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64		0x0		cell_never	dwarf			out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64		0x0		cgetdents	dwarf			out:1	named-only	docs/syscalls.md#entries	Entries
 6.5.30/unix.IP30	shared-kernel	n64		0x0		chainuli	dwarf			out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64		0x0		char2hex	dwarf			out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64		0x0		chars2hex	dwarf			out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64		0x0		chars2print	dwarf			out:1	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64		0x0		char2hex	dwarf			out:1	located	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/unix.IP30	shared-kernel	n64		0x0		chars2hex	dwarf			out:1	located	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/unix.IP30	shared-kernel	n64		0x0		chars2print	dwarf			out:1	located	docs/nic.md#manufacturing-text	Manufacturing text
 6.5.30/unix.IP30	shared-kernel	n64		0x0		chdirec	dwarf			out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64		0x0		check_cpuset	dwarf			out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64		0x0		check_oplock	dwarf			out:1	undocumented		
@@ -99089,7 +99089,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64		0x0		cpuset_pid_to_vpr	dwarf			out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64		0x0		cpuset_share_node	dwarf			out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64		0x0		cquotasync	dwarf			out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64		0x0		crc16	dwarf			out:1	named-only	docs/panics.md#nic_read_mfg	`nic_read_mfg`
+6.5.30/unix.IP30	shared-kernel	n64		0x0		crc16	dwarf			out:1	located	docs/nic.md#1-wire-primitives	1-Wire primitives
 6.5.30/unix.IP30	shared-kernel	n64		0x0		cread	dwarf			out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64		0x0		create_ha_dir	dwarf			out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64		0x0		csa_config_make	dwarf			out:1	undocumented		
@@ -100727,14 +100727,14 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64		0x0		nfstcp_clinit	dwarf			out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64		0x0		nfstcp_relclnt	dwarf			out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64		0x0		nfswrite	dwarf			out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64		0x0		nic_match_rom	dwarf			in	named-only	docs/panics.md#sub_0xc0000000000692b8	`sub_0xc0000000000692b8`
-6.5.30/unix.IP30	shared-kernel	n64		0x0		nic_mfg_next	dwarf			in	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64		0x0		nic_next_scan	dwarf			in	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64		0x0		nic_presence	dwarf			in	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64		0x0		nic_read	dwarf			in	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64		0x0		nic_read_byte	dwarf			in	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64		0x0		nic_write	dwarf			in	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64		0x0		nic_write_byte	dwarf			in	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64		0x0		nic_match_rom	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP30	shared-kernel	n64		0x0		nic_mfg_next	dwarf			in	located	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/unix.IP30	shared-kernel	n64		0x0		nic_next_scan	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP30	shared-kernel	n64		0x0		nic_presence	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP30	shared-kernel	n64		0x0		nic_read	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP30	shared-kernel	n64		0x0		nic_read_byte	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP30	shared-kernel	n64		0x0		nic_write	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP30	shared-kernel	n64		0x0		nic_write_byte	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
 6.5.30/unix.IP30	shared-kernel	n64		0x0		nlm1_unlock	dwarf			out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64		0x0		nlm4_granted_res	dwarf			out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64		0x0		nlm4_stat_res	dwarf			out:1	undocumented		
@@ -102915,7 +102915,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020016dd4	156	compare_and_dec_int_gt_hot2	symtab	d83b57bfd2ff		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020016e70	28	swap_int64	symtab	1be725d32eca	shared-address	out:1	named-only	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020016e70	28	swap_long	symtab	1be725d32eca	shared-address	out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020016e70	28	swap_ptr	symtab	1be725d32eca	shared-address	out:1	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020016e70	28	swap_ptr	symtab	1be725d32eca	shared-address	out:1	named-only	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020016e8c	152	compare_and_swap_int64	symtab	e993d0870d2c	shared-address	out:1	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020016e8c	152	compare_and_swap_kt	symtab	e993d0870d2c	shared-address	out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020016e8c	152	compare_and_swap_long	symtab	e993d0870d2c	shared-address	out:1	undocumented		
@@ -103506,23 +103506,23 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020038c78	160	fawlty_exec	symtab	d0341612354a		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020038d18	260	fawlty_resched	symtab	4dac30dd381d		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020038e1c	60	fawlty_disk	symtab	17d0dfe66d29		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020039218	40	nic_setup	symtab	27c312382fe3		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020039240	400	nic_next	symtab	b8ed7dfd4f40		in	named-only	docs/panics.md#sub_0xc0000000000692b8	`sub_0xc0000000000692b8`
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003950c	400	nic_read_one_page	symtab	bb68c1cce4d2		in	named-only	docs/panics.md#nic_read_one_page	`nic_read_one_page`
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003969c	788	nic_read_mfg	symtab	eeea89c40434		in	named-only	docs/panics.md#nic_read_mfg	`nic_read_mfg`
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020039bc8	628	nic_eaddr	symtab	e86d0e9b730a		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020039e3c	136	nic_access_mcr32	symtab	17af3d55c6df		in	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020039ec4	184	nic_get_eaddr	symtab	52bfe938c3dd		in	named-only	docs/panics.md#nic_get_eaddr	`nic_get_eaddr`
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a420	88	nic_info_get	symtab	e3ae6d2b2003		in	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a478	44	nic_vertex_info_get	symtab	d1f09128082f		in	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a4a4	268	nic_vertex_info_set	symtab	d06c62094bd2		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a5b0	60	nic_vertex_info_match	symtab	8bce4dc4d915		in	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a5ec	32	nic_bridge_vertex_info	symtab	4db82e70c708		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a60c	32	nic_hq4_vertex_info	symtab	4db82e70c708		in	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a62c	48	nic_ioc3_vertex_info	symtab	631e65612304		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a65c	88	nic_vmc_add	symtab	0ad8978867a7		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a6b4	12	nic_vmc_del	symtab	ff9cc7fdb4a7		in	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a6c0	160	nic_vmc_check	symtab	7d523f63fd70		in	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020039218	40	nic_setup	symtab	27c312382fe3		in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020039240	400	nic_next	symtab	b8ed7dfd4f40		in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003950c	400	nic_read_one_page	symtab	bb68c1cce4d2		in	located	docs/nic.md#memory-reads	Memory reads
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003969c	788	nic_read_mfg	symtab	eeea89c40434		in	located	docs/nic.md#memory-reads	Memory reads
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020039bc8	628	nic_eaddr	symtab	e86d0e9b730a		in	located	docs/nic.md#memory-reads	Memory reads
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020039e3c	136	nic_access_mcr32	symtab	17af3d55c6df		in	located	docs/nic.md#bus-access	Bus access
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020039ec4	184	nic_get_eaddr	symtab	52bfe938c3dd		in	located	docs/nic.md#memory-reads	Memory reads
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a420	88	nic_info_get	symtab	e3ae6d2b2003		in	located	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a478	44	nic_vertex_info_get	symtab	d1f09128082f		in	located	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a4a4	268	nic_vertex_info_set	symtab	d06c62094bd2		in	located	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a5b0	60	nic_vertex_info_match	symtab	8bce4dc4d915		in	located	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a5ec	32	nic_bridge_vertex_info	symtab	4db82e70c708		in	located	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a60c	32	nic_hq4_vertex_info	symtab	4db82e70c708		in	located	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a62c	48	nic_ioc3_vertex_info	symtab	631e65612304		in	located	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a65c	88	nic_vmc_add	symtab	0ad8978867a7		in	located	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a6b4	12	nic_vmc_del	symtab	ff9cc7fdb4a7		in	understood	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a6c0	160	nic_vmc_check	symtab	7d523f63fd70		in	located	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a760	28	xtalk_piomap_alloc	symtab	44a6ec415a58		in	named-only	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a77c	28	xtalk_piomap_free	symtab	b7d8af2fb0d3		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003a798	28	xtalk_piomap_addr	symtab	ed720a86524b		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
@@ -112027,9 +112027,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64		0x0		cfi_write_word	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		cgetdents	dwarf			out:1	named-only	docs/syscalls.md#entries	Entries
 6.5.30/unix.IP35	shared-kernel	n64		0x0		chainuli	dwarf			out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64		0x0		char2hex	dwarf			out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64		0x0		chars2hex	dwarf			out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64		0x0		chars2print	dwarf			out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64		0x0		char2hex	dwarf			out:1	located	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/unix.IP35	shared-kernel	n64		0x0		chars2hex	dwarf			out:1	located	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/unix.IP35	shared-kernel	n64		0x0		chars2print	dwarf			out:1	located	docs/nic.md#manufacturing-text	Manufacturing text
 6.5.30/unix.IP35	shared-kernel	n64		0x0		chdirec	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		check_bindings	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		check_cpuset	dwarf			out:1	undocumented		
@@ -112217,7 +112217,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64		0x0		cpuset_share_node	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		cpuset_vhand	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		cquotasync	dwarf			out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64		0x0		crc16	dwarf			out:1	named-only	docs/panics.md#nic_read_mfg	`nic_read_mfg`
+6.5.30/unix.IP35	shared-kernel	n64		0x0		crc16	dwarf			out:1	located	docs/nic.md#1-wire-primitives	1-Wire primitives
 6.5.30/unix.IP35	shared-kernel	n64		0x0		crc16_calc	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		cread	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		create_ha_dir	dwarf			out:1	undocumented		
@@ -114132,15 +114132,15 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64		0x0		nfstcp_clinit	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		nfstcp_relclnt	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		nfswrite	dwarf			out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64		0x0		nic_access_hub	dwarf			in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64		0x0		nic_match_rom	dwarf			in	named-only	docs/panics.md#sub_0xc0000000000692b8	`sub_0xc0000000000692b8`
-6.5.30/unix.IP35	shared-kernel	n64		0x0		nic_mfg_next	dwarf			in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64		0x0		nic_next_scan	dwarf			in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64		0x0		nic_presence	dwarf			in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64		0x0		nic_read	dwarf			in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64		0x0		nic_read_byte	dwarf			in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64		0x0		nic_write	dwarf			in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64		0x0		nic_write_byte	dwarf			in	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64		0x0		nic_access_hub	dwarf			in	located	docs/nic.md#bus-access	Bus access
+6.5.30/unix.IP35	shared-kernel	n64		0x0		nic_match_rom	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP35	shared-kernel	n64		0x0		nic_mfg_next	dwarf			in	located	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/unix.IP35	shared-kernel	n64		0x0		nic_next_scan	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP35	shared-kernel	n64		0x0		nic_presence	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP35	shared-kernel	n64		0x0		nic_read	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP35	shared-kernel	n64		0x0		nic_read_byte	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP35	shared-kernel	n64		0x0		nic_write	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP35	shared-kernel	n64		0x0		nic_write_byte	dwarf			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
 6.5.30/unix.IP35	shared-kernel	n64		0x0		nicify	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		nlm1_unlock	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		nlm4_granted_res	dwarf			out:1	undocumented		
@@ -117469,7 +117469,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000069f58	48	compare_and_dec_int_gt_hot2	symtab	4de61c2f4d97		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000069f88	28	swap_int64	symtab	a621ea59a77e	shared-address	out:1	named-only	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000069f88	28	swap_long	symtab	a621ea59a77e	shared-address	out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000069f88	28	swap_ptr	symtab	a621ea59a77e	shared-address	out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000069f88	28	swap_ptr	symtab	a621ea59a77e	shared-address	out:1	named-only	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000069fa4	40	compare_and_swap_int64	symtab	efbdd7ce0ed7	shared-address	out:1	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000069fa4	40	compare_and_swap_kt	symtab	efbdd7ce0ed7	shared-address	out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000069fa4	40	compare_and_swap_long	symtab	efbdd7ce0ed7	shared-address	out:1	undocumented		
@@ -118014,25 +118014,25 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000093c34	148	iobrick_eeprom_read	symtab	d60478b976b5		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000093cc8	300	gbrick_eeprom_read	symtab	20842e8868b4		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000093df4	332	vector_eeprom_read	symtab	ab06cac4769b		in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000093fa8	52	nic_get_phase_bits	symtab	42783b2c84e4		in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000094334	40	nic_setup	symtab	c2d2e1b453c7		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009435c	400	nic_next	symtab	22b8e49408ce		in	named-only	docs/panics.md#sub_0xc0000000000692b8	`sub_0xc0000000000692b8`
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000094628	400	nic_read_one_page	symtab	cc6512cec487		in	named-only	docs/panics.md#nic_read_one_page	`nic_read_one_page`
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000947b8	788	nic_read_mfg	symtab	6a655d59df30		in	named-only	docs/panics.md#nic_read_mfg	`nic_read_mfg`
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000094ce4	628	nic_eaddr	symtab	3a828a8148f7		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000094f58	136	nic_access_mcr32	symtab	150a2c4974ce		in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000094fe0	184	nic_get_eaddr	symtab	7ec99b87b51f		in	named-only	docs/panics.md#nic_get_eaddr	`nic_get_eaddr`
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000095538	88	nic_info_get	symtab	9c864ac7bccd		in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000095590	44	nic_vertex_info_get	symtab	dbbd2368ecc1		in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000955bc	268	nic_vertex_info_set	symtab	a4bbac7f7647		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000956c8	60	nic_vertex_info_match	symtab	c819469dfe01		in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000095808	36	nic_hub_vertex_info	symtab	72a9a60db389		in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009582c	32	nic_bridge_vertex_info	symtab	509c30da0e66		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009584c	32	nic_hq4_vertex_info	symtab	509c30da0e66		in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009586c	48	nic_ioc3_vertex_info	symtab	015370659ad1		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009589c	88	nic_vmc_add	symtab	153e5e9c2793		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000958f4	12	nic_vmc_del	symtab	ff9cc7fdb4a7		in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000095900	160	nic_vmc_check	symtab	dd72c9f5ea61		in	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000093fa8	52	nic_get_phase_bits	symtab	42783b2c84e4		in	located	docs/nic.md#bus-access	Bus access
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000094334	40	nic_setup	symtab	c2d2e1b453c7		in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009435c	400	nic_next	symtab	22b8e49408ce		in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000094628	400	nic_read_one_page	symtab	cc6512cec487		in	located	docs/nic.md#memory-reads	Memory reads
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000947b8	788	nic_read_mfg	symtab	6a655d59df30		in	located	docs/nic.md#memory-reads	Memory reads
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000094ce4	628	nic_eaddr	symtab	3a828a8148f7		in	located	docs/nic.md#memory-reads	Memory reads
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000094f58	136	nic_access_mcr32	symtab	150a2c4974ce		in	located	docs/nic.md#bus-access	Bus access
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000094fe0	184	nic_get_eaddr	symtab	7ec99b87b51f		in	located	docs/nic.md#memory-reads	Memory reads
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000095538	88	nic_info_get	symtab	9c864ac7bccd		in	located	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000095590	44	nic_vertex_info_get	symtab	dbbd2368ecc1		in	located	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000955bc	268	nic_vertex_info_set	symtab	a4bbac7f7647		in	located	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000956c8	60	nic_vertex_info_match	symtab	c819469dfe01		in	located	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000095808	36	nic_hub_vertex_info	symtab	72a9a60db389		in	located	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009582c	32	nic_bridge_vertex_info	symtab	509c30da0e66		in	located	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009584c	32	nic_hq4_vertex_info	symtab	509c30da0e66		in	located	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009586c	48	nic_ioc3_vertex_info	symtab	015370659ad1		in	located	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009589c	88	nic_vmc_add	symtab	153e5e9c2793		in	located	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000958f4	12	nic_vmc_del	symtab	ff9cc7fdb4a7		in	understood	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000095900	160	nic_vmc_check	symtab	dd72c9f5ea61		in	located	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000959a0	196	pollhead_new	symtab	39326c681863		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000095a64	136	pollhead_retrieve	symtab	66d86fc3e904		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000095aec	184	pollhead_free	symtab	b68f33f3cdf6		out:1	undocumented		
@@ -133244,7 +133244,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2f144	156	compare_and_dec_int_gt_hot2	dwarf+symtab	d83b57bfd2ff		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2f1e0	28	swap_int64	dwarf+symtab	1be725d32eca	shared-address	out:2	named-only	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2f1e0	28	swap_long	symtab	1be725d32eca	shared-address	out:2	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2f1e0	28	swap_ptr	symtab	1be725d32eca	shared-address	out:2	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2f1e0	28	swap_ptr	symtab	1be725d32eca	shared-address	out:2	named-only	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2f1fc	152	compare_and_swap_int64	dwarf+symtab	e993d0870d2c	shared-address	out:2	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2f1fc	152	compare_and_swap_kt	symtab	e993d0870d2c	shared-address	out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2f1fc	152	compare_and_swap_long	symtab	e993d0870d2c	shared-address	out:2	undocumented		
@@ -136234,38 +136234,38 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/nfsstubs.a(nfsstubs.o)	shared-kernel	n64	.text	0x38	8	nfs_clearstat	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/nfsstubs.a(nfsstubs.o)	shared-kernel	n64	.text	0x40	8	stop_nfs	dwarf+symtab	78aa5094d5ec		out:3	named-only	docs/syssgi.md#thread-control-and-scheduling-selectors	Thread control and scheduling selectors
 6.5.30/usr/cpu/sysgen/IP27boot/nfsstubs.a(nfsstubs.o)	shared-kernel	n64	.text	0x48	8	nfs_icrash	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64		0x0		crc16	dwarf+symtab			in	named-only	docs/panics.md#nic_read_mfg	`nic_read_mfg`
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x68	52	nic_get_phase_bits	dwarf+symtab	e964f21e8b77		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x9c	44	nic_presence	dwarf+symtab	6d6833ceca2f		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xc8	68	nic_write	dwarf+symtab	a6203f5b06f2		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x10c	44	nic_read	dwarf+symtab	d48e6d01cac3		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x138	116	nic_write_byte	dwarf+symtab	a97ac3cdf271		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1ac	100	nic_read_byte	dwarf+symtab	47b4afd80f80		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x210	484	nic_next_scan	dwarf+symtab	71d15f651f53		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x3f4	40	nic_setup	dwarf+symtab	81a781f1088a		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x41c	400	nic_next	dwarf+symtab	db8237bd1100		in	named-only	docs/panics.md#sub_0xc0000000000692b8	`sub_0xc0000000000692b8`
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x5ac	316	nic_match_rom	dwarf+symtab	85e55a0d8b3a		in	named-only	docs/panics.md#sub_0xc0000000000692b8	`sub_0xc0000000000692b8`
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x6e8	400	nic_read_one_page	dwarf+symtab	bf51fb9cd3d0		in	named-only	docs/panics.md#nic_read_one_page	`nic_read_one_page`
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x878	788	nic_read_mfg	dwarf+symtab	e3ebaec03993		in	named-only	docs/panics.md#nic_read_mfg	`nic_read_mfg`
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xb8c	128	char2hex	dwarf+symtab	7bb5e4334828		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xc0c	140	chars2hex	dwarf+symtab	2fae8aedf6a3		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xc98	268	chars2print	dwarf+symtab	e75d037be9f4		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xda4	628	nic_eaddr	dwarf+symtab	7c661884830a		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1018	136	nic_access_mcr32	dwarf+symtab	e51d91ee4c4f		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x10a0	184	nic_get_eaddr	dwarf+symtab	7befa8c40a9c		in	named-only	docs/panics.md#nic_get_eaddr	`nic_get_eaddr`
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1158	1184	nic_mfg_next	dwarf+symtab	df4ad335765d		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x15f8	88	nic_info_get	dwarf+symtab	95a643a444b0		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1650	44	nic_vertex_info_get	dwarf+symtab	fc1dcc1547d4		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x167c	268	nic_vertex_info_set	dwarf+symtab	7e4b29ee3213		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1788	60	nic_vertex_info_match	dwarf+symtab	c036e62fa314		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x17c4	260	nic_access_hub	dwarf+symtab	2b864caeda03		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x18c8	36	nic_hub_vertex_info	dwarf+symtab	3e0abafb70a1		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x18ec	32	nic_bridge_vertex_info	dwarf+symtab	a862019d0b09		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x190c	32	nic_hq4_vertex_info	dwarf+symtab	a862019d0b09		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x192c	48	nic_ioc3_vertex_info	dwarf+symtab	e199daca4083		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x195c	88	nic_vmc_add	dwarf+symtab	31114cb60a87		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x19b4	12	nic_vmc_del	dwarf+symtab	ff9cc7fdb4a7		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x19c0	160	nic_vmc_check	dwarf+symtab	81fdec6a1784		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64		0x0		crc16	dwarf+symtab			in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x68	52	nic_get_phase_bits	dwarf+symtab	e964f21e8b77		in	located	docs/nic.md#bus-access	Bus access
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x9c	44	nic_presence	dwarf+symtab	6d6833ceca2f		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xc8	68	nic_write	dwarf+symtab	a6203f5b06f2		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x10c	44	nic_read	dwarf+symtab	d48e6d01cac3		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x138	116	nic_write_byte	dwarf+symtab	a97ac3cdf271		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1ac	100	nic_read_byte	dwarf+symtab	47b4afd80f80		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x210	484	nic_next_scan	dwarf+symtab	71d15f651f53		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x3f4	40	nic_setup	dwarf+symtab	81a781f1088a		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x41c	400	nic_next	dwarf+symtab	db8237bd1100		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x5ac	316	nic_match_rom	dwarf+symtab	85e55a0d8b3a		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x6e8	400	nic_read_one_page	dwarf+symtab	bf51fb9cd3d0		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x878	788	nic_read_mfg	dwarf+symtab	e3ebaec03993		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xb8c	128	char2hex	dwarf+symtab	7bb5e4334828		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xc0c	140	chars2hex	dwarf+symtab	2fae8aedf6a3		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xc98	268	chars2print	dwarf+symtab	e75d037be9f4		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0xda4	628	nic_eaddr	dwarf+symtab	7c661884830a		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1018	136	nic_access_mcr32	dwarf+symtab	e51d91ee4c4f		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x10a0	184	nic_get_eaddr	dwarf+symtab	7befa8c40a9c		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1158	1184	nic_mfg_next	dwarf+symtab	df4ad335765d		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x15f8	88	nic_info_get	dwarf+symtab	95a643a444b0		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1650	44	nic_vertex_info_get	dwarf+symtab	fc1dcc1547d4		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x167c	268	nic_vertex_info_set	dwarf+symtab	7e4b29ee3213		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x1788	60	nic_vertex_info_match	dwarf+symtab	c036e62fa314		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x17c4	260	nic_access_hub	dwarf+symtab	2b864caeda03		in	understood	docs/nic.md#bus-access	Bus access
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x18c8	36	nic_hub_vertex_info	dwarf+symtab	3e0abafb70a1		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x18ec	32	nic_bridge_vertex_info	dwarf+symtab	a862019d0b09		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x190c	32	nic_hq4_vertex_info	dwarf+symtab	a862019d0b09		in	located	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x192c	48	nic_ioc3_vertex_info	dwarf+symtab	e199daca4083		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x195c	88	nic_vmc_add	dwarf+symtab	31114cb60a87		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x19b4	12	nic_vmc_del	dwarf+symtab	ff9cc7fdb4a7		in	understood	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
+6.5.30/usr/cpu/sysgen/IP27boot/nic.o	shared-kernel	n64	.text	0x19c0	160	nic_vmc_check	dwarf+symtab	81fdec6a1784		in	understood	docs/nic.md#other-builds	Other builds
 6.5.30/usr/cpu/sysgen/IP27boot/nlmstubs.a(nlmstubs.o)	shared-kernel	n64		0x0		release_all_locks	dwarf+symtab			out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/nlmstubs.a(nlmstubs.o)	shared-kernel	n64	.text	0x8	8	lockd_cleanlocks	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/nlmstubs.a(nlmstubs.o)	shared-kernel	n64	.text	0x10	8	share_init	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
@@ -152158,7 +152158,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x6c54	156	compare_and_dec_int_gt_hot2	dwarf+symtab	d83b57bfd2ff		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x6cf0	28	swap_int64	dwarf+symtab	1be725d32eca	shared-address	out:2	named-only	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x6cf0	28	swap_long	symtab	1be725d32eca	shared-address	out:2	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x6cf0	28	swap_ptr	symtab	1be725d32eca	shared-address	out:2	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x6cf0	28	swap_ptr	symtab	1be725d32eca	shared-address	out:2	named-only	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x6d0c	152	compare_and_swap_int64	dwarf+symtab	e993d0870d2c	shared-address	out:2	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x6d0c	152	compare_and_swap_kt	symtab	e993d0870d2c	shared-address	out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x6d0c	152	compare_and_swap_long	symtab	e993d0870d2c	shared-address	out:2	undocumented		
@@ -154769,35 +154769,35 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/nfsidbg.a(nfsidbg.o)	shared-kernel	n64	.text	0x250	572	idbg_prrnode	dwarf+symtab	5e9d7377f0fa		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/nfsidbg.a(nfsidbg.o)	shared-kernel	n64	.text	0x48c	436	idbg_mntinfo	dwarf+symtab	f173516b9daa		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/nfsidbg.a(nfsidbg.o)	shared-kernel	n64	.text	0x640	244	nfsidbginit	dwarf+symtab	2af857823e18		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64		0x0		crc16	dwarf+symtab			in	named-only	docs/panics.md#nic_read_mfg	`nic_read_mfg`
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x68	44	nic_presence	dwarf+symtab	6d6833ceca2f		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x94	68	nic_write	dwarf+symtab	a6203f5b06f2		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xd8	44	nic_read	dwarf+symtab	d48e6d01cac3		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x104	116	nic_write_byte	dwarf+symtab	a97ac3cdf271		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x178	100	nic_read_byte	dwarf+symtab	47b4afd80f80		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1dc	484	nic_next_scan	dwarf+symtab	71d15f651f53		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x3c0	40	nic_setup	dwarf+symtab	81a781f1088a		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x3e8	400	nic_next	dwarf+symtab	db8237bd1100		in	named-only	docs/panics.md#sub_0xc0000000000692b8	`sub_0xc0000000000692b8`
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x578	316	nic_match_rom	dwarf+symtab	85e55a0d8b3a		in	named-only	docs/panics.md#sub_0xc0000000000692b8	`sub_0xc0000000000692b8`
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x6b4	400	nic_read_one_page	dwarf+symtab	bf51fb9cd3d0		in	named-only	docs/panics.md#nic_read_one_page	`nic_read_one_page`
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x844	788	nic_read_mfg	dwarf+symtab	e3ebaec03993		in	named-only	docs/panics.md#nic_read_mfg	`nic_read_mfg`
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xb58	128	char2hex	dwarf+symtab	7bb5e4334828		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xbd8	140	chars2hex	dwarf+symtab	2fae8aedf6a3		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xc64	268	chars2print	dwarf+symtab	e75d037be9f4		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xd70	628	nic_eaddr	dwarf+symtab	7c661884830a		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xfe4	136	nic_access_mcr32	dwarf+symtab	e51d91ee4c4f		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x106c	184	nic_get_eaddr	dwarf+symtab	7befa8c40a9c		in	named-only	docs/panics.md#nic_get_eaddr	`nic_get_eaddr`
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1124	1188	nic_mfg_next	dwarf+symtab	8800eb0eb1be		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x15c8	88	nic_info_get	dwarf+symtab	95a643a444b0		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1620	44	nic_vertex_info_get	dwarf+symtab	fc1dcc1547d4		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x164c	268	nic_vertex_info_set	dwarf+symtab	7e4b29ee3213		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1758	60	nic_vertex_info_match	dwarf+symtab	2e9718e25267		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1794	32	nic_bridge_vertex_info	dwarf+symtab	a862019d0b09		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x17b4	32	nic_hq4_vertex_info	dwarf+symtab	a862019d0b09		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x17d4	48	nic_ioc3_vertex_info	dwarf+symtab	e199daca4083		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1804	88	nic_vmc_add	dwarf+symtab	31114cb60a87		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x185c	12	nic_vmc_del	dwarf+symtab	ff9cc7fdb4a7		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1868	160	nic_vmc_check	dwarf+symtab	81fdec6a1784		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64		0x0		crc16	dwarf+symtab			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x68	44	nic_presence	dwarf+symtab	6d6833ceca2f		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x94	68	nic_write	dwarf+symtab	a6203f5b06f2		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xd8	44	nic_read	dwarf+symtab	d48e6d01cac3		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x104	116	nic_write_byte	dwarf+symtab	a97ac3cdf271		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x178	100	nic_read_byte	dwarf+symtab	47b4afd80f80		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1dc	484	nic_next_scan	dwarf+symtab	71d15f651f53		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x3c0	40	nic_setup	dwarf+symtab	81a781f1088a		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x3e8	400	nic_next	dwarf+symtab	db8237bd1100		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x578	316	nic_match_rom	dwarf+symtab	85e55a0d8b3a		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x6b4	400	nic_read_one_page	dwarf+symtab	bf51fb9cd3d0		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x844	788	nic_read_mfg	dwarf+symtab	e3ebaec03993		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xb58	128	char2hex	dwarf+symtab	7bb5e4334828		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xbd8	140	chars2hex	dwarf+symtab	2fae8aedf6a3		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xc64	268	chars2print	dwarf+symtab	e75d037be9f4		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xd70	628	nic_eaddr	dwarf+symtab	7c661884830a		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0xfe4	136	nic_access_mcr32	dwarf+symtab	e51d91ee4c4f		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x106c	184	nic_get_eaddr	dwarf+symtab	7befa8c40a9c		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1124	1188	nic_mfg_next	dwarf+symtab	8800eb0eb1be		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x15c8	88	nic_info_get	dwarf+symtab	95a643a444b0		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1620	44	nic_vertex_info_get	dwarf+symtab	fc1dcc1547d4		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x164c	268	nic_vertex_info_set	dwarf+symtab	7e4b29ee3213		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1758	60	nic_vertex_info_match	dwarf+symtab	2e9718e25267		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1794	32	nic_bridge_vertex_info	dwarf+symtab	a862019d0b09		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x17b4	32	nic_hq4_vertex_info	dwarf+symtab	a862019d0b09		in	located	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x17d4	48	nic_ioc3_vertex_info	dwarf+symtab	e199daca4083		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1804	88	nic_vmc_add	dwarf+symtab	31114cb60a87		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x185c	12	nic_vmc_del	dwarf+symtab	ff9cc7fdb4a7		in	understood	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
+6.5.30/usr/cpu/sysgen/IP30boot/nic.o	shared-kernel	n64	.text	0x1868	160	nic_vmc_check	dwarf+symtab	81fdec6a1784		in	understood	docs/nic.md#other-builds	Other builds
 6.5.30/usr/cpu/sysgen/IP30boot/nlmstubs.a(nlmstubs.o)	shared-kernel	n64		0x0		release_all_locks	dwarf+symtab			out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/nlmstubs.a(nlmstubs.o)	shared-kernel	n64	.text	0x8	8	lockd_cleanlocks	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/nlmstubs.a(nlmstubs.o)	shared-kernel	n64	.text	0x10	8	share_init	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
@@ -169720,7 +169720,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xcaa0	28	test_and_set_int64	symtab	d7bf6952a39d		out:2	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xcabc	28	swap_int	symtab	16dbf7b98860	shared-address	out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xcabc	28	swap_long	symtab	16dbf7b98860	shared-address	out:2	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xcabc	28	swap_ptr	symtab	16dbf7b98860	shared-address	out:2	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xcabc	28	swap_ptr	symtab	16dbf7b98860	shared-address	out:2	named-only	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xcad8	40	compare_and_swap_int	symtab	42942dafb2b7	shared-address	out:2	named-only	docs/syssgi.md#test-and-stub-selectors	Test and stub selectors
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xcad8	40	compare_and_swap_kt	symtab	42942dafb2b7	shared-address	out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xcad8	40	compare_and_swap_long	symtab	42942dafb2b7	shared-address	out:2	undocumented		
@@ -188266,7 +188266,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x29dd8	48	compare_and_dec_int_gt_hot2	dwarf+symtab	4de61c2f4d97		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x29e08	28	swap_int64	dwarf+symtab	a621ea59a77e	shared-address	out:2	named-only	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x29e08	28	swap_long	symtab	a621ea59a77e	shared-address	out:2	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x29e08	28	swap_ptr	symtab	a621ea59a77e	shared-address	out:2	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x29e08	28	swap_ptr	symtab	a621ea59a77e	shared-address	out:2	named-only	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x29e24	40	compare_and_swap_int64	dwarf+symtab	efbdd7ce0ed7	shared-address	out:2	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x29e24	40	compare_and_swap_kt	symtab	efbdd7ce0ed7	shared-address	out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x29e24	40	compare_and_swap_long	symtab	efbdd7ce0ed7	shared-address	out:2	undocumented		
@@ -191044,38 +191044,38 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/ng1stubs.a(ng1stubs.o)	shared-kernel	n64	.text	0x18	8	set_dma_in_progress	dwarf+symtab	87506497337c		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ng1stubs.a(ng1stubs.o)	shared-kernel	n64	.text	0x20	8	set_gfx_lock	dwarf+symtab	87506497337c		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ng1stubs.a(ng1stubs.o)	shared-kernel	n64	.text	0x28	8	ng1_earlyinit	dwarf+symtab	87506497337c		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64		0x0		crc16	dwarf+symtab			in	named-only	docs/panics.md#nic_read_mfg	`nic_read_mfg`
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x68	52	nic_get_phase_bits	dwarf+symtab	e964f21e8b77		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x9c	44	nic_presence	dwarf+symtab	6d6833ceca2f		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xc8	68	nic_write	dwarf+symtab	a6203f5b06f2		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x10c	44	nic_read	dwarf+symtab	d48e6d01cac3		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x138	116	nic_write_byte	dwarf+symtab	a97ac3cdf271		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1ac	100	nic_read_byte	dwarf+symtab	47b4afd80f80		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x210	484	nic_next_scan	dwarf+symtab	71d15f651f53		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x3f4	40	nic_setup	dwarf+symtab	81a781f1088a		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x41c	400	nic_next	dwarf+symtab	db8237bd1100		in	named-only	docs/panics.md#sub_0xc0000000000692b8	`sub_0xc0000000000692b8`
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x5ac	316	nic_match_rom	dwarf+symtab	85e55a0d8b3a		in	named-only	docs/panics.md#sub_0xc0000000000692b8	`sub_0xc0000000000692b8`
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x6e8	400	nic_read_one_page	dwarf+symtab	bf51fb9cd3d0		in	named-only	docs/panics.md#nic_read_one_page	`nic_read_one_page`
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x878	788	nic_read_mfg	dwarf+symtab	e3ebaec03993		in	named-only	docs/panics.md#nic_read_mfg	`nic_read_mfg`
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xb8c	128	char2hex	dwarf+symtab	7bb5e4334828		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xc0c	140	chars2hex	dwarf+symtab	2fae8aedf6a3		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xc98	268	chars2print	dwarf+symtab	e75d037be9f4		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xda4	628	nic_eaddr	dwarf+symtab	7c661884830a		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1018	136	nic_access_mcr32	dwarf+symtab	e51d91ee4c4f		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x10a0	184	nic_get_eaddr	dwarf+symtab	7befa8c40a9c		in	named-only	docs/panics.md#nic_get_eaddr	`nic_get_eaddr`
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1158	1184	nic_mfg_next	dwarf+symtab	df4ad335765d		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x15f8	88	nic_info_get	dwarf+symtab	95a643a444b0		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1650	44	nic_vertex_info_get	dwarf+symtab	fc1dcc1547d4		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x167c	268	nic_vertex_info_set	dwarf+symtab	7e4b29ee3213		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1788	60	nic_vertex_info_match	dwarf+symtab	c036e62fa314		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x17c4	260	nic_access_hub	dwarf+symtab	958b7d9a35b3		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x18c8	36	nic_hub_vertex_info	dwarf+symtab	3e0abafb70a1		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x18ec	32	nic_bridge_vertex_info	dwarf+symtab	a862019d0b09		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x190c	32	nic_hq4_vertex_info	dwarf+symtab	a862019d0b09		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x192c	48	nic_ioc3_vertex_info	dwarf+symtab	e199daca4083		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x195c	88	nic_vmc_add	dwarf+symtab	31114cb60a87		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x19b4	12	nic_vmc_del	dwarf+symtab	ff9cc7fdb4a7		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x19c0	160	nic_vmc_check	dwarf+symtab	81fdec6a1784		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64		0x0		crc16	dwarf+symtab			in	located	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x68	52	nic_get_phase_bits	dwarf+symtab	e964f21e8b77		in	located	docs/nic.md#bus-access	Bus access
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x9c	44	nic_presence	dwarf+symtab	6d6833ceca2f		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xc8	68	nic_write	dwarf+symtab	a6203f5b06f2		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x10c	44	nic_read	dwarf+symtab	d48e6d01cac3		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x138	116	nic_write_byte	dwarf+symtab	a97ac3cdf271		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1ac	100	nic_read_byte	dwarf+symtab	47b4afd80f80		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x210	484	nic_next_scan	dwarf+symtab	71d15f651f53		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x3f4	40	nic_setup	dwarf+symtab	81a781f1088a		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x41c	400	nic_next	dwarf+symtab	db8237bd1100		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x5ac	316	nic_match_rom	dwarf+symtab	85e55a0d8b3a		in	understood	docs/nic.md#1-wire-primitives	1-Wire primitives
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x6e8	400	nic_read_one_page	dwarf+symtab	bf51fb9cd3d0		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x878	788	nic_read_mfg	dwarf+symtab	e3ebaec03993		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xb8c	128	char2hex	dwarf+symtab	7bb5e4334828		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xc0c	140	chars2hex	dwarf+symtab	2fae8aedf6a3		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xc98	268	chars2print	dwarf+symtab	e75d037be9f4		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0xda4	628	nic_eaddr	dwarf+symtab	7c661884830a		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1018	136	nic_access_mcr32	dwarf+symtab	e51d91ee4c4f		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x10a0	184	nic_get_eaddr	dwarf+symtab	7befa8c40a9c		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1158	1184	nic_mfg_next	dwarf+symtab	df4ad335765d		in	understood	docs/nic.md#manufacturing-text	Manufacturing text
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x15f8	88	nic_info_get	dwarf+symtab	95a643a444b0		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1650	44	nic_vertex_info_get	dwarf+symtab	fc1dcc1547d4		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x167c	268	nic_vertex_info_set	dwarf+symtab	7e4b29ee3213		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x1788	60	nic_vertex_info_match	dwarf+symtab	c036e62fa314		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x17c4	260	nic_access_hub	dwarf+symtab	958b7d9a35b3		in	located	docs/nic.md#bus-access	Bus access
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x18c8	36	nic_hub_vertex_info	dwarf+symtab	3e0abafb70a1		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x18ec	32	nic_bridge_vertex_info	dwarf+symtab	a862019d0b09		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x190c	32	nic_hq4_vertex_info	dwarf+symtab	a862019d0b09		in	located	docs/nic.md#vertex-labels	Vertex labels
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x192c	48	nic_ioc3_vertex_info	dwarf+symtab	e199daca4083		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x195c	88	nic_vmc_add	dwarf+symtab	31114cb60a87		in	understood	docs/nic.md#other-builds	Other builds
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x19b4	12	nic_vmc_del	dwarf+symtab	ff9cc7fdb4a7		in	understood	docs/nic.md#callbacks-on-nic-text	Callbacks on NIC text
+6.5.30/usr/cpu/sysgen/IP35boot/nic.o	shared-kernel	n64	.text	0x19c0	160	nic_vmc_check	dwarf+symtab	81fdec6a1784		in	understood	docs/nic.md#other-builds	Other builds
 6.5.30/usr/cpu/sysgen/IP35boot/nlmstubs.a(nlmstubs.o)	shared-kernel	n64		0x0		release_all_locks	dwarf+symtab			out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/nlmstubs.a(nlmstubs.o)	shared-kernel	n64	.text	0x8	8	lockd_cleanlocks	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/nlmstubs.a(nlmstubs.o)	shared-kernel	n64	.text	0x10	8	share_init	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
