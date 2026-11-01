@@ -103,6 +103,19 @@ PCI-X mode) and counts it in the words at +1288 and +1292, creates the function'
 recording kind (2 for I/O, 4 or 5 for memory), base and size in the info record's 56-byte window entries at +72. Vendor 0x10a9 with class 2 or
 3 devices get the two 16 MB device windows at record +2168 populated (`pciio_device_win_populate`) once, tracked by bits 0 and 1 of the word at +2168. The 624-byte frame
 and the function-level loops were followed from the control flow and the calls, not instruction by instruction, hence the grade. It returns 0 after the last function.
+- `pcibr_dmard_error` (`6.5.30/unix.IP27`, address 0xc00000000007bdec, 296 bytes, 80-byte frame): **established.**
+Handles a DMA read-response error from the bridge: fills in the error record, passes it to the PCI I/O error handler, disables the offending device when the handler
+reports a failure, clears the bridge's error interrupt and resets the failing read response buffer. Arguments: `a0` (`s0`) the bridge soft record (the word at +4 is its
+vertex, saved at sp+72), `a1` (`s5`) and `a2` (`s8`) two values passed on to `pciio_error_handler`, `a3` (`s1`) the error record. It reads the failing buffer number
+with `pcireg_resp_err_buf_get` (0xc00000000008118c; saved at sp+16) and the device with `pcireg_resp_err_dev_get` (0xc000000000081300). The record's halfword at +8 gets
+the device number times 8, bit 25 (0x2000000) is ORed into the word at +0, and `pcireg_resp_err_get` (0xc000000000080e9c) stores its result in the doubleword at +40
+before bit 22 (0x400000) is ORed into the word at +0. It then calls `pciio_error_handler(vertex, a1, a2, record)` (0xc000000000092fa0) and keeps the result at sp+64. A
+nonzero result calls `pcibr_device_disable(soft, (halfword at +8 shifted right 3) & 0x1f)` (0xc00000000007b098). Whatever the result, it calls
+`pcireg_intr_reset_set(soft, 16)` (0xc000000000083cec), then resets the response buffer: with the buffer number `b` (low word of the value at sp+16, kept at sp+24) it
+reads `pcireg_rrb_get(soft, b & 1)` (0xc0000000000870e8), writes back that value with the 4-bit field number `b` / 2 (bits 4 * (b / 2) up, signed halving) cleared
+(`pcireg_rrb_set`, 0xc0000000000872f8), and then writes the original value back with a second `pcireg_rrb_set`. The routine returns the `pciio_error_handler` result
+(exit 0xc00000000007bf0c). The bit 25 and bit 22 flags and the meaning of the register fields are not named by the code; reading the buffer-register write sequence as a
+reset of that buffer's entry is inferred.
 
 ## Cache error handling
 
@@ -642,6 +655,61 @@ bit 4 is still set, calls `assfail` (line 1378, assertion text "! (REMOTE_HUB_L(
 goes on with the next entry; the branch at 0xc00000000002974c is branch-likely (it executes the entry-counter increment in its delay slot only when taken), the others
 are plain branches. After the scan it calls `hub_setup_prb(nasid, widget number, 3, 2)` (0xc00000000003c338), restores the level with `splx` (0xc00000000003b3f4) and
 returns; `v0` is the `splx` result and carries no meaning.
+- `hubni_print_state` (`6.5.30/unix.IP27`, address 0xc000000000032e00, 320 bytes, 192-byte frame): **established.**
+Prints the network-interface error state of a node's hub at most once per state bit, through a caller-supplied print function. Arguments: `a0` (saved at sp+128) the
+NASID whose register is shown, `a1` (`s1`) the first argument handed to the print function, `a2` (`s2`) the print function and `a3` (`s7`) the state bits. It finds the
+executing processor's per-node data: the doubleword at absolute address 0xffffffffffffc400 (`p_nodepda`) points to a table, indexed by the halfword at absolute address
+0xffffffffffffc422 (taken to be the processor's compact node number), of node records (`s0`). When `a3` is 2 it first spends up to 1000000 rounds on the node record's
+lock at +18916: each round is `mutex_spintrylock` (0xc00000000028662c), and a failed try is followed by `us_delay(1)` (0xc000000000047c0c); on success or when the
+rounds run out it calls `mutex_spinunlock` (0xc000000000286400) on the same lock (the unlock happens either way, with the last try result, 0 after a timeout, as the
+state argument; the test `at == 0` at 0xc000000000032e9c is never taken). It then sets the bits in the word at record +21464 with an `ll`/`sc` loop (the retry branch at
+0xc000000000032e58 is branch-likely) and returns without printing when any of the bits was already set (0xc000000000032e6c). Otherwise it calls `get_slotname`
+(0xc00000000003cc9c) with the slot byte at record +18856 and a buffer at sp+8, prints "NI ERROR STATE:\n" and "/module/%d/slot/%s/node\n" (module halfword at record
++18858 and the slot name) by calling the print function with `a1` as its first argument, and finally calls `show_ni_port_error` (0xc000000000031570) with the doubleword
+at (0x9200000001e10000 + NASID shifted left by 32 - 32760), `a1` and the print function; the result is the return value (0xc000000000032f18). The early return leaves
+`v0` undefined. The register at that address is the hub's network-interface port error register (inferred from the callee's name; the register's fields are left open).
+- `hubii_eint_init` (`6.5.30/unix.IP27`, address 0xc000000000032894, 388 bytes, 48-byte frame): **established.**
+Sets up one node's I/O error interrupt: reserves an interrupt level, connects the I/O error handler to it and points the hub's error-interrupt destination register at
+that level and node. `a0` (`s1`) is the compact node number. It reads the node's hub vertex from the word at +20816 of its node record (the record is reached through
+the table behind `p_nodepda`, absolute 0xffffffffffffc400); a vertex of -1 runs `assfail` (line 309, text "hub_v != GRAPH_VERTEX_NONE") and continues anyway. It reads
+the vertex's `_node` label (`hwgraph_info_get_LBL`, 0xc000000000295310, result at sp+0); the halfword at +10 of the record it points to is the NASID, and the register
+page is the pool constant 0x9200000001c00000 plus the NASID shifted left by 32. It loads the doubleword at page +296: when its bit 13 is clear it stores the value back
+with bit 10 cleared and returns without connecting anything (0xc0000000000329bc to 0xc0000000000329c4). Otherwise it calls `intr_heuristic` (0xc000000000038db8) with
+the vertex, 0, -1, 4, the vertex and the text "HUB IO error interrupt", the level coming back in the word at sp+8 and a processor number as the result; a result of -1
+(halfword) runs `cmn_err(20, "hubii_eint_init: intr_reserve_level failed, cnode %d")` and returns. It then calls `intr_connect_level` (0xc0000000000383ec) with that
+processor, the level, 0, `hubii_eint_handler` (0xc000000000034ed4), the vertex zero-extended and 0; a negative result runs `assfail` (line 339, text "rv >= 0") and
+continues. Finally it builds the doubleword stored at page +312: the low 7 bits of the level, bit 24 set, bits 16 to 8 replaced by the node's own NASID (from the
+halfword table behind the gp-20240 slot at 0xc0000000014cd260, indexed by the compact node, masked to 9 bits and shifted left by 8; the mask word 0xfffffffffffe00ff is
+the pool constant at 0xc0000000014cc338). The routine returns no value (exits at 0xc0000000000329a8 and 0xc0000000000329f4).
+- `hubpi_eint_handler` (`6.5.30/unix.IP27`, address 0xc000000000032b28, 728 bytes, 80-byte frame): **established.**
+Handles the processor-interface error interrupt on the executing processor: checks the network interface, panics on fatal causes, drains the error spools and
+acknowledges each cause it handled. It starts with `check_ni_errors` (0xc000000000032f40) and, if that returns nonzero, calls `hubni_error_handler` (0xc00000000003319c)
+with the text "PI interrupt" and 1. The processor number is the halfword at absolute address 0xffffffffffffc420; the table whose address is in the gp-20184 slot
+(0xc0000000014cd298, pointing at 0xc0000000014d5020) has 16 bytes per processor and its doubleword at +8 points at the processor's private data, whose byte at +1312 is
+the slice (0 or 1). The pending word is the doubleword at 0x9200000001000400 ANDed with the mask doubleword at 0x9200000001000408 for slice 0 or at 0x9200000001000410
+for any other slice (so `s0` = pending & mask). If any bit of 0xcfff00 is set it calls `enter_panic_mode` (0xc0000000001e59b4),
+`cmn_err(20, "Fatal PI error interrupt received")` and `kl_panic` (0xc0000000000377b4) with the same text, and, if `kl_panic` ever returned, would carry on. If bit 24
+is set it calls `log_md_errors` (0xc000000000033570) with the result of `get_nasid` (0xc00000000001d664). It then tests five cause pairs, each pair having one bit for
+slice 0 and one for slice 1, in this order: (2, 1), (128, 64), (32, 16), (0x200000, 0x100000), (8, 4), the first number being the slice-0 bit. The first three pairs
+each call `process_error_spool` (0xc000000000034598) when their bit is set; the fourth, when set, prints
+`cmn_err(20, "Unexpected UCE error interrupt. int pend 0x%x\n", pending)`; the fifth prints `cmn_err(20, "Spurious message intr, likely partition reboot")`. After
+handling a pair it stores that pair's bit for the slice alone into the doubleword at 0x9200000001000400, which acknowledges the cause (inferred: the code only shows the
+store of the single bit back to the pending register). The routine returns no value (the exit at 0xc000000000032d38; 0xc000000000032df8 is the path after the last
+print). The identification of the three registers as the pending word and the two slice masks is inferred from how they are combined.
+- `hub_ioerror_local` (`6.5.30/unix.IP27`, address 0xc000000000027670, 252 bytes, 32-byte frame): **established.**
+Decides what to do about an I/O error that was taken on this node: it ignores error kinds 0, 2 and 3, and for any other kind panics after checking whether the accessing
+node had permission to reach the target node's hub. `a2` is the error kind and `a3` (`s0`) a pointer to the error record. For kinds 0, 2 and 3 it returns 0 at once
+(0xc000000000027690 for 3, 0xc0000000000276a4 for 0 and 2). For other kinds it reads from the record the word at +0, the halfword at +12 (node A) and the halfword at
++14 (node B), turns both halfwords into NASIDs through the halfword table behind the gp-20496 slot (0xc0000000014cd160, pointing at 0xc0000000014d4e80), and takes `a2`
+as the doubleword at record +16 when bit 25 of the word at +0 is set (the word shifted left 6 is negative) and 0 otherwise. It loads the doubleword at
+0x9200000001800000 (the pool constant at 0xc0000000014cc168) plus node B's NASID shifted left by 32 and tests bit number (node A's NASID, taken modulo 64) of it. When
+that bit is set it calls `cmn_err(4, "Error accessing Hub Register %x on node (%d/%d) from (%d/%d), with access permission\n", ...)` with `a2`, node B's NASID and
+halfword, node A's NASID and halfword, and then `kl_panic` (0xc0000000000377b4) with "Hub Register Access error". When the bit is clear the branch at 0xc00000000002770c
+skips both of those calls; the routine does not expect `kl_panic` to return, but if it did the code falls into the next step. That step calls
+`cmn_err(4, "Error in accessing hub register 0x%x on node (%d/%d) by cpu %d on Node (%d/%d): No permission\n", ...)` with the doubleword at record +16 as the register,
+node B's NASID and halfword, node A's NASID in the place of the cpu number and node A's halfword; the format has six conversions and the routine sets arguments a2 to a6
+only, so the last conversion takes whatever `a7` held. It then calls `kl_panic` with "Hub Register Access Permission error". The final return (0xc000000000027764)
+leaves `v0` as `kl_panic` left it. The reading of the permission doubleword as one bit per accessing node is inferred from how the bit is selected and the two messages.
 
 ## Crossbar widget control
 
@@ -745,3 +813,73 @@ and the bit. After the loop it takes the soft record's lock at +128 (`mutex_spin
 (0xc000000000083b78), reads the bridge's flush register with `pcireg_tflush_get` (0xc000000000080ba8) and releases the lock with `mutex_io_spinunlock`
 (0xc0000000002862c4), then returns 0 (0xc000000000078e74). The per-bit records are the `bs_intr` array of the soft record: crosstalk interrupt at +0, an embedded
 40-byte wrapper at +8 whose +32 word is its connected flag, and the bridge interrupt bit at +48.
+- `pcibr_init_ext_ate_ram` (`6.5.30/unix.IP27`, address 0xc00000000007566c, 352 bytes, 64-byte frame): **established.**
+Finds how much external address-translation RAM (ATE RAM) a Bridge has, tells the bridge the size, clears it and returns the number of entries (0 when there is none).
+`a0` (`s1`) is the bridge soft record. The candidate sizes are the words of the table whose pointer is in the gp-17776 slot (0xc0000000014cdc00, pointing at
+0xc000000001437a78): 0, 8192, 16384 and 65536 entries, index 0 to 3. The loop (`s0`, 1 to 3) writes the doubleword 0x0123456789abcdef (the pool constant at
+0xc0000000014cc608) into the last entry of the candidate size (index size - 1) with `pcireg_ext_ate_set` (0xc000000000088ad0); from the second candidate tested on it
+also writes 0 into the last entry of each smaller candidate (inner loop `s4` from 1 below `s0`); it reads the candidate's last entry back with `pcireg_ext_ate_get`
+(0xc000000000088904) and, when the value equals the pattern, records that candidate index in `s3`, so the largest candidate that reads back correctly wins (the loop
+does not stop at the first failure). It calls `pcireg_ssram_size_set(soft, s3)` (0xc00000000007f698) and takes the entry count from the table at that index. When the
+word `pcibr_debug_mask` (the gp-28800 slot) has bit 0x10 set it logs through `pcibr_debug(16, the word at soft +4, ...)` (0xc000000000074e8c): "bridge at 0x%lx:
+clearing %d external ATEs\n" with the doubleword at +8 and the count, or, for a zero count, "bridge at 0x%x: no external ATE RAM found\n". It finally zeroes every entry
+from 0 to count - 1 with `pcireg_ext_ate_set` and returns the count. Exits: 0xc000000000075768 (count zero, returns `s2`) and 0xc000000000075788 (after the clear loop).
+- `pcibr_directmap_init` (`6.5.30/unix.IP27`, address 0xc000000000071c74, 300 bytes, 288-byte frame): **established.**
+Sets up the bridge's direct-mapped DMA window so that it points at the memory of one node. `a0` (`s0`) is the bridge soft record. It reads the device-administration
+string "PCIBUS_DMATRANS_NODE" for the bridge's vertex (the word at soft +4) with `device_admin_info_get` (0xc0000000001727e8; the string pointer is saved at sp+256).
+With no string the node is compact node 0. With a string it resolves the path with `hwgraph_path_to_vertex` (0xc0000000002958f8) and the vertex with
+`nodevertex_to_cnodeid` (0xc000000000296e54); a path that does not resolve, or a vertex that is not a node (halfword -1), prints
+`cmn_err(4, "Invalid hwgraph node path specified:\n    DEVICE_ADMIN: %s %s=%s\n", bridge name, "PCIBUS_DMATRANS_NODE", the string)` (the name comes from
+`vertex_to_name` into sp+0) and falls back to node 0. The NASID is the halfword at the node's slot of the table behind the gp-17824 slot (0xc0000000014cdbd0). It calls
+`xtalk_dmatrans_addr(soft's connection vertex, 0, NASID shifted left by 32, 16384, 0)` (0xc00000000006c038) for the crosstalk address of that node's memory, sets the
+direct-map offset with `pcireg_dirmap_diroff_set(soft, address >> 31)` (0xc000000000081a2c) and the direct-map widget with
+`pcireg_dirmap_wid_set(soft, the byte at +48)` (0xc000000000081890), and copies the byte at +48 to +88. When the crosstalk address is exactly 0x20000000 it calls
+`pcireg_dirmap_add512_set` (0xc000000000081c1c) and stores 0x20000000 in the doubleword at +80; otherwise it calls `pcireg_dirmap_add512_clr` (0xc000000000081d9c) and
+stores the address ANDed with 0xffffffff80000000 at +80. It returns the result of that last call, which carries no meaning. The instruction at 0xc000000000071d6c is
+never reached. The reading of the +48 and +88 bytes as the master widget id and the direct-map widget is from the structure's member names.
+- `pcibr_force_interrupt` (`6.5.30/unix.IP27`, address 0xc00000000007824c, 200 bytes, 32-byte frame): **established.**
+Makes the bridge raise one of its PCI interrupt bits by software, in the way the bridge type allows. `a0` points to an interrupt wrapper whose doubleword at +0 is the
+bridge soft record (`s0`) and whose word at +8 is the interrupt bit number (`s1`). When the halfword at soft +114 (the bridge type) is nonzero it just calls
+`pcireg_force_intr_set(soft, bit)` (0xc0000000000863c8) and returns its result (0xc000000000078278 onwards). For type 0 it reads the status with
+`pcireg_intr_status_get` (0xc0000000000835d4) and returns when the bit is not set in it (`v0` is then the status AND the bit mask, zero). Otherwise it takes the
+crosstalk interrupt object of that bit, the doubleword at soft + 1640 + 56 * bit, asks for its vector with `xtalk_intr_vector_get` (0xc00000000006c2ec; kept as `s0`)
+and its processor with `xtalk_intr_cpuid_get` (0xc00000000006c16c), and stores the value `vector | 0x100` (the vector as a sign-extended halfword, then truncated to 32
+bits) in the doubleword at (the pool constant 0x9200000001800000 at 0xc0000000014cc168, plus the NASID of that processor shifted left by 32) + 144. The NASID is the
+halfword at +1060 of the processor's private-data record, reached through the 16-byte-per-processor table whose pointer is in the gp-17736 slot (0xc0000000014cdc28,
+pointing at 0xc0000000014d5020), the second doubleword of each entry being the pointer to that record. That the store raises the interrupt on that processor (as a software-generated interrupt for the vector) is inferred
+from the address and value; the code does not name the register.
+- `pcibr_intr_func` (`6.5.30/unix.IP27`, address 0xc0000000000791f0, 592 bytes, 96-byte frame): **established.**
+The interrupt handler that `pcibr_intr_connect` registers for each bridge interrupt bit: it runs the handlers connected to the bit, either directly or through their
+interrupt threads, and turns the bit off when nothing is connected. `a0` (`s5`) is the per-bit wrapper (`pcibr_intr_wrap_s`): the doubleword at +0 is the bridge soft
+record (`s7`), the word at +8 the bit number, the doubleword at +16 the head of a list of connected handles, the word at +24 a count of queued thread requests and the
+word at +28 (`iw_shared` in the kernel's structure definition) a flag that, when set, makes each handler be preceded by a write-buffer flush read. Each list node has
+the next link at +0, the handle (`pcibr_intr_s`) at +8, a soft record at +16 and a slot number held in a byte at node offset 24. Step 1: when the halfword at soft +114 (the bridge type) is 2 and
+the low nibble of the word at soft +120 is 1 (the test is `(1 << nibble) & 2`), it takes the soft lock at +128 (`mutex_spinlock`, 0xc0000000002863b4), clears and sets
+the bit's enable bit with `pcireg_intr_enable_bit_clr` (0xc0000000000839f8) and `pcireg_intr_enable_bit_set` (0xc000000000083b78), and releases the lock with
+`mutex_io_spinunlock` (0xc0000000002862c4), so a level that is still asserted is seen again. Step 2: when the word at wrapper +24 is nonzero it returns at once
+(0xc0000000000793a4). Step 3: one or two passes over the list. A node counts only when bit 0 of its handle's flags word is set. Pass 1: a handle whose flags bit 1 is
+clear is queued for its thread: with the wrapper's +28 flag set it first calls `pcireg_wrb_flush_get(node soft, node slot)` (0xc000000000086e94), then adds 1 to the
+word at wrapper +24 with an `ll`/`sc` loop (the retry branch at 0xc000000000079338 is branch-likely), calls `pcibr_wrap_put(wrapper, handle + 104)` (0xc0000000000781b8)
+and `vsema(handle + 48)` (0xc000000000187618). A handle with bit 1 set is only counted in `s2` in pass 1. A second pass (with `s3` zero) runs only if pass 1 counted
+such a handle: it calls each bit-1-set handle's function, the pointer at handle +24, with its argument from handle +32 (an indirect call, `jalr`, after the same
+optional flush); handles with bit 1 clear are skipped in pass 2. The register `s6` starts at 1 and is cleared (several times, partly in branch delay slots at
+0xc00000000007928c and 0xc000000000079294) whenever a node with bit 0 set is reached. Step 4: at the end of pass 2, if the word at wrapper +24 is zero it calls
+`pcibr_force_interrupt(wrapper)` (0xc00000000007824c); this test is not reached after a single pass. Step 5: if `s6` is still 1, no connected handle was seen, and it
+takes the soft lock, clears the bit's enable bit and reads `pcireg_tflush_get` (0xc000000000080ba8) before unlocking. It returns nothing: every path ends in the
+epilogue at 0xc0000000000793a8 to 0xc0000000000793cc (step 2 enters it at 0xc0000000000793a4). That flags bit 1 marks handlers that run in interrupt context is inferred
+from which handles are called directly.
+
+## Hub vector access and router state
+
+- `hub_vector_read` (`6.5.30/unix.IP27`, address 0xc00000000001d48c, 224 bytes, 80-byte frame): **established.**
+Runs `vector_read_node` (0xc00000000001ce08) on a given node under that node's own lock, but only when the caller is running on that node; otherwise it fails with -10.
+The five arguments `a0` to `a4` are a node number (`a0`, `s3`), then four values that are passed on untouched (`a1` saved at sp+16, `a2` at sp+40, `a3` at sp+8, `a4` at
+sp+24). It reads the NASID of the node from the halfword table behind the gp-20792 slot (0xc0000000014cd038, pointing at 0xc0000000014d4e80), indexed by `a0` and saved
+at sp+32, and finds the node's record through the table behind `p_nodepda` (absolute address 0xffffffffffffc400, the doubleword at index `a0`). The sequence is:
+`in_panic_mode` (0xc0000000001e5a94); when it returns zero, `mutex_spinlock` (0xc0000000002863b4) on the lock at record +18768, the lock state being the word at sp+0
+(when the machine is in panic mode no lock is taken). Then the halfword at absolute address 0xffffffffffffc422 (the number of the node the processor runs on) is
+compared with `a0`. Equal: the byte at record +18772 is set to 1, `vector_read_node` is called with the saved `a1`, the NASID, the saved `a2`, `a3` and `a4`, its result
+is kept in `s1` and the byte is cleared again. Not equal: `s1` is -10 and nothing is called. `in_panic_mode` is tested a second time and, when it returns zero,
+`mutex_spinunlock` (0xc000000000286400) releases the lock with the saved state. The routine returns `s1`; the panic-mode path and the unlock path meet at the epilogue
+whose `jr ra` is at 0xc00000000001d514.
+
