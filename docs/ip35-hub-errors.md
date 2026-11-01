@@ -712,3 +712,17 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   label of the vertex, fills per-node and per-widget tables, calls `hub_set_piomode(.., 1)`, then `init_sv` and
   `spinlock_init` on addresses 784 and 792 bytes into the node record. That routine was read only in part, so what the
   tables hold is not stated here. This routine returns what the last call leaves in `v0`. Inferred.
+
+## Hub special-device entry points
+
+- `hubspc_open` (`6.5.30/unix.IP35`, address 0xc000000000096e20, 116 bytes, 48-byte frame): open routine of the hub
+  special device, which serves two kinds of node depending on the device information recorded for its vertex. `a0`
+  points to a device number word, and `a1` to `a3` are passed on unchanged (all four are saved at sp+0 to sp+24).
+  It calls `device_info_get` with the word at `a0`, truncates the result to 32 bits and acts on it. Value 0: it returns
+  what `mem_refcnt_open(a0, a1, a2, a3)` returns. Value 1: it calls `cap_able` with the mask 1 shifted left 37
+  (`dsll32` of 1 by 5, 0x2000000000) and returns 1 when that call returns 0 and 0 when it returns nonzero. Any other
+  value returns 19. Established.
+- `hubspc_close` (`6.5.30/unix.IP35`, address 0xc000000000096e94, 108 bytes, 48-byte frame): close routine of the same
+  device. It calls `device_info_get` with the word at `a0` and truncates the result to 32 bits. Value 0: it returns what
+  `mem_refcnt_close(a0, a1, a2, a3)` returns. Value 1: it returns 0 without any call. Any other value returns 19.
+  Established.
