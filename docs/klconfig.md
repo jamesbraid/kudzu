@@ -575,3 +575,172 @@ On IP35 the same routines differ as follows.
   is the IP27 routine over the IP35 `compact_to_nasid_node` (address from gp-23360) and `maxnodes`
   (gp+10284; the table load at 0xc000000000045a64); it calls `membank_check_mixed_hidensity` for each
   node that has a NASID, and returns 1 at the first nonzero result and 0 otherwise. Established.
+
+## Memory sizing
+
+The kernels size each node's memory from the bank-size halfwords of the node board's memory component, not from any hub register. IP27 divides a node's address space into 32 slots and IP35 into 8; the routines below fill three tables indexed by node and slot, and the rest of the kernel asks those tables for page counts and page numbers. A page here is 16 KB: every byte count is turned into pages by adding 16383 and shifting right 14.
+
+| Table | IP27 | IP35 | Contents |
+|---|---|---|---|
+| `slot_lastfilled_cache` | halfword per node, 64 nodes | halfword per node, 128 nodes | last slot of the node with a nonzero size |
+| `slot_psize_cache` (`slot_lastfilled_cache` + 128 on IP27, + 256 on IP35) | halfword per slot, node × 32 + slot | word per slot, node × 8 + slot | pages in the slot |
+| `page_ordinal` (`slot_lastfilled_cache` + 4224 on IP27, + 4352 on IP35) | word per slot | word per slot | pages in all earlier slots, in node then slot order |
+
+A page number for slot s of node n is the NASID shifted left 18 ORed with s shifted left 13 on IP27 (4 GB of address space per node, 128 MB per slot), and the NASID shifted left 19 ORed with s shifted left 16 on IP35 (8 GB per node, 1 GB per slot). Linux forms the IP27 page number the same way (`slot_getbasepfn`, `SLOT_SHIFT` 27). Established from `node_getmaxclick` below.
+
+The memory component fields read, beyond the [component header](#component-record-header):
+
+| Offset | Width | Linux name | Kernel use | Grade |
+|---|---|---|---|---|
+| +58 | signed halfword | `membnk_dimm_select` | IP27: halved (signed) and XORed into the bank index, only when the NVRAM byte at offset 14468 is `y`; IP35: XORed into the bank index always | established |
+| +60 | signed halfword array | `membnk_bnksz` | bank sizes in megabytes, eight entries | established |
+
+- `szmem` (`6.5.30/unix.IP27` `0xc0000000000299e0`, 312 bytes)
+  fills the three tables for every node and returns the total page count. It calls `assfail` with
+  "numnodes > 0" and line 106 when `numnodes` (the word at gp+7340) is 0 or less. For each node n
+  below `numnodes` and each slot s from 0 to 31 it stores the running total in the `page_ordinal`
+  word for (n, s) (the store at 0xc000000000029a54, in the delay slot of the call), calls the
+  unnamed routine at `0xc00000000002a024` with n (sign-extended from 16 bits) and s, stores the
+  result as the `slot_psize_cache` halfword (the store at 0xc000000000029a68) and adds it to the
+  total. `low_maxclick` (the word at gp+7876) takes the first nonzero slot size it sees and keeps it.
+  When the slot size is nonzero it stores s as the node's `slot_lastfilled_cache` halfword. It
+  returns the total, or a1 when a1 is nonzero and smaller than the total; a0 is not read.
+  Linux's `szmem` walks the same slots with the same per-slot size but feeds them to its own
+  allocator and adds a check that the node's page structures fit in slot 0, which IRIX lacks.
+  Established.
+- `sub_c00000000002a024` (`6.5.30/unix.IP27` `0xc00000000002a024`, 316 bytes)
+  returns the page count of slot a1 on compact node a0. It finds the node's first board through
+  the directory as in [Finding a node's first board](#finding-a-nodes-first-board), calls
+  `find_lboard` for type 17 and `find_first_component` for type 3, and returns 0 when either finds
+  nothing. It then calls `get_nvreg` with 14468; when the low byte of the result is 121 (`y`) the
+  bank swap value is the signed halfword at +58 of the memory component divided by 2 (signed),
+  otherwise 0. The bank read is the signed halfword at +60 plus twice (a1 / 4 XOR the swap value).
+  A bank of 128 MB or less gives all its pages to the first slot of its four (a1 % 4 of 0) and 0 to
+  the other three; a larger bank gives a quarter of its pages to each of its four slots. Linux's
+  `slot_psize_compute` makes the same choice (its "hack for 128 dimm banks") but has no NVRAM test
+  and no swap. `get_nvreg` (`0xc00000000004af50`) reads a byte at that offset from the base
+  `nvram_baseinit` stores, and gives 0 when no base is set. Established.
+- `slot_getsize` (`6.5.30/unix.IP27` `0xc00000000002a004`, 32 bytes)
+  returns the signed `slot_psize_cache` halfword for node a0 and slot a1 (index a0 × 32 + a1), the
+  size `szmem` stored; the load is at 0xc00000000002a020, in the delay slot of the return.
+  Established.
+- `node_getlastslot` (`6.5.30/unix.IP27` `0xc000000000029ff0`, 20 bytes)
+  returns the signed `slot_lastfilled_cache` halfword for node a0, the last slot `szmem` found
+  memory in (the load at 0xc00000000002a000). Established.
+- `node_getmaxclick` (`6.5.30/unix.IP27` `0xc000000000029f78`, 120 bytes)
+  returns the last page number of node a0: it calls `slot_getsize` for slots 31 down to 0 and, at
+  the first nonzero size, returns the slot's page number (the NASID from `compact_to_nasid_node`
+  shifted left 18, ORed with the slot shifted left 13) plus the size minus 1, as a 32-bit sum.
+  It returns 0 when every slot is empty. Established.
+- `node_getfirstfree` (`6.5.30/unix.IP27` `0xc000000000029f50`, 40 bytes)
+  calls `get_freemem_start` with a0 and returns the result converted to a page number (plus 16383,
+  shifted right 14, truncated to 32 bits). Established.
+- `get_freemem_start` (`6.5.30/unix.IP27` `0xc0000000000506bc`, 252 bytes)
+  returns the first free address of compact node a0. For node 0 it returns the doubleword at
+  +18760 of the caller's own node data (the per-node table entry indexed by the halfword at
+  absolute `0xffffffffffffc422`) ORed with the low 24 bits of `0xc0000000015c6250`, the end of
+  `.bss`. For another node whose bit is set in `ktext_repmask` (it holds a copy of the kernel
+  text) it returns the doubleword at +18752 of that same node data ORed with the low 24 bits of
+  `0xc00000000040464f`, the end of the first `.rodata` section, and with the node's NASID shifted
+  left 32 (the load at 0xc00000000005071c; the node-0 load is at 0xc0000000000507a0). For any other node it reads the node's KLCONFIG directory: the offset doubleword of entry
+  5 (node offset `0x2148`, masked to 40 bits) is added to the node's base and returned as a 40-bit
+  physical address (the load at 0xc000000000050754); when `kdebug` (the halfword at gp-26518) is
+  nonzero the size doubleword of the same entry (node offset `0x2158`, the load at
+  0xc00000000005076c) is added first, so the debugger's area is skipped. The entry
+  layout (offset 8 bytes and size 24 bytes into a 64-byte entry) is Linux's `kldir_ent_t`; Linux's IP27
+  headers do not say which area entry 5 describes. Established.
+
+On IP35 the same routines differ only as follows.
+
+- `szmem` (`6.5.30/unix.IP35` `0xc00000000004edc8`, 308 bytes)
+  walks slots 0 to 7 of each node, calls the unnamed routine at `0xc00000000004f408` for each, and
+  stores the result as a `slot_psize_cache` word (the store at 0xc00000000004ee4c) and the running
+  total as the `page_ordinal` word (the store at 0xc00000000004ee3c). The `numnodes` check (the
+  word at gp+10276, line 106), `low_maxclick` (gp+10812), `slot_lastfilled_cache` and the return
+  value are as on IP27. Established.
+- `sub_c00000000004f408` (`6.5.30/unix.IP35` `0xc00000000004f408`, 232 bytes)
+  finds the node board through the directory, or through `chk_for_pebrick` when the node's
+  register at `0x9000000034000000` (plus the NASID shifted left 33) has `0xc` in bits 12 to 15,
+  then `find_lboard` type 17 and `find_first_component` type 3, returning 0 when either finds
+  nothing. It returns the pages of one bank: the signed halfword at +60 plus twice (a1 XOR the
+  signed halfword at +58), so each slot is one bank and the swap value at +58 always applies.
+  There is no NVRAM test and no 128 MB rule. Established.
+- `slot_getsize` (`6.5.30/unix.IP35` `0xc00000000004f3e8`, 32 bytes)
+  returns the `slot_psize_cache` word for node a0 and slot a1 (index a0 × 8 + a1), the page count
+  `szmem` stored; the load is at 0xc00000000004f404, in the delay slot of the return. Established.
+- `node_getlastslot` (`6.5.30/unix.IP35` `0xc00000000004f3d4`, 20 bytes)
+  returns the signed `slot_lastfilled_cache` halfword for node a0, the last slot `szmem` found
+  memory in (the load at 0xc00000000004f3e4). Established.
+- `node_getmaxclick` (`6.5.30/unix.IP35` `0xc00000000004f35c`, 120 bytes)
+  calls `slot_getsize` for slots 7 down to 0 (the call at 0xc00000000004f378) and, at the first
+  nonzero size, returns the slot's page number (the NASID shifted left 19, ORed with the slot shifted
+  left 16) plus the size minus 1, as a 32-bit sum; it returns 0 when every slot is empty.
+  Established.
+- `node_getfirstfree` (`6.5.30/unix.IP35` `0xc00000000004f334`, 40 bytes)
+  calls `get_freemem_start` and converts to a page number as on IP27. Established.
+- `get_freemem_start` (`6.5.30/unix.IP35` `0xc000000000074b2c`, 268 bytes)
+  takes the node data fields at +34176 (node 0) and +34184 (replicated-text nodes) instead of
+  +18760 and +18752, indexes the node table by the halfword at absolute `0xffffffffffffc42a`,
+  shifts the NASID left 33, and uses the end of `.bss` (`0xc00000000173a950`) and of the first
+  `.rodata` section (`0xc000000000519ebf`). The directory entry 5 reads at node offsets
+  `0x2148` and `0x2158` (the loads at 0xc000000000074bcc and 0xc000000000074be4) and the `kdebug`
+  test (the halfword load at 0xc000000000074bb8) are as on IP27. Established.
+
+The 6.5.22 and 6.5.30 `kernel.o` objects for IP27 and for IP35 hold these routines with the same instructions, relocations aside.
+
+## Memory and NUMA start-up
+
+- `meminit` (`6.5.30/unix.IP27` `0xc0000000001ac1b4`, 480 bytes)
+  sets up the global page pools and per-node page locks. In order it calls `tune_sanity` on
+  `tune`; calls `global_freemem_init` and stores its result F in `relaxed_global_freemem`; calls
+  `init_global_pool` with F minus the word at +36 of `tune` minus F/1024, F minus the word at +32
+  minus F/1024 (both as 32-bit values) and `maxmem`; initialises `memory_lock` ("memlock") and
+  `sxbrk_lock` ("sxbrklock") with `spinlock_init`; for each index below `numnodes` plus
+  `num_pebricks` copies 8 × (`numnodes` + `num_pebricks`) bytes from `Nodepdaindr` to the table that
+  the first doubleword of that node's data points at (`bcopy`), so every node holds its own copy
+  of the node index; initialises `private_list_lock` ("private_list_lock"); for each node below
+  `numnodes` calls `init_spinlock` on +1552 of the node data with "freelst" and the node number;
+  calls `init_sv` on the 64 entries of `pfdwtsv` with "pwt"; calls `lpage_init`; when `numnodes` is
+  2 or more, copies 136 × `numnodes` bytes from the table at +1544 of node 0's data to the table at
+  +1544 of each other node's data; and finally calls `init_sv` on `sv_sxbrk` with "sxbrk". The node
+  data are reached through the per-processor pointer at absolute `0xffffffffffffc400`.
+  Established.
+- `meminit` (`6.5.30/unix.IP35` `0xc00000000025a888`, 480 bytes)
+  is the IP27 routine with the per-node lock at +1520 (address formed at 0xc00000000025a994) and the
+  per-node table at +1512 (loads at 0xc00000000025aa20 and 0xc00000000025aa28) instead of +1552 and
+  +1544: it calls `tune_sanity`, `global_freemem_init`, `init_global_pool`, `spinlock_init`, `bcopy`,
+  `init_spinlock`, `init_sv` and `lpage_init` in the IP27 order with the same arguments. The 6.5.22 and 6.5.30 `os.a(page.o)` objects carry the same code hash in the
+  inventory for each platform. Established.
+- `numa_init` (`6.5.30/unix.IP27` `0xc000000000277a1c`, 96 bytes)
+  runs the start-up table `numa_init_table`: 16-byte entries of a routine pointer at +0 and a name
+  pointer at +8, ending at a null routine pointer. It calls each routine in turn with no
+  arguments; a nonzero result makes it call `cmn_err` with 0, "[numa_init]: Module <%s>
+  initialization failed (%d)", the entry's name and the result, and it carries on with the next
+  entry. It returns nothing. The table (at `0xc0000000014bec48`) holds, in order: `mld_init` (Mld),
+  `raff_init` (Raff), `mldset_init` (MldSet), `pmolist_init` (PmoList), `topology_init` (Topology),
+  `migr_init` (Migr), the six placement policies `plac_policy_default_init`,
+  `plac_policy_fixed_init`, `plac_policy_firsttouch_init`, `plac_policy_thread_init`,
+  `plac_policy_roundrobin_init` and `plac_policy_cachecolor_init`, `fbck_policy_default_init`,
+  `fbck_policy_local_init`, `migr_policy_default_init`, `migr_policy_control_init`,
+  `migr_policy_refcnt_init`, `mem_tick_init` (MemTickInit) and `assign_wards` (AssignWards).
+  Established.
+- `numa_init` (`6.5.30/unix.IP35` `0xc0000000003272f0`, 96 bytes)
+  has the IP27 instructions: it calls each routine of its table through a register (the call at
+  0xc00000000032730c) and calls `cmn_err` with the module name and result on a failure (the call at
+  0xc000000000327340). Its table at `0xc0000000015e95c8` lists the same 19 routines with the same
+  names in the same order. Established.
+- `mem_adjust` (`6.5.30/unix.IP27` `0xc00000000014b3bc`, 252 bytes)
+  trims the buffer cache when memory is short. It calls `bfrag_shake` with 0 and a node mask of
+  the low `numnodes` bits (all ones shifted right by 64 minus `numnodes`). It then forms the
+  surplus S: `chunkpages` minus `min_file_pages`, floored at 0, plus `bufmem` minus `min_bufmem`
+  when that is positive. It reads `get_availrmem` and `get_availsmem` of `global_pool` and returns
+  when S is 0 or less. The want W is `min_free_pages` minus `relaxed_global_freemem`, floored at 0;
+  when the smaller of the two available counts is below `chunkpages` plus `bufmem`, W becomes that
+  shortfall if it is larger. When W is positive it calls `free_buffer_mem` with the smaller of S
+  and W. Established.
+- `mem_adjust` (`6.5.30/unix.IP35` `0xc0000000001e739c`, 376 bytes)
+  builds the node mask as two doublewords on the stack, setting bits 0 to `numnodes` - 1 one at a
+  time, and passes them to `bfrag_shake` in a1 and a2; the rest is the IP27 computation with
+  other registers. The 6.5.22 IP35 `sgi.a(chunkio.o)` copy (388 bytes) clears the two mask
+  doublewords with a two-pass loop instead of two stores and is otherwise the same instruction for
+  instruction; the IP27 copies of both releases carry the same code hash. Established.
