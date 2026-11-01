@@ -233,7 +233,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	231	0xc000000000232068	numalinkstats_up2date		in	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	232	0xc000000000232058	dba_clearstats		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	233	0xc000000000232048			out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	234	0xc000000000232004	sprintf		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	234	0xc000000000232004	sprintf		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	235	0xc000000000231fd0			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	236	0xc000000000231fc0			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	237	0xc000000000231848		yes	out	undocumented
@@ -1494,7 +1494,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	231	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	232	0xa8000000201ec240	dba_clearstats		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	233	0xa8000000201ec230			out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	234	0xa8000000201ec1ec	sprintf		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	234	0xa8000000201ec1ec	sprintf		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	235	0xa8000000201ec1b8			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	236	0xa8000000201ec1a8			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	237	0xa8000000201eba10		yes	out	undocumented
@@ -2706,7 +2706,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	231	0xc0000000002e1eb8	numalinkstats_up2date		in	undocumented
 6.5.30/unix.IP35	compare	232	0xc0000000002e2f98	dba_clearstats		out	undocumented
 6.5.30/unix.IP35	compare	233	0xc0000000002e1760			out	undocumented
-6.5.30/unix.IP35	compare	234	0xc0000000002e2774	sprintf		out	undocumented
+6.5.30/unix.IP35	compare	234	0xc0000000002e2774	sprintf		out	documented
 6.5.30/unix.IP35	compare	235	0xc0000000002e21d0			out	undocumented
 6.5.30/unix.IP35	compare	236	0xc0000000002e10bc			out	undocumented
 6.5.30/unix.IP35	compare	250	0xc0000000002e2884	copyin		out	undocumented
