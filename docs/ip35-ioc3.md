@@ -194,3 +194,98 @@ Routines of the IOC3 PCI I/O controller code in the IRIX 6.5.30 IP35 kernel (`6.
   first taken slot. The word at soft +2872 is the free-slot bitmask that `ioc3_intr_connect` takes
   the lowest set bit from, and the word at +2864 is its slot counter. What else uses the word at soft +2868:
   unknown here. Established.
+- `ioc3_console_vhdl_get` (`6.5.30/unix.IP35`, address 0xc0000000000c61d4, 24 bytes, no stack frame): returns the vertex
+  of the console IOC3. It loads the doubleword at 0xc000000001644dd8 (gp+5736), the global that `ioc3_attach` sets to
+  the console controller's soft state. When that is zero the branch at 0xc0000000000c61d8 skips the load and the
+  routine returns -1, which the delay slot of that branch put in `v0`. Otherwise it returns the word at +0 of the soft
+  state, the vertex that `ioc3_attach` stores there. It makes no calls. Established.
+- `ioc3_mem_ptr` (`6.5.30/unix.IP35`, address 0xc0000000000c63fc, 8 bytes, no stack frame): returns the doubleword at
+  +24 of `a0`, loaded in the delay slot of the return. `a0` is an IOC3 soft state, whose +24 holds the register window
+  that `ioc3_attach` maps. There is no null test. Established.
+- `ioc3_get_mem` (`6.5.30/unix.IP35`, address 0xc0000000000c6404, 32 bytes, 16-byte frame): the vertex form of
+  `ioc3_mem_ptr`. It calls `hwgraph_fastinfo_get` with its own `a0` untouched, then returns the doubleword at +24 of the
+  record that call returned (the soft state `ioc3_attach` attached to the vertex), with no null test. Established.
+- `ioc3_intr_cpu_get` (`6.5.30/unix.IP35`, address 0xc0000000000c4eec, 8 bytes, no stack frame): returns the halfword
+  at +40 of `a0`, sign-extended (`lh` in the delay slot of the return). In an IOC3 soft state that halfword is the
+  processor that took the interrupt, which `ioc3_attach` reads into it after `pciio_intr_connect`. Established.
+- `ioc3_sio_mlreset` (`6.5.30/unix.IP35`, address 0xc00000000022093c, 44 bytes, 32-byte frame): registers two routine
+  addresses with the kernel console layer. It builds a two-doubleword block on the stack, the address
+  0xc000000000223d88 at sp+0 (pool word at 0xc000000001640a50) and the address 0xc000000000223c34 at sp+8 (pool word at
+  0xc000000001640a58), and calls `sio_console_register` with the block's address. That routine copies the two
+  doublewords to +1160 and +1168 of the structure `cn` and returns nothing; this routine then returns whatever `v0`
+  holds. Both addresses are unnamed static routines inside the address range of `ioc3_serial_kill`; their bodies were
+  not read for this entry, so what the console layer uses them for is unknown here. Established.
+- `ioc3_subdev_enable` (`6.5.30/unix.IP35`, address 0xc0000000000c6334, 68 bytes, 16-byte frame): turns on one
+  sub-device bit in an IOC3's sub-device mask. `a0` is the IOC3 vertex and `a1` the bit number. It saves `a1` at sp+8
+  and calls the unnamed static routine at 0xc0000000000c61ec with `a0` and 1. That routine finds the mask: it runs
+  `hwgraph_traverse` with the string ".host" (at 0xc00000000049d248, the pool word at gp-19704 plus 456), leaving the
+  result in the stack slot that first held `a0`, reads the label "_subdevs" (at 0xc00000000049d598, pool word plus 1304)
+  of the vertex in that slot with `hwgraph_info_get_LBL`, and when the label is missing and its second argument is nonzero allocates 8 bytes with
+  `kmem_zalloc`, stores 255 in them, adds them as that label with `hwgraph_info_add_LBL`, reads the label back and frees
+  its own copy with `kmem_free` if the label now holds a different pointer (another caller won). It returns the pointer
+  to the doubleword, or 0 when there is none. Back here, a zero result ends the routine. Otherwise the routine ORs
+  `1 << a1` into that doubleword with a `lld`/`scd` loop, retrying through the branch-likely `beql` at
+  0xc0000000000c6368. The shift is the 32-bit variable shift `sllv`, so only the low five bits of `a1` count. The
+  routine leaves the helper's result in `v0` and has no other return value. Established.
+- `ioc3_subdev_disable` (`6.5.30/unix.IP35`, address 0xc0000000000c6378, 72 bytes, 16-byte frame): the clearing twin
+  of `ioc3_subdev_enable`, with the same arguments and the same call of the static routine at 0xc0000000000c61ec
+  (second argument 1, so a missing mask is created as 255 first). A zero result ends the routine. Otherwise it forms
+  `1 << a1` with `sllv`, inverts it with `nor` against zero and ANDs it into the doubleword with a `lld`/`scd` loop
+  whose retry is the branch-likely `beql` at 0xc0000000000c63b0. The helper's result is left in `v0`. Established.
+- `ioc3_is_console` (`6.5.30/unix.IP35`, address 0xc0000000000c5d80, 88 bytes, 16-byte frame): says whether the IOC3
+  vertex `a0` is the console controller. It returns 0 when the doubleword at 0xc000000001644dd8 (gp+5736, the console
+  controller's soft state, set by `ioc3_attach`) is zero. Otherwise it calls `hwgraph_traverse(a0, "ioc3", &sp+0)`, the
+  string at 0xc00000000049d258 (pool word at gp-19704 plus 472), and returns 0 if that call returns nonzero. If it
+  succeeds it calls `hwgraph_fastinfo_get` on the vertex found and returns 1 when the result equals the global and 0
+  when it does not (`xor` then `sltiu` against 1). Established.
+- `ioc3_is_io7` (`6.5.30/unix.IP35`, address 0xc0000000000c5dd8, 64 bytes, 16-byte frame): returns the flag byte that `ioc3_attach`
+  keeps in an IOC3's soft state. It calls `hwgraph_traverse(a0, "ioc3", &sp+0)` (the string at 0xc00000000049d258, pool word at
+  gp-19704 plus 472) and returns 0 when that returns nonzero. Otherwise it calls `hwgraph_fastinfo_get` on the vertex
+  found and returns the byte at +2885 of the soft state (`lbu`), the flag `ioc3_attach` sets to 1 for the vertex name
+  containing "Ibrick/xtalk/15/pci/4". What the flag stands for beyond that is the kernel's own naming. Established.
+- `ioc3_mlreset` (`6.5.30/unix.IP35`, address 0xc0000000000c4ef4, 116 bytes, 16-byte frame): records the console
+  IOC3's configuration and register windows and, unless the chip reports one of two other identifiers, registers the
+  IOC3 serial port as a console device. `a1` is stored in the kernel variable `console_mem` (0xc00000000163c938) and
+  `a0` in `console_cfg` (0xc00000000163c930); `ioc3_attach` later compares them with each controller's windows. The
+  routine then forms an uncached address B from the halfword `master_nasid` (the pool slot at gp-32632): `master_nasid`
+  shifted left 33 plus 0x9600000000000000. It reads the doubleword at (B | 0x2000) + 72, keeps its low 40 bits and ORs
+  them into B to get X. It reads the word at X + 16, adds it to X and reads the word at +28 from the sum, the word that
+  `ioc3_serial_attach` compares with 0x000310a9. When that word equals 0x0300fafa or 0x0300fafb the routine returns at
+  once. Otherwise it calls `ioc3_sio_mlreset` and returns. What the two other identifiers belong to is unknown here.
+  There is no return value. Established.
+- `ioc3_ei_intr` (`6.5.30/unix.IP35`, address 0xc0000000000c42a0, 308 bytes, 48-byte frame): the handler that `eiattach`
+  connects with `ioc3_intr_connect` for the interrupt mask 0x18000000, with its own state record as the argument. `a0`
+  is that record (56 bytes, from `eiattach`'s `kmem_zalloc`). The offsets used are the register window pointer at +8
+  (`eiattach` stores `ioc3_mem_ptr`'s result there), a word at +16 (the mask passed to `ioc3_write_ireg`; `eiattach`
+  stores 0 there after connecting), a spin lock whose address is record + 20, the head of a list at +24, a pointer at +32 to a page that
+  `eiattach` allocates with `kvpalloc`, a word at +44 (`eiattach` stores -1) and the IOC3 soft state at +48. The
+  routine first stores 0x18000000 in the word at +0x1c of the register window, the word `ioc3_handle_intr` reads as the
+  pending word; what a store there does to the chip is unknown here. It then reads the word at the absolute address
+  0xffffffffffffc6a8 (-14680). When that is nonzero it calls `frs_handle_eintr`, a stub whose whole body is `jr ra`.
+  When it is zero it reads the record word at +44: a nonnegative value is passed to `uli_callup`, and a negative value
+  (the value `eiattach` leaves) takes the third path. That path takes the lock at the address record + 20 with `mutex_spinlock`,
+  adds 1 to the word at the start of the page at record +32 (a plain load, add and store under the lock), and walks the
+  list from record +24 through the link at +8 of each node. For each node it adds 1 to the word at node +16 with an
+  `ll`/`sc` loop whose retry is the branch-likely `beql` at 0xc0000000000c435c. When the word 20 bytes into the node is
+  nonzero it calls `sigtopid` with the node's first word, that same word 20 bytes in, 18 and three zeros. It then calls
+  `nested_spinlock(node+24)`, `sv_signal(node+32)` and `nested_spinunlock(node+24)`. After the list it calls
+  `mutex_spinunlock` for the record lock with the level `mutex_spinlock` returned. All three paths end by calling
+  `ioc3_write_ireg` with the soft state from +48, the word at +16 and operation 0, and the routine returns nothing. What
+  the kernel treats these external interrupts as: unknown here. Established.
+- `ioc3_init` (`6.5.30/unix.IP35`, address 0xc0000000000c51e8, 88 bytes, 16-byte frame): registers the IOC3 driver
+  with the PCI layer and three part-number prefixes with the NIC code. It calls `pciio_driver_register(4265, 3, S + 48,
+  1)`: 4265 is 0x10a9, the vendor, and 3 the device that `ioc3_serial_attach` also tests; S is the pool word at gp-19704
+  (0xc00000000049d080, the string "030-1155-") and S + 48 is the string "ioc3_" at 0xc00000000049d0b0. It then calls
+  `nic_vmc_add` three times, each with a string and a routine address: S and 0xc0000000000c5240 (pool word at
+  gp-19696), S + 16 ("030-1657-") and 0xc0000000000c525c (pool word at gp-19688), and S + 32 ("030-1664-") with the
+  same 0xc0000000000c525c. `ioc3_attach` tests the NIC string of its guest against the last two prefixes. The return
+  value is whatever the last `nic_vmc_add` leaves in `v0`. What the two routines do is not read here. Established.
+- `ioc3_pckm_mlreset` (`6.5.30/unix.IP35`, address 0xc0000000000cb808, 76 bytes, 64-byte frame): registers six routine
+  addresses for the console keyboard with the console layer. It loads six pool words and stores them in a block on the
+  stack, in the order issued: the word at gp-19448, 0xc0000000000cb854, at sp+0; gp-19440, 0xc0000000000cd074, at
+  sp+8; gp-19424, 0xc0000000000cd0f0, at sp+24; gp-19416, 0xc0000000000cd134, at sp+32; gp-19432, 0xc0000000000cd0b0,
+  at sp+16; and gp-19408, 0xc0000000000cd160, at sp+40 (in the delay slot of the call). It calls
+  `pckm_console_register` with the block's address; that routine copies the six doublewords in order to +1112, +1120,
+  +1128, +1136, +1144 and +1152 of the structure `cn` and returns nothing, and this routine returns what `v0` holds. All
+  six are unnamed static routines; the first, 0xc0000000000cb854, is only `jr ra` with a `nop` delay slot. The other
+  five were not read for this entry. Established.
