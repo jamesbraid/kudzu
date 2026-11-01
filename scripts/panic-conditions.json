@@ -1,0 +1,12 @@
+{
+ "6.5.30/unix.IP27|0xc00000000001947c": "Taken when the `bnez at` at 0x19450 branches: the word at `_prom_cleared` (loaded at 0x19444) is nonzero. Otherwise the code calls the PROM at 0x19464.",
+ "6.5.30/unix.IP27|0xc000000000027720": "The `beqz a3` at 0x2770c does not branch, so a3 on entry is nonzero. The path enters at 0x276e8 from the `b` at 0x276dc.",
+ "6.5.30/unix.IP27|0xc000000000027750": "The `beqz a3` at 0x2770c branches to 0x2773c, so a3 on entry is zero.",
+ "6.5.30/unix.IP27|0xc00000000002789c": "The `beqz t1` at 0x2786c branches when t1 is zero, into 0x27890.",
+ "6.5.30/unix.IP27|0xc000000000027a4c": "Two entries: the `bne s4,s5` at 0x27a24 branches (s4 differs from s5) into 0x27a38, which falls through to here; or the unconditional `b` at 0x27a30 jumps to 0x27a3c.",
+ "6.5.30/unix.IP27|0xc000000000027a68": "The `bnez a2` at 0x279f0 branches (a2 nonzero) into 0x27a5c.",
+ "6.5.30/unix.IP27|0xc000000000028e9c": "The `beqz a0` at 0x28e6c branches (a0 zero) into 0x28e94.",
+ "6.5.30/unix.IP27|0xc0000000000295e0": "Inside the loop entered at 0x295bc. The `beqz v1` at 0x295d0 falls through, so v1 is nonzero.",
+ "6.5.30/unix.IP27|0xc000000000029604": "The loop has ended: the `bnez a2` at 0x295f4 does not branch, so s8 is not below t0. Or the `blez t0` at 0x295b0 branches (t0 at most zero) into 0x295fc.",
+ "6.5.30/unix.IP27|0xc000000000029624": "The `bgtz s0` at 0x294b4 branches (s0 greater than zero) into 0x29614."
+}
