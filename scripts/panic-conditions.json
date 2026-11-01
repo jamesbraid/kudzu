@@ -8,5 +8,15 @@
  "6.5.30/unix.IP27|0xc000000000028e9c": "The `beqz a0` at 0x28e6c branches (a0 zero) into 0x28e94.",
  "6.5.30/unix.IP27|0xc0000000000295e0": "Inside the loop entered at 0x295bc. The `beqz v1` at 0x295d0 falls through, so v1 is nonzero.",
  "6.5.30/unix.IP27|0xc000000000029604": "The loop has ended: the `bnez a2` at 0x295f4 does not branch, so s8 is not below t0. Or the `blez t0` at 0x295b0 branches (t0 at most zero) into 0x295fc.",
- "6.5.30/unix.IP27|0xc000000000029624": "The `bgtz s0` at 0x294b4 branches (s0 greater than zero) into 0x29614."
+ "6.5.30/unix.IP27|0xc000000000029624": "The `bgtz s0` at 0x294b4 branches (s0 greater than zero) into 0x29614.",
+ "6.5.30/unix.IP27|0xc000000000029640": "The bltz s0 at 0x294bc branches (s0 negative) into 0x29634.",
+ "6.5.30/unix.IP27|0xc0000000000297dc": "The bltz t9 at 0x296f4 branches (t9 negative) into 0x297a0. The bne s4,t0 at 0x297b0 does not branch (s4 equals t0), and the beqz t1 at 0x297c8 does not branch (t1 nonzero, from the andi with 0x10 at 0x297c4).",
+ "6.5.30/unix.IP27|0xc0000000000297f8": "The beqzl a7 at 0x2974c is branch-likely and does not branch (a7 nonzero), so its delay slot is skipped. The unconditional b at 0x29754 then jumps into 0x297ec.",
+ "6.5.30/unix.IP27|0xc000000000032838": "The beqz t9 at 0x327ac branches (t9 zero) into 0x3282c, or the beqz v0 at 0x327b4 branches (v0 zero) into 0x3282c.",
+ "6.5.30/unix.IP27|0xc000000000032854": "The beqz a1 at 0x32548 branches (a1 zero) into 0x32848, where a0 is loaded from the pool.",
+ "6.5.30/unix.IP27|0xc00000000003286c": "The beqz a2 at 0x32558 branches (a2 zero) into 0x32864.",
+ "6.5.30/unix.IP27|0xc000000000032884": "The unconditional b at 0x326f0 jumps into 0x3287c.",
+ "6.5.30/unix.IP27|0xc0000000000329d4": "The beq a2,s0 at 0x328c0 branches (a2 equals s0) into 0x329c8.",
+ "6.5.30/unix.IP27|0xc0000000000329ec": "The beq a0,a6 at 0x32934 branches (a0 equals a6) into 0x329e4.",
+ "6.5.30/unix.IP27|0xc000000000032a08": "The bltz v0 at 0x32958 branches (v0 negative) into 0x329fc."
 }

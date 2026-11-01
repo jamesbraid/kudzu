@@ -8,7 +8,7 @@ Each row gives the call address, the callee, the message the call passes, and th
 
 Grades: a message that is shown is established from the binary. `not resolved` means the scan could not follow the register: it is set on two paths that join before the call, or it comes from a pointer the routine loads at run time. A condition is established when the branch that decides the call was read in the disassembly; `not established` means no branch in the listing reaches the call.
 
-Counts: 890 call sites in 253 routines; 10 have a written condition, 880 do not yet.
+Counts: 890 call sites in 253 routines; 20 have a written condition, 870 do not yet.
 
 ## 6.5.30 IP27 kernel
 
@@ -124,7 +124,7 @@ Routine at 0xc000000000029144.
 | 0xc0000000000295e0 | cmn_err | level 5, `CPU %d didn't arrive in kick_action.` | Inside the loop entered at 0x295bc. The `beqz v1` at 0x295d0 falls through, so v1 is nonzero. |
 | 0xc000000000029604 | cmn_err | level 0, `Timeout/IFDR kick failed.  CPUs didn't all arrive.` | The loop has ended: the `bnez a2` at 0x295f4 does not branch, so s8 is not below t0. Or the `blez t0` at 0x295b0 branches (t0 at most zero) into 0x295fc. |
 | 0xc000000000029624 | cmn_err | level 21, `HUB II_IFDR (0x%x) fixed. Value was 0x%x` | The `bgtz s0` at 0x294b4 branches (s0 greater than zero) into 0x29614. |
-| 0xc000000000029640 | cmn_err | level 16, `HUB II_IFDR (0x%x) overflowed. Fatal` | not yet read |
+| 0xc000000000029640 | cmn_err | level 16, `HUB II_IFDR (0x%x) overflowed. Fatal` | The bltz s0 at 0x294bc branches (s0 negative) into 0x29634. |
 
 ### `hub_widget_reset`
 
@@ -132,8 +132,8 @@ Routine at 0xc000000000029660.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc0000000000297dc | assfail | `! (REMOTE_HUB_L(nasid, IIO_IPDR) & IIO_IPDR_PND)`, line 1378 (file argument not copied) | not yet read |
-| 0xc0000000000297f8 | assfail | `! (REMOTE_HUB_L(nasid, IIO_IPDR) & IIO_IPDR_PND)`, line 1378 (file argument not copied) | not yet read |
+| 0xc0000000000297dc | assfail | `! (REMOTE_HUB_L(nasid, IIO_IPDR) & IIO_IPDR_PND)`, line 1378 (file argument not copied) | The bltz t9 at 0x296f4 branches (t9 negative) into 0x297a0. The bne s4,t0 at 0x297b0 does not branch (s4 equals t0), and the beqz t1 at 0x297c8 does not branch (t1 nonzero, from the andi with 0x10 at 0x297c4). |
+| 0xc0000000000297f8 | assfail | `! (REMOTE_HUB_L(nasid, IIO_IPDR) & IIO_IPDR_PND)`, line 1378 (file argument not copied) | The beqzl a7 at 0x2974c is branch-likely and does not branch (a7 nonzero), so its delay slot is skipped. The unconditional b at 0x29754 then jumps into 0x297ec. |
 
 ### `router_queue_init`
 
@@ -160,10 +160,10 @@ Routine at 0xc0000000000324f4.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000032838 | assfail | `kl_error_log[i] && hub_err_count[i]`, line 155 (file argument not copied) | not yet read |
-| 0xc000000000032854 | assfail | `kl_error_log[cnode]`, line 164 (file argument not copied) | not yet read |
-| 0xc00000000003286c | assfail | expression not resolved (add of unknown at 0xc000000000032870 (join at 0xc000000000032864)), line 165 (file argument not copied) | not yet read |
-| 0xc000000000032884 | cmn_err | level 20, format not resolved (add of unknown at 0xc000000000032888 (join at 0xc00000000003287c)) | not yet read |
+| 0xc000000000032838 | assfail | `kl_error_log[i] && hub_err_count[i]`, line 155 (file argument not copied) | The beqz t9 at 0x327ac branches (t9 zero) into 0x3282c, or the beqz v0 at 0x327b4 branches (v0 zero) into 0x3282c. |
+| 0xc000000000032854 | assfail | `kl_error_log[cnode]`, line 164 (file argument not copied) | The beqz a1 at 0x32548 branches (a1 zero) into 0x32848, where a0 is loaded from the pool. |
+| 0xc00000000003286c | assfail | expression not resolved (add of unknown at 0xc000000000032870 (join at 0xc000000000032864)), line 165 (file argument not copied) | The beqz a2 at 0x32558 branches (a2 zero) into 0x32864. |
+| 0xc000000000032884 | cmn_err | level 20, format not resolved (add of unknown at 0xc000000000032888 (join at 0xc00000000003287c)) | The unconditional b at 0x326f0 jumps into 0x3287c. |
 
 ### `hubii_eint_init`
 
@@ -171,9 +171,9 @@ Routine at 0xc000000000032894.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc0000000000329d4 | assfail | `hub_v != GRAPH_VERTEX_NONE`, line 309 (file argument not copied) | not yet read |
-| 0xc0000000000329ec | cmn_err | level 20, format not resolved (add of unknown at 0xc0000000000329f0 (join at 0xc0000000000329e4)) | not yet read |
-| 0xc000000000032a08 | assfail | `rv >= 0`, line 339 (file argument not copied) | not yet read |
+| 0xc0000000000329d4 | assfail | `hub_v != GRAPH_VERTEX_NONE`, line 309 (file argument not copied) | The beq a2,s0 at 0x328c0 branches (a2 equals s0) into 0x329c8. |
+| 0xc0000000000329ec | cmn_err | level 20, format not resolved (add of unknown at 0xc0000000000329f0 (join at 0xc0000000000329e4)) | The beq a0,a6 at 0x32934 branches (a0 equals a6) into 0x329e4. |
+| 0xc000000000032a08 | assfail | `rv >= 0`, line 339 (file argument not copied) | The bltz v0 at 0x32958 branches (v0 negative) into 0x329fc. |
 
 ### `hubni_eint_init`
 
