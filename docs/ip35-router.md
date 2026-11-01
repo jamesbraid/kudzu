@@ -57,3 +57,20 @@ Routines of the NUMAlink router code in the IRIX 6.5.30 IP35 kernel (`6.5.30/uni
   register at (port index + 2) & 1 shifted left 11, plus ((port index + 2) & 0xe) shifted left 15, plus 8, and calls
   `show_rr_error_status` (address 0xc0000000000573a0) with the low 34 bits of it, the port number, `a1`, `a2` and 0.
   The routine returns nothing. What the register at the offset formed above holds is unknown here. Established.
+
+## Fences
+
+- `router_set_fences` (`6.5.30/unix.IP35`, address 0xc00000000004314c, 312 bytes, 80-byte frame): trims the router's
+  register 0x10 and each live port's own register so that they refer only to ports that came up. `a0` is the router
+  state record (`ri`); its byte at +8 is the mask of live ports, bit (port - 1) set for each live port 1 to 8, as
+  `router_init` builds it. It reads register 0x10 into the doubleword at 0(sp) with
+  `router_reg_read(ri, 0x10, &value)` (0xc0000000000427ec). The results of the reads and writes are not tested. For each
+  port p from 1 to 8 (`s4`, with the bit index `s2` = p - 1 and `s3` = p + 1): when bit p - 1 of the mask is clear, it
+  clears bit p - 1 of the value at 0(sp) and goes on to the next port. When the bit is set it forms the register number
+  `((s3 & 0xe) << 15) | ((s3 & 1) << 11) | 0x18`,
+  reads that register into the doubleword at 8(sp), clears in it bit q for every q from 0 to 7 whose mask bit q is
+  clear (an inner loop of eight passes, reading the mask byte at +8 each time), and writes the result back with
+  `router_reg_write(ri, number, value)` (0xc00000000004281c). After the eighth port it stores the final value at 0(sp)
+  as the doubleword at ri +536, writes it to register 0x10 with `router_reg_write` and returns that call's result
+  (0xc00000000004327c). What the bits of register 0x10 and of the per-port registers mean to the router: unknown here.
+  Established.
