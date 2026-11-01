@@ -745,3 +745,68 @@ The 6.5.22 and 6.5.30 `kernel.o` objects for IP27 and for IP35 hold these routin
   other registers. The 6.5.22 IP35 `sgi.a(chunkio.o)` copy (388 bytes) clears the two mask
   doublewords with a two-pass loop instead of two stores and is otherwise the same instruction for
   instruction; the IP27 copies of both releases carry the same code hash. Established.
+
+## Board serial numbers
+
+The kernels find a board's serial number in the manufacturing NIC string the PROM copies into KLCONFIG: a text of `name:value;` pairs. Each board class keeps the offset of that string in its main component; Linux names those fields `hub_mfg_nic`, `bri_mfg_nic`, `rou_mfg_nic` and `gfx_mfg_nic`, and component types 2, 5, 9 and 10 `KLSTRUCT_HUB`, `KLSTRUCT_BRI`, `KLSTRUCT_ROU` and `KLSTRUCT_GFX`.
+
+| Board class | Component type | NIC string offset (IP27) | NIC string offset (IP35) | Part names tried first |
+|---|---|---|---|---|
+| `0x10` node | 2 | word at +80 | word at +80 | IP27: "IP27", then "IP31"; IP35: "IP35", "IP39", "IP45", "IP34", "IP53", "IP59" |
+| `0x20` I/O | 5 | word at +136 | word at +136 | none |
+| `0x30` router | 9 | word at +128 | word at +144 | none |
+| `0x50` graphics | 10 | word at +92 | word at +92 | none |
+
+- `sub_c00000000001e924` (`6.5.30/unix.IP27` `0xc00000000001e924`, 316 bytes)
+  is unsymbolled in the linked kernel; the `kernel.o` DWARF names it `component_serial_number_get`.
+  It takes a board pointer (a0, used only for its NASID), a NIC string offset (a1), an output buffer
+  (a2) and a part name (a3). It returns 1 when a1 is 0. It forms the string's address on the board's
+  node as in [Addresses](#addresses); when the part name is not empty (`strcmp` against the empty
+  string at `0xc000000001404e70`) it moves to the first match of the name with `strstr` and returns
+  1 when there is none. It then calls `strstr` for "Serial:" and returns 1 when that is absent, and
+  otherwise copies the bytes after "Serial:" into a2 up to the first `;` (59), adds a terminating
+  zero and returns 0. The copy has no length limit and stops only at `;`. Established.
+- `board_serial_number_get` (`6.5.30/unix.IP27` `0xc00000000001ea60`, 424 bytes)
+  takes a board (a0) and a buffer (a1), returns 1 when either is null, and first stores a zero byte
+  in the buffer. It selects the component from the class (byte at +5 masked with `0xf0`) as in the
+  table, calls `find_first_component` for it, and returns 1 when there is none. For a node board it
+  calls `sub_c00000000001e924` with the hub's NIC offset and "IP27" (string block from gp-20768,
+  plus 408) and, when that fails, again with "IP31" (plus 416); for the other classes it passes the
+  empty name. It returns 0 when a search succeeds and 1 otherwise. A board of any other class gets
+  an empty buffer and the result 0. Established.
+- `sub_c000000000045578` (`6.5.30/unix.IP35` `0xc000000000045578`, 316 bytes)
+  (`component_serial_number_get` in the `kernel.o` DWARF) is the IP27 routine with the NASID taken
+  from bits 33 to 39 of a0 (the shift at 0xc0000000000455a8) and shifted left 33. Established.
+- `board_serial_number_get` (`6.5.30/unix.IP35` `0xc0000000000456b4`, 536 bytes)
+  is the IP27 routine with six part names for a node board, tried in the order of the table through
+  `sub_c000000000045578` (string block from gp-23392, plus 480 to 520), and the router NIC offset
+  read from +144 of the router component (the load at 0xc0000000000458b0) instead of +128. Established.
+
+## Hub slot numbers (IP27)
+
+An IP27 hub reads its own slot from the low byte of the hub register at offset `0x220048` (Linux `MD_SLOTID_USTAT`; the kernel reads it at `0x9200000001220048`, the calling processor's own hub). Linux gives the slot in bits 0 to 2 on an Origin 2000 class module and in bit 7 on an Origin 200 (`MSU_SN0_SLOTID_MASK`, `MSU_SN00_SLOTID_MASK`), which is the split the kernel makes on `p_sn00` (+1315 of `pda_s`, the byte at absolute `0xffffffffffffc523`). These routines have no IP35 counterparts in the linked IP35 kernel.
+
+- `hub_slotbits_to_slot` (`6.5.30/unix.IP27` `0xc00000000003caec`, 108 bytes)
+  turns slot bits (a0) into a slot number. When `p_sn00` is nonzero it returns 1 when bit 7 of a0 is
+  set and 2 when it is clear. Otherwise it takes bits 0 to 2 as an index (the bound test against 8
+  is never taken) and reads the low byte of word index of one of two tables, chosen by bit 0 of the
+  word at `0x90000000100000a8` (the load at 0xc00000000003cb2c; Linux puts the local boot PROM
+  space, `LBOOT_BASE`, at `0x9000000010000000`): with the bit set the table at `0xc0000000014168c0`
+  gives 240, 240, 6, 5, 4, 3, 2, 1 for indexes 0 to 7, and with it clear the table at
+  `0xc0000000014168a0` gives 240, 240, 82, 81, 4, 3, 2, 1. So index 2 and 3 name slots `0x52` and
+  `0x51` in one layout and 6 and 5 in the other. Established.
+- `get_my_slotid` (`6.5.30/unix.IP27` `0xc00000000003cd64`, 36 bytes)
+  reads the doubleword at `0x9200000001220048` (address from gp-23824), keeps its low byte and calls
+  `hub_slotbits_to_slot` with it (the call at 0xc00000000003cd74), returning that slot number.
+  Established.
+- `hub_slot_get` (`6.5.30/unix.IP27` `0xc00000000003cee0`, 36 bytes)
+  calls `get_my_slotid` (the call at 0xc00000000003cee8) and returns its result masked with `0xf`.
+  Established.
+- `hub_slot_to_widget` (`6.5.30/unix.IP27` `0xc00000000003cb58`, 104 bytes)
+  maps a slot number (a0) to a crossbow widget number. It returns 255 when the low four bits are 8
+  or more. Otherwise, with i the low four bits, it returns the low byte of word i - 1 of a table:
+  when the slot's high four bits are 5 (`0x50`), the table at `0xc0000000014168f0` (10, 9, 255, 255
+  for i of 1 to 4); else, when the word at `0x9000000010000090` (read at 0xc00000000003cb70, in the
+  boot PROM space) is 0, the table at `0xc0000000014168e0` (9, 10, 10, 9); otherwise the table at
+  `0xc0000000014ca270` (10, 10, then 0). A slot number of 0 in the low bits reads the word before
+  each table. Established.

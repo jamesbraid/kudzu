@@ -545,9 +545,9 @@ Each node vertex carries the label "_node", whose value is the node's `pdinfo` r
 - `hubdev_prombase_get` (`6.5.30/unix.IP27` `0xc00000000004c1d0`, 60 bytes)
   looks up "_node" the same way and returns the signed halfword at +10 of the record, the NASID
   (the load at 0xc00000000004c1f4), shifted left 32 and added to `0x9000000030000000` (the
-  doubleword at gp-24488), the node's uncached space at offset `0x30000000`. Its caller
-  `cpuprom_map` maps the PROM character device from that base; the Linux IP27 headers give the
-  offset no name. The result pointer is not tested. Established.
+  doubleword at gp-24488), the node's hub special space at offset `0x30000000`. Linux names that
+  address `NODE_RBOOT_BASE`, the remote view of a node's boot PROM. Its caller `cpuprom_map` maps
+  the PROM character device from that base. The result pointer is not tested. Established.
 - `prominfo_add` (`6.5.30/unix.IP27` `0xc00000000006b84c`, 100 bytes)
   records that PROM device vertex a1 belongs to hub vertex a0. It calls `kmem_alloc` for a 16-byte
   record (flags 0), stores a1 as the word at +0 and a0 as the word at +4, and under
