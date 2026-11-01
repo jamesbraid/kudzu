@@ -1191,3 +1191,78 @@ either command is looked at. For command 5 the entry is the doubleword at (the p
 id & 0xff); when its bit 56 is set (the value shifted left 7 is negative) the routine stores `(widget id & 0xff) | 0x10` in the doubleword at page +904 of the same
 page. The routine always returns 0 (exits 0xc000000000027b90, 0xc000000000027bc4 and 0xc000000000027bd0). `hub_widget_reset` writes `index | 0x10` to the same +904
 register after clearing an entry of the neighbouring table at +776. No branch-likely instruction.
+
+## Hub address checks, error counters and kick set-up
+
+- `hub_check_is_widget0` (`6.5.30/unix.IP27`, address 0xc00000000003c1cc, 124 bytes, no frame): **established.**
+Says whether an address lies in one of two windows of the node it names, returning 1 inside either and 0 otherwise. `a0` is the address; no other argument is read. The node number
+is the byte in bits 39 to 32 of `a0` (`dsrl32` then `andi` 0xff, then a 16-bit sign extension that cannot change a value of 0 to 255), moved back up to bit 32 and added to four constants
+to give four limits: 0x9200000000000000 (`li` -55 shifted left by 57), and three doublewords loaded through `gp`, 0x9200000001000000 (the word at 0xc0000000014cc2b0), 0x92000000e0000000
+(0xc0000000014cc1b8) and 0x9200000100000000 (0xc0000000014cc228). The routine returns 1 when the address is at or above the first limit and below the second (a window of 0x1000000 bytes
+at the start of the node's range), and also when it is at or above the third and below the fourth (the top 512 MB of the node's 4 GB, ending where the next node's range begins).
+`v0` is 1 from the start; the `move v0,zero` at 0xc00000000003c228 is in the delay slot of the `bnez` at 0xc00000000003c224, so it always runs, and a hit on the first window leaves through
+0xc00000000003c240 before it. The exits are 0xc00000000003c238 (1, both bounds of the second window hold) and 0xc00000000003c240 (1 when the first window matched, otherwise 0). The one caller is
+`hub_check_window_equiv`. No branch-likely instruction. That the windows belong to widget 0 is inferred from the name only; the code names neither.
+- `hub_check_window_equiv` (`6.5.30/unix.IP27`, address 0xc00000000003c248, 104 bytes, 32-byte frame): **established.**
+Decides whether two addresses name the same window position, returning 1 when both are in the widget-0 windows or when their bits 31 to 24 match. `a0` is saved at sp+0 and
+`a1` is kept in `s0`. It calls `hub_check_is_widget0(a0)` (0xc00000000003c1cc); a zero result goes to the comparison. A nonzero result calls it again on `a1`, and a second
+nonzero result returns 1 (the `li v0,1` at 0xc00000000003c27c, in the delay slot of the unconditional branch at 0xc00000000003c278). In every other case it reloads `a0`, takes the byte in bits 31 to 24 of each
+(`dsrl` by 24, `andi` 0xff) and returns 1 when the two bytes are equal and 0 when they differ (the `move v0,zero` at 0xc00000000003c298, in the delay slot of the compare-and-branch at 0xc00000000003c294, is
+overwritten by the `li v0,1` that follows when the bytes match). The `ld at,0(sp)` at 0xc00000000003c280 follows an unconditional `b` and nothing branches to it. Its one caller
+is `hub_check_pci_equiv`. No branch-likely instruction.
+- `hub_check_pci_equiv` (`6.5.30/unix.IP27`, address 0xc00000000003c2b0, 136 bytes, 32-byte frame): **established.**
+Decides whether two crosstalk-side addresses name the same PCI location, allowing for the two node numbers being aliases of one node. `a0` (`s0`) and `a1` (`s1`) are the two
+addresses; the routine has one exit, 0xc00000000003c2fc, and returns 0 or the result of `check_nasid_equiv`. It calls `hub_check_window_equiv(a0, a1)` (0xc00000000003c248); a
+zero result returns 0. It then compares the low 24 bits of the two addresses (mask 0x00ffffff from `lui` 0xff and `ori` 0xffff) and returns 0 when they differ. When they match
+it takes bits 39 to 32 of each address (`dsrl32`, `andi` 0xff, then a 16-bit sign extension that cannot change a value of 0 to 255) and returns
+`check_nasid_equiv(first, second, 0)` (0xc00000000001f900, 64 bytes, described in `docs/klconfig.md`; it reads only `a0` and `a1`), whose result is left in `a2` by the `move a2,v0` at 0xc00000000003c328, in the
+delay slot of the unconditional branch at 0xc00000000003c324, and moved to `v0` at the exit. `ioc3_attach` calls this routine twice (0xc000000000095380 and 0xc000000000095390). The IP35 kernel's routine of the same name takes
+the node from bits 39 to 33 (see `docs/ip35-hub-errors.md`); this build takes eight bits. No branch-likely instruction.
+- `elsc_nvram_magic` (`6.5.30/unix.IP27`, address 0xc000000000099404, 68 bytes, 16-byte frame): **established.**
+Checks that the system controller's non-volatile memory carries the expected marker byte. `a0` is passed on unchanged to `elsc_nvram_read(a0, 1792, &sp+0, 1)`
+(0xc000000000098c64): one byte from offset 0x700 into the byte at sp+0. A negative result is returned as it is (the `bltz` at 0xc000000000099420 branches to the `b` at
+0xc000000000099440 with `v0` untouched). Otherwise the byte is loaded (`lbu`, in the branch delay slot) and the routine returns 0 when it equals 0x37 (the ASCII digit
+'7') and -124 when it does not (`li v0,-124`, then a `movn` of zero on equality). Sixteen routines call it before reading or writing a field: `elsc_debug_set` and `_get`,
+`elsc_module_set` and `_get`, `elsc_partition_set` and `_get`, `elsc_domain_set` and `_get`, `elsc_bist_set` and `_get`, `elsc_cell_set` and `_get`, `elsc_cluster_set` and `_get`,
+and `elsc_password_set` and `_get`. That the byte is a validity marker for the area is inferred from the use; the code does not name it. No branch-likely instruction.
+- `hub_error_count_enable` (`6.5.30/unix.IP27`, address 0xc000000000035238, 172 bytes, 32-byte frame): **established.**
+Starts the periodic hub error counting for one node; returns 0 on success and -1 when the node is out of range, unknown, or already counting. `a0` (`s0`) is the NASID. It returns -1
+when `a0` is negative or not below 256 (`slti`), reads the halfword `nasid_to_compact_node[a0]` (the array reached through the global pointer slot at 0xc0000000014cd2b0) and returns -1
+when that is -1. The record pointer is the doubleword at `hub_err_count` + 8 x compact node, where `hub_err_count` is `kl_error_log` (the slot at 0xc0000000014cd268) plus 512
+(the address is saved at sp+0). When the first word of that 64-byte block is already nonzero the routine returns -1. Otherwise it calls `blkclr(block, 64)` (0xc00000000001fd0c; the `li a1,64` is in
+the delay slot), then `timeout(hub_error_count_update, a0, 100, 1)` (0xc0000000001b3498; the function is the slot at 0xc0000000014cd2c8, the delay slot of the call stores 1 in the block's
+first word, so the flag is set before `timeout` runs) and returns 0. The timed routine (`hub_error_count_update`, 0xc0000000000351c0) passes block +8 to the routine at 0xc000000000035094 and block +32 to the one at 0xc0000000000350fc
+and, while the first word is nonzero, schedules itself again 100 ticks later. The only caller is the `syssgi` routine (0xc0000000002317e0), at 0xc000000000235474. No branch-likely instruction.
+- `hub_error_count_disable` (`6.5.30/unix.IP27`, address 0xc0000000000352e4, 84 bytes, no frame): **established.**
+Stops the counting that `hub_error_count_enable` started. `a0` is the NASID. It returns -1 (exit 0xc000000000035330, `li v0,-1` in the delay slot) when `a0` is negative or not below 256, and -1
+at 0xc000000000035328 when `nasid_to_compact_node[a0]` is -1. Otherwise it loads the block pointer from `hub_err_count[compact node]` (the slot at 0xc0000000014cd268 plus 512 plus 8 times the
+node), stores zero in the block's first word (`sw zero,0(a1)`) and returns 0; nothing else in the block is cleared, and the pending `timeout` runs once more and then stops itself because the word is zero.
+The only caller is the `syssgi` routine (0xc0000000002317e0), at 0xc000000000235414. No branch-likely instruction.
+- `hub_error_count_get` (`6.5.30/unix.IP27`, address 0xc000000000035338, 88 bytes, no frame): **established.**
+Gives a caller the count block of one node. `a0` is the NASID and `a1` points to a word. It returns 0 when `a0` is negative, not below 256, or when `nasid_to_compact_node[a0]` is -1 (the three
+early returns at 0xc000000000035380 and 0xc000000000035388, `move v0,zero` in their delay slots), and nothing is stored in those cases. Otherwise it stores 64 in the word at `a1`
+and returns the doubleword at `hub_err_count` + 8 x compact node (`kl_error_log` plus 512), the pointer to the 64-byte block (`v0` at exit 0xc000000000035378). The block is not read or
+copied here. The only caller is the `syssgi` routine (0xc0000000002317e0), at 0xc000000000235128. No branch-likely instruction.
+- `ioc3_subdev_enabled` (`6.5.30/unix.IP27`, address 0xc0000000000961d4, 72 bytes, 16-byte frame): **established.**
+Says whether one sub-device of an IOC3 is enabled. `a0` is the PCI device vertex and `a1` (`s8`) the sub-device number. It calls the unlabelled routine at 0xc000000000096118 (not a symbol; the
+symbol table puts it inside `ioc3_console_vhdl_get`) with `a0` and 0. That routine does `hwgraph_traverse(a0, ".host", &slot)`, then `hwgraph_info_get_LBL(slot, "_subdevs", &value)` and, with
+its second argument zero, returns the label's value (zero when none exists); with a nonzero second argument it would allocate 8 bytes, store 255, add the label and free the block if another caller's
+block won, a path this routine never takes. A zero answer makes the mask 255 (`li a2,255`); otherwise the mask is the doubleword the answer points to (`ld a2,0(v0)`). The result is the mask ANDed with 1
+shifted left by `a1` (`sllv`, so only the low five bits of `a1` count), cut to 32 bits with `sll v0,v0,0`: nonzero exactly when the bit is set. Callers are `eiattach`, `ioc3_attach`,
+`pckm_attach`, `if_efattach` and several sites in `ioc3_serial_attach`. No branch-likely instruction.
+- `hub_widgetdev_enable` (`6.5.30/unix.IP27`, address 0xc000000000027a84, 160 bytes, 48-byte frame): **established.**
+Sets one bit in a hub register to allow a crosstalk widget's device to act, unless it is already set. `a0` is the widget vertex and `a1` (saved at sp+16) a device number. It calls
+`xwidget_info_get(a0)` (0xc00000000006c368), then `xwidget_info_id_get` (0xc00000000006c44c) on the result (saved at sp+24) and `xwidget_info_master_get` (0xc00000000006c480), and reads the master's
+`_node` label with `hwgraph_info_get_LBL` into the doubleword at sp+0; a zero there returns at once with nothing stored. Otherwise the NASID is the halfword at the node record +10, and the register is
+the doubleword at the page 0x9200000001c00000 (the word at 0xc0000000014cc198) plus the NASID shifted left by 32, offset 288. The bit number is `a1` plus 8 times the widget id (`andi` 0xff) minus 64,
+added as 32-bit values and used by `dsllv`, which keeps only the low six bits; for widget ids 8 to 15 that is `a1` + 8 x (id - 8), and ids 0 to 7 wrap onto the same positions. When the bit is
+already set (the `and` of the shifted 1 with the old value is nonzero) nothing is stored; when clear, the old value ORed with the bit is stored back (`sd` at 0xc000000000027b20, in the delay slot of the
+`b`). No value is returned on purpose (`v0` is whatever the last call or the table address left). `hub_dma_enabled` tests the doubleword 8 bytes lower in the same page. The one caller is `xtalk_widgetdev_enable`.
+No branch-likely instruction.
+- `hub_setup_kick` (`6.5.30/unix.IP27`, address 0xc000000000029028, 156 bytes, 32-byte frame): **established.**
+Initialises the locks and flags the DMA-timeout recovery uses for one node. `a0` (saved at sp+8) is the compact node number. When it is zero, the routine first calls
+`spinlock_init(0xc0000000014d2ae0, "global_kick_lock")` and `spinlock_init(0xc0000000014d2ae4, "kick_mask_lock")` (0xc00000000028618c; the two addresses are the symbols `global_kick_lock` and `kick_mask_lock`, formed as `gp` plus a constant; the
+names are the strings 5632 and 5656 bytes into the same string area that holds "_node"). For every node it then takes the node record from the table whose pointer is at absolute address
+0xffffffffffffc400 (doubleword 0, indexed by 8 times the node number) and calls `spinlock_init(record + 19312, "dma_kick_lock")`, stores 1 in the word at record +19308 and then 0 in the word at +19304 (that last
+store is in the delay slot of the final `jr ra`). `hub_dmatimeout_kick` is the routine that uses these locks. The only caller is `per_hub_init` (0xc000000000026de8). No value is set for the caller. No
+branch-likely instruction.
