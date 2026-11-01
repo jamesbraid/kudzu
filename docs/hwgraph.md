@@ -151,6 +151,36 @@ Below a node board vertex the kernel creates `memory`, `hub`, `cpu/<slice letter
   per such port; (4) it builds the board's path with `board_to_path` and creates it under the root
   vertex with `hwgraph_path_add`; on failure it calls `cmn_err` level 0 with "Router vertex creation
   failed.  Path == %s". Established.
+- `xswitch_vertex_init` (`6.5.30/unix.IP27` `0xc0000000000240c4`, 88 bytes)
+  calls `kmem_zalloc` for 32 zeroed bytes (a1 of 0), then calls `init_mutex` for a mutex at the start
+  of them (a1 0, a3 -1, the name 24 bytes past "_xswitch_volunteer" in the same string
+  block), and attaches the block to the vertex in a0 with `hwgraph_info_add_LBL` under the label
+  "_xswitch_volunteer". The allocation is not checked for null. It returns the result of
+  `hwgraph_info_add_LBL`. Established.
+- `router_guardians_set` (`6.5.30/unix.IP27` `0xc00000000002eba8`, 304 bytes)
+  takes a vertex in a0 and, for each compact node below `maxnodes` (the word at gp+7348), finds the
+  node's first board through the directory and walks its router boards with `find_lboard_class` for
+  type `0x31` (class `0x30`, Linux `KLCLASS_ROUTER`), continuing each walk from the board's next
+  offset (+0) on the same node. For every router board it calls `sub_c00000000002ead8` with a0 and
+  the board. It returns nothing useful. Established.
+- `sub_c00000000002ead8` (`6.5.30/unix.IP27` `0xc00000000002ead8`, 208 bytes)
+  is unsymbolled. It returns at once for a board whose byte at +9 has bit 2 set (`0x4`, Linux
+  `DUPLICATE_BOARD`); otherwise it builds the board's path with `board_to_path` and looks it up from
+  a0 with `hwgraph_traverse`. A failed lookup calls `cmn_err` with level 4, "Can't find router: %s"
+  and the path. A router whose component count (+23) is not 1 calls `cmn_err` with level 0,
+  "connect_one_router: %d cmpts on router\n" and the count. Otherwise it calls the unsymbolled
+  routine at `0xc00000000002e798` with the address of a stack doubleword it cleared on entry and the
+  router vertex, and unless that returns -1 calls `sub_c00000000002ea0c` with that result, the value
+  now in the stack doubleword, the board and the router vertex. Established; what the routine at
+  `0xc00000000002e798` chooses (it searches neighbouring node vertices and keeps the one with the
+  fewest dependent routers) is inferred from a partial read.
+- `sub_c00000000002ea0c` (`6.5.30/unix.IP27` `0xc00000000002ea0c`, 204 bytes)
+  is unsymbolled. It looks up the compact node of its first argument with `nodevertex_to_cnodeid`,
+  allocates a 40-byte record on that node with `kmem_zalloc_node` (a1 257), and calls `assfail`
+  (line 1015) when that fails. It appends the record to the node's list through `npda_rip_last`
+  (+18816 of `nodepda_s`; the record's link is at +32, cleared) and adds one to `dependent_routers`
+  (+18824). It stores a1 at +16 of the record and a3 as the word at +0, and copies the board's
+  (a2) slot byte (+10) to +10, module halfword (+14) to +8 and type byte (+5) to +11. Established.
 - `klhwg_connect_hubs` (`6.5.30/unix.IP27` `0xc0000000000425bc`, 564 bytes)
   links each node vertex to whatever its hub port reaches. For each compact node from 0 to
   `maxnodes` minus 1 it takes the NASID from `compact_to_nasid_node`, finds the first type-17 board
@@ -470,6 +500,16 @@ The 6.5.30 IP35 kernel builds the same graph with the IP35 NASID position, its o
   the same fault as IP27, copying "xwidget" into the output and then formatting with an unwritten
   stack buffer. As on IP27 the null-board test comes after the module load (at 0xc0000000000454e8),
   so it does not protect that load. Established.
+- `xswitch_vertex_init` (`6.5.30/unix.IP35` `0xc00000000004b3ac`, 88 bytes)
+  has the IP27 instructions: it calls `kmem_zalloc` for 32 zeroed bytes, `init_mutex` on them, and
+  `hwgraph_info_add_LBL` to attach them to the vertex under "_xswitch_volunteer". Established.
+- `router_guardians_set` (`6.5.30/unix.IP35` `0xc0000000000521e8`, 360 bytes)
+  is the IP27 routine with the IP35 NASID position and the PE-brick check: for each compact node below
+  `maxnodes` (gp+10284) it reads the doubleword at `0x9000000034000000` plus the NASID shifted left 33
+  (address from gp+2256, the load at 0xc00000000005226c) and calls `chk_for_pebrick` for the start
+  board when bits 12 to 15 equal `0xc`, and otherwise reads the node's directory. It walks the router
+  boards with `find_lboard_class` for type `0x31` and calls `sub_c000000000052118` with a0 and each
+  board. Established.
 - `klhwg_device_disable_hints_add` (`6.5.30/unix.IP35` `0xc0000000000740f0`, 560 bytes)
   is the IP27 routine with `numnodes` from gp+10276, the IP35 tables and NASID position, and a call
   to `chk_for_pebrick` for a PE-brick node's first board. It calls `device_admin_table_init`, then

@@ -324,6 +324,94 @@ Linux's `gda_t` places `g_nasidtable` at +128 too and uses directory entry 3 (`K
 
 The 6.5.22 objects carry the same instructions for all of these routines in both platforms; the only difference found is in the 6.5.22 IP35 `chk_for_pebrick`, whose message string sits 856 bytes into its string block instead of 864.
 
+## Node and processor lookups
+
+Small routines the rest of the kernel uses to turn compact nodes, NASIDs and slices into processor numbers and KLCONFIG records. The per-node fields they read are members of `nodepda_s` in the IP27 kernel's DWARF: `node_first_cpu` (signed halfword at +18774) and `node_num_cpus` (unsigned halfword at +18776). A node's `nodepda_s` is found as in `get_xbow_peer`: the doubleword at absolute `0xffffffffffffc400` (`p_nodepda` of the running processor's `pda_s`), then its first doubleword (the table of node data pointers), indexed by compact node times 8.
+
+- `cpu_enabled` (`6.5.30/unix.IP27` `0xc000000000027228`, 56 bytes)
+  returns 0 for processor -1, and otherwise 1 when bit a0 of `boot_cpumask` (address from gp-20560;
+  bit a0 mod 64 of the doubleword at a0 shifted right 6, times 8, loaded at 0xc00000000002724c) is
+  set and 0 when it is clear.
+  Established.
+- `cnodetocpu` (`6.5.30/unix.IP27` `0xc000000000026fc8`, 176 bytes)
+  returns the first enabled processor of compact node a0. It reads `node_first_cpu` and returns -1
+  when that is -1; otherwise it tries `node_first_cpu`, `node_first_cpu` + 1 and so on,
+  `node_num_cpus` times (re-reading the count each pass), calling `cpu_enabled` on each, and returns
+  the first number `cpu_enabled` accepts (sign-extended from 16 bits). It returns -1 when the count
+  is zero or no processor is enabled. Established.
+- `cnode_slice_to_cpuid` (`6.5.30/unix.IP27` `0xc000000000027260`, 180 bytes)
+  returns the processor of compact node a0 that sits on slice a1. It returns -1 when
+  `node_first_cpu` (loaded at 0xc000000000027284) is negative or `node_num_cpus` is zero. Otherwise,
+  for at most `node_num_cpus` processors from `node_first_cpu`, it calls `cpu_enabled` on each, skips
+  the ones it rejects and, for an enabled one,
+  reads its `pda_s` through `pdaindr` (the doubleword at +8 of the 16-byte entry for that processor,
+  `pdaindr` being 16 bytes past `boot_cpumask`) and compares the byte `p_slice` at +1312 (loaded at
+  0xc0000000000272c4) with a1,
+  returning the processor number on a match. A processor number that turns negative as a halfword, or
+  running out of processors, returns -1. Established.
+- `cnode_subnode_to_cpu` (`6.5.30/unix.IP27` `0xc000000000027078`, 204 bytes)
+  takes a compact node (a0) and a subnode (a1). It returns -1 when `node_first_cpu` is -1 or
+  `node_num_cpus` is zero (`node_first_cpu` loaded at 0xc00000000002709c). Otherwise it walks the
+  node's processors as `cnodetocpu` does and calls `cpu_enabled` on each, returning the first enabled
+  one only when a1 is 0. For a nonzero a1 the walk never returns a processor (a1 is
+  kept in s4 and never changed), so the result is -1. The IP27 `klhwg_add_node` calls it only for
+  subnode 0. Established.
+- `nasid_slice_to_cpuinfo` (`6.5.30/unix.IP27` `0xc00000000001e4a4`, 208 bytes)
+  returns the KLCONFIG processor component of NASID a0 on slice a1. It finds the node's first board
+  through the directory (see [Finding a node's first board](#finding-a-nodes-first-board)), calls
+  `find_lboard` for type 17, and returns 0 when there is none. It then takes components of type 1
+  (`find_first_component`, then `find_component`) and returns the first whose byte at +24 (`physid`)
+  equals a1, or 0 when none does. Only the first type-17 board is searched. Established.
+- `nasid_to_region` (`6.5.30/unix.IP27` `0xc000000000027600`, 24 bytes)
+  returns a0 unchanged when the word at gp-32628 (the `is_fine_dirmode` result `mlreset` stores,
+  loaded at 0xc000000000027600) is nonzero, and a0 shifted right 3 (arithmetic) when it is zero. So in fine directory mode each node is
+  its own region and in coarse mode eight nodes share one, as Linux's `NASID_TO_FINEREG` and
+  `NASID_TO_COARSEREG` also compute. Established.
+- `memory_present` (`6.5.30/unix.IP27` `0xc00000000002a160`, 36 bytes)
+  shifts the physical address in a0 right 14 (the 16 KB page number), truncates it to 32 bits, calls
+  `ckphyspnum`, and returns 1 when that returns 0 and 0 otherwise. Established for the mechanics;
+  that a zero return from `ckphyspnum` means a valid page is inferred from this use.
+- `hub_slot_to_crossbow` (`6.5.30/unix.IP27` `0xc00000000003cbc0`, 36 bytes)
+  takes a hub slot number and returns 0 when its class (a0 masked with `0xf0` at 0xc00000000003cbc4)
+  is `0x50`, and
+  otherwise (a0 - 1) masked with 1. So for slots outside class `0x50` odd slot numbers map to crossbow
+  0 and even ones to crossbow 1. Established.
+
+### IP35 node and processor lookups
+
+On IP35 `node_first_cpu` is at +34198 and `node_num_cpus` at +34200 of `nodepda_s`, `p_slice` at +1320 of `pda_s`, and `pdaindr` sits 64 bytes past `boot_cpumask` (`0xc000000001647568` and `0xc000000001647528`), because the processor mask is 512 bits.
+
+- `cpu_enabled` (`6.5.30/unix.IP35` `0xc00000000004e948`, 56 bytes)
+  has the IP27 instructions over the IP35 `boot_cpumask` (address from gp-23120, the load at
+  0xc00000000004e96c): 0 for processor -1, otherwise bit a0 of the mask. Established.
+- `cnodetocpu` (`6.5.30/unix.IP35` `0xc00000000004e694`, 192 bytes)
+  is the IP27 routine with the IP35 offsets (`node_first_cpu` loaded at 0xc00000000004e6bc): it
+  calls `cpu_enabled` on up to `node_num_cpus` processors from `node_first_cpu` and returns the first
+  enabled one, or -1. Established.
+- `cnode_slice_to_cpuid` (`6.5.30/unix.IP35` `0xc00000000004e980`, 188 bytes)
+  is the IP27 routine with the IP35 offsets: it calls `cpu_enabled` on each of the node's processors
+  and returns the first enabled one whose `p_slice` byte (+1320 of its `pda_s`, loaded at
+  0xc00000000004e9ec) equals a1, or -1. Established.
+- `cnode_subnode_to_cpu` (`6.5.30/unix.IP35` `0xc00000000004e754`, 272 bytes)
+  differs from the IP27 routine: for each processor of the node from `node_first_cpu` (loaded at
+  0xc00000000004e78c) it calls `cpu_enabled`, and for an enabled one compares bit 1 of its `p_slice`
+  byte (loaded at 0xc00000000004e810, shifted right 1 and masked with 1) with a1, returning the first
+  processor that matches. So slices 0 and 1 form subnode 0 and slices 2 and 3 subnode 1. It returns
+  -1 when `node_first_cpu` is -1, `node_num_cpus` is zero or no processor matches. Established.
+- `nasid_slice_to_cpuinfo` (`6.5.30/unix.IP35` `0xc000000000044f8c`, 248 bytes)
+  is the IP27 routine with the IP35 NASID shift and the PE-brick check: when bits 12 to 15 of the
+  doubleword at `0x9000000034000000` plus the NASID shifted left 33 (address from gp+2256, the load at
+  0xc000000000044f9c) equal `0xc`, it calls `chk_for_pebrick` for the start board instead of reading
+  the directory. It then calls `find_lboard` for type 17 and returns the first type-1 component whose
+  byte at +24 equals a1, or 0. Established.
+- `nasid_to_region` (`6.5.30/unix.IP35` `0xc00000000004ed30`, 24 bytes)
+  returns a0 when the word at gp-32636 (loaded at 0xc00000000004ed30; the IP35 `cputype` object sits just below it)
+  is nonzero, and a0 shifted right 1 (arithmetic) when it is zero. So in coarse mode two IP35 NASIDs
+  share a region, where IP27 groups eight. Established.
+- `memory_present` (`6.5.30/unix.IP35` `0xc00000000004f4f0`, 36 bytes)
+  has the IP27 instructions: it calls `ckphyspnum` with the address shifted right 14 and returns 1
+  when that returns 0. Established.
+
 ## Console and master I/O
 
 The configuration header also locates the console record: the word at +16 of the header (Linux `ch_cons_off`) is an offset that the kernel adds to the header's own address, not to the node base. Fields read from the console record (Linux `console_t`):
@@ -373,7 +461,7 @@ The configuration header also locates the console record: the word at +16 of the
   stores `get_nasid` in `master_nasid` (the halfword at gp-32620) and calls
   `set_master_bridge_base`; (2) calls `ioc3_mlreset` with the console record's doublewords at +8 and
   +16 (see [Console and master I/O](#console-and-master-io)), then `nvram_baseinit`; (3) stores the
-  result of `is_fine_dirmode` in `cputype` (the word at gp-32628); when `is_specified` reports
+  result of `is_fine_dirmode` in the word at gp-32628 (`0xc0000000014ca1fc`, which has no symbol: the 2-byte `cputype` object ends before it); when `is_specified` reports
   `arg_maxnodes` set, passes `atoi` of it to the unnamed routine at `0xc000000000027618`; (4) clears
   the two doublewords of `boot_cpumask` and calls `cpu_node_probe` with it and the address of
   `numnodes`, storing the result in `maxcpus` (the word at gp+2352); `assfail` (line 281) when that
@@ -403,6 +491,65 @@ The configuration header also locates the console record: the word at +16 of the
   call `printf` with "WARNING: Illegal value for r10k_bpmode (see mtune/kernel)\n". Finally a
   processor whose `get_cpu_irr` shifted right 8 is 9 adds one to `any_r10k_cpus`, and every
   processor calls `flush_tlb` and `flush_cache`. Established.
+
+The routines `mlreset` calls that only set up locks and masks:
+
+- `mem_init` (`6.5.30/unix.IP27` `0xc0000000000299b8`, 40 bytes)
+  calls `init_mutex` on `probe_sema` with a1 of 0, the name "probe" and a3 of -1, and returns its
+  result. Established.
+- `hubdev_init` (`6.5.30/unix.IP27` `0xc00000000004c040`, 44 bytes)
+  calls `init_mutex` on `hubdev_callout_mutex` with the name "hubdev" (a1 0, a3 -1) and clears the
+  doubleword `hubdev_callout_list` (gp-32344). Established.
+- `intrgroup_init` (`6.5.30/unix.IP27` `0xc00000000004a950`, 112 bytes)
+  sets up the unsymbolled table at `0xc0000000014de720` (address from gp-19336): it clears the
+  doublewords at +512 and +520, initialises the lock at +528 with `spinlock_init` and the name
+  "IGRPMAIN", then for each of 16 entries of 32 bytes from +0 stores the entry index as the word at
+  +16, clears the doublewords at +0 and +8, and calls `spinlock_init` for the lock at +20 with the
+  name 16 bytes past "IGRPMAIN" in the same string block. Established.
+- `setup_replication_mask` (`6.5.30/unix.IP27` `0xc0000000000507b8`, 188 bytes)
+  builds `ktext_repmask`, the 128-bit mask of nodes that hold a copy of the kernel text, from the node
+  count in a0. It stores 1 in the first doubleword and 0 in the second, so node 0 always has a copy.
+  When a0 is 2 or more, for each node i from 1 to a0 - 1 it sets bit i when
+  `numa_kernel_replication_ratio` (the word at gp-31020, loaded at 0xc0000000000507e4) is nonzero and
+  divides i exactly. It then
+  calls `get_nasid` and stores the address of `ktext_repmask` as a doubleword at +64 of the calling
+  node's GDA (the store at 0xc000000000050858; the GDA found
+  through the directory doubleword at node offset `0x20d0`, as in [Node numbering at
+  boot](#node-numbering-at-boot)). Linux's `gda_t` names +64 `g_ktext_repmask`. Established.
+- `hub_rtc_init` (`6.5.30/unix.IP27` `0xc0000000000484f8`, 88 bytes)
+  does nothing unless compact node a0 is the caller's own node (`get_compact_nodeid`). It then writes
+  the local hub of that node through the remote hub window (`0x9200000001800000`, from gp-24584, plus
+  the NASID shifted left 32): 1 to offsets `0x140` and `0x148` and 0 to `0x150` and `0x158`, in that
+  order. Linux names these `PI_RT_EN_A`, `PI_RT_EN_B`, `PI_PROF_EN_A` and `PI_PROF_EN_B`, so both
+  slices take the real-time clock interrupt and neither takes the profiling interrupt. Established
+  for the stores; the register names are from Linux.
+
+On IP35 the same routines differ as follows.
+
+- `mem_init` (`6.5.30/unix.IP35` `0xc00000000004eda0`, 40 bytes)
+  has the IP27 instructions: it calls `init_mutex` on `probe_sema` with the name "probe". Established.
+- `hubdev_init` (`6.5.30/unix.IP35` `0xc00000000006d450`, 44 bytes)
+  has the IP27 instructions: it calls `init_mutex` on `hubdev_callout_mutex` with the name "hubdev"
+  and clears `hubdev_callout_list` (gp-32368). Established.
+- `intrgroup_init` (`6.5.30/unix.IP35` `0xc00000000006ca58`, 176 bytes)
+  works on the unsymbolled table at `0xc000000001651e40` (address from gp-22184) with larger entries:
+  it clears the eight doublewords at +1280 to +1336, calls `spinlock_init` for the lock at +1344 with
+  "IGRPMAIN", and then for each of 16 entries of 80 bytes clears its eight doublewords at +0 to +56,
+  stores the entry index as the word at +64 and calls `spinlock_init` for the lock at +68 with the
+  name 16 bytes past "IGRPMAIN". Established.
+- `setup_replication_mask` (`6.5.30/unix.IP35` `0xc000000000074c38`, 220 bytes)
+  clears all eight doublewords of the 512-bit `ktext_repmask`, sets bit 0, and sets bit i for each
+  node i from 1 to a0 - 1 that `numa_kernel_replication_ratio` (the word at gp-30692, loaded at
+  0xc000000000074c7c) divides exactly, as on IP27. It then calls `get_nasid` and stores the address of
+  the mask at +64 of the node's GDA with the IP35 NASID shift (the store at 0xc000000000074cf8).
+  Established.
+- `hub_rtc_init` (`6.5.30/unix.IP35` `0xc00000000006a03c`, 200 bytes)
+  writes two register blocks instead of one when a0 is the caller's own compact node
+  (`get_compact_nodeid`): base `0x9200000001800000` (from gp+2288) plus the NASID shifted left 33, then
+  1 to offsets `0x140` and `0x148` and 0 to `0x150` and `0x158`, and the same four values to
+  `0x200140`, `0x200148`, `0x200150` and `0x200158`. Linux has no IP35 support; the second block
+  `0x200000` higher is inferred to be the second processor interface of the IP35 node controller,
+  since IP35 nodes carry up to four processors. Established for the stores.
 
 ## Memory bank checks
 
