@@ -8,7 +8,7 @@ Each row gives the call address, the callee, the message the call passes, and th
 
 Grades: a message that is shown is established from the binary. `not resolved` means the scan could not follow the register: it is set on two paths that join before the call, or it comes from a pointer the routine loads at run time. A condition is established when the branch that decides the call was read in the disassembly; `not established` means no branch in the listing reaches the call.
 
-Counts: 890 call sites in 253 routines; 97 have a written condition, 793 do not yet.
+Counts: 890 call sites in 253 routines; 108 have a written condition, 782 do not yet.
 
 ## 6.5.30 IP27 kernel
 
@@ -392,7 +392,7 @@ Routine at 0xc000000000041214.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc0000000000412d4 | cmn_err | level 4, format not resolved (add of unknown at 0xc0000000000412d8 (join at 0xc0000000000412c8)) | not yet read |
+| 0xc0000000000412d4 | cmn_err | level 4, format not resolved (add of unknown at 0xc0000000000412d8 (join at 0xc0000000000412c8)) | Taken when the `bnez v0` at 0x4127c branches: v0 is the nonzero return of the call to 0x29526c at 0x41274, and a3 is copied from it at 0x412cc. The report is level 4. |
 
 ### `klhwg_add_cpu`
 
@@ -400,7 +400,7 @@ Routine at 0xc000000000041384.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000004152c | assfail | `pdaindr[cpu->cpu_info.virtid].pda->p_cpunamestr`, line 546 (file argument not copied) | not yet read |
+| 0xc00000000004152c | assfail | `pdaindr[cpu->cpu_info.virtid].pda->p_cpunamestr`, line 546 (file argument not copied) | Taken when the `beqz a3` at 0x414b0 branches: a3 is the doubleword at offset 1680 of the structure reached through the pointer chain at 0x414a0 to 0x414ac, and it is zero. The assertion passes line 546 as a2. |
 
 ### `klhwg_add_xbow`
 
@@ -408,9 +408,9 @@ Routine at 0xc000000000041810.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc0000000000419bc | cmn_err | level 4, format not resolved (add of unknown at 0xc0000000000419c0 (join at 0xc0000000000419b8)) | not yet read |
-| 0xc0000000000419dc | cmn_err | level 4, `klhwg_add_xbow: Check for working routers and router links!` | not yet read |
-| 0xc000000000041a08 | cmn_err | level not resolved, `klhwg_add_xbow: Failed to add edge: vertex 0x%x (%v) to vertex 0x%x (%v), error %d\n` | not yet read |
+| 0xc0000000000419bc | cmn_err | level 4, format not resolved (add of unknown at 0xc0000000000419c0 (join at 0xc0000000000419b8)) | Taken when the `beq s2,a3` at 0x418e8 branches: s2 is the halfword at a1-8 (loaded at 0x418e4), and a3 is -1 (li at 0x418e0). It is reached only when the `beqz a4` at 0x418dc does not branch (a4 has bit 1 set). The report is level 4. |
+| 0xc0000000000419dc | cmn_err | level 4, `klhwg_add_xbow: Check for working routers and router links!` | Reached when the `bnez v0` at 0x418b4 branches (the call to 0x294e28 at 0x418ac returned nonzero) and the `bne v0,a2` at 0x419d0 does not branch (a2 is 1, so v0 equals 1). The report is level 4. |
+| 0xc000000000041a08 | cmn_err | level not resolved, `klhwg_add_xbow: Failed to add edge: vertex 0x%x (%v) to vertex 0x%x (%v), error %d\n` | Reached from the block at 0x419cc (v0 nonzero, from the `bnez` at 0x418b4) in two ways, and the level depends on which. If the `bne v0,a2` at 0x419d0 does not branch (v0 is 1), the report at 0x419dc runs, then the `b` at 0x419e4 jumps here with its delay slot setting a0 to 4 (level 4). If the bne branches (v0 is not 1), the move at 0x419ec sets a0 to zero (level 0) and falls through to here. |
 
 ### `klhwg_add_node`
 
@@ -418,10 +418,10 @@ Routine at 0xc000000000041a2c.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000041d9c | cmn_err | level 0, `Node vertex creation failed.  Path == %s` | not yet read |
-| 0xc000000000041db0 | cmn_err | level 0, format not resolved (add of unknown at 0xc000000000041db4 (join at 0xc000000000041dac)) | not yet read |
-| 0xc000000000041dcc | assfail | `NODEPDA(cnode)->hwg_node_name != NULL`, line 1045 (file argument not copied) | not yet read |
-| 0xc000000000041df0 | cmn_err | level 0, format not resolved (add of unknown at 0xc000000000041df4 (join at 0xc000000000041dec)) | not yet read |
+| 0xc000000000041d9c | cmn_err | level 0, `Node vertex creation failed.  Path == %s` | Taken when the `bnez v0` at 0x41bd4 branches: v0 is the nonzero return of the call to 0x29561c at 0x41bcc. The report is level 0 (move at 0x41d94). |
+| 0xc000000000041db0 | cmn_err | level 0, format not resolved (add of unknown at 0xc000000000041db4 (join at 0xc000000000041dac)) | Taken when the `bnez v0` at 0x41b14 branches: v0 is the nonzero return of the call to 0x29561c at 0x41b0c, which takes the word at sp+104 as its a0. The report is level 0 (move at 0x41dac). |
+| 0xc000000000041dcc | assfail | `NODEPDA(cnode)->hwg_node_name != NULL`, line 1045 (file argument not copied) | Taken when the `beqz a0` at 0x41c54 branches: a0 is the doubleword at offset 20800 of the structure reached through the pointer chain at 0x41c48 to 0x41c50, and it is zero. The assertion passes line 1045. |
+| 0xc000000000041df0 | cmn_err | level 0, format not resolved (add of unknown at 0xc000000000041df4 (join at 0xc000000000041dec)) | Taken when the `bnez v0` at 0x41cf0 branches: v0 is the nonzero return of the call to 0x29561c at 0x41ce8, which takes the word at sp+104 as its a0. The report is level 0 (move at 0x41dec). |
 
 ### `klhwg_add_all_routers`
 
@@ -429,8 +429,8 @@ Routine at 0xc000000000041ef8.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000042194 | cmn_err | level 4, `Cannot read router nic in module %M, slot r%d\n` | not yet read |
-| 0xc0000000000421b0 | cmn_err | level 0, format not resolved (add of unknown at 0xc0000000000421b4 (join at 0xc0000000000421a8)) | not yet read |
+| 0xc000000000042194 | cmn_err | level 4, `Cannot read router nic in module %M, slot r%d\n` | Taken when either branch enters 0x42180: the `beqz a0` at 0x42040 (a0, computed at 0x4203c, is zero), or the `beqz v0` at 0x42050 (the call to 0x1426e0 at 0x42048 returned zero). The report is level 4. |
+| 0xc0000000000421b0 | cmn_err | level 0, format not resolved (add of unknown at 0xc0000000000421b4 (join at 0xc0000000000421a8)) | Reached when the `beqzl v0` at 0x42124 does not branch: v0 is the nonzero return of the call to 0x29561c at 0x4211c. Being branch-likely, its delay slot at 0x42128 is skipped, and the `b` at 0x4212c jumps to 0x421a8. The report is level 0. |
 | 0xc0000000000421d8 | cmn_err | level 4, `downrev router board in module %M slot %s\n` | not yet read |
 
 ### `klhwg_connect_one_router`
