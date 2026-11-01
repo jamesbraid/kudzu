@@ -643,3 +643,72 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   value 0 comes from the delay slot at 0xc00000000005b05c, the value 1 from the one at 0xc00000000005b064). The same
   bit 32 of the +8 doubleword is the one `hubii_eint_handler` reports as a failed link to crosstalk. Which fields
   bits 51 to 48 of the per-widget registers are: unknown here. Established.
+
+## DMA maps, error counters and the crosstalk provider
+
+- `hub_dmamap_alloc` (`6.5.30/unix.IP35`, address 0xc00000000006274c, 128 bytes, 48-byte frame): makes the 16-byte
+  record that the hub's DMA map calls use. `a0` is the device vertex (kept at sp+8) and `a3` the flags; `a1` and `a2` are
+  not read. It calls `xwidget_info_get(a0)`, then `xwidget_info_id_get` on the result (saved at sp+24) and
+  `xwidget_info_master_get` on the same widget info (saved at sp+16), and `kern_malloc(16)`. The memory is not cleared.
+  It stores, in this order, the vertex as a word at +0, 1 as a word at +12, the master as a word at +8 and the widget
+  id as a byte at +4. When bit 0 of `a3` is set it then overwrites the word at +12 with 5. It returns the record, with bytes +5 to +7 unwritten. Word +12 is a flag word: bit 0 is set here and cleared by
+  `hub_dmamap_free`, bit 1 (value 2) is set by `hub_dmamap_addr` and `hub_dmamap_list` and cleared by
+  `hub_dmamap_done`, and bit 2 (value 4), which makes those routines accept a second use, is set here only through the
+  flag bit. Established.
+- `hub_dmamap_free` (`6.5.30/unix.IP35`, address 0xc0000000000627cc, 40 bytes, 16-byte frame): releases a record from
+  `hub_dmamap_alloc`. It clears bit 0 of the word at +12 of `a0` (the store is in the delay slot of the call) and
+  calls `kern_free(a0)` with no size argument set. It returns what `kern_free` leaves in `v0`. Established.
+- `hub_dmamap_addr` (`6.5.30/unix.IP35`, address 0xc0000000000627f4, 92 bytes, 16-byte frame): marks a DMA map record
+  as in use and hands back the bus address unchanged. `a0` is the record and `a1` the address, which is returned in every
+  case (it is copied to `v0` before the first branch). It reads the flag word at +12. When bit 1 (value 2) is clear it
+  stores the word with that bit set (in the delay slot of the branch at 0xc000000000062828) and returns. When bit 1 is
+  set and bit 2 (value 4) is also set it returns without a store. When bit 1 is set and bit 2 is clear it calls
+  `cmn_err(4, "%v: hub_dmamap_addr re-uses dmamap.\n", word at +0)` (the string at 0xc000000001524f08, the pool word at
+  gp-22568 plus 16) and returns. Established.
+- `hub_dmamap_list` (`6.5.30/unix.IP35`, address 0xc000000000062850, 92 bytes, 16-byte frame): the same routine as
+  `hub_dmamap_addr` with one difference: its message is "%v: hub_dmamap_list re-uses dmamap\n" (no full stop), the
+  string at 0xc000000001524f30 (the pool word at gp-22568 plus 56). The flag handling, the register use and the return of
+  `a1` are the same. Established.
+- `hub_dmamap_done` (`6.5.30/unix.IP35`, address 0xc0000000000628ac, 80 bytes, 16-byte frame): ends a DMA map use.
+  `a0` is the record. When bit 1 (value 2) of the flag word at +12 is set it stores the word with that bit cleared (mask
+  -3) and returns. When bit 1 is clear and bit 2 (value 4) is set it returns without a store. When both are clear it
+  calls `cmn_err(4, "%v: hub_dmamap_done already done with dmamap\n", word at +0)` (the string at 0xc000000001524f58,
+  pool word at gp-22568 plus 96) and returns. It has no return value. Established.
+- `hub_error_count_update` (`6.5.30/unix.IP35`, address 0xc00000000005b4f0, 116 bytes, 32-byte frame): the periodic
+  timeout routine that samples one node's link error counters. `a0` is a NASID (kept at sp+0). The compact node is the
+  halfword at `nasid_to_compact_node` + 2 x NASID (pool word at gp-22808, a 256-byte table), with no range test and no
+  test for the -1 that means no node. The node's count block is the doubleword at `hub_err_count` (0xc000000001650990,
+  which is `kl_error_log` (pool word at gp-22864) plus 1024) + 8 x compact node. It calls
+  `ii_llp_error_monitor(block + 8)` and `ni_llp_error_monitor(block + 32)`. When the word at block +0 is nonzero it
+  calls `timeout(hub_error_count_update, a0, 100)`, the function address being the pool word at gp-22776, so the
+  routine reschedules itself after 100 ticks until the word is cleared. It returns nothing. Established.
+- `hub_error_count_disable` (`6.5.30/unix.IP35`, address 0xc00000000005b610, 84 bytes, no stack frame): stops the
+  counting. It applies the same range test and the same compact-node lookup as `hub_error_count_enable` and returns -1
+  for a NASID of 128 or more, a negative one or an unmapped one. Otherwise it stores 0 in the word at +0 of the node's
+  count block and returns 0; the running timeout then ends at its next pass, because
+  `hub_error_count_update` reschedules only while that word is nonzero. It makes no calls. Established.
+- `hub_error_count_get` (`6.5.30/unix.IP35`, address 0xc00000000005b664, 88 bytes, no stack frame): returns a node's
+  count block. `a0` is a NASID and `a1` points to a word. For a negative or 128-or-more NASID, or an unmapped one, it
+  returns 0 and leaves `*a1` alone. Otherwise it stores 64 in the word at `a1` and returns the doubleword in
+  `hub_err_count` for the compact node, a pointer to the 64-byte block. Established.
+- `hub_xtalk_link_up` (`6.5.30/unix.IP35`, address 0xc00000000006afd0, 40 bytes, no stack frame): says whether the
+  crosstalk link of a node is up. `a0` is a NASID. It returns 1 when bit 13 (0x2000) of the doubleword at 0x9200000001c00000
+  (pool word at gp+2224) plus the NASID shifted left 33 plus 296 is set, and 0 otherwise. Which hub register that is:
+  unknown here. Established.
+- `hub_provider_shutdown` (`6.5.30/unix.IP35`, address 0xc000000000062d7c, 28 bytes, 16-byte frame): calls
+  `xtalk_provider_unregister` with its own argument unchanged and returns what that call leaves in `v0`. Established.
+- `hub_check_is_widget0` (`6.5.30/unix.IP35`, address 0xc000000000062d98, 84 bytes, no stack frame): says whether the
+  address `a0` lies in widget 0's window of a hub's uncached space. The NASID is bits 39:33 of the address (a shift right
+  by 33 and a mask of 0x7f); the window is [0x9200000000000000 + NASID shifted left 33, the pool word 0x9200000001000000
+  (gp+2480) + NASID shifted left 33), so 16 megabytes. The routine returns 1 only when the address is at or above the lower
+  bound and below the upper one, and 0 otherwise. Established.
+- `hub_dmatrans_addr` (`6.5.30/unix.IP35`, address 0xc0000000000628fc, 8 bytes, no stack frame): returns its third
+  argument (`a2`), copied to `v0` in the delay slot of the return. Nothing else is read or written, so a direct-translation
+  DMA address passes through as given. `hub_dmatrans_list` at 0xc000000000062904 is the same two instructions. Established.
+- `hub_provider_startup` (`6.5.30/unix.IP35`, address 0xc000000000062d48, 52 bytes, 16-byte frame): runs the hub's
+  start-up steps for a crosstalk provider. It keeps `a0` in `s0` and calls three unnamed static routines with it, in
+  order: 0xc0000000000620b4, 0xc000000000062744 and 0xc000000000062924. The last two are each a bare `jr ra` with a
+  `nop` delay slot. The first is a long routine that the symbol table folds into `hubio_init`; it reads the "_node"
+  label of the vertex, fills per-node and per-widget tables, calls `hub_set_piomode(.., 1)`, then `init_sv` and
+  `spinlock_init` on addresses 784 and 792 bytes into the node record. That routine was read only in part, so what the
+  tables hold is not stated here. This routine returns what the last call leaves in `v0`. Inferred.
