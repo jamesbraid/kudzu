@@ -195,3 +195,164 @@ text, via `cmn_err` levels 0x15 and 0x10), restores the saved words, sets
 `release` to 1, resets `kicker` to 0xffff, waits 2 more microseconds, restores the level with `splxecc` and releases the lock. Return values read from the exits: 0 when
 the try-lock fails, 1 after a complete kick and 0 on the other return paths. The `entermask` bit handling and the hub register offsets were followed from the control
 flow, not instruction by instruction.
+
+## Bridge attach
+
+- `xbridge_attach` (`6.5.30/unix.IP27`, address 0xc0000000000703ac): **inferred.** Attaches a PCI bridge (Bridge or XBridge) found on a crossbar widget: argument `a0` is
+the widget vertex. It logs with `pcibr_debug(4, ...)`, calls `hub_device_flags_set(vertex, 1)` and gets the register base from `pcibr_bridge_ptr_get(vertex, 0)`. It
+returns -1 without attaching when the widget identification word at base +4 names a Bridge (part 0xc002, manufacturer 54) and bit 5 of `pcireg_stat_get` is clear, or when
+`pcibr_hints_get(vertex, 0)` returns a hint record whose word at +12 is nonzero. Otherwise it adds the `pci` vertex (`hwgraph_path_add`), registers and starts the
+`pci_xbridge_provider` (`pciio_provider_register`, `pciio_provider_startup`), adds the bridge's control device, reads the NIC address
+(`pcireg_nic_addr`, `nic_bridge_vertex_info`), builds the label from the ID register (`pcireg_id_get`: the revision nibble from bits 31:28 and the part number from bits
+27:12 shifted left by 4; 0xc0021 to 0xc0024 are Bridge revisions and 0xd0021 and
+0xd0022 XBridge revisions in the strings it selects) and stores it with `hwgraph_info_add_LBL`. It then allocates a 0xab8-byte soft record (`kmem_zalloc`, `memset`,
+attached with `hwgraph_fastinfo_set`) and fills it: widget vertex at +0, bridge vertex at +4, register base at +8, a copy of the vertex name at +16 (`vertex_to_name`,
+`strlen`, `kmem_alloc`, `strcpy`), the ID word at +120, the highest slot byte at +57 set to 7 and the first slot at +56 to 0, the interrupt-bit method pointer at +640
+(`pcibr_intr_bits` or the hint's), bridge type at +114 (1 for an XBridge, 0 for a Bridge), the internal ATE count at +112 (0x400 for XBridge, 0x80 for Bridge, with two
+constant ASIC-name strings stored at +24), the mode and speed halfword at +116 (`pcireg_mode_get`, `pcireg_speed_get`), per-slot defaults from the hint record, per-slot
+and per-pin tables (slot stride 128 bytes from +256, pin stride 56 bytes from +1640), and widget identity from `xwidget_info_get` and its accessors; it initialises the
+lock at +128. It then registers the error handler (`xwidget_error_register(vertex, pcibr_error_handler, soft)`), clears the timeout register bits
+(`pcireg_timeout_bit_clr(soft, 0x3ff)`, before revision 0xc0024), resets and re-arms the interrupt registers (`pcireg_intr_reset_set` 0x7f, `pcireg_intr_device_set`
+0xffffffff), sets up direct mapping (`pcibr_directmap_init`), sets control bit 0x200000 and zeroes every internal ATE (`pcireg_int_ate_set`), builds the ATE allocation
+maps (`rmallocmap`, `pcibr_ate_free`, and for a Bridge the external ATE RAM through `pcibr_init_ext_ate_ram`), allocates the bridge's own error interrupt
+(`device_desc_dup`, `xtalk_intr_alloc`) and connects `pcibr_error_intr_handler` to it with
+`pcibr_setwidint` (`xtalk_intr_connect`), enables the interrupt sources (`pcireg_intr_enable_set` with extra bits from a global mask, trimmed by revision), sets interrupt
+mode 0 and flushes (`pcireg_tflush_get`), chooses the bridge control flags at +124 by revision (0x80000, 0x800 or
+0x20000), creates three device windows (`pciio_device_win_map_new` and `pciio_device_win_populate`: 0x10000000 bytes with 0x100000 granule, a 0x100000 window with 0x4000
+and a 0x40000000 window), registers a bridge-level info record (`pcibr_device_info_new`, `pciio_device_info_register`) and then runs, for every slot from the first to the
+last, `pcibr_slot_info_init`, `pcibr_slot_addr_space_init`, `pcibr_slot_device_init`,
+`pcibr_slot_guest_info_init`, then `pcibr_initial_rrb`, and (when the NIC string contains the marker string at 0x1b8 of the string block)
+`pcibr_rrb_alloc_init(soft, 1, 0, 8)`,
+then `pcibr_slot_call_device_attach` for each slot and `pciio_device_attach`. It returns 0 after attach. The ordering of those calls was checked against the call
+addresses; the per-revision constants and the layout of the soft record beyond the offsets above were taken from the decompiler and not traced by hand, hence the grade.
+
+## IOC3 serial and router set-up
+
+- `ioc3_serial_attach` (`6.5.30/unix.IP27`, address 0xc00000000017682c): **inferred.** Sets up the one or two serial ports of an IOC3 I/O chip. Argument `a0` is the
+chip's PCI vertex. It returns -1 unless `ioc3_subdev_enabled(vertex, 4)` or `ioc3_subdev_enabled(vertex, 5)` is true (the two serial sub-devices). Otherwise it maps the
+chip's registers with
+`pciio_piotrans_addr(vertex, 0, 8, 0, 0x20180, 0)`,
+asks `ioc3_is_console(vertex)`, looks up two child vertices of the chip by name (`hwgraph_traverse` twice, the second giving the pointer
+`hwgraph_fastinfo_get` returns) and allocates one 0x150-byte block (`kmem_zalloc`) holding two 0xa8-byte port records (port 0 at +0, port 1 at +0xa8). For each enabled
+port it adds the port's hwgraph node (`hwgraph_path_add`, then `hwgraph_fastinfo_set`), initialises the port (`sio_initport(record, vertex, 0x1ff, console flag)`, the
+flag being 1 only for port 0 of the console chip), allocates a 0x28-byte lock record (`kmem_zalloc`, `sio_init_locks`) whose byte at +0x1d is 3 for the console port and 2
+otherwise, and sets the default baud word at record +128 to 0x2580 (9600). For the console chip it also records the port's `hwgraph_edge_get` target in a global array,
+looks up a kernel option (`kopt_find`, `atoi`) and when it is positive stores it as the port's baud rate (and, for port 1, prints it through `printf`), and registers the
+port as a console device (`cons_devs` and the other globals through `gp`). Each port also gets an inventory entry (`device_inventory_add(vertex, 4,
+0x10, -1, 0, 0)`), the register-base fields at +56, +80 (base plus 0x20000) and the pointer at +0 to a method table. Port 0, when enabled, gets a 16 KB ring buffer
+(`kvpalloc(1, 0x100,
+0)`, `panic` when it fails, `blkclr` over 0x4000 bytes) split into receive at +0x68 and transmit at +0x60 halves 0x1000 apart, an interrupt connection
+(`ioc3_intr_connect(vertex, 0x1ff, handler, port, ...)`), controller number 1 (`device_controller_num_set`) and `sio_make_hwgraph_nodes`; port 1 does the same with mask
+0x3fe00 and controller number 2, using the ring's upper halves at +0x2000 and +0x3000. It returns 0. The remaining port-record fields and the routine at
+0xc000000000176588 that is called for each port are unknown here.
+- `router_init` (`6.5.30/unix.IP27`, address 0xc00000000001c084): **inferred.** Brings up one Craylink router node: arguments are the compact node number (`a0`), a value
+kept in `s3` and an interface record (`a2`) whose word at +0 is the router's vertex and doubleword at +16 an address printed in errors. It allocates the 440-byte router
+record on the node's own memory (`kmem_zalloc_node(440, 0x101, node)`), stores it at interface +24 and as the vertex label
+`_router` (`hwgraph_info_add_LBL`), initialises the lock `routerinfolock` at record +404, fills in node, NASID (from
+`compact_to_nasid_node`), a not-yet-set port byte 0xff at +6 and two timestamps from the clock at `DAT_c0000000014cc150`, and reads the router's status register at vector
+0 into record +16 and the global-parameters register at vector 0x18 into record +352 (`router_reg_read`; a failure of either is reported with `net_errmsg` and
+`cmn_err(1, "Router init read failed: ...")`). It forces the register's field (bits 28 to 35) to 0x20 when it is not, sets or clears bit 0 according to the kernel
+variables `craylnk_bypass_disable` and `hasmetarouter`, masks with a global, ORs in 0xafe000000000 and writes it back with `router_reg_write(record, 0x18, ...)`. The
+router's port count is taken from status bits 46 to 48 into the interface halfword at +2, and a status low nibble other than 1 ("Not a router") is a `cmn_err(4, ...)`
+panic. It allocates a pointer table of one doubleword per node (`kmem_alloc_node`, failure goes to `assfail("rip->ri_vecarray", "router.c", 1131)`) and the path-name
+buffer (`kern_malloc_node(0x50)`, `assfail("rip->ri_name", ..., 1136)`), finds the router's board (`vertex_to_router_board`; a missing board is
+`Couldn't locate board structure for %v`, and a board whose type nibble (byte 0x15a) is not 1 is `Incorrectly jumpered router board in module %M`), builds the path name
+(`board_to_path`) and then initialises each of the six router ports 1 to 6 (`router_port_init`, which on failure gives
+`Router port init failed, cnode %d, %v, p 0x%x, err %d <%s>` through `cmn_err(4, ...)`), building the port-presence byte at +8 from the status bits at 29+3*port. After
+the ports it calls `router_set_fences`, `nic_vertex_info_set`, `router_acquire_info`, sets the record's state byte at +0 to 6, calls `build_router_invent_info` and
+`sndrv_attach(vertex)`, stores `router_poll_ticks` in
+`p_routertick` and returns the result of `router_reg_write` (the value `ld s0,32(sp)` restores). Both error returns of the exits (0x1c46c,
+0x1c494) are `cmn_err` calls that do not return. The names of the register fields are inferred from how the values are masked.
+- `ioc3_write_ireg` (`6.5.30/unix.IP27`, address 0xc000000000094fa4): **established.** Changes the interrupt-enable state of an IOC3 chip and keeps a software copy of it.
+Arguments: the chip's soft record (`a0`, `s0`), an interrupt bit mask (`a1`) and an operation
+(`a2`): 0 sets the bits, 1 clears them, any other value does nothing but take and release the lock. The record's doubleword at +24 is the register base (`s3`), its lock
+at +2876 (`mutex_spinlock_spl` with the level in `splerr`, released by `mutex_spinunlock`), the shadow of the enable word at +2880 and a byte of flags at +2884 (bit 0
+"poll mode on", bit 1 "poll timer wanted", bit 2 "timer queued"). Clear: it removes the mask from the shadow; if flag bit 0 is on, then it drops flag bit 1 when the
+shadow has no bit left in 0x7fffff and, when the shadow has no bit in 0x18000000, drops flags 0 and 1 and writes the whole shadow to the register at base +32; in every
+clear case it then writes the mask itself to base +36. Set: it ORs the mask into the shadow; if flag bit 0 is off and the shadow has a bit in 0x18000000 it turns bit 0 on
+and writes 0x7fffff to base +36 (which clears those enable bits in the chip: they are then driven by software polling); if bit 0 is off after that, it writes the mask to
+base +32; otherwise (poll mode) it writes the mask with its low 23 bits removed (`& 0xff800000`) to base +32, and when flag bit 1 is off and the shadow has a bit in
+0x7fffff it sets bit 1 and, when bit 2 is off, bit 2 as well and calls `prtimeout_nothrd(master_procid, handler, record, 1)` to queue the poll. It returns the result of
+`mutex_spinunlock`. Which of +32 and +36 is the chip's set and which its clear register is inferred from the values written.
+
+## Node driver control calls
+
+- `sn0drv_ioctl` (`6.5.30/unix.IP27`, address 0xc00000000006aa10): **inferred.** The control-call entry of the node driver. Arguments: the device vertex (`a0`), the
+command (`a1`), a user buffer (`a2`) and a result word pointer (`a5`). Commands 8 to 22 index a 15-entry jump table at 0xc0000000003c52e0 (`a1 -
+8`); commands 14, 20 and 21 and every command outside 8 to 22 go to
+`sndrv_ioctl_common(vertex, cmd, arg, a3, a4, a5)` and return its result. The others, with the status codes read from the stores to the local result word (1, 5,
+14 and 22; 0 on success): 8 (needs the capability bit tested by
+`cap_able(1 << 37)`, else 1; device type from `device_info_get` must be 2, else 22) copies in 4 bytes, finds the vertex label `_mdperf` and calls `md_perf_node_enable`; 9
+does the same checks and calls `md_perf_node_disable`; 10 and 11 (type 2) call `md_perf_get_node_count` and `md_perf_get_node_ctrl` through the same label and copy out
+288 and 4 bytes; 12 (capability, type 2) finds the node's compact number through `hwgraph_connectpt_get` twice and
+`nodevertex_to_cnodeid`, calls `memerror_get_stats` and copies out 32 bytes; 13 (capability, type 3) copies in 12 bytes, pins the thread (`setmustrun`), takes the lock at
+the node record +680, runs `elsc_nvram_read` or `elsc_nvram_write` as flag bit 0 or 1 of the request says, and copies the data out for a read; 15 (capability, type 1)
+copies in 112 bytes, finds the label `_rou_fence`, runs `rou_fence_op` on the node's CPU (`cnodetocpu`,
+`setmustrun`, `restoremustrun`) and copies the 112 bytes out; 16,
+17 and 18 call `check_router` and then `router_port_map_get` (6 bytes out),
+`router_port_mfg_info_get` (8 bytes in, 8 out) and, from the `_nic` label when its text contains `Laser:`, a hexadecimal number
+(`strtoull`) copied out as 8 bytes; 19 (capability, type 4) copies in 96 bytes to the node record at +488, runs `elsc_command` under the lock at +680 and copies 96 bytes
+out from +584; 22 (type 2) reads the `_mon` label and, when the node's NIC string contains
+`IP31`, stores bits 7:4 of the doubleword at +72 of the hub register page in the result word and otherwise stores 15. Whether a command that is not handled by its table
+entry (14, 20, 21) is a real, rejected command was taken from the table; the layout of each request buffer beyond the lengths above is unknown.
+- `ioc3_intr_connect` (`6.5.30/unix.IP27`, address 0xc0000000000956e0): **established.** Registers a handler for a set of IOC3 interrupt bits and starts a thread to run
+it. Arguments: the chip's PCI vertex (`a0`), the interrupt bit mask (`a1`), the handler (`a2`), its argument
+(`a3`), the vertex the thread belongs to (`a4`, kept in `s2`), a device descriptor
+(`a5`) and a seventh value (`a6`). It looks up the chip's child vertex named `ioc3` with
+`hwgraph_traverse`; if that fails it stops with `cmn_err(1, "ioc3_intr_connect(%v): ioc3_attach not yet called")`. The child's fastinfo (`hwgraph_fastinfo_get`) is the
+chip's soft record. It picks a free handler slot: the word at soft +2872 is a bitmap of released slots; when it is nonzero the routine atomically (`ll`/`sc`,
+branch-likely at 0x95764) clears its lowest set bit and uses that bit's index (found by a binary search on 16, 8, 4,
+2 and 1 bits), repeating if another CPU took the bit first; when it is zero the routine atomically increments the counter at +2864 and uses the old value. Slot records
+are 0x58 bytes each starting at soft +0: the routine stores `a6` at slot +128, the soft record at +80, `a4` as a word at +72, `a3` at +64,
+`a2` at +56 and the mask at +48 (as a word). It then ORs the mask atomically into the claimed-bits word at +2868 (branch-likely at 0x95800); if any bit of the mask was
+already claimed it prints `%v: trying to share ioc3 intr bits 0x%X` at `cmn_err` level 6 and calls `panic` with a fixed string. Otherwise it duplicates the descriptor
+(`device_desc_dup`), takes its software level from `device_desc_intr_swlevel_get` (falling back to the global `default_intr_pri` when negative), names the thread
+`ioc3[<slot>]` or, when `device_driver_getbydev` finds a driver for the device,
+`ioc3[<slot>]<driver name>` (`device_driver_name_get`, `sprintf`), sets 0x300 in the slot's word at +88 atomically (branch-likely at 0x9588c), and calls
+`xthread_setup(name, level, slot+88, thread function, slot+48)`; its result is the return value. The two other `cmn_err`/`panic` exits do not return.
+- `hub_error_init` (`6.5.30/unix.IP27`, address 0xc0000000000324f4): **inferred.** Sets up error handling for one node's hub chip; the argument (`a0`) is the compact node
+number and the routine returns no value that a caller uses. It starts with `hub_error_clear`. On node 0 it allocates, for every node, a 0x1938-byte error log
+(`kmem_zalloc_node(0x1938, 1, node)`, stored in
+`kl_error_log[node]`) and a 0x40-byte count block (`kmem_zalloc_node(0x40,
+0x101, node)`, in `hub_err_count[node]`); a failure of either is
+`assfail("kl_error_log[i] && hub_err_count[i]", "huberror.c", 155)`. When the node is the one the running CPU belongs to (`get_compact_nodeid`), it asserts both blocks
+exist (lines 164 and 165), clears the log's first word, initialises two spooling areas with `recover_error_init` at log +0x1810 and +0x1890, programs the hub's
+error-spool registers (through global register pointers) with one of three bit patterns (0x1aaaaaa, 0x1555555, or 0x16555aa and
+0x9aaa55) chosen by two kernel flags, clears bit 21 and bit 20 in the two words, sets the spool start and end pointers in the log (+0x1910 to +0x1928) when the kernel
+variables for them are nonzero, stores a spool size of 0x1000 shifted left by a global minus one (or 0) at +0x1930, and connects the error interrupt with
+`cause_intr_connect(6, hubpi_eint_handler, 1)`, a nonzero result being `cmn_err(0x14, "hub_error_init: cause_intr_connect failed on %d")`. For any other node it only
+zeroes the two hub registers at +0x408 and +0x410 of that node's register page. For every node it then calls `hubii_eint_init` and `hubni_eint_init`; on node 0 it also
+sets the log's halfword at +0x404 to 0xffff, its word at +0x400 to 0 and initialises the lock `error_dump_lock`; finally it stores 12000 into the per-CPU word at +0x4d1c.
+The register-pointer globals and the meaning of the three bit patterns were not resolved.
+- `hubpi_spool_get_next` (`6.5.30/unix.IP27`, address 0xc000000000033dac): **inferred.** Takes the next 8-byte entry from the hub's error spool for the CPU that is
+running. Arguments: two result pointers (`a0` in `s0`, `a1` saved at 0(sp)). It gets the NASID
+(`get_nasid`) and raises the interrupt level (`spl7`); the node's log block comes from
+`kl_error_log[node]` and the per-processor-slot read and write positions are the doublewords at log +0x1910 and +0x1920 plus 8 times the processor-slot byte at +0x520 of
+the CPU's private data. It returns 0 (after restoring the level with `splx`) when there is no log, no read position (word at +0x1910 is zero), or after a correction of an
+overrun it finds nothing more to read. When the read position equals the write position it first refills: it loads the two spool register values from global register
+pointers (selected by slot 0 or other), stores them through the two result pointers, clears a hub register unless bit 1 of the halfword at absolute address
+0xffffffffffffc524 is set, stores a new write position, and calls `klsave_spool_registers(first, second, 2)`, returning 2. Otherwise it reads the doubleword at the hub
+register page offset given by the read position into `*a0` (the page is `0x9600000000000000` plus the NASID shifted left by 32), advances the position by 8, wraps it back
+by the spool size at +0x1930 when the advanced value is aligned to that size, restores the level, and returns 1. The register-pointer globals were not resolved, and the
+exact refill and wrap arithmetic follows the control flow, not each instruction, hence the grade.
+- `router_acquire_info` (`6.5.30/unix.IP27`, address 0xc00000000001b704): **inferred.** Refreshes what the kernel knows about one Craylink router (argument `a0`, the
+router record) under the record's lock at +404 (`mutex_spinlock`, `mutex_spinunlock`). It remembers the byte at +401 (the "already acquired" flag). When that flag is 0 it
+clears the byte at +7 (the set of ports found up), stamps the time from the clock at `DAT_c0000000014cc150` into +48, and, when bit 0 of the global-parameters image at
++352 is set, writes the image back with bit 0 cleared (`router_reg_write(record, 0x18, ...)`). For ports 1 to 6 whose bit is set in the presence byte at +8 it releases
+the lock, calls `router_acquire_port_info(record, port, flag)`, adds the result to a running total and takes the lock again. It then ANDs the byte at +7 with the presence
+byte, updates the LEDs (`router_set_leds`), sets or clears bit 0 of the image at +352 according to `craylnk_bypass_disable` and `hasmetarouter` (set only when both are
+zero), and, when bit 0 is set, the flag was 0 and the total over all ports is 0, writes the image back to register 0x18. It releases the lock and returns nothing. Which
+fields hold ports and flags is inferred from the access pattern.
+- `hub_piomap_alloc` (`6.5.30/unix.IP27`, address 0xc00000000003b5a0): **inferred.** Allocates a window through which a widget's registers are reached from this node.
+Arguments: the widget vertex (`a0`), a device argument (`a1`, unused), the crossbar address (`a2`), the size
+(`a3`), the minimum size (`a4`) and flags (`a5`; bit 0 "may wait for a window", bit 3 "uncached/cache-coherent bit" 0x3800000000000000, low two bits a no-sleep mode). It
+gets the widget number and its master from `xwidget_info_get` and its accessors and the node record from the vertex label `_node`. It returns 0 when `a3` is smaller than
+`a4`. For an offset-plus-size no larger than 16 MB it uses the node's fixed per-widget window record (the record at the node label plus 0x30 times the widget number,
++0x10 is the returned handle) and, when flag bit 3 is set, ORs 0x3800000000000000 into the doubleword at +0x28. For larger requests (up to 512 MB when the offset is taken
+modulo 0x20000000) it takes the lock at node label +0x318 and scans the six big-window records (0x30 bytes each from +0x328, flag word at +0x350): a record already
+mapping the same 512 MB block of the same widget (base doubleword at +0x330, widget byte at +0x32c) just gets its use count at +0x34c incremented and is returned;
+otherwise it takes the first free record, and if flag bit 0 is set it refuses with 0 once five waiters (word at +800) are queued, programs the hub's big-window register
+for that record (page `DAT_c0000000014cc198`, slot offset 0x160 plus 8 times the record number, value from the widget number and address bits 33 to 29) and fills the
+record (base, widget, vertex, address `DAT_c0000000014cc220` plus record times 0x20000000 plus 0x3800000000000000 when flag bit 3, use count 1, flags |1 or |5). With no
+free record and no-wait set it returns 0; otherwise it sleeps on the semaphore at +0x310 (`sv_wait`) and retries. The return value is the address of the record (+0x328
+style) or 0. The exits list shows 0 and record pointers.
