@@ -8,7 +8,7 @@ Each row gives the call address, the callee, the message the call passes, and th
 
 Grades: a message that is shown is established from the binary. `not resolved` means the scan could not follow the register: it is set on two paths that join before the call, or it comes from a pointer the routine loads at run time. A condition is established when the branch that decides the call was read in the disassembly; `not established` means no branch in the listing reaches the call.
 
-Counts: 890 call sites in 253 routines; 20 have a written condition, 870 do not yet.
+Counts: 890 call sites in 253 routines; 30 have a written condition, 860 do not yet.
 
 ## 6.5.30 IP27 kernel
 
@@ -181,8 +181,8 @@ Routine at 0xc000000000032a18.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000032b04 | cmn_err | level 20, `hub_error_init: Cannot connect NI error interrupt.` | not yet read |
-| 0xc000000000032b18 | cmn_err | level 20, format not resolved (add of unknown at 0xc000000000032b1c (join at 0xc000000000032b14)) | not yet read |
+| 0xc000000000032b04 | cmn_err | level 20, `hub_error_init: Cannot connect NI error interrupt.` | The bnez v0 at 0x32a60 branches (v0 nonzero) into 0x32afc. |
+| 0xc000000000032b18 | cmn_err | level 20, format not resolved (add of unknown at 0xc000000000032b1c (join at 0xc000000000032b14)) | The unconditional b at 0x32ad8 jumps into 0x32b14. |
 
 ### `hubpi_eint_handler`
 
@@ -200,8 +200,8 @@ Routine at 0xc00000000003319c.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc0000000000332f8 | cmn_err | level 0, format not resolved (add of unknown at 0xc0000000000332fc (join at 0xc0000000000332f4)) | not yet read |
-| 0xc00000000003330c | cmn_err | level 21, format not resolved (add of unknown at 0xc000000000033310 (join at 0xc000000000033308)) | not yet read |
+| 0xc0000000000332f8 | cmn_err | level 0, format not resolved (add of unknown at 0xc0000000000332fc (join at 0xc0000000000332f4)) | The bnez s0 at 0x332a4 branches (s0 nonzero) into 0x332f4. The store at 0x332f0 also falls through into 0x332f4. |
+| 0xc00000000003330c | cmn_err | level 21, format not resolved (add of unknown at 0xc000000000033310 (join at 0xc000000000033308)) | The beqz v0 at 0x331d8 branches (v0 zero) into 0x33308. |
 
 ### `huberror_process_rrb_error`
 
@@ -209,10 +209,10 @@ Routine at 0xc000000000034054.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000003421c | cmn_err | level 20, `Invalid RRB error type: 0x%x` | not yet read |
-| 0xc000000000034238 | cmn_err | level 20, `Uncached read error, physaddr 0x%x` | not yet read |
-| 0xc000000000034254 | cmn_err | level 20, `Read timeout, physaddr 0x%x` | not yet read |
-| 0xc00000000003427c | cmn_err | level 20, `Cached read directory error, physaddr 0x%x in %s\n` | not yet read |
+| 0xc00000000003421c | cmn_err | level 20, `Invalid RRB error type: 0x%x` | The bne a0,v0 at 0x34080 branches (a0 differs from v0) into 0x34214. |
+| 0xc000000000034238 | cmn_err | level 20, `Uncached read error, physaddr 0x%x` | The beqz v0 at 0x340b4 branches (v0 zero) into 0x3422c. |
+| 0xc000000000034254 | cmn_err | level 20, `Read timeout, physaddr 0x%x` | The beqz v0 at 0x34140 branches (v0 zero) into 0x34248. |
+| 0xc00000000003427c | cmn_err | level 20, `Cached read directory error, physaddr 0x%x in %s\n` | The beqz v0 at 0x34198 branches (v0 zero) into 0x34264. The membank pathname call at 0x34264 runs before this call. |
 
 ### `huberror_process_wrb_error`
 
@@ -220,8 +220,8 @@ Routine at 0xc0000000000342ac.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000034474 | cmn_err | level 20, `Invalid WRB error type: 0x%x` | not yet read |
-| 0xc000000000034494 | cmn_err | level 20, `Uncached Write error, physaddr 0x%x node: %d` | not yet read |
+| 0xc000000000034474 | cmn_err | level 20, `Invalid WRB error type: 0x%x` | The bne a0,at at 0x342d0 branches (a0 differs from at) into 0x3446c. |
+| 0xc000000000034494 | cmn_err | level 20, `Uncached Write error, physaddr 0x%x node: %d` | The bnez v0 at 0x342f8 branches (v0 nonzero) into 0x34484. |
 | 0xc0000000000344ac | cmn_err | level 20, format not resolved (add of unknown at 0xc0000000000344b0 (join at 0xc0000000000344a4)) | not yet read |
 | 0xc0000000000344c8 | cmn_err | level 20, `Cached write error, physaddr 0x%x` | not yet read |
 

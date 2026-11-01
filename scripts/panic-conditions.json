@@ -18,5 +18,15 @@
  "6.5.30/unix.IP27|0xc000000000032884": "The unconditional b at 0x326f0 jumps into 0x3287c.",
  "6.5.30/unix.IP27|0xc0000000000329d4": "The beq a2,s0 at 0x328c0 branches (a2 equals s0) into 0x329c8.",
  "6.5.30/unix.IP27|0xc0000000000329ec": "The beq a0,a6 at 0x32934 branches (a0 equals a6) into 0x329e4.",
- "6.5.30/unix.IP27|0xc000000000032a08": "The bltz v0 at 0x32958 branches (v0 negative) into 0x329fc."
+ "6.5.30/unix.IP27|0xc000000000032a08": "The bltz v0 at 0x32958 branches (v0 negative) into 0x329fc.",
+ "6.5.30/unix.IP27|0xc000000000032b04": "The bnez v0 at 0x32a60 branches (v0 nonzero) into 0x32afc.",
+ "6.5.30/unix.IP27|0xc000000000032b18": "The unconditional b at 0x32ad8 jumps into 0x32b14.",
+ "6.5.30/unix.IP27|0xc0000000000332f8": "The bnez s0 at 0x332a4 branches (s0 nonzero) into 0x332f4. The store at 0x332f0 also falls through into 0x332f4.",
+ "6.5.30/unix.IP27|0xc00000000003330c": "The beqz v0 at 0x331d8 branches (v0 zero) into 0x33308.",
+ "6.5.30/unix.IP27|0xc00000000003421c": "The bne a0,v0 at 0x34080 branches (a0 differs from v0) into 0x34214.",
+ "6.5.30/unix.IP27|0xc000000000034238": "The beqz v0 at 0x340b4 branches (v0 zero) into 0x3422c.",
+ "6.5.30/unix.IP27|0xc000000000034254": "The beqz v0 at 0x34140 branches (v0 zero) into 0x34248.",
+ "6.5.30/unix.IP27|0xc00000000003427c": "The beqz v0 at 0x34198 branches (v0 zero) into 0x34264. The membank pathname call at 0x34264 runs before this call.",
+ "6.5.30/unix.IP27|0xc000000000034474": "The bne a0,at at 0x342d0 branches (a0 differs from at) into 0x3446c.",
+ "6.5.30/unix.IP27|0xc000000000034494": "The bnez v0 at 0x342f8 branches (v0 nonzero) into 0x34484."
 }
