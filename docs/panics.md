@@ -8,7 +8,7 @@ Each row gives the call address, the callee, the message the call passes, and th
 
 Grades: a message that is shown is established from the binary. `not resolved` means the scan could not follow the register: it is set on two paths that join before the call, or it comes from a pointer the routine loads at run time. A condition is established when the branch that decides the call was read in the disassembly; `not established` means no branch in the listing reaches the call.
 
-Counts: 890 call sites in 253 routines; 58 have a written condition, 832 do not yet.
+Counts: 890 call sites in 253 routines; 72 have a written condition, 818 do not yet.
 
 ## 6.5.30 IP27 kernel
 
@@ -26,8 +26,8 @@ Unlabelled code at 0xc00000000001b8ac, after the recorded end of `router_acquire
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000001b988 | cmn_err | level 4, `Excessive %s (%d/min) on %s, port %d` | not yet read |
-| 0xc00000000001b9bc | cmn_err | level 1028, `Excessive %s (%d/min) on %s, port %d` | not yet read |
+| 0xc00000000001b988 | cmn_err | level 4, `Excessive %s (%d/min) on %s, port %d` | Reached when the `beqz` at 0x1b930 branches (at is zero, so s2 is at least 501), the `beqz a0` at 0x1b960 does not branch (a0, the AND of a3 with the byte at context +431, is nonzero), and the helper called at 0x1b968 has returned. Level 4 is the first of the two reports in this block. |
+| 0xc00000000001b9bc | cmn_err | level 1028, `Excessive %s (%d/min) on %s, port %d` | Reached when the `beqz a0` at 0x1b960 branches (a0 is zero). The byte store at 0x1b998 writes a2 to context +431, the helper call at 0x1b99c returns, and the report is level 1028 (0x404). |
 
 ### `router_hist_reselect`
 
@@ -35,7 +35,7 @@ Routine at 0xc00000000001bc14.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000001bd0c | cmn_err | level 4, `Router port histogram reselect failed, cnode %d, %v, p 0x%x, err %d <%s>` | not yet read |
+| 0xc00000000001bd0c | cmn_err | level 4, `Router port histogram reselect failed, cnode %d, %v, p 0x%x, err %d <%s>` | Taken when the `bnez v0` at 0x1bc54 branches: the helper called at 0x1bc4c (with the loop index s0 and s2) returned nonzero. The loop runs s0 from its start up to 6 (slti against 7 at 0x1bc60). net_errmsg at 0x1bce8 converts the value first, then this call reports it. |
 
 ### `router_init`
 
@@ -43,14 +43,14 @@ Routine at 0xc00000000001c084.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000001c434 | cmn_err | level 4, format not resolved (add of unknown at 0xc00000000001c420 (join at 0xc00000000001c414)) | not yet read |
-| 0xc00000000001c464 | cmn_err | level 1, format not resolved (add of unknown at 0xc00000000001c450 (join at 0xc00000000001c444)) | not yet read |
-| 0xc00000000001c48c | cmn_err | level 1, format not resolved (add of unknown at 0xc00000000001c480 (join at 0xc00000000001c474)) | not yet read |
-| 0xc00000000001c4a4 | cmn_err | level 4, format not resolved (add of unknown at 0xc00000000001c49c (unconditional jump at 0xc00000000001c494)) | not yet read |
-| 0xc00000000001c4cc | assfail | expression not resolved (add of unknown at 0xc00000000001c4d0 (join at 0xc00000000001c4c4)), line 1131 (file argument not copied) | not yet read |
-| 0xc00000000001c4e4 | assfail | expression not resolved (add of unknown at 0xc00000000001c4e8 (join at 0xc00000000001c4dc)), line 1136 (file argument not copied) | not yet read |
-| 0xc00000000001c508 | cmn_err | level 4, format not resolved (add of unknown at 0xc00000000001c500 (join at 0xc00000000001c4f4)) | not yet read |
-| 0xc00000000001c520 | cmn_err | level 2052, format not resolved (add of unknown at 0xc00000000001c518 (unconditional jump at 0xc00000000001c510)) | not yet read |
+| 0xc00000000001c434 | cmn_err | level 4, format not resolved (add of unknown at 0xc00000000001c420 (join at 0xc00000000001c414)) | Taken when the `bnez v0` at 0x1c358 branches: the call to 0x1ba70 at 0x1c350, inside the loop that counts s1 up to 7, returned nonzero. net_errmsg at 0x1c414 converts the value, then this call reports it at level 4. |
+| 0xc00000000001c464 | cmn_err | level 1, format not resolved (add of unknown at 0xc00000000001c450 (join at 0xc00000000001c444)) | Taken when the `bnez v0` at 0x1c178 branches: the call to 0x1b344 at 0x1c170 (a1 zero, a2 the context at +16) returned nonzero. net_errmsg at 0x1c444 converts the value, then this call reports it at level 1. |
+| 0xc00000000001c48c | cmn_err | level 1, format not resolved (add of unknown at 0xc00000000001c480 (join at 0xc00000000001c474)) | Taken when the `bnez v0` at 0x1c198 branches: the call to 0x1b344 at 0x1c188 (a1 set to 24, a2 the context at +352) returned nonzero. net_errmsg at 0x1c474 converts the value, then this call reports it at level 1. |
+| 0xc00000000001c4a4 | cmn_err | level 4, format not resolved (add of unknown at 0xc00000000001c49c (unconditional jump at 0xc00000000001c494)) | Taken when the `bne s4,a3` at 0x1c218 branches: s4 is 1 (set at 0x1c148), and a3 is the low four bits of the doubleword at context +16 (loaded at 0x1c210). So the field is any value other than 1. |
+| 0xc00000000001c4cc | assfail | expression not resolved (add of unknown at 0xc00000000001c4d0 (join at 0xc00000000001c4c4)), line 1131 (file argument not copied) | Taken when the `beqz v0` at 0x1c244 branches: the call to 0x17e8e4 at 0x1c23c returned zero. The assertion passes line 1131 as a2. |
+| 0xc00000000001c4e4 | assfail | expression not resolved (add of unknown at 0xc00000000001c4e8 (join at 0xc00000000001c4dc)), line 1136 (file argument not copied) | Taken when the `beqz v0` at 0x1c26c branches: the call to 0x17e874 at 0x1c260 returned zero. The assertion passes line 1136 as a2. |
+| 0xc00000000001c508 | cmn_err | level 4, format not resolved (add of unknown at 0xc00000000001c500 (join at 0xc00000000001c4f4)) | Taken when the `beqz a1` at 0x1c2a8 branches: a1 is the doubleword at context +416 (loaded at 0x1c2a4), and it is zero. The call at 0x1c4f8 runs first, then this report at level 4. |
+| 0xc00000000001c520 | cmn_err | level 2052, format not resolved (add of unknown at 0xc00000000001c518 (unconditional jump at 0xc00000000001c510)) | Taken when the `bne t9,ra` at 0x1c310 branches: t9 is the high nibble of the byte at context +346 (andi 0xf0 at 0x1c308) and ra holds 16 (0x10), so the nibble is not 0x10. The report is level 2052 (0x804), then the code returns to 0x1c318. |
 
 ### `sub_0xc00000000002411c`
 
@@ -58,9 +58,9 @@ Unlabelled code at 0xc00000000002411c, after the recorded end of `xswitch_vertex
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000024204 | cmn_err | level 4, format not resolved (add of unknown at 0xc000000000024200 (unconditional jump at 0xc0000000000241f8)) | not yet read |
-| 0xc000000000024494 | cmn_err | level 0, `Nasid == %d, console nasid == %d` | not yet read |
-| 0xc0000000000244b4 | cmn_err | level 4, format not resolved (add of unknown at 0xc0000000000244b8 (join at 0xc0000000000244ac)) | not yet read |
+| 0xc000000000024204 | cmn_err | level 4, format not resolved (add of unknown at 0xc000000000024200 (unconditional jump at 0xc0000000000241f8)) | Reached when the `beqz v0` at 0x241ac does not branch: the halfword at offset 18776 from the pointer loaded at 0x241a4 is nonzero. The `b` at 0x241b4 jumps to 0x24200, which passes the format at a4 plus 32. |
+| 0xc000000000024494 | cmn_err | level 0, `Nasid == %d, console nasid == %d` | Reached by the `beqz t8` at 0x242d0 (the loop index s1 after its increment at 0x242c8 is not below s4, so the loop is done) or by the `blez s4` at 0x2434c (s4 is at most zero, so the loop never runs). The call to 0x1f8f0 at 0x2447c runs first. The report is level 0. |
+| 0xc0000000000244b4 | cmn_err | level 4, format not resolved (add of unknown at 0xc0000000000244b8 (join at 0xc0000000000244ac)) | Reached when the `beqz v0` at 0x2446c does not branch: the halfword at offset 18776 from the entry chosen by the second call (0x296e54 at 0x2444c) is nonzero. The first call's result (at 0x24438) was not -1 (the `beq` at 0x24444 did not branch). The `b` at 0x24474 jumps to 0x244ac, which reports at level 4. |
 
 ### `sn00_rrb_alloc`
 
