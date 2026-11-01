@@ -8,7 +8,7 @@ Each row gives the call address, the callee, the message the call passes, and th
 
 Grades: a message that is shown is established from the binary. `not resolved` means the scan could not follow the register: it is set on two paths that join before the call, or it comes from a pointer the routine loads at run time. A condition is established when the branch that decides the call was read in the disassembly; `not established` means no branch in the listing reaches the call.
 
-Counts: 890 call sites in 253 routines; 72 have a written condition, 818 do not yet.
+Counts: 890 call sites in 253 routines; 91 have a written condition, 799 do not yet.
 
 ## 6.5.30 IP27 kernel
 
@@ -68,8 +68,8 @@ Routine at 0xc000000000025794.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000025930 | cmn_err | level 4, `sn00_rrb_alloc: pcibr_alloc_all_rrbs failed` | not yet read |
-| 0xc000000000025948 | cmn_err | level 4, `sn00_rrb_alloc: pcibr_alloc_all_rrbs failed` | not yet read |
+| 0xc000000000025930 | cmn_err | level 4, `sn00_rrb_alloc: pcibr_alloc_all_rrbs failed` | Taken when the `bnez a4` at 0x257ec branches: a4 holds the nonzero return of the call to pcibr_alloc_all_rrbs at 0x257dc (moved from v0 at 0x257e8). The report is level 4. |
+| 0xc000000000025948 | cmn_err | level 4, `sn00_rrb_alloc: pcibr_alloc_all_rrbs failed` | Taken when the `bnez a4` at 0x25838 branches: a4 holds the nonzero return of the call to pcibr_alloc_all_rrbs at 0x2582c (moved from v0 at 0x25834). The report is level 4. |
 
 ### `mlreset`
 
@@ -77,9 +77,9 @@ Routine at 0xc0000000000260e0.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc0000000000264b8 | assfail | `maxcpus > 0`, line 281 (file argument not copied) | not yet read |
-| 0xc0000000000264d4 | assfail | `numnodes > 0`, line 284 (file argument not copied) | not yet read |
-| 0xc0000000000264f0 | assfail | expression not resolved (add of unknown at 0xc0000000000264f4 (join at 0xc0000000000264e8)), line 302 (file argument not copied) | not yet read |
+| 0xc0000000000264b8 | assfail | `maxcpus > 0`, line 281 (file argument not copied) | Taken when the `blez v0` at 0x262dc branches: v0 is the return of the call at 0x262d4 and is at most zero. The store at 0x262e0 (delay slot) runs before the branch. |
+| 0xc0000000000264d4 | assfail | `numnodes > 0`, line 284 (file argument not copied) | Taken when the `blez a3` at 0x262ec branches: a3 is the word at 7340(gp), loaded at 0x262e4 (the store at 0x262e8 does not change it), and it is at most zero. |
+| 0xc0000000000264f0 | assfail | expression not resolved (add of unknown at 0xc0000000000264f4 (join at 0xc0000000000264e8)), line 302 (file argument not copied) | Taken when the `bne a2,v0` at 0x26350 branches: a2 is the halfword reloaded from -32620(gp) at 0x2634c, which the store at 0x26340 wrote, and v0 is the return of the call at 0x26344. The two differ. |
 
 ### `hub_ioerror_local`
 
@@ -141,8 +141,8 @@ Routine at 0xc00000000002e5a0.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000002e608 | assfail | `npda->visited_router_q`, line 730 (file argument not copied) | not yet read |
-| 0xc00000000002e624 | assfail | `npda->bfs_router_q`, line 734 (file argument not copied) | not yet read |
+| 0xc00000000002e608 | assfail | `npda->visited_router_q`, line 730 (file argument not copied) | Taken when the `beqz v0` at 0x2e5c8 branches: v0 is the return of the call to 0x17ea04 at 0x2e5c0 (with a1 set to 1), and it is zero. The store at 0x2e5cc does not run on this path. |
+| 0xc00000000002e624 | assfail | `npda->bfs_router_q`, line 734 (file argument not copied) | Taken when the `beqz v0` at 0x2e5e4 branches: v0 is the return of the second call to 0x17ea04 at 0x2e5d8 (a0 set to 4104 at 0x2e5d0), and it is zero. |
 
 ### `sub_0xc00000000002e798`
 
@@ -150,9 +150,9 @@ Unlabelled code at 0xc00000000002e798, after the recorded end of `router_link_ge
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000002eac8 | assfail | `npda_rip`, line 1015 (file argument not copied) | not yet read |
-| 0xc00000000002eb84 | cmn_err | level 4, format not resolved (add of unknown at 0xc00000000002eb88 (join at 0xc00000000002eb7c)) | not yet read |
-| 0xc00000000002eb98 | cmn_err | level 0, format not resolved (add of unknown at 0xc00000000002eb9c (join at 0xc00000000002eb94)) | not yet read |
+| 0xc00000000002eac8 | assfail | `npda_rip`, line 1015 (file argument not copied) | Taken when the `beqz v0` at 0x2ea5c branches: v0 is the return of the call to 0x17ea04 at 0x2ea50 (a0 set to 40, a1 to 257), and it is zero. |
+| 0xc00000000002eb84 | cmn_err | level 4, format not resolved (add of unknown at 0xc00000000002eb88 (join at 0xc00000000002eb7c)) | Taken when the `bnez v0` at 0x2eb34 branches: v0 is the nonzero return of the call to 0x29579c at 0x2eb2c. The report is level 4 with the buffer at sp+8 as its argument. |
+| 0xc00000000002eb98 | cmn_err | level 0, format not resolved (add of unknown at 0xc00000000002eb9c (join at 0xc00000000002eb94)) | Taken when the `bne a2,v0` at 0x2eb44 branches: a2 is the byte at offset 23 of the structure at s0 (loaded at 0x2eb3c), and v0 is 1 (set at 0x2eb40). The byte is not 1. The report is level 0. |
 
 ### `hub_error_init`
 
@@ -190,9 +190,9 @@ Routine at 0xc000000000032b28.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000032d50 | cmn_err | level 20, `Fatal PI error interrupt received` | not yet read |
-| 0xc000000000032d78 | cmn_err | level 20, `Unexpected UCE error interrupt. int pend 0x%x\n` | not yet read |
-| 0xc000000000032dcc | cmn_err | level 20, `Spurious message intr, likely partition reboot` | not yet read |
+| 0xc000000000032d50 | cmn_err | level 20, `Fatal PI error interrupt received` | Taken when the `bnez a1` at 0x32b9c branches: a1 is the value read at 0x32b88, ANDed with the word at t8 and then with 0xcfff00, and it is nonzero. enter_panic_mode runs first, then this report at level 20. |
+| 0xc000000000032d78 | cmn_err | level 20, `Unexpected UCE error interrupt. int pend 0x%x\n` | Taken when the `bnez a6` at 0x32d08 branches: a6 is s0 ANDed with 0x200000 when the byte at offset 1312 is zero, or with 0x10000 when it is not (the movn at 0x32d00), and the result is nonzero. The report passes s0 as a2 at level 20. |
+| 0xc000000000032dcc | cmn_err | level 20, `Spurious message intr, likely partition reboot` | Taken when the `bnez a7` at 0x32d20 branches: a7 is s0 ANDed with 8 when the byte at offset 1312 is zero, or with 4 when it is not (the movn at 0x32d18), and the result is nonzero. The report is level 20. |
 
 ### `hubni_error_handler`
 
@@ -269,7 +269,7 @@ Routine at 0xc0000000000377b4.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc0000000000377cc | cmn_err | level 18, format not resolved (move) | not yet read |
+| 0xc0000000000377cc | cmn_err | level 18, format not resolved (move) | No branch precedes the call in kl_panic, which starts at 0x377b4: kl_panic_setup runs at 0x377c0, then this report at level 18 runs unconditionally. Its format is the first argument of kl_panic, kept in s8 (move at 0x377c4). The branch listed in the guard column belongs to kl_panic_setup and does not decide this call. |
 
 ### `intr_stray`
 
@@ -277,7 +277,7 @@ Routine at 0xc000000000037f30.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000037f44 | cmn_err | level 4, `Stray Interrupt - level %d to cpu %d` | not yet read |
+| 0xc000000000037f44 | cmn_err | level 4, `Stray Interrupt - level %d to cpu %d` | No branch precedes the call in intr_stray, which starts at 0x37f30 and reaches 0x37f44 straight through, so the call runs whenever intr_stray runs. The branch at 0x37f10 belongs to the routine before it (ms1bit). The report is level 4 and passes the entry a0 (saved in a2 at 0x37f38) as its argument. |
 
 ### `intr_heuristic`
 
@@ -285,9 +285,9 @@ Routine at 0xc000000000038db8.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000038ec8 | cmn_err | level 4, `!Cannot target interrupts to closest node: %v (0x%x)\n` | not yet read |
-| 0xc000000000038f80 | cmn_err | level 4, `!Cannot target interrupts to any close node: %v (0x%x)\n` | not yet read |
-| 0xc000000000038fe4 | cmn_err | level not resolved, `Cannot target interrupts: %v (0x%x)\n` | not yet read |
+| 0xc000000000038ec8 | cmn_err | level 4, `!Cannot target interrupts to closest node: %v (0x%x)\n` | Taken when the `beq a1,s6` at 0x38ea8 branches: a1 is the low 16 bits of the return of the call to 0x38d10 at 0x38e98, sign-extended by the shifts at 0x38ea0 and 0x38ea4, and it equals s6. The report is level 4. |
+| 0xc000000000038f80 | cmn_err | level 4, `!Cannot target interrupts to any close node: %v (0x%x)\n` | Taken when the `blez a2` at 0x38ed4 branches (a2 is the word at sp+544, loaded at 0x38ed0, and it is at most zero), or when the `bnez a3` at 0x38ef4 branches (the slt at 0x38ef0 set a3, so the word at sp+544 is less than the counter s5). The report is level 4. |
+| 0xc000000000038fe4 | cmn_err | level not resolved, `Cannot target interrupts: %v (0x%x)\n` | Taken when the `beq a1,s6` at 0x38fc8 branches: a1 is the low 16 bits of the return of the call to 0x38d10 at 0x38fb8, sign-extended by the shifts at 0x38fc0 and 0x38fc4, and it equals s6. The report is level 4. |
 
 ### `hub_migrintr_init`
 
@@ -303,7 +303,7 @@ Routine at 0xc000000000039d04.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000039e0c | cmn_err | level 0, `intr_reserve_hardwired: Can't reserve level %d.` | not yet read |
+| 0xc000000000039e0c | cmn_err | level 0, `intr_reserve_hardwired: Can't reserve level %d.` | Taken when the `bne v0,s2` at 0x39d54 branches: v0 is the return of the call to 0x38340 at 0x39d4c, and s2 (copied from a1 at 0x39d3c) differs from it. The report is level 0, with s2 as its third argument. |
 
 ### `hub_dmamap_addr`
 
