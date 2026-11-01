@@ -7,9 +7,9 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	5	0xc000000000233208			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	6	0xc0000000002331cc			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	7	0xc0000000002331a8	cap_able		out	documented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	8	0xc00000000023317c	mutex_lock	yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	9	0xc00000000023317c	mutex_lock	yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	10	0xc00000000023317c	mutex_lock	yes	out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	8	0xc00000000023317c	mutex_lock	yes	out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	9	0xc00000000023317c	mutex_lock	yes	out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	10	0xc00000000023317c	mutex_lock	yes	out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	11	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	12	0xc000000000233170			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	13	0xc000000000233150	copyin		out	documented
@@ -54,7 +54,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	52	0xc000000000233044	settimeofday		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	53	0xc000000000233008	setmustrun		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	54	0xc000000000232fe0	gettimetrim		out	documented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	55	0xc000000000232fc0	sprofil		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	55	0xc000000000232fc0	sprofil		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	56	0xc000000000232fac	0xc000000000235ebc		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	57	0xc000000000232f8c	sigstack		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	58	0xc000000000231848		yes	out	undocumented
@@ -1268,9 +1268,9 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	5	0xa8000000201ed1e4			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	6	0xa8000000201ed1a8			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	7	0xa8000000201ed198	sys_setled		out	documented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	8	0xa8000000201ed16c	mutex_lock	yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	9	0xa8000000201ed16c	mutex_lock	yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	10	0xa8000000201ed16c	mutex_lock	yes	out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	8	0xa8000000201ed16c	mutex_lock	yes	out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	9	0xa8000000201ed16c	mutex_lock	yes	out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	10	0xa8000000201ed16c	mutex_lock	yes	out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	11	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	12	0xa8000000201ed160			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	13	0xa8000000201ed140	copyin		out	documented
@@ -1315,7 +1315,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	52	0xa8000000201ed034	settimeofday		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	53	0xa8000000201ecff8	setmustrun		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	54	0xa8000000201ecfd0	gettimetrim		out	documented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	55	0xa8000000201ecfb0	sprofil		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	55	0xa8000000201ecfb0	sprofil		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	56	0xa8000000201ecf9c	0xa8000000201efac4		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	57	0xa8000000201ecf7c	sigstack		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	58	0xa8000000201eba10		yes	out	undocumented
@@ -2529,9 +2529,9 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	5	0xc0000000002e16ac			out	undocumented
 6.5.30/unix.IP35	compare	6	0xc0000000002e09f0			out	undocumented
 6.5.30/unix.IP35	compare	7	0xc0000000002e1da0			out	undocumented
-6.5.30/unix.IP35	compare	8	0xc0000000002e11ac	mutex_lock	yes	out	undocumented
+6.5.30/unix.IP35	compare	8	0xc0000000002e11ac	mutex_lock	yes	out	documented
 6.5.30/unix.IP35	compare	9	0xc0000000002e11a0			out	undocumented
-6.5.30/unix.IP35	compare	10	0xc0000000002e11ac	mutex_lock	yes	out	undocumented
+6.5.30/unix.IP35	compare	10	0xc0000000002e11ac	mutex_lock	yes	out	documented
 6.5.30/unix.IP35	compare	11	0xc0000000002e0598		yes	out	undocumented
 6.5.30/unix.IP35	compare	12	0xc0000000002e0ecc			out	undocumented
 6.5.30/unix.IP35	compare	13	0xc0000000002e1bf8	copyin		out	documented

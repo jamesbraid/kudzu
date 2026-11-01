@@ -66,8 +66,8 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	bte_lateinit	0xc00000000002c128	assfail	4	out	undocumented
 6.5.30/unix.IP27	bte_lateinit	0xc00000000002c128	cmn_err	2	out	undocumented
 6.5.30/unix.IP27	bte_poison_copy	0xc00000000002d874	cmn_err	1	out	undocumented
-6.5.30/unix.IP27	bte_wait_for_xfer_completion	0xc00000000002d9e4	assfail	1	out	undocumented
-6.5.30/unix.IP27	bte_wait_for_xfer_completion	0xc00000000002d9e4	cmn_err	1	out	undocumented
+6.5.30/unix.IP27	bte_wait_for_xfer_completion	0xc00000000002d9e4	assfail	1	out	documented
+6.5.30/unix.IP27	bte_wait_for_xfer_completion	0xc00000000002d9e4	cmn_err	1	out	documented
 6.5.30/unix.IP27	cause_intr_disconnect	0xc00000000003903c	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	cboot	0xc000000000044860	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	cdrv	0xc0000000001e4b78	cmn_err	1	out	undocumented
@@ -502,7 +502,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	pcireg_arbitration_set	0xc00000000008237c	panic	1	out	undocumented
 6.5.30/unix.IP27	pcireg_bus_err_get	0xc00000000007eef0	panic	1	out	documented
 6.5.30/unix.IP27	pcireg_cmdword_err_get	0xc000000000080730	panic	1	out	documented
-6.5.30/unix.IP27	pcireg_control_bit_clr	0xc00000000007f350	panic	1	out	undocumented
+6.5.30/unix.IP27	pcireg_control_bit_clr	0xc00000000007f350	panic	1	out	documented
 6.5.30/unix.IP27	pcireg_control_bit_set	0xc00000000007f4fc	panic	1	out	documented
 6.5.30/unix.IP27	pcireg_control_get	0xc00000000007f060	panic	1	out	undocumented
 6.5.30/unix.IP27	pcireg_control_set	0xc00000000007f1c8	panic	1	out	undocumented
@@ -679,7 +679,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	ptcinit	0xc00000000013ee90	panic	1	out	undocumented
 6.5.30/unix.IP27	ptrace	0xc0000000001be340	panic	1	out	documented
 6.5.30/unix.IP27	qcntlioctl	0xc00000000005c408	cmn_err	1	out	undocumented
-6.5.30/unix.IP27	ql_bridge_rev_b_war	0xc0000000000cf0d4	cmn_err	23	out	undocumented
+6.5.30/unix.IP27	ql_bridge_rev_b_war	0xc0000000000cf0d4	cmn_err	23	out	documented
 6.5.30/unix.IP27	ql_find_bus_mode	0xc0000000000ce850	cmn_err	14	out	undocumented
 6.5.30/unix.IP27	ql_ha_info_from_ctlr_get	0xc0000000000c74f4	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	qlattach	0xc0000000000cb36c	cmn_err	2	out	undocumented
@@ -752,7 +752,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	shake_swap	0xc000000000202dcc	assfail	2	out	undocumented
 6.5.30/unix.IP27	sharenamap	0xc0000000000ab710	cmn_err	7	out	undocumented
 6.5.30/unix.IP27	sigpoll_sys	0xc0000000001bf41c	cmn_err	1	out	undocumented
-6.5.30/unix.IP27	sigreturn	0xc0000000001c0c2c	cmn_err	1	out	undocumented
+6.5.30/unix.IP27	sigreturn	0xc0000000001c0c2c	cmn_err	1	out	documented
 6.5.30/unix.IP27	sizememaccess	0xc0000000001a85c0	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	sn00_rrb_alloc	0xc000000000025794	cmn_err	2	in	documented
 6.5.30/unix.IP27	sn0drv_attach	0xc00000000006a76c	cmn_err	4	in	documented
@@ -842,7 +842,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	validate_pane_clip	0xc0000000000ed924	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	vattachreg	0xc0000000001e6bac	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	vf_to_stf	0xc0000000001dcae0	cmn_err	1	out	undocumented
-6.5.30/unix.IP27	vfs_mountroot	0xc0000000001dbc44	cmn_err	5	out	undocumented
+6.5.30/unix.IP27	vfs_mountroot	0xc0000000001dbc44	cmn_err	5	out	documented
 6.5.30/unix.IP27	vgrowreg	0xc0000000001e91fc	assfail	1	out	undocumented
 6.5.30/unix.IP27	vme_handler	0xc00000000026a660	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	vme_init	0xc00000000026a6d0	cmn_err	2	out	undocumented
@@ -934,7 +934,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	xwidget_info_get	0xc00000000006c368	cmn_err	1	out	documented
 6.5.30/unix.IP27	xwidget_info_id_get	0xc00000000006c44c	panic	1	out	documented
 6.5.30/unix.IP27	xwidget_info_master_get	0xc00000000006c480	panic	1	out	documented
-6.5.30/unix.IP27	xwidget_info_masterid_get	0xc00000000006c4b4	panic	1	out	undocumented
+6.5.30/unix.IP27	xwidget_info_masterid_get	0xc00000000006c4b4	panic	1	out	documented
 6.5.30/unix.IP27	xwidget_info_mfg_num_get	0xc00000000006c51c	panic	1	out	undocumented
 6.5.30/unix.IP27	xwidget_info_name_get	0xc00000000006c550	panic	1	out	undocumented
 6.5.30/unix.IP27	xwidget_info_part_num_get	0xc00000000006c4e8	panic	1	out	undocumented
@@ -1441,7 +1441,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	pcireg_arbitration_set	0xa800000020053e08	panic	1	out	undocumented
 6.5.30/unix.IP30	pcireg_bus_err_get	0xa80000002005097c	panic	1	out	documented
 6.5.30/unix.IP30	pcireg_cmdword_err_get	0xa8000000200521bc	panic	1	out	documented
-6.5.30/unix.IP30	pcireg_control_bit_clr	0xa800000020050ddc	panic	1	out	undocumented
+6.5.30/unix.IP30	pcireg_control_bit_clr	0xa800000020050ddc	panic	1	out	documented
 6.5.30/unix.IP30	pcireg_control_bit_set	0xa800000020050f88	panic	1	out	documented
 6.5.30/unix.IP30	pcireg_control_get	0xa800000020050aec	panic	1	out	undocumented
 6.5.30/unix.IP30	pcireg_control_set	0xa800000020050c54	panic	1	out	undocumented
@@ -1668,7 +1668,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	shake_swap	0xa8000000201bfb24	assfail	2	out	undocumented
 6.5.30/unix.IP30	sharenamap	0xa8000000200739f0	cmn_err	7	out	undocumented
 6.5.30/unix.IP30	sigpoll_sys	0xa800000020183a88	cmn_err	1	out	undocumented
-6.5.30/unix.IP30	sigreturn	0xa80000002018529c	cmn_err	1	out	undocumented
+6.5.30/unix.IP30	sigreturn	0xa80000002018529c	cmn_err	1	out	documented
 6.5.30/unix.IP30	sio_make_hwgraph_nodes	0xa80000002014622c	panic	1	out	documented
 6.5.30/unix.IP30	sizememaccess	0xa80000002016fd6c	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	snifunload	0xa80000002023a89c	cmn_err	2	out	undocumented
@@ -1743,7 +1743,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	validate_pane_clip	0xa8000000200c5ba8	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	vattachreg	0xa8000000201ab62c	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	vf_to_stf	0xa8000000201a0cc8	cmn_err	1	out	undocumented
-6.5.30/unix.IP30	vfs_mountroot	0xa80000002019fe2c	cmn_err	5	out	undocumented
+6.5.30/unix.IP30	vfs_mountroot	0xa80000002019fe2c	cmn_err	5	out	documented
 6.5.30/unix.IP30	vgrowreg	0xa8000000201adb1c	assfail	1	out	undocumented
 6.5.30/unix.IP30	vmoveprivatetoshared	0xa8000000201abef8	assfail	2	out	undocumented
 6.5.30/unix.IP30	vmoveprivatetoshared	0xa8000000201abef8	cmn_err	2	out	undocumented
@@ -1819,7 +1819,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	xwidget_info_get	0xa80000002003acd0	cmn_err	1	out	documented
 6.5.30/unix.IP30	xwidget_info_id_get	0xa80000002003adb4	panic	1	out	documented
 6.5.30/unix.IP30	xwidget_info_master_get	0xa80000002003ade8	panic	1	out	documented
-6.5.30/unix.IP30	xwidget_info_masterid_get	0xa80000002003ae1c	panic	1	out	undocumented
+6.5.30/unix.IP30	xwidget_info_masterid_get	0xa80000002003ae1c	panic	1	out	documented
 6.5.30/unix.IP30	xwidget_info_mfg_num_get	0xa80000002003ae84	panic	1	out	undocumented
 6.5.30/unix.IP30	xwidget_info_name_get	0xa80000002003aeb8	panic	1	out	undocumented
 6.5.30/unix.IP30	xwidget_info_part_num_get	0xa80000002003ae50	panic	1	out	undocumented
@@ -2364,7 +2364,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	pcireg_arbitration_set	0xc0000000000afd58	panic	1	out	undocumented
 6.5.30/unix.IP35	pcireg_bus_err_get	0xc0000000000ac8cc	panic	1	out	documented
 6.5.30/unix.IP35	pcireg_cmdword_err_get	0xc0000000000ae10c	panic	1	out	documented
-6.5.30/unix.IP35	pcireg_control_bit_clr	0xc0000000000acd2c	panic	1	out	undocumented
+6.5.30/unix.IP35	pcireg_control_bit_clr	0xc0000000000acd2c	panic	1	out	documented
 6.5.30/unix.IP35	pcireg_control_bit_set	0xc0000000000aced8	panic	1	out	documented
 6.5.30/unix.IP35	pcireg_control_get	0xc0000000000aca3c	panic	1	out	undocumented
 6.5.30/unix.IP35	pcireg_control_set	0xc0000000000acba4	panic	1	out	undocumented
@@ -2625,7 +2625,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	shake_swap	0xc0000000002b2fb0	assfail	2	out	undocumented
 6.5.30/unix.IP35	sharenamap	0xc0000000000e6800	cmn_err	7	out	undocumented
 6.5.30/unix.IP35	sigpoll_sys	0xc00000000026ede4	cmn_err	1	out	undocumented
-6.5.30/unix.IP35	sigreturn	0xc0000000002705f4	cmn_err	1	out	undocumented
+6.5.30/unix.IP35	sigreturn	0xc0000000002705f4	cmn_err	1	out	documented
 6.5.30/unix.IP35	sio_make_hwgraph_nodes	0xc000000000225d88	panic	1	out	documented
 6.5.30/unix.IP35	sizememaccess	0xc000000000257158	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	sn00_rrb_alloc	0xc00000000004d068	cmn_err	2	in	documented
@@ -2718,7 +2718,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	validate_pane_clip	0xc000000000180044	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	vattachreg	0xc000000000295f78	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	vf_to_stf	0xc00000000028c408	cmn_err	1	out	undocumented
-6.5.30/unix.IP35	vfs_mountroot	0xc00000000028b56c	cmn_err	5	out	undocumented
+6.5.30/unix.IP35	vfs_mountroot	0xc00000000028b56c	cmn_err	5	out	documented
 6.5.30/unix.IP35	vgrowreg	0xc0000000002985b0	assfail	1	out	undocumented
 6.5.30/unix.IP35	vme_handler	0xc00000000031a3a8	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	vme_init	0xc00000000031a418	cmn_err	2	out	undocumented
@@ -2818,7 +2818,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	xwidget_info_get	0xc0000000000975e8	cmn_err	1	out	documented
 6.5.30/unix.IP35	xwidget_info_id_get	0xc0000000000976cc	panic	1	out	documented
 6.5.30/unix.IP35	xwidget_info_master_get	0xc000000000097700	panic	1	out	documented
-6.5.30/unix.IP35	xwidget_info_masterid_get	0xc000000000097734	panic	1	out	undocumented
+6.5.30/unix.IP35	xwidget_info_masterid_get	0xc000000000097734	panic	1	out	documented
 6.5.30/unix.IP35	xwidget_info_mfg_num_get	0xc00000000009779c	panic	1	out	undocumented
 6.5.30/unix.IP35	xwidget_info_name_get	0xc0000000000977d0	panic	1	out	undocumented
 6.5.30/unix.IP35	xwidget_info_part_num_get	0xc000000000097768	panic	1	out	undocumented
