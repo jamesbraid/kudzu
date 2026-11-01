@@ -20197,7 +20197,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x31c	28	pci_ioc3_sio_vmc	dwarf+symtab	6f695ba67fcd		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x338	1208	ioc3_attach	dwarf+symtab	bc1db04077f4		in	located	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.22/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x7f0	632	ioc3_intr_connect	dwarf+symtab	ed73fa55eaf2		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
-6.5.22/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0xa68	356	ioc3_intr_disconnect	dwarf+symtab	15929cc4688b		in	named-only	docs/panics.md#ioc3_intr_disconnect	`ioc3_intr_disconnect`
+6.5.22/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0xa68	356	ioc3_intr_disconnect	dwarf+symtab	15929cc4688b		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0xbcc	28	ioc3_intr	dwarf+symtab	12a18864d05c		in	located	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.22/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0xbe8	468	ioc3_handle_intr	dwarf+symtab	188b0e757940		in	located	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.22/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0xdbc	88	ioc3_is_console	dwarf+symtab	3c99667db9f7		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
@@ -20207,7 +20207,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x1190	96	ioc3_intrd_setup	dwarf+symtab	7bbbded302e5		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x11f0	24	ioc3_console_vhdl_get	dwarf+symtab	66cfe618a1a5		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x1208	192	ioc3_subdev_ptr	dwarf+symtab	a3454645b179		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x12c8	72	ioc3_subdev_enabled	dwarf+symtab	7df3335ee2e3		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
+6.5.22/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x12c8	72	ioc3_subdev_enabled	dwarf+symtab	7df3335ee2e3		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x1310	44	ioc3_subdev_enables	dwarf+symtab	841abe9a6cda		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.22/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x133c	68	ioc3_subdev_enable	dwarf+symtab	b0f943f344f1		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x1380	72	ioc3_subdev_disable	dwarf+symtab	d903b08c4e8d		in	undocumented		
@@ -28565,7 +28565,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xb54	168	pcibr_driver_reg_callback	dwarf+symtab	2ac77f438697		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xbfc	168	pcibr_driver_unreg_callback	dwarf+symtab	9c70e5485819		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xca4	400	pcibr_detach	dwarf+symtab	92ca55cf3c57		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xe34	300	pcibr_directmap_init	dwarf+symtab	a8c0e1e40ad4		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
+6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xe34	300	pcibr_directmap_init	dwarf+symtab	a8c0e1e40ad4		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xf60	104	pcibr_asic_rev	dwarf+symtab	26036281e78b		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xfc8	60	pcibr_write_gather_flush	dwarf+symtab	9cac81769c56		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x1004	2256	pcibr_addr_pci_to_xio	dwarf	8e5b43a4a759		in	undocumented		
@@ -28658,7 +28658,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x85d8	92	pcibr_show_dir_state	dwarf+symtab	8eea44ae4213		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x8634	52	print_bridge_errcmd	dwarf+symtab	7892c86be871		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x8668	4268	pcibr_error_dump	dwarf+symtab	368c9239d493		in	located	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
-6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x9714	132	pcibr_errintr_group	dwarf+symtab	ecd63d84c398		in	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x9714	132	pcibr_errintr_group	dwarf+symtab	ecd63d84c398		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x9798	360	pcibr_pioerr_check	dwarf	50af51a4ef80		in	named-only	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x9900	1408	pcibr_error_intr_handler	dwarf+symtab	6eed371d666e		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x9e80	740	pcibr_addr_toslot	dwarf+symtab	003fe8970d90		in	undocumented		
@@ -28734,10 +28734,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x1060c	348	pcireg_linkside_err_addr_get	dwarf+symtab	d05e214fef00		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x10768	360	pcireg_dirmap_get	dwarf+symtab	71a0c553598c		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x108d0	344	pcireg_dirmap_set	dwarf+symtab	f80c634c9740		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x10a28	412	pcireg_dirmap_wid_set	dwarf+symtab	ea14951050ce		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x10bc4	496	pcireg_dirmap_diroff_set	dwarf+symtab	6e551369b24b		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x10db4	384	pcireg_dirmap_add512_set	dwarf+symtab	15eda4ce3e7d		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x10f34	392	pcireg_dirmap_add512_clr	dwarf+symtab	10774bdb0500		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x10a28	412	pcireg_dirmap_wid_set	dwarf+symtab	ea14951050ce		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x10bc4	496	pcireg_dirmap_diroff_set	dwarf+symtab	6e551369b24b		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x10db4	384	pcireg_dirmap_add512_set	dwarf+symtab	15eda4ce3e7d		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x10f34	392	pcireg_dirmap_add512_clr	dwarf+symtab	10774bdb0500		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x110bc	380	pcireg_ssram_parity_get	dwarf+symtab	cdebf3e7cae1		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x11238	372	pcireg_map_fault_get	dwarf+symtab	761e0c3cd16a		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x113ac	360	pcireg_arbitration_get	dwarf+symtab	8597bb22cd2a		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
@@ -37540,7 +37540,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0xbc0	52	giobr_piomap_free	dwarf+symtab	409de2ba4125		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0xbf4	44	giobr_piomap_addr	dwarf+symtab	f0e3aa6c6e98		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0xc20	8	giobr_piomap_done	dwarf+symtab	78aa5094d5ec		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0xc28	140	giobr_piotrans_addr	dwarf+symtab	9ff12a5bbf69		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0xc28	140	giobr_piotrans_addr	dwarf+symtab	9ff12a5bbf69		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0xcb4	192	giobr_dmamap_alloc	dwarf+symtab	bb37d56476dd		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0xd74	52	giobr_dmamap_free	dwarf+symtab	7782e6f46416		in	named-only	docs/panics.md#sub_0xa800000020041144	`sub_0xa800000020041144`
 6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0xda8	88	giobr_dma_for_xtalk	dwarf+symtab	21df144646ff		in	named-only	docs/panics.md#sub_0xa800000020041144	`sub_0xa800000020041144`
@@ -38098,14 +38098,14 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x434	56	heart_debug_intr	dwarf+symtab	173b437e6cd2		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x46c	68	chkdebug	dwarf+symtab	e69d0b185fbb		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x4b0	24	clear_cpu_intr	dwarf+symtab	a57a6ae0a4df		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x4c8	164	heart_mlreset	dwarf+symtab	f3f22489a508		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x4c8	164	heart_mlreset	dwarf+symtab	f3f22489a508		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x56c	68	heart_mp_intr_init	dwarf+symtab	3d38a8984a36		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x5b0	44	heart_init	dwarf+symtab	3fceb0504198		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x5dc	488	heart_startup	dwarf+symtab	7abc3c7a4338		in	located	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x7c4	120	heart_attach	dwarf+symtab	c6b439821b20		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x83c	40	heart_widget_num	dwarf+symtab	cd7896e63386		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x864	288	heart_addr_phys_to_xio	dwarf+symtab	f70aa1489f9f		in	understood	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
-6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x984	164	heart_addr_xio_to_phys	dwarf+symtab	b190aaed481d		in	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x984	164	heart_addr_xio_to_phys	dwarf+symtab	b190aaed481d		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xa28	56	heart_addr_xio_to_kva	dwarf+symtab	4cedc148b523		in	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xa60	192	heart_piomap_alloc	dwarf+symtab	0809ba990440		in	located	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xb20	28	heart_piomap_free	dwarf+symtab	5e13c517fd02		in	undocumented		
@@ -38122,8 +38122,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xf4c	8	heart_dmamap_drain	dwarf+symtab	78aa5094d5ec		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xf54	8	heart_dmaaddr_drain	dwarf+symtab	78aa5094d5ec		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xf5c	8	heart_dmalist_drain	dwarf+symtab	78aa5094d5ec		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xf64	104	heart_intr_preconn	dwarf+symtab	f9003ff2cad9		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xfcc	92	heart_intr_prealloc	dwarf+symtab	0ad63076009b		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xf64	104	heart_intr_preconn	dwarf+symtab	f9003ff2cad9		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xfcc	92	heart_intr_prealloc	dwarf+symtab	0ad63076009b		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x1028	452	do_heart_intr_alloc	dwarf+symtab	8af7555bfae4		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x11ec	28	heart_intr_alloc	dwarf+symtab	1c3c43e5854e		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x1208	28	heart_intr_alloc_nothd	dwarf+symtab	f79b5991cbaf		in	undocumented		
@@ -39053,7 +39053,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x168	28	pci_ioc3_sio_vmc	dwarf+symtab	6f695ba67fcd		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x184	1196	ioc3_attach	dwarf+symtab	c5aaf48be94d		in	located	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.22/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x630	632	ioc3_intr_connect	dwarf+symtab	fb14de3b29a7		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
-6.5.22/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x8a8	356	ioc3_intr_disconnect	dwarf+symtab	2fdd0780b399		in	named-only	docs/panics.md#ioc3_intr_disconnect	`ioc3_intr_disconnect`
+6.5.22/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x8a8	356	ioc3_intr_disconnect	dwarf+symtab	2fdd0780b399		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0xa0c	396	ioc3_intr	dwarf+symtab	a64a4a3b6105		in	located	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.22/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0xb98	88	ioc3_is_console	dwarf+symtab	98f724aa041b		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
 6.5.22/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0xbf0	64	ioc3_is_io7	dwarf+symtab	d8e8e2750127		in	named-only	docs/panics.md#sub_0xc000000000095d44	`sub_0xc000000000095d44`
@@ -39061,7 +39061,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0xf24	72	ioc3_intrd	dwarf+symtab	0e4d1d27400a		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0xf6c	96	ioc3_intrd_setup	dwarf+symtab	054f0c8c6135		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0xfcc	188	ioc3_subdev_ptr	dwarf+symtab	09cf6325acff		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x1088	72	ioc3_subdev_enabled	dwarf+symtab	7df3335ee2e3		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
+6.5.22/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x1088	72	ioc3_subdev_enabled	dwarf+symtab	7df3335ee2e3		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x10d0	44	ioc3_subdev_enables	dwarf+symtab	841abe9a6cda		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.22/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x10fc	68	ioc3_subdev_enable	dwarf+symtab	b0f943f344f1		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x1140	72	ioc3_subdev_disable	dwarf+symtab	d903b08c4e8d		in	undocumented		
@@ -45955,7 +45955,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xb54	168	pcibr_driver_reg_callback	dwarf+symtab	2ac77f438697		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xbfc	168	pcibr_driver_unreg_callback	dwarf+symtab	9c70e5485819		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xca4	400	pcibr_detach	dwarf+symtab	92ca55cf3c57		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xe34	148	pcibr_directmap_init	dwarf+symtab	3aabdbaac707		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
+6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xe34	148	pcibr_directmap_init	dwarf+symtab	3aabdbaac707		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xec8	104	pcibr_asic_rev	dwarf+symtab	32b3e60e9350		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xf30	60	pcibr_write_gather_flush	dwarf+symtab	9cac81769c56		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xf6c	2256	pcibr_addr_pci_to_xio	dwarf	38cd8ab64d09		in	undocumented		
@@ -46048,7 +46048,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x81e8	588	pcibr_intr_func	dwarf+symtab	fd61ba9b8277		in	located	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x8434	48	print_bridge_errcmd	dwarf+symtab	bb97a47d2d48		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x8464	4188	pcibr_error_dump	dwarf+symtab	b8527183755e		in	located	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
-6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x94c0	132	pcibr_errintr_group	dwarf+symtab	ecd63d84c398		in	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x94c0	132	pcibr_errintr_group	dwarf+symtab	ecd63d84c398		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x9544	360	pcibr_pioerr_check	dwarf	98471f1131ca		in	named-only	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x96ac	1380	pcibr_error_intr_handler	dwarf+symtab	a4682c435bde		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x9c10	740	pcibr_addr_toslot	dwarf+symtab	003fe8970d90		in	undocumented		
@@ -46124,10 +46124,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x10398	348	pcireg_linkside_err_addr_get	dwarf+symtab	cfae0c418940		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x104f4	360	pcireg_dirmap_get	dwarf+symtab	26447a22370f		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x1065c	344	pcireg_dirmap_set	dwarf+symtab	95b02fe169a4		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x107b4	412	pcireg_dirmap_wid_set	dwarf+symtab	b729f31790b7		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x10950	496	pcireg_dirmap_diroff_set	dwarf+symtab	98c6cc75d3ec		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x10b40	384	pcireg_dirmap_add512_set	dwarf+symtab	9c02d8c3fe02		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x10cc0	392	pcireg_dirmap_add512_clr	dwarf+symtab	6fc949a1d2a2		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x107b4	412	pcireg_dirmap_wid_set	dwarf+symtab	b729f31790b7		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x10950	496	pcireg_dirmap_diroff_set	dwarf+symtab	98c6cc75d3ec		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x10b40	384	pcireg_dirmap_add512_set	dwarf+symtab	9c02d8c3fe02		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x10cc0	392	pcireg_dirmap_add512_clr	dwarf+symtab	6fc949a1d2a2		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x10e48	380	pcireg_ssram_parity_get	dwarf+symtab	f509098d0f99		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x10fc4	372	pcireg_map_fault_get	dwarf+symtab	bee5c19eae39		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x11138	360	pcireg_arbitration_get	dwarf+symtab	afcbab42e0f8		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
@@ -70155,7 +70155,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x370	28	pci_ioc3_sio_vmc	dwarf+symtab	6f695ba67fcd		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x38c	1340	ioc3_attach	dwarf+symtab	440cb011c66e		in	located	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.22/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x8c8	632	ioc3_intr_connect	dwarf+symtab	ed73fa55eaf2		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
-6.5.22/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0xb40	356	ioc3_intr_disconnect	dwarf+symtab	15929cc4688b		in	named-only	docs/panics.md#ioc3_intr_disconnect	`ioc3_intr_disconnect`
+6.5.22/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0xb40	356	ioc3_intr_disconnect	dwarf+symtab	15929cc4688b		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0xca4	28	ioc3_intr	dwarf+symtab	12a18864d05c		in	located	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.22/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0xcc0	468	ioc3_handle_intr	dwarf+symtab	511e9359a4bc		in	located	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.22/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0xe94	88	ioc3_is_console	dwarf+symtab	3c99667db9f7		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
@@ -70165,7 +70165,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x1268	96	ioc3_intrd_setup	dwarf+symtab	7bbbded302e5		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x12c8	24	ioc3_console_vhdl_get	dwarf+symtab	66cfe618a1a5		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x12e0	192	ioc3_subdev_ptr	dwarf+symtab	a3454645b179		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x13a0	96	ioc3_subdev_enabled	dwarf+symtab	d7603bb3a1d0		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
+6.5.22/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x13a0	96	ioc3_subdev_enabled	dwarf+symtab	d7603bb3a1d0		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x1400	44	ioc3_subdev_enables	dwarf+symtab	841abe9a6cda		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.22/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x142c	68	ioc3_subdev_enable	dwarf+symtab	b0f943f344f1		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x1470	72	ioc3_subdev_disable	dwarf+symtab	d903b08c4e8d		in	undocumented		
@@ -78416,7 +78416,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xcfc	212	pcibr_driver_unreg_callback	dwarf+symtab	39f36f8c9dc8		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xdd0	284	pcibr_bus_cnvlink	dwarf+symtab	0e36f119a31c		in	named-only	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xeec	404	pcibr_detach	dwarf+symtab	eb33babecbb8		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x1080	300	pcibr_directmap_init	dwarf+symtab	7d2cc4b8c324		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
+6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x1080	300	pcibr_directmap_init	dwarf+symtab	7d2cc4b8c324		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x11ac	104	pcibr_asic_rev	dwarf+symtab	4ced4a8ff362		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x1214	60	pcibr_write_gather_flush	dwarf+symtab	9cac81769c56		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x1250	2260	pcibr_addr_pci_to_xio	dwarf	0768971f03c9		in	undocumented		
@@ -78506,7 +78506,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x8864	92	pcibr_show_dir_state	dwarf+symtab	8eea44ae4213		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x88c0	52	print_bridge_errcmd	dwarf+symtab	7892c86be871		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x88f4	4268	pcibr_error_dump	dwarf+symtab	58868e6455ce		in	located	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
-6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x99a0	132	pcibr_errintr_group	dwarf+symtab	ecd63d84c398		in	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x99a0	132	pcibr_errintr_group	dwarf+symtab	ecd63d84c398		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x9a24	360	pcibr_pioerr_check	dwarf	7563bee22448		in	named-only	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x9b8c	1460	pcibr_error_intr_handler	dwarf+symtab	930eee3e86a8		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xa140	744	pcibr_addr_toslot	dwarf+symtab	d03ec44043d9		in	undocumented		
@@ -78590,10 +78590,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x11768	348	pcireg_linkside_err_addr_get	dwarf+symtab	f88d460482cc		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x118c4	360	pcireg_dirmap_get	dwarf+symtab	f2a99edf94d1		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x11a2c	344	pcireg_dirmap_set	dwarf+symtab	8ba6e0ff1059		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x11b84	412	pcireg_dirmap_wid_set	dwarf+symtab	97b7c1843f69		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x11d20	496	pcireg_dirmap_diroff_set	dwarf+symtab	90e5a09d124f		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x11f10	384	pcireg_dirmap_add512_set	dwarf+symtab	08946f7a1622		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x12090	392	pcireg_dirmap_add512_clr	dwarf+symtab	44f532fbd730		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x11b84	412	pcireg_dirmap_wid_set	dwarf+symtab	97b7c1843f69		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x11d20	496	pcireg_dirmap_diroff_set	dwarf+symtab	90e5a09d124f		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x11f10	384	pcireg_dirmap_add512_set	dwarf+symtab	08946f7a1622		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x12090	392	pcireg_dirmap_add512_clr	dwarf+symtab	44f532fbd730		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x12218	380	pcireg_ssram_parity_get	dwarf+symtab	d3ea59756438		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x12394	372	pcireg_map_fault_get	dwarf+symtab	74fc8bcb87c3		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x12508	360	pcireg_arbitration_get	dwarf+symtab	aadbe3ab0082		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
@@ -90758,7 +90758,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000071994	168	pcibr_driver_reg_callback	symtab	79aed8874f64		in	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000071a3c	168	pcibr_driver_unreg_callback	symtab	69282508ca46		in	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000071ae4	400	pcibr_detach	symtab	ea171a2244da		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000071c74	300	pcibr_directmap_init	symtab	e52e9751557e		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000071c74	300	pcibr_directmap_init	symtab	e52e9751557e		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000071da0	104	pcibr_asic_rev	symtab	1331871c7c7a		in	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000071e08	60	pcibr_write_gather_flush	symtab	53cbd1520bf1		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000072714	584	pcibr_piomap_alloc	symtab	890884c6aa8a		in	understood	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
@@ -90845,7 +90845,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000079440	92	pcibr_show_dir_state	symtab	472385e93cfe		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000007949c	52	print_bridge_errcmd	symtab	b091cb79439d		out:1	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000794d0	4268	pcibr_error_dump	symtab	9a560fcd1503		in	understood	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000007a57c	132	pcibr_errintr_group	symtab	ecd63d84c398		in	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000007a57c	132	pcibr_errintr_group	symtab	ecd63d84c398		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000007a768	1408	pcibr_error_intr_handler	symtab	e2c827511e83		in	understood	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000007ace8	740	pcibr_addr_toslot	symtab	003fe8970d90		in	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000007afcc	84	pcibr_error_cleanup	symtab	acf164d457c3		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
@@ -90917,10 +90917,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000081474	348	pcireg_linkside_err_addr_get	symtab	468b2068385b		out:1	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000815d0	360	pcireg_dirmap_get	symtab	12487bb2e6cd		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000081738	344	pcireg_dirmap_set	symtab	3177ce8c4994		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000081890	412	pcireg_dirmap_wid_set	symtab	aaf715bf1cb9		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000081a2c	496	pcireg_dirmap_diroff_set	symtab	1d0c60f80da1		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000081c1c	384	pcireg_dirmap_add512_set	symtab	c00cd2eb4d91		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000081d9c	392	pcireg_dirmap_add512_clr	symtab	e7da3dac6ccd		out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000081890	412	pcireg_dirmap_wid_set	symtab	aaf715bf1cb9		out:1	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000081a2c	496	pcireg_dirmap_diroff_set	symtab	1d0c60f80da1		out:1	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000081c1c	384	pcireg_dirmap_add512_set	symtab	c00cd2eb4d91		out:1	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000081d9c	392	pcireg_dirmap_add512_clr	symtab	e7da3dac6ccd		out:1	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000081f24	380	pcireg_ssram_parity_get	symtab	f6a10f5f7f1e		out:1	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000820a0	372	pcireg_map_fault_get	symtab	e1da4c4f2e31		out:1	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000082214	360	pcireg_arbitration_get	symtab	96a59154a24d		out:1	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
@@ -91238,13 +91238,13 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000095198	88	ioc3_init	symtab	dd4f2bef1b28		in	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000095228	1208	ioc3_attach	symtab	a08b58820d25		in	understood	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000956e0	632	ioc3_intr_connect	symtab	34196c216a02		in	understood	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000095958	356	ioc3_intr_disconnect	symtab	25a287225249		in	named-only	docs/panics.md#ioc3_intr_disconnect	`ioc3_intr_disconnect`
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000095958	356	ioc3_intr_disconnect	symtab	25a287225249		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000095abc	28	ioc3_intr	symtab	059ae2f160f8		in	located	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000095ad8	468	ioc3_handle_intr	symtab	8c479ee87bc3		in	understood	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000095cac	88	ioc3_is_console	symtab	5d2540b5f838		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000095d04	64	ioc3_is_io7	symtab	96c6a02ecfaf		in	named-only	docs/panics.md#sub_0xc000000000095d44	`sub_0xc000000000095d44`
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000096100	24	ioc3_console_vhdl_get	symtab	12230f02b039		in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000961d4	72	ioc3_subdev_enabled	symtab	67e1372b1a52		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000961d4	72	ioc3_subdev_enabled	symtab	67e1372b1a52		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000009621c	44	ioc3_subdev_enables	symtab	55cbef0841b2		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000096248	68	ioc3_subdev_enable	symtab	e39510c99440		in	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000009628c	72	ioc3_subdev_disable	symtab	2fd905a5ab6a		in	undocumented		
@@ -103647,13 +103647,13 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003ec1c	72	heart_stray_intr	symtab	7fdd265cf4b1		in	named-only	docs/panics.md#heart_stray_intr	`heart_stray_intr`
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003ecd4	68	chkdebug	symtab	277ea8b46ee8		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003ed18	24	clear_cpu_intr	symtab	a57a6ae0a4df		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003ed30	164	heart_mlreset	symtab	270fa496485d		in	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003ed30	164	heart_mlreset	symtab	270fa496485d		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003edd4	68	heart_mp_intr_init	symtab	3d38a8984a36		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003ee18	44	heart_init	symtab	9e84ca9d013c		in	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003ee44	488	heart_startup	symtab	c5630c1ded35		in	understood	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003f02c	120	heart_attach	symtab	4dcd3bb1d6d7		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003f0cc	288	heart_addr_phys_to_xio	symtab	f70aa1489f9f		in	understood	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003f1ec	164	heart_addr_xio_to_phys	symtab	b190aaed481d		in	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003f1ec	164	heart_addr_xio_to_phys	symtab	b190aaed481d		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003f290	56	heart_addr_xio_to_kva	symtab	c213c5439057		in	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003f2c8	192	heart_piomap_alloc	symtab	c7abf5ef49ad		in	understood	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003f388	28	heart_piomap_free	symtab	2f86b3654a1a		in	undocumented		
@@ -103670,8 +103670,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003f7b4	8	heart_dmamap_drain	symtab	78aa5094d5ec		in	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003f7bc	8	heart_dmaaddr_drain	symtab	78aa5094d5ec		in	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003f7c4	8	heart_dmalist_drain	symtab	78aa5094d5ec		in	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003f7cc	104	heart_intr_preconn	symtab	6b35db89fda5		in	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003f834	92	heart_intr_prealloc	symtab	923d17a5a2cd		in	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003f7cc	104	heart_intr_preconn	symtab	6b35db89fda5		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003f834	92	heart_intr_prealloc	symtab	923d17a5a2cd		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003f890	452	do_heart_intr_alloc	symtab	df8daa0970ed		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003fa54	28	heart_intr_alloc	symtab	7d484707d1b1		in	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002003fa70	28	heart_intr_alloc_nothd	symtab	986e73dc4cac		in	undocumented		
@@ -103708,7 +103708,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020040f5c	52	giobr_piomap_free	symtab	70b9055a345f		in	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020040f90	44	giobr_piomap_addr	symtab	09a5291d5c8e		in	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020040fbc	8	giobr_piomap_done	symtab	78aa5094d5ec		in	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020040fc4	140	giobr_piotrans_addr	symtab	5e311b39333e		in	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020040fc4	140	giobr_piotrans_addr	symtab	5e311b39333e		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020041050	192	giobr_dmamap_alloc	symtab	27bac1681680		in	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020041110	52	giobr_dmamap_free	symtab	09b3ee11c9cd		in	named-only	docs/panics.md#sub_0xa800000020041144	`sub_0xa800000020041144`
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002004119c	72	giobr_dmamap_addr	symtab	03ec5386455e		in	undocumented		
@@ -103746,7 +103746,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020043694	168	pcibr_driver_reg_callback	symtab	811e13e6c20e		in	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002004373c	168	pcibr_driver_unreg_callback	symtab	ce11b892431b		in	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200437e4	400	pcibr_detach	symtab	68d1758d1ca7		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020043974	148	pcibr_directmap_init	symtab	884342cabaa4		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020043974	148	pcibr_directmap_init	symtab	884342cabaa4		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020043a08	104	pcibr_asic_rev	symtab	32fa0a38bd42		in	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020043a70	60	pcibr_write_gather_flush	symtab	072fd46dc963		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002004437c	584	pcibr_piomap_alloc	symtab	793864966b10		in	understood	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
@@ -103833,7 +103833,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002004ad50	588	pcibr_intr_func	symtab	e128390994e5		in	understood	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002004af9c	48	print_bridge_errcmd	symtab	272c5a312c28		out:1	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002004afcc	4188	pcibr_error_dump	symtab	a6e9b1039153		in	understood	docs/ip30-kernel-functions.md#interrupt-mask-and-assertion-support-hearto-and-the-kernel-core	Interrupt-mask and assertion support: `heart.o` and the kernel core
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002004c028	132	pcibr_errintr_group	symtab	ecd63d84c398		in	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002004c028	132	pcibr_errintr_group	symtab	ecd63d84c398		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002004c214	1380	pcibr_error_intr_handler	symtab	9369e43af8a8		in	understood	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002004c778	740	pcibr_addr_toslot	symtab	003fe8970d90		in	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002004ca5c	84	pcibr_error_cleanup	symtab	771086266f69		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
@@ -103905,10 +103905,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020052f00	348	pcireg_linkside_err_addr_get	symtab	74d41a10f240		out:1	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002005305c	360	pcireg_dirmap_get	symtab	ebbf49f458f1		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200531c4	344	pcireg_dirmap_set	symtab	f0c2a0b64eda		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002005331c	412	pcireg_dirmap_wid_set	symtab	5f2f1d0dd247		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200534b8	496	pcireg_dirmap_diroff_set	symtab	9db31ecc7729		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200536a8	384	pcireg_dirmap_add512_set	symtab	7733cf7f5fee		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020053828	392	pcireg_dirmap_add512_clr	symtab	438d70231c0b		out:1	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002005331c	412	pcireg_dirmap_wid_set	symtab	5f2f1d0dd247		out:1	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200534b8	496	pcireg_dirmap_diroff_set	symtab	9db31ecc7729		out:1	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200536a8	384	pcireg_dirmap_add512_set	symtab	7733cf7f5fee		out:1	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020053828	392	pcireg_dirmap_add512_clr	symtab	438d70231c0b		out:1	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200539b0	380	pcireg_ssram_parity_get	symtab	4d8a672f4ab8		out:1	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020053b2c	372	pcireg_map_fault_get	symtab	6b1083486eff		out:1	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020053ca0	360	pcireg_arbitration_get	symtab	d8e18b6266e7		out:1	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
@@ -104167,11 +104167,11 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002006092c	88	ioc3_init	symtab	979056c8cac3		in	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200609bc	1196	ioc3_attach	symtab	9053a9d4662a		in	understood	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020060e68	632	ioc3_intr_connect	symtab	d624f1fcd7ca		in	understood	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200610e0	356	ioc3_intr_disconnect	symtab	426c5a7d9ee2		in	named-only	docs/panics.md#ioc3_intr_disconnect	`ioc3_intr_disconnect`
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200610e0	356	ioc3_intr_disconnect	symtab	426c5a7d9ee2		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020061244	396	ioc3_intr	symtab	c8c79f2ff57c		in	understood	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200613d0	88	ioc3_is_console	symtab	f5b227d85ca0		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020061428	64	ioc3_is_io7	symtab	b60306eb344e		in	named-only	docs/panics.md#sub_0xc000000000095d44	`sub_0xc000000000095d44`
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200618e4	72	ioc3_subdev_enabled	symtab	17fbbaf99a1a		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200618e4	72	ioc3_subdev_enabled	symtab	17fbbaf99a1a		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002006192c	44	ioc3_subdev_enables	symtab	ed6e85aedf2a		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020061958	68	ioc3_subdev_enable	symtab	8a6f00c918a7		in	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002006199c	72	ioc3_subdev_disable	symtab	8cbd622f9d22		in	undocumented		
@@ -118205,7 +118205,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e3bc	212	pcibr_driver_unreg_callback	symtab	dc04e6ce465b		in	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e490	284	pcibr_bus_cnvlink	symtab	f00372ce76ca		in	named-only	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e5ac	404	pcibr_detach	symtab	c35b5f67072a		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e740	300	pcibr_directmap_init	symtab	fe8ff41376bf		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e740	300	pcibr_directmap_init	symtab	fe8ff41376bf		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e86c	104	pcibr_asic_rev	symtab	846a71ba6ea2		in	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e8d4	60	pcibr_write_gather_flush	symtab	95f6174ab6f0		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009f1e4	636	pcibr_piomap_alloc	symtab	55386280bf0a		in	understood	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
@@ -118289,7 +118289,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a5f4c	92	pcibr_show_dir_state	symtab	0bc224659a5b		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a5fa8	52	print_bridge_errcmd	symtab	f53a8f378f9d		out:1	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a5fdc	4268	pcibr_error_dump	symtab	b0e5d45f32f7		in	understood	docs/ip35-pci-bridge.md#error-reporting	Error reporting
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a7088	132	pcibr_errintr_group	symtab	ecd63d84c398		in	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a7088	132	pcibr_errintr_group	symtab	ecd63d84c398		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a7274	1460	pcibr_error_intr_handler	symtab	12f57aa20a54		in	understood	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a7828	744	pcibr_addr_toslot	symtab	d03ec44043d9		in	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a7b10	84	pcibr_error_cleanup	symtab	b58380dc02da		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
@@ -118369,10 +118369,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000aee50	348	pcireg_linkside_err_addr_get	symtab	4acb9e04d544		out:1	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000aefac	360	pcireg_dirmap_get	symtab	09a502a407cc		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000af114	344	pcireg_dirmap_set	symtab	7b1ecadd150c		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000af26c	412	pcireg_dirmap_wid_set	symtab	22dc95e5008e		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000af408	496	pcireg_dirmap_diroff_set	symtab	68cdd277d161		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000af5f8	384	pcireg_dirmap_add512_set	symtab	03589b7d55b1		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000af778	392	pcireg_dirmap_add512_clr	symtab	b6d53cc70f19		out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000af26c	412	pcireg_dirmap_wid_set	symtab	22dc95e5008e		out:1	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000af408	496	pcireg_dirmap_diroff_set	symtab	68cdd277d161		out:1	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000af5f8	384	pcireg_dirmap_add512_set	symtab	03589b7d55b1		out:1	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000af778	392	pcireg_dirmap_add512_clr	symtab	b6d53cc70f19		out:1	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000af900	380	pcireg_ssram_parity_get	symtab	1934c21acb5b		out:1	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000afa7c	372	pcireg_map_fault_get	symtab	98465840bcf7		out:1	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000afbf0	360	pcireg_arbitration_get	symtab	8c9f93b8a595		out:1	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
@@ -118730,13 +118730,13 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c51e8	88	ioc3_init	symtab	f300e999807b		in	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c5278	1340	ioc3_attach	symtab	dde670ab975f		in	understood	docs/ip35-ioc3.md#ioc3-driver-routines-of-the-ip35-kernel	IOC3 driver routines of the IP35 kernel
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c57b4	632	ioc3_intr_connect	symtab	75d9c6f62032		in	understood	docs/ip35-ioc3.md#ioc3-driver-routines-of-the-ip35-kernel	IOC3 driver routines of the IP35 kernel
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c5a2c	356	ioc3_intr_disconnect	symtab	3be2eb0399d0		in	named-only	docs/panics.md#ioc3_intr_disconnect	`ioc3_intr_disconnect`
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c5a2c	356	ioc3_intr_disconnect	symtab	3be2eb0399d0		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c5b90	28	ioc3_intr	symtab	e318b19c5348		in	located	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c5bac	468	ioc3_handle_intr	symtab	dfdadf2722c3		in	understood	docs/ip35-ioc3.md#ioc3-driver-routines-of-the-ip35-kernel	IOC3 driver routines of the IP35 kernel
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c5d80	88	ioc3_is_console	symtab	1092e4dc8021		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c5dd8	64	ioc3_is_io7	symtab	cbc7f9840c6f		in	named-only	docs/panics.md#sub_0xc000000000095d44	`sub_0xc000000000095d44`
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c61d4	24	ioc3_console_vhdl_get	symtab	31caf1e3e055		in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c62a8	96	ioc3_subdev_enabled	symtab	af64ab4973d9		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c62a8	96	ioc3_subdev_enabled	symtab	af64ab4973d9		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c6308	44	ioc3_subdev_enables	symtab	c957ea558184		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c6334	68	ioc3_subdev_enable	symtab	4a6cf45126b9		in	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c6378	72	ioc3_subdev_disable	symtab	8b735288212d		in	undocumented		
@@ -131507,7 +131507,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x31c	28	pci_ioc3_sio_vmc	dwarf+symtab	6f695ba67fcd		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x338	1208	ioc3_attach	dwarf+symtab	bc1db04077f4		in	located	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.30/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x7f0	632	ioc3_intr_connect	dwarf+symtab	ed73fa55eaf2		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
-6.5.30/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0xa68	356	ioc3_intr_disconnect	dwarf+symtab	15929cc4688b		in	named-only	docs/panics.md#ioc3_intr_disconnect	`ioc3_intr_disconnect`
+6.5.30/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0xa68	356	ioc3_intr_disconnect	dwarf+symtab	15929cc4688b		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0xbcc	28	ioc3_intr	dwarf+symtab	12a18864d05c		in	located	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.30/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0xbe8	468	ioc3_handle_intr	dwarf+symtab	188b0e757940		in	located	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.30/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0xdbc	88	ioc3_is_console	dwarf+symtab	3c99667db9f7		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
@@ -131517,7 +131517,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x1190	128	ioc3_intrd_setup	dwarf+symtab	b045aaa5efde		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x1210	24	ioc3_console_vhdl_get	dwarf+symtab	66cfe618a1a5		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x1228	188	ioc3_subdev_ptr	dwarf+symtab	55f460bac6f9		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x12e4	72	ioc3_subdev_enabled	dwarf+symtab	7df3335ee2e3		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
+6.5.30/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x12e4	72	ioc3_subdev_enabled	dwarf+symtab	7df3335ee2e3		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x132c	44	ioc3_subdev_enables	dwarf+symtab	841abe9a6cda		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.30/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x1358	68	ioc3_subdev_enable	dwarf+symtab	b0f943f344f1		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/ioc3.o	shared-kernel	n64	.text	0x139c	72	ioc3_subdev_disable	dwarf+symtab	d903b08c4e8d		in	undocumented		
@@ -139909,7 +139909,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xb54	168	pcibr_driver_reg_callback	dwarf+symtab	2ac77f438697		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xbfc	168	pcibr_driver_unreg_callback	dwarf+symtab	9c70e5485819		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xca4	400	pcibr_detach	dwarf+symtab	92ca55cf3c57		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xe34	300	pcibr_directmap_init	dwarf+symtab	a8c0e1e40ad4		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
+6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xe34	300	pcibr_directmap_init	dwarf+symtab	a8c0e1e40ad4		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xf60	104	pcibr_asic_rev	dwarf+symtab	26036281e78b		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xfc8	60	pcibr_write_gather_flush	dwarf+symtab	9cac81769c56		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x1004	2256	pcibr_addr_pci_to_xio	dwarf	8e5b43a4a759		in	undocumented		
@@ -140002,7 +140002,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x8600	92	pcibr_show_dir_state	dwarf+symtab	8eea44ae4213		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x865c	52	print_bridge_errcmd	dwarf+symtab	7892c86be871		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x8690	4268	pcibr_error_dump	dwarf+symtab	368c9239d493		in	located	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
-6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x973c	132	pcibr_errintr_group	dwarf+symtab	ecd63d84c398		in	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x973c	132	pcibr_errintr_group	dwarf+symtab	ecd63d84c398		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x97c0	360	pcibr_pioerr_check	dwarf	50af51a4ef80		in	named-only	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x9928	1408	pcibr_error_intr_handler	dwarf+symtab	de0bb11b8147		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x9ea8	740	pcibr_addr_toslot	dwarf+symtab	003fe8970d90		in	undocumented		
@@ -140078,10 +140078,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x10634	348	pcireg_linkside_err_addr_get	dwarf+symtab	d05e214fef00		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x10790	360	pcireg_dirmap_get	dwarf+symtab	71a0c553598c		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x108f8	344	pcireg_dirmap_set	dwarf+symtab	f80c634c9740		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x10a50	412	pcireg_dirmap_wid_set	dwarf+symtab	ea14951050ce		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x10bec	496	pcireg_dirmap_diroff_set	dwarf+symtab	6e551369b24b		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x10ddc	384	pcireg_dirmap_add512_set	dwarf+symtab	15eda4ce3e7d		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x10f5c	392	pcireg_dirmap_add512_clr	dwarf+symtab	10774bdb0500		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x10a50	412	pcireg_dirmap_wid_set	dwarf+symtab	ea14951050ce		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x10bec	496	pcireg_dirmap_diroff_set	dwarf+symtab	6e551369b24b		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x10ddc	384	pcireg_dirmap_add512_set	dwarf+symtab	15eda4ce3e7d		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x10f5c	392	pcireg_dirmap_add512_clr	dwarf+symtab	10774bdb0500		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x110e4	380	pcireg_ssram_parity_get	dwarf+symtab	cdebf3e7cae1		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x11260	372	pcireg_map_fault_get	dwarf+symtab	761e0c3cd16a		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x113d4	360	pcireg_arbitration_get	dwarf+symtab	8597bb22cd2a		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
@@ -149748,7 +149748,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0xbc0	52	giobr_piomap_free	dwarf+symtab	409de2ba4125		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0xbf4	44	giobr_piomap_addr	dwarf+symtab	f0e3aa6c6e98		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0xc20	8	giobr_piomap_done	dwarf+symtab	78aa5094d5ec		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0xc28	140	giobr_piotrans_addr	dwarf+symtab	9ff12a5bbf69		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0xc28	140	giobr_piotrans_addr	dwarf+symtab	9ff12a5bbf69		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0xcb4	192	giobr_dmamap_alloc	dwarf+symtab	bb37d56476dd		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0xd74	52	giobr_dmamap_free	dwarf+symtab	7782e6f46416		in	named-only	docs/panics.md#sub_0xa800000020041144	`sub_0xa800000020041144`
 6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0xda8	88	giobr_dma_for_xtalk	dwarf+symtab	21df144646ff		in	named-only	docs/panics.md#sub_0xa800000020041144	`sub_0xa800000020041144`
@@ -150318,14 +150318,14 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x434	56	heart_debug_intr	dwarf+symtab	173b437e6cd2		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x46c	68	chkdebug	dwarf+symtab	e69d0b185fbb		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x4b0	24	clear_cpu_intr	dwarf+symtab	a57a6ae0a4df		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x4c8	164	heart_mlreset	dwarf+symtab	f3f22489a508		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x4c8	164	heart_mlreset	dwarf+symtab	f3f22489a508		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x56c	68	heart_mp_intr_init	dwarf+symtab	3d38a8984a36		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x5b0	44	heart_init	dwarf+symtab	3fceb0504198		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x5dc	488	heart_startup	dwarf+symtab	7abc3c7a4338		in	located	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x7c4	120	heart_attach	dwarf+symtab	c6b439821b20		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x83c	40	heart_widget_num	dwarf+symtab	cd7896e63386		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x864	288	heart_addr_phys_to_xio	dwarf+symtab	f70aa1489f9f		in	understood	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
-6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x984	164	heart_addr_xio_to_phys	dwarf+symtab	b190aaed481d		in	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x984	164	heart_addr_xio_to_phys	dwarf+symtab	b190aaed481d		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xa28	56	heart_addr_xio_to_kva	dwarf+symtab	4cedc148b523		in	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xa60	192	heart_piomap_alloc	dwarf+symtab	0809ba990440		in	located	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xb20	28	heart_piomap_free	dwarf+symtab	5e13c517fd02		in	undocumented		
@@ -150342,8 +150342,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xf4c	8	heart_dmamap_drain	dwarf+symtab	78aa5094d5ec		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xf54	8	heart_dmaaddr_drain	dwarf+symtab	78aa5094d5ec		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xf5c	8	heart_dmalist_drain	dwarf+symtab	78aa5094d5ec		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xf64	104	heart_intr_preconn	dwarf+symtab	f9003ff2cad9		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xfcc	92	heart_intr_prealloc	dwarf+symtab	0ad63076009b		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xf64	104	heart_intr_preconn	dwarf+symtab	f9003ff2cad9		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0xfcc	92	heart_intr_prealloc	dwarf+symtab	0ad63076009b		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x1028	452	do_heart_intr_alloc	dwarf+symtab	8af7555bfae4		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x11ec	28	heart_intr_alloc	dwarf+symtab	1c3c43e5854e		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	shared-kernel	n64	.text	0x1208	28	heart_intr_alloc_nothd	dwarf+symtab	f79b5991cbaf		in	undocumented		
@@ -151271,7 +151271,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x168	28	pci_ioc3_sio_vmc	dwarf+symtab	6f695ba67fcd		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x184	1196	ioc3_attach	dwarf+symtab	c5aaf48be94d		in	located	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.30/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x630	632	ioc3_intr_connect	dwarf+symtab	fb14de3b29a7		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
-6.5.30/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x8a8	356	ioc3_intr_disconnect	dwarf+symtab	2fdd0780b399		in	named-only	docs/panics.md#ioc3_intr_disconnect	`ioc3_intr_disconnect`
+6.5.30/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x8a8	356	ioc3_intr_disconnect	dwarf+symtab	2fdd0780b399		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0xa0c	396	ioc3_intr	dwarf+symtab	a64a4a3b6105		in	located	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.30/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0xb98	88	ioc3_is_console	dwarf+symtab	98f724aa041b		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
 6.5.30/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0xbf0	64	ioc3_is_io7	dwarf+symtab	d8e8e2750127		in	named-only	docs/panics.md#sub_0xc000000000095d44	`sub_0xc000000000095d44`
@@ -151279,7 +151279,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0xf24	72	ioc3_intrd	dwarf+symtab	0e4d1d27400a		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0xf6c	128	ioc3_intrd_setup	dwarf+symtab	982a0e4bdfbc		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0xfec	192	ioc3_subdev_ptr	dwarf+symtab	137a3c03d162		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x10ac	72	ioc3_subdev_enabled	dwarf+symtab	7df3335ee2e3		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
+6.5.30/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x10ac	72	ioc3_subdev_enabled	dwarf+symtab	7df3335ee2e3		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x10f4	44	ioc3_subdev_enables	dwarf+symtab	841abe9a6cda		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.30/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x1120	68	ioc3_subdev_enable	dwarf+symtab	b0f943f344f1		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/ioc3.o	shared-kernel	n64	.text	0x1164	72	ioc3_subdev_disable	dwarf+symtab	d903b08c4e8d		in	undocumented		
@@ -158262,7 +158262,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xb54	168	pcibr_driver_reg_callback	dwarf+symtab	2ac77f438697		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xbfc	168	pcibr_driver_unreg_callback	dwarf+symtab	9c70e5485819		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xca4	400	pcibr_detach	dwarf+symtab	92ca55cf3c57		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xe34	148	pcibr_directmap_init	dwarf+symtab	3aabdbaac707		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
+6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xe34	148	pcibr_directmap_init	dwarf+symtab	3aabdbaac707		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xec8	104	pcibr_asic_rev	dwarf+symtab	32b3e60e9350		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xf30	60	pcibr_write_gather_flush	dwarf+symtab	9cac81769c56		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xf6c	2256	pcibr_addr_pci_to_xio	dwarf	38cd8ab64d09		in	undocumented		
@@ -158355,7 +158355,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x8210	588	pcibr_intr_func	dwarf+symtab	fd61ba9b8277		in	located	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x845c	48	print_bridge_errcmd	dwarf+symtab	bb97a47d2d48		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x848c	4188	pcibr_error_dump	dwarf+symtab	b8527183755e		in	located	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
-6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x94e8	132	pcibr_errintr_group	dwarf+symtab	ecd63d84c398		in	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x94e8	132	pcibr_errintr_group	dwarf+symtab	ecd63d84c398		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x956c	360	pcibr_pioerr_check	dwarf	98471f1131ca		in	named-only	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x96d4	1380	pcibr_error_intr_handler	dwarf+symtab	490fa3779c0f		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x9c38	740	pcibr_addr_toslot	dwarf+symtab	003fe8970d90		in	undocumented		
@@ -158431,10 +158431,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x103c0	348	pcireg_linkside_err_addr_get	dwarf+symtab	cfae0c418940		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x1051c	360	pcireg_dirmap_get	dwarf+symtab	26447a22370f		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x10684	344	pcireg_dirmap_set	dwarf+symtab	95b02fe169a4		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x107dc	412	pcireg_dirmap_wid_set	dwarf+symtab	b729f31790b7		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x10978	496	pcireg_dirmap_diroff_set	dwarf+symtab	98c6cc75d3ec		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x10b68	384	pcireg_dirmap_add512_set	dwarf+symtab	9c02d8c3fe02		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x10ce8	392	pcireg_dirmap_add512_clr	dwarf+symtab	6fc949a1d2a2		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x107dc	412	pcireg_dirmap_wid_set	dwarf+symtab	b729f31790b7		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x10978	496	pcireg_dirmap_diroff_set	dwarf+symtab	98c6cc75d3ec		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x10b68	384	pcireg_dirmap_add512_set	dwarf+symtab	9c02d8c3fe02		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x10ce8	392	pcireg_dirmap_add512_clr	dwarf+symtab	6fc949a1d2a2		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x10e70	380	pcireg_ssram_parity_get	dwarf+symtab	f509098d0f99		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x10fec	372	pcireg_map_fault_get	dwarf+symtab	bee5c19eae39		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x11160	360	pcireg_arbitration_get	dwarf+symtab	afcbab42e0f8		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
@@ -186515,7 +186515,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x370	28	pci_ioc3_sio_vmc	dwarf+symtab	6f695ba67fcd		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x38c	1340	ioc3_attach	dwarf+symtab	440cb011c66e		in	located	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.30/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x8c8	632	ioc3_intr_connect	dwarf+symtab	ed73fa55eaf2		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
-6.5.30/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0xb40	356	ioc3_intr_disconnect	dwarf+symtab	15929cc4688b		in	named-only	docs/panics.md#ioc3_intr_disconnect	`ioc3_intr_disconnect`
+6.5.30/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0xb40	356	ioc3_intr_disconnect	dwarf+symtab	15929cc4688b		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0xca4	28	ioc3_intr	dwarf+symtab	12a18864d05c		in	located	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.30/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0xcc0	468	ioc3_handle_intr	dwarf+symtab	511e9359a4bc		in	located	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.30/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0xe94	88	ioc3_is_console	dwarf+symtab	3c99667db9f7		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
@@ -186525,7 +186525,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x1268	128	ioc3_intrd_setup	dwarf+symtab	94882b1411af		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x12e8	24	ioc3_console_vhdl_get	dwarf+symtab	66cfe618a1a5		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x1300	188	ioc3_subdev_ptr	dwarf+symtab	942d01c2778f		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x13bc	96	ioc3_subdev_enabled	dwarf+symtab	d7603bb3a1d0		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
+6.5.30/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x13bc	96	ioc3_subdev_enabled	dwarf+symtab	d7603bb3a1d0		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x141c	44	ioc3_subdev_enables	dwarf+symtab	841abe9a6cda		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
 6.5.30/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x1448	68	ioc3_subdev_enable	dwarf+symtab	b0f943f344f1		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ioc3.o	shared-kernel	n64	.text	0x148c	72	ioc3_subdev_disable	dwarf+symtab	d903b08c4e8d		in	undocumented		
@@ -194881,7 +194881,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xcfc	212	pcibr_driver_unreg_callback	dwarf+symtab	39f36f8c9dc8		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xdd0	284	pcibr_bus_cnvlink	dwarf+symtab	0e36f119a31c		in	named-only	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xeec	404	pcibr_detach	dwarf+symtab	eb33babecbb8		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x1080	300	pcibr_directmap_init	dwarf+symtab	7d2cc4b8c324		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
+6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x1080	300	pcibr_directmap_init	dwarf+symtab	7d2cc4b8c324		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x11ac	104	pcibr_asic_rev	dwarf+symtab	4ced4a8ff362		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x1214	60	pcibr_write_gather_flush	dwarf+symtab	9cac81769c56		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x1250	2260	pcibr_addr_pci_to_xio	dwarf	0768971f03c9		in	undocumented		
@@ -194971,7 +194971,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x888c	92	pcibr_show_dir_state	dwarf+symtab	8eea44ae4213		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x88e8	52	print_bridge_errcmd	dwarf+symtab	7892c86be871		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x891c	4268	pcibr_error_dump	dwarf+symtab	58868e6455ce		in	located	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
-6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x99c8	132	pcibr_errintr_group	dwarf+symtab	ecd63d84c398		in	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x99c8	132	pcibr_errintr_group	dwarf+symtab	ecd63d84c398		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x9a4c	360	pcibr_pioerr_check	dwarf	7563bee22448		in	named-only	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x9bb4	1460	pcibr_error_intr_handler	dwarf+symtab	a6919be1e172		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xa168	744	pcibr_addr_toslot	dwarf+symtab	d03ec44043d9		in	undocumented		
@@ -195055,10 +195055,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x11790	348	pcireg_linkside_err_addr_get	dwarf+symtab	f88d460482cc		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x118ec	360	pcireg_dirmap_get	dwarf+symtab	f2a99edf94d1		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x11a54	344	pcireg_dirmap_set	dwarf+symtab	8ba6e0ff1059		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x11bac	412	pcireg_dirmap_wid_set	dwarf+symtab	97b7c1843f69		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x11d48	496	pcireg_dirmap_diroff_set	dwarf+symtab	90e5a09d124f		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x11f38	384	pcireg_dirmap_add512_set	dwarf+symtab	08946f7a1622		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x120b8	392	pcireg_dirmap_add512_clr	dwarf+symtab	44f532fbd730		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x11bac	412	pcireg_dirmap_wid_set	dwarf+symtab	97b7c1843f69		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x11d48	496	pcireg_dirmap_diroff_set	dwarf+symtab	90e5a09d124f		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x11f38	384	pcireg_dirmap_add512_set	dwarf+symtab	08946f7a1622		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x120b8	392	pcireg_dirmap_add512_clr	dwarf+symtab	44f532fbd730		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x12240	380	pcireg_ssram_parity_get	dwarf+symtab	d3ea59756438		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x123bc	372	pcireg_map_fault_get	dwarf+symtab	74fc8bcb87c3		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x12530	360	pcireg_arbitration_get	dwarf+symtab	aadbe3ab0082		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
