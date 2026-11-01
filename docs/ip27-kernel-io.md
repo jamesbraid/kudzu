@@ -600,3 +600,148 @@ halfword at block +50 and, when that count is nonzero, stores three rates (halfw
 31:16, 47:32) shifted left by 10 and divided by the count, and sets bit `port - 1` in the byte at +7 when the second or third rate is 20 or more; when the byte at +384 is
 not 1 it copies the four 16-bit fields of block +8 into the halfwords at block +44, +46, +48 and +50 unchanged. With `a2` zero it releases the lock and in every no-error
 case returns 0.
+
+## Hub widget and error helpers
+
+- `hub_widgetdev_shutdown` (`6.5.30/unix.IP27`, address 0xc0000000000278ac, 472 bytes, 80-byte frame): **established.**
+Detaches one crosstalk widget's device from the hub that masters it and frees any hub I/O request-tracking entries (CRBs) that still belong to it. `a0` is the widget
+vertex, passed straight through; `a1` (kept in `s4`) is a small number used both as a bit index and as a match value (a device number within the widget, going by the
+bit index 8 * widget id + `a1`). It calls `xwidget_info_get` (0xc00000000006c368), then `xwidget_info_id_get` (0xc00000000006c44c; the widget id is kept in `s5`) and
+`xwidget_info_master_get` (0xc00000000006c480), and looks up the master's `_node` label with `hwgraph_info_get_LBL` (0xc000000000295310), the result going to the
+doubleword at sp+0; the return value is not tested. It returns with nothing done when that doubleword is 0, or when the halfword at +10 of the record it points to (the
+node's NASID, kept in `s7`) is -1. Otherwise it first clears one bit in a hub register: the doubleword at +288 of the node's hub register page (the page is the pool
+constant 0x9200000001c00000, held at 0xc0000000014cc198, plus the NASID shifted left by 32, `sd` at 0xc00000000002795c) loses bit number `a1` + 8 * (widget id & 0xff)
+minus 64. It then walks 15 CRB slots, index 0 to 14 (`s1`), reading the doubleword at +1024 + 32 * index of the same page. A slot is taken when bit 50 of that word is
+set, or, only while the global word `free_error_crbs` is nonzero, when bit 55 is set. For a taken slot it extracts the 5-bit field at bits 44 to 40 and acts only when
+the field equals `a1` + 16 or `a1` + 24: it calls `hubiio_crb_free` (0xc000000000034990) with the doubleword at sp+0 and the slot index, and counts it in `s6`. When the
+global word `free_error_crbs_print` is nonzero it also calls `cmn_err(6, "Releasing %s CRB 0x%x[Freed so far %d]\n", ...)` with the text "Data" when the field was
+`a1` + 16 and "Interrupt" when it was `a1` + 24, the index and the count. After slot 14, if `free_error_crbs_print` is nonzero it calls
+`cmn_err(6, "Freed %d CRBS on nasid %d \n", count, nasid)`. Both exits (0xc000000000027a1c, reached from 0xc0000000000279f8 on the early returns and from
+0xc000000000027a70 after the summary) leave `v0` as the last call left it: the routine has no meaningful result.
+- `hub_device_inquiry` (`6.5.30/unix.IP27`, address 0xc00000000003c59c, 436 bytes, 96-byte frame): **established.**
+Prints, through `cmn_err` at level 6, which of a widget's eight devices are shut down and whether the widget may access the hub and be accessed by it. `a0` (`s3`) is a
+hardware-graph vertex and `a1` (saved at sp+48) a widget number. It formats the number with `sprintf` ("%d", into sp+0, 0xc0000000001fd9d0), looks up the child of `a0`
+with that name (`hwgraph_traverse`, 0xc00000000029579c, vertex into the word at sp+8) and returns at once if the lookup fails (`v0` nonzero). It then asks
+`device_master_get` (0xc000000000296bec) for the vertex's master, returns when that is -1, and reads the master's `_node` label (`hwgraph_info_get_LBL`,
+0xc000000000295310, into sp+16), returning when it is null. The halfword at +10 of the label's record is the NASID; the hub register page is the pool constant
+0x9200000001c00000 plus the NASID shifted left by 32. Three doublewords of that page are read and saved: +272 at sp+32, +280 at sp+24 and +288 at sp+40. Output:
+"Inquiry Info for %v" with the child vertex; "\tDevices shutdown [ "; then for devices 0 to 7 the number (" %d") of each device whose bit is clear in the doubleword at
++288, the bit index being 8 * widget number minus 64 + device (the bit that `hub_widgetdev_shutdown` clears); then "]\n"; then "\tInbound access ? %s" with "yes" when
+bit (1 << widget number) of the doubleword at +280 is set and "no" otherwise, and "\tOutbound access ? %s" with the same test on the doubleword at +272. The three
+return points are 0xc00000000003c5d4 (lookup failed, `v0` is the `hwgraph_traverse` result), 0xc00000000003c5f4 and 0xc00000000003c610 (no useful value) and
+0xc00000000003c73c after the last print.
+- `hub_widget_reset` (`6.5.30/unix.IP27`, address 0xc000000000029660, 424 bytes, 80-byte frame): **established.**
+Releases the hub's eight pending PIO read buffers (PRBs) that belong to one widget, then sets the hub's buffer up again for that widget. `a0` is a vertex handed to
+`master_node_get` (0xc000000000296c44), which gives the compact node number; `a1` (`s4`) is the widget number. When the node is -1 (halfword compare) the routine
+returns with `v0` still holding the `master_node_get` result (0xc000000000029694). Otherwise the NASID is the halfword at that node's slot in the table whose pointer is
+in the gp-20496 slot (0xc0000000014cd160 pointing at 0xc0000000014d4e80), and the hub register page is 0x9200000001c00000 plus the NASID shifted left by 32. It raises
+the interrupt level with `splhi` (0xc00000000003b30c; the old level is saved at sp+0) and scans entries 0 to 7 of the doubleword table at page +776 (stride 8; the loop
+is unrolled by two, with identical bodies at 0xc0000000000296ec and 0xc000000000029714). An entry is taken when bit 56 is set and the byte at bits 31 to 24 equals the
+widget number. For a taken entry it stores 0 in the entry and writes the value (index | 0x10) to the doubleword at page +904, then reads that doubleword back and, when
+bit 4 is still set, calls `assfail` (line 1378, assertion text "! (REMOTE_HUB_L(nasid, IIO_IPDR) & IIO_IPDR_PND)"; the test is the only read-back, with no wait) and
+goes on with the next entry; the branch at 0xc00000000002974c is branch-likely (it executes the entry-counter increment in its delay slot only when taken), the others
+are plain branches. After the scan it calls `hub_setup_prb(nasid, widget number, 3, 2)` (0xc00000000003c338), restores the level with `splx` (0xc00000000003b3f4) and
+returns; `v0` is the `splx` result and carries no meaning.
+
+## Crossbar widget control
+
+- `xbow_widget_num_get` (`6.5.30/unix.IP27`, address 0xc00000000006d104, 252 bytes, 288-byte frame): **established.**
+Returns the crosstalk widget number that a hardware-graph vertex stands for, or 0xff when none can be found. `a0` is the vertex (kept in `s0`). It writes the vertex's
+name into a 256-byte buffer at sp+0 (`vertex_to_name`, 0xc000000000296b3c) and asks `nodevertex_to_cnodeid` (0xc000000000296e54) for a compact node number. When that is
+not -1 the vertex is a node: the halfword at the node's slot in the table whose pointer is in the gp-17944 slot (0xc0000000014cdb58, pointing at 0xc0000000014d4e80) is
+the NASID, and the routine returns `hub_widget_id` (0xc00000000001d64c) of it. Otherwise it needs the name to contain "pci" and also "controller" (`strstr`,
+0xc0000000001426e0, twice) and returns 0xff when either is missing. It then follows the edge named ".." twice from the vertex with `hwgraph_edge_get`
+(0xc000000000294fc0), the cursor being the word at sp+256 and the doubleword at sp+264 counting passes; a failing edge lookup returns 0xff. For the vertex reached it
+calls `xwidget_info_chk` (0xc00000000006c33c), returns 0xff when that gives nothing and otherwise returns `xwidget_info_id_get` (0xc00000000006c44c) of the result. Exit
+points: 0xc00000000006d14c (`hub_widget_id`), 0xc00000000006d1b4, 0xc00000000006d1bc and 0xc00000000006d1e8 (0xff) and 0xc00000000006d1f8 (the widget id).
+- `xbow_enable_perf_counter` (`6.5.30/unix.IP27`, address 0xc00000000006e7f0, 460 bytes, 80-byte frame): **established.**
+Programs one of the crossbar's two performance counters to watch one link port, or releases it. Arguments: `a0` the crossbar vertex (saved at sp+8), `a1` (`s3`) the
+port number, `a2` (`s2`) the mode, `a3` (`s0`) the counter number. It fetches the crossbar's record with `hwgraph_fastinfo_get` (0xc000000000296098; kept in `s1`) and
+saves the doubleword at +16 of it (the register base) at sp+0. It returns -1 at once, before touching anything, unless the port is 8 to 15, the mode 0 to 2 and the
+counter 0 or 1. It then takes the spin lock at record +448 (`mutex_spinlock`, 0xc0000000002863b4; the lock address is saved at sp+24 and the returned state at sp+16).
+Each counter has a 16-byte slot in the record, slot n at record + 16n, holding the port in the byte at +36 and the mode in the byte at +37 (and copies of them at +38
+and +39), a word at +32 and a doubleword pointer to the counter register at +40. It unlocks (`mutex_spinunlock`, 0xc000000000286400) and returns -1 when the requested
+slot's mode byte is nonzero and the new mode is nonzero, or when the other slot already watches the same port (equal port byte) with a nonzero mode byte. Otherwise it
+stores the mode at +37 and +39 and the port number minus 8 at +36 and +38 of the requested slot; rewrites bits 29 and 28 of the word at (register base + 64 * port -
+244, which is the 64-byte per-port block's word at +268) with the low two bits of the mode; replaces bits 22 to 20 of the word the slot's pointer addresses with the
+port number minus 8 and stores the same word masked to 20 bits in the slot's word at +32. It then calls `timeout` (0xc0000000001b3498) with the routine at
+0xc00000000006e6c8 (`xbow_update_perf_counters`), the vertex zero-extended to 32 bits and 4 ticks, unlocks and returns 0. Return values by path: -1 for bad arguments
+(0xc00000000006e834, 0xc00000000006e83c, 0xc00000000006e864, 0xc00000000006e888), for a busy slot (0xc00000000006e908, 0xc00000000006e9b4); 0 on success
+(0xc00000000006e9a4).
+- `xbow_ioctl` (`6.5.30/unix.IP27`, address 0xc00000000006d200, 876 bytes, 96-byte frame): **established.**
+The control-call entry of the crossbar's character device. Its first instruction (0xc00000000006d200) zeroes the word that the fifth-argument pointer `a5` addresses,
+before the frame is built. Arguments: `a0` (`s1`) the crossbar vertex, `a1` (`s0`) the command, `a2` (`s2`) a user pointer, `a3` (`s3`) the open flags (bit 0 read, bit
+1 write as tested here) and `a4` the caller's credentials. Commands and their paths: 0 and any value not listed return 0. Command 1 and command 2 need the capability
+bit 1 << 37 (`cap_able_cred`, 0xc000000000287350; failure returns 1), then the write flag (absent returns 9), then `copyin` (0xc00000000001f990) of 12 bytes from the
+user pointer to sp+32 (failure returns 14); they call `xbow_enable_perf_counter` (0xc00000000006e7f0) with the vertex, the word at sp+32, the word at sp+36 (replaced by
+0 for command 2) and the word at sp+40, and return 0 when it returns 0 and 22 otherwise. Command 3 needs the read flag (absent returns 9), calls
+`xbow_get_perf_counters` (0xc00000000006e7d0), runs `assfail` (line 612, text "xbow_perf_cnt != NULL") when it returns null and `copyout` (0xc00000000001fa1c) of 256
+bytes to the user pointer: 0 or 14. Command 4 needs the capability (else 1) and calls `xbow_enable_llp_monitor` (0xc00000000006eb38); command 5 needs it and calls
+`xbow_disable_llp_monitor` (0xc00000000006eaf0); both return 0 or 22 from the helper's result. Command 6 needs the read flag (else 9), calls `xbow_get_llp_status`
+(0xc00000000006e9bc), runs `assfail` (line 652, text "xbow_llp_status != NULL") on null and copies 128 bytes out: 0 or 14. Commands 26369 (0x6701) and 26370 (0x6702)
+call `cap_able` (0xc00000000028741c) with the same capability (failure returns 1), `copyin` 16 bytes to sp+0 (26369) or sp+16 (26370) (failure returns 14), turn the
+first two words into widget numbers with `xbow_widget_num_get` (0xc00000000006d104, masked to a byte) and call `xbow_prio_bw_alloc` (0xc00000000006f160) twice with the
+two widgets swapped: for 26369 the fourth argument is 0 and the fifth the doubleword at sp+8; for 26370 the fourth is the doubleword at sp+24 and the fifth its
+negation. The result is 0 either way. Error numbers are 1 (permission), 9 (wrong open mode), 14 (bad user address) and 22 (helper failed).
+- `xbow_attach` (`6.5.30/unix.IP27`, address 0xc00000000006cd60, 796 bytes, 336-byte frame): **established.**
+Attaches the crossbar (Xbow) widget: makes its control device, builds its soft record, hooks its error interrupt and error handler, and marks the live links of the
+switch. `a0` (`s2`) is the widget vertex. It maps the widget's registers with `xtalk_piotrans_addr(vertex, 0, 0, 0x300, 0)` (0xc00000000006be68; result `s1`, the
+register base), gets the connection-point vertex with `hwgraph_connectpt_get` (0xc0000000002968cc; `s3`) and adds a character device named "xbow" with prefix "xbow_"
+(`hwgraph_char_device_add`, 0xc000000000295bec), the new device vertex being the word at sp+0. It allocates the 656-byte soft record with `kmem_zalloc`
+(0xc00000000017e344) and stores the widget vertex at +0, the device vertex at +4, the connection-point vertex at +8 and the register base at +16, then
+`hwgraph_fastinfo_set` (0xc000000000296068) on the device vertex. It reads the switch id (`xswitch_id_get`, 0xc00000000006ccbc), takes the device's name (`dev_to_name`,
+256 bytes at sp+8), allocates strlen + 11 bytes (`kmem_alloc`, 0xc00000000017e220), stores the pointer at record +24 and formats it with `sprintf` as "%s[xbow# %d]". It
+forms a revision code from the word at register base +4: the high nibble (bits 31 to 28) OR the 16-bit part number (bits 27 to 12) shifted left by 4. Only when that
+code is below 2 does it select a revision string and print `cmn_err(4, "%sCrossbow ASIC: rev %s (code=%d) at %s%s", "DOWNREV ", string, code, record name, "")`: code 1
+gives "1.0" and 0 gives "unknown" (the compare chain at 0xc00000000006cfdc also tests 3, 4, 5, 0xd0001 and 0xd0002, giving "1.2", "1.3", "2.0", "Xbridge 1.0" and
+"Xbridge 2.0", but those tests follow the below-2 test and cannot be true); it then carries on. Next, `spinlock_init` (0xc00000000028618c) on record +448
+("xbow_perf_lock") and +520 ("xbow_bw_alloc_lock"); record +40 and +56 receive register base +100 and +108; for each of 8 ports the doubleword at +528 + 8n is set to
+800000000 and the one at +592 + 8n to 0. It duplicates the device descriptor of the device vertex (`device_desc_dup`, 0xc0000000001723e0), sets flag bit 0
+(`device_desc_flags_get`/`_set`), names the interrupt "Crossbow error" (`device_desc_intr_name_set`), allocates the interrupt with `xtalk_intr_alloc`
+(0xc00000000006c0c4) and connects it with `xtalk_intr_connect` (0xc00000000006c118) to `xbow_errintr_handler` (0xc00000000006da24, argument the record) with
+`xbow_setwidint` (0xc00000000006d64c) as the set-widget-interrupt hook and the register base as the sixth value, frees the descriptor, registers `xbow_error_handler`
+(0xc00000000006e018) with `xwidget_error_register` (0xc00000000006c8b8), stores 36 (0x24) in the word at register base +36, creates the switch information with
+`xswitch_info_new` (0xc00000000006cba4) and, for ports 8 to 15, calls `xbow_link_alive` (0xc00000000006d5d0) and `xbow_widget_present` (0xc00000000006d56c) on the
+register base; for each port where both are nonzero it calls `xswitch_info_link_is_ok` (0xc00000000006cc64) and replaces bits 8 to 4 and bit 0 of the word at register
+base + 64 * (port & 7) + 268 with the constant 0x3002b (read-modify-write with mask 0xfffffe2f). It ends with
+`xswitch_provider_register(connection point, xbow_provider)` (0xc00000000006cc3c; the provider table at 0xc0000000014cb0b8) and returns 0.
+- `xbow_xmit_retry_error` (`6.5.30/unix.IP27`, address 0xc00000000006d920, 260 bytes, 32-byte frame): **established.**
+Counts a transmit-retry error on one crossbar port when the widget behind the port is a Bridge or XBridge, and returns whether it was handled. `a0` is the crossbar soft
+record and `a1` the port number (saved at sp+8). The record keeps one cached register pointer per port in a table of doublewords at +392 (the slot's address is saved at
+sp+0). When the slot is empty it asks `xswitch_info_get` (0xc00000000006ca78) for the switch information of the connection-point vertex (the word at record +8), then
+`xswitch_info_vhdl_get` (0xc00000000006cae8) for the port's vertex, and maps that vertex with `xtalk_piotrans_addr(vertex, 0, 0, 88, 0)` (0xc00000000006be68), storing
+the result in the slot; a null switch information, a vertex of -1 or a failed mapping returns 1 (0xc00000000006d9c8, 0xc00000000006da14, 0xc00000000006da1c). With the
+pointer in hand it reads the widget identification word at +4: the part number is bits 27 to 12 and the manufacturer bits 11 to 1. A part of 0xc002 with manufacturer 54
+or a part of 0xd002 with manufacturer 36 is accepted; anything else returns 0. For an accepted widget it increments the global word `xbow_xmit_retry_errors` (at
+0xc0000000014cb0c0, the gp-28848 slot), reads the word at +36 of the widget's registers and writes the same value back unchanged, reads it once more (the value is not
+used) and returns 1. Why the value is written back, which matters only if the register reacts to a write, is unknown.
+- `xbow_reset_link` (`6.5.30/unix.IP27`, address 0xc00000000006eefc, 260 bytes, 48-byte frame): **established.**
+Resets one crossbar link after a widget error and waits for the link to come back, for a bounded time. `a0` (`s2`) is the vertex of the widget on the failing port. Two
+timing words are involved: `xbow_reset_delay` (the word at gp-28844, the pause between polls in microseconds) and a calibration word at 0xc0000000014cb0c8 (the gp-28840
+slot, 4 bytes after `xbow_reset_delay`). A pointer slot at 0xc0000000014cc150 holds 0x9200000001030100; the routine reads the low 32 bits of the doubleword there only
+to difference two readings, so it is a free-running counter (inferred from that use). While the calibration word is zero it takes a reading, calls `us_delay(1000)`
+(0xc000000000047c0c) and stores the counter difference, the number of counter ticks in one millisecond. It then takes the widget id through `xwidget_info_get`
+(0xc00000000006c368) and `xwidget_info_id_get` (0xc00000000006c44c), finds the crossbar with `hwgraph_traverse(vertex, ".master/xtalk/0/xbow", &sp+0)`
+(0xc00000000029579c) and its soft record with `hwgraph_fastinfo_get` (0xc000000000296098); the port block is the doubleword at record +16 plus 64 * (widget id & 7). It
+saves the word at block +268 in the doubleword at sp+8, stores 0 in the word at block +308, delays `xbow_reset_delay` microseconds and then polls: if bit 31 of the word
+at block +276 is set it writes the saved word back to block +268 and returns 0; otherwise, if more counter ticks than the calibration word have passed since the reading
+taken after the store, it returns -1 (0xc00000000006efb4); otherwise it delays `xbow_reset_delay` microseconds and polls again. The meaning of bit 31 (link alive, going
+by the name of the crossbar's own link-alive helper, which tests the same word and bit) is inferred.
+
+## PCI bridge interrupts and address translation
+
+- `pcibr_intr_connect` (`6.5.30/unix.IP27`, address 0xc000000000078d74, 420 bytes, 80-byte frame): **established.**
+Connects a PCI interrupt object to its handler: records the handler in the object, wires each of the bridge interrupt bits it covers to the crosstalk interrupt, and
+enables the bits at the bridge. `a0` (`s5`) is the interrupt object (`pcibr_intr_s`), `a1` (`s4`) the handler function and `a2` (`s3`) its argument. The object supplies
+the bit mask (word at +88, `s2`) and the bridge soft record (doubleword at +96, `s1`). A null object returns -1 at once (0xc000000000078dac). Otherwise it logs with
+`pcibr_debug(4096, the word at object +4, "pcibr_intr_connect: intr_func=0x%lx, intr_arg=0x%lx\n", handler, argument)` (0xc000000000074e8c), stores the argument at +32
+and the handler at +24 (in that order) and sets bit 0 of the flags word at +0. It then visits bits 0 to 7 of the mask. For each set bit n the per-bit record is soft +
+1640 + 56 * n; if the word at its +40 (soft +1680 + 56n) is nonzero, the bit is already connected and only the doubleword at its +0 is loaded. If it is zero, the
+routine calls `pcireg_intr_addr_addr(soft, n)` (0xc000000000085200; result kept at sp+40), stores `(word at soft +72) * 8 + n` in the word at record +48 (soft +1688 +
+56n), calls `xtalk_intr_connect` (0xc00000000006c118) with the crosstalk interrupt doubleword at record +0, `pcibr_intr_func` (0xc0000000000791f0) as the handler, the
+address record +8 as its argument, `pcibr_setpciint` (0xc000000000078ccc) as the set-interrupt hook, the address record +48 and 0, sets the word at record +40 to 1,
+calls `pcireg_intr_addr_get(soft, n)` (0xc000000000084de4) and logs "pcibr_setpciint: int_addr=0x%lx, *int_addr=0x%lx, pcibr_int_bit=0x%x\n" with the address, the value
+and the bit. After the loop it takes the soft record's lock at +128 (`mutex_spinlock`, 0xc0000000002863b4), calls `pcireg_intr_enable_bit_set(soft, mask zero-extended)`
+(0xc000000000083b78), reads the bridge's flush register with `pcireg_tflush_get` (0xc000000000080ba8) and releases the lock with `mutex_io_spinunlock`
+(0xc0000000002862c4), then returns 0 (0xc000000000078e74). The per-bit records are the `bs_intr` array of the soft record: crosstalk interrupt at +0, an embedded
+40-byte wrapper at +8 whose +32 word is its connected flag, and the bridge interrupt bit at +48.
