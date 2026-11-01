@@ -1,0 +1,6 @@
+table	in_scope	out_of_scope	documented	undocumented
+syscalls	0	711	0	0
+structs	173	2733	0	173
+panics	272	2551	0	272
+selectors	0	0	0	0
+formats	29	0	0	29
