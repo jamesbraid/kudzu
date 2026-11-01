@@ -53,15 +53,15 @@ Rows in scope are the ones the finish line counts; rows out of scope are listed 
 
 | Table | In scope | Out of scope | Documented | Undocumented |
 |---|---:|---:|---:|---:|
-| [syscalls](inventory/syscalls.tsv) | 0 | 1422 | 0 | 0 |
-| [structs](inventory/structs.tsv) | 173 | 2733 | 140 | 33 |
-| [panics](inventory/panics.tsv) | 348 | 3272 | 348 | 0 |
-| [selectors](inventory/selectors.tsv) | 9 | 2770 | 9 | 0 |
-| [formats](inventory/formats.tsv) | 29 | 0 | 5 | 24 |
+| [syscalls](inventory/syscalls.tsv) | 0 | 2844 | 0 | 0 |
+| [structs](inventory/structs.tsv) | 343 | 5037 | 277 | 66 |
+| [panics](inventory/panics.tsv) | 698 | 6289 | 698 | 0 |
+| [selectors](inventory/selectors.tsv) | 18 | 5499 | 18 | 0 |
+| [formats](inventory/formats.tsv) | 29 | 0 | 8 | 21 |
 
 | Binary group | Scope | Binaries | Functions in | Functions out |
 |---|---|---:|---:|---:|
-| kernel-image | narrow | 3 | 3077 | 38624 |
+| kernel-image | narrow | 6 | 6144 | 75940 |
 | kernel-platform-objects | narrow | 27 | 2919 | 9141 |
 | kernel-platform-drivers | in | 596 | 9840 | 0 |
 | kernel-other-objects | out | 6651 | 0 | 138532 |
