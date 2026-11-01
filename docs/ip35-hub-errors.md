@@ -404,6 +404,36 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   0x1000 entry 4, 0x2000 entry 5,
   0x4000 entry 6 and 0x8000 entry 7. When none of the eight bits is set it calls `intr_stray(frame)` (address
   0xc00000000005ee4c) and returns 0. What the entries' +12 words hold is unknown here. Established.
+- `intrnorm` (`6.5.30/unix.IP35`, address 0xc00000000006d680, 620 bytes, no stack frame): the assembly entry for the
+  normal processor interrupt. It runs with the interrupted registers live, uses only `k0` and `k1` until it has saved
+  state, takes no arguments, and ends by jumping to `ecommon` (0xc00000000006d8f0) or `ecommon_allsaved` (0xc00000000006d940)
+  or by returning from the exception. Addresses written as plain numbers are words of the per-processor page reached
+  through the zero register. First it loads the word at -16312 into `k0` (kept for a test below). Stage one runs only
+  when Cause bit 15 is set. It then reads coprocessor 0 register 25 with selects 1 and 3, and with selects 5 and 7
+  unless the processor revision register's implementation byte (bits 15 to 8) equals 9; these appear as the raw words
+  0x401bc801, 0x401bc803, 0x401bc805 and 0x401bc807 (the disassembler does not decode them). If any value has bit 31
+  set it goes on to stage two. When none does it tests bit 6 of the saved word: when that is clear it goes on to stage
+  two, when set it writes 0xfffffffff8000000 to coprocessor 0 register 11 and executes `eret` (0xc00000000006d6e4).
+  That the registers are performance counters whose overflow shares Cause bit 15, and that the write acknowledges the
+  timer, are inferred from the register numbers. Stage two reads Status: with bit 0 clear it returns with `eret`; with it
+  set it ANDs Status bits 15 to 8 with Cause and returns with `eret` (0xc00000000006d708) when no enabled interrupt is
+  pending. Otherwise it picks a stack. When the doubleword at -16344 is zero the signed byte at -16305 (the state)
+  decides: 2 goes to 0xc00000000006d8d0, which makes a frame at (sp - 360) rounded down to a multiple of 8, stores sp at
+  frame +224, sets `k0` to 256 and jumps to `ecommon` with sp set to the frame; 1 sets the state to 2, makes the same
+  frame, stores sp at its +224, stores the frame address as the doubleword at +552 of the structure at -16352, loads sp
+  from -16336 and jumps to `ecommon` with `k0` 2; 3 sets the state to 2, stores sp at +224 of the stack whose
+  address is at -16336 and switches to it, stores 1 in the byte at -16301, and jumps to `ecommon_allsaved` when the byte
+  at -16304 is nonzero and to `ecommon` otherwise (`k0` 2); any other state value sets the state to 2, takes the frame
+  as the doubleword at +1008 of the structure at -16360 plus 360, stores sp at +224 and the kernel global pointer
+  0xc000000001643770 at +216 of it, loads sp from -16336 and jumps to `ecommon` with `k0` 2. When the doubleword at
+  -16344 is nonzero and the state is 2 it takes the 0xc00000000006d8d0 path above. Otherwise it takes the frame as that
+  structure's doubleword at +136 minus 360 rounded down to a multiple of 8, stores gp at +216 and sp at +224, sets sp to the
+  frame, sets the state to 2, stores `ra` at +240, a7 down to a0 at +80 to +24 and s7 down to s0 at +176 to +120, loads the
+  doubleword at -16328 and stores it at +0 in the delay slot of `jal tfi_save` (0xc000000000061980), copies the
+  structure's +144 doubleword to the word at -16360, calls `uli_setasids` (0xc00000000006589c) with the halfword at +168
+  and jumps to `ecommon_allsaved`. The block at 0xc00000000006d774 to 0xc00000000006d7ac, which loads sp from -15288
+  and jumps to the routine at 0xc0000000000619f4 with the strings "invalid kstk" (0xc000000001531cc8) and
+  "intrnorm.s" (0xc000000001531cd5) and 0, has no branch into it from inside the routine. Inferred.
 
 ## Hub widget shutdown
 
@@ -472,3 +502,21 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   0xc00000000005600c) with the doubleword read from the Hub register address 0x9200000001e80000 plus the NASID shifted
   left 33 plus 0x100, `a1` and `a2`. It returns nothing. Which register that doubleword is, beyond the routine name
   that decodes it: unknown here. Established.
+
+## Network interface error interrupts
+
+- `hubni_eint_init` (`6.5.30/unix.IP35`, address 0xc00000000005824c, 260 bytes, 32-byte frame): connects the Hub's
+  network-interface error interrupts for one node. `a0` is the compact node number (kept in `s2`). It asks
+  `cnodetocpu(a0)` (0xc00000000004e694) for a cpu of the node and returns that value (-1) when there is none. Otherwise it calls
+  `intr_connect_level(cpu, 126, 0, hubni_eint_handler, 0, 0)` (0xc00000000005f308; the handler at 0xc00000000005909c comes from
+  the pool word 0xc00000000163de40, the cpu is the halfword in `a0`). A nonzero result calls `cmn_err(20, "hub_error_init:
+  Cannot connect NI error interrupt.")` (0xc0000000002ad048; the string is at 0xc000000001520f20), and the routine goes on
+  after it. It then visits the four slices s of the node. Each slice's cpu is `cnode_slice_to_cpuid(node, s)`
+  (0xc00000000004e980), taken as a sign-extended halfword; a slice is skipped when that number is negative, is not below
+  the word `maxcpus` (0xc000000001644c14, a signed compare), or when `cpu_enabled(cpu)` (0xc00000000004e948) is zero.
+  For each remaining slice it calls `intr_connect_level(cpu, 103 + (s & 1), 0, hubni_rmteint_handler, 0, 0)` (the handler at
+  0xc0000000000590c0, pool word 0xc00000000163de48), so even slices use level 103 and odd slices level 104, and a nonzero
+  result calls `cmn_err(20, ...)` with the same string. The slice counter is advanced in the delay slot of the
+  branch-likely `beql` at 0xc000000000058300 for a successful connection and in the delay slot at 0xc00000000005834c
+  after a failed one. It returns the -1 from `cnodetocpu` when the node has no cpu; on every other path `v0` is
+  whatever the last callee left, and no caller's use of it was read (single exit 0xc000000000058320). Established.

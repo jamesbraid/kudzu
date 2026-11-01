@@ -58,7 +58,7 @@ Routines of the NUMAlink router code in the IRIX 6.5.30 IP35 kernel (`6.5.30/uni
   `show_rr_error_status` (address 0xc0000000000573a0) with the low 34 bits of it, the port number, `a1`, `a2` and 0.
   The routine returns nothing. What the register at the offset formed above holds is unknown here. Established.
 
-## Fences
+## Port register fences and history
 
 - `router_set_fences` (`6.5.30/unix.IP35`, address 0xc00000000004314c, 312 bytes, 80-byte frame): trims the router's
   register 0x10 and each live port's own register so that they refer only to ports that came up. `a0` is the router
@@ -74,3 +74,18 @@ Routines of the NUMAlink router code in the IRIX 6.5.30 IP35 kernel (`6.5.30/uni
   as the doubleword at ri +536, writes it to register 0x10 with `router_reg_write` and returns that call's result
   (0xc00000000004327c). What the bits of register 0x10 and of the per-port registers mean to the router: unknown here.
   Established.
+- `router_port_hist_reselect` (`6.5.30/unix.IP35`, address 0xc000000000042f90, 268 bytes, 80-byte frame): changes the
+  two-bit field in bits 19 and 18 of one router port's register and clears that port's registers at +0x20 and +0x28, doing
+  the register accesses between a `setnoderun` and a `restorenoderun` call. `a0` is the router state record (its halfword at +2 is
+  the compact node number), `a1` the port number and `a2` the new field value (saved at 40(sp)). It finds the node's
+  private data through the doubleword at -15360 (a table of pointers indexed by node) and reads the halfword at +34198
+  (0x8596) of it, the first-cpu number; when it is -1 the routine returns 22 (set in the delay slot at
+  0xc000000000042fd4). Otherwise it calls `setnoderun(node)` (0xc00000000004b948) and
+  keeps its result (the body of `setnoderun` was not read): the whole value at 0(sp), its upper word at 8(sp) and its bits 31 to 16 as a halfword at 12(sp). The
+  port's base register number is `((n & 0xe) << 15) | ((n & 1) << 11)` for n = a1 + 1, formed in `s1`. It reads that
+  register with `router_reg_read(ri, number, &value)` (0xc0000000000427ec; the result is not tested), clears bits 19 and
+  18 of the value (the mask is the complement of 0xc0000, from `lui` and `nor`), ORs in `a2 << 18` and writes it back with
+  `router_reg_write(ri, number, value)` (0xc00000000004281c), keeping that call's result at 24(sp). It then writes 0 to
+  register `number | 0x20` and to `number | 0x28`, ignoring both results. It ends with `restorenoderun` (0xc00000000004ba50)
+  on the doubleword at 8(sp), whose bytes 14 and 15 this routine never stores, and returns the result of the first
+  write (exit 0xc000000000043094). What the two-bit field selects in the router hardware: unknown here. Established.

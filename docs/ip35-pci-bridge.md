@@ -113,6 +113,41 @@ Routines of the PCI bridge driver (`pcibr`) and the crosstalk bridge attach code
   0x4000000, the vertex, "pcibr_slot_device_init: Device(%d): %R\n" (0xc00000000152d168), the slot, the value and the
   table `device_bits` (0xc000000001559888, 760 bytes). Returns 0 (set at 0xc0000000000ab3a0); the store, the
   register write and the log happen in that order. Established.
+- `pcibr_release_device` (`6.5.30/unix.IP35`, address 0xc00000000009db64, 176 bytes, 48-byte frame): drops one
+  reference on a per-slot resource count in the bridge soft state, chosen by a resource code. `a0` is the soft state,
+  `a1` the slot and `a2` the code. It takes the lock at soft +140 with `mutex_spinlock` (0xc000000000331f6c) and then
+  tests the code in this order, with the slot's record at soft + 128 x slot: a code of 0x1100000 subtracts 1 from the
+  word at record +332, 0x8f8000 subtracts 1 from the word at record +336, and 0x898000 subtracts 1 from the word at
+  record +340. The subtraction is a plain load, add and store under the lock, and the checks are independent, so a
+  code that matches none changes nothing. It releases the lock with `mutex_io_spinunlock(lock, the level
+  `mutex_spinlock` returned)` (0xc000000000331e84) and returns what that call returns. The slot number is not range
+  checked. Established.
+- `pcibr_func_config_addr` (`6.5.30/unix.IP35`, address 0xc0000000000a8e30, 132 bytes, 32-byte frame): forms the
+  address through which one PCI configuration register of one function can be reached, choosing the configuration
+  cycle type from the bus number. `a0` is the bridge soft state, `a1` the bus number, `a2` the device (slot), `a3`
+  the function and `a4` the register. The compare at 0xc0000000000a8e54 is signed: when `a1` is zero or negative it returns
+  `pcireg_type0_cfg_addr(soft, device, function, register)` (0xc0000000000b5e5c). When `a1` is positive it first calls
+  `pcireg_type1_cntr_set(soft, (bus << 16) | (device << 11))` (0xc0000000000b0b68) and then returns
+  `pcireg_type1_cfg_addr(soft, function, register)` (0xc0000000000b610c). The callee's result is returned unchanged on
+  both paths (single exit 0xc0000000000a8e94). The register layout behind the two callees is unknown here. Established.
+- `pcibr_device_flags_set` (`6.5.30/unix.IP35`, address 0xc0000000000a16bc, 512 bytes, 80-byte frame): changes
+  selected bits of one device's bridge device register according to a flag word, under the bridge lock, and keeps the
+  copy of the register in the soft state. It always returns 1. `a0` is the connection vertex and `a1` the flag word
+  (`s2`). The slot is the byte at +540 of the record from `pciio_hostinfo_get(a0)` (0xc0000000000c1124), and the soft
+  state is `pciio_info_mfast_get` (0xc0000000000c122c) of that record. From the flag word it builds a mask of bits to
+  set (`s0`) and a mask of bits to clear (`s1`): flag bit 16 sets 0x1800000 and bit 17 clears 0x1800000; bit 18 sets
+  and bit 19 clears 0x40000; bit 20 sets and bit 21 clears 0x20000; bit 22 sets and bit 23 clears 0x8000; bit 26 sets
+  and bit 27 clears 0x400000. When the halfword at soft +114 equals 2 and flag bit 26 is set it removes 0x400000 from
+  the set mask; a further test of the word at +120 (1 shifted left by its low four bits) cannot be false, so the nibble
+  has no effect. With both masks zero it returns 1 at once (the branch at 0xc0000000000a17cc). Otherwise it takes the lock at
+  soft +140 with `mutex_spinlock` (0xc000000000331f6c), reads the doubleword at soft + 128 x slot + 320 and forms
+  `(old & ~clear) | set`. Only when that differs from the old value does it call `pcireg_device_set(soft, slot,
+  new)` (0xc0000000000b41e4) and `pcireg_tflush_get(soft)` (0xc0000000000ae584), storing the new value at soft + 128 x slot +
+  320 in the delay slot of the second call. It releases the lock with `mutex_io_spinunlock` (0xc000000000331e84) and
+  calls `pcibr_debug(0x4000000, vertex, "pcibr_device_flags_set: Device(%d): %R\n", slot, new value, device_bits)`
+  (0xc0000000000a1978; the string is at 0xc00000000152a9f0 and the table at 0xc000000001559888), which runs even when the
+  value did not change. What the register bits 0x1800000, 0x40000, 0x20000, 0x8000 and 0x400000 do in the bridge:
+  unknown here. Established.
 
 ## Read response buffers
 
@@ -140,6 +175,22 @@ Routines of the PCI bridge driver (`pcibr`) and the crosstalk bridge attach code
   lands at +1488 and +1492). It releases with `mutex_io_spinunlock`. What the nibble bits mean in the bridge register
   is not named by this code: it shows only that bit 3 is always set, the channel number fills the low bits and the
   separately counted fields carry one more bit. Established.
+- `pcibr_dmard_error` (`6.5.30/unix.IP35`, address 0xc0000000000a8934, 296 bytes, 80-byte frame): handles a DMA read
+  error reported by the bridge: fills in the error record, passes it to the PCI error handler, disables the offending
+  device when the handler asks for that, resets the read-response buffer that took the error and returns the handler's
+  result. `a0` is the bridge soft state (the word at +4 is its vertex), `a1` and `a2` are passed through to the handler
+  and `a3` is the error record. It reads the failing buffer number with `pcireg_resp_err_buf_get(soft)`
+  (0xc0000000000aeb68, kept at 16(sp)) and the failing device with `pcireg_resp_err_dev_get(soft)` (0xc0000000000aecdc);
+  it stores the device number shifted left by 3 as the halfword at record +8 and sets bit 0x20000000 in the word at record
+  +0. It then stores `pcireg_resp_err_get(soft)` (0xc0000000000ae878) as the doubleword at record +40 and sets bit
+  0x400000 in the word at +0, and calls `pciio_error_handler(vertex, a1, a2, record)` (0xc0000000000c0c48), keeping the
+  result at 64(sp). A nonzero result calls `pcibr_device_disable(soft, (the halfword at record +8 >> 3) & 0x1f)`
+  (0xc0000000000a7bdc). It always then calls `pcireg_intr_reset_set(soft, 16)` (0xc0000000000b16c8). With `b` the buffer
+  number as a sign-extended word, it reads `pcireg_rrb_get(soft, b & 1)` (0xc0000000000b4ac4), keeps the value at 32(sp),
+  clears in it the four bits starting at bit 4 x (b >> 1) (mask `~(15 << (4 x (b >> 1)))`) and writes that with
+  `pcireg_rrb_set(soft, b & 1, value)` (0xc0000000000b4cd4), then writes the saved value back with a second
+  `pcireg_rrb_set`. It returns the handler's result from 64(sp) (single exit 0xc0000000000a8a54). The hardware state of the
+  read-response buffer that the clear and restore touches: unknown here. Established.
 
 ## Bridge attach
 
@@ -238,6 +289,16 @@ Routines of the PCI bridge driver (`pcibr`) and the crosstalk bridge attach code
   at +8 and the count) for a nonzero count, or "bridge at 0x%x: no external ATE RAM found\n" (0xc00000000152ae80) for a
   count of 0. It then calls `pcireg_ext_ate_set(soft, i, 0)` for each i from 0 to count-1 (skipped when the count is
   not positive) and returns the count. It has one exit (0xc0000000000a2298). Established.
+- `pcibr_bridge_ptr_get` (`6.5.30/unix.IP35`, address 0xc0000000000a1c94, 172 bytes, 16-byte frame): returns the address
+  of the register block of the bridge on a crosstalk widget, adding an offset for the second bus of a two-bus part.
+  `a0` is the widget vertex and `a1` selects the bus. It maps the widget with `xtalk_piotrans_addr(a0, 0, 0, 8, 0)`
+  (0xc0000000000970e8; the result is not tested) and reads the word at the mapping's +4. The part number is its bits 27
+  to 12 and the manufacturer number its bits 11 to 1. When the part is 0xd102 or 0xd112 and the manufacturer number is 36
+  (0x24), and `a1` (saved at 8(sp)) equals 1, it returns the mapped address plus 0x800000 (the sum is formed in the
+  delay slot at 0xc0000000000a1d3c). In every other case, including either of those parts with another manufacturer
+  number or a different `a1`, it returns the mapped address unchanged. Which chips carry those two part numbers, and
+  that `a1` of 1 picks the second bus, are inferred from the two-bus layout the offset suggests; no name in the
+  binary says so. It has one exit, 0xc0000000000a1d10. Established.
 
 ## Interrupt connections
 
@@ -309,6 +370,33 @@ Routines of the PCI bridge driver (`pcibr`) and the crosstalk bridge attach code
   one of two 64-bit locations in that node's Hub register block, chosen by that bit. Which Hub register these are:
   unknown here. It returns no value on any path (the exits at 0xc0000000000a4d70 leave `v0` as the callee left it).
   Established.
+- `pcibr_intr_func` (`6.5.30/unix.IP35`, address 0xc0000000000a5cfc, 592 bytes, 96-byte frame): the handler that
+  `pcibr_intr_connect` registers with the crosstalk interrupt for each bridge interrupt bit; it runs every PCI interrupt
+  object attached to that bit. It returns no value. `a0` is the per-bit wrapper that `pcibr_intr_connect` passes as the
+  argument (`s5`, the address `pcibr_intr_connect` forms as its per-bit record plus 8). The wrapper holds the bridge soft state as the doubleword at
+  wrapper +0, the bit number n as the word at wrapper +8, the head of the list of attached objects as the doubleword at
+  wrapper +16, a count of woken threads as the word at wrapper +24 and a flag as the word at wrapper +28. A list entry (`s0`)
+  holds its next entry at 0(s0), its object at 8(s0), a doubleword at 16(s0) and a byte at 24(s0). An
+  object (`s1`) has its flags in the word at 0(s1) (bit 0 set once connected, bit 1 set for the kind without a thread,
+  which is called directly), its handler at 24(s1), its argument at 32(s1), and a lock at 104(s1) and a
+  semaphore at 48(s1), both used as addresses.
+  When the halfword at soft +114 equals 2 and the low four bits of the word at soft +120 equal 1, it first takes the lock
+  at soft +140 (`mutex_spinlock`, 0xc000000000331f6c), calls `pcireg_intr_enable_bit_clr(soft, 1 << n)`
+  (0xc0000000000b13d4) and `pcireg_intr_enable_bit_set(soft, 1 << n)` (0xc0000000000b1554) in that order, and releases the
+  lock with `mutex_io_spinunlock` (0xc000000000331e84). Then, when the word at wrapper +24 is nonzero, it returns at
+  once. Otherwise it walks the list; a second pass runs only when the first met an object with bit 1 set. Entries whose
+  object is null or whose bit 0 is clear are skipped. In the first pass an object with bit 1 clear (the kind with a
+  thread) is woken: when the word at wrapper +28 is nonzero it calls `pcireg_wrb_flush_get(the doubleword at 16(s0),
+  the byte at 24(s0))` (0xc0000000000b4870), it adds 1 to the word at wrapper +24 with a load-linked and
+  store-conditional loop (the retry branch at 0xc0000000000a5e44 is branch-likely), calls `pcibr_wrap_put(wrapper,
+  s1 + 104)` (0xc0000000000a4ca4) and `vsema(s1 + 48)` (0xc00000000023559c). Objects with bit 1 set are only
+  counted in the first pass. In the second pass the objects with bit 1 set are called: the same flush when the word at
+  wrapper +28 is nonzero, then `jalr` to the doubleword at 24(s1) with the doubleword at 32(s1) as its
+  argument. After the second pass, when the word at wrapper +24 is still zero, it calls `pcibr_force_interrupt(wrapper)`
+  (0xc0000000000a4d38). When no entry was handled at all (the list is empty, or every entry was skipped) it takes the
+  soft state's lock, calls `pcireg_intr_enable_bit_clr(soft, 1 << n)`, reads `pcireg_tflush_get(soft)`
+  (0xc0000000000ae584) and releases the lock, which turns the bit off. Every path ends at 0xc0000000000a5ed8. The code the woken thread of the threaded
+  kind then runs: unknown here. Established.
 
 ## Slot information export
 
@@ -608,3 +696,20 @@ Routines of the PCI bridge driver (`pcibr`) and the crosstalk bridge attach code
   `xwidget_info_chk` (0xc0000000000975bc), returns 255 when that gives nothing, and otherwise returns
   `xwidget_info_id_get` (0xc0000000000976cc) of the result. Exits are 0xc0000000000983ec, where `v0` is the
   255 or the widget id placed in `a3`, and the end at 0xc0000000000983f8. Established.
+- `xbow_reset_link` (`6.5.30/unix.IP35`, address 0xc000000000099d84, 260 bytes, 48-byte frame): clears the error state
+  of one crossbar link and waits for it to come back, returning 0 when it does and -1 when it does not in time. `a0` is
+  the vertex of a widget (it is used with `xwidget_info_get`); the routine is the only entry of the table `xbow_provider`. The time base
+  is the doubleword at 0x9200000001030100 (pool word 0xc000000001644048), of which only the low 32 bits are used; its
+  tick rate is calibrated on the first call, when the word at 0xc00000000163c820 is zero: it reads the counter, calls
+  `us_delay(1000)` (0xc000000000069a4c), reads it again and stores the difference in that word, so the word is the
+  number of ticks in one millisecond. The routine then takes the widget number from `xwidget_info_get(a0)` (0xc0000000000975e8) and
+  `xwidget_info_id_get` (0xc0000000000976cc), finds the crossbar with `hwgraph_traverse(a0, ".master/xtalk/0/xbow", &vertex)`
+  (0xc0000000003411fc; the string is at 0xc00000000049a440) and gets its record with `hwgraph_fastinfo_get` (0xc000000000341af8).
+  The port block is the record's doubleword at +16 (the register base) plus 64 x (widget number & 7). It saves the word at port
+  block +268, stores 0 in the word at +308, delays `xbow_reset_delay` microseconds (the word at 0xc00000000163c81c, which
+  holds 20 initially) with `us_delay` and records the counter. It then polls the word at +276: when its bit 31 is set it
+  writes the saved word back to +268 and returns 0 (exit 0xc000000000099e5c). Otherwise, when the elapsed ticks (the
+  difference of the low 32 bits, since the counter read after the first delay) exceed the calibrated word, that is more
+  than about a millisecond, it returns -1 without restoring +268; if not it delays
+  `xbow_reset_delay` microseconds again and repeats. What the words at +268, +276 and +308 are in the crossbar's link
+  registers: unknown here. Established.
