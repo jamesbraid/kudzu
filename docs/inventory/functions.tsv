@@ -9001,8 +9001,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(dnlc.o)	shared-kernel	n32	.text	0x10b4	284	dnlc_purge_vfsp	dwarf+symtab	0b7e27073ff9		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(dnlc.o)	shared-kernel	n32	.text	0x11d0	172	dnlc_rm	dwarf+funcnames+symtab	cb8ffd587ed4		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(dnlc.o)	shared-kernel	n32	.text	0x127c	376	dnlc_search	dwarf+funcnames+symtab	572d88339087		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(exec.o)	shared-kernel	n32		0x0		exec	dwarf+symtab			out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(exec.o)	shared-kernel	n32	.text	0x28	40	exece	dwarf+symtab	ea560bfa14c3		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(exec.o)	shared-kernel	n32		0x0		exec	dwarf+symtab			out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(exec.o)	shared-kernel	n32	.text	0x28	40	exece	dwarf+symtab	ea560bfa14c3		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(exec.o)	shared-kernel	n32	.text	0x50	40	rexec	dwarf+symtab	ec03d23030be		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(exec.o)	shared-kernel	n32	.text	0x78	548	iexec	dwarf+funcnames+symtab	f374bc2adaee		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(exec.o)	shared-kernel	n32	.text	0x29c	300	execpermissions	dwarf+symtab	d4fe39155b55		out:3	undocumented		
@@ -9026,10 +9026,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(elf.o)	shared-kernel	n32	.text	0x18d4	200	elf_compute_availsmem	dwarf+funcnames+symtab	f00cff470071		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(elf.o)	shared-kernel	n32	.text	0x199c	316	check_for_r5000_cvt_clean	dwarf+funcnames+symtab	ec70209cbf25		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(exit.o)	shared-kernel	n32		0x0		add_exit_callback	dwarf+symtab			out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(exit.o)	shared-kernel	n32	.text	0xd0	40	rexit	dwarf+symtab	68aaa88b7af2		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(exit.o)	shared-kernel	n32	.text	0xf8	780	exit	dwarf+symtab	1c7fff9c94c9		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(exit.o)	shared-kernel	n32	.text	0xd0	40	rexit	dwarf+symtab	68aaa88b7af2		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(exit.o)	shared-kernel	n32	.text	0xf8	780	exit	dwarf+symtab	1c7fff9c94c9		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(exit.o)	shared-kernel	n32	.text	0x404	124	winfo	dwarf+funcnames+symtab	b138c9c243b5		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(exit.o)	shared-kernel	n32	.text	0x480	360	waitsys_wrapper	dwarf+symtab	d03c6177ed28		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(exit.o)	shared-kernel	n32	.text	0x480	360	waitsys_wrapper	dwarf+symtab	d03c6177ed28		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(exit.o)	shared-kernel	n32	.text	0x5e8	1336	waitsys	dwarf+symtab	1cd4666553f5		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(exit.o)	shared-kernel	n32	.text	0xb20	204	vrelvm	dwarf+symtab	d89814f519df		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(fdt.o)	shared-kernel	n32		0x0		fdt_fd_to_chunk	dwarf+symtab			out:3	undocumented		
@@ -9842,7 +9842,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(ptimers.o)	shared-kernel	n32	.text	0x6d4	1164	timer_settime	dwarf+symtab	7a3008be76e0		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(ptimers.o)	shared-kernel	n32	.text	0xb60	184	timer_gettime	dwarf+symtab	0999fbabe05c		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(ptimers.o)	shared-kernel	n32	.text	0xc18	372	dotimer_gettime	dwarf+funcnames+symtab	63c33b8f5695		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(ptimers.o)	shared-kernel	n32	.text	0xd8c	164	timer_getoverrun	dwarf+symtab	f6b4a421532a		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(ptimers.o)	shared-kernel	n32	.text	0xd8c	164	timer_getoverrun	dwarf+symtab	f6b4a421532a		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(ptimers.o)	shared-kernel	n32	.text	0xe30	360	delete_ptimers	dwarf+symtab	c899b50ee8a9		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(ptimers.o)	shared-kernel	n32	.text	0xf98	580	ptimer_timeout	dwarf+symtab	37c1bd2a4dcb		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(ptimers.o)	shared-kernel	n32	.text	0x11dc	92	interval_tick_to_ts	dwarf+funcnames+symtab	13d3d7e2bc73		out:3	undocumented		
@@ -9871,7 +9871,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(scalls.o)	shared-kernel	n32	.text	0x364	124	getgroups	dwarf+symtab	9fcb6a411af2		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(scalls.o)	shared-kernel	n32	.text	0x3e0	248	setgroups	dwarf+symtab	4607b7f5e8b6		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(scalls.o)	shared-kernel	n32	.text	0x4d8	104	getpid	dwarf+symtab	0ad5e5e2c48c		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(scalls.o)	shared-kernel	n32	.text	0x540	244	setpgrp	dwarf+symtab	577e13405612		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(scalls.o)	shared-kernel	n32	.text	0x540	244	setpgrp	dwarf+symtab	577e13405612		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(scalls.o)	shared-kernel	n32	.text	0x634	376	BSDgetpgrp	dwarf+symtab	2a014641acee		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(scalls.o)	shared-kernel	n32	.text	0x7ac	308	BSDsetpgrp	dwarf+symtab	fdbbb5087849		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(scalls.o)	shared-kernel	n32	.text	0x8e0	84	setsid	dwarf+symtab	2c64990f9c79		out:3	undocumented		
@@ -9894,7 +9894,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(scalls.o)	shared-kernel	n32	.text	0x19f0	372	sigaction	dwarf+symtab	00582a91d8e4		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(scalls.o)	shared-kernel	n32	.text	0x1b64	220	sigstack	dwarf+symtab	113f2aab685b		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(scalls.o)	shared-kernel	n32	.text	0x1c40	340	k_sigaltstack	dwarf+funcnames+symtab	abbeec34078f		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(scalls.o)	shared-kernel	n32	.text	0x1d94	28	xpg4_sigaltstack	dwarf+symtab	168ef11418d0		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(scalls.o)	shared-kernel	n32	.text	0x1d94	28	xpg4_sigaltstack	dwarf+symtab	168ef11418d0		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(scalls.o)	shared-kernel	n32	.text	0x1db0	28	_sigaltstack	dwarf+symtab	3c93e672fd02		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(scalls.o)	shared-kernel	n32	.text	0x1dcc	408	sysconf	dwarf+symtab	c1000dfdcd5d		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(sched.o)	shared-kernel	n32		0x0		sched	dwarf+symtab			out:3	undocumented		
@@ -9950,7 +9950,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(sig.o)	shared-kernel	n32	.text	0x3ff0	92	sigisready	dwarf+symtab	18fcfd54d917		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(sig.o)	shared-kernel	n32	.text	0x404c	52	ut_sigispend	dwarf+funcnames+symtab	a9e6eac766fd		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(sig.o)	shared-kernel	n32	.text	0x4080	132	sigispend	dwarf+symtab	4dddb62d01e3		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(sig.o)	shared-kernel	n32	.text	0x4104	140	sigqueue_sys	dwarf+symtab	1114d25654dd		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(sig.o)	shared-kernel	n32	.text	0x4104	140	sigqueue_sys	dwarf+symtab	1114d25654dd		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(sig.o)	shared-kernel	n32	.text	0x4190	412	ksigqueue	dwarf+symtab	a9ca3765c704		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(sig.o)	shared-kernel	n32	.text	0x432c	356	sigpoll_sys	dwarf+symtab	6dbd7b1970dd		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(sig.o)	shared-kernel	n32	.text	0x4490	552	sigpoll	dwarf+funcnames+symtab	bbb960000ebc		out:3	undocumented		
@@ -9966,7 +9966,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(sig.o)	shared-kernel	n32	.text	0x58d4	484	irix5_restoresigcontext	dwarf+funcnames+symtab	66e1d1987815		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(sig.o)	shared-kernel	n32	.text	0x5ab8	284	sigreturn	dwarf+symtab	88b3bac6318b		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(sig.o)	shared-kernel	n32	.text	0x5bd4	224	irix5_siginfoktou	dwarf+symtab	f91121874e8c		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(sig.o)	shared-kernel	n32	.text	0x5cb4	248	sigsendsys	dwarf+symtab	b431649fa7ff		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(sig.o)	shared-kernel	n32	.text	0x5cb4	248	sigsendsys	dwarf+symtab	b431649fa7ff		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(sig.o)	shared-kernel	n32	.text	0x5dac	148	kill	dwarf+symtab	c74a0682e22d		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(sig.o)	shared-kernel	n32	.text	0x5e40	340	killsingle	dwarf+funcnames+symtab	bb030646b290		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(sig.o)	shared-kernel	n32	.text	0x5f94	296	killpg	dwarf+funcnames+symtab	77473c522e71		out:3	undocumented		
@@ -10228,9 +10228,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x2b98	368	postsyserrors	dwarf+funcnames+symtab	b890f4eb55cc		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x2d08	280	syscall_has_64bit_arg	dwarf+symtab	2bfdca1b5316		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x2e20	308	reload_args	dwarf+funcnames+symtab	732300bf98a8		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x2f54	1404	syscall	dwarf+symtab	586cd47cce97		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x34d0	88	nosys	dwarf+symtab	ea17e0913418		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x3528	8	nopkg	dwarf+symtab	6bc8e674fbf7		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x2f54	1404	syscall	dwarf+symtab	586cd47cce97		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x34d0	88	nosys	dwarf+symtab	ea17e0913418		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x3528	8	nopkg	dwarf+symtab	6bc8e674fbf7		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x3530	44	noreach	dwarf+symtab	c37ae14a87a2		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x355c	8	nullsys	dwarf+symtab	87506497337c		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x3564	268	buserror_intr	dwarf+symtab	26882243f715		out:3	undocumented		
@@ -11868,7 +11868,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(select.o)	shared-kernel	n32	.text	0x4a0	1476	dopoll	dwarf+funcnames+symtab	3202a52b692f		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(select.o)	shared-kernel	n32	.text	0xa64	1408	k_select	dwarf+funcnames+symtab	2207a13366cc		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(select.o)	shared-kernel	n32	.text	0xfe4	28	select	dwarf+symtab	295c861fb3cd		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(select.o)	shared-kernel	n32	.text	0x1000	28	xpg4_select	dwarf+symtab	2f5516b0c7d3		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(select.o)	shared-kernel	n32	.text	0x1000	28	xpg4_select	dwarf+symtab	2f5516b0c7d3		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(select.o)	shared-kernel	n32	.text	0x101c	224	pollwakeup	dwarf+symtab	b5cb037b702d		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(select.o)	shared-kernel	n32	.text	0x10fc	100	pollwakeup_thread	dwarf+symtab	d3143ee04945		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(syscalls.o)	shared-kernel	n32		0x0		sgikopt	dwarf+symtab			out:3	undocumented		
@@ -12531,7 +12531,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/suser.a(suser.o)	shared-kernel	n32		0x0		cap_able_cred	dwarf+symtab			out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/suser.a(suser.o)	shared-kernel	n32	.text	0x80	48	cap_able	dwarf+symtab	888c63178564		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/svckudp.a(nfs_svc.o)	shared-kernel	n32		0x0		knfsd_dispatch	dwarf+symtab			out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/svckudp.a(nfs_svc.o)	shared-kernel	n32	.text	0x7c	620	nfs_svc	dwarf+symtab	7c1f34d85212		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/svckudp.a(nfs_svc.o)	shared-kernel	n32	.text	0x7c	620	nfs_svc	dwarf+symtab	7c1f34d85212		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP22boot/tablet.o	shared-kernel	n32		0x0		tbt_other_control	dwarf+funcnames+symtab			out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/tablet.o	shared-kernel	n32	.text	0x19c	528	tbt_intr	dwarf+funcnames+symtab	284d18c4e207		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/tablet.o	shared-kernel	n32	.text	0x3ac	1208	tbt_wioctl	dwarf+funcnames+symtab	dcf6a787a540		out:3	undocumented		
@@ -26704,8 +26704,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(dnlc.o)	shared-kernel	n64	.text	0x1278	276	dnlc_purge_vfsp	dwarf+symtab	1589c0c70955		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(dnlc.o)	shared-kernel	n64	.text	0x138c	220	dnlc_rm	dwarf+symtab	c73ef4ae8d9a		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(dnlc.o)	shared-kernel	n64	.text	0x1468	376	dnlc_search	dwarf+symtab	518172c85c82		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(exec.o)	shared-kernel	n64		0x0		exec	dwarf+symtab			out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(exec.o)	shared-kernel	n64	.text	0x28	40	exece	dwarf+symtab	8007003af35b		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(exec.o)	shared-kernel	n64		0x0		exec	dwarf+symtab			out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(exec.o)	shared-kernel	n64	.text	0x28	40	exece	dwarf+symtab	8007003af35b		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(exec.o)	shared-kernel	n64	.text	0x50	40	rexec	dwarf+symtab	8c45882d5334		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(exec.o)	shared-kernel	n64	.text	0x78	548	iexec	dwarf+symtab	c964465d2707		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(exec.o)	shared-kernel	n64	.text	0x29c	484	execpermissions	dwarf+symtab	f75f69baf514		out:3	undocumented		
@@ -26737,10 +26737,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(elf64.o)	shared-kernel	n64	.text	0x170c	84	elf_get_availsmem	dwarf+symtab	29bda451f910		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(elf64.o)	shared-kernel	n64	.text	0x1760	204	elf_compute_availsmem	dwarf+symtab	f39208a91602		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64		0x0		add_exit_callback	dwarf+symtab			out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64	.text	0xd0	40	rexit	dwarf+symtab	5cd5915fa923		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64	.text	0xf8	864	exit	dwarf+symtab	b956adf0ffe7		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64	.text	0xd0	40	rexit	dwarf+symtab	5cd5915fa923		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64	.text	0xf8	864	exit	dwarf+symtab	b956adf0ffe7		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64	.text	0x458	124	winfo	dwarf+symtab	2409c8bba604		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64	.text	0x4d4	480	waitsys_wrapper	dwarf+symtab	e909fc323b56		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64	.text	0x4d4	480	waitsys_wrapper	dwarf+symtab	e909fc323b56		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64	.text	0x6b4	1336	waitsys	dwarf+symtab	668d67681ee3		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64	.text	0xbec	192	vrelvm	dwarf+symtab	3a2d3c16a20b		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(fdt.o)	shared-kernel	n64		0x0		fdt_fd_to_chunk	dwarf+symtab			out:3	undocumented		
@@ -27570,7 +27570,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(ptimers.o)	shared-kernel	n64	.text	0x724	1068	timer_settime	dwarf+symtab	01c2fd71a2be		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xb50	172	timer_gettime	dwarf+symtab	d08d8a9f7a1f		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xbfc	400	dotimer_gettime	dwarf+symtab	c5cd9a9f0ff7		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xd8c	156	timer_getoverrun	dwarf+symtab	fcf8aefa6edb		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xd8c	156	timer_getoverrun	dwarf+symtab	fcf8aefa6edb		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xe28	392	delete_ptimers	dwarf+symtab	45aa92a4afad		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xfb0	564	ptimer_timeout	dwarf+symtab	b14d771a18e2		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(ptimers.o)	shared-kernel	n64	.text	0x11e4	96	interval_tick_to_ts	dwarf+symtab	c0ad6d04667e		out:3	undocumented		
@@ -27604,7 +27604,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x364	128	getgroups	dwarf+symtab	51ed07368ef5		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x3e4	260	setgroups	dwarf+symtab	fe7471f926e9		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x4e8	104	getpid	dwarf+symtab	76010fbd8810		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x550	244	setpgrp	dwarf+symtab	67ffe90e2854		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x550	244	setpgrp	dwarf+symtab	67ffe90e2854		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x644	376	BSDgetpgrp	dwarf+symtab	a403cfff3697		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x7bc	308	BSDsetpgrp	dwarf+symtab	e3afa1d0dcfd		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x8f0	84	setsid	dwarf+symtab	aba44f4c558e		out:3	undocumented		
@@ -27632,7 +27632,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x1f6c	484	sigaction	dwarf+symtab	fc9dfb53e964		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x2150	252	sigstack	dwarf+symtab	a9cfd1240830		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x224c	380	k_sigaltstack	dwarf+symtab	ffdb3c91f86a		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x23c8	28	xpg4_sigaltstack	dwarf+symtab	12a18864d05c		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x23c8	28	xpg4_sigaltstack	dwarf+symtab	12a18864d05c		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x23e4	28	_sigaltstack	dwarf+symtab	227bc59b4e59		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x2400	364	sysconf	dwarf+symtab	117d24ee686f		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x256c	36	bcopy_irix5_to_prof	dwarf+symtab	7680b7bb0d9a		out:3	undocumented		
@@ -27697,7 +27697,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x43a0	92	sigisready	dwarf+symtab	0b28eb41a45f		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x43fc	52	ut_sigispend	dwarf+symtab	d177ad2772df		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x4430	128	sigispend	dwarf+symtab	b62d02792402		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x44b0	136	sigqueue_sys	dwarf+symtab	b8427733cb36		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x44b0	136	sigqueue_sys	dwarf+symtab	b8427733cb36		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x4538	404	ksigqueue	dwarf+symtab	ae0ca348a14e		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x46cc	428	sigpoll_sys	dwarf+symtab	3858edd75f24		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x4878	592	sigpoll	dwarf+symtab	19816440597b		out:3	undocumented		
@@ -27713,7 +27713,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x5cec	500	irix5_restoresigcontext	dwarf+symtab	a29f6f83559e		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x5ee0	328	sigreturn	dwarf+symtab	1fcbf59540f9		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x6028	224	irix5_siginfoktou	dwarf+symtab	6dc26b5ac1ac		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x6108	248	sigsendsys	dwarf+symtab	959e2d31c561		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x6108	248	sigsendsys	dwarf+symtab	959e2d31c561		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x6200	148	kill	dwarf+symtab	90306ab6c5bb		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x6294	340	killsingle	dwarf+symtab	0f12aad6d3ce		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x63e8	292	killpg	dwarf+symtab	9ccc79ae1f33		out:3	undocumented		
@@ -27991,9 +27991,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x2390	656	presysactions	dwarf+symtab	c298f70b99c7		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x2620	1176	postsysactions	dwarf+symtab	1190a43d8542		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x2ab8	368	postsyserrors	dwarf+symtab	2faf259371ee		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x2c28	1440	syscall	dwarf+symtab	bc9b939f83a7		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x31c8	88	nosys	dwarf+symtab	ee2b10b8e4f8		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x3220	8	nopkg	dwarf+symtab	6bc8e674fbf7		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x2c28	1440	syscall	dwarf+symtab	bc9b939f83a7		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x31c8	88	nosys	dwarf+symtab	ee2b10b8e4f8		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x3220	8	nopkg	dwarf+symtab	6bc8e674fbf7		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x3228	44	noreach	dwarf+symtab	9a6cda84acb5		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x3254	8	nullsys	dwarf+symtab	87506497337c		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x325c	272	buserror_intr	dwarf+symtab	899c19eec4e3		out:3	undocumented		
@@ -30598,7 +30598,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x4c4	1524	dopoll	dwarf+symtab	aeff543b3582		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0xab8	1412	k_select	dwarf+symtab	01c867d23691		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x103c	28	select	dwarf+symtab	4e0b7c85ec68		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x1058	28	xpg4_select	dwarf+symtab	9b5b52955f37		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x1058	28	xpg4_select	dwarf+symtab	9b5b52955f37		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x1074	232	pollwakeup	dwarf+symtab	bc17fffef90d		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x115c	112	pollwakeup_thread	dwarf+symtab	748f41e0cdea		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(syscalls.o)	shared-kernel	n64		0x0		sgikopt	dwarf+symtab			out:3	undocumented		
@@ -31634,7 +31634,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/suser.a(suser.o)	shared-kernel	n64		0x0		cap_able_cred	dwarf+symtab			out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/suser.a(suser.o)	shared-kernel	n64	.text	0x80	48	cap_able	dwarf+symtab	eed8a30f5024		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/svckudp.a(nfs_svc.o)	shared-kernel	n64		0x0		knfsd_dispatch	dwarf+symtab			out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/svckudp.a(nfs_svc.o)	shared-kernel	n64	.text	0x7c	576	nfs_svc	dwarf+symtab	fcdcde290fb9		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/svckudp.a(nfs_svc.o)	shared-kernel	n64	.text	0x7c	576	nfs_svc	dwarf+symtab	fcdcde290fb9		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP27boot/tablet.o	shared-kernel	n64		0x0		tbt_other_control	dwarf+symtab			out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/tablet.o	shared-kernel	n64	.text	0x1bc	604	tbt_intr	dwarf+symtab	9ec59894a6c1		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/tablet.o	shared-kernel	n64	.text	0x418	1440	tbt_wioctl	dwarf+symtab	eafb45a4098c		out:3	undocumented		
@@ -44297,8 +44297,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(dnlc.o)	shared-kernel	n64	.text	0x1278	276	dnlc_purge_vfsp	dwarf+symtab	819c0bfd85e6		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(dnlc.o)	shared-kernel	n64	.text	0x138c	220	dnlc_rm	dwarf+symtab	c73ef4ae8d9a		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(dnlc.o)	shared-kernel	n64	.text	0x1468	376	dnlc_search	dwarf+symtab	faacbca7a6dc		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(exec.o)	shared-kernel	n64		0x0		exec	dwarf+symtab			out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(exec.o)	shared-kernel	n64	.text	0x28	40	exece	dwarf+symtab	8007003af35b		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(exec.o)	shared-kernel	n64		0x0		exec	dwarf+symtab			out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(exec.o)	shared-kernel	n64	.text	0x28	40	exece	dwarf+symtab	8007003af35b		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(exec.o)	shared-kernel	n64	.text	0x50	40	rexec	dwarf+symtab	8c45882d5334		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(exec.o)	shared-kernel	n64	.text	0x78	548	iexec	dwarf+symtab	ee0db7159b38		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(exec.o)	shared-kernel	n64	.text	0x29c	484	execpermissions	dwarf+symtab	78da87252171		out:3	undocumented		
@@ -44330,10 +44330,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(elf64.o)	shared-kernel	n64	.text	0x16bc	84	elf_get_availsmem	dwarf+symtab	29bda451f910		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(elf64.o)	shared-kernel	n64	.text	0x1710	204	elf_compute_availsmem	dwarf+symtab	f39208a91602		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64		0x0		add_exit_callback	dwarf+symtab			out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64	.text	0xd0	40	rexit	dwarf+symtab	5cd5915fa923		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64	.text	0xf8	816	exit	dwarf+symtab	5cf678824872		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64	.text	0xd0	40	rexit	dwarf+symtab	5cd5915fa923		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64	.text	0xf8	816	exit	dwarf+symtab	5cf678824872		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64	.text	0x428	124	winfo	dwarf+symtab	2409c8bba604		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64	.text	0x4a4	480	waitsys_wrapper	dwarf+symtab	e909fc323b56		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64	.text	0x4a4	480	waitsys_wrapper	dwarf+symtab	e909fc323b56		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64	.text	0x684	1336	waitsys	dwarf+symtab	668d67681ee3		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64	.text	0xbbc	192	vrelvm	dwarf+symtab	3a2d3c16a20b		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(fdt.o)	shared-kernel	n64		0x0		fdt_fd_to_chunk	dwarf+symtab			out:3	undocumented		
@@ -45088,7 +45088,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(ptimers.o)	shared-kernel	n64	.text	0x724	1068	timer_settime	dwarf+symtab	1e6c71b3e359		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xb50	172	timer_gettime	dwarf+symtab	d08d8a9f7a1f		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xbfc	400	dotimer_gettime	dwarf+symtab	c5cd9a9f0ff7		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xd8c	156	timer_getoverrun	dwarf+symtab	fcf8aefa6edb		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xd8c	156	timer_getoverrun	dwarf+symtab	fcf8aefa6edb		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xe28	392	delete_ptimers	dwarf+symtab	45aa92a4afad		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xfb0	564	ptimer_timeout	dwarf+symtab	a7a353c99d21		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(ptimers.o)	shared-kernel	n64	.text	0x11e4	96	interval_tick_to_ts	dwarf+symtab	1df5112d9006		out:3	undocumented		
@@ -45122,7 +45122,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x364	128	getgroups	dwarf+symtab	51ed07368ef5		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x3e4	260	setgroups	dwarf+symtab	fe7471f926e9		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x4e8	104	getpid	dwarf+symtab	76010fbd8810		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x550	244	setpgrp	dwarf+symtab	67ffe90e2854		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x550	244	setpgrp	dwarf+symtab	67ffe90e2854		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x644	376	BSDgetpgrp	dwarf+symtab	a403cfff3697		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x7bc	308	BSDsetpgrp	dwarf+symtab	e3afa1d0dcfd		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x8f0	84	setsid	dwarf+symtab	aba44f4c558e		out:3	undocumented		
@@ -45150,7 +45150,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x1f6c	484	sigaction	dwarf+symtab	fc9dfb53e964		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x2150	252	sigstack	dwarf+symtab	a9cfd1240830		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x224c	380	k_sigaltstack	dwarf+symtab	ffdb3c91f86a		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x23c8	28	xpg4_sigaltstack	dwarf+symtab	12a18864d05c		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x23c8	28	xpg4_sigaltstack	dwarf+symtab	12a18864d05c		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x23e4	28	_sigaltstack	dwarf+symtab	227bc59b4e59		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x2400	364	sysconf	dwarf+symtab	117d24ee686f		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x256c	36	bcopy_irix5_to_prof	dwarf+symtab	7680b7bb0d9a		out:3	undocumented		
@@ -45214,7 +45214,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x4108	92	sigisready	dwarf+symtab	50f7f961c663		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x4164	52	ut_sigispend	dwarf+symtab	ed3ee2416239		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x4198	128	sigispend	dwarf+symtab	b62d02792402		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x4218	136	sigqueue_sys	dwarf+symtab	b8427733cb36		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x4218	136	sigqueue_sys	dwarf+symtab	b8427733cb36		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x42a0	404	ksigqueue	dwarf+symtab	ae0ca348a14e		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x4434	428	sigpoll_sys	dwarf+symtab	1f1604decd29		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x45e0	592	sigpoll	dwarf+symtab	22dcd30a9270		out:3	undocumented		
@@ -45230,7 +45230,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x5a54	500	irix5_restoresigcontext	dwarf+symtab	2811a4636f6d		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x5c48	328	sigreturn	dwarf+symtab	9f2135d8a7d2		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x5d90	224	irix5_siginfoktou	dwarf+symtab	fa95737d2792		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x5e70	248	sigsendsys	dwarf+symtab	959e2d31c561		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x5e70	248	sigsendsys	dwarf+symtab	959e2d31c561		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x5f68	148	kill	dwarf+symtab	90306ab6c5bb		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x5ffc	340	killsingle	dwarf+symtab	0f12aad6d3ce		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x6150	292	killpg	dwarf+symtab	9ccc79ae1f33		out:3	undocumented		
@@ -45500,9 +45500,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x23a4	656	presysactions	dwarf+symtab	e38a4947c016		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x2634	1176	postsysactions	dwarf+symtab	f6ffbd7cdea3		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x2acc	368	postsyserrors	dwarf+symtab	bd0425c11055		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x2c3c	1376	syscall	dwarf+symtab	500d51498bc3		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x319c	88	nosys	dwarf+symtab	ee2b10b8e4f8		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x31f4	8	nopkg	dwarf+symtab	6bc8e674fbf7		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x2c3c	1376	syscall	dwarf+symtab	500d51498bc3		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x319c	88	nosys	dwarf+symtab	ee2b10b8e4f8		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x31f4	8	nopkg	dwarf+symtab	6bc8e674fbf7		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x31fc	44	noreach	dwarf+symtab	fd26bd48e0ec		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x3228	8	nullsys	dwarf+symtab	87506497337c		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x3230	264	buserror_intr	dwarf+symtab	0f032f5712cf		out:3	undocumented		
@@ -47758,7 +47758,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x4c4	1524	dopoll	dwarf+symtab	2ea53846f8e1		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0xab8	1412	k_select	dwarf+symtab	59f275bdd3b7		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x103c	28	select	dwarf+symtab	4e0b7c85ec68		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x1058	28	xpg4_select	dwarf+symtab	9b5b52955f37		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x1058	28	xpg4_select	dwarf+symtab	9b5b52955f37		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x1074	232	pollwakeup	dwarf+symtab	bc17fffef90d		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x115c	112	pollwakeup_thread	dwarf+symtab	6ee44dc3a02f		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/sgi.a(syscalls.o)	shared-kernel	n64		0x0		sgikopt	dwarf+symtab			out:3	undocumented		
@@ -48658,7 +48658,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/suser.a(suser.o)	shared-kernel	n64		0x0		cap_able_cred	dwarf+symtab			out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/suser.a(suser.o)	shared-kernel	n64	.text	0x80	48	cap_able	dwarf+symtab	eed8a30f5024		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/svckudp.a(nfs_svc.o)	shared-kernel	n64		0x0		knfsd_dispatch	dwarf+symtab			out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/svckudp.a(nfs_svc.o)	shared-kernel	n64	.text	0x7c	576	nfs_svc	dwarf+symtab	fcdcde290fb9		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/svckudp.a(nfs_svc.o)	shared-kernel	n64	.text	0x7c	576	nfs_svc	dwarf+symtab	fcdcde290fb9		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP30boot/tablet.o	shared-kernel	n64		0x0		tbt_other_control	dwarf+symtab			out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/tablet.o	shared-kernel	n64	.text	0x1bc	604	tbt_intr	dwarf+symtab	9ec59894a6c1		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/tablet.o	shared-kernel	n64	.text	0x418	1440	tbt_wioctl	dwarf+symtab	eafb45a4098c		out:3	undocumented		
@@ -59655,8 +59655,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(dnlc.o)	shared-kernel	n32	.text	0x10b4	284	dnlc_purge_vfsp	dwarf+symtab	0b7e27073ff9		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(dnlc.o)	shared-kernel	n32	.text	0x11d0	172	dnlc_rm	dwarf+funcnames+symtab	cb8ffd587ed4		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(dnlc.o)	shared-kernel	n32	.text	0x127c	376	dnlc_search	dwarf+funcnames+symtab	572d88339087		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(exec.o)	shared-kernel	n32		0x0		exec	dwarf+symtab			out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(exec.o)	shared-kernel	n32	.text	0x28	40	exece	dwarf+symtab	ea560bfa14c3		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(exec.o)	shared-kernel	n32		0x0		exec	dwarf+symtab			out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(exec.o)	shared-kernel	n32	.text	0x28	40	exece	dwarf+symtab	ea560bfa14c3		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(exec.o)	shared-kernel	n32	.text	0x50	40	rexec	dwarf+symtab	ec03d23030be		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(exec.o)	shared-kernel	n32	.text	0x78	548	iexec	dwarf+funcnames+symtab	f374bc2adaee		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(exec.o)	shared-kernel	n32	.text	0x29c	300	execpermissions	dwarf+symtab	d4fe39155b55		out:3	undocumented		
@@ -59680,10 +59680,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(elf.o)	shared-kernel	n32	.text	0x18d4	200	elf_compute_availsmem	dwarf+funcnames+symtab	f00cff470071		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(elf.o)	shared-kernel	n32	.text	0x199c	316	check_for_r5000_cvt_clean	dwarf+funcnames+symtab	ec70209cbf25		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32		0x0		add_exit_callback	dwarf+symtab			out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32	.text	0xd0	40	rexit	dwarf+symtab	68aaa88b7af2		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32	.text	0xf8	812	exit	dwarf+symtab	c198e3151588		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32	.text	0xd0	40	rexit	dwarf+symtab	68aaa88b7af2		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32	.text	0xf8	812	exit	dwarf+symtab	c198e3151588		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32	.text	0x424	124	winfo	dwarf+funcnames+symtab	b138c9c243b5		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32	.text	0x4a0	360	waitsys_wrapper	dwarf+symtab	d03c6177ed28		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32	.text	0x4a0	360	waitsys_wrapper	dwarf+symtab	d03c6177ed28		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32	.text	0x608	1336	waitsys	dwarf+symtab	872064b981a0		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32	.text	0xb40	204	vrelvm	dwarf+symtab	d89814f519df		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(fdt.o)	shared-kernel	n32		0x0		fdt_fd_to_chunk	dwarf+symtab			out:3	undocumented		
@@ -60483,7 +60483,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(ptimers.o)	shared-kernel	n32	.text	0x6d4	1164	timer_settime	dwarf+symtab	7a3008be76e0		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(ptimers.o)	shared-kernel	n32	.text	0xb60	184	timer_gettime	dwarf+symtab	0999fbabe05c		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(ptimers.o)	shared-kernel	n32	.text	0xc18	372	dotimer_gettime	dwarf+funcnames+symtab	63c33b8f5695		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(ptimers.o)	shared-kernel	n32	.text	0xd8c	164	timer_getoverrun	dwarf+symtab	f6b4a421532a		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(ptimers.o)	shared-kernel	n32	.text	0xd8c	164	timer_getoverrun	dwarf+symtab	f6b4a421532a		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(ptimers.o)	shared-kernel	n32	.text	0xe30	360	delete_ptimers	dwarf+symtab	c899b50ee8a9		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(ptimers.o)	shared-kernel	n32	.text	0xf98	580	ptimer_timeout	dwarf+symtab	37c1bd2a4dcb		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(ptimers.o)	shared-kernel	n32	.text	0x11dc	92	interval_tick_to_ts	dwarf+funcnames+symtab	13d3d7e2bc73		out:3	undocumented		
@@ -60512,7 +60512,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x364	124	getgroups	dwarf+symtab	9fcb6a411af2		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x3e0	248	setgroups	dwarf+symtab	4607b7f5e8b6		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x4d8	104	getpid	dwarf+symtab	0ad5e5e2c48c		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x540	244	setpgrp	dwarf+symtab	577e13405612		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x540	244	setpgrp	dwarf+symtab	577e13405612		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x634	376	BSDgetpgrp	dwarf+symtab	2a014641acee		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x7ac	308	BSDsetpgrp	dwarf+symtab	fdbbb5087849		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x8e0	84	setsid	dwarf+symtab	2c64990f9c79		out:3	undocumented		
@@ -60538,7 +60538,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x1e08	372	sigaction	dwarf+symtab	00582a91d8e4		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x1f7c	220	sigstack	dwarf+symtab	113f2aab685b		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x2058	340	k_sigaltstack	dwarf+funcnames+symtab	abbeec34078f		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x21ac	28	xpg4_sigaltstack	dwarf+symtab	168ef11418d0		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x21ac	28	xpg4_sigaltstack	dwarf+symtab	168ef11418d0		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x21c8	28	_sigaltstack	dwarf+symtab	3c93e672fd02		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x21e4	408	sysconf	dwarf+symtab	c1000dfdcd5d		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(sched.o)	shared-kernel	n32		0x0		do_sxbrk_wakeups	dwarf+funcnames+symtab			out:3	undocumented		
@@ -60595,7 +60595,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x3ff0	92	sigisready	dwarf+symtab	18fcfd54d917		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x404c	52	ut_sigispend	dwarf+funcnames+symtab	a9e6eac766fd		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x4080	132	sigispend	dwarf+symtab	4dddb62d01e3		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x4104	140	sigqueue_sys	dwarf+symtab	1114d25654dd		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x4104	140	sigqueue_sys	dwarf+symtab	1114d25654dd		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x4190	412	ksigqueue	dwarf+symtab	a9ca3765c704		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x432c	356	sigpoll_sys	dwarf+symtab	6dbd7b1970dd		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x4490	552	sigpoll	dwarf+funcnames+symtab	bbb960000ebc		out:3	undocumented		
@@ -60611,7 +60611,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x58d4	484	irix5_restoresigcontext	dwarf+funcnames+symtab	66e1d1987815		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x5ab8	284	sigreturn	dwarf+symtab	88b3bac6318b		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x5bd4	224	irix5_siginfoktou	dwarf+symtab	f91121874e8c		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x5cb4	248	sigsendsys	dwarf+symtab	b431649fa7ff		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x5cb4	248	sigsendsys	dwarf+symtab	b431649fa7ff		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x5dac	148	kill	dwarf+symtab	c74a0682e22d		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x5e40	340	killsingle	dwarf+funcnames+symtab	bb030646b290		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x5f94	296	killpg	dwarf+funcnames+symtab	77473c522e71		out:3	undocumented		
@@ -60897,9 +60897,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x2908	368	postsyserrors	dwarf+funcnames+symtab	b890f4eb55cc		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x2a78	280	syscall_has_64bit_arg	dwarf+symtab	2bfdca1b5316		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x2b90	308	reload_args	dwarf+funcnames+symtab	6e908e9cd2a3		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x2cc4	1412	syscall	dwarf+symtab	fc4559d5ceeb		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x3248	88	nosys	dwarf+symtab	ea17e0913418		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32a0	8	nopkg	dwarf+symtab	6bc8e674fbf7		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x2cc4	1412	syscall	dwarf+symtab	fc4559d5ceeb		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x3248	88	nosys	dwarf+symtab	ea17e0913418		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32a0	8	nopkg	dwarf+symtab	6bc8e674fbf7		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32a8	44	noreach	dwarf+symtab	9dba57ad68c2		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32d4	8	nullsys	dwarf+symtab	87506497337c		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32dc	268	buserror_intr	dwarf+symtab	26882243f715		out:3	undocumented		
@@ -62815,7 +62815,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x4a0	1476	dopoll	dwarf+funcnames+symtab	3202a52b692f		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0xa64	1408	k_select	dwarf+funcnames+symtab	2207a13366cc		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0xfe4	28	select	dwarf+symtab	295c861fb3cd		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x1000	28	xpg4_select	dwarf+symtab	2f5516b0c7d3		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x1000	28	xpg4_select	dwarf+symtab	2f5516b0c7d3		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x101c	224	pollwakeup	dwarf+symtab	b5cb037b702d		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x10fc	100	pollwakeup_thread	dwarf+symtab	d3143ee04945		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/sgi.a(syscalls.o)	shared-kernel	n32		0x0		sgikopt	dwarf+symtab			out:3	undocumented		
@@ -63450,7 +63450,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/suser.a(suser.o)	shared-kernel	n32		0x0		cap_able_cred	dwarf+symtab			out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/suser.a(suser.o)	shared-kernel	n32	.text	0x80	48	cap_able	dwarf+symtab	888c63178564		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/svckudp.a(nfs_svc.o)	shared-kernel	n32		0x0		knfsd_dispatch	dwarf+symtab			out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/svckudp.a(nfs_svc.o)	shared-kernel	n32	.text	0x7c	620	nfs_svc	dwarf+symtab	7c1f34d85212		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/svckudp.a(nfs_svc.o)	shared-kernel	n32	.text	0x7c	620	nfs_svc	dwarf+symtab	7c1f34d85212		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP32boot/tablet.o	shared-kernel	n32		0x0		tbt_other_control	dwarf+funcnames+symtab			out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/tablet.o	shared-kernel	n32	.text	0x19c	528	tbt_intr	dwarf+funcnames+symtab	284d18c4e207		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/tablet.o	shared-kernel	n32	.text	0x3ac	1208	tbt_wioctl	dwarf+funcnames+symtab	dcf6a787a540		out:3	undocumented		
@@ -76652,8 +76652,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(dnlc.o)	shared-kernel	n64	.text	0x1278	276	dnlc_purge_vfsp	dwarf+symtab	7bd5d73df195		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(dnlc.o)	shared-kernel	n64	.text	0x138c	220	dnlc_rm	dwarf+symtab	c73ef4ae8d9a		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(dnlc.o)	shared-kernel	n64	.text	0x1468	376	dnlc_search	dwarf+symtab	2fa4662b73e1		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(exec.o)	shared-kernel	n64		0x0		exec	dwarf+symtab			out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(exec.o)	shared-kernel	n64	.text	0x28	40	exece	dwarf+symtab	8007003af35b		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(exec.o)	shared-kernel	n64		0x0		exec	dwarf+symtab			out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(exec.o)	shared-kernel	n64	.text	0x28	40	exece	dwarf+symtab	8007003af35b		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(exec.o)	shared-kernel	n64	.text	0x50	40	rexec	dwarf+symtab	8c45882d5334		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(exec.o)	shared-kernel	n64	.text	0x78	548	iexec	dwarf+symtab	84c26ad0be31		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(exec.o)	shared-kernel	n64	.text	0x29c	484	execpermissions	dwarf+symtab	b11064f8fcdd		out:3	undocumented		
@@ -76685,10 +76685,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(elf64.o)	shared-kernel	n64	.text	0x170c	84	elf_get_availsmem	dwarf+symtab	29bda451f910		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(elf64.o)	shared-kernel	n64	.text	0x1760	204	elf_compute_availsmem	dwarf+symtab	f39208a91602		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64		0x0		add_exit_callback	dwarf+symtab			out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64	.text	0xd0	40	rexit	dwarf+symtab	5cd5915fa923		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64	.text	0xf8	816	exit	dwarf+symtab	3b62352d3a75		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64	.text	0xd0	40	rexit	dwarf+symtab	5cd5915fa923		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64	.text	0xf8	816	exit	dwarf+symtab	3b62352d3a75		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64	.text	0x428	124	winfo	dwarf+symtab	2409c8bba604		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64	.text	0x4a4	480	waitsys_wrapper	dwarf+symtab	e909fc323b56		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64	.text	0x4a4	480	waitsys_wrapper	dwarf+symtab	e909fc323b56		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64	.text	0x684	1336	waitsys	dwarf+symtab	1c97a3014d7b		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64	.text	0xbbc	192	vrelvm	dwarf+symtab	42d814438a68		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(fdt.o)	shared-kernel	n64		0x0		fdt_fd_to_chunk	dwarf+symtab			out:3	undocumented		
@@ -77463,7 +77463,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(ptimers.o)	shared-kernel	n64	.text	0x724	1096	timer_settime	dwarf+symtab	a421812ae471		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xb6c	172	timer_gettime	dwarf+symtab	972aae66a857		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xc18	400	dotimer_gettime	dwarf+symtab	c5cd9a9f0ff7		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xda8	156	timer_getoverrun	dwarf+symtab	8b8e18786c7e		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xda8	156	timer_getoverrun	dwarf+symtab	8b8e18786c7e		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xe44	392	delete_ptimers	dwarf+symtab	74e3bd458ab5		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xfcc	564	ptimer_timeout	dwarf+symtab	94de9bcb23b6		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(ptimers.o)	shared-kernel	n64	.text	0x1200	124	interval_tick_to_ts	dwarf+symtab	994730a62ecd		out:3	undocumented		
@@ -77497,7 +77497,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x364	128	getgroups	dwarf+symtab	51ed07368ef5		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x3e4	260	setgroups	dwarf+symtab	67b062775145		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x4e8	104	getpid	dwarf+symtab	916d53c67b2a		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x550	244	setpgrp	dwarf+symtab	ebb0f1f5918c		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x550	244	setpgrp	dwarf+symtab	ebb0f1f5918c		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x644	376	BSDgetpgrp	dwarf+symtab	e7b2d35c9934		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x7bc	308	BSDsetpgrp	dwarf+symtab	b7d0d501eace		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x8f0	84	setsid	dwarf+symtab	b808c08c210c		out:3	undocumented		
@@ -77525,7 +77525,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x1f6c	484	sigaction	dwarf+symtab	b36fe1dc31b3		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x2150	252	sigstack	dwarf+symtab	74513ecc4c84		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x224c	380	k_sigaltstack	dwarf+symtab	6ac50cd86a32		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x23c8	28	xpg4_sigaltstack	dwarf+symtab	12a18864d05c		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x23c8	28	xpg4_sigaltstack	dwarf+symtab	12a18864d05c		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x23e4	28	_sigaltstack	dwarf+symtab	227bc59b4e59		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x2400	364	sysconf	dwarf+symtab	26f7955001bf		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x256c	36	bcopy_irix5_to_prof	dwarf+symtab	7680b7bb0d9a		out:3	undocumented		
@@ -77590,7 +77590,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x43a0	92	sigisready	dwarf+symtab	22020f6f00fa		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x43fc	52	ut_sigispend	dwarf+symtab	7a805aa579ab		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x4430	128	sigispend	dwarf+symtab	b62d02792402		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x44b0	136	sigqueue_sys	dwarf+symtab	b8427733cb36		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x44b0	136	sigqueue_sys	dwarf+symtab	b8427733cb36		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x4538	404	ksigqueue	dwarf+symtab	30fbfc904030		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x46cc	428	sigpoll_sys	dwarf+symtab	3858edd75f24		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x4878	592	sigpoll	dwarf+symtab	ddc3939d7064		out:3	undocumented		
@@ -77606,7 +77606,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x5cec	500	irix5_restoresigcontext	dwarf+symtab	ba2e97fb38e4		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x5ee0	328	sigreturn	dwarf+symtab	fbc9225b855b		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x6028	224	irix5_siginfoktou	dwarf+symtab	6dc26b5ac1ac		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x6108	248	sigsendsys	dwarf+symtab	99b884bd556d		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x6108	248	sigsendsys	dwarf+symtab	99b884bd556d		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x6200	148	kill	dwarf+symtab	90306ab6c5bb		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x6294	340	killsingle	dwarf+symtab	c1dc49e7ad42		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x63e8	292	killpg	dwarf+symtab	83299e8500c8		out:3	undocumented		
@@ -77877,9 +77877,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x22e4	656	presysactions	dwarf+symtab	29efeb624f64		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x2574	1172	postsysactions	dwarf+symtab	f30f3bd54470		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x2a08	368	postsyserrors	dwarf+symtab	941f5d4e58c7		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x2b78	1380	syscall	dwarf+symtab	523a7396251a		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x30dc	88	nosys	dwarf+symtab	e5bb94a0121b		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x3134	8	nopkg	dwarf+symtab	6bc8e674fbf7		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x2b78	1380	syscall	dwarf+symtab	523a7396251a		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x30dc	88	nosys	dwarf+symtab	e5bb94a0121b		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x3134	8	nopkg	dwarf+symtab	6bc8e674fbf7		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x313c	44	noreach	dwarf+symtab	9a6cda84acb5		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x3168	8	nullsys	dwarf+symtab	87506497337c		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x3170	272	buserror_intr	dwarf+symtab	719f74f0c531		out:3	undocumented		
@@ -80383,7 +80383,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x4c4	1524	dopoll	dwarf+symtab	a3e9e3008c9f		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0xab8	1412	k_select	dwarf+symtab	c9ac1419016d		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x103c	28	select	dwarf+symtab	4e0b7c85ec68		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x1058	28	xpg4_select	dwarf+symtab	9b5b52955f37		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x1058	28	xpg4_select	dwarf+symtab	9b5b52955f37		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x1074	232	pollwakeup	dwarf+symtab	bc17fffef90d		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x115c	112	pollwakeup_thread	dwarf+symtab	117c5a50a52f		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/sgi.a(syscalls.o)	shared-kernel	n64		0x0		sgikopt	dwarf+symtab			out:3	undocumented		
@@ -81296,7 +81296,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/suser.a(suser.o)	shared-kernel	n64		0x0		cap_able_cred	dwarf+symtab			out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/suser.a(suser.o)	shared-kernel	n64	.text	0x80	48	cap_able	dwarf+symtab	eed8a30f5024		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/svckudp.a(nfs_svc.o)	shared-kernel	n64		0x0		knfsd_dispatch	dwarf+symtab			out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/svckudp.a(nfs_svc.o)	shared-kernel	n64	.text	0x7c	576	nfs_svc	dwarf+symtab	fcdcde290fb9		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/svckudp.a(nfs_svc.o)	shared-kernel	n64	.text	0x7c	576	nfs_svc	dwarf+symtab	fcdcde290fb9		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.22/usr/cpu/sysgen/IP35boot/swipestubs.a(swipestubs.o)	shared-kernel	n64		0x0		swipe_getopol	dwarf+symtab			out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/swipestubs.a(swipestubs.o)	shared-kernel	n64	.text	0x8	8	sw_output	dwarf+symtab	6319e0118090		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/tablet.o	shared-kernel	n64		0x0		tbt_other_control	dwarf+symtab			out:3	undocumented		
@@ -92409,7 +92409,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000141494	28	polldel	symtab	7cee2aef5f53		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000141500	536	poll	symtab	ff7bc05a7b1c		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000142290	28	select	symtab	2d1efb7bd9dd		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001422ac	28	xpg4_select	symtab	3c353cb854fb		out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001422ac	28	xpg4_select	symtab	3c353cb854fb		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001422c8	232	pollwakeup	symtab	de090b4fbea5		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001423b0	112	pollwakeup_thread	symtab	cd4b2baada16		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000142420	72	strcmp	symtab	92ef65fa378b		out:1	undocumented		
@@ -93451,9 +93451,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a64ac	100	ldst_addr	symtab	4ab85777e9b9		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a6510	76	store_data	symtab	f8246f4e69a8		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a655c	176	trap_nofault	symtab	eccc1a511724		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a6ea4	1440	syscall	symtab	f19a518e4563		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a7444	88	nosys	symtab	7cb28124799c		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a749c	8	nopkg	symtab	6bc8e674fbf7		out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a6ea4	1440	syscall	symtab	f19a518e4563		out:1	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a7444	88	nosys	symtab	7cb28124799c		out:1	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a749c	8	nopkg	symtab	6bc8e674fbf7		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a74a4	44	noreach	symtab	821982557cac		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a74d0	8	nullsys	symtab	87506497337c		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a74d8	272	buserror_intr	symtab	818590bcf7b1		out:1	undocumented		
@@ -93733,7 +93733,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001bf008	232	assign_cursighold	symtab	915264164cf4		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001bf0f0	92	sigisready	symtab	0b28eb41a45f		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001bf180	128	sigispend	symtab	73065eb1250f		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001bf200	136	sigqueue_sys	symtab	5b308c58089d		out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001bf200	136	sigqueue_sys	symtab	5b308c58089d		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001bf288	404	ksigqueue	symtab	7361800b66bf		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001bf41c	428	sigpoll_sys	symtab	e2ca46163385		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001bf9b0	624	irix5_n32_savecontext	symtab	178bebd43010		out:1	undocumented		
@@ -93744,7 +93744,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001c0718	276	getcontext	symtab	4d0787f4a4d7		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001c0c2c	328	sigreturn	symtab	bf95ced8eeda		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001c0d74	224	irix5_siginfoktou	symtab	f5d3ed9fb1d4		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001c0e54	248	sigsendsys	symtab	fad8929a3436		out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001c0e54	248	sigsendsys	symtab	fad8929a3436		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001c0f4c	148	kill	symtab	9255204e6746		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001c1480	716	irix5_64_restorecontext	symtab	65b9184158ec		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001c174c	624	irix5_64_savecontext	symtab	a5f31a4bdd60		out:1	undocumented		
@@ -94454,7 +94454,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000020518c	128	getgroups	symtab	0229bc5c1ae4		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000020520c	260	setgroups	symtab	110dca334387		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000205310	104	getpid	symtab	58c64f642810		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000205378	244	setpgrp	symtab	bc2ae4f66cbc		out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000205378	244	setpgrp	symtab	bc2ae4f66cbc		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000020546c	376	BSDgetpgrp	symtab	de52ecae4a87		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000002055e4	308	BSDsetpgrp	symtab	8041b0bc8795		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000205718	84	setsid	symtab	aba44f4c558e		out:1	undocumented		
@@ -94474,7 +94474,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000206c10	212	sigprocmask	symtab	053cd067e134		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000206d94	484	sigaction	symtab	ad751649f452		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000206f78	252	sigstack	symtab	ec038683e1de		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000207204	28	xpg4_sigaltstack	symtab	52d6ee8356e3		out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000207204	28	xpg4_sigaltstack	symtab	52d6ee8356e3		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000207220	28	_sigaltstack	symtab	6c84f50495a9		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000020723c	364	sysconf	symtab	2f0889bd335d		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000207640	248	setrlimit	symtab	6356040d0767		out:1	undocumented		
@@ -94491,7 +94491,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000208210	348	timer_delete	symtab	ffd500101b0e		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000020836c	1068	timer_settime	symtab	9dd1deb7907b		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000208798	172	timer_gettime	symtab	989a51b56a14		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000002089d4	156	timer_getoverrun	symtab	fcf8aefa6edb		out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000002089d4	156	timer_getoverrun	symtab	fcf8aefa6edb		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000208a70	392	delete_ptimers	symtab	fdbc9f281779		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000208bf8	564	ptimer_timeout	symtab	15a6d0916b66		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000208e8c	76	tick_to_timespec	symtab	2cc64b0048bb		out:1	undocumented		
@@ -94504,9 +94504,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000209110	128	irix5_to_itimerspec	symtab	33dde14e1f26		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000209190	128	itimerspec_to_irix5	symtab	92d6d53565fd		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000209210	208	add_exit_callback	symtab	ef82ca580087		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000002092e0	40	rexit	symtab	b64521f4617b		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000209308	864	exit	symtab	b9384bebb1a9		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000002096e4	480	waitsys_wrapper	symtab	edc63bb4a976		out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000002092e0	40	rexit	symtab	b64521f4617b		out:1	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000209308	864	exit	symtab	b9384bebb1a9		out:1	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000002096e4	480	waitsys_wrapper	symtab	edc63bb4a976		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000002098c4	1336	waitsys	symtab	01564fae47bc		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000209dfc	192	vrelvm	symtab	8ebbfe15853f		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000209ebc	152	inituname	symtab	703568267a1b		out:1	undocumented		
@@ -95076,8 +95076,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000241ba0	4068	schedctl	symtab	7c2cb56ecc8f		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000242d54	840	elf64exec	symtab	6908e586d55e		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000243ff0	1120	elf64map	symtab	fc0ec47bfdcc		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000244570	40	exec	symtab	7b54f4b3fe91		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000244598	40	exece	symtab	ffb7837d25cb		out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000244570	40	exec	symtab	7b54f4b3fe91		out:1	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000244598	40	exece	symtab	ffb7837d25cb		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000002445c0	40	rexec	symtab	d4cdcb3bf08a		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000024480c	484	execpermissions	symtab	4362e55fee10		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000244ccc	708	gexec	symtab	5ad3efe969ac		out:1	undocumented		
@@ -96726,7 +96726,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000328a60	144	xdr_nfs_nsdfh	symtab	0f006b918f16		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000328af0	128	knfsd_switch_prog	symtab	9af429de8a20		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000328b70	108	knfsd_dispatch	symtab	b9931c59183d		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000328bdc	648	nfs_svc	symtab	66c0fdab77e4		out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000328bdc	648	nfs_svc	symtab	66c0fdab77e4		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000003294c4	324	get_class	symtab	6b4464401d76		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000032a47c	1272	nfs_rmount	symtab	5a394c2e904b		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000032a974	8	nfs_rumount	symtab	87506497337c		out:1	undocumented		
@@ -105421,7 +105421,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020119534	28	polldel	symtab	7283d1893b7d		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201195a0	536	poll	symtab	9c6f4dce27bb		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002011a330	28	select	symtab	1f559b562043		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002011a34c	28	xpg4_select	symtab	b9e5754c19d2		out:1	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002011a34c	28	xpg4_select	symtab	b9e5754c19d2		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002011a368	232	pollwakeup	symtab	8a790d43d944		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002011a450	112	pollwakeup_thread	symtab	2c86b8ee680f		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002011a4c0	88	_bhash	symtab	6cf1ada61202		out:1	undocumented		
@@ -106379,9 +106379,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016dd04	124	ldst_addr	symtab	87a064fdacd9		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016dd80	76	store_data	symtab	f8246f4e69a8		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016ddcc	176	trap_nofault	symtab	8a5a00078487		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016e714	1376	syscall	symtab	545a204035ee		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016ec74	88	nosys	symtab	c46e9888c72b		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016eccc	8	nopkg	symtab	6bc8e674fbf7		out:1	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016e714	1376	syscall	symtab	545a204035ee		out:1	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016ec74	88	nosys	symtab	c46e9888c72b		out:1	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016eccc	8	nopkg	symtab	6bc8e674fbf7		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016ecd4	44	noreach	symtab	9da689aad98e		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016ed00	8	nullsys	symtab	87506497337c		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016ed08	264	buserror_intr	symtab	38b557cc293a		out:1	undocumented		
@@ -106644,7 +106644,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020183674	232	assign_cursighold	symtab	331f07be8880		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002018375c	92	sigisready	symtab	50f7f961c663		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201837ec	128	sigispend	symtab	930a3c5022f7		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002018386c	136	sigqueue_sys	symtab	974addab502a		out:1	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002018386c	136	sigqueue_sys	symtab	974addab502a		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201838f4	404	ksigqueue	symtab	e9d10304dca4		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020183a88	428	sigpoll_sys	symtab	b93144648eb3		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002018401c	624	irix5_n32_savecontext	symtab	62999e4300bd		out:1	undocumented		
@@ -106655,7 +106655,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020184d88	276	getcontext	symtab	99077300a63b		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002018529c	328	sigreturn	symtab	3f0a9fef3695		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201853e4	224	irix5_siginfoktou	symtab	675cde4861d8		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201854c4	248	sigsendsys	symtab	5102b1f5556d		out:1	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201854c4	248	sigsendsys	symtab	5102b1f5556d		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201855bc	148	kill	symtab	6c87e6a575d0		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020185af0	716	irix5_64_restorecontext	symtab	d9e76cf47a50		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020185dbc	624	irix5_64_savecontext	symtab	f99a18266e37		out:1	undocumented		
@@ -107292,7 +107292,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c1e00	128	getgroups	symtab	08b66f7af7cf		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c1e80	260	setgroups	symtab	bd1aecaa9199		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c1f84	104	getpid	symtab	9bf1e4217ef3		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c1fec	244	setpgrp	symtab	c8a5ef0c8338		out:1	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c1fec	244	setpgrp	symtab	c8a5ef0c8338		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c20e0	376	BSDgetpgrp	symtab	4d05fcbaf600		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c2258	308	BSDsetpgrp	symtab	265bf3e288ce		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c238c	84	setsid	symtab	aba44f4c558e		out:1	undocumented		
@@ -107312,7 +107312,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c3884	212	sigprocmask	symtab	374434cefd4d		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c3a08	484	sigaction	symtab	3aba32ebe495		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c3bec	252	sigstack	symtab	dbb967429b57		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c3e78	28	xpg4_sigaltstack	symtab	b1d1121f31d9		out:1	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c3e78	28	xpg4_sigaltstack	symtab	b1d1121f31d9		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c3e94	28	_sigaltstack	symtab	0031c9a6f97c		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c3eb0	364	sysconf	symtab	ec90d07e7ab9		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c42b4	248	setrlimit	symtab	53fe27ebfdd5		out:1	undocumented		
@@ -107329,7 +107329,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c4e84	348	timer_delete	symtab	1e45a9c81ea7		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c4fe0	1068	timer_settime	symtab	f936f4862c4a		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c540c	172	timer_gettime	symtab	ada8e46000f4		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c5648	156	timer_getoverrun	symtab	fcf8aefa6edb		out:1	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c5648	156	timer_getoverrun	symtab	fcf8aefa6edb		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c56e4	392	delete_ptimers	symtab	cfa948865e8f		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c586c	564	ptimer_timeout	symtab	09529508de63		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c5b00	76	tick_to_timespec	symtab	2cc64b0048bb		out:1	undocumented		
@@ -107342,9 +107342,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c5d84	128	irix5_to_itimerspec	symtab	5f76c8d786cb		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c5e04	128	itimerspec_to_irix5	symtab	1a65606a17b5		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c5e84	208	add_exit_callback	symtab	28f69134fdca		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c5f54	40	rexit	symtab	37cbc1a170e7		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c5f7c	816	exit	symtab	faeadf6c2d19		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c6328	480	waitsys_wrapper	symtab	83f0a2ad385e		out:1	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c5f54	40	rexit	symtab	37cbc1a170e7		out:1	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c5f7c	816	exit	symtab	faeadf6c2d19		out:1	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c6328	480	waitsys_wrapper	symtab	83f0a2ad385e		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c6508	1336	waitsys	symtab	def6aff4a05e		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c6a40	192	vrelvm	symtab	e3e3ec6e18ce		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c6b00	76	cmn_err	symtab	c37ae0be2b13		in	named-only	docs/open-questions.md#scaffold	Scaffold
@@ -107926,8 +107926,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201fc608	72	ktimer_slptime	symtab	41ff945a5be5		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201fc650	824	elf64exec	symtab	33bcab215fcd		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201fd8cc	1120	elf64map	symtab	f40867d8d6b8		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201fde4c	40	exec	symtab	add401690191		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201fde74	40	exece	symtab	91fec656e9bc		out:1	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201fde4c	40	exec	symtab	add401690191		out:1	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201fde74	40	exece	symtab	91fec656e9bc		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201fde9c	40	rexec	symtab	b1b7752d8be5		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201fe0e8	484	execpermissions	symtab	dc29f33a003c		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201fe5a8	708	gexec	symtab	3b705659d48b		out:1	undocumented		
@@ -109521,7 +109521,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000202d77e0	144	xdr_nfs_nsdfh	symtab	b07106e5b8e7		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000202d7870	128	knfsd_switch_prog	symtab	e8fc7812a5e6		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000202d78f0	108	knfsd_dispatch	symtab	9eafff5982af		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000202d795c	648	nfs_svc	symtab	bba741509bdf		out:1	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000202d795c	648	nfs_svc	symtab	bba741509bdf		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000202d8244	324	get_class	symtab	9ebdd2ce661e		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000202d91fc	1272	nfs_rmount	symtab	c1825aa47064		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000202d96f4	8	nfs_rumount	symtab	87506497337c		out:1	undocumented		
@@ -120278,7 +120278,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001dd200	28	polldel	symtab	103b6f043228		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001dd26c	536	poll	symtab	bf94a091d68a		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001ddffc	28	select	symtab	9215b329ebdb		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001de018	28	xpg4_select	symtab	f0de9ab5622e		out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001de018	28	xpg4_select	symtab	f0de9ab5622e		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001de034	232	pollwakeup	symtab	6ce01cbcf65f		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001de11c	112	pollwakeup_thread	symtab	820c58fe306f		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001de18c	72	strcmp	symtab	92ef65fa378b		out:1	undocumented		
@@ -121547,9 +121547,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000255090	100	ldst_addr	symtab	ed48a851e20e		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002550f4	76	store_data	symtab	f8246f4e69a8		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000255140	176	trap_nofault	symtab	9523ac9b01ea		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000255a84	1380	syscall	symtab	36aad5eef5ff		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000255fe8	88	nosys	symtab	ee46cb22eb86		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000256040	8	nopkg	symtab	6bc8e674fbf7		out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000255a84	1380	syscall	symtab	36aad5eef5ff		out:1	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000255fe8	88	nosys	symtab	ee46cb22eb86		out:1	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000256040	8	nopkg	symtab	6bc8e674fbf7		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000256048	44	noreach	symtab	3164133a7ecd		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000256074	8	nullsys	symtab	87506497337c		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000025607c	272	buserror_intr	symtab	6c37c9f4fcd9		out:1	undocumented		
@@ -121830,7 +121830,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000026e9d0	232	assign_cursighold	symtab	70a00826c11e		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000026eab8	92	sigisready	symtab	22020f6f00fa		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000026eb48	128	sigispend	symtab	d04d021442d3		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000026ebc8	136	sigqueue_sys	symtab	4454656ca12b		out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000026ebc8	136	sigqueue_sys	symtab	4454656ca12b		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000026ec50	404	ksigqueue	symtab	e20ebe992dbc		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000026ede4	428	sigpoll_sys	symtab	dc2dfd33256d		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000026f378	624	irix5_n32_savecontext	symtab	0cfa0b846c28		out:1	undocumented		
@@ -121841,7 +121841,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002700e0	276	getcontext	symtab	c7d57101764e		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002705f4	328	sigreturn	symtab	3c089f1e952f		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000027073c	224	irix5_siginfoktou	symtab	4cb89d119b80		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000027081c	248	sigsendsys	symtab	bb71889dd416		out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000027081c	248	sigsendsys	symtab	bb71889dd416		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000270914	148	kill	symtab	4f69cd02275b		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000270e48	716	irix5_64_restorecontext	symtab	e72ffb9206b3		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000271114	624	irix5_64_savecontext	symtab	d98ea245a8ef		out:1	undocumented		
@@ -122550,7 +122550,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b5358	128	getgroups	symtab	51be57a07d32		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b53d8	260	setgroups	symtab	9533e9deb659		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b54dc	104	getpid	symtab	e395038e09c8		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b5544	244	setpgrp	symtab	517521fd4e2a		out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b5544	244	setpgrp	symtab	517521fd4e2a		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b5638	376	BSDgetpgrp	symtab	4ab73158017f		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b57b0	308	BSDsetpgrp	symtab	d02fac530d24		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b58e4	84	setsid	symtab	b808c08c210c		out:1	undocumented		
@@ -122570,7 +122570,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b6ddc	212	sigprocmask	symtab	dd7412c6d149		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b6f60	484	sigaction	symtab	fbe77348ea45		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b7144	252	sigstack	symtab	ce21da3e30c9		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b73d0	28	xpg4_sigaltstack	symtab	4eb1d4350d5c		out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b73d0	28	xpg4_sigaltstack	symtab	4eb1d4350d5c		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b73ec	28	_sigaltstack	symtab	1eebb73ea94b		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b7408	364	sysconf	symtab	0a47bcce6c75		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b780c	248	setrlimit	symtab	e09e05c2b9be		out:1	undocumented		
@@ -122587,7 +122587,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b83dc	348	timer_delete	symtab	3b468371cfdb		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b8538	1096	timer_settime	symtab	4739a7b7e535		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b8980	172	timer_gettime	symtab	7dd7968a9be8		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b8bbc	156	timer_getoverrun	symtab	8b8e18786c7e		out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b8bbc	156	timer_getoverrun	symtab	8b8e18786c7e		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b8c58	392	delete_ptimers	symtab	4a0fe1d34c53		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b8de0	564	ptimer_timeout	symtab	bc0490c4ad5d		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b9090	76	tick_to_timespec	symtab	2cc64b0048bb		out:1	undocumented		
@@ -122600,9 +122600,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b9314	128	irix5_to_itimerspec	symtab	90ed1e9fb656		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b9394	128	itimerspec_to_irix5	symtab	da9bbb795789		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b9414	208	add_exit_callback	symtab	502b55e1b956		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b94e4	40	rexit	symtab	480b8d57ec32		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b950c	816	exit	symtab	948300ed09ce		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b98b8	480	waitsys_wrapper	symtab	4bce4a6c395f		out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b94e4	40	rexit	symtab	480b8d57ec32		out:1	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b950c	816	exit	symtab	948300ed09ce		out:1	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b98b8	480	waitsys_wrapper	symtab	4bce4a6c395f		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b9a98	1336	waitsys	symtab	f8632047c961		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002b9fd0	192	vrelvm	symtab	a77cb157bfed		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002ba0e4	840	dnlc_init	symtab	4135debf1d0d		out:1	undocumented		
@@ -123135,8 +123135,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002f188c	3776	schedctl	symtab	f3c2360c8cb6		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002f291c	840	elf64exec	symtab	297d14f3526f		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002f3bb8	1120	elf64map	symtab	3e9b0f844cbb		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002f4138	40	exec	symtab	3475af1ee1d0		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002f4160	40	exece	symtab	1c714e43534b		out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002f4138	40	exec	symtab	3475af1ee1d0		out:1	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002f4160	40	exece	symtab	1c714e43534b		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002f4188	40	rexec	symtab	4e54d8af8a9e		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002f43d4	484	execpermissions	symtab	e547c92d985d		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002f4894	708	gexec	symtab	6763e56a17a1		out:1	undocumented		
@@ -124835,7 +124835,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003dc010	144	xdr_nfs_nsdfh	symtab	eb8dd8e6a1d2		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003dc0a0	128	knfsd_switch_prog	symtab	a702cada93c8		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003dc120	108	knfsd_dispatch	symtab	6961c54eb8fe		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003dc18c	648	nfs_svc	symtab	b27affba5dea		out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003dc18c	648	nfs_svc	symtab	b27affba5dea		out:1	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003dca74	324	get_class	symtab	b39db3985c3a		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003dda2c	1272	nfs_rmount	symtab	b5e3ec17c721		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003ddf24	8	nfs_rumount	symtab	87506497337c		out:1	undocumented		
@@ -136083,7 +136083,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/nfs.a(xdr_array.o)	shared-kernel	n64		0x0		xdr_array	dwarf+symtab			out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/nfs.a(nfs_svc.o)	shared-kernel	n64		0x0		knfsd_switch_prog	dwarf+symtab			out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/nfs.a(nfs_svc.o)	shared-kernel	n64	.text	0x80	108	knfsd_dispatch	dwarf+symtab	32c3812a1e5d		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/nfs.a(nfs_svc.o)	shared-kernel	n64	.text	0xec	648	nfs_svc	dwarf+symtab	4a6f0edffe67		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/nfs.a(nfs_svc.o)	shared-kernel	n64	.text	0xec	648	nfs_svc	dwarf+symtab	4a6f0edffe67		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP27boot/nfs3.a(nfs_client.o)	shared-kernel	n64		0x0		nfs3_validate_caches	dwarf+symtab			out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/nfs3.a(nfs_client.o)	shared-kernel	n64	.text	0x24	148	nfs_purge_caches	dwarf+symtab	a4629ed29228		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/nfs3.a(nfs_client.o)	shared-kernel	n64	.text	0xb8	120	nfs_purge_access_cache	dwarf+symtab	4024cca09778		out:3	undocumented		
@@ -138040,8 +138040,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(dnlc.o)	shared-kernel	n64	.text	0x1278	276	dnlc_purge_vfsp	dwarf+symtab	1589c0c70955		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(dnlc.o)	shared-kernel	n64	.text	0x138c	220	dnlc_rm	dwarf+symtab	c73ef4ae8d9a		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(dnlc.o)	shared-kernel	n64	.text	0x1468	376	dnlc_search	dwarf+symtab	518172c85c82		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(exec.o)	shared-kernel	n64		0x0		exec	dwarf+symtab			out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(exec.o)	shared-kernel	n64	.text	0x28	40	exece	dwarf+symtab	8007003af35b		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(exec.o)	shared-kernel	n64		0x0		exec	dwarf+symtab			out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(exec.o)	shared-kernel	n64	.text	0x28	40	exece	dwarf+symtab	8007003af35b		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(exec.o)	shared-kernel	n64	.text	0x50	40	rexec	dwarf+symtab	8c45882d5334		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(exec.o)	shared-kernel	n64	.text	0x78	548	iexec	dwarf+symtab	c964465d2707		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(exec.o)	shared-kernel	n64	.text	0x29c	484	execpermissions	dwarf+symtab	f75f69baf514		out:3	undocumented		
@@ -138073,10 +138073,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(elf64.o)	shared-kernel	n64	.text	0x16fc	84	elf_get_availsmem	dwarf+symtab	29bda451f910		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(elf64.o)	shared-kernel	n64	.text	0x1750	204	elf_compute_availsmem	dwarf+symtab	f39208a91602		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64		0x0		add_exit_callback	dwarf+symtab			out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64	.text	0xd0	40	rexit	dwarf+symtab	5cd5915fa923		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64	.text	0xf8	864	exit	dwarf+symtab	b956adf0ffe7		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64	.text	0xd0	40	rexit	dwarf+symtab	5cd5915fa923		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64	.text	0xf8	864	exit	dwarf+symtab	b956adf0ffe7		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64	.text	0x458	124	winfo	dwarf+symtab	2409c8bba604		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64	.text	0x4d4	480	waitsys_wrapper	dwarf+symtab	e909fc323b56		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64	.text	0x4d4	480	waitsys_wrapper	dwarf+symtab	e909fc323b56		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64	.text	0x6b4	1336	waitsys	dwarf+symtab	668d67681ee3		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(exit.o)	shared-kernel	n64	.text	0xbec	192	vrelvm	dwarf+symtab	3a2d3c16a20b		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(fdt.o)	shared-kernel	n64		0x0		fdt_fd_to_chunk	dwarf+symtab			out:3	undocumented		
@@ -138906,7 +138906,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(ptimers.o)	shared-kernel	n64	.text	0x724	1068	timer_settime	dwarf+symtab	01c2fd71a2be		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xb50	172	timer_gettime	dwarf+symtab	d08d8a9f7a1f		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xbfc	400	dotimer_gettime	dwarf+symtab	c5cd9a9f0ff7		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xd8c	156	timer_getoverrun	dwarf+symtab	fcf8aefa6edb		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xd8c	156	timer_getoverrun	dwarf+symtab	fcf8aefa6edb		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xe28	392	delete_ptimers	dwarf+symtab	45aa92a4afad		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xfb0	564	ptimer_timeout	dwarf+symtab	b14d771a18e2		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(ptimers.o)	shared-kernel	n64	.text	0x11e4	96	interval_tick_to_ts	dwarf+symtab	c0ad6d04667e		out:3	undocumented		
@@ -138940,7 +138940,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x364	128	getgroups	dwarf+symtab	51ed07368ef5		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x3e4	260	setgroups	dwarf+symtab	fe7471f926e9		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x4e8	104	getpid	dwarf+symtab	76010fbd8810		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x550	244	setpgrp	dwarf+symtab	67ffe90e2854		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x550	244	setpgrp	dwarf+symtab	67ffe90e2854		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x644	376	BSDgetpgrp	dwarf+symtab	a403cfff3697		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x7bc	308	BSDsetpgrp	dwarf+symtab	e3afa1d0dcfd		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x8f0	84	setsid	dwarf+symtab	aba44f4c558e		out:3	undocumented		
@@ -138968,7 +138968,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x1f6c	484	sigaction	dwarf+symtab	fc9dfb53e964		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x2150	252	sigstack	dwarf+symtab	a9cfd1240830		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x224c	400	k_sigaltstack	dwarf+symtab	05a82c57d8bb		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x23dc	28	xpg4_sigaltstack	dwarf+symtab	12a18864d05c		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x23dc	28	xpg4_sigaltstack	dwarf+symtab	12a18864d05c		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x23f8	28	_sigaltstack	dwarf+symtab	227bc59b4e59		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x2414	364	sysconf	dwarf+symtab	117d24ee686f		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(scalls.o)	shared-kernel	n64	.text	0x2580	36	bcopy_irix5_to_prof	dwarf+symtab	7680b7bb0d9a		out:3	undocumented		
@@ -139034,7 +139034,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x4840	92	sigisready	dwarf+symtab	0b28eb41a45f		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x489c	52	ut_sigispend	dwarf+symtab	d177ad2772df		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x48d0	128	sigispend	dwarf+symtab	b62d02792402		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x4950	136	sigqueue_sys	dwarf+symtab	b8427733cb36		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x4950	136	sigqueue_sys	dwarf+symtab	b8427733cb36		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x49d8	404	ksigqueue	dwarf+symtab	c12ab04d4561		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x4b6c	428	sigpoll_sys	dwarf+symtab	df0dfd7bb831		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x4d18	592	sigpoll	dwarf+symtab	19816440597b		out:3	undocumented		
@@ -139050,7 +139050,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x6188	500	irix5_restoresigcontext	dwarf+symtab	a29f6f83559e		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x637c	328	sigreturn	dwarf+symtab	dcbfb0b37653		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x64c4	224	irix5_siginfoktou	dwarf+symtab	748106fd7a3c		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x65a4	248	sigsendsys	dwarf+symtab	959e2d31c561		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x65a4	248	sigsendsys	dwarf+symtab	959e2d31c561		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x669c	148	kill	dwarf+symtab	90306ab6c5bb		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x6730	340	killsingle	dwarf+symtab	0f12aad6d3ce		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(sig.o)	shared-kernel	n64	.text	0x6884	292	killpg	dwarf+symtab	9ccc79ae1f33		out:3	undocumented		
@@ -139328,9 +139328,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x2390	656	presysactions	dwarf+symtab	c298f70b99c7		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x2620	1176	postsysactions	dwarf+symtab	98a39ecfb06b		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x2ab8	368	postsyserrors	dwarf+symtab	2faf259371ee		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x2c28	1440	syscall	dwarf+symtab	bc9b939f83a7		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x31c8	88	nosys	dwarf+symtab	ee2b10b8e4f8		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x3220	8	nopkg	dwarf+symtab	6bc8e674fbf7		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x2c28	1440	syscall	dwarf+symtab	bc9b939f83a7		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x31c8	88	nosys	dwarf+symtab	ee2b10b8e4f8		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x3220	8	nopkg	dwarf+symtab	6bc8e674fbf7		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x3228	44	noreach	dwarf+symtab	00e955d84f14		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x3254	8	nullsys	dwarf+symtab	87506497337c		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x325c	272	buserror_intr	dwarf+symtab	899c19eec4e3		out:3	undocumented		
@@ -142280,7 +142280,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x4c4	1524	dopoll	dwarf+symtab	aeff543b3582		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0xab8	1412	k_select	dwarf+symtab	01c867d23691		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x103c	28	select	dwarf+symtab	4e0b7c85ec68		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x1058	28	xpg4_select	dwarf+symtab	9b5b52955f37		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x1058	28	xpg4_select	dwarf+symtab	9b5b52955f37		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x1074	232	pollwakeup	dwarf+symtab	bc17fffef90d		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x115c	112	pollwakeup_thread	dwarf+symtab	748f41e0cdea		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(syscalls.o)	shared-kernel	n64		0x0		sgikopt	dwarf+symtab			out:3	undocumented		
@@ -154628,7 +154628,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/nfs.a(nsd_subr.o)	shared-kernel	n64	.text	0x214	144	xdr_nfs_nsdfh	dwarf+symtab	8dbdd3532ccb		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/nfs.a(nfs_svc.o)	shared-kernel	n64		0x0		knfsd_switch_prog	dwarf+symtab			out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/nfs.a(nfs_svc.o)	shared-kernel	n64	.text	0x80	108	knfsd_dispatch	dwarf+symtab	32c3812a1e5d		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/nfs.a(nfs_svc.o)	shared-kernel	n64	.text	0xec	648	nfs_svc	dwarf+symtab	4a6f0edffe67		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/nfs.a(nfs_svc.o)	shared-kernel	n64	.text	0xec	648	nfs_svc	dwarf+symtab	4a6f0edffe67		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP30boot/nfs3.a(nfs_client.o)	shared-kernel	n64		0x0		nfs3_validate_caches	dwarf+symtab			out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/nfs3.a(nfs_client.o)	shared-kernel	n64	.text	0x24	148	nfs_purge_caches	dwarf+symtab	a4629ed29228		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/nfs3.a(nfs_client.o)	shared-kernel	n64	.text	0xb8	120	nfs_purge_access_cache	dwarf+symtab	4024cca09778		out:3	undocumented		
@@ -156598,8 +156598,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(dnlc.o)	shared-kernel	n64	.text	0x1278	276	dnlc_purge_vfsp	dwarf+symtab	819c0bfd85e6		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(dnlc.o)	shared-kernel	n64	.text	0x138c	220	dnlc_rm	dwarf+symtab	c73ef4ae8d9a		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(dnlc.o)	shared-kernel	n64	.text	0x1468	376	dnlc_search	dwarf+symtab	faacbca7a6dc		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(exec.o)	shared-kernel	n64		0x0		exec	dwarf+symtab			out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(exec.o)	shared-kernel	n64	.text	0x28	40	exece	dwarf+symtab	8007003af35b		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(exec.o)	shared-kernel	n64		0x0		exec	dwarf+symtab			out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(exec.o)	shared-kernel	n64	.text	0x28	40	exece	dwarf+symtab	8007003af35b		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(exec.o)	shared-kernel	n64	.text	0x50	40	rexec	dwarf+symtab	8c45882d5334		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(exec.o)	shared-kernel	n64	.text	0x78	548	iexec	dwarf+symtab	ee0db7159b38		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(exec.o)	shared-kernel	n64	.text	0x29c	484	execpermissions	dwarf+symtab	78da87252171		out:3	undocumented		
@@ -156631,10 +156631,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(elf64.o)	shared-kernel	n64	.text	0x16dc	84	elf_get_availsmem	dwarf+symtab	29bda451f910		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(elf64.o)	shared-kernel	n64	.text	0x1730	204	elf_compute_availsmem	dwarf+symtab	f39208a91602		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64		0x0		add_exit_callback	dwarf+symtab			out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64	.text	0xd0	40	rexit	dwarf+symtab	5cd5915fa923		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64	.text	0xf8	816	exit	dwarf+symtab	5cf678824872		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64	.text	0xd0	40	rexit	dwarf+symtab	5cd5915fa923		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64	.text	0xf8	816	exit	dwarf+symtab	5cf678824872		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64	.text	0x428	124	winfo	dwarf+symtab	2409c8bba604		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64	.text	0x4a4	480	waitsys_wrapper	dwarf+symtab	e909fc323b56		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64	.text	0x4a4	480	waitsys_wrapper	dwarf+symtab	e909fc323b56		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64	.text	0x684	1336	waitsys	dwarf+symtab	668d67681ee3		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(exit.o)	shared-kernel	n64	.text	0xbbc	192	vrelvm	dwarf+symtab	3a2d3c16a20b		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(fdt.o)	shared-kernel	n64		0x0		fdt_fd_to_chunk	dwarf+symtab			out:3	undocumented		
@@ -157387,7 +157387,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(ptimers.o)	shared-kernel	n64	.text	0x724	1068	timer_settime	dwarf+symtab	1e6c71b3e359		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xb50	172	timer_gettime	dwarf+symtab	d08d8a9f7a1f		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xbfc	400	dotimer_gettime	dwarf+symtab	c5cd9a9f0ff7		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xd8c	156	timer_getoverrun	dwarf+symtab	fcf8aefa6edb		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xd8c	156	timer_getoverrun	dwarf+symtab	fcf8aefa6edb		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xe28	392	delete_ptimers	dwarf+symtab	45aa92a4afad		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xfb0	564	ptimer_timeout	dwarf+symtab	a7a353c99d21		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(ptimers.o)	shared-kernel	n64	.text	0x11e4	96	interval_tick_to_ts	dwarf+symtab	1df5112d9006		out:3	undocumented		
@@ -157421,7 +157421,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x364	128	getgroups	dwarf+symtab	51ed07368ef5		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x3e4	260	setgroups	dwarf+symtab	fe7471f926e9		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x4e8	104	getpid	dwarf+symtab	76010fbd8810		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x550	244	setpgrp	dwarf+symtab	67ffe90e2854		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x550	244	setpgrp	dwarf+symtab	67ffe90e2854		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x644	376	BSDgetpgrp	dwarf+symtab	a403cfff3697		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x7bc	308	BSDsetpgrp	dwarf+symtab	e3afa1d0dcfd		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x8f0	84	setsid	dwarf+symtab	aba44f4c558e		out:3	undocumented		
@@ -157449,7 +157449,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x1f6c	484	sigaction	dwarf+symtab	fc9dfb53e964		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x2150	252	sigstack	dwarf+symtab	a9cfd1240830		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x224c	400	k_sigaltstack	dwarf+symtab	05a82c57d8bb		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x23dc	28	xpg4_sigaltstack	dwarf+symtab	12a18864d05c		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x23dc	28	xpg4_sigaltstack	dwarf+symtab	12a18864d05c		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x23f8	28	_sigaltstack	dwarf+symtab	227bc59b4e59		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x2414	364	sysconf	dwarf+symtab	117d24ee686f		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(scalls.o)	shared-kernel	n64	.text	0x2580	36	bcopy_irix5_to_prof	dwarf+symtab	7680b7bb0d9a		out:3	undocumented		
@@ -157514,7 +157514,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x4554	92	sigisready	dwarf+symtab	50f7f961c663		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x45b0	52	ut_sigispend	dwarf+symtab	ed3ee2416239		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x45e4	128	sigispend	dwarf+symtab	b62d02792402		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x4664	136	sigqueue_sys	dwarf+symtab	b8427733cb36		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x4664	136	sigqueue_sys	dwarf+symtab	b8427733cb36		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x46ec	404	ksigqueue	dwarf+symtab	c12ab04d4561		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x4880	428	sigpoll_sys	dwarf+symtab	d05ce3f8a90c		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x4a2c	592	sigpoll	dwarf+symtab	22dcd30a9270		out:3	undocumented		
@@ -157530,7 +157530,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x5ea0	500	irix5_restoresigcontext	dwarf+symtab	2811a4636f6d		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x6094	328	sigreturn	dwarf+symtab	dc06d8413ae6		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x61dc	224	irix5_siginfoktou	dwarf+symtab	2a047d223e07		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x62bc	248	sigsendsys	dwarf+symtab	959e2d31c561		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x62bc	248	sigsendsys	dwarf+symtab	959e2d31c561		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x63b4	148	kill	dwarf+symtab	90306ab6c5bb		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x6448	340	killsingle	dwarf+symtab	0f12aad6d3ce		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(sig.o)	shared-kernel	n64	.text	0x659c	292	killpg	dwarf+symtab	9ccc79ae1f33		out:3	undocumented		
@@ -157800,9 +157800,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x23a4	656	presysactions	dwarf+symtab	e38a4947c016		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x2634	1176	postsysactions	dwarf+symtab	4e42039094c4		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x2acc	368	postsyserrors	dwarf+symtab	bd0425c11055		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x2c3c	1376	syscall	dwarf+symtab	500d51498bc3		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x319c	88	nosys	dwarf+symtab	ee2b10b8e4f8		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x31f4	8	nopkg	dwarf+symtab	6bc8e674fbf7		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x2c3c	1376	syscall	dwarf+symtab	500d51498bc3		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x319c	88	nosys	dwarf+symtab	ee2b10b8e4f8		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x31f4	8	nopkg	dwarf+symtab	6bc8e674fbf7		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x31fc	44	noreach	dwarf+symtab	007966372108		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x3228	8	nullsys	dwarf+symtab	87506497337c		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x3230	264	buserror_intr	dwarf+symtab	0f032f5712cf		out:3	undocumented		
@@ -160486,7 +160486,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x4c4	1524	dopoll	dwarf+symtab	2ea53846f8e1		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0xab8	1412	k_select	dwarf+symtab	59f275bdd3b7		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x103c	28	select	dwarf+symtab	4e0b7c85ec68		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x1058	28	xpg4_select	dwarf+symtab	9b5b52955f37		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x1058	28	xpg4_select	dwarf+symtab	9b5b52955f37		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x1074	232	pollwakeup	dwarf+symtab	bc17fffef90d		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x115c	112	pollwakeup_thread	dwarf+symtab	6ee44dc3a02f		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/sgi.a(syscalls.o)	shared-kernel	n64		0x0		sgikopt	dwarf+symtab			out:3	undocumented		
@@ -172152,7 +172152,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/nfs.a(xdr_array.o)	shared-kernel	n32		0x0		xdr_array	dwarf+symtab			out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/nfs.a(nfs_svc.o)	shared-kernel	n32		0x0		knfsd_switch_prog	dwarf+symtab			out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/nfs.a(nfs_svc.o)	shared-kernel	n32	.text	0x84	112	knfsd_dispatch	dwarf+symtab	02ea7e8937b9		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/nfs.a(nfs_svc.o)	shared-kernel	n32	.text	0xf4	672	nfs_svc	dwarf+symtab	8cde1c9bf807		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/nfs.a(nfs_svc.o)	shared-kernel	n32	.text	0xf4	672	nfs_svc	dwarf+symtab	8cde1c9bf807		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP32boot/nfs3.a(nfs_client.o)	shared-kernel	n32		0x0		nfs3_validate_caches	dwarf+symtab			out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/nfs3.a(nfs_client.o)	shared-kernel	n32	.text	0x24	148	nfs_purge_caches	dwarf+symtab	d930a885f419		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/nfs3.a(nfs_client.o)	shared-kernel	n32	.text	0xb8	120	nfs_purge_access_cache	dwarf+symtab	97e977401a18		out:3	undocumented		
@@ -173803,8 +173803,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(dnlc.o)	shared-kernel	n32	.text	0x10b4	284	dnlc_purge_vfsp	dwarf+symtab	0b7e27073ff9		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(dnlc.o)	shared-kernel	n32	.text	0x11d0	172	dnlc_rm	dwarf+funcnames+symtab	cb8ffd587ed4		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(dnlc.o)	shared-kernel	n32	.text	0x127c	376	dnlc_search	dwarf+funcnames+symtab	572d88339087		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(exec.o)	shared-kernel	n32		0x0		exec	dwarf+symtab			out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(exec.o)	shared-kernel	n32	.text	0x28	40	exece	dwarf+symtab	ea560bfa14c3		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(exec.o)	shared-kernel	n32		0x0		exec	dwarf+symtab			out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(exec.o)	shared-kernel	n32	.text	0x28	40	exece	dwarf+symtab	ea560bfa14c3		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(exec.o)	shared-kernel	n32	.text	0x50	40	rexec	dwarf+symtab	ec03d23030be		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(exec.o)	shared-kernel	n32	.text	0x78	548	iexec	dwarf+funcnames+symtab	f374bc2adaee		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(exec.o)	shared-kernel	n32	.text	0x29c	300	execpermissions	dwarf+symtab	d2f9b8e45c51		out:3	undocumented		
@@ -173828,10 +173828,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(elf.o)	shared-kernel	n32	.text	0x1900	200	elf_compute_availsmem	dwarf+funcnames+symtab	f00cff470071		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(elf.o)	shared-kernel	n32	.text	0x19c8	352	check_for_r5000_cvt_clean	dwarf+funcnames+symtab	6283c49e7d07		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32		0x0		add_exit_callback	dwarf+symtab			out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32	.text	0xd0	40	rexit	dwarf+symtab	68aaa88b7af2		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32	.text	0xf8	812	exit	dwarf+symtab	0d9d00e918c0		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32	.text	0xd0	40	rexit	dwarf+symtab	68aaa88b7af2		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32	.text	0xf8	812	exit	dwarf+symtab	0d9d00e918c0		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32	.text	0x424	124	winfo	dwarf+funcnames+symtab	b138c9c243b5		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32	.text	0x4a0	360	waitsys_wrapper	dwarf+symtab	d03c6177ed28		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32	.text	0x4a0	360	waitsys_wrapper	dwarf+symtab	d03c6177ed28		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32	.text	0x608	1336	waitsys	dwarf+symtab	894c7fd5f381		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(exit.o)	shared-kernel	n32	.text	0xb40	204	vrelvm	dwarf+symtab	9a191132308a		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(fdt.o)	shared-kernel	n32		0x0		fdt_fd_to_chunk	dwarf+symtab			out:3	undocumented		
@@ -174659,7 +174659,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(ptimers.o)	shared-kernel	n32	.text	0x6d4	1164	timer_settime	dwarf+symtab	c8a01a80658e		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(ptimers.o)	shared-kernel	n32	.text	0xb60	184	timer_gettime	dwarf+symtab	c3abfd4b30b4		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(ptimers.o)	shared-kernel	n32	.text	0xc18	372	dotimer_gettime	dwarf+funcnames+symtab	107f22c0e60e		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(ptimers.o)	shared-kernel	n32	.text	0xd8c	164	timer_getoverrun	dwarf+symtab	a8a94a25c6b6		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(ptimers.o)	shared-kernel	n32	.text	0xd8c	164	timer_getoverrun	dwarf+symtab	a8a94a25c6b6		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(ptimers.o)	shared-kernel	n32	.text	0xe30	360	delete_ptimers	dwarf+symtab	472e475f118b		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(ptimers.o)	shared-kernel	n32	.text	0xf98	580	ptimer_timeout	dwarf+symtab	cf25734550e4		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(ptimers.o)	shared-kernel	n32	.text	0x11dc	92	interval_tick_to_ts	dwarf+funcnames+symtab	13d3d7e2bc73		out:3	undocumented		
@@ -174688,7 +174688,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x364	124	getgroups	dwarf+symtab	9fcb6a411af2		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x3e0	248	setgroups	dwarf+symtab	4607b7f5e8b6		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x4d8	104	getpid	dwarf+symtab	bba10fdaa173		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x540	244	setpgrp	dwarf+symtab	577e13405612		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x540	244	setpgrp	dwarf+symtab	577e13405612		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x634	376	BSDgetpgrp	dwarf+symtab	2a014641acee		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x7ac	308	BSDsetpgrp	dwarf+symtab	fdbbb5087849		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x8e0	84	setsid	dwarf+symtab	2c64990f9c79		out:3	undocumented		
@@ -174714,7 +174714,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x1e08	372	sigaction	dwarf+symtab	00582a91d8e4		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x1f7c	220	sigstack	dwarf+symtab	113f2aab685b		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x2058	360	k_sigaltstack	dwarf+funcnames+symtab	5d6ae1c2cc23		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x21c0	28	xpg4_sigaltstack	dwarf+symtab	168ef11418d0		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x21c0	28	xpg4_sigaltstack	dwarf+symtab	168ef11418d0		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x21dc	28	_sigaltstack	dwarf+symtab	3c93e672fd02		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(scalls.o)	shared-kernel	n32	.text	0x21f8	412	sysconf	dwarf+symtab	ba4df3c69eb2		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(sched.o)	shared-kernel	n32		0x0		do_sxbrk_wakeups	dwarf+funcnames+symtab			out:3	undocumented		
@@ -174772,7 +174772,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x4410	92	sigisready	dwarf+symtab	18fcfd54d917		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x446c	52	ut_sigispend	dwarf+funcnames+symtab	a9e6eac766fd		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x44a0	132	sigispend	dwarf+symtab	7917aa29f3f5		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x4524	140	sigqueue_sys	dwarf+symtab	1114d25654dd		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x4524	140	sigqueue_sys	dwarf+symtab	1114d25654dd		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x45b0	412	ksigqueue	dwarf+symtab	a9ca3765c704		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x474c	356	sigpoll_sys	dwarf+symtab	4e99f7e00e7c		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x48b0	552	sigpoll	dwarf+funcnames+symtab	bbb960000ebc		out:3	undocumented		
@@ -174788,7 +174788,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x5cf8	484	irix5_restoresigcontext	dwarf+funcnames+symtab	66e1d1987815		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x5edc	284	sigreturn	dwarf+symtab	bccec8749821		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x5ff8	224	irix5_siginfoktou	dwarf+symtab	911c43d086d8		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x60d8	248	sigsendsys	dwarf+symtab	b431649fa7ff		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x60d8	248	sigsendsys	dwarf+symtab	b431649fa7ff		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x61d0	148	kill	dwarf+symtab	c74a0682e22d		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x6264	340	killsingle	dwarf+funcnames+symtab	bb030646b290		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(sig.o)	shared-kernel	n32	.text	0x63b8	296	killpg	dwarf+funcnames+symtab	77473c522e71		out:3	undocumented		
@@ -175074,9 +175074,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x2908	368	postsyserrors	dwarf+funcnames+symtab	b890f4eb55cc		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x2a78	280	syscall_has_64bit_arg	dwarf+symtab	2bfdca1b5316		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x2b90	308	reload_args	dwarf+funcnames+symtab	e78ea1dc560c		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x2cc4	1412	syscall	dwarf+symtab	cc30919ff960		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x3248	88	nosys	dwarf+symtab	ea17e0913418		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32a0	8	nopkg	dwarf+symtab	6bc8e674fbf7		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x2cc4	1412	syscall	dwarf+symtab	cc30919ff960		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x3248	88	nosys	dwarf+symtab	ea17e0913418		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32a0	8	nopkg	dwarf+symtab	6bc8e674fbf7		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32a8	44	noreach	dwarf+symtab	ed914c3f4f08		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32d4	8	nullsys	dwarf+symtab	87506497337c		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32dc	268	buserror_intr	dwarf+symtab	26882243f715		out:3	undocumented		
@@ -177650,7 +177650,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x4a0	1476	dopoll	dwarf+funcnames+symtab	3202a52b692f		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0xa64	1408	k_select	dwarf+funcnames+symtab	2207a13366cc		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0xfe4	28	select	dwarf+symtab	295c861fb3cd		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x1000	28	xpg4_select	dwarf+symtab	2f5516b0c7d3		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x1000	28	xpg4_select	dwarf+symtab	2f5516b0c7d3		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x101c	224	pollwakeup	dwarf+symtab	b5cb037b702d		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x10fc	100	pollwakeup_thread	dwarf+symtab	d3143ee04945		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(syscalls.o)	shared-kernel	n32		0x0		sgikopt	dwarf+symtab			out:3	undocumented		
@@ -190897,7 +190897,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/nfs.a(nsd_subr.o)	shared-kernel	n64	.text	0x214	144	xdr_nfs_nsdfh	dwarf+symtab	8dbdd3532ccb		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/nfs.a(nfs_svc.o)	shared-kernel	n64		0x0		knfsd_switch_prog	dwarf+symtab			out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/nfs.a(nfs_svc.o)	shared-kernel	n64	.text	0x80	108	knfsd_dispatch	dwarf+symtab	32c3812a1e5d		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/nfs.a(nfs_svc.o)	shared-kernel	n64	.text	0xec	648	nfs_svc	dwarf+symtab	4a6f0edffe67		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/nfs.a(nfs_svc.o)	shared-kernel	n64	.text	0xec	648	nfs_svc	dwarf+symtab	4a6f0edffe67		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP35boot/nfs3.a(nfs_client.o)	shared-kernel	n64		0x0		nfs3_validate_caches	dwarf+symtab			out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/nfs3.a(nfs_client.o)	shared-kernel	n64	.text	0x24	148	nfs_purge_caches	dwarf+symtab	a4629ed29228		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/nfs3.a(nfs_client.o)	shared-kernel	n64	.text	0xb8	120	nfs_purge_access_cache	dwarf+symtab	4024cca09778		out:3	undocumented		
@@ -193109,8 +193109,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(dnlc.o)	shared-kernel	n64	.text	0x1278	276	dnlc_purge_vfsp	dwarf+symtab	7bd5d73df195		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(dnlc.o)	shared-kernel	n64	.text	0x138c	220	dnlc_rm	dwarf+symtab	c73ef4ae8d9a		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(dnlc.o)	shared-kernel	n64	.text	0x1468	376	dnlc_search	dwarf+symtab	2fa4662b73e1		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(exec.o)	shared-kernel	n64		0x0		exec	dwarf+symtab			out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(exec.o)	shared-kernel	n64	.text	0x28	40	exece	dwarf+symtab	8007003af35b		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(exec.o)	shared-kernel	n64		0x0		exec	dwarf+symtab			out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(exec.o)	shared-kernel	n64	.text	0x28	40	exece	dwarf+symtab	8007003af35b		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(exec.o)	shared-kernel	n64	.text	0x50	40	rexec	dwarf+symtab	8c45882d5334		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(exec.o)	shared-kernel	n64	.text	0x78	548	iexec	dwarf+symtab	84c26ad0be31		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(exec.o)	shared-kernel	n64	.text	0x29c	484	execpermissions	dwarf+symtab	b11064f8fcdd		out:3	undocumented		
@@ -193142,10 +193142,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(elf64.o)	shared-kernel	n64	.text	0x16fc	84	elf_get_availsmem	dwarf+symtab	29bda451f910		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(elf64.o)	shared-kernel	n64	.text	0x1750	204	elf_compute_availsmem	dwarf+symtab	f39208a91602		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64		0x0		add_exit_callback	dwarf+symtab			out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64	.text	0xd0	40	rexit	dwarf+symtab	5cd5915fa923		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64	.text	0xf8	816	exit	dwarf+symtab	3b62352d3a75		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64	.text	0xd0	40	rexit	dwarf+symtab	5cd5915fa923		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64	.text	0xf8	816	exit	dwarf+symtab	3b62352d3a75		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64	.text	0x428	124	winfo	dwarf+symtab	2409c8bba604		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64	.text	0x4a4	480	waitsys_wrapper	dwarf+symtab	e909fc323b56		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64	.text	0x4a4	480	waitsys_wrapper	dwarf+symtab	e909fc323b56		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64	.text	0x684	1336	waitsys	dwarf+symtab	1c97a3014d7b		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(exit.o)	shared-kernel	n64	.text	0xbbc	192	vrelvm	dwarf+symtab	42d814438a68		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(fdt.o)	shared-kernel	n64		0x0		fdt_fd_to_chunk	dwarf+symtab			out:3	undocumented		
@@ -193920,7 +193920,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(ptimers.o)	shared-kernel	n64	.text	0x724	1096	timer_settime	dwarf+symtab	a421812ae471		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xb6c	172	timer_gettime	dwarf+symtab	972aae66a857		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xc18	400	dotimer_gettime	dwarf+symtab	c5cd9a9f0ff7		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xda8	156	timer_getoverrun	dwarf+symtab	8b8e18786c7e		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xda8	156	timer_getoverrun	dwarf+symtab	8b8e18786c7e		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xe44	392	delete_ptimers	dwarf+symtab	74e3bd458ab5		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(ptimers.o)	shared-kernel	n64	.text	0xfcc	564	ptimer_timeout	dwarf+symtab	94de9bcb23b6		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(ptimers.o)	shared-kernel	n64	.text	0x1200	124	interval_tick_to_ts	dwarf+symtab	994730a62ecd		out:3	undocumented		
@@ -193954,7 +193954,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x364	128	getgroups	dwarf+symtab	51ed07368ef5		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x3e4	260	setgroups	dwarf+symtab	67b062775145		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x4e8	104	getpid	dwarf+symtab	916d53c67b2a		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x550	244	setpgrp	dwarf+symtab	ebb0f1f5918c		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x550	244	setpgrp	dwarf+symtab	ebb0f1f5918c		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x644	376	BSDgetpgrp	dwarf+symtab	e7b2d35c9934		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x7bc	308	BSDsetpgrp	dwarf+symtab	b7d0d501eace		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x8f0	84	setsid	dwarf+symtab	b808c08c210c		out:3	undocumented		
@@ -193982,7 +193982,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x1f6c	484	sigaction	dwarf+symtab	b36fe1dc31b3		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x2150	252	sigstack	dwarf+symtab	74513ecc4c84		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x224c	400	k_sigaltstack	dwarf+symtab	ca631b026c97		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x23dc	28	xpg4_sigaltstack	dwarf+symtab	12a18864d05c		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x23dc	28	xpg4_sigaltstack	dwarf+symtab	12a18864d05c		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x23f8	28	_sigaltstack	dwarf+symtab	227bc59b4e59		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x2414	364	sysconf	dwarf+symtab	26f7955001bf		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(scalls.o)	shared-kernel	n64	.text	0x2580	36	bcopy_irix5_to_prof	dwarf+symtab	7680b7bb0d9a		out:3	undocumented		
@@ -194048,7 +194048,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x4840	92	sigisready	dwarf+symtab	22020f6f00fa		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x489c	52	ut_sigispend	dwarf+symtab	7a805aa579ab		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x48d0	128	sigispend	dwarf+symtab	b62d02792402		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x4950	136	sigqueue_sys	dwarf+symtab	b8427733cb36		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x4950	136	sigqueue_sys	dwarf+symtab	b8427733cb36		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x49d8	404	ksigqueue	dwarf+symtab	7665c1cdc0da		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x4b6c	428	sigpoll_sys	dwarf+symtab	df0dfd7bb831		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x4d18	592	sigpoll	dwarf+symtab	ddc3939d7064		out:3	undocumented		
@@ -194064,7 +194064,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x6188	500	irix5_restoresigcontext	dwarf+symtab	ba2e97fb38e4		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x637c	328	sigreturn	dwarf+symtab	905e3188dd7e		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x64c4	224	irix5_siginfoktou	dwarf+symtab	748106fd7a3c		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x65a4	248	sigsendsys	dwarf+symtab	99b884bd556d		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x65a4	248	sigsendsys	dwarf+symtab	99b884bd556d		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x669c	148	kill	dwarf+symtab	90306ab6c5bb		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x6730	340	killsingle	dwarf+symtab	c1dc49e7ad42		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(sig.o)	shared-kernel	n64	.text	0x6884	292	killpg	dwarf+symtab	83299e8500c8		out:3	undocumented		
@@ -194335,9 +194335,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x22e0	656	presysactions	dwarf+symtab	29efeb624f64		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x2570	1172	postsysactions	dwarf+symtab	a92fcfc3b1d5		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x2a04	368	postsyserrors	dwarf+symtab	941f5d4e58c7		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x2b74	1380	syscall	dwarf+symtab	523a7396251a		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x30d8	88	nosys	dwarf+symtab	e5bb94a0121b		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x3130	8	nopkg	dwarf+symtab	6bc8e674fbf7		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x2b74	1380	syscall	dwarf+symtab	523a7396251a		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x30d8	88	nosys	dwarf+symtab	e5bb94a0121b		out:3	named-only	docs/syscall-selector-crosscheck.md#system-calls	System calls
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x3130	8	nopkg	dwarf+symtab	6bc8e674fbf7		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x3138	44	noreach	dwarf+symtab	00e955d84f14		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x3164	8	nullsys	dwarf+symtab	87506497337c		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x316c	272	buserror_intr	dwarf+symtab	719f74f0c531		out:3	undocumented		
@@ -197182,7 +197182,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x4c4	1524	dopoll	dwarf+symtab	a3e9e3008c9f		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0xab8	1412	k_select	dwarf+symtab	c9ac1419016d		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x103c	28	select	dwarf+symtab	4e0b7c85ec68		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x1058	28	xpg4_select	dwarf+symtab	9b5b52955f37		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x1058	28	xpg4_select	dwarf+symtab	9b5b52955f37		out:3	named-only	docs/syscall-selector-crosscheck.md#disagreements	Disagreements
 6.5.30/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x1074	232	pollwakeup	dwarf+symtab	bc17fffef90d		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x115c	112	pollwakeup_thread	dwarf+symtab	117c5a50a52f		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/sgi.a(syscalls.o)	shared-kernel	n64		0x0		sgikopt	dwarf+symtab			out:3	undocumented		

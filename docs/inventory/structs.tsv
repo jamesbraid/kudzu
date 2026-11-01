@@ -393,7 +393,7 @@ binary	name	bytes	members	scope	status
 6.5.30/unix.IP27	kthread	752	45	out	undocumented
 6.5.30/unix.IP27	kusharena	0	0	out	undocumented
 6.5.30/unix.IP27	kvmap	24	5	out	undocumented
-6.5.30/unix.IP27	lboard_s	0	0	in	undocumented
+6.5.30/unix.IP27	lboard_s	0	0	in	documented
 6.5.30/unix.IP27	linkblk	64	4	out	undocumented
 6.5.30/unix.IP27	lockreq	208	8	out	undocumented
 6.5.30/unix.IP27	log	288	38	out	undocumented
@@ -2318,7 +2318,7 @@ binary	name	bytes	members	scope	status
 6.5.30/unix.IP35	kusharena	0	0	out	undocumented
 6.5.30/unix.IP35	kvmap	24	5	out	undocumented
 6.5.30/unix.IP35	l1sc_s	2384	23	out	undocumented
-6.5.30/unix.IP35	lboard_s	0	0	in	undocumented
+6.5.30/unix.IP35	lboard_s	0	0	in	documented
 6.5.30/unix.IP35	lfsnode	240	5	out	undocumented
 6.5.30/unix.IP35	linkblk	64	4	out	undocumented
 6.5.30/unix.IP35	lnode	96	10	out	undocumented
