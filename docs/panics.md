@@ -8,7 +8,7 @@ Each row gives the call address, the callee, the message the call passes, and th
 
 Grades: a message that is shown is established from the binary. `not resolved` means the scan could not follow the register: it is set on two paths that join before the call, or it comes from a pointer the routine loads at run time. A condition is established when the branch that decides the call was read in the disassembly; `not established` means no branch in the listing reaches the call.
 
-Counts: 1017 call sites in 316 routines; 136 have a written condition, 881 do not yet.
+Counts: 1017 call sites in 316 routines; 145 have a written condition, 872 do not yet.
 
 ## 6.5.30 IP27 kernel
 
@@ -1327,7 +1327,7 @@ Routine at 0xa8000000200286c4.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xa80000002002871c | cmn_err | level 16, `Cache Error (%s) Eframe = 0x%x\n` | not yet read |
+| 0xa80000002002871c | cmn_err | level 16, `Cache Error (%s) Eframe = 0x%x\n` | Reached on every entry: ecc_panic has no conditional branch. The earlier call at 0xa8000000200286ec runs first. The %s argument is the entry a0 (kept in s8 and copied to a2), and the %x argument is the entry a1 saved at 16(sp), plus 952. Level 16 is constant. |
 
 ### `sub_0xa8000000200393d0`
 
@@ -1535,7 +1535,7 @@ Routine at 0xa80000002003ec1c.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xa80000002003ec4c | cmn_err | level 6, `heart: stray interrupt at vector %d.\n` | not yet read |
+| 0xa80000002003ec4c | cmn_err | level 6, `heart: stray interrupt at vector %d.\n` | Reached on every entry: no branch precedes the call in heart_stray_intr. The call to heart_imr_bits_rmw at 0xa80000002003ec38 runs first, with a1 set to 1 shifted left by the vector number (the delay slot dsllv at 0xa80000002003ec3c). The vector is the entry a0 (a 32-bit copy kept in s8, then copied to a2 for the %d). Level 6 is constant (`li a0,6`). |
 
 ### `giobr_attach`
 
@@ -2322,7 +2322,7 @@ Routine at 0xc00000000005e6a8.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000005e6c0 | cmn_err | level 18, format not resolved (move) | not yet read |
+| 0xc00000000005e6c0 | cmn_err | level 18, format not resolved (move) | Reached on every entry: the call to kl_panic_setup at 0xc00000000005e6b4 runs first and its result is not used. Its delay slot copies the entry a0 into s8, and the delay slot of this call copies s8 into a1, so the format is the caller's a0, a run-time pointer that is not read here. Level 18 is constant. |
 
 ### `intr_stray`
 
@@ -2330,7 +2330,7 @@ Routine at 0xc00000000005ee4c.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000005ee60 | cmn_err | level 4, `Stray Interrupt - level %d to cpu %d` | not yet read |
+| 0xc00000000005ee60 | cmn_err | level 4, `Stray Interrupt - level %d to cpu %d` | Reached on every entry: no branch precedes the call in intr_stray, which starts at 0xc00000000005ee4c. The level argument is the entry a0 (copied to a2 at 0xc00000000005ee54), and the cpu argument is the halfword at -15320(zero), loaded in the delay slot of the call. Level 4 is constant (`li a0,4`). |
 
 ### `intr_heuristic`
 
@@ -2357,7 +2357,7 @@ Routine at 0xc0000000000627f4.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000006283c | cmn_err | level 4, `%v: hub_dmamap_addr re-uses dmamap.\n` | not yet read |
+| 0xc00000000006283c | cmn_err | level 4, `%v: hub_dmamap_addr re-uses dmamap.\n` | Taken when the beqz a4 at 0xc000000000062818 branches: bit 1 (0x2) of the word at +12 of the argument a0 is set and bit 2 (0x4) is clear. If bit 1 is clear, the routine sets it at 0xc00000000006282c and returns. If bit 2 is set, it returns without a report. |
 
 ### `hub_dmamap_list`
 
@@ -2365,7 +2365,7 @@ Routine at 0xc000000000062850.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000062898 | cmn_err | level 4, `%v: hub_dmamap_list re-uses dmamap\n` | not yet read |
+| 0xc000000000062898 | cmn_err | level 4, `%v: hub_dmamap_list re-uses dmamap\n` | Taken when the beqz a4 at 0xc000000000062874 branches: bit 1 (0x2) of the word at +12 of the argument a0 is set and bit 2 (0x4) is clear. If bit 1 is clear, the routine sets it at 0xc000000000062888 and returns. If bit 2 is set, it returns without a report. |
 
 ### `hub_dmamap_done`
 
@@ -2373,7 +2373,7 @@ Routine at 0xc0000000000628ac.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc0000000000628ec | cmn_err | level 4, `%v: hub_dmamap_done already done with dmamap\n` | not yet read |
+| 0xc0000000000628ec | cmn_err | level 4, `%v: hub_dmamap_done already done with dmamap\n` | Taken when the beqz a6 at 0xc0000000000628c4 and the bnez a3 at 0xc0000000000628d8 both fall through: bit 1 (0x2) of the word at +12 of the argument a0 is clear, and bit 2 (0x4) is clear. If bit 1 is set, the routine clears it and returns. If bit 2 is set, it returns without a report. The message says already done; the meaning of the flag bits is not read here. |
 
 ### `sub_0xc00000000006292c`
 
@@ -2603,7 +2603,7 @@ Routine at 0xc00000000007c5f0.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000007c654 | cmn_err | level 16, `Cache Error (%s) Eframe = 0x%x\n` | not yet read |
+| 0xc00000000007c654 | cmn_err | level 16, `Cache Error (%s) Eframe = 0x%x\n` | Reached on every entry: ecc_panic has no conditional branch. The calls to machine_error_dump and to the cache-op helper run first. The %s argument is the entry a0 (saved in s0, then a2), and the %x argument is the entry a1 saved at 24(sp), plus 1080. Level 16 is constant. |
 
 ### `ecc_log`
 
@@ -2611,7 +2611,7 @@ Routine at 0xc00000000007c66c.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000007c774 | cmn_err | level 20, `Some recoverable cache errors may not have been logged\n` | not yet read |
+| 0xc00000000007c774 | cmn_err | level 20, `Some recoverable cache errors may not have been logged\n` | Taken when the beq a1,at at 0xc00000000007c6ac branches: a1 is the word at 2080 from the base in s2, and at is (s1 + 15) and 15, where s1 is the word at 2084 from the same base. Equal values send the code to this report, which is level 20. The routine then reloads s1 and rejoins its ring loop at 0xc00000000007c6b4. |
 
 ### `sn1_sc_versioncheck`
 
