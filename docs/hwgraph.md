@@ -515,3 +515,82 @@ The 6.5.30 IP35 kernel builds the same graph with the IP35 NASID position, its o
   to `chk_for_pebrick` for a PE-brick node's first board. It calls `device_admin_table_init`, then
   `device_component_canonical_name_get` and `device_admin_table_update` ("DISABLE", "yes") for each
   disabled component of each non-duplicate class-`0x20` board. Established.
+
+## Hub device callouts and PROM device records
+
+Each node vertex carries the label "_node", whose value is the node's `pdinfo` record (+20824 of `nodepda_s`, added by `klhwg_add_node` above). Two fields of that record are read through the label: the compact node number as the signed halfword at +8 and the NASID as the signed halfword at +10. Linux has no equivalent record. The callout list lets other subsystems run a routine for each hub's crossbow widget when it is attached; the PROM device list maps a PROM character device vertex back to its hub vertex.
+
+- `hubdev_register` (`6.5.30/unix.IP27` `0xc00000000004c06c`, 88 bytes)
+  adds callout routine a0 to the head of `hubdev_callout_list` (the doubleword at gp-32344). It
+  calls `kmem_zalloc` for a 16-byte record (flags 0), then under `hubdev_callout_mutex` (taken with
+  `mutex_lock` and 25, released with `mutex_unlock`) stores the old list head at +8 of the record,
+  the record as the new head, and a0 at +0 (the store at 0xc00000000004c0b0, in the delay slot of the
+  unlock call). It returns nothing. Its one caller in the kernel is `hubspc_init`. Established.
+- `hubdev_unregister` (`6.5.30/unix.IP27` `0xc00000000004c0c4`, 128 bytes)
+  takes `hubdev_callout_mutex` and walks `hubdev_callout_list` through the doublewords at +8 for a
+  record whose doubleword at +0 equals a0 (the compare at 0xc00000000004c0f0). On a match it unlinks
+  the record, calls `kmem_free` on it with 16, releases the mutex and returns 0; when no record
+  matches it releases the mutex and returns 2. Established.
+- `hubdev_docallouts` (`6.5.30/unix.IP27` `0xc00000000004c144`, 140 bytes)
+  takes `hubdev_callout_mutex` and calls the routine at +0 of each record of `hubdev_callout_list`,
+  in list order (newest first), with a0, the hub vertex, as its only argument (the call at
+  0xc00000000004c17c). The first nonzero result ends the walk: it releases the mutex and returns
+  that result. When every routine returns 0 it releases the mutex and returns 0. Its one caller is
+  `io_xswitch_widget_init`. Established.
+- `hubdev_cnodeid_get` (`6.5.30/unix.IP27` `0xc00000000004c20c`, 48 bytes)
+  calls `hwgraph_info_get_LBL` with the vertex in a0, the label "_node" (string block address from
+  gp-19248, plus 8) and a stack slot cleared beforehand, and returns the signed halfword at +8 of
+  the record found, the compact node (the load at 0xc00000000004c230). The result pointer is not
+  tested, so a vertex without the label reads address 8. Established.
+- `hubdev_prombase_get` (`6.5.30/unix.IP27` `0xc00000000004c1d0`, 60 bytes)
+  looks up "_node" the same way and returns the signed halfword at +10 of the record, the NASID
+  (the load at 0xc00000000004c1f4), shifted left 32 and added to `0x9000000030000000` (the
+  doubleword at gp-24488), the node's uncached space at offset `0x30000000`. Its caller
+  `cpuprom_map` maps the PROM character device from that base; the Linux IP27 headers give the
+  offset no name. The result pointer is not tested. Established.
+- `prominfo_add` (`6.5.30/unix.IP27` `0xc00000000006b84c`, 100 bytes)
+  records that PROM device vertex a1 belongs to hub vertex a0. It calls `kmem_alloc` for a 16-byte
+  record (flags 0), stores a1 as the word at +0 and a0 as the word at +4, and under
+  `cpuprom_spinlock` (`mutex_spinlock`, then `mutex_spinunlock` with the level it returned) links
+  the record at the head of the list whose head is the doubleword at gp+2816 (`0xc0000000014d2c70`,
+  which has no symbol), with the old head at +8. Its caller `cpuprom_attach` passes the hub vertex
+  and the character device it has just created. Established.
+- `prominfo_del` (`6.5.30/unix.IP27` `0xc00000000006b8b0`, 120 bytes)
+  under `cpuprom_spinlock` unlinks the first record whose first word (the device vertex) equals a0
+  (the compare at 0xc00000000006b8dc). The record is not freed. It returns nothing. Established.
+- `prominfo_nodeget` (`6.5.30/unix.IP27` `0xc00000000006b928`, 112 bytes)
+  under `cpuprom_spinlock` returns the word at +4 (the hub vertex) of the first record whose first
+  word equals a0 (the load at 0xc00000000006b994, in the delay slot of the branch back to the return),
+  or 0 when none does. Its caller is `cpuprom_map`. Established.
+
+On IP35 these routines differ as follows.
+
+- `hubdev_register` (`6.5.30/unix.IP35` `0xc00000000006d47c`, 88 bytes)
+  has the IP27 instructions: it calls `kmem_zalloc` for 16 bytes and `mutex_lock` on
+  `hubdev_callout_mutex`, and pushes the record holding a0 onto `hubdev_callout_list`
+  (the doubleword at gp-32368). Established.
+- `hubdev_unregister` (`6.5.30/unix.IP35` `0xc00000000006d4d4`, 128 bytes)
+  has the IP27 instructions: it unlinks and calls `kmem_free` on the first record holding a0 and
+  returns 0, or returns 2 when none does. Established.
+- `hubdev_docallouts` (`6.5.30/unix.IP35` `0xc00000000006d554`, 140 bytes)
+  has the IP27 instructions: it calls each callout with a0 under `hubdev_callout_mutex` and returns
+  the first nonzero result, or 0. Established.
+- `hubdev_cnodeid_get` (`6.5.30/unix.IP35` `0xc00000000006d61c`, 48 bytes)
+  has the IP27 instructions: it calls `hwgraph_info_get_LBL` for "_node" and returns the halfword at
+  +8. Established.
+- `hubdev_prombase_get` (`6.5.30/unix.IP35` `0xc00000000006d5e0`, 60 bytes)
+  calls `hwgraph_info_get_LBL` for "_node", shifts the NASID at +10 left 33 and adds
+  `0x9000000038000000` (the doubleword at gp+2968), so the IP35 PROM window is at offset
+  `0x38000000` of the node's uncached space. Established.
+- `prominfo_add` (`6.5.30/unix.IP35` `0xc000000000096a90`, 100 bytes)
+  has the IP27 instructions with the list head at `0xc000000001644db8` (gp+5704) and
+  `cpuprom_spinlock` at gp+5712: it calls `kmem_alloc` for 16 bytes, stores a1 and a0 as the words
+  at +0 and +4, and links the record at the head under `mutex_spinlock`. Established.
+- `prominfo_del` (`6.5.30/unix.IP35` `0xc000000000096af4`, 120 bytes)
+  has the IP27 instructions: it calls `mutex_spinlock`, unlinks the first record whose first word
+  equals a0 without freeing it, and calls `mutex_spinunlock`. Established.
+- `prominfo_nodeget` (`6.5.30/unix.IP35` `0xc000000000096b6c`, 112 bytes)
+  has the IP27 instructions: it calls `mutex_spinlock` and returns the word at +4 of the first record
+  whose first word equals a0, or 0. Established.
+
+The `hubdev_*` routines are the same instruction for instruction in the 6.5.22 and 6.5.30 `kernel.o` objects of each platform, relocations aside. No 6.5.22 object defining the `prominfo_*` routines is in the inventory.
