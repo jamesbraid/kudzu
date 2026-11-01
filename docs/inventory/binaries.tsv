@@ -4237,7 +4237,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP27boot/kdsp.a(kdsp_di.o)	kernel-other-objects	shared-kernel	object	n64	160516	ebd554d7c2b05491		134	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kdsp.a(kdsp_events.o)	kernel-other-objects	shared-kernel	object	n64	24164	834da7826616c359		25	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kdsp.a(audutil.o)	kernel-other-objects	shared-kernel	object	n64	36500	c62cfc2956342776		94	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	kernel-platform-objects	shared-kernel	object	n64	1248568	0e5875e8ed602411		1361	symtab+dwarf	0	0	named-only	docs/klconfig.md#the-same-routines-in-the-other-builds	The same routines in the other builds
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	kernel-platform-objects	shared-kernel	object	n64	1248568	0e5875e8ed602411		1361	symtab+dwarf	0	0	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/usr/cpu/sysgen/IP27boot/keyboard.a(pckbd.o)	kernel-other-objects	shared-kernel	object	n64	17572	0c39e8c0b9d1d8ea		14	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kitchen_sync.o	kernel-other-objects	shared-kernel	object	n64	13992	db3397092dcce7aa		10	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/klidbg.o	kernel-platform-drivers	shared-kernel	object	n64	21864	978024c00fa04b77		19	symtab	0	0	undocumented		

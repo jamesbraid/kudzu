@@ -2525,8 +2525,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x20a4	124	dev_to_name	dwarf+symtab	1b58a6acdbea		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP22boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x2120	52	device_master_get	dwarf+symtab	857400dcd083		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.22/usr/cpu/sysgen/IP22boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x2154	36	device_master_set	dwarf+symtab	09fdf96f206e		in	named-only	docs/hwgraph.md#routines	Routines
-6.5.22/usr/cpu/sysgen/IP22boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x2178	180	master_node_get	dwarf+symtab	de9bcce587bd		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
-6.5.22/usr/cpu/sysgen/IP22boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x222c	60	cpuvertex_to_cpuid	dwarf+symtab	58c517d20576		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
+6.5.22/usr/cpu/sysgen/IP22boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x2178	180	master_node_get	dwarf+symtab	de9bcce587bd		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.22/usr/cpu/sysgen/IP22boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x222c	60	cpuvertex_to_cpuid	dwarf+symtab	58c517d20576		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP22boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x2268	244	mark_cpuvertex_as_cpu	dwarf+symtab	fd1e1dcb9b05		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP22boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x235c	60	nodevertex_to_cnodeid	dwarf+symtab	deb1a72443f9		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP22boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x2398	164	mark_nodevertex_as_node	dwarf+symtab	0a2c0dfe51c1		in	named-only	docs/hwgraph.md#routines	Routines
@@ -3530,7 +3530,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x78	168	device_desc_dup	dwarf+symtab	9dc645f3a0c2		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
 6.5.22/usr/cpu/sysgen/IP22boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x120	52	device_desc_default_get	dwarf+symtab	9a090a0a1a1c		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.22/usr/cpu/sysgen/IP22boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x154	200	device_desc_default_set	dwarf+symtab	bf7d6c6c1c2e		in	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
-6.5.22/usr/cpu/sysgen/IP22boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x21c	8	device_desc_intr_target_get	dwarf+symtab	b893f60251e4		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
+6.5.22/usr/cpu/sysgen/IP22boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x21c	8	device_desc_intr_target_get	dwarf+symtab	b893f60251e4		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP22boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x224	8	device_desc_intr_policy_get	dwarf+symtab	f300cc2a20ca		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x22c	8	device_desc_intr_swlevel_get	dwarf+symtab	2d3084abca7d		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.22/usr/cpu/sysgen/IP22boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x234	8	device_desc_intr_name_get	dwarf+symtab	55470fa05862		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
@@ -7749,7 +7749,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/numa.a(numa_stubs.o)	shared-kernel	n32	.text	0x8	8	migr_threshold_diff_set_lock	dwarf+symtab	78aa5094d5ec		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/numa.a(numa_stubs.o)	shared-kernel	n32	.text	0x10	8	migr_refcnt_disable	dwarf+symtab	78aa5094d5ec		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/numa.a(numa_stubs.o)	shared-kernel	n32	.text	0x18	8	migr_refcnt_update_counters	dwarf+symtab	78aa5094d5ec		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/numa.a(numa_stubs.o)	shared-kernel	n32	.text	0x20	148	physmem_select_neighbor_node	dwarf+symtab	ff18df3b644f		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/numa.a(numa_stubs.o)	shared-kernel	n32	.text	0x20	148	physmem_select_neighbor_node	dwarf+symtab	ff18df3b644f		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP22boot/numa.a(pmo_stubs.o)	shared-kernel	n32		0x0		pmo_xface_mld_create	dwarf+symtab			in	named-only	docs/syssgi.md#partitions-and-placement-objects	Partitions and placement objects
 6.5.22/usr/cpu/sysgen/IP22boot/numa.a(pmo_stubs.o)	shared-kernel	n32	.text	0x8	8	pmo_xface_mld_destroy	dwarf+symtab	ffa7c42f27ed		in	named-only	docs/syssgi.md#partitions-and-placement-objects	Partitions and placement objects
 6.5.22/usr/cpu/sysgen/IP22boot/numa.a(pmo_stubs.o)	shared-kernel	n32	.text	0x10	12	pmo_xface_mld_getnode	dwarf+symtab	1f1b03b155bf		in	named-only	docs/syssgi.md#partitions-and-placement-objects	Partitions and placement objects
@@ -18682,8 +18682,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x209c	128	dev_to_name	dwarf+symtab	595badebf4d2		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x211c	52	device_master_get	dwarf+symtab	c297bc162b6e		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.22/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2150	36	device_master_set	dwarf+symtab	da3ed8ec82de		in	named-only	docs/hwgraph.md#routines	Routines
-6.5.22/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2174	180	master_node_get	dwarf+symtab	9e0cf9637f19		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
-6.5.22/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2228	60	cpuvertex_to_cpuid	dwarf+symtab	c94291da34c2		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
+6.5.22/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2174	180	master_node_get	dwarf+symtab	9e0cf9637f19		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.22/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2228	60	cpuvertex_to_cpuid	dwarf+symtab	c94291da34c2		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2264	288	mark_cpuvertex_as_cpu	dwarf+symtab	5de0ce82a422		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2384	60	nodevertex_to_cnodeid	dwarf+symtab	1a4fafca953e		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x23c0	180	mark_nodevertex_as_node	dwarf+symtab	2444bdefa2c5		in	named-only	docs/hwgraph.md#routines	Routines
@@ -20070,7 +20070,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x74	160	device_desc_dup	dwarf+symtab	98e9ee8c8287		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
 6.5.22/usr/cpu/sysgen/IP27boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x114	48	device_desc_default_get	dwarf+symtab	68059499f8d4		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.22/usr/cpu/sysgen/IP27boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x144	184	device_desc_default_set	dwarf+symtab	8ec3f22f8e92		in	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
-6.5.22/usr/cpu/sysgen/IP27boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x1fc	8	device_desc_intr_target_get	dwarf+symtab	b893f60251e4		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
+6.5.22/usr/cpu/sysgen/IP27boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x1fc	8	device_desc_intr_target_get	dwarf+symtab	b893f60251e4		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP27boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x204	8	device_desc_intr_policy_get	dwarf+symtab	f300cc2a20ca		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x20c	8	device_desc_intr_swlevel_get	dwarf+symtab	2d3084abca7d		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.22/usr/cpu/sysgen/IP27boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x214	8	device_desc_intr_name_get	dwarf+symtab	5168f5d3aa16		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
@@ -21043,8 +21043,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x540c	44	get_xbow_peer	dwarf+symtab	5a0501f1d293		out:2	located	docs/klconfig.md#lookup-routines	Lookup routines
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5438	144	cpu_cycles_adjust	dwarf+symtab	26957ab60c5f		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x54c8	172	device_component_canonical_name_get	dwarf+symtab	29eceabe5ab3		in	located	docs/hwgraph.md#disabled-device-hints	Disabled-device hints
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5574	316	component_serial_number_get	dwarf	eeb1eedc6b95		out:2	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x56b0	424	board_serial_number_get	dwarf+symtab	7db91a8e8706		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5574	316	component_serial_number_get	dwarf	eeb1eedc6b95		out:2	named-only	docs/klconfig.md#board-serial-numbers	Board serial numbers
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x56b0	424	board_serial_number_get	dwarf+symtab	7db91a8e8706		in	located	docs/klconfig.md#board-serial-numbers	Board serial numbers
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5858	184	membank_pathname_get	dwarf+symtab	890d62b5b0c4		out:2	named-only	docs/ip27-kernel-io.md#hub-memory-error-classification	Hub memory error classification
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5910	180	membank_check_mixed_hidensity	dwarf+symtab	10749f4f8a9f		out:2	located	docs/klconfig.md#memory-bank-checks	Memory bank checks
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x59c4	168	mem_mixed_hidensity_banks	dwarf+symtab	dd19c057e571		in	located	docs/klconfig.md#memory-bank-checks	Memory bank checks
@@ -21513,14 +21513,14 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f3d0	364	do_intr_block_bit	dwarf+symtab	7a62bca97d36		out:2	located	docs/interrupts.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f53c	28	intr_block_bit	dwarf+symtab	9b5b52955f37		in	located	docs/interrupts.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f558	28	intr_unblock_bit	dwarf+symtab	4e0b7c85ec68		in	located	docs/interrupts.md#routines	Routines
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f574	296	do_intr_cpu_choose	dwarf	3daaf3094b0b		out:2	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f69c	28	intr_cpu_choose_from_node	dwarf	a051856f1725		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f6b8	120	subnodevertex_to_subnode	dwarf	53d897079f1c		out:2	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f574	296	do_intr_cpu_choose	dwarf	3daaf3094b0b		out:2	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f69c	28	intr_cpu_choose_from_node	dwarf	a051856f1725		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f6b8	120	subnodevertex_to_subnode	dwarf	53d897079f1c		out:2	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f730	132	mark_subnodevertex_as_subnode	dwarf+symtab	b1ea76d16002		out:2	named-only	docs/hwgraph.md#routines	Routines
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f7b4	184	intr_target_from_desc	dwarf+symtab	88398321a046		in	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f86c	64	intr_cnode_seen	dwarf	fd6780c49132		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f8ac	168	intr_bit_reserve_test	dwarf	fdaba2753f4e		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f954	572	intr_heuristic	dwarf+symtab	e5629d8679c8		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f7b4	184	intr_target_from_desc	dwarf+symtab	88398321a046		in	located	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f86c	64	intr_cnode_seen	dwarf	fd6780c49132		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f8ac	168	intr_bit_reserve_test	dwarf	fdaba2753f4e		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f954	572	intr_heuristic	dwarf+symtab	e5629d8679c8		in	located	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1fb90	72	cause_intr_connect	dwarf+symtab	94660ad81896		out:2	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1fbd8	64	cause_intr_disconnect	dwarf+symtab	d3a64d2553fd		out:2	named-only	docs/ip27-kernel-io.md#interrupt-entry	Interrupt entry
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1fc18	16	nointr	dwarf	47d7932962f8		out:2	undocumented		
@@ -21662,22 +21662,22 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23528	100	r1nkperf_control_register_set	dwarf+symtab	1ed754a7c450		out:2	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2358c	12	get_r10k_config	dwarf+symtab	65d36b16835c		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23598	212	xbwidget_to_xtslot	dwarf+symtab	f0ae78b07f88		out:2	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2366c	108	hub_slotbits_to_slot	dwarf+symtab	8dd2529f3e47		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x236d8	104	hub_slot_to_widget	dwarf+symtab	39df55ba0a9e		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2366c	108	hub_slotbits_to_slot	dwarf+symtab	8dd2529f3e47		in	located	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x236d8	104	hub_slot_to_widget	dwarf+symtab	39df55ba0a9e		in	located	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23740	36	hub_slot_to_crossbow	dwarf+symtab	11261d777a5d		in	understood	docs/klconfig.md#node-and-processor-lookups	Node and processor lookups
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23764	40	router_slotbits_to_slot	dwarf+symtab	436e1316ed03		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2378c	40	meta_router_slotbits_to_slot	dwarf+symtab	df7aea102d8a		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x237b4	104	get_slotclass	dwarf	5fbba4934a1d		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2381c	156	get_slotname	dwarf+symtab	4165b786d18a		out:2	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x238b8	44	get_node_slotid	dwarf+symtab	d9797d0b6d45		out:2	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x238e4	36	get_my_slotid	dwarf+symtab	11bbdc54832d		out:2	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x238e4	36	get_my_slotid	dwarf+symtab	11bbdc54832d		out:2	located	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23908	36	get_node_crossbow	dwarf+symtab	23784e861696		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2392c	48	get_my_slotname	dwarf+symtab	eed8a30f5024		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2395c	28	get_widget_slotnum	dwarf+symtab	a86de4a9d7a4		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23978	48	get_widget_slotname	dwarf+symtab	120b834513da		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x239a8	52	router_slotbits_to_slotname	dwarf+symtab	471c1daafef4		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x239dc	132	slot_to_widget	dwarf+symtab	079a6baa0e8f		out:2	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23a60	36	hub_slot_get	dwarf+symtab	0bc7ef5e18aa		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23a60	36	hub_slot_get	dwarf+symtab	0bc7ef5e18aa		in	located	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23a84	64	node_can_talk_to_elsc	dwarf+symtab	d07c60613c40		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23ac4	64	is_xbox_config	dwarf+symtab	4aac32c67ada		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23b04	36	ip27log_xbox_nasid_clear	dwarf+symtab	171766094241		in	undocumented		
@@ -25254,7 +25254,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x2e98	88	physmem_place_node	dwarf+symtab	7335c377e3a9		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x2ef0	936	physmem_place_cube_p	dwarf+symtab	2dd64b842ccd		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x3298	912	physmem_place_cube_with_affinity_p	dwarf+symtab	9d5b7a85860d		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x3628	260	physmem_select_neighbor_node	dwarf+symtab	87a8cc6e583e		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x3628	260	physmem_select_neighbor_node	dwarf+symtab	87a8cc6e583e		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x372c	296	physmem_select_masked_neighbor_node	dwarf+symtab	a807ac2e9958		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x3854	1468	topology_init	dwarf+symtab	f4383c154764		in	named-only	docs/klconfig.md#memory-and-numa-start-up	Memory and NUMA start-up
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x3e10	116	copy_distmatrix	dwarf+symtab	e949c56d359d		in	undocumented		
@@ -25262,7 +25262,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x4068	192	full_nodemask_init	dwarf+symtab	0404823b1f69		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x4128	48	ceil_log2	dwarf+symtab	a142ccec8f1e		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x4158	28	node_distance	dwarf+symtab	142ae59d13a6		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x4174	8	physmem_maxradius	dwarf+symtab	7451bb35e09d		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x4174	8	physmem_maxradius	dwarf+symtab	7451bb35e09d		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x417c	44	set_loadmask	dwarf+symtab	2a9d37abc771		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x41a8	40	clear_loadmask	dwarf+symtab	192456304975		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x41d0	848	physmem_find_cluster	dwarf+symtab	7a6838fd6180		in	undocumented		
@@ -37717,8 +37717,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x209c	128	dev_to_name	dwarf+symtab	595badebf4d2		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x211c	52	device_master_get	dwarf+symtab	c297bc162b6e		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2150	36	device_master_set	dwarf+symtab	da3ed8ec82de		in	named-only	docs/hwgraph.md#routines	Routines
-6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2174	180	master_node_get	dwarf+symtab	9e0cf9637f19		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
-6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2228	60	cpuvertex_to_cpuid	dwarf+symtab	c94291da34c2		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
+6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2174	180	master_node_get	dwarf+symtab	9e0cf9637f19		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2228	60	cpuvertex_to_cpuid	dwarf+symtab	c94291da34c2		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2264	288	mark_cpuvertex_as_cpu	dwarf+symtab	ad9b457fae9a		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2384	60	nodevertex_to_cnodeid	dwarf+symtab	1a4fafca953e		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x23c0	164	mark_nodevertex_as_node	dwarf+symtab	e5430dedea6b		in	named-only	docs/hwgraph.md#routines	Routines
@@ -38966,7 +38966,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x74	160	device_desc_dup	dwarf+symtab	98e9ee8c8287		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
 6.5.22/usr/cpu/sysgen/IP30boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x114	48	device_desc_default_get	dwarf+symtab	68059499f8d4		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.22/usr/cpu/sysgen/IP30boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x144	184	device_desc_default_set	dwarf+symtab	8ec3f22f8e92		in	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
-6.5.22/usr/cpu/sysgen/IP30boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x1fc	8	device_desc_intr_target_get	dwarf+symtab	b893f60251e4		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
+6.5.22/usr/cpu/sysgen/IP30boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x1fc	8	device_desc_intr_target_get	dwarf+symtab	b893f60251e4		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP30boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x204	8	device_desc_intr_policy_get	dwarf+symtab	f300cc2a20ca		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x20c	8	device_desc_intr_swlevel_get	dwarf+symtab	2d3084abca7d		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.22/usr/cpu/sysgen/IP30boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x214	8	device_desc_intr_name_get	dwarf+symtab	5168f5d3aa16		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
@@ -42766,7 +42766,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/numa.a(numa_stubs.o)	shared-kernel	n64	.text	0x8	8	migr_threshold_diff_set_lock	dwarf+symtab	78aa5094d5ec		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/numa.a(numa_stubs.o)	shared-kernel	n64	.text	0x10	8	migr_refcnt_disable	dwarf+symtab	78aa5094d5ec		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/numa.a(numa_stubs.o)	shared-kernel	n64	.text	0x18	8	migr_refcnt_update_counters	dwarf+symtab	78aa5094d5ec		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/numa.a(numa_stubs.o)	shared-kernel	n64	.text	0x20	148	physmem_select_neighbor_node	dwarf+symtab	97ea375b2ca2		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/numa.a(numa_stubs.o)	shared-kernel	n64	.text	0x20	148	physmem_select_neighbor_node	dwarf+symtab	97ea375b2ca2		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP30boot/numa.a(pmo_stubs.o)	shared-kernel	n64		0x0		pmo_xface_mld_create	dwarf+symtab			in	named-only	docs/syssgi.md#partitions-and-placement-objects	Partitions and placement objects
 6.5.22/usr/cpu/sysgen/IP30boot/numa.a(pmo_stubs.o)	shared-kernel	n64	.text	0x8	8	pmo_xface_mld_destroy	dwarf+symtab	ffa7c42f27ed		in	named-only	docs/syssgi.md#partitions-and-placement-objects	Partitions and placement objects
 6.5.22/usr/cpu/sysgen/IP30boot/numa.a(pmo_stubs.o)	shared-kernel	n64	.text	0x10	12	pmo_xface_mld_getnode	dwarf+symtab	6256bede86bb		in	named-only	docs/syssgi.md#partitions-and-placement-objects	Partitions and placement objects
@@ -53805,8 +53805,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x20a4	124	dev_to_name	dwarf+symtab	1b58a6acdbea		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x2120	52	device_master_get	dwarf+symtab	857400dcd083		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.22/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x2154	36	device_master_set	dwarf+symtab	09fdf96f206e		in	named-only	docs/hwgraph.md#routines	Routines
-6.5.22/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x2178	180	master_node_get	dwarf+symtab	de9bcce587bd		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
-6.5.22/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x222c	60	cpuvertex_to_cpuid	dwarf+symtab	58c517d20576		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
+6.5.22/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x2178	180	master_node_get	dwarf+symtab	de9bcce587bd		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.22/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x222c	60	cpuvertex_to_cpuid	dwarf+symtab	58c517d20576		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x2268	244	mark_cpuvertex_as_cpu	dwarf+symtab	04b23da58672		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x235c	60	nodevertex_to_cnodeid	dwarf+symtab	deb1a72443f9		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x2398	164	mark_nodevertex_as_node	dwarf+symtab	0a2c0dfe51c1		in	named-only	docs/hwgraph.md#routines	Routines
@@ -54727,7 +54727,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x78	168	device_desc_dup	dwarf+symtab	9dc645f3a0c2		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
 6.5.22/usr/cpu/sysgen/IP32boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x120	52	device_desc_default_get	dwarf+symtab	9a090a0a1a1c		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.22/usr/cpu/sysgen/IP32boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x154	200	device_desc_default_set	dwarf+symtab	bf7d6c6c1c2e		in	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
-6.5.22/usr/cpu/sysgen/IP32boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x21c	8	device_desc_intr_target_get	dwarf+symtab	b893f60251e4		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
+6.5.22/usr/cpu/sysgen/IP32boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x21c	8	device_desc_intr_target_get	dwarf+symtab	b893f60251e4		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP32boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x224	8	device_desc_intr_policy_get	dwarf+symtab	f300cc2a20ca		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x22c	8	device_desc_intr_swlevel_get	dwarf+symtab	2d3084abca7d		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.22/usr/cpu/sysgen/IP32boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x234	8	device_desc_intr_name_get	dwarf+symtab	55470fa05862		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
@@ -58468,7 +58468,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/numa.a(numa_stubs.o)	shared-kernel	n32	.text	0x8	8	migr_threshold_diff_set_lock	dwarf+symtab	78aa5094d5ec		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/numa.a(numa_stubs.o)	shared-kernel	n32	.text	0x10	8	migr_refcnt_disable	dwarf+symtab	78aa5094d5ec		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/numa.a(numa_stubs.o)	shared-kernel	n32	.text	0x18	8	migr_refcnt_update_counters	dwarf+symtab	78aa5094d5ec		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/numa.a(numa_stubs.o)	shared-kernel	n32	.text	0x20	148	physmem_select_neighbor_node	dwarf+symtab	ff18df3b644f		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/numa.a(numa_stubs.o)	shared-kernel	n32	.text	0x20	148	physmem_select_neighbor_node	dwarf+symtab	ff18df3b644f		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP32boot/numa.a(pmo_stubs.o)	shared-kernel	n32		0x0		pmo_xface_mld_create	dwarf+symtab			in	named-only	docs/syssgi.md#partitions-and-placement-objects	Partitions and placement objects
 6.5.22/usr/cpu/sysgen/IP32boot/numa.a(pmo_stubs.o)	shared-kernel	n32	.text	0x8	8	pmo_xface_mld_destroy	dwarf+symtab	ffa7c42f27ed		in	named-only	docs/syssgi.md#partitions-and-placement-objects	Partitions and placement objects
 6.5.22/usr/cpu/sysgen/IP32boot/numa.a(pmo_stubs.o)	shared-kernel	n32	.text	0x10	12	pmo_xface_mld_getnode	dwarf+symtab	1f1b03b155bf		in	named-only	docs/syssgi.md#partitions-and-placement-objects	Partitions and placement objects
@@ -68720,8 +68720,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x209c	128	dev_to_name	dwarf+symtab	8319497b486f		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x211c	52	device_master_get	dwarf+symtab	61fb73c96920		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.22/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2150	36	device_master_set	dwarf+symtab	7848db5a55ee		in	named-only	docs/hwgraph.md#routines	Routines
-6.5.22/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2174	180	master_node_get	dwarf+symtab	9e0cf9637f19		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
-6.5.22/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2228	60	cpuvertex_to_cpuid	dwarf+symtab	cf72c48088cf		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
+6.5.22/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2174	180	master_node_get	dwarf+symtab	9e0cf9637f19		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.22/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2228	60	cpuvertex_to_cpuid	dwarf+symtab	cf72c48088cf		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2264	288	mark_cpuvertex_as_cpu	dwarf+symtab	9ef230fc7ecc		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2384	60	nodevertex_to_cnodeid	dwarf+symtab	9986eae1af8b		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x23c0	188	mark_nodevertex_as_node	dwarf+symtab	d8f220460346		in	named-only	docs/hwgraph.md#routines	Routines
@@ -70059,7 +70059,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x74	160	device_desc_dup	dwarf+symtab	98e9ee8c8287		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
 6.5.22/usr/cpu/sysgen/IP35boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x114	48	device_desc_default_get	dwarf+symtab	68059499f8d4		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.22/usr/cpu/sysgen/IP35boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x144	184	device_desc_default_set	dwarf+symtab	8ec3f22f8e92		in	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
-6.5.22/usr/cpu/sysgen/IP35boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x1fc	8	device_desc_intr_target_get	dwarf+symtab	b893f60251e4		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
+6.5.22/usr/cpu/sysgen/IP35boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x1fc	8	device_desc_intr_target_get	dwarf+symtab	b893f60251e4		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP35boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x204	8	device_desc_intr_policy_get	dwarf+symtab	f300cc2a20ca		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x20c	8	device_desc_intr_swlevel_get	dwarf+symtab	2d3084abca7d		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.22/usr/cpu/sysgen/IP35boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x214	8	device_desc_intr_name_get	dwarf+symtab	5168f5d3aa16		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
@@ -71079,8 +71079,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x5074	52	get_xbow_peer	dwarf+symtab	15f6607e1ccb		out:2	located	docs/klconfig.md#lookup-routines	Lookup routines
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x50a8	144	cpu_cycles_adjust	dwarf+symtab	26957ab60c5f		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x5138	144	device_component_canonical_name_get	dwarf+symtab	e682606e7b4a		in	located	docs/hwgraph.md#disabled-device-hints	Disabled-device hints
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x51c8	316	component_serial_number_get	dwarf	b5f25eaa4929		out:2	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x5304	508	board_serial_number_get	dwarf+symtab	4a695d98eeb1		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x51c8	316	component_serial_number_get	dwarf	b5f25eaa4929		out:2	named-only	docs/klconfig.md#board-serial-numbers	Board serial numbers
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x5304	508	board_serial_number_get	dwarf+symtab	4a695d98eeb1		in	located	docs/klconfig.md#board-serial-numbers	Board serial numbers
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x5500	140	membank_pathname_get	dwarf+symtab	135c4e2da9f3		out:2	named-only	docs/ip27-kernel-io.md#hub-memory-error-classification	Hub memory error classification
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x558c	220	membank_check_mixed_hidensity	dwarf+symtab	9e3e148ffd3e		out:2	located	docs/klconfig.md#memory-bank-checks	Memory bank checks
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x5668	168	mem_mixed_hidensity_banks	dwarf+symtab	dd19c057e571		in	located	docs/klconfig.md#memory-bank-checks	Memory bank checks
@@ -71533,14 +71533,14 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1fefc	448	do_intr_block_bit	dwarf+symtab	3b198245e231		out:2	located	docs/interrupts.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x200bc	28	intr_block_bit	dwarf+symtab	9b5b52955f37		in	located	docs/interrupts.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x200d8	28	intr_unblock_bit	dwarf+symtab	4e0b7c85ec68		in	located	docs/interrupts.md#routines	Routines
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x200f4	352	do_intr_cpu_choose	dwarf	cbd7e1dd3900		out:2	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20254	28	intr_cpu_choose_from_node	dwarf	4c39a453f5d7		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20270	120	subnodevertex_to_subnode	dwarf	e55319faed85		out:2	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x200f4	352	do_intr_cpu_choose	dwarf	cbd7e1dd3900		out:2	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20254	28	intr_cpu_choose_from_node	dwarf	4c39a453f5d7		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20270	120	subnodevertex_to_subnode	dwarf	e55319faed85		out:2	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x202e8	132	mark_subnodevertex_as_subnode	dwarf+symtab	9fe1ab29e805		out:2	named-only	docs/hwgraph.md#routines	Routines
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2036c	184	intr_target_from_desc	dwarf+symtab	775a431c54cf		in	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20424	64	intr_cnode_seen	dwarf	fd6780c49132		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20464	168	intr_bit_reserve_test	dwarf	bfc8a16bf23d		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2050c	980	intr_heuristic	dwarf+symtab	8770b0b70984		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2036c	184	intr_target_from_desc	dwarf+symtab	775a431c54cf		in	located	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20424	64	intr_cnode_seen	dwarf	fd6780c49132		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20464	168	intr_bit_reserve_test	dwarf	bfc8a16bf23d		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2050c	980	intr_heuristic	dwarf+symtab	8770b0b70984		in	located	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x208e0	72	cause_intr_connect	dwarf+symtab	0d56a7798f8b		out:2	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20928	64	cause_intr_disconnect	dwarf+symtab	2d6d2681025b		out:2	named-only	docs/ip27-kernel-io.md#interrupt-entry	Interrupt entry
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20968	16	nointr	dwarf	47d7932962f8		out:2	undocumented		
@@ -74790,7 +74790,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x35c4	104	physmem_place_node	dwarf+symtab	f53b93f7f2ca		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x362c	1008	physmem_place_cube_p	dwarf+symtab	206de0015ebd		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x3a1c	992	physmem_place_cube_with_affinity_p	dwarf+symtab	ea1d5904828a		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x3dfc	260	physmem_select_neighbor_node	dwarf+symtab	990923b10341		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x3dfc	260	physmem_select_neighbor_node	dwarf+symtab	990923b10341		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x3f00	328	physmem_select_masked_neighbor_node	dwarf+symtab	5a55fea02e59		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x4048	1172	topology_init	dwarf+symtab	8aef29ab830f		in	named-only	docs/klconfig.md#memory-and-numa-start-up	Memory and NUMA start-up
 6.5.22/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x44dc	116	copy_distmatrix	dwarf+symtab	f5c07c6e9e27		in	undocumented		
@@ -74798,7 +74798,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x4734	188	full_nodemask_init	dwarf+symtab	a7183f612d49		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x47f0	48	ceil_log2	dwarf+symtab	a142ccec8f1e		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x4820	28	node_distance	dwarf+symtab	5864e335f494		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x483c	8	physmem_maxradius	dwarf+symtab	7451bb35e09d		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x483c	8	physmem_maxradius	dwarf+symtab	7451bb35e09d		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.22/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x4844	60	set_loadmask	dwarf+symtab	f958152ca2a9		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x4880	56	clear_loadmask	dwarf+symtab	7e9d58f53ea4		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x48b8	1096	physmem_find_cluster	dwarf+symtab	df6ac010764e		in	undocumented		
@@ -85602,7 +85602,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64		0x0		collapse	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		collapse_pair	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		complement	dwarf			out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64		0x0		component_serial_number_get	dwarf			out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64		0x0		component_serial_number_get	dwarf			out:1	named-only	docs/klconfig.md#board-serial-numbers	Board serial numbers
 6.5.30/unix.IP27	shared-kernel	n64		0x0		compress_and_write_block	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		compress_block	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		compute_drb_pointers	dwarf			out:1	undocumented		
@@ -85791,7 +85791,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64		0x0		do_hub_intr_alloc	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		do_hwgraph_connectpt_get	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		do_hwgraph_connectpt_set	dwarf			out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64		0x0		do_intr_cpu_choose	dwarf			out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64		0x0		do_intr_cpu_choose	dwarf			out:1	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP27	shared-kernel	n64		0x0		do_intr_reserve_level	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		do_io_init_node	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		do_ioc3_write	dwarf			out:1	undocumented		
@@ -86495,10 +86495,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64		0x0		intpend0_intrd	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		intpend0_intrd_start	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		intpend1	dwarf			out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64		0x0		intr_bit_reserve_test	dwarf			in	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64		0x0		intr_bit_reserve_test	dwarf			in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP27	shared-kernel	n64		0x0		intr_clear_bits	dwarf			in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64		0x0		intr_cnode_seen	dwarf			in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64		0x0		intr_cpu_choose_from_node	dwarf			in	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64		0x0		intr_cnode_seen	dwarf			in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/unix.IP27	shared-kernel	n64		0x0		intr_cpu_choose_from_node	dwarf			in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP27	shared-kernel	n64		0x0		intr_get_ptrs	dwarf			in	named-only	docs/interrupts.md#routines	Routines
 6.5.30/unix.IP27	shared-kernel	n64		0x0		intr_thread_setup	dwarf			in	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		invalidblocks	dwarf			out:1	undocumented		
@@ -88249,7 +88249,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64		0x0		strunbcall	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		strupdate	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		strwaitsleep	dwarf			out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64		0x0		subnodevertex_to_subnode	dwarf			out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64		0x0		subnodevertex_to_subnode	dwarf			out:1	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP27	shared-kernel	n64		0x0		suserscan	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		sv_clear_timeout	dwarf			out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64		0x0		sv_get	dwarf			out:1	undocumented		
@@ -89321,7 +89321,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001e7bc	44	get_xbow_peer	symtab	3e25c5205b89		out:1	understood	docs/klconfig.md#lookup-routines	Lookup routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001e7e8	144	cpu_cycles_adjust	symtab	3e8afdf8e4e7		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001e878	172	device_component_canonical_name_get	symtab	eee50c19b922		in	understood	docs/hwgraph.md#disabled-device-hints	Disabled-device hints
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001ea60	424	board_serial_number_get	symtab	2123a2279557		in	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001ea60	424	board_serial_number_get	symtab	2123a2279557		in	understood	docs/klconfig.md#board-serial-numbers	Board serial numbers
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001ec08	184	membank_pathname_get	symtab	9292eec24d85		out:1	named-only	docs/ip27-kernel-io.md#hub-memory-error-classification	Hub memory error classification
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001ecc0	180	membank_check_mixed_hidensity	symtab	557d8dd078ab		out:1	understood	docs/klconfig.md#memory-bank-checks	Memory bank checks
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001ed74	168	mem_mixed_hidensity_banks	symtab	9a589bf0280a		in	understood	docs/klconfig.md#memory-bank-checks	Memory bank checks
@@ -89725,8 +89725,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000389a0	28	intr_block_bit	symtab	c18f5276146d		in	understood	docs/interrupts.md#routines	Routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000389bc	28	intr_unblock_bit	symtab	e209215d8e60		in	understood	docs/interrupts.md#routines	Routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000038b94	132	mark_subnodevertex_as_subnode	symtab	b3868d750ddc		out:1	named-only	docs/hwgraph.md#routines	Routines
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000038c18	184	intr_target_from_desc	symtab	f97091a33afb		in	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000038db8	572	intr_heuristic	symtab	b1fcb4739336		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000038c18	184	intr_target_from_desc	symtab	f97091a33afb		in	understood	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000038db8	572	intr_heuristic	symtab	b1fcb4739336		in	understood	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000038ff4	72	cause_intr_connect	symtab	8c8c68ef42d8		out:1	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003903c	64	cause_intr_disconnect	symtab	1af9ef9d4862		out:1	named-only	docs/ip27-kernel-io.md#interrupt-entry	Interrupt entry
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000392d8	636	intr	symtab	3daadd2f402c		in	understood	docs/ip27-kernel-io.md#interrupt-entry	Interrupt entry
@@ -89852,21 +89852,21 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003c9a8	100	r1nkperf_control_register_set	symtab	1ed754a7c450		out:1	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003ca0c	12	get_r10k_config	symtab	65d36b16835c		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003ca18	212	xbwidget_to_xtslot	symtab	75a800f355ff		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003caec	108	hub_slotbits_to_slot	symtab	5ee4c564bffe		in	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cb58	104	hub_slot_to_widget	symtab	924abc26452f		in	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003caec	108	hub_slotbits_to_slot	symtab	5ee4c564bffe		in	understood	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cb58	104	hub_slot_to_widget	symtab	924abc26452f		in	understood	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cbc0	36	hub_slot_to_crossbow	symtab	11261d777a5d		in	understood	docs/klconfig.md#node-and-processor-lookups	Node and processor lookups
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cbe4	40	router_slotbits_to_slot	symtab	e3ae1dd4443d		in	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cc0c	40	meta_router_slotbits_to_slot	symtab	73c94a5ff325		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cc9c	156	get_slotname	symtab	2d4c894930a7		out:1	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cd38	44	get_node_slotid	symtab	5a776160aeb4		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cd64	36	get_my_slotid	symtab	6715f94df110		out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cd64	36	get_my_slotid	symtab	6715f94df110		out:1	understood	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cd88	36	get_node_crossbow	symtab	7f7507e23e62		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cdac	48	get_my_slotname	symtab	a73a35930a07		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cddc	28	get_widget_slotnum	symtab	1573fae26c64		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cdf8	48	get_widget_slotname	symtab	0432c54222e3		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003ce28	52	router_slotbits_to_slotname	symtab	0061c0963a1b		in	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003ce5c	132	slot_to_widget	symtab	0b41bef39b75		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cee0	36	hub_slot_get	symtab	85c5d96425e7		in	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cee0	36	hub_slot_get	symtab	85c5d96425e7		in	understood	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cf04	64	node_can_talk_to_elsc	symtab	a3c9a1fa07c1		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cf44	64	is_xbox_config	symtab	c244bab0a369		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cf84	36	ip27log_xbox_nasid_clear	symtab	65d3102a924b		in	undocumented		
@@ -92822,7 +92822,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001723e0	160	device_desc_dup	symtab	cf0db4792877		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000172480	48	device_desc_default_get	symtab	a9f0f3eaf9a8		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001724b0	184	device_desc_default_set	symtab	4b834ded651f		in	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000172568	8	device_desc_intr_target_get	symtab	b893f60251e4		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000172568	8	device_desc_intr_target_get	symtab	b893f60251e4		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000172570	8	device_desc_intr_policy_get	symtab	f300cc2a20ca		in	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000172578	8	device_desc_intr_swlevel_get	symtab	2d3084abca7d		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000172580	8	device_desc_intr_name_get	symtab	5168f5d3aa16		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
@@ -95451,7 +95451,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000273480	88	physmem_place_node	symtab	3d658f7b9ce3		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000002734d8	936	physmem_place_cube_p	symtab	bc01f90794e7		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000273880	912	physmem_place_cube_with_affinity_p	symtab	8cddc1fce690		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000273c10	260	physmem_select_neighbor_node	symtab	36a8f91a5c6c		out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000273c10	260	physmem_select_neighbor_node	symtab	36a8f91a5c6c		out:1	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000273d14	300	physmem_select_masked_neighbor_node	symtab	2c5c3b0708a6		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000273e40	1468	topology_init	symtab	3d46db418a66		out:1	named-only	docs/klconfig.md#memory-and-numa-start-up	Memory and NUMA start-up
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000002743fc	116	copy_distmatrix	symtab	6d6bd6bfa5b0		out:1	undocumented		
@@ -95459,7 +95459,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000274654	192	full_nodemask_init	symtab	68ece275957b		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000274714	48	ceil_log2	symtab	a142ccec8f1e		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000274744	28	node_distance	symtab	255052eeb82c		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000274760	8	physmem_maxradius	symtab	0fc7d0fee9e8		out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000274760	8	physmem_maxradius	symtab	0fc7d0fee9e8		out:1	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000274768	44	set_loadmask	symtab	0dac4f6eded0		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000274794	40	clear_loadmask	symtab	542fafd38a93		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000274b0c	204	physmem_find_cpu_cluster	symtab	bdd2087d3402		out:1	undocumented		
@@ -95813,8 +95813,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000296b6c	128	dev_to_name	symtab	451e129daf68		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000296bec	52	device_master_get	symtab	9c694cf2aa48		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000296c20	36	device_master_set	symtab	8711273b394b		in	named-only	docs/hwgraph.md#routines	Routines
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000296c44	180	master_node_get	symtab	b621cd42d76b		out:1	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000296cf8	60	cpuvertex_to_cpuid	symtab	11b918b19f12		out:1	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000296c44	180	master_node_get	symtab	b621cd42d76b		out:1	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000296cf8	60	cpuvertex_to_cpuid	symtab	11b918b19f12		out:1	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000296d34	288	mark_cpuvertex_as_cpu	symtab	6c17f93efa10		out:1	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000296e54	60	nodevertex_to_cnodeid	symtab	d3ac392ab7c5		out:1	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000296e90	180	mark_nodevertex_as_node	symtab	a8f53748cc68		out:1	named-only	docs/hwgraph.md#routines	Routines
@@ -105759,7 +105759,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002013e950	160	device_desc_dup	symtab	ac3edaa016db		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002013e9f0	48	device_desc_default_get	symtab	8b365e33845c		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002013ea20	184	device_desc_default_set	symtab	646eb09a41d3		in	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002013ead8	8	device_desc_intr_target_get	symtab	b893f60251e4		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002013ead8	8	device_desc_intr_target_get	symtab	b893f60251e4		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002013eae0	8	device_desc_intr_policy_get	symtab	f300cc2a20ca		in	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002013eae8	8	device_desc_intr_swlevel_get	symtab	2d3084abca7d		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002013eaf0	8	device_desc_intr_name_get	symtab	5168f5d3aa16		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
@@ -108553,8 +108553,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002023e10c	128	dev_to_name	symtab	80844abf619d		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002023e18c	52	device_master_get	symtab	42bfd72ead0d		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002023e1c0	36	device_master_set	symtab	5f16343efd16		in	named-only	docs/hwgraph.md#routines	Routines
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002023e1e4	180	master_node_get	symtab	b7682b7d867c		out:1	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002023e298	60	cpuvertex_to_cpuid	symtab	8328632f7e31		out:1	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002023e1e4	180	master_node_get	symtab	b7682b7d867c		out:1	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002023e298	60	cpuvertex_to_cpuid	symtab	8328632f7e31		out:1	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002023e2d4	288	mark_cpuvertex_as_cpu	symtab	86bf153e5888		out:1	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002023e3f4	60	nodevertex_to_cnodeid	symtab	d68b6c935ffe		out:1	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002023e430	164	mark_nodevertex_as_node	symtab	fa63d300f64a		out:1	named-only	docs/hwgraph.md#routines	Routines
@@ -112163,7 +112163,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64		0x0		compatible	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		complement	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		component_name_lookup	dwarf			out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64		0x0		component_serial_number_get	dwarf			out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64		0x0		component_serial_number_get	dwarf			out:1	named-only	docs/klconfig.md#board-serial-numbers	Board serial numbers
 6.5.30/unix.IP35	shared-kernel	n64		0x0		compress_and_write_block	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		compress_block	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		connclose	dwarf			out:1	undocumented		
@@ -112354,7 +112354,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64		0x0		do_hub_intr_alloc	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		do_hwgraph_connectpt_get	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		do_hwgraph_connectpt_set	dwarf			out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64		0x0		do_intr_cpu_choose	dwarf			out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64		0x0		do_intr_cpu_choose	dwarf			out:1	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP35	shared-kernel	n64		0x0		do_intr_reserve_level	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		do_io_init_node	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		do_ioc3_write	dwarf			out:1	undocumented		
@@ -113150,10 +113150,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64		0x0		intpend0_intrd	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		intpend0_intrd_start	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		intpend1	dwarf			out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64		0x0		intr_bit_reserve_test	dwarf			in	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64		0x0		intr_bit_reserve_test	dwarf			in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP35	shared-kernel	n64		0x0		intr_clear_bits	dwarf			in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64		0x0		intr_cnode_seen	dwarf			in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64		0x0		intr_cpu_choose_from_node	dwarf			in	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64		0x0		intr_cnode_seen	dwarf			in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/unix.IP35	shared-kernel	n64		0x0		intr_cpu_choose_from_node	dwarf			in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP35	shared-kernel	n64		0x0		intr_get_ptrs	dwarf			in	named-only	docs/interrupts.md#routines	Routines
 6.5.30/unix.IP35	shared-kernel	n64		0x0		intr_thread_setup	dwarf			in	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		invalidblocks	dwarf			out:1	undocumented		
@@ -115373,7 +115373,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64		0x0		strupdate	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		strwaitsleep	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		subch_pull_msg	dwarf			out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64		0x0		subnodevertex_to_subnode	dwarf			out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64		0x0		subnodevertex_to_subnode	dwarf			out:1	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP35	shared-kernel	n64		0x0		suserscan	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		sv_clear_timeout	dwarf			out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64		0x0		sv_get	dwarf			out:1	undocumented		
@@ -116776,7 +116776,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000045424	52	get_xbow_peer	symtab	7016a679a9c9		out:1	understood	docs/klconfig.md#ip35-lookups	IP35 lookups
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000045458	144	cpu_cycles_adjust	symtab	1fe8005849d6		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000454e8	144	device_component_canonical_name_get	symtab	7cdda66638a6		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000456b4	536	board_serial_number_get	symtab	aaf68d44b9ff		in	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000456b4	536	board_serial_number_get	symtab	aaf68d44b9ff		in	understood	docs/klconfig.md#board-serial-numbers	Board serial numbers
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000458cc	140	membank_pathname_get	symtab	7f940a367595		out:1	named-only	docs/ip27-kernel-io.md#hub-memory-error-classification	Hub memory error classification
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000045958	220	membank_check_mixed_hidensity	symtab	3464e069929f		out:1	understood	docs/klconfig.md#memory-bank-checks	Memory bank checks
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000045a34	168	mem_mixed_hidensity_banks	symtab	95ccf6270824		in	understood	docs/klconfig.md#memory-bank-checks	Memory bank checks
@@ -117175,8 +117175,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005f9b4	28	intr_block_bit	symtab	6ceed6e66db5		in	located	docs/interrupts.md#routines	Routines
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005f9d0	28	intr_unblock_bit	symtab	8957e9145ab7		in	understood	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005fbe0	132	mark_subnodevertex_as_subnode	symtab	82eb34664c63		out:1	named-only	docs/hwgraph.md#routines	Routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005fc64	184	intr_target_from_desc	symtab	16a7560e98e9		in	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005fe04	980	intr_heuristic	symtab	ef04a6657617		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005fc64	184	intr_target_from_desc	symtab	16a7560e98e9		in	understood	docs/interrupts.md#ip35-differences	IP35 differences
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005fe04	980	intr_heuristic	symtab	ef04a6657617		in	located	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000601d8	72	cause_intr_connect	symtab	51f5a452bbaa		out:1	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000060220	64	cause_intr_disconnect	symtab	3669b6f8d1be		out:1	named-only	docs/ip27-kernel-io.md#interrupt-entry	Interrupt entry
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000604bc	636	intr	symtab	b66e70913049		in	understood	docs/ip35-hub-errors.md#interrupt-dispatch	Interrupt dispatch
@@ -120912,7 +120912,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000021cf48	160	device_desc_dup	symtab	f3b981906a28		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000021cfe8	48	device_desc_default_get	symtab	7f5084ee4738		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000021d018	184	device_desc_default_set	symtab	8bec140160aa		in	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000021d0d0	8	device_desc_intr_target_get	symtab	b893f60251e4		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000021d0d0	8	device_desc_intr_target_get	symtab	b893f60251e4		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000021d0d8	8	device_desc_intr_policy_get	symtab	f300cc2a20ca		in	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000021d0e0	8	device_desc_intr_swlevel_get	symtab	2d3084abca7d		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000021d0e8	8	device_desc_intr_name_get	symtab	5168f5d3aa16		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
@@ -123525,7 +123525,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003229e0	104	physmem_place_node	symtab	9e4304b77594		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000322a48	1012	physmem_place_cube_p	symtab	aef97554d7cc		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000322e3c	996	physmem_place_cube_with_affinity_p	symtab	8d6f5972e1d8		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000323220	260	physmem_select_neighbor_node	symtab	1d157139f5de		out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000323220	260	physmem_select_neighbor_node	symtab	1d157139f5de		out:1	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000323324	324	physmem_select_masked_neighbor_node	symtab	a1c62457788f		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000323468	1172	topology_init	symtab	ca31b02819df		out:1	named-only	docs/klconfig.md#memory-and-numa-start-up	Memory and NUMA start-up
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003238fc	116	copy_distmatrix	symtab	0cd37f7c1b6f		out:1	undocumented		
@@ -123533,7 +123533,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000323b54	172	full_nodemask_init	symtab	0e91dfce11ec		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000323c00	48	ceil_log2	symtab	a142ccec8f1e		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000323c30	28	node_distance	symtab	ca904f9ad66d		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000323c4c	8	physmem_maxradius	symtab	e20246158aff		out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000323c4c	8	physmem_maxradius	symtab	e20246158aff		out:1	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000323c54	60	set_loadmask	symtab	780fcc23e616		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000323c90	56	clear_loadmask	symtab	9cb350528104		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003240d0	356	physmem_find_cpu_cluster	symtab	41badaffc83b		out:1	undocumented		
@@ -123867,8 +123867,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003425cc	128	dev_to_name	symtab	78385c5243d8		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000034264c	52	device_master_get	symtab	5f3b8f8dd980		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000342680	36	device_master_set	symtab	97e63b09a623		in	named-only	docs/hwgraph.md#routines	Routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003426a4	180	master_node_get	symtab	3f1c43a9c8fd		out:1	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000342758	60	cpuvertex_to_cpuid	symtab	2147ca549e37		out:1	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003426a4	180	master_node_get	symtab	3f1c43a9c8fd		out:1	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000342758	60	cpuvertex_to_cpuid	symtab	2147ca549e37		out:1	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000342794	288	mark_cpuvertex_as_cpu	symtab	ff695ab061f0		out:1	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003428b4	60	nodevertex_to_cnodeid	symtab	e33f0cc1daa3		out:1	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003428f0	188	mark_nodevertex_as_node	symtab	cb5e8a760d0c		out:1	named-only	docs/hwgraph.md#routines	Routines
@@ -130001,8 +130001,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x209c	128	dev_to_name	dwarf+symtab	595badebf4d2		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x211c	52	device_master_get	dwarf+symtab	c297bc162b6e		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.30/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2150	36	device_master_set	dwarf+symtab	da3ed8ec82de		in	named-only	docs/hwgraph.md#routines	Routines
-6.5.30/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2174	180	master_node_get	dwarf+symtab	9e0cf9637f19		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
-6.5.30/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2228	60	cpuvertex_to_cpuid	dwarf+symtab	c94291da34c2		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
+6.5.30/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2174	180	master_node_get	dwarf+symtab	9e0cf9637f19		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2228	60	cpuvertex_to_cpuid	dwarf+symtab	c94291da34c2		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2264	288	mark_cpuvertex_as_cpu	dwarf+symtab	5de0ce82a422		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2384	60	nodevertex_to_cnodeid	dwarf+symtab	1a4fafca953e		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP27boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x23c0	180	mark_nodevertex_as_node	dwarf+symtab	2444bdefa2c5		in	named-only	docs/hwgraph.md#routines	Routines
@@ -131380,7 +131380,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x74	160	device_desc_dup	dwarf+symtab	98e9ee8c8287		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
 6.5.30/usr/cpu/sysgen/IP27boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x114	48	device_desc_default_get	dwarf+symtab	68059499f8d4		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.30/usr/cpu/sysgen/IP27boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x144	184	device_desc_default_set	dwarf+symtab	8ec3f22f8e92		in	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
-6.5.30/usr/cpu/sysgen/IP27boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x1fc	8	device_desc_intr_target_get	dwarf+symtab	b893f60251e4		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
+6.5.30/usr/cpu/sysgen/IP27boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x1fc	8	device_desc_intr_target_get	dwarf+symtab	b893f60251e4		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/usr/cpu/sysgen/IP27boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x204	8	device_desc_intr_policy_get	dwarf+symtab	f300cc2a20ca		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x20c	8	device_desc_intr_swlevel_get	dwarf+symtab	2d3084abca7d		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.30/usr/cpu/sysgen/IP27boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x214	8	device_desc_intr_name_get	dwarf+symtab	5168f5d3aa16		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
@@ -132359,8 +132359,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x563c	44	get_xbow_peer	dwarf+symtab	5a0501f1d293		out:2	located	docs/klconfig.md#lookup-routines	Lookup routines
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5668	144	cpu_cycles_adjust	dwarf+symtab	26957ab60c5f		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x56f8	172	device_component_canonical_name_get	dwarf+symtab	29eceabe5ab3		in	located	docs/hwgraph.md#disabled-device-hints	Disabled-device hints
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x57a4	316	component_serial_number_get	dwarf	eeb1eedc6b95		out:2	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x58e0	424	board_serial_number_get	dwarf+symtab	57d0b29c12a1		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x57a4	316	component_serial_number_get	dwarf	eeb1eedc6b95		out:2	named-only	docs/klconfig.md#board-serial-numbers	Board serial numbers
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x58e0	424	board_serial_number_get	dwarf+symtab	57d0b29c12a1		in	located	docs/klconfig.md#board-serial-numbers	Board serial numbers
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5a88	184	membank_pathname_get	dwarf+symtab	890d62b5b0c4		out:2	named-only	docs/ip27-kernel-io.md#hub-memory-error-classification	Hub memory error classification
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5b40	180	membank_check_mixed_hidensity	dwarf+symtab	10749f4f8a9f		out:2	located	docs/klconfig.md#memory-bank-checks	Memory bank checks
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x5bf4	168	mem_mixed_hidensity_banks	dwarf+symtab	dd19c057e571		in	located	docs/klconfig.md#memory-bank-checks	Memory bank checks
@@ -132829,14 +132829,14 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f6b4	364	do_intr_block_bit	dwarf+symtab	d31b67b878d1		out:2	located	docs/interrupts.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f820	28	intr_block_bit	dwarf+symtab	9b5b52955f37		in	located	docs/interrupts.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f83c	28	intr_unblock_bit	dwarf+symtab	4e0b7c85ec68		in	located	docs/interrupts.md#routines	Routines
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f858	296	do_intr_cpu_choose	dwarf	3daaf3094b0b		out:2	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f980	28	intr_cpu_choose_from_node	dwarf	8d6c67e351c6		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f99c	120	subnodevertex_to_subnode	dwarf	53d897079f1c		out:2	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f858	296	do_intr_cpu_choose	dwarf	3daaf3094b0b		out:2	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f980	28	intr_cpu_choose_from_node	dwarf	8d6c67e351c6		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f99c	120	subnodevertex_to_subnode	dwarf	53d897079f1c		out:2	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1fa14	132	mark_subnodevertex_as_subnode	dwarf+symtab	1d58cda792b9		out:2	named-only	docs/hwgraph.md#routines	Routines
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1fa98	184	intr_target_from_desc	dwarf+symtab	a856f570f32e		in	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1fb50	64	intr_cnode_seen	dwarf	fd6780c49132		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1fb90	168	intr_bit_reserve_test	dwarf	82f35a3defc7		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1fc38	572	intr_heuristic	dwarf+symtab	f78d640826c9		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1fa98	184	intr_target_from_desc	dwarf+symtab	a856f570f32e		in	located	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1fb50	64	intr_cnode_seen	dwarf	fd6780c49132		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1fb90	168	intr_bit_reserve_test	dwarf	82f35a3defc7		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1fc38	572	intr_heuristic	dwarf+symtab	f78d640826c9		in	located	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1fe74	72	cause_intr_connect	dwarf+symtab	94660ad81896		out:2	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1febc	64	cause_intr_disconnect	dwarf+symtab	d3a64d2553fd		out:2	named-only	docs/ip27-kernel-io.md#interrupt-entry	Interrupt entry
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1fefc	16	nointr	dwarf	47d7932962f8		out:2	undocumented		
@@ -132978,22 +132978,22 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23828	100	r1nkperf_control_register_set	dwarf+symtab	1ed754a7c450		out:2	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2388c	12	get_r10k_config	dwarf+symtab	65d36b16835c		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23898	212	xbwidget_to_xtslot	dwarf+symtab	f0ae78b07f88		out:2	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2396c	108	hub_slotbits_to_slot	dwarf+symtab	8dd2529f3e47		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x239d8	104	hub_slot_to_widget	dwarf+symtab	e2de5b2e66e3		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2396c	108	hub_slotbits_to_slot	dwarf+symtab	8dd2529f3e47		in	located	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x239d8	104	hub_slot_to_widget	dwarf+symtab	e2de5b2e66e3		in	located	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23a40	36	hub_slot_to_crossbow	dwarf+symtab	11261d777a5d		in	understood	docs/klconfig.md#node-and-processor-lookups	Node and processor lookups
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23a64	40	router_slotbits_to_slot	dwarf+symtab	436e1316ed03		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23a8c	40	meta_router_slotbits_to_slot	dwarf+symtab	df7aea102d8a		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23ab4	104	get_slotclass	dwarf	5fbba4934a1d		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23b1c	156	get_slotname	dwarf+symtab	82d64ca9ab44		out:2	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23bb8	44	get_node_slotid	dwarf+symtab	d9797d0b6d45		out:2	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23be4	36	get_my_slotid	dwarf+symtab	11bbdc54832d		out:2	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23be4	36	get_my_slotid	dwarf+symtab	11bbdc54832d		out:2	located	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23c08	36	get_node_crossbow	dwarf+symtab	23784e861696		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23c2c	48	get_my_slotname	dwarf+symtab	eed8a30f5024		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23c5c	28	get_widget_slotnum	dwarf+symtab	a86de4a9d7a4		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23c78	48	get_widget_slotname	dwarf+symtab	120b834513da		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23ca8	52	router_slotbits_to_slotname	dwarf+symtab	471c1daafef4		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23cdc	132	slot_to_widget	dwarf+symtab	079a6baa0e8f		out:2	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23d60	36	hub_slot_get	dwarf+symtab	0bc7ef5e18aa		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23d60	36	hub_slot_get	dwarf+symtab	0bc7ef5e18aa		in	located	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23d84	64	node_can_talk_to_elsc	dwarf+symtab	d07c60613c40		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23dc4	64	is_xbox_config	dwarf+symtab	4aac32c67ada		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23e04	36	ip27log_xbox_nasid_clear	dwarf+symtab	171766094241		in	undocumented		
@@ -136612,7 +136612,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x2e7c	88	physmem_place_node	dwarf+symtab	7335c377e3a9		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x2ed4	936	physmem_place_cube_p	dwarf+symtab	2dd64b842ccd		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x327c	912	physmem_place_cube_with_affinity_p	dwarf+symtab	9d5b7a85860d		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x360c	260	physmem_select_neighbor_node	dwarf+symtab	87a8cc6e583e		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x360c	260	physmem_select_neighbor_node	dwarf+symtab	87a8cc6e583e		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x3710	300	physmem_select_masked_neighbor_node	dwarf+symtab	2cfd0063e911		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x383c	1468	topology_init	dwarf+symtab	f4383c154764		in	named-only	docs/klconfig.md#memory-and-numa-start-up	Memory and NUMA start-up
 6.5.30/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x3df8	116	copy_distmatrix	dwarf+symtab	e949c56d359d		in	undocumented		
@@ -136620,7 +136620,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x4050	192	full_nodemask_init	dwarf+symtab	0404823b1f69		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x4110	48	ceil_log2	dwarf+symtab	a142ccec8f1e		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x4140	28	node_distance	dwarf+symtab	142ae59d13a6		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x415c	8	physmem_maxradius	dwarf+symtab	7451bb35e09d		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x415c	8	physmem_maxradius	dwarf+symtab	7451bb35e09d		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x4164	44	set_loadmask	dwarf+symtab	2a9d37abc771		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x4190	40	clear_loadmask	dwarf+symtab	192456304975		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x41b8	848	physmem_find_cluster	dwarf+symtab	7a6838fd6180		in	undocumented		
@@ -149925,8 +149925,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x209c	128	dev_to_name	dwarf+symtab	595badebf4d2		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x211c	52	device_master_get	dwarf+symtab	c297bc162b6e		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2150	36	device_master_set	dwarf+symtab	da3ed8ec82de		in	named-only	docs/hwgraph.md#routines	Routines
-6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2174	180	master_node_get	dwarf+symtab	9e0cf9637f19		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
-6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2228	60	cpuvertex_to_cpuid	dwarf+symtab	c94291da34c2		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
+6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2174	180	master_node_get	dwarf+symtab	9e0cf9637f19		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2228	60	cpuvertex_to_cpuid	dwarf+symtab	c94291da34c2		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2264	288	mark_cpuvertex_as_cpu	dwarf+symtab	ad9b457fae9a		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2384	60	nodevertex_to_cnodeid	dwarf+symtab	1a4fafca953e		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x23c0	164	mark_nodevertex_as_node	dwarf+symtab	e5430dedea6b		in	named-only	docs/hwgraph.md#routines	Routines
@@ -151184,7 +151184,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x74	160	device_desc_dup	dwarf+symtab	98e9ee8c8287		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
 6.5.30/usr/cpu/sysgen/IP30boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x114	48	device_desc_default_get	dwarf+symtab	68059499f8d4		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.30/usr/cpu/sysgen/IP30boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x144	184	device_desc_default_set	dwarf+symtab	8ec3f22f8e92		in	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
-6.5.30/usr/cpu/sysgen/IP30boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x1fc	8	device_desc_intr_target_get	dwarf+symtab	b893f60251e4		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
+6.5.30/usr/cpu/sysgen/IP30boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x1fc	8	device_desc_intr_target_get	dwarf+symtab	b893f60251e4		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/usr/cpu/sysgen/IP30boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x204	8	device_desc_intr_policy_get	dwarf+symtab	f300cc2a20ca		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x20c	8	device_desc_intr_swlevel_get	dwarf+symtab	2d3084abca7d		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.30/usr/cpu/sysgen/IP30boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x214	8	device_desc_intr_name_get	dwarf+symtab	5168f5d3aa16		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
@@ -155030,7 +155030,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/numa.a(numa_stubs.o)	shared-kernel	n64	.text	0x8	8	migr_threshold_diff_set_lock	dwarf+symtab	78aa5094d5ec		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/numa.a(numa_stubs.o)	shared-kernel	n64	.text	0x10	8	migr_refcnt_disable	dwarf+symtab	78aa5094d5ec		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/numa.a(numa_stubs.o)	shared-kernel	n64	.text	0x18	8	migr_refcnt_update_counters	dwarf+symtab	78aa5094d5ec		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/numa.a(numa_stubs.o)	shared-kernel	n64	.text	0x20	148	physmem_select_neighbor_node	dwarf+symtab	97ea375b2ca2		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/numa.a(numa_stubs.o)	shared-kernel	n64	.text	0x20	148	physmem_select_neighbor_node	dwarf+symtab	97ea375b2ca2		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/usr/cpu/sysgen/IP30boot/numa.a(pmo_stubs.o)	shared-kernel	n64		0x0		pmo_xface_mld_create	dwarf+symtab			in	named-only	docs/syssgi.md#partitions-and-placement-objects	Partitions and placement objects
 6.5.30/usr/cpu/sysgen/IP30boot/numa.a(pmo_stubs.o)	shared-kernel	n64	.text	0x8	8	pmo_xface_mld_destroy	dwarf+symtab	ffa7c42f27ed		in	named-only	docs/syssgi.md#partitions-and-placement-objects	Partitions and placement objects
 6.5.30/usr/cpu/sysgen/IP30boot/numa.a(pmo_stubs.o)	shared-kernel	n64	.text	0x10	12	pmo_xface_mld_getnode	dwarf+symtab	6256bede86bb		in	named-only	docs/syssgi.md#partitions-and-placement-objects	Partitions and placement objects
@@ -167292,8 +167292,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x20a4	124	dev_to_name	dwarf+symtab	1b58a6acdbea		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x2120	52	device_master_get	dwarf+symtab	857400dcd083		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.30/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x2154	36	device_master_set	dwarf+symtab	09fdf96f206e		in	named-only	docs/hwgraph.md#routines	Routines
-6.5.30/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x2178	180	master_node_get	dwarf+symtab	de9bcce587bd		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
-6.5.30/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x222c	60	cpuvertex_to_cpuid	dwarf+symtab	58c517d20576		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
+6.5.30/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x2178	180	master_node_get	dwarf+symtab	de9bcce587bd		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x222c	60	cpuvertex_to_cpuid	dwarf+symtab	58c517d20576		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x2268	244	mark_cpuvertex_as_cpu	dwarf+symtab	04b23da58672		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x235c	60	nodevertex_to_cnodeid	dwarf+symtab	deb1a72443f9		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)	shared-kernel	n32	.text	0x2398	164	mark_nodevertex_as_node	dwarf+symtab	0a2c0dfe51c1		in	named-only	docs/hwgraph.md#routines	Routines
@@ -168389,7 +168389,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x78	168	device_desc_dup	dwarf+symtab	9dc645f3a0c2		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
 6.5.30/usr/cpu/sysgen/IP32boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x120	52	device_desc_default_get	dwarf+symtab	9a090a0a1a1c		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.30/usr/cpu/sysgen/IP32boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x154	200	device_desc_default_set	dwarf+symtab	bf7d6c6c1c2e		in	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
-6.5.30/usr/cpu/sysgen/IP32boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x21c	8	device_desc_intr_target_get	dwarf+symtab	b893f60251e4		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
+6.5.30/usr/cpu/sysgen/IP32boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x21c	8	device_desc_intr_target_get	dwarf+symtab	b893f60251e4		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/usr/cpu/sysgen/IP32boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x224	8	device_desc_intr_policy_get	dwarf+symtab	f300cc2a20ca		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x22c	8	device_desc_intr_swlevel_get	dwarf+symtab	2d3084abca7d		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.30/usr/cpu/sysgen/IP32boot/io.a(devsupport.o)	shared-kernel	n32	.text	0x234	8	device_desc_intr_name_get	dwarf+symtab	55470fa05862		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
@@ -172523,7 +172523,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/numa.a(numa_stubs.o)	shared-kernel	n32	.text	0x8	8	migr_threshold_diff_set_lock	dwarf+symtab	78aa5094d5ec		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/numa.a(numa_stubs.o)	shared-kernel	n32	.text	0x10	8	migr_refcnt_disable	dwarf+symtab	78aa5094d5ec		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/numa.a(numa_stubs.o)	shared-kernel	n32	.text	0x18	8	migr_refcnt_update_counters	dwarf+symtab	78aa5094d5ec		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/numa.a(numa_stubs.o)	shared-kernel	n32	.text	0x20	148	physmem_select_neighbor_node	dwarf+symtab	ff18df3b644f		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/numa.a(numa_stubs.o)	shared-kernel	n32	.text	0x20	148	physmem_select_neighbor_node	dwarf+symtab	ff18df3b644f		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/usr/cpu/sysgen/IP32boot/numa.a(pmo_stubs.o)	shared-kernel	n32		0x0		pmo_xface_mld_create	dwarf+symtab			in	named-only	docs/syssgi.md#partitions-and-placement-objects	Partitions and placement objects
 6.5.30/usr/cpu/sysgen/IP32boot/numa.a(pmo_stubs.o)	shared-kernel	n32	.text	0x8	8	pmo_xface_mld_destroy	dwarf+symtab	ffa7c42f27ed		in	named-only	docs/syssgi.md#partitions-and-placement-objects	Partitions and placement objects
 6.5.30/usr/cpu/sysgen/IP32boot/numa.a(pmo_stubs.o)	shared-kernel	n32	.text	0x10	12	pmo_xface_mld_getnode	dwarf+symtab	1f1b03b155bf		in	named-only	docs/syssgi.md#partitions-and-placement-objects	Partitions and placement objects
@@ -184935,8 +184935,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x209c	128	dev_to_name	dwarf+symtab	8319497b486f		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x211c	52	device_master_get	dwarf+symtab	61fb73c96920		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.30/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2150	36	device_master_set	dwarf+symtab	7848db5a55ee		in	named-only	docs/hwgraph.md#routines	Routines
-6.5.30/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2174	180	master_node_get	dwarf+symtab	9e0cf9637f19		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
-6.5.30/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2228	60	cpuvertex_to_cpuid	dwarf+symtab	cf72c48088cf		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
+6.5.30/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2174	180	master_node_get	dwarf+symtab	9e0cf9637f19		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2228	60	cpuvertex_to_cpuid	dwarf+symtab	cf72c48088cf		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2264	288	mark_cpuvertex_as_cpu	dwarf+symtab	9ef230fc7ecc		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x2384	60	nodevertex_to_cnodeid	dwarf+symtab	9986eae1af8b		in	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP35boot/graph.a(hwgraph.o)	shared-kernel	n64	.text	0x23c0	188	mark_nodevertex_as_node	dwarf+symtab	d8f220460346		in	named-only	docs/hwgraph.md#routines	Routines
@@ -186419,7 +186419,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x74	160	device_desc_dup	dwarf+symtab	98e9ee8c8287		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
 6.5.30/usr/cpu/sysgen/IP35boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x114	48	device_desc_default_get	dwarf+symtab	68059499f8d4		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.30/usr/cpu/sysgen/IP35boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x144	184	device_desc_default_set	dwarf+symtab	8ec3f22f8e92		in	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
-6.5.30/usr/cpu/sysgen/IP35boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x1fc	8	device_desc_intr_target_get	dwarf+symtab	b893f60251e4		in	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
+6.5.30/usr/cpu/sysgen/IP35boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x1fc	8	device_desc_intr_target_get	dwarf+symtab	b893f60251e4		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/usr/cpu/sysgen/IP35boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x204	8	device_desc_intr_policy_get	dwarf+symtab	f300cc2a20ca		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x20c	8	device_desc_intr_swlevel_get	dwarf+symtab	2d3084abca7d		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.30/usr/cpu/sysgen/IP35boot/io.a(devsupport.o)	shared-kernel	n64	.text	0x214	8	device_desc_intr_name_get	dwarf+symtab	5168f5d3aa16		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
@@ -187474,8 +187474,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x52a4	52	get_xbow_peer	dwarf+symtab	15f6607e1ccb		out:2	located	docs/klconfig.md#lookup-routines	Lookup routines
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x52d8	144	cpu_cycles_adjust	dwarf+symtab	26957ab60c5f		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x5368	144	device_component_canonical_name_get	dwarf+symtab	e682606e7b4a		in	located	docs/hwgraph.md#disabled-device-hints	Disabled-device hints
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x53f8	316	component_serial_number_get	dwarf	b5f25eaa4929		out:2	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x5534	536	board_serial_number_get	dwarf+symtab	3c4b6a34e181		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x53f8	316	component_serial_number_get	dwarf	b5f25eaa4929		out:2	named-only	docs/klconfig.md#board-serial-numbers	Board serial numbers
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x5534	536	board_serial_number_get	dwarf+symtab	3c4b6a34e181		in	located	docs/klconfig.md#board-serial-numbers	Board serial numbers
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x574c	140	membank_pathname_get	dwarf+symtab	0713a9b23b8d		out:2	named-only	docs/ip27-kernel-io.md#hub-memory-error-classification	Hub memory error classification
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x57d8	220	membank_check_mixed_hidensity	dwarf+symtab	9e3e148ffd3e		out:2	located	docs/klconfig.md#memory-bank-checks	Memory bank checks
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x58b4	168	mem_mixed_hidensity_banks	dwarf+symtab	dd19c057e571		in	located	docs/klconfig.md#memory-bank-checks	Memory bank checks
@@ -187943,14 +187943,14 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1f674	448	do_intr_block_bit	dwarf+symtab	5408de21eb92		out:2	located	docs/interrupts.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1f834	28	intr_block_bit	dwarf+symtab	9b5b52955f37		in	located	docs/interrupts.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1f850	28	intr_unblock_bit	dwarf+symtab	4e0b7c85ec68		in	located	docs/interrupts.md#routines	Routines
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1f86c	352	do_intr_cpu_choose	dwarf	b3b5b50a5e43		out:2	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1f9cc	28	intr_cpu_choose_from_node	dwarf	295349a1af92		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1f9e8	120	subnodevertex_to_subnode	dwarf	41f361bb9c9f		out:2	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1f86c	352	do_intr_cpu_choose	dwarf	b3b5b50a5e43		out:2	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1f9cc	28	intr_cpu_choose_from_node	dwarf	295349a1af92		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1f9e8	120	subnodevertex_to_subnode	dwarf	41f361bb9c9f		out:2	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1fa60	132	mark_subnodevertex_as_subnode	dwarf+symtab	2d2776bde071		out:2	named-only	docs/hwgraph.md#routines	Routines
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1fae4	184	intr_target_from_desc	dwarf+symtab	452e17328a98		in	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1fb9c	64	intr_cnode_seen	dwarf	fd6780c49132		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1fbdc	168	intr_bit_reserve_test	dwarf	624b185a009f		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1fc84	980	intr_heuristic	dwarf+symtab	c01c0fde6691		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1fae4	184	intr_target_from_desc	dwarf+symtab	452e17328a98		in	located	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1fb9c	64	intr_cnode_seen	dwarf	fd6780c49132		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1fbdc	168	intr_bit_reserve_test	dwarf	624b185a009f		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1fc84	980	intr_heuristic	dwarf+symtab	c01c0fde6691		in	located	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20058	72	cause_intr_connect	dwarf+symtab	0699e0eef4d4		out:2	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x200a0	64	cause_intr_disconnect	dwarf+symtab	e4d8671e9726		out:2	named-only	docs/ip27-kernel-io.md#interrupt-entry	Interrupt entry
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x200e0	16	nointr	dwarf	47d7932962f8		out:2	undocumented		
@@ -191397,7 +191397,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x3534	104	physmem_place_node	dwarf+symtab	f53b93f7f2ca		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x359c	1012	physmem_place_cube_p	dwarf+symtab	bf924e1b716c		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x3990	996	physmem_place_cube_with_affinity_p	dwarf+symtab	90d842106a65		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x3d74	260	physmem_select_neighbor_node	dwarf+symtab	990923b10341		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x3d74	260	physmem_select_neighbor_node	dwarf+symtab	990923b10341		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x3e78	324	physmem_select_masked_neighbor_node	dwarf+symtab	9ac5af5cc8b3		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x3fbc	1172	topology_init	dwarf+symtab	8aef29ab830f		in	named-only	docs/klconfig.md#memory-and-numa-start-up	Memory and NUMA start-up
 6.5.30/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x4450	116	copy_distmatrix	dwarf+symtab	f5c07c6e9e27		in	undocumented		
@@ -191405,7 +191405,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x46a8	172	full_nodemask_init	dwarf+symtab	e5dee15ffc77		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x4754	48	ceil_log2	dwarf+symtab	a142ccec8f1e		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x4784	28	node_distance	dwarf+symtab	5864e335f494		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x47a0	8	physmem_maxradius	dwarf+symtab	7451bb35e09d		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x47a0	8	physmem_maxradius	dwarf+symtab	7451bb35e09d		in	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 6.5.30/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x47a8	60	set_loadmask	dwarf+symtab	f958152ca2a9		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x47e4	56	clear_loadmask	dwarf+symtab	7e9d58f53ea4		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/numa.a(memsched.o)	shared-kernel	n64	.text	0x481c	1032	physmem_find_cluster	dwarf+symtab	3d21113bdd76		in	undocumented		
