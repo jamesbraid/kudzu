@@ -33,9 +33,26 @@ The kernel on a running system is built from the object files at install time, s
 
 ## 2. IRIX 6.5.22
 
-**Not present.** The only 6.5.22 material held is an IP22 (Indy) disk image of 6.5.22m (not an IP27, IP30 or IP35 system, and a compressed disk image that has not been unpacked) and the 6.5.22 patch sets for 32-bit and 64-bit systems (patches, not a base install). Neither gives the IP27, IP30 or IP35 kernels or the `sysgen` object archives, so none of it is in `root/`.
+Present in the working `root/`:
 
-The scaffold has the slot: `root/6.5.22/`, the paths of the `kernel-image` group in `scripts/scope.json` and the same `files` list as above. Fill `root/6.5.22/` from 6.5.22 media or an installation the same way as section 1, then run `scripts/gen-scope.py` and the inventory, and write the root manifest with `scripts/inventory.py --update-root-manifest`.
+- `usr/cpu/sysgen/IP22boot/`, `IP27boot/`, `IP30boot/`, `IP32boot/` and `IP35boot/`: the kernel object archives and objects, from the three-disc **IRIX 6.5.22 Installation Tools and Overlays (1 of 3)**, **Overlays (2 of 3)** and **Overlays (3 of 3)** media (files merged, no name appears on two discs). 210 files for IP22, 288 for IP27, 266 for IP30, 222 for IP32 and 346 for IP35. Each directory holds a few names that the media installs as links to another member (`socket.a` to `bsd.a`, and for IP35 `cl.o`, `if_cl.o`, `partition.o`, `pts.a` and `xpc.o`); they are kept as links.
+
+Disc image SHA-256 (the files these were read from):
+
+```
+c36d43431569902a9bdf868cb9f98ea44519a9a99e2bb68dbf1be76be0eec299  IRIX 6.5.22 Installation Tools and Overlays (1 of 3).iso
+9064b95ef1c4589c9799a58bbcd7b9f99577d6516555ddc8ed02b703655b58cc  IRIX 6.5.22 Overlays (2 of 3).iso
+d2899e9aac3f6f62a446d881ccc2f214afc181c195272ab0e658ca974528557f  IRIX 6.5.22 Overlays (3 of 3).iso
+```
+
+The hash of every extracted file is in `scripts/inventory-root.sha256` under `6.5.22/`.
+
+Not present, wanted next:
+
+- `unix.IP27`, `unix.IP30`, `unix.IP35` (and `unix.IP32`): no installed 6.5.22 system of those platforms is held, so there is no linked kernel. The object archives above are present; the scope rule already names `6.5.22/unix.IP27`, `IP30` and `IP35` and starts covering them once the files exist. The held IP22 6.5.22m disk image is a compressed image that has not been unpacked and is not needed for the IP22 objects, which the media above gives.
+- `var/sysgen/` and the base libraries and applications, as for 6.5.30.
+
+The 6.5.22 patch sets for 32-bit and 64-bit systems are patches, not a base install, and are not in `root/`.
 
 ## Links and archives
 

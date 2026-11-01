@@ -16,7 +16,7 @@ The long-term scope is all of IRIX and its add-ons: the full kernel, CXFS, ONC R
 
 Everything else is out of scope **for now**, not excluded: it stays in the inventory with an `out` scope, and moves in when a rule in `scope.json` changes. A function, structure or call site that matches an in-scope rule counts toward the finish line in section 6; one that does not is still listed so the totals stay honest.
 
-Platforms: IP27 (Origin 200/2000, Onyx2), IP30 (Octane), IP35 (Origin 300/350, Onyx 300/350) and IP32 (O2) where the media has them. Releases: 6.5.30 is the primary release; 6.5.22 has a slot in `root/` and in the config and is filled when its files are available (see [IRIX_FILES.md](IRIX_FILES.md)). A fact from one release or platform does not fill a gap in another.
+Platforms: IP27 (Origin 200/2000, Onyx2), IP30 (Octane), IP35 (Origin 300/350, Onyx 300/350) and IP32 (O2) where the media has them. Releases: 6.5.30 is the primary release; 6.5.22 has its kernel object archives in `root/` but no linked kernels yet (see [IRIX_FILES.md](IRIX_FILES.md)). A fact from one release or platform does not fill a gap in another.
 
 ## 2. Evidence
 
