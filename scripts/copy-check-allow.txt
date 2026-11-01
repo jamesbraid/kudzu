@@ -1,0 +1,7 @@
+# Names judged benign by the copy check, one per line. Add a name only after
+# reading where it comes from.
+#
+# Names of the public Linux and NetBSD system-call tables that
+# docs/syscall-selector-crosscheck.md compares with the kernel.
+GET_CONTEXT_NAME
+SGI_
