@@ -15,6 +15,11 @@ from the first agreeing kernel in sorted order, and the page names every kernel 
 kernel with a different definition is named with its size and is not shown. A name defined in only
 one kernel, or with two different definitions inside one kernel, is not documented and gets no page.
 
+A structure that the linked kernels define only once (or not at all) is tried again against the
+kernel objects of the primary release, root/<primary>/usr/cpu/sysgen/IP*boot/*.o, under the same
+rule: two objects must agree, and the page names the objects. Objects of other releases are not
+used, so a fact from one release never fills a gap in another.
+
 The DWARF is read from dwarfdump's text, as scripts/os_tables.py reads it. pyelftools rejects the
 DWARF of these kernels (a zero address size in a unit header). The source file of a declaration
 (DW_AT_decl_file) is never read or written.
@@ -223,8 +228,11 @@ def layout(s):
     return num(s, 'byte_size'), tuple(members)
 
 
-def definitions(path):
-    """Structure name -> set of layouts for the named, complete definitions in one kernel."""
+def definitions(path, keep=None):
+    """Structure name -> set of layouts for the named, complete definitions in one kernel or object.
+
+    With keep, only those names are returned.
+    """
     out = subprocess.run(['dwarfdump', '-i', path], capture_output=True, text=True, errors='replace').stdout
     found = collections.defaultdict(set)
     for unit in parse_dies(out):
@@ -232,13 +240,20 @@ def definitions(path):
             if s.tag != 'structure_type' or 'declaration' in s.attr or 'byte_size' not in s.attr:
                 continue
             name = text(s, 'name')
-            if name:
+            if name and (keep is None or name in keep):
                 found[name].add(layout(s))
     return found
 
 
+PRIMARY_RELEASE = '6.5.30'
+
+
 def kernels():
     return sorted(glob.glob(os.path.join(REPO, 'root', '*', 'unix.IP*')))
+
+
+def objects():
+    return sorted(glob.glob(os.path.join(REPO, 'root', PRIMARY_RELEASE, 'usr', 'cpu', 'sysgen', 'IP*boot', '*.o')))
 
 
 def in_scope_names():
@@ -277,11 +292,22 @@ def decide(name, per_image):
     return 'documented', (best_layout, best), best, others
 
 
-def render(name, layout_, agreed, others, per_image_layouts):
+def choose(name, images):
+    """(status, chosen, agreed, others, sizes) for one name over one set of (label, definitions) images."""
+    status, chosen, agreed, others = decide(name, images)
+    sizes = {}
+    if status == 'documented':
+        for label, found in images:
+            if label in others and name in found and len(found[name]) == 1:
+                sizes[label] = next(iter(found[name]))[0]
+    return status, chosen, agreed, others, sizes
+
+
+def render(name, layout_, agreed, others, per_image_layouts, kind):
     size, members = layout_
     lines = ['# `%s`' % name, '']
-    lines.append('Object: `%s`, a linked kernel. Layout: %d bytes, %d member%s.'
-                 % (agreed[0], size, len(members), '' if len(members) == 1 else 's'))
+    lines.append('Object: `%s`, %s. Layout: %d bytes, %d member%s.'
+                 % (agreed[0], kind, size, len(members), '' if len(members) == 1 else 's'))
     lines.append('Checked against: %s. Same size, members, offsets, sizes and type spellings.'
                  % ', '.join('`%s`' % a for a in agreed[1:]))
     for label in others:
@@ -316,23 +342,33 @@ def main():
         per_image.append((label, definitions(k)))
     outdir = os.path.join(REPO, 'docs', 'structs')
     names = in_scope_names()
+    linked = {name: choose(name, per_image) for name in names}
+    # Only a name the linked kernels leave alone (no definition, or one kernel) is tried against objects.
+    fallback = {name for name, c in linked.items() if c[0] in ('no-definition', 'one-kernel')}
+    per_object = []
+    for o in objects() if fallback else []:
+        label = os.path.relpath(o, os.path.join(REPO, 'root'))
+        per_object.append((label, definitions(o, fallback)))
     written, wanted = 0, set()
     for name in names:
-        status, chosen, agreed, others = decide(name, per_image)
+        status, chosen, agreed, others, sizes = linked[name]
+        kind = 'a linked kernel'
+        if name in fallback:
+            ostatus, ochosen, oagreed, oothers, osizes = choose(name, per_object)
+            if list_only and ostatus != 'documented':
+                print('%-40s %s  (linked kernels: %s)' % (name, ostatus, status))
+            if ostatus == 'documented':
+                status, chosen, agreed, others, sizes = ostatus, ochosen, oagreed, oothers, osizes
+                kind = 'a kernel object'
         if status != 'documented':
-            if list_only:
+            if list_only and name not in fallback:
                 print('%-40s %s' % (name, status))
             continue
         wanted.add(name)
-        layout_, labels = chosen
-        sizes = {}
-        for label, found in per_image:
-            if label in others and name in found and len(found[name]) == 1:
-                sizes[label] = next(iter(found[name]))[0]
         if list_only:
             print('%-40s documented  %s  others=%s' % (name, ','.join(agreed), ','.join(others) or '-'))
             continue
-        page = render(name, layout_, agreed, others, sizes)
+        page = render(name, chosen[0], agreed, others, sizes, kind)
         path = os.path.join(outdir, name + '.md')
         if os.path.exists(path) and open(path, encoding='utf-8').read() == page:
             continue
