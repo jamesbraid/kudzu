@@ -60,3 +60,24 @@ How the IRIX 6.5.30 IP35 kernel (`6.5.30/unix.IP35`, a linked 64-bit image with 
   doublewords are copied to frame +1080 onward. Finally, for every class except that last one, `save_cache_error`
   (address 0xc000000000052a08) is called with the register and the two tag words. What the cache-op operations and the
   doubleword read from 0x9200000001030100 are: unknown here, labelled by use only. Established.
+
+## Cache-error exception
+
+- `ecc_exception` (`6.5.30/unix.IP35`, address 0xc00000000004a810, 432 bytes, no stack frame): the cache-error
+  exception body: it saves the interrupted state, asks `ecc_handler` what happened, calls `ecc_panic` when the answer
+  is nonzero and otherwise returns with `eret`. It takes no arguments and never returns normally to a caller; its
+  one exit is the `eret` at 0xc00000000004a9bc. It does not use a stack to start with: the first instruction sets
+  `k1` to the absolute address 1024 (`li k1,1024`), and that is the register-save area. It stores `s0` to `s7` at +120 to
+  +176, `a0` to `a7` at +24 to +80, `gp` at +216, `sp` at +224 and `ra` at +240 (all doublewords, in that order), then
+  builds `gp` as 0xc000000001643770 and calls `tfi_save` (0xc000000000061980). After the call it stores coprocessor-0
+  register 12 at +248, register 13 at +280, register 8 at +272 and register 14 at +288 and again at +352 (in the architecture's
+  numbering these are the status, cause, faulting-address and return-address registers). `s0` is the area and `s1` the area plus 360. When the byte at `s1` +38 is
+  zero it is set to 1. It stores register 30 (ErrorEPC) as a doubleword at `s1` +0 and registers 29, 28 and 27 as words at
+  +32, +28 and +24. The stack pointer is then the doubleword at absolute address 4064, or 4048 when that is zero.
+  `ecc_handler(s0, s1)` (0xc00000000007be10) runs; a zero result jumps to the restore at 0xc00000000004a93c. A nonzero
+  result loads `sp` from the doubleword at absolute address 0xffffffffffffc448, rebuilds `gp`, clears bits 3 and 4 of
+  Status (AND with -25, the `li` at 0xc00000000004a920) and calls `ecc_panic(result, s0, s1)` (0xc00000000007c5f0), which is
+  not expected to return; if it does the code falls into the restore. The restore writes the words at `s1` +32 and +28
+  back to registers 29 and 28, calls `tfi_restore` (0xc0000000000619b8) with `k1` = `s0` set in its delay slot, writes the
+  doubleword at `s1` +0 back to register 30, reloads `a0` to `a7`, `s0` to `s7`, `ra`, `at` (from area +0), `sp` and `gp`,
+  clears the byte at `s1` +38 (through `k0`), loads `k0` from area +200 and `k1` from +208, and does `eret`. Established.

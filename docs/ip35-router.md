@@ -89,3 +89,32 @@ Routines of the NUMAlink router code in the IRIX 6.5.30 IP35 kernel (`6.5.30/uni
   register `number | 0x20` and to `number | 0x28`, ignoring both results. It ends with `restorenoderun` (0xc00000000004ba50)
   on the doubleword at 8(sp), whose bytes 14 and 15 this routine never stores, and returns the result of the first
   write (exit 0xc000000000043094). What the two-bit field selects in the router hardware: unknown here. Established.
+
+## Vector unit register access
+
+- `hub_vector_read` (`6.5.30/unix.IP35`, address 0xc0000000000473c0, 240 bytes, 80-byte frame): reads a register
+  of a router through the Hub's vector (router-access) unit, but only when run on the target node. `a0` is the compact
+  node number, `a1` the router identifier, `a2`, `a3` and `a4` further arguments handed on unchanged; `router_reg_read`
+  calls it. It returns -10 (the `li s0,-10` in the delay slot at 0xc000000000047424) when the processor running it is
+  not on node `a0`, otherwise the result of `vector_read_node`; the single exit is 0xc00000000004744c. It finds the
+  node's data block as the doubleword at index `a0` of the table that the pointer at absolute address -15360 reaches,
+  and the node's NASID as the halfword `compact_to_nasid_node[a0]` (the table at 0xc000000001647000), kept at 32(sp). Unless
+  `in_panic_mode()` is nonzero it takes the block's lock at +0x8590 with `mutex_spinlock` (saving the level at 0(sp)).
+  It compares the halfword at absolute address -15318 (the processor's own node number) with `a0`; on a match it
+  sets the byte at block +0x8594 to 1 (in the delay slot of the call), calls `vector_read_node(a1, NASID, a2, a3, a4)` (0xc000000000046f34) and
+  clears that byte after the call returns (the store is in the delay slot of the branch at the join). It then calls `in_panic_mode()` again and, when it is zero,
+  releases the lock with `mutex_spinunlock(block + 0x8590, saved level)`. The busy byte at +0x8594 is the one
+  `router_print_state_specific` tests. Which of the router's registers `a1` and the other arguments select: unknown here.
+  Established.
+- `hub_vector_write` (`6.5.30/unix.IP35`, address 0xc0000000000474b0, 240 bytes, 80-byte frame): the write
+  counterpart of `hub_vector_read`, with the same shape: the same lock, the same node test and the same busy byte,
+  and a different worker. `a0` is the compact node number, `a1` the router identifier and `a2`, `a3` and `a4` are
+  handed on unchanged; `router_reg_write` calls it. It returns -10 (the `li s0,-10` in the branch delay slot at
+  0xc000000000047514) when the processor running it is not on node `a0`, otherwise the result of
+  `vector_write_node` (0xc000000000046ccc); the single exit is 0xc000000000047538. The node's data block comes from the
+  table at the pointer at absolute address -15360 (index `a0`) and its NASID from `compact_to_nasid_node[a0]` (0xc000000001647000). Unless
+  `in_panic_mode()` is nonzero it takes the block's lock at +0x8590 (`mutex_spinlock`, level saved at 0(sp)). When the
+  halfword at absolute address -15318 equals `a0` it sets the byte at block +0x8594 to 1 (in the delay slot of the call), calls
+  `vector_write_node(a1, NASID, a2, a3, a4)` and clears the byte after the call returns (the store is in the delay slot of the branch at the join). It then calls
+  `in_panic_mode()` again and, when that is zero, releases the lock with `mutex_spinunlock(block + 0x8590, level)`.
+  Established.

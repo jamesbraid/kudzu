@@ -148,6 +148,21 @@ Routines of the PCI bridge driver (`pcibr`) and the crosstalk bridge attach code
   (0xc0000000000a1978; the string is at 0xc00000000152a9f0 and the table at 0xc000000001559888), which runs even when the
   value did not change. What the register bits 0x1800000, 0x40000, 0x20000, 0x8000 and 0x400000 do in the bridge:
   unknown here. Established.
+- `pcibr_endian_set` (`6.5.30/unix.IP35`, address 0xc0000000000a1430, 232 bytes, 80-byte frame): sets or clears the
+  bit pair 0x180000 (bits 19 and 20) in one slot's bridge device register. `a0` is the PCI connection
+  vertex and `a1` and `a2` are two values compared for equality; `pciio_endian_set` calls it. It returns `a2`
+  unchanged on every path (single exit 0xc0000000000a14e8, `move v0,s2` at 0xc0000000000a14e0). It gets the PCI
+  information record with `pciio_hostinfo_get(a0)`, takes the slot number from the byte at record +540, gets the
+  bridge soft state with `pciio_info_mfast_get(record)` and takes the lock at soft +140 with `mutex_spinlock`, keeping
+  the returned level at 56(sp). The current register copy is the doubleword at soft + 128 x slot + 320. When `a1`
+  equals `a2` the new value is the copy with 0x180000 cleared; otherwise it is the copy with 0x180000 set. If the new
+  value equals the copy nothing is written. If it differs, the routine calls `pcireg_device_set(soft, slot, new)`
+  then `pcireg_tflush_get(soft)`, and stores the new value as the copy (the store sits in the delay slot of the
+  `pcireg_tflush_get` call, so it runs before the callee starts). In both cases it then releases the lock with
+  `mutex_io_spinunlock(soft + 140, level)` and last calls `pcibr_debug(0x4000000, a0, "pcibr_endian_set:
+  Device(%d): %R\n", slot, new value, device_bits)` (string at 0xc00000000152a9c8, decode table at
+  0xc000000001559888). Which device-register field the bit pair belongs to is unknown here; the routine only
+  compares `a1` and `a2`. Established.
 
 ## Read response buffers
 
@@ -539,6 +554,17 @@ Routines of the PCI bridge driver (`pcibr`) and the crosstalk bridge attach code
   field (so it names the RRB of that half), and then goes on with the next field. After the eighth field it releases
   the lock with `mutex_io_spinunlock`. Which bridge register the assignment word is and what the nibble bits other
   than the valid bit mean: unknown here. Established.
+- `pcibr_piotrans_addr` (`6.5.30/unix.IP35`, address 0xc00000000009f4f8, 204 bytes, 64-byte frame): turns a PCI
+  address on a bridge into a processor-side address for programmed I/O without allocating a mapping. `a0` is the PCI
+  connection vertex (`s2`), `a1` is not read, `a2` the address space, `a3` the PCI address, `a4` the size and `a5` the
+  flags. `pciio_piotrans_addr` calls it. It gets the PCI information record with `pciio_hostinfo_get(a0)`
+  (0xc0000000000c1124), keeps the byte at record +540 (the slot) at 56(sp), takes the bridge soft state from
+  `pciio_info_mfast_get(record)` (0xc0000000000c122c) and keeps the word at soft +0 at 0(sp). It then calls the static
+  routine at 0xc00000000009e910 with (`a0`, slot, space, PCI address, size, flags), which has no symbol and whose body this
+  entry does not cover, and takes its result as the crosstalk address. A result of -1 calls `pcibr_debug(0x10000000, a0,
+  "pcibr_piotrans_addr: xio_addr == XIO_NOWHERE\n")` (0xc0000000000a1978; the string is at 0xc00000000152a3f0) and
+  returns 0. Otherwise it returns `xtalk_piotrans_addr(the word at soft +0, 0, crosstalk address, size, flags & 0x1f)`
+  (0xc0000000000970e8). The routine has one exit, 0xc00000000009f5a4. Established.
 
 ## Crossbar performance counters
 

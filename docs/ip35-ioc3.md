@@ -146,3 +146,33 @@ Routines of the IOC3 PCI I/O controller code in the IRIX 6.5.30 IP35 kernel (`6.
   gp+8220 with `splx` (address 0xc000000000062054). It ends by storing 0 in the record word at +148 and returns
   nothing. The table entry at +128 has no name; the 0 and 1 arguments suggest it turns the firmware console off and
   on, which is inferred only from the two calls. Inferred.
+
+## Keyboard and mouse aliases
+
+- `ioc3_pckm_rmalias` (`6.5.30/unix.IP35`, address 0xc0000000000cdd3c, 196 bytes, 32-byte frame): removes the keyboard and
+  mouse (`pckm`) alias registered under a given number and marks that device record as having no number. `a0` is the alias number and `a1` selects which of two slots of each controller is
+  searched (0 uses the word at +0x2c of the controller, anything else the word at +0x28). It returns nothing. Its callers
+  are `usb_pckm_init` and `ioc_pckm_add_hwgraph_alias`. It walks a linked list whose head is the doubleword at the address
+  0xc00000000163c978 (initial value 0) and whose next pointer is the doubleword at +0x68 of each element; an
+  empty list returns at once. For an element it takes the selected word as a slot index, skips the element when the
+  index is 19 (0x13, no device), and otherwise takes the device record at element + 8 x index + 0x18. A record
+  whose word at +0x54 differs from `a0` is skipped too. When bit 1 of the record's word at +4 is set the element is
+  skipped. For the first matching record with that bit clear it calls `pckm_rmalias(a0, a1)` (0xc0000000000c8bbc), then
+  `mutex_lock(element + 0x48, 25)`, stores -1 as the word at record +0x54, calls
+  `device_controller_num_set(the first word of the record, -1)` and releases the lock with `mutex_unlock(element + 0x48)`, and
+  returns; it stops after the first such record. The lock address is held at 16(sp) across the calls. Established.
+- `ioc3_subdev_enabled` (`6.5.30/unix.IP35`, address 0xc0000000000c62a8, 96 bytes, 16-byte frame): says whether one
+  of an IOC3 chip's subdevices (serial, keyboard and so on, numbered by bit) is enabled. `a0` is the PCI vertex and
+  `a1` the subdevice number; it returns `mask & (1 << a1)` as a 32-bit value, zero or the bit (single exit,
+  0xc0000000000c6300, the final `sll v0,v0,0` is the sign-extension). Its callers are `eiattach`, `ioc3_attach`, `pckm_attach`, `if_efattach` and `ioc3_serial_attach`. The mask
+  comes from the static routine at 0xc0000000000c61ec (it has no symbol), called with the vertex and a second argument of 0. That routine finds the host vertex with
+  `hwgraph_traverse(vertex, ".host", &host)` (string at 0xc00000000049d248; the pointer is initialised to the vertex, so a
+  failed traverse keeps it) and then looks for the label "_subdevs" (0xc00000000049d598) with
+  `hwgraph_info_get_LBL(host, "_subdevs", &record)`, where the record pointer starts at 0. With the second argument
+  zero it never creates a record. The creation path is taken only for a nonzero second argument when the label lookup
+  returned zero: it allocates 8 bytes with `kmem_zalloc`, stores 255 in them, adds them as the label with
+  `hwgraph_info_add_LBL`, looks the label up again and frees the 8 bytes with `kmem_free` if the stored pointer
+  is not the one it just allocated. It returns the record
+  pointer. When the pointer is nonzero `ioc3_subdev_enabled` uses the doubleword at its start as the mask. When it is
+  zero the mask is 0xdf, unless bits 12 to 15 of the doubleword read from the address 0x9000000014000000 (pool word
+  0xc000000001644068) equal 4, in which case it is 0xff. Which hardware register the address 0x9000000014000000 is: unknown here. Established.

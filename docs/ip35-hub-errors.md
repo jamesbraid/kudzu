@@ -379,6 +379,21 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   two addresses are compared (mask 0x00ffffff, from `lui` 0xff and `ori` 0xffff); a difference returns 0. When they
   match it takes bits 33 to 39 of each address (shift right 33, mask 0x7f, sign-extended as a 16-bit halfword) and
   returns `check_nasid_equiv(first, second)` (0xc000000000046c40). Established.
+- `hub_piotrans_addr` (`6.5.30/unix.IP35`, address 0xc000000000062680, 196 bytes, 64-byte frame): the Hub's
+  translation of a crosstalk address into a processor-side address for a widget that already has a small window; it
+  never allocates one. `a0` is the widget's vertex, `a1` is not read, `a2` is the crosstalk address, `a3` the length
+  and `a4` the flags (only bit 3 is tested). It returns the processor-side address, or 0 for a range that is not covered, or 0x3800000000000000
+  (see below). The widget information record comes from `xwidget_info_get(a0)`; `xwidget_info_id_get` gives the widget
+  number (kept at 8(sp)) and `xwidget_info_master_get` the master vertex, whose node record it reads with
+  `hwgraph_info_get_LBL(master, "_node", &record)` (the string at 0xc000000001524ef8). When the sum
+  `a2 + a3` is greater than 0x1000000 (sixteen megabytes, `sltu` against `lui` 0x100) it returns 0 (the branch at
+  0xc0000000000626d8 skips to the epilogue with `v0` zero from its delay slot). Otherwise it calls
+  `hub_piomap_addr(record + 0x30 x (widget number & 0xff) + 0x10, a2, a3)` (0xc000000000062618), which is the lookup
+  into the widget's small-window record created by `hub_piomap_alloc`; that routine returns 0 for a range outside
+  the record's base (+8) and size (+16), or when bit 0 of the record's word at +0x28 is clear, and otherwise the
+  record's doubleword at +0x18 plus the crosstalk address modulo the size. When `a4` bit 3 is set the result is ORed with
+  0x3800000000000000 (formed by `li` 7 and `dsll32` 27) whether or not it was zero, so a miss with that flag
+  returns 0x3800000000000000. Established.
 
 ## Interrupt dispatch
 
@@ -520,3 +535,39 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   branch-likely `beql` at 0xc000000000058300 for a successful connection and in the delay slot at 0xc00000000005834c
   after a failed one. It returns the -1 from `cnodetocpu` when the node has no cpu; on every other path `v0` is
   whatever the last callee left, and no caller's use of it was read (single exit 0xc000000000058320). Established.
+- `hubii_eint_handler` (`6.5.30/unix.IP35`, address 0xc00000000005b17c, 416 bytes, 48-byte frame): the handler for
+  the Hub's I/O-interface error interrupt, connected by `hubii_eint_init`. `a0` is the
+  Hub vertex. It returns nothing a caller uses (`v0` is left from the last call, exit at 0xc00000000005b290 with the
+  final store in its delay slot). It first calls `check_ni_errors()` (0xc000000000059040) and, when that is nonzero,
+  `hubni_error_handler("II interrupt", 1)` (0xc000000000059064; the string is at 0xc000000001521eb0). It then reads the
+  node record with `hwgraph_info_get_LBL(a0, "_node", &record)` (the string at 0xc000000001520f10) and takes the NASID from the
+  halfword at record +10. It tests bit 62 of the doubleword at 0x9200000001800000 (pool word 0xc000000001644060) + NASID
+  shifted left 33 + 0xa0. With the bit set it calls the unnamed static routine at 0xc000000000058ea0 with ("Remote NI
+  interrupt" at 0xc000000001521800, NASID, 1) and then `cleanup_remote_pi(NASID, 126)` (0xc00000000005b4b0), and skips
+  the other handling. With the bit clear it reads the doubleword at 0x9200000001c00000 (pool word 0xc000000001644020) +
+  NASID shifted left 33 + 8. When bit 32 of that is clear it calls `hubiio_crb_error_handler(a0, record)` and then
+  `hubiio_prb_error_handler(a0, record)`. When bit 32 is set it first calls `cmn_err(0, "Hub %d to Xtalk Link failed
+  (II_ECRAZY) Reason: %s", halfword at record +8, reason)`, where the reason is chosen in this order: bit 9 of the doubleword
+  gives "Micro Packet Retry Timeout", else bit 5 "Crosstalk Tail Timeout", else bit 4 "Crosstalk Credit Timeout", else the
+  doubleword at the same base + 0x1e8 is read and bit 0 gives "Hub Widget 0 has been Shutdown", bit 4 "BTE 0 has been
+  shutdown", bit 8 "BTE 1 has been shutdown", and none of them gives "Unknown". The listing's code after that
+  `cmn_err` runs the same two handlers as above, so the disassembly continues even though the call may not return.
+  Both paths then store 0xffffff as the doubleword at the 0x9200000001c00000 base + NASID shifted left 33 + 0x1f8
+  and clear bit 28 of the doubleword at +0x138 of that base (read, AND with 0xffffffffefffffff, write). These are the
+  same two addresses `hub_error_clear` writes, though that routine stores all-ones at the first one. Which hardware
+  fields the tested bits are: unknown here, beyond the text of the messages that name them. Established.
+- `hubiio_prb_error_handler` (`6.5.30/unix.IP35`, address 0xc00000000005b0b0, 204 bytes, 64-byte frame): looks
+  at the Hub's nine per-widget registers (the ones `hub_setup_prb` writes) and reports each widget whose register has
+  bit 48 set. `a0` is the Hub vertex and `a1` the node record, whose halfword at +10 is the NASID. It returns the number
+  of widgets reported (single exit, 0xc00000000005b144; `s4` is the count). Its caller is `hubii_eint_handler`. Registers
+  are the doublewords at 0x9200000001c00000 (pool word 0xc000000001644020) + NASID shifted left 33 + 0x198 + 8 x i. It
+  first tests register 0 (bit 48 is the sign bit after `dsll 15`): with it set it calls the unnamed static routine at
+  0xc00000000005b068 with (`a0`, `a1`, widget 0) and sets the count to 1 (the `addiu s4,zero,1` at 0xc00000000005b178, in the
+  delay slot of the branch before it) before looking at the others. With it clear the count starts at 0. It then tests
+  registers 1 to 8, which stand for widgets 8 to 15 (`s1` runs from 8 to 15 and `s0` from 1 to 8 together), and for
+  each one with bit 48 set calls the same static routine with that widget number and adds 1 to the count. The static
+  routine at 0xc00000000005b068 has no symbol of its own (it occupies the 72 bytes from 0xc00000000005b068 to this routine's start, just after
+  `hubii_check_widget_disabled`); it reads the NASID from the halfword at +10 of its second argument, stores `1 << widget` as the doubleword at the same base + NASID shifted left 33 + 504 (in the delay slot of its
+  `cmn_err` call, so before the call) and then calls `cmn_err(4, "Hub nasid %d got a PIO Write error from widget %d,
+  cleaning up and continuing", NASID, widget)` (string at 0xc000000001521e60). Which hardware condition bit 48 of
+  those registers reports: unknown here. Established.
