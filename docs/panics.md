@@ -8,7 +8,7 @@ Each row gives the call address, the callee, the message the call passes, and th
 
 Grades: a message that is shown is established from the binary. `not resolved` means the scan could not follow the register: it is set on two paths that join before the call, or it comes from a pointer the routine loads at run time. A condition is established when the branch that decides the call was read in the disassembly; `not established` means no branch in the listing reaches the call.
 
-Counts: 890 call sites in 253 routines; 50 have a written condition, 840 do not yet.
+Counts: 890 call sites in 253 routines; 58 have a written condition, 832 do not yet.
 
 ## 6.5.30 IP27 kernel
 
@@ -346,11 +346,11 @@ Routine at 0xc00000000003c59c.
 | Call | Callee | Message | Condition |
 |---|---|---|---|
 | 0xc00000000003c64c | cmn_err | level 6, `Inquiry Info for %v\n` | The beqz v0 at 0x3c5d4 branches (the traverse call at 0x3c5cc returned zero) into 0x3c5e8. The beq v0,a2 at 0x3c5f4 does not branch (v0 is not -1), and the beqz v0 at 0x3c610 does not branch (the pointer loaded at 0x3c60c is nonzero). |
-| 0xc00000000003c660 | cmn_err | level 6, `\tDevices shutdown [ ` | not yet read |
-| 0xc00000000003c698 | cmn_err | level 6, ` %d` | not yet read |
-| 0xc00000000003c6d8 | cmn_err | level 6, `]\n` | not yet read |
-| 0xc00000000003c710 | cmn_err | level 6, format not resolved (add of unknown at 0xc00000000003c708 (join at 0xc00000000003c704)) | not yet read |
-| 0xc00000000003c734 | cmn_err | level 6, format not resolved (add of unknown at 0xc00000000003c72c (join at 0xc00000000003c728)) | not yet read |
+| 0xc00000000003c660 | cmn_err | level 6, `\tDevices shutdown [ ` | Straight-line after the call at 0x3c64c, with no branch between them, so it runs whenever that call runs. |
+| 0xc00000000003c698 | cmn_err | level 6, ` %d` | Inside the loop entered at 0x3c67c (from the bnez at 0x3c6ac or 0x3c6c4). The bnez t8 at 0x3c688 does not branch (t8 zero). |
+| 0xc00000000003c6d8 | cmn_err | level 6, `]\n` | The unconditional b at 0x3c6b4 jumps into 0x3c6cc. |
+| 0xc00000000003c710 | cmn_err | level 6, format not resolved (add of unknown at 0xc00000000003c708 (join at 0xc00000000003c704)) | The unconditional b at 0x3c6fc jumps into 0x3c708. |
+| 0xc00000000003c734 | cmn_err | level 6, format not resolved (add of unknown at 0xc00000000003c72c (join at 0xc00000000003c728)) | The unconditional b at 0x3c748 jumps into 0x3c728. |
 
 ### `klhwg_cpu_invent_info`
 
@@ -507,7 +507,7 @@ Routine at 0xc000000000055e84.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000055f88 | cmn_err | level 0, `Unable to allocate ECCF` | not yet read |
+| 0xc000000000055f88 | cmn_err | level 0, `Unable to allocate ECCF` | The beqz at 0x55e94 branches (at zero) into 0x55f58, and the bnez v0 at 0x55f64 does not branch (v0 zero). |
 
 ### `ecc_panic`
 
@@ -515,7 +515,7 @@ Routine at 0xc000000000056924.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000056988 | cmn_err | level 16, `Cache Error (%s) Eframe = 0x%x\n` | not yet read |
+| 0xc000000000056988 | cmn_err | level 16, `Cache Error (%s) Eframe = 0x%x\n` | The bgez t9 at 0x566ac branches (t9 nonnegative) into 0x56904. |
 
 ### `ecc_log`
 
@@ -523,7 +523,7 @@ Routine at 0xc0000000000569a0.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000056aa8 | cmn_err | level 20, `Some recoverable cache errors may not have been logged\n` | not yet read |
+| 0xc000000000056aa8 | cmn_err | level 20, `Some recoverable cache errors may not have been logged\n` | The beq a1,at at 0x569e0 branches (a1 equals at) into 0x56a8c. |
 
 ### `sn0drv_attach`
 

@@ -48,5 +48,13 @@
  "6.5.30/unix.IP27|0xc00000000003bf74": "The beq s3,a2 at 0x3bde8 branches (s3 equals a2) into 0x3bf68, or the beq s3,t8 at 0x3bf1c branches (s3 equals t8) into 0x3bf68.",
  "6.5.30/unix.IP27|0xc00000000003bf90": "The beqz v0 at 0x3be1c branches (v0 zero) into 0x3bf84.",
  "6.5.30/unix.IP27|0xc00000000003bfac": "The unconditional b at 0x3bf40 jumps into 0x3bfa0.",
- "6.5.30/unix.IP27|0xc00000000003c64c": "The beqz v0 at 0x3c5d4 branches (the traverse call at 0x3c5cc returned zero) into 0x3c5e8. The beq v0,a2 at 0x3c5f4 does not branch (v0 is not -1), and the beqz v0 at 0x3c610 does not branch (the pointer loaded at 0x3c60c is nonzero)."
+ "6.5.30/unix.IP27|0xc00000000003c64c": "The beqz v0 at 0x3c5d4 branches (the traverse call at 0x3c5cc returned zero) into 0x3c5e8. The beq v0,a2 at 0x3c5f4 does not branch (v0 is not -1), and the beqz v0 at 0x3c610 does not branch (the pointer loaded at 0x3c60c is nonzero).",
+ "6.5.30/unix.IP27|0xc00000000003c660": "Straight-line after the call at 0x3c64c, with no branch between them, so it runs whenever that call runs.",
+ "6.5.30/unix.IP27|0xc00000000003c698": "Inside the loop entered at 0x3c67c (from the bnez at 0x3c6ac or 0x3c6c4). The bnez t8 at 0x3c688 does not branch (t8 zero).",
+ "6.5.30/unix.IP27|0xc00000000003c6d8": "The unconditional b at 0x3c6b4 jumps into 0x3c6cc.",
+ "6.5.30/unix.IP27|0xc00000000003c710": "The unconditional b at 0x3c6fc jumps into 0x3c708.",
+ "6.5.30/unix.IP27|0xc00000000003c734": "The unconditional b at 0x3c748 jumps into 0x3c728.",
+ "6.5.30/unix.IP27|0xc000000000055f88": "The beqz at 0x55e94 branches (at zero) into 0x55f58, and the bnez v0 at 0x55f64 does not branch (v0 zero).",
+ "6.5.30/unix.IP27|0xc000000000056988": "The bgez t9 at 0x566ac branches (t9 nonnegative) into 0x56904.",
+ "6.5.30/unix.IP27|0xc000000000056aa8": "The beq a1,at at 0x569e0 branches (a1 equals at) into 0x56a8c."
 }
