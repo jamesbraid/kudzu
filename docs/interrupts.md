@@ -1,6 +1,6 @@
 # Hub interrupt routing as the kernel programs it
 
-Each IP27 hub has two 64-bit pending registers and, per processor slice, two mask registers. The 6.5.30 kernel numbers hub interrupt levels 0 to 127: levels 0 to 63 are bits of the first pending register and levels 64 to 127 bits of the second. This page states how the kernel reserves levels, connects handlers, masks levels and clears what is pending, and which levels it reserves at boot. IP35 is not yet covered here.
+Each IP27 hub has two 64-bit pending registers and, per processor slice, two mask registers. The 6.5.30 kernel numbers hub interrupt levels 0 to 127: levels 0 to 63 are bits of the first pending register and levels 64 to 127 bits of the second. This page states how the kernel reserves levels, connects handlers, masks levels and clears what is pending, and which levels it reserves at boot, first for IP27 and then for the IP35 differences.
 
 Every fact is graded as in [klconfig.md](klconfig.md). Register offsets are from the hub's register window: the kernel writes a node's registers at `0x9200000001800000` plus the NASID shifted left 32, and the calling processor's own hub at `0x9200000001000000`. Public Linux names the same offsets in `arch/mips/include/asm/sn/sn0/hubpi.h`; those names are used as labels.
 
@@ -143,3 +143,74 @@ The `hardwired_intr` table in `6.5.30/unix.IP27` (read from `.data` at `0xc00000
 | 106 | `0x4` | "LLP Pfail WAR" |
 
 The second-block levels agree with the hardware bit list in Linux 2.4's `include/asm-mips64/sn/intr.h` (IO error 57, clock error 58, correctable errors 59 and 60, memory correctable error 61, NI error 62, MSC panic 63 of `INT_PEND1`), and so do levels 0 to 3 and the crosscalls at 5 and 6 (Linux `CC_PEND_A` and `CC_PEND_B`). Linux names level 4 `UART_INTR` where the IRIX table says "Hub I2C". The software-chosen levels differ: IRIX 6.5.30 puts the processor actions at 7 and 8 and the MSC message at 9, where Linux uses 10, 11 and 13. Established for the table.
+
+## IP35 differences
+
+An IP35 node has up to four processors behind two processor interfaces. The kernel keeps the IP27 register offsets within each interface and adds `0x200000` for the second one: a processor whose `p_slice` (+1320 of the IP35 `pda_s`) has bit 1 set uses the second interface, and bit 0 of `p_slice` picks the A or B mask registers within it (16 bytes apart). Node registers are at `0x9200000001800000` (from gp+2288) plus the NASID shifted left 33. In the IP35 `pda_s`, `p_intmasks` is at +1440 (masks at +1440 and +1448, `dispatch0` at +1456, `dispatch1` at +1464), `p_cpuid` at +1064 and `p_nodeid` at +1066; `snpda` (+3256 of `nodepda_s`) holds two subnode records of 15456 bytes.
+
+- `intr_init_vecblk` (`6.5.30/unix.IP35` `0xc00000000005ee74`, 436 bytes)
+  has the IP27 body with the vector blocks at +3256 and +10976 of the node data plus 15456 times the
+  subnode. It fills every vector with `intr_stray` (gp-22648), the level and -1, names each record
+  "Unused", stores `splvme` or `splerr` as `vector_spl`, and calls `init_spinlock` with "ivecb". Its
+  `cpu_count` clear has the same two branches that are never taken, at 0xc00000000005efb4 and
+  0xc00000000005efc8. Established.
+- `intr_stray` (`6.5.30/unix.IP35` `0xc00000000005ee4c`, 40 bytes)
+  calls `cmn_err` with level 4, "Stray Interrupt - level %d to cpu %d", the level and the halfword at
+  absolute `0xffffffffffffc428` (`p_cpuid` at +1064 of the IP35 `pda_s`). Established.
+- `sub_c00000000005f2ac` (`6.5.30/unix.IP35` `0xc00000000005f2ac`, 92 bytes)
+  is the IP27 pointer routine with the IP35 offsets: below level 64 it returns the address +1440,
+  `dispatch0` (+1456), block 0 and the level; otherwise +1448, `dispatch1` (+1464), block 1 and the
+  level minus 64. Established.
+- `sub_c00000000005f028` (`6.5.30/unix.IP35` `0xc00000000005f028`, 564 bytes)
+  is the IP27 reserve and release routine with `dispatch0` at +1456 and `dispatch1` at +1464 of the
+  IP35 `pda_s`. It calls `mutex_spinlock_spl`, `strlen`, `strncpy` and `mutex_spinunlock` as on IP27
+  and returns the level or -1 under the same conditions. Established.
+- `intr_reserve_level` (`6.5.30/unix.IP35` `0xc00000000005f25c`, 40 bytes)
+  calls `sub_c00000000005f028` with a3 of 1 and its a3 and a4 moved to a4 and a5. Established.
+- `intr_unreserve_level` (`6.5.30/unix.IP35` `0xc00000000005f284`, 40 bytes)
+  calls `sub_c00000000005f028` with its a0 and a1 and zero for the rest. Established.
+- `intr_connect_level` (`6.5.30/unix.IP35` `0xc00000000005f308`, 792 bytes)
+  makes the IP27 checks and vector stores, then picks the interface from bit 1 of `p_slice` (loaded
+  at 0xc00000000005f464): it writes the level to offset `0x90` or `0x200090` and reads `0x98` or
+  `0x200098` back, adds one to `cpu_count` indexed by bit 0 of `p_slice`, and writes the software mask
+  to `0xa8` or `0xb0` (by block), plus 16 times bit 0 of `p_slice`, plus `0x200000` for the second
+  interface. The threaded-handler path is as on IP27 (branch-likely retry at 0xc00000000005f574) and
+  calls the unsymbolled routine at `0xc00000000006191c`. It returns -1 for a level that is not
+  reserved or already connected, and 0 after connecting. Established.
+- `intr_disconnect_level` (`6.5.30/unix.IP35` `0xc00000000005f620`, 468 bytes)
+  is the IP27 routine with the IP35 register choice. It calls `sub_c00000000005f2ac`,
+  `mutex_spinlock_spl` and `mutex_spinunlock` as on IP27; after clearing the vector and bit 1 of
+  `ii_flags` it subtracts one from `cpu_count` indexed by bit 0 of `p_slice` and writes the software
+  mask to `0xa8` or `0xb0`, plus 16 times bit 0 of `p_slice`, plus `0x200000` when bit 1 of `p_slice`
+  is set. It returns -1 unless the level is reserved and connected, and 0 otherwise. Established.
+- `do_intr_block_bit` (`6.5.30/unix.IP35` `0xc00000000005f7f4`, 448 bytes)
+  updates the software mask as on IP27 and writes it to `0xa8`, `0xb0`, `0xb8` or `0xc0` (by bit 0 of
+  `p_slice` and the block), plus `0x200000` when bit 1 of `p_slice` (loaded at 0xc00000000005f874) is
+  set; when blocking it reads the register back until it matches. Established.
+- `intr_block_bit` (`6.5.30/unix.IP35` `0xc00000000005f9b4`, 28 bytes)
+  masks a level on a processor: it calls `do_intr_block_bit` with its processor and level and a2 of
+  1. Established.
+- `intr_unblock_bit` (`6.5.30/unix.IP35` `0xc00000000005f9d0`, 28 bytes)
+  unmasks a level on a processor: it calls `do_intr_block_bit` with its processor and level and a2
+  of 0. Established.
+- `intr_clear_all` (`6.5.30/unix.IP35` `0xc0000000000610d8`, 316 bytes)
+  does the IP27 work once per interface: for the first and then the second (`0x200000` higher) it
+  writes 0 to the mask registers in the order `0xa8`, `0xb8`, `0xb0`, `0xc0` and calls
+  `sub_c000000000061060` with that interface's `0x98` register and level 0, then with its `0xa0`
+  register and level 64. Established.
+- `sub_c000000000061060` (`6.5.30/unix.IP35` `0xc000000000061060`, 120 bytes)
+  has the IP27 body: for each set bit of the pending register at a1 it writes the level to
+  `0x9200000001000090` and reads `0x9200000001000098`. Those are the first interface of the caller's
+  own node, so bits pending on the second interface are cleared through the first. Established for
+  the accesses; whether the node controller lets the first interface's modify register clear the
+  second interface's pending bits is unknown.
+- `intr_reserve_hardwired` (`6.5.30/unix.IP35` `0xc000000000060f04`, 348 bytes)
+  differs from the IP27 routine in whom it reserves for: it keeps a two-byte flag on the stack, one per
+  interface, and walks the node's processors from `cnodetocpu` while they are below `maxcpus`
+  (gp+5284), enabled and on the node. For each processor whose interface (bit 1 of `p_slice`, loaded
+  at 0xc000000000060fe0) has no flag yet it sets the flag and calls `intr_reserve_level` for every
+  entry of `hardwired_intr` (`0xc000000001531598`, 128 bytes into `cause_intr_tbl`, from gp-22616),
+  with `cmn_err` level 0 and "intr_reserve_hardwired: Can't reserve level %d." for a failure. So the
+  first enabled processor on each interface gets the hardwired levels. Established.
+
+The IP35 `hardwired_intr` table (`.data` at `0xc000000001531598`) has the IP27 entries with three changes and four additions: level 4 is named "Bedrock/L1" and has flag `0x8`, the IO error moves from level 121 to 102, and the table adds 120 "CPU A Nack count == NACK_CMP", 121 "CPU B Nack count == NACK_CMP", 119 "Local Block Error" and 118 "Local XBar Error", all with flags 0. Linux has no IP35 support, so these levels have no public cross-check. Established for the table.
