@@ -8,7 +8,7 @@ Each row gives the call address, the callee, the message the call passes, and th
 
 Grades: a message that is shown is established from the binary. `not resolved` means the scan could not follow the register: it is set on two paths that join before the call, or it comes from a pointer the routine loads at run time. A condition is established when the branch that decides the call was read in the disassembly; `not established` means no branch in the listing reaches the call.
 
-Counts: 890 call sites in 253 routines; 108 have a written condition, 782 do not yet.
+Counts: 890 call sites in 253 routines; 118 have a written condition, 772 do not yet.
 
 ## 6.5.30 IP27 kernel
 
@@ -499,7 +499,7 @@ Routine at 0xc00000000004abf0.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000004acf4 | cmn_err | level 0, format not resolved (add of unknown at 0xc00000000004acf8 (join at 0xc00000000004ace8)) | not yet read |
+| 0xc00000000004acf4 | cmn_err | level 0, format not resolved (add of unknown at 0xc00000000004acf8 (join at 0xc00000000004ace8)) | Taken when the `beq v0,a3` at 0x4ac70 branches: v0 is the return of the call to 0x38688 at 0x4ac64, and a3 is -1 (set at 0x4ac6c). The report is level 0 (move at 0x4ace8). |
 
 ### `ecc_init`
 
@@ -531,10 +531,10 @@ Routine at 0xc00000000006a76c.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000006a960 | cmn_err | level 4, `sn0drv_attach: Can't add device %v, code %d` | not yet read |
-| 0xc00000000006a978 | cmn_err | level 4, format not resolved (join at 0xc00000000006a974) | not yet read |
-| 0xc00000000006a994 | cmn_err | level 4, `sn0drv_attach: Can't add device %v, code %d` | not yet read |
-| 0xc00000000006a9b0 | cmn_err | level 4, `sn0drv_attach: Can't add device %v, code %d` | not yet read |
+| 0xc00000000006a960 | cmn_err | level 4, `sn0drv_attach: Can't add device %v, code %d` | Taken when the `bnez v0` at 0x6a7a8 branches: v0 is the nonzero return of the call to 0x295bec at 0x6a7a0. The report is level 4. |
+| 0xc00000000006a978 | cmn_err | level 4, format not resolved (join at 0xc00000000006a974) | Reached when the `beqz v0` at 0x6a8f0 does not branch: v0 is the nonzero return of the call to 0x295310 at 0x6a8e4. The `b` at 0x6a8f8 jumps to 0x6a974. The report is level 4. |
+| 0xc00000000006a994 | cmn_err | level 4, `sn0drv_attach: Can't add device %v, code %d` | Taken when the `bnez v0` at 0x6a880 branches: v0 is the nonzero return of the call to 0x295bec at 0x6a878. The report is level 4. |
+| 0xc00000000006a9b0 | cmn_err | level 4, `sn0drv_attach: Can't add device %v, code %d` | Taken when the `bnez v0` at 0x6a8b4 branches: v0 is the nonzero return of the call to 0x295bec at 0x6a8ac. The report is level 4. |
 
 ### `xtalk_error_handler`
 
@@ -542,7 +542,7 @@ Routine at 0xc00000000006c188.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000006c20c | cmn_err | level 4, `Xbow at %v encountered Fatal error` | not yet read |
+| 0xc00000000006c20c | cmn_err | level 4, `Xbow at %v encountered Fatal error` | Taken when the `bne s0,a5` at 0x6c1e8 branches: the `beqz s0` at 0x6c1d8 and the `beq s0,at` at 0x6c1e0 (at is 2) did not branch first, so s0 is nonzero and not 2, and s0 differs from a5. The report is level 4. |
 
 ### `xswitch_info_get`
 
@@ -550,7 +550,7 @@ Routine at 0xc00000000006ca78.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000006cabc | cmn_err | level 0, format not resolved (join at 0xc00000000006cab8) | not yet read |
+| 0xc00000000006cabc | cmn_err | level 0, format not resolved (join at 0xc00000000006cab8) | Taken when the `bne at,v0` at 0x6ca9c branches: at is the doubleword at offset 0 of the pointer returned by the call at 0x6ca84 (the `beqz v0` at 0x6ca8c did not branch, so the pointer is nonzero), and v0 is the doubleword at -17992(gp), loaded at 0x6ca98. They differ. The report is level 0. |
 
 ### `xswitch_info_vhdl_get`
 
@@ -558,7 +558,7 @@ Routine at 0xc00000000006cae8.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000006cb30 | cmn_err | level 0, `xswitch_info_vhdl_get: null xswitch_info` | not yet read |
+| 0xc00000000006cb30 | cmn_err | level 0, `xswitch_info_vhdl_get: null xswitch_info` | Taken when the `beqz a0` at 0x6caf8 branches: a0, the first argument, is zero. The report is level 0 (move at 0x6cb2c). |
 
 ### `xbow_attach`
 
@@ -574,8 +574,8 @@ Routine at 0xc00000000006d200.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000006d540 | assfail | `xbow_perf_cnt != NULL`, line 612 (file argument not copied) | not yet read |
-| 0xc00000000006d55c | assfail | `xbow_llp_status != NULL`, line 652 (file argument not copied) | not yet read |
+| 0xc00000000006d540 | assfail | `xbow_perf_cnt != NULL`, line 612 (file argument not copied) | Taken when the `beqz v0` at 0x6d2a4 branches: v0 is the zero return of the call to 0x6e7d0 at 0x6d29c. The assertion passes line 612 (0x264) as a2. |
+| 0xc00000000006d55c | assfail | `xbow_llp_status != NULL`, line 652 (file argument not copied) | Taken when the `beqz v0` at 0x6d32c branches: v0 is the zero return of the call to 0x6e9bc at 0x6d324. The assertion passes line 652 (0x28c) as a2. |
 
 ### `xbow_widget_lookup`
 

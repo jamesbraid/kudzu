@@ -104,7 +104,17 @@
  "6.5.30/unix.IP27|0xc000000000041df0": "Taken when the `bnez v0` at 0x41cf0 branches: v0 is the nonzero return of the call to 0x29561c at 0x41ce8, which takes the word at sp+104 as its a0. The report is level 0 (move at 0x41dec).",
  "6.5.30/unix.IP27|0xc000000000042194": "Taken when either branch enters 0x42180: the `beqz a0` at 0x42040 (a0, computed at 0x4203c, is zero), or the `beqz v0` at 0x42050 (the call to 0x1426e0 at 0x42048 returned zero). The report is level 4.",
  "6.5.30/unix.IP27|0xc0000000000421b0": "Reached when the `beqzl v0` at 0x42124 does not branch: v0 is the nonzero return of the call to 0x29561c at 0x4211c. Being branch-likely, its delay slot at 0x42128 is skipped, and the `b` at 0x4212c jumps to 0x421a8. The report is level 0.",
+ "6.5.30/unix.IP27|0xc00000000004acf4": "Taken when the `beq v0,a3` at 0x4ac70 branches: v0 is the return of the call to 0x38688 at 0x4ac64, and a3 is -1 (set at 0x4ac6c). The report is level 0 (move at 0x4ace8).",
  "6.5.30/unix.IP27|0xc000000000055f88": "The beqz at 0x55e94 branches (at zero) into 0x55f58, and the bnez v0 at 0x55f64 does not branch (v0 zero).",
  "6.5.30/unix.IP27|0xc000000000056988": "The bgez t9 at 0x566ac branches (t9 nonnegative) into 0x56904.",
- "6.5.30/unix.IP27|0xc000000000056aa8": "The beq a1,at at 0x569e0 branches (a1 equals at) into 0x56a8c."
+ "6.5.30/unix.IP27|0xc000000000056aa8": "The beq a1,at at 0x569e0 branches (a1 equals at) into 0x56a8c.",
+ "6.5.30/unix.IP27|0xc00000000006a960": "Taken when the `bnez v0` at 0x6a7a8 branches: v0 is the nonzero return of the call to 0x295bec at 0x6a7a0. The report is level 4.",
+ "6.5.30/unix.IP27|0xc00000000006a978": "Reached when the `beqz v0` at 0x6a8f0 does not branch: v0 is the nonzero return of the call to 0x295310 at 0x6a8e4. The `b` at 0x6a8f8 jumps to 0x6a974. The report is level 4.",
+ "6.5.30/unix.IP27|0xc00000000006a994": "Taken when the `bnez v0` at 0x6a880 branches: v0 is the nonzero return of the call to 0x295bec at 0x6a878. The report is level 4.",
+ "6.5.30/unix.IP27|0xc00000000006a9b0": "Taken when the `bnez v0` at 0x6a8b4 branches: v0 is the nonzero return of the call to 0x295bec at 0x6a8ac. The report is level 4.",
+ "6.5.30/unix.IP27|0xc00000000006c20c": "Taken when the `bne s0,a5` at 0x6c1e8 branches: the `beqz s0` at 0x6c1d8 and the `beq s0,at` at 0x6c1e0 (at is 2) did not branch first, so s0 is nonzero and not 2, and s0 differs from a5. The report is level 4.",
+ "6.5.30/unix.IP27|0xc00000000006cabc": "Taken when the `bne at,v0` at 0x6ca9c branches: at is the doubleword at offset 0 of the pointer returned by the call at 0x6ca84 (the `beqz v0` at 0x6ca8c did not branch, so the pointer is nonzero), and v0 is the doubleword at -17992(gp), loaded at 0x6ca98. They differ. The report is level 0.",
+ "6.5.30/unix.IP27|0xc00000000006cb30": "Taken when the `beqz a0` at 0x6caf8 branches: a0, the first argument, is zero. The report is level 0 (move at 0x6cb2c).",
+ "6.5.30/unix.IP27|0xc00000000006d540": "Taken when the `beqz v0` at 0x6d2a4 branches: v0 is the zero return of the call to 0x6e7d0 at 0x6d29c. The assertion passes line 612 (0x264) as a2.",
+ "6.5.30/unix.IP27|0xc00000000006d55c": "Taken when the `beqz v0` at 0x6d32c branches: v0 is the zero return of the call to 0x6e9bc at 0x6d324. The assertion passes line 652 (0x28c) as a2."
 }
