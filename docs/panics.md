@@ -8,7 +8,7 @@ Each row gives the call address, the callee, the message the call passes, and th
 
 Grades: a message that is shown is established from the binary. `not resolved` means the scan could not follow the register: it is set on two paths that join before the call, or it comes from a pointer the routine loads at run time. A condition is established when the branch that decides the call was read in the disassembly; `not established` means no branch in the listing reaches the call.
 
-Counts: 1017 call sites in 316 routines; 128 have a written condition, 889 do not yet.
+Counts: 1017 call sites in 316 routines; 136 have a written condition, 881 do not yet.
 
 ## 6.5.30 IP27 kernel
 
@@ -673,7 +673,7 @@ Unlabelled code at 0xc0000000000692b8, after the recorded end of `nic_next` (400
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc0000000000692ec | printf | level 6 (set by the printf wrapper), `nic_match_rom: couldn't see presence pulse during match rom command\n` | not yet read |
+| 0xc0000000000692ec | printf | level 6 (set by the printf wrapper), `nic_match_rom: couldn't see presence pulse during match rom command\n` | Taken when neither the `bltz v0` at 0x692dc nor the `beqz v0` at 0x692e4 branches: the call at 0x692d4 (to 0x68da8) returned a value greater than zero. The format is the pointer at -18088(gp), loaded in the delay slot at 0x692f0. The routine then returns 4 (`li v0,4` at 0x692f4). |
 
 ### `nic_read_one_page`
 
@@ -681,7 +681,7 @@ Routine at 0xc0000000000693f4.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000069534 | printf | level 6 (set by the printf wrapper), `nic_read_one_page: loop in NIC redirection map\n` | not yet read |
+| 0xc000000000069534 | printf | level 6 (set by the printf wrapper), `nic_read_one_page: loop in NIC redirection map\n` | Taken when the `beqz v0` at 0x6943c branches: v0, the loop counter that the routine decrements at 0x69434 on each pass, has reached zero. The format is the pointer at -18088(gp) plus 72 (delay slot at 0x69538). |
 
 ### `nic_read_mfg`
 
@@ -689,7 +689,7 @@ Routine at 0xc000000000069584.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000069818 | printf | level 6 (set by the printf wrapper), `nic_read_mfg: invalid crc16 reading redirection map page %d\n` | not yet read |
+| 0xc000000000069818 | printf | level 6 (set by the printf wrapper), `nic_read_mfg: invalid crc16 reading redirection map page %d\n` | Taken when the `bne a2,a3` at 0x69744 branches: the halfword at 96(sp), loaded in the delay slot of the `bnez a1` at 0x69738, differs from 0xb001 (`li a2,0xb001` at 0x69740). The printed page number is the doubleword at 120(sp), loaded at 0x69814. The format is the -18088(gp) pointer plus 120. |
 
 ### `nic_eaddr`
 
@@ -697,9 +697,9 @@ Routine at 0xc000000000069ab0.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000069aec | printf | level 6 (set by the printf wrapper), `nic_eaddr: No presence pulse from NIC\n` | not yet read |
-| 0xc000000000069af4 | printf | level 6 (set by the printf wrapper), `nic_eaddr: (check for an empty NIC socket)\n` | not yet read |
-| 0xc000000000069b18 | printf | level 6 (set by the printf wrapper), `nic_eaddr: Called with NULL eaddr!\n` | not yet read |
+| 0xc000000000069aec | printf | level 6 (set by the printf wrapper), `nic_eaddr: No presence pulse from NIC\n` | Taken when the `blez v0` at 0x69ae4 does not branch: v0, the value nic_setup returned (call at 0x69ad4), is greater than zero. The -18088(gp) pointer is loaded in the blez delay slot at 0x69ae8, and the format is that pointer plus 248. |
+| 0xc000000000069af4 | printf | level 6 (set by the printf wrapper), `nic_eaddr: (check for an empty NIC socket)\n` | Runs straight after the printf at 0x69aec returns, so it is taken on the same condition. The format is the -18088(gp) pointer plus 288 (delay slot at 0x69af8). |
+| 0xc000000000069b18 | printf | level 6 (set by the printf wrapper), `nic_eaddr: Called with NULL eaddr!\n` | Taken when the `beqz a2` at 0x69ac4 branches: the routine's third argument, a2, is zero. The format is the -18088(gp) pointer plus 208 (delay slot at 0x69b1c). The routine then returns through 0x69b20. |
 
 ### `nic_get_eaddr`
 
@@ -707,8 +707,8 @@ Routine at 0xc000000000069dac.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc000000000069e18 | printf | level 6 (set by the printf wrapper), `nic_eaddr: Failed to find readable MAC NIC, rc %d\n` | not yet read |
-| 0xc000000000069e4c | printf | level 6 (set by the printf wrapper), `nic_get_eaddr: bypassing gpcr_s enable in ioc3\n` | not yet read |
+| 0xc000000000069e18 | printf | level 6 (set by the printf wrapper), `nic_eaddr: Failed to find readable MAC NIC, rc %d\n` | Reached when both calls to nic_eaddr in the loop at 0x69df0 return nonzero: the loop runs with s0 at 1 and then 0, and the `bne s0,s5` at 0x69e08 does not branch once s0 reaches -1. The rc printed is the second call's return, moved to a1 at 0x69e14. The format is the -18088(gp) pointer plus 384. |
+| 0xc000000000069e4c | printf | level 6 (set by the printf wrapper), `nic_get_eaddr: bypassing gpcr_s enable in ioc3\n` | Taken when the `beqz a1` at 0x69dd4 branches: the routine's second argument, a1, is zero. The format is the -18088(gp) pointer plus 336 (delay slot at 0x69e50). The routine then jumps back to the loop at 0x69de4. |
 
 ### `sn0drv_attach`
 
