@@ -1,0 +1,5 @@
+# The latest independent audit of each table: an auditor who did not write the entries drew a random sample of rows graded understood
+# and re-derived each from the binaries or the cited specification. real = the entry held up, shallow = true but derived from a name or
+# credited without behaviour of its own, wrong = contradicted. sample is small: read it with the percentage. The last row of a table with
+# the latest date is the one summary.tsv and docs/coverage.md show.
+open-questions	2026-11-02	20	19	1	0	sample of the 20 checkable statements in the open-questions triage (e3109bc; seed 20261102 over the 25 numbered statements): kernel hashes, 6.5.22m string counts, absent 6.5.22 inventory and hash rows, scope.json names, sysmp and syssgi named-only rows on all five platforms, the 6.5.30 var and 6.5.22 var contents, the 230 IP32 entries, the 5 mconfig addresses against the symbol ranges and the mload_init end, the 361 and 529 panic counts, and the PE-brick, 0x8 and pending-clear readings re-derived with facts.py; the one shallow statement attributed the clear through the first interface to intr_clear_all when its helper does it, reworded
