@@ -45,10 +45,10 @@ Rows in scope are the ones the finish line counts; rows out of scope are listed 
 
 | Table | In scope | Out of scope | Documented | Undocumented |
 |---|---:|---:|---:|---:|
-| [syscalls](inventory/syscalls.tsv) | 0 | 711 | 0 | 0 |
+| [syscalls](inventory/syscalls.tsv) | 0 | 1422 | 0 | 0 |
 | [structs](inventory/structs.tsv) | 173 | 2733 | 0 | 173 |
 | [panics](inventory/panics.tsv) | 272 | 2551 | 0 | 272 |
-| [selectors](inventory/selectors.tsv) | 0 | 0 | 0 | 0 |
+| [selectors](inventory/selectors.tsv) | 9 | 2770 | 0 | 9 |
 | [formats](inventory/formats.tsv) | 29 | 0 | 0 | 29 |
 
 | Binary group | Scope | Binaries | Functions in | Functions out |
