@@ -174,6 +174,104 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   "SYSAD_BAD_DATA (Data Quality Bad) error interrupt. int pend 0x%x", both at level 20. The bit order of the checks
   and the side selection come from the instructions at 0xc000000000058464 onward; what each bit of the pending word
   stands for beyond these message names: unknown here. Inferred.
+- `hub_error_clear` (`6.5.30/unix.IP35`, address 0xc00000000005792c, 420 bytes, 32-byte frame): puts one node's Hub
+  error registers back to a clean state; `hub_error_init` calls it first. `a0` is the NASID. It returns nothing
+  (`v0` is left holding scratch) and has one exit, at 0xc000000000057ac8. Each address it touches is a Hub
+  register-space base from the literal pool plus the NASID shifted left 33. A two-pass loop (0xc000000000057980 to
+  0xc0000000000579e8) runs first on base 0x9200000001800000 (pool word 0xc000000001644060) and then on the same base
+  plus 0x200000, chosen by `movn` on the pass count; each pass stores, in this order, all-ones at +0x400, +0x438 and
+  +0x458 and zero at +0x4c8 and +0x4d0. A nine-pass loop (0xc000000000057a2c to 0xc000000000057a54) then rewrites the
+  nine consecutive doublewords from 0x9200000001c00000 (pool word 0xc000000001644020) + 0x198: the old value is ANDed
+  with 0xffff07ffffffffff (pool word 0xc000000001644150, clearing bits 43 to 47), ORed with 0x80000000000 (bit 43),
+  ANDed with 0xffffffc000c00000 (pool word 0xc000000001644158) and ORed with 3. The result keeps old bits 63 to 48, 42
+  to 38, 23 and 22, has bit 43 and bits 1 and 0 set, and has every other bit clear. Between the two loops (the
+  instructions at 0xc0000000000579f0 to 0xc000000000057a28) the routine loads four doublewords that nothing later reads, from 0x9200000001fc0018, 0x9200000001fe0018,
+  0x9200000001f80058 and 0x9200000001fc0028 (plus the shifted NASID), and a fifth, from 0x9200000001e80120, after
+  the nine-pass loop; they are inferred to be reads for their effect on the hardware, since the values are dropped.
+  After the nine-pass loop it stores all-ones at 0x9200000001c00000 + 0x1f8, clears bit 28 of the doubleword at
+  0x9200000001c00000 + 0x138 (read, AND with 0xffffffffefffffff, write), stores all-ones at 0x9200000001e00000 (pool
+  word 0xc000000001644038) + 0x4048 and zero at + 0x4050. The last loop (0xc000000000057a98 to 0xc000000000057ac0)
+  zeroes fifteen doublewords from 0x9200000001f00000 (pool word 0xc000000001644168) + 0x120 to + 0x190 in ascending
+  order, two per pass, the second store sitting in a branch delay slot; the first store of a pass always runs and the pass exits
+  after it, skipping the second, once the incremented index reaches 113. What each register is, in hardware terms, is unknown here; the role (reset the node's error status,
+  masks and counters) is inferred from the routine name and its use by `hub_error_init`. Inferred.
+- `hub_xp_error_handler` (`6.5.30/unix.IP35`, address 0xc000000000077b7c, 232 bytes, 64-byte frame): forwards a
+  crosstalk-side error that `hub_ioerror_handler` or `hub_ioerror_local` found on a node, but only when the Hub says
+  the error belongs to the crosstalk port. `a0` is the node vertex, `a1` the NASID and `a2`, `a3` and `a4` the error
+  kind, handler argument and error record, which it passes on unchanged. It first loads the doubleword at
+  0x9200000001c00000 (pool word 0xc000000001644020) + NASID shifted left 33 + 0x1e8; when neither bit 0 nor bit 4 (mask
+  0x11) is set it returns 7 (the `li a7,7` at 0xc000000000077ba4, exit through 0xc000000000077c44). Otherwise it calls
+  `error_state_get()` and keeps the result in 0(sp). It finds the node's data block as the doubleword indexed by
+  `nasid_to_compact_node[a1]` (a halfword table, address from gp-21528) in the table that the pointer at absolute
+  address -15360 reaches, takes the word at block +0x8640 and calls `error_state_set(word, state)`. A result of 7
+  returns 9 (the `li a7,9` at 0xc000000000077c08 sits before the compare). Otherwise, when the saved state equals 3,
+  it first calls `error_state_set(a0, 1)`. In both remaining cases it returns the result of
+  `xtalk_error_handler(word at block +0x8640, a2, a3, a4)`. What the Hub register at +0x1e8 holds: unknown here. Established.
+- `hub_widget_reset` (`6.5.30/unix.IP35`, address 0xc000000000079180, 328 bytes, 80-byte frame): drops the Hub's
+  pending request entries for one crosstalk widget and returns that widget's register to its idle setting. `a1` is
+  the widget number; `a0` is never read. `xwidget_gfx_reset` is the caller. It calls `master_node_get()` and keeps the
+  result as a sign-extended halfword; when that is -1 it returns at once, with `v0` still holding the
+  `master_node_get` result (branch at 0xc0000000000791b8 to the epilogue at 0xc000000000079278). Otherwise it takes
+  the NASID from the halfword table `compact_to_nasid_node` (address from gp-21544), raises the priority level with
+  the routine at 0xc000000000061f6c (called here as `splhi`; the symbol table gives the same address the names `spl1`,
+  `spl3`, `spl5`, `spl6`, `splvme`, `splnet` and others) and saves the old level at 0(sp). It then scans eight
+  doublewords at 0x9200000001c00000 (pool word 0xc000000001644020) + NASID shifted left 33 + 0x308 + 8 x i, for i from 0
+  to 7. An entry is acted on when bit 63 is set and bits 24 to 31 equal the widget number. For such an entry it stores
+  zero in it, stores the value `i | 0x10` in the doubleword at base + 0x388 (the same address every time), reads that
+  doubleword back and, if bit 4 (0x10) of it is still set, calls `assfail("! (REMOTE_HUB_L(nasid, IIO_IPDR) &
+  IIO_IPDR_PND)", "../ml/SN/SN1/hubio.c", 1037)` (the strings at gp-21536 + 5440 and + 5496). That compare is
+  `beqzl`, so the increment of `i` in its delay slot runs only when the bit is clear; on the assert path the `addiu` at
+  0xc0000000000792b8, in the delay slot of the branch at 0xc0000000000792b4, supplies it, and the scan always visits all eight
+  entries. After the scan it calls `hub_setup_prb(nasid, widget, 3, 2)`, restores the level with `splx` (the same
+  address as `splxecc`, at 0xc000000000079270) and returns the `splx` result. What the entries and the register at
+  +0x388 are in the hardware: unknown here; the string names the register as the kernel's `IIO_IPDR` pending test,
+  which is inferred to be the same register. Established.
+- `hub_ioerror_local` (`6.5.30/unix.IP35`, address 0xc000000000077a80, 252 bytes, 32-byte frame): reports an I/O error
+  that a processor caused by touching a Hub register it is not allowed to use. `hub_ioerror_handler` calls it (two
+  sites) for a widget number of 1, the Hub itself. `a2` is the error kind and `a3` the error record; `a0` and `a1` are
+  not read. A kind of 0, 2 or 3 returns 0 (exits through 0xc000000000077ab4 and the fall-through at
+  0xc000000000077aa4, which sets `v0` to zero in the delay slot). Any other kind never gets back normally. It reads
+  two halfwords of the record, at +12 and +14, and translates each through the halfword table
+  `compact_to_nasid_node` (address from gp-21544), so the first gives a NASID (here `v0`, kept at 8(sp)) and the second
+  another (`a1`, kept at 0(sp)). The error address passed to the messages is the doubleword at record +16 when bit 25
+  of the record's first word is set, otherwise 0 in the first message only. It reads the doubleword at 0x9200000001800000
+  (pool word at gp+2288) plus the second NASID shifted left 33 and tests bit number (first NASID) of it. With that bit set
+  it calls `cmn_err(4, ...)` with "Error accessing Hub Register %x on node (%d/%d) from (%d/%d), with access permission\n"
+  (0xc000000001527a68) and then `kl_panic("Hub Register Access error")` (the string at 0xc000000001527ac0). In either case
+  it then reaches the second report, which uses the record's address and halfwords again: `cmn_err(4,
+  "Error in accessing hub register 0x%x on node (%d/%d) by cpu %d on Node (%d/%d): No permission\n")`
+  (0xc000000001527ae0) and `kl_panic("Hub Register Access Permission error")` (0xc000000001527b40). Only registers a2
+  to a6 are loaded for those calls; the format has six conversions. Neither `kl_panic` call is expected to return. If
+  one does, the first path falls into the second report, and the routine returns the last `kl_panic` result at
+  0xc000000000077aac. Which Hub register the bit at +0 of that doubleword guards: unknown here. Established.
+- `huberror_process_stack_entry` (`6.5.30/unix.IP35`, address 0xc00000000005a88c, 248 bytes, 48-byte frame): decodes
+  one saved Hub request-buffer error record and hands it to the write-side or read-side error routine. Callers are
+  `process_error_spool` and `get_matching_spool_addr`. `a0` is the record's first word, `a1` its second word, `a2` the
+  record layout (1 or 2) and `a3` a pointer through which the decoded address is returned. The routine returns the
+  result of `huberror_process_wrb_error` or `huberror_process_rrb_error`, stores the decoded address (`s0`) as a
+  doubleword at 0(`a3`) after the call, and has one normal exit at 0xc00000000005a914. Layout 1 takes the address
+  as bits 31 and up of `a0` shifted down and then left 7 (`dsrl a0,0x1f; dsll 7`), the write flag as bit 12 of `a0`,
+  and a two-bit field `a0 >> 13 & 3` that is used only when bit 22 (value 0x200 after the `>> 13`) is set. Layout 2
+  takes the address as bits 25 to 61 of `a0` (`>> 25 & 0x1fffffffff`) shifted left 3, the write flag as bit 42 of
+  `a1`, and the two-bit field `a1 >> 43 & 3`, again used only when bit 53 (`a1 >> 43 & 0x200`) is set. When that
+  bit is clear the field value passed on is the word at 0(sp), which this routine never stores, so it is whatever the
+  caller left on the stack. In both layouts `a0 & 7` is the first argument.
+  With the write flag set it calls `huberror_process_wrb_error(a0 & 7, address)`. With it clear it calls
+  `huberror_process_rrb_error(a0 & 7, address, the 0x200 bit as a 32-bit value, field)`. Any layout other than 1 or 2
+  calls `cmn_err(20, "huberror_process_stack_entry, bad type 0x%x")` (0xc000000001521ce0); the code after it loads
+  four unset stack words and rejoins the flag test, but the level-20 report is expected not to return. The meaning of
+  the record fields in hardware terms: unknown here. Established.
+- `hubiio_crb_free` (`6.5.30/unix.IP35`, address 0xc00000000005ac38, 160 bytes, 32-byte frame): releases one entry of
+  the Hub's table of outstanding I/O requests and waits until the Hub reports the release done. `a0` is the node's
+  error record (its halfword at +10 is the NASID) and `a1` the entry number. It returns nothing (single exit,
+  0xc00000000005acd0, with `v0` left from whichever instruction ran last). Callers are `hubiio_crb_error_handler` (two
+  sites) and `hub_widgetdev_shutdown`. Every address is the base 0x9200000001c00000 (pool word 0xc000000001644020) plus
+  the NASID shifted left 33. It first rewrites the first word of the entry, the doubleword at base + 32 x entry + 0x400,
+  masking it with 0xfffbfffffffffffd (pool word 0xc000000001644210), which clears bits 50 and 1 and keeps every
+  other bit. It then stores `entry | 0x10` into the doubleword at base + 0x390, reads that doubleword back and, while
+  bit 4 (0x10) is still set, calls `us_delay(1)` and reads it again; the loop has no bound. When the bit is clear it
+  returns. The hardware meaning of the register at +0x390 and of bit 1 of the entry word: unknown here; the
+  routine's callers treat bit 50 of the same word as the marker that an entry is already free. Established.
 
 ## Hub programmed-I/O windows
 
@@ -224,6 +322,62 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   register at 0x9200000001000418 or 0x9200000001000420, calls `klsave_spool_registers(*a0, *a1, 2)` (address
   0xc000000000059acc) and returns 2; otherwise it returns 0. What the registers at those addresses are called is
   unknown here. Inferred.
+- `hub_setup_prb` (`6.5.30/unix.IP35`, address 0xc000000000062edc, 148 bytes, no frame): rewrites one of the nine
+  consecutive 64-bit per-widget registers of the Hub that `hub_error_clear` also reinitialises (same base and
+  stride). `a0` is the NASID, `a1` the crosstalk widget number, `a2` the new low byte and `a3` a mode value. It
+  returns nothing and has one exit, at 0xc000000000062f68, with the store in its delay slot. Callers are
+  `hub_set_piomode`, `hub_widget_flags_set`, `hub_widget_reset` and `kona_attach`. First, when the kernel variable
+  `force_fire_and_forget` (word at gp-28884, address 0xc00000000163c69c, initial value 1) is nonzero and
+  `ignore_conveyor_override` (word at gp-28880, address 0xc00000000163c6a0, initial value 1) is zero, a mode of
+  exactly 1 becomes 2 and other modes pass through; with either variable otherwise the mode is unchanged, so at the
+  shipped initial values it is unchanged. The register index is `a1` for a widget below 8 and `a1 - 7` for 8 to 15,
+  so widgets 8 to 15 use registers 1 to 8 (widgets 1 to 7 share registers 1 to 7 with widgets 8 to 14). The register
+  is the doubleword at 0x9200000001c00000 (pool word 0xc000000001644020) + NASID shifted left 33 + 0x198 + 8 x index.
+  The new value is built in this order: the old value ANDed with 0xffff07ffffffffff (pool word 0xc000000001644150,
+  clearing bits 47 to 43), ORed with bit 43, ANDed with 0xfffffbc000c000ff (pool word 0xc000000001644280), ORed with
+  bit 42 when the mode is not 1, ANDed with 0xffffffffffffff00 and ORed with `a2 & 0xff`. The result keeps old bits 63
+  to 48, 41 to 38, 23 and 22, has bit 43 set, has bit 42 set exactly when the mode is not 1, has `a2`'s low byte in
+  bits 7 to 0, and has bits 47 to 44, 37 to 24 and 21 to 8 clear. The hardware meaning of the register and its bits is
+  unknown here; the per-widget role is inferred from the index mapping and the callers' widget arguments. Established.
+- `hub_set_piomode` (`6.5.30/unix.IP35`, address 0xc000000000062f70, 240 bytes, 64-byte frame): reprograms the Hub's
+  nine per-widget registers (through `hub_setup_prb`) for one node while the node's doubleword at +0x110 of its
+  register block is held at zero. `a0` is the NASID and `a1` is passed through as the mode argument of every
+  `hub_setup_prb` call. Callers are `io_xswitch_widget_init` (two sites) and `hubio_init`. The routine first calls
+  `get_console_nasid`; when `a0` equals the result it takes the console print lock with `putbuf_lock` (and notes that
+  in `s3`) before anything else, and releases it with `putbuf_unlock` at the end. The block is the doubleword base
+  0x9200000001c00000 (pool word 0xc000000001644020) plus the NASID shifted left 33.
+  It saves the doubleword at block +0x110 on the stack (24(sp)), stores zero there, and tests bit 17 of the doubleword
+  at block +0x20 (the `dsll32 ...,0xe` shifts it to the sign bit). With the bit clear it calls `hub_setup_prb(a0, 0, 1,
+  a1)`; with it set `hub_setup_prb(a0, 0, 3, a1)`. Then for widget numbers 8 to 15 it calls `hub_setup_prb(a0, n, 3,
+  a1)`. It restores the saved value at block +0x110. The return value is the doubleword read back from +0x110 (the
+  `ld` in the delay slot at 0xc000000000063008) when this is not the console node, and the result of `putbuf_unlock`
+  when it is. The hardware meaning of block +0x20 bit 17 and of +0x110: unknown here. Established.
+- `hub_piomap_free` (`6.5.30/unix.IP35`, address 0xc00000000006252c, 236 bytes, 48-byte frame): gives back a window
+  that `hub_piomap_alloc` made, freeing the Hub's window register when the last user lets go. `a0` is the window
+  record: its word at +0x20 is the vertex, the halfword at +0x24 the use count, the byte at +0x26 the entry number and
+  the word at +0x28 the flags. `xtalk_piomap_free` calls it. It returns nothing (single exit 0xc00000000006259c). A record
+  whose flag bit 1 is clear is left alone and the routine returns at once (the branch at 0xc000000000062540); the code
+  that sets that bit is not in this routine. Otherwise it looks up the node record with
+  `hwgraph_info_get_LBL(vertex, "_node", &record)` (string at 0xc000000001524ef8), takes the NASID from the halfword at
+  record +10, takes the window lock with `mutex_spinlock(record + 0x318)`, and stores the use count minus 1 back as a
+  halfword (0xc000000000062580, in the delay slot). When the new count is not zero it releases the lock with
+  `mutex_spinunlock(record + 0x318, level)` and returns. When the count reaches zero it writes the doubleword 0x300
+  to the Hub window register at 0x9200000001c00000 (pool word 0xc000000001644020) + NASID shifted left 33 + 8 x entry
+  number + 0x160, the register that `hub_piomap_alloc` fills; 0x300 is the layout's widget field set to 3 with the
+  address bits clear, read as the idle value (inferred). It then updates the flags: when bit 2 is clear it clears
+  bit 0; when bit 2 is set it clears bits 0 and 2 and decrements the word at record + 800 (the count of fixed
+  windows, the counter `hub_piomap_alloc` limits to 5). It calls `sv_signal(record + 0x310)` to wake any process that
+  waited for a free window, and then releases the lock as above. Established.
+- `hub_check_pci_equiv` (`6.5.30/unix.IP35`, address 0xc000000000062e54, 136 bytes, 32-byte frame): decides whether
+  two crosstalk-side addresses name the same location in a PCI window, allowing for the two NASIDs being aliases of
+  one node. `a0` and `a1` are the two addresses. `ioc3_attach` and `ioc4_attach` call it (two sites each), and the IOC3
+  attach text records its result when comparing a controller's windows with the console's. It returns 0 or the
+  result of `check_nasid_equiv`; the single exit is 0xc000000000062ea0. It first calls `hub_check_window_equiv(a0, a1)`
+  (0xc000000000062dec); a zero result returns 0. That routine returns 1 when `hub_check_is_widget0` holds for both
+  addresses, otherwise 1 when bits 24 to 31 of the two addresses are equal, otherwise 0. Next the low 24 bits of the
+  two addresses are compared (mask 0x00ffffff, from `lui` 0xff and `ori` 0xffff); a difference returns 0. When they
+  match it takes bits 33 to 39 of each address (shift right 33, mask 0x7f, sign-extended as a 16-bit halfword) and
+  returns `check_nasid_equiv(first, second)` (0xc000000000046c40). Established.
 
 ## Interrupt dispatch
 
