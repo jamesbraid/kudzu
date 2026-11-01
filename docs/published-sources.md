@@ -2,7 +2,7 @@
 
 Public trees are **hints**, not evidence: every fact one suggests must be confirmed at an address in a 6.5.30 or 6.5.22 binary, or graded inferred or unknown ([AGENTS.md](../AGENTS.md#2-evidence)). They are meant to be pinned submodules. Several are pinned at an old commit because the IRIX parts were later removed.
 
-**Status: not yet added.** The entries below are chosen and checked but are **not yet added** to the repository: `.gitmodules` and the gitlinks were blocked in the scaffolding run and wait for a go-ahead. The pins are listed so the choice can be reviewed first.
+The trees below are pinned submodules at the commits listed.
 
 | Path | Source | Pin | Why this pin |
 |---|---|---|---|

@@ -1,0 +1,76 @@
+[submodule "m2c"]
+	path = m2c
+	url = https://github.com/techomancer/m2c.git
+	branch = irixn32
+[submodule "spimdisasm"]
+	path = spimdisasm
+	url = https://github.com/Decompollaborate/spimdisasm.git
+[submodule "libdwarf-code"]
+	path = libdwarf-code
+	url = https://github.com/davea42/libdwarf-code.git
+[submodule "ogl-sample"]
+	path = ogl-sample
+	url = https://github.com/jrmuizel/ogl-sample.git
+[submodule "linux"]
+	path = linux
+	url = https://github.com/torvalds/linux.git
+[submodule "linux-irix-compat"]
+	path = linux-irix-compat
+	url = https://github.com/torvalds/linux.git
+[submodule "linux-2.5.40"]
+	path = linux-2.5.40
+	url = https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git
+[submodule "linux-2.4.37"]
+	path = linux-2.4.37
+	url = https://github.com/xtreamerdev/linux-mips.git
+[submodule "linux-ip30"]
+	path = linux-ip30
+	url = https://github.com/jaaron/linux-mips-ip30.git
+[submodule "netbsd"]
+	path = netbsd
+	url = https://github.com/NetBSD/src.git
+[submodule "netbsd-compat-irix"]
+	path = netbsd-compat-irix
+	url = https://github.com/NetBSD/src.git
+[submodule "openbsd"]
+	path = openbsd
+	url = https://github.com/openbsd/src.git
+[submodule "mame"]
+	path = mame
+	url = https://github.com/mamedev/mame.git
+[submodule "gxemul"]
+	path = gxemul
+	url = https://github.com/retroprom/gxemul.git
+[submodule "qemu-irix"]
+	path = qemu-irix
+	url = https://github.com/n64decomp/qemu-irix.git
+[submodule "xiri"]
+	path = xiri
+	url = https://github.com/salvogendut/xiri.git
+[submodule "binutils-gdb"]
+	path = binutils-gdb
+	url = https://sourceware.org/git/binutils-gdb.git
+[submodule "gcc"]
+	path = gcc
+	url = https://github.com/gcc-mirror/gcc.git
+[submodule "xfsprogs"]
+	path = xfsprogs
+	url = https://git.kernel.org/pub/scm/fs/xfs/xfsprogs-dev.git
+[submodule "pcp"]
+	path = pcp
+	url = https://github.com/performancecopilot/pcp.git
+[submodule "fam"]
+	path = fam
+	url = https://github.com/saminigod/fam.git
+[submodule "open64"]
+	path = open64
+	url = https://github.com/open64-compiler/open64.git
+[submodule "bsd44-lite2"]
+	path = bsd44-lite2
+	url = https://github.com/sergev/4.4BSD-Lite2.git
+[submodule "illumos-gate"]
+	path = illumos-gate
+	url = https://github.com/illumos/illumos-gate.git
+[submodule "irix-657m-src"]
+	path = irix-657m-src
+	url = https://github.com/calmsacibis995/irix-657m-src.git
