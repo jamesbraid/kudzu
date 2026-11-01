@@ -129,7 +129,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	127	0xc000000000232918	0xc000000000235f84	yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	128	0xc000000000232918	0xc000000000235f84	yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	129	0xc00000000023290c			out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	130	0xc0000000002328b8	splprof		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	130	0xc0000000002328b8	splprof		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	131	0xc000000000232880			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	132	0xc000000000232870	xlv_next_config_request		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	133	0xc000000000232860	xlv_attr_get_cursor		out	undocumented
@@ -1390,7 +1390,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	127	0xa8000000201ec908	0xa8000000201efb8c	yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	128	0xa8000000201ec908	0xa8000000201efb8c	yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	129	0xa8000000201ec8fc			out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	130	0xa8000000201ec8a8	splprof		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	130	0xa8000000201ec8a8	splprof		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	131	0xa8000000201ec870			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	132	0xa8000000201ec860	xlv_next_config_request		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	133	0xa8000000201ec850	xlv_attr_get_cursor		out	undocumented
