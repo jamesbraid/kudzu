@@ -1114,10 +1114,13 @@ instruction. **Established.**
 interrupt level on every processor. a0 is a number n; the bit is 1 << (n + 1) (a 32-bit `sllv`). It calls
 `heart_imr_bits_rmw(register, bit, 0)` for registers 0, 1, 2 and 3 in that order, clearing the bit in each, and returns the last call's value (register 3's previous contents). It does not
 touch the interrupt vector table. No branch-likely instruction. **Established.**
-- `ioc3_serial_kill` (`6.5.30/unix.IP30`, occupies 64 bytes at address 0xa800000020142f18): stops one IOC3 serial port. a0 is the port record (s0).
-When the doubleword at +8 (a2) is non-zero it calls the function pointer stored at +40 of the structure that doubleword points to, through `jalr`, with a0 unchanged and a2 holding
-that doubleword (the result is dropped; the delay slot is a nop). Whether or not it called, it then loads the doubleword at +64, stores a zero word at its address (offset 0) and a zero word at record +148, and
-returns the +64 doubleword. No branch-likely instruction. **Established.**
+- `ioc3_serial_kill` (`6.5.30/unix.IP30`, occupies 64 bytes at address 0xa800000020142f18): stops one IOC3 serial port.
+a0 is the port record (s0). When the doubleword at +8 (a2) is non-zero, the routine calls the function pointer stored at +40
+of the structure that doubleword points to, through `jalr`, with a0 unchanged and a2 holding that doubleword (the result
+is dropped; the delay slot is a nop). Whether or not it called, it then loads the doubleword at +64, stores a zero word at
+its address (offset 0) and a zero word at record +148, and returns the +64 doubleword. Both exits return it: the
+`ld v0,64(s0)` at 0xa800000020142f3c is reached by the taken branch and by the fall-through after the call. No
+branch-likely instruction. **Established.**
 - `pcibr_error_cleanup` (`6.5.30/unix.IP30`, occupies 84 bytes at address 0xa80000002004ca5c): clears the Bridge's pending error
 state. a0 is the bridge soft-state record (s0). The halfword at +114 is the chip kind. For kind 0 or 1 the second argument is 65; for any other kind it is the
 doubleword in the literal pool at 0xa8000000204a89d0, 0x00003cff00000041 (the load, from gp-24096, runs in the delay slot of the second compare and is overwritten by 65 when the
@@ -1129,10 +1132,13 @@ has a zero doubleword stored through it. The routine calls `xtalk_piotrans_addr(
 `xtalk_piomap_alloc(a0, a1, a2, a3, a3, a5)` (the fifth argument is a copy of a3), and a zero result returns zero. It then calls `xtalk_piomap_addr(map, a2, a3)`. A zero result calls `xtalk_piomap_free(map)` and
 returns zero. A non-zero result is stored through a4 as the map when a4 is non-null (as a doubleword), and the routine returns the address. When a4 is null the map is neither
 freed nor returned. No branch-likely instruction. **Established.**
-- `pcibr_error_extract` (`6.5.30/unix.IP30`, occupies 120 bytes at address 0xa80000002004cab0): finds the slot a Bridge error address belongs to. a0 is a vertex, and a1 and a2 are two values
-saved at sp+16 and sp+24 and passed on. It calls `hwgraph_info_get_LBL(a0, "_pcibr_asic_rev", &value)`. A non-zero return gives 255 (the `addiu` is in the delay slot, so 255 is set on both paths and
-the fall-through returns it). Otherwise `hwgraph_fastinfo_get(a0)` gives the soft-state record, and a null record returns 255.
-Otherwise `pcireg_pci_bus_addr_get(record)` is called and its result goes to `pcibr_addr_toslot(record, that result, a1, a2, 0)`; the answer ANDed with 0xff is returned. No branch-likely instruction. **Established.**
+- `pcibr_error_extract` (`6.5.30/unix.IP30`, occupies 120 bytes at address 0xa80000002004cab0): finds the slot a Bridge
+error address belongs to. a0 is a vertex, and a1 and a2 are two values saved at sp+16 and sp+24 and passed on.
+It calls `hwgraph_info_get_LBL(a0, "_pcibr_asic_rev", &value)`. A non-zero return gives 255 (the `addiu` is in the
+delay slot, so 255 is set on both paths and the fall-through returns it). Otherwise `hwgraph_fastinfo_get(a0)` gives
+the soft-state record, and a null record returns 255. Otherwise `pcireg_pci_bus_addr_get(record)` is called and
+its result goes to `pcibr_addr_toslot` as the second argument, with the record first, a1 and a2 third and
+fourth and 0 fifth; the answer ANDed with 0xff is returned. No branch-likely instruction. **Established.**
 - `ioc3_is_io7` (`6.5.30/unix.IP30`, occupies 64 bytes at address 0xa800000020061428): reads one flag byte from an IOC3's
 soft-state record. a0 is the PCI device vertex. `hwgraph_traverse(a0, "ioc3", &result)` is called; a non-zero return makes the routine return 0 (the
 zero is set in the delay slot of the branch). Otherwise `hwgraph_fastinfo_get` of the vertex written to the result gives the record, and the
@@ -1170,3 +1176,32 @@ loads the doubleword at +8 of the record (the window base) and drops the vertex 
 `v_mapphys(a1, a2 + base, rounded length, a3)` where the fourth argument register still holds the mask -16384. The result is kept in s0. When the halfword at record +114 (the chip kind) is non-zero, or when the result is non-zero, the
 routine returns the result. For kind 0 with a zero result, it calls `pcireg_control_bit_set(record, 0x80000000, kind)` (0x8000 shifted left by 16 in the delay slot) when the offset a2 equals 0xc00000 or the rounded length is
 above 0xc00000, and in every case it returns the `v_mapphys` result. No branch-likely instruction. **Established.**
+- `xbow_bytes_to_gbr` (`6.5.30/unix.IP30`, occupies 100 bytes at address 0xa80000002003d600): returns the difference of two rounded-up quotients, one for a span's start and one for its end.
+a0 is the start and a1 the length; there is no stack frame. The divisor is built by `lui` 0x3d and `ori` 0x900, which is 4,000,000. The start is divided by it with a signed 64-bit `ddiv` and the quotient is cut to 32 bits (a3).
+When a3 times the divisor (a 32-bit `mult`, low word) is below a0 as a signed compare, a4 is a3 plus 1; otherwise a4 is a3 (the copy is in the delay slot of the branch at 0xa80000002003d628).
+The same steps run on a0 plus a1 (a5): the quotient is a3 again, and a0 becomes a3 plus 1 when the product is below a5 (the `bne` at 0xa80000002003d650 jumps over the copy, with the add in its delay slot) and a3 otherwise.
+The return value is the 32-bit difference a0 minus a4, formed in the delay slot of the `jr`. A zero length gives 0. There is one exit and no branch-likely instruction. **Established.**
+- `ecc_compute_scdata_ecc` (`6.5.30/unix.IP30`, occupies 196 bytes at address 0xa800000020028a24): builds the ten-bit check code for a 128-bit secondary-cache data word.
+a0 and a1 are the two doublewords of the word; they are kept in s3 and s4. The table `scache_data_ecc` (0xa800000020424228, 24-byte entries) is addressed from 0xa800000020423e38, so the loads at +1016 and +1024 read the doublewords at entry +8 and +16 and never the one at +0.
+Nine passes run for entry 0 to 8. Each pass shifts s1 left one place (a 32-bit `sll`), ANDs entry +8 with a0 and entry +16 with a1, XORs the two, calls `ecc_bitcount` on the result and, when the count is odd, sets bit 0 of s1.
+After the ninth pass `ecc_bitcount` is called again on s1 (cleared to 32 bits with `dsll32` and `dsrl32`) and an odd count sets bit 9 (0x200). So bits 0 to 8 are the nine row parities, the first row in bit 8 and the last in bit 0, and bit 9 is the parity of those nine bits.
+s1 is returned. `ecc_bitcount` (0xa800000020028ae8) returns the number of one bits by clearing the lowest set bit until none is left. There is one exit and no branch-likely instruction. **Established.**
+- `heart_dmamap_alloc` (`6.5.30/unix.IP30`, occupies 92 bytes at address 0xa80000002003f41c): allocates the 12-byte record that describes a Heart DMA mapping.
+a0 is the widget vertex, saved at sp+0, and a3 the flags, saved at sp+8; a1 and a2 are not used. It calls `kmem_zalloc(12, f)` where f is 1 when bit 1 of a3 is set (`sltu` of zero below the masked bit, in the delay slot of the call). A null result is returned unchanged.
+Otherwise the vertex is stored as a word at record +0 (the store is in the delay slot of the next call), then the unnamed routine at 0xa80000002003f0a4 is called with the vertex and its low byte, the widget number, is stored at +4. The flags a3 are stored as a word at +8 (in the delay slot of the branch to the exit).
+The record is returned. That routine calls `xwidget_info_get` and `xwidget_info_id_get` and keeps the low byte of the id. No branch-likely instruction. **Established.**
+- `heart_piotrans_addr` (`6.5.30/unix.IP30`, occupies 92 bytes at address 0xa80000002003f3c0): gives the kernel address of a programmed-I/O window of a Heart widget without making a map.
+a0 is the widget vertex, a2 the crosstalk address, a3 the size and a4 the flags; a1 is not used. The unnamed routine at 0xa80000002003f0a4 turns the vertex into the widget number; `heart_addr_xio_to_kva(widget, a2, a3)` then gives the address (a2 is saved in s8 and a3 at sp+24, and a3 is reloaded in the delay slot of the call).
+When bit 3 of a4 is set the address is ORed with 7 shifted left 59 (`dsll32` by 27), 0x3800000000000000. Unlike `heart_piomap_alloc`, the routine has no test for a zero address, so the bits are ORed into a zero result too. The address is returned. No branch-likely instruction. **Established.**
+- `heart_flow_control_disable` (`6.5.30/unix.IP30`, occupies 60 bytes at address 0xa800000020040330): masks one flow-control interrupt level on the executing processor.
+a0 is a number n and the bit is 1 shifted left by n plus 1 (a 32-bit `sllv`, kept in s8). The routine calls `heart_imr_bits_rmw(h, bit, 0)` where h is the halfword at absolute address 0xffffffffffffc3a0, the processor identity, so the bit is cleared in that one register.
+The return value is the bit ANDed with the register's previous contents, so it is non-zero when the level was unmasked before. `heart_flow_control_enable` is the same routine with the set operand equal to the clear operand. No branch-likely instruction. **Established.**
+- `pcibr_write_gather_flush` (`6.5.30/unix.IP30`, occupies 60 bytes at address 0xa800000020043a70): asks the Bridge for a write-buffer flush on behalf of the calling device, and returns 0.
+It takes no argument of its own; a0 passes through to the first call unchanged. `pciio_hostinfo_get` gives a record (s8), `pciio_info_mfast_get` of it gives a value, and the unnamed routine at 0xa800000020043094 is called with that value and the byte at record +540 (loaded in the delay slot).
+That routine's only call is to the register accessor pcireg_wrb_flush_get (at 0xa800000020058920), with the same two arguments. The result is dropped and 0 is returned. `pcibr_wrb_flush` differs: it passes the doubleword at +8 of the `pciio_info_mfast_get` result, not the result itself. No branch-likely instruction. **Established.**
+- `pcibr_xintr_preset` (`6.5.30/unix.IP30`, occupies 176 bytes at address 0xa80000002004aca0): programs the Bridge interrupt destination, either the global one or a single pin's.
+a0 is the Bridge soft-state record (s0), a1 a pin number, and a2, a3 and a4 are values for the destination. When a1 is -1 it calls, in this order, `pcireg_intr_dst_target_id_set(record, a2)`, `pcireg_intr_dst_addr_set(record, a3)`, `pcireg_intr_host_err_set(record, a4)` and `pcireg_intr_enable_bit_set(record, -256)`.
+Otherwise it calls `pcireg_intr_addr_addr_set(record, a1, a3)`, `pcireg_intr_addr_vect_set(record, a1, a4)` and `pcireg_intr_enable_bit_set(record, 1 << a4)` (the 32-bit `sllv` at 0xa80000002004ad28 sits in the delay slot of the call). Both paths end with `pcireg_tflush_get(record)`, whose result is returned. No branch-likely instruction. **Established.**
+- `pcibr_setpciint` (`6.5.30/unix.IP30`, occupies 168 bytes at address 0xa80000002004a77c): writes a PCI interrupt's destination address and vector into the Bridge.
+a0 is a crosstalk interrupt record (s0). It calls, in order, `xtalk_intr_addr_get` (result saved at sp+24), `xtalk_intr_vector_get` (s8), `xtalk_intr_dev_get` (s7) and `xtalk_intr_sfarg_get` twice. The first sfarg result is read as a word whose low three bits are the pin (s1); the second is read again, shifted right 3 and ANDed with 1.
+`pcibr_bridge_ptr_get(device, that bit)` gives the register block (sp+16). Then `pcireg_intr_addr_vect_set(block, pin, vector AND 0xff)` is called, and last `pcireg_intr_addr_addr_set(block, pin, address)`, whose result is returned. No branch-likely instruction. **Established.**
