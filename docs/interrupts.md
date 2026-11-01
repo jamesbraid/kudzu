@@ -360,3 +360,14 @@ The IP35 `hardwired_intr` table (`.data` at `0xc000000001531598`) has the IP27 e
   0xc00000000005fcc4) or `master_node_get`, and picks the processor through the node chooser at
   `0xc00000000005fb4c` (calls at 0xc00000000005fcf4 and 0xc00000000005fd08), returning -1 where the
   IP27 routine does. Established.
+
+### The same routines in the 6.5.22 builds
+
+The 6.5.22 copies of the routines above. Each row is a routine whose bytes match a 6.5.30 routine on the same page; the note gives the SHA-256 prefix of the bytes (first 12 hex digits). A linked-kernel row is established when the whole body has no calls, address constants or gp accesses; the others are inferred, because the 6.5.22 target of each constant or call was not checked. An object row compares section bytes, not relocated code, so it is inferred. The comparison is in [version-diffs.md](version-diffs.md).
+
+| Routine | Binary | Address | Size | Note | Label |
+|---|---|---|---|---|---|
+| `hub_intr_cpuid_get` | `6.5.22/unix.IP27` | `0xc00000000003be64` | 8 | returns the interrupt handle's processor, the halfword at +36; same bytes as the 6.5.30 linked kernel (SHA-256 prefix acb766709b99), at a different address; no calls, address constants or gp accesses in the body | Established |
+| `hub_intr_cpuid_get` | `6.5.22/unix.IP35` | `0xc0000000000635a0` | 8 | returns the interrupt handle's processor, the halfword at +36; same bytes as the 6.5.30 linked kernel (SHA-256 prefix acb766709b99), at a different address; no calls, address constants or gp accesses in the body | Established |
+| `hub_intr_cpuid_get` | `6.5.22/usr/cpu/sysgen/IP27boot/kernel.o` | `0x22ce4` | 8 | returns the interrupt handle's processor, the halfword at +36; same bytes as the 6.5.30 object (SHA-256 prefix acb766709b99) at a different offset; relocations not compared | Inferred |
+| `hub_intr_cpuid_get` | `6.5.22/usr/cpu/sysgen/IP35boot/kernel.o` | `0x23420` | 8 | returns the interrupt handle's processor, the halfword at +36; same bytes as the 6.5.30 object (SHA-256 prefix acb766709b99) at a different offset; relocations not compared | Inferred |

@@ -14,12 +14,12 @@ Route classes:
 
 Premises corrected in place, with the check that corrected them:
 
-- The 6.5.22 IP27, IP30 and IP35 linked kernels are held (row 1).
-- Panic messages are resolved for 361 of the 890 call sites, not none (row 5).
+- The 6.5.22 IP27, IP30 and IP35 linked kernels are held and in the inventory; [version-diffs.md](version-diffs.md) compares them with 6.5.30.
+- Panic messages are resolved for 361 of the 890 call sites, not none (row 4).
 
 Software-now, in order:
 
-1. The 6.5.22 linked kernels: regenerate the inventory and `scripts/inventory-root.sha256` so the three kernels that `scripts/scope.json` already names enter the tables.
+1. The gp slots read by the hardware-facing layout routines of the 6.5.22 and 6.5.30 kernels: resolve each slot to its variable in both kernels (see the 6.5.22 comparison section).
 2. The IP35 node-controller registers at the two KLCONFIG addresses: read every other reader of both addresses in the 6.5.30 and 6.5.22 IP35 kernels.
 3. The IP35 second-interface pending clear: read the other IP35 writers of a second-interface level in both IP35 kernels.
 4. The panic and assert messages: extend `scripts/panic_sites.py` to the 529 sites marked not resolved.
@@ -28,13 +28,12 @@ Software-now, in order:
 
 Missing input:
 
-- The IP32 linked kernel (row 2): no IP32 configuration is held for either release.
+- The IP32 linked kernel (row 1): no IP32 configuration is held for either release.
 
 ## Scaffold
 
 | Question | Class | Owner | Routes tried | Next route |
 |---|---|---|---|---|
-| IRIX 6.5.22 linked kernels: `unix.IP27`, `unix.IP30` and `unix.IP35` are held, but no inventory row or root hash covers them. The 6.5.22 IP32 kernel is not held. | software-now | [IRIX_FILES.md](../IRIX_FILES.md) | Checked 2026-11-01: the three kernels are ELF executables that contain the release string `6.5.22m` (7978 times in IP27, 8188 in IP35). `docs/inventory/functions.tsv` has no `6.5.22/unix` rows, and `scripts/inventory-root.sha256` has no 6.5.22 kernel line. Earlier: only an IP22 (Indy) 6.5.22m disk image and the 6.5.22 patch sets were found. | Regenerate the inventory and the root hash so the three kernels enter the rows `scripts/scope.json` already names. Then correct IRIX_FILES.md section 2 and retire the IP22 image route. |
 | The IP32 linked kernel (`unix.IP32`): none held, and no IP32 configuration is held for either release. | missing-input | [IRIX_FILES.md](../IRIX_FILES.md) | The IP32 object archives are present and inventoried (230 entries in the 6.5.30 IP32 boot directory). `root/6.5.30` has no `var/`. `root/6.5.22/var/` has `sysgen.IP27`, `sysgen.IP30` and `sysgen.IP35` only. | Extract the IP32 configuration (`master.d`, `system`, `mtune`) from the installation media named in IRIX_FILES.md if they carry it, then link. Otherwise locate an installed O2 system disk. IP32 has no kernel row in `scripts/scope.json`. |
 | `sysmp` and other selector tables are not generated; `syssgi` selectors that never narrow to a single value (shared error paths and ranges) are not listed. | software-now | `docs/inventory/selectors.tsv` | `scripts/syssgi_selectors.py` on `syssgi`; compared with public lists in [syscall-selector-crosscheck.md](syscall-selector-crosscheck.md). Checked 2026-11-01: `sysmp` and `syssgi` are named-only, out-of-scope rows in the 6.5.22 `os.a` objects of all five platforms. | Run the extractor on the other selector functions, starting with `sysmp` in the 6.5.30 and 6.5.22 `os.a` objects. Explain the selectors that differ from the public lists. |
 | The five routines that `sgi_mconfig` calls (command 1 to 5, at 0xc0000000001d07fc, 0xc0000000001d098c, 0xc0000000001d0e34, 0xc0000000001d1068 and 0xc0000000001d12c8 in the IP27 kernel) have no symbol, so `docs/syssgi.md` cannot say what they do. The method `vtopv` calls through the address-space object, and the registers behind the uncached addresses that `numa_tune`, `numalinkstats_up2date`, `set_leds` and `heart_rev` use, are also unidentified. | software-now | [syssgi.md](syssgi.md) | `facts.py` on the IP27 kernel found no function symbol at the five addresses; the callers were read in full. Checked 2026-11-01: none of the five addresses falls inside a symbol range in the 6.5.30 IP27 inventory. They lie in the unnamed gap that starts where `mload_init` ends (0xc0000000001d07fc) and ends where the next symbol, `mload_driver_load`, begins (0xc0000000001d2d78). | Read the five routines by address with `facts.py --size`, and follow the address-space method table from the object `as_lookup_current` returns. Compare the same routines in the 6.5.22 IP27 kernel. |
@@ -45,6 +44,12 @@ Missing input:
 | Question | Class | Owner | Routes tried | Next route |
 |---|---|---|---|---|
 | Which IP35 node-controller registers sit at `0x9000000034000000` and `0x9000000014000000` (plus the NASID shifted left 33), and what bits 12 to 15 encode. `get_module_id`, `is_master_baseio` and `do_cpumask` treat `0xc` at the first as a PE-brick; `cpu_node_probe` treats 8 at the second as a PROM without PE-brick support. | software-now | [klconfig.md](klconfig.md) | The 6.5.30 IP35 kernel's uses of both addresses. Checked 2026-11-01: `get_module_id`, `is_master_baseio`, `chk_for_pebrick`, `cpu_node_probe` and `do_cpumask` are in the 6.5.30 IP35 inventory as understood. No IP35 PROM image is held under `root/`. "Linux has no IP35 support" is not checked: the Linux submodule is not initialised in this clone. | Find every other reader of the two addresses in `6.5.30/unix.IP35` and `6.5.22/unix.IP35` (row 1 of the scaffold table). The PROM image route is missing-input until a PROM image is held. The published Origin 3000-family node-controller documentation is a hint only. |
+
+## 6.5.22 comparison
+
+| Question | Class | Owner | Routes tried | Next route |
+|---|---|---|---|---|
+| Whether the gp slots that the hardware-facing layout routines read name the same variables in 6.5.22 as in 6.5.30. The routines differ only in gp offsets (106 hardware-facing rows, for example `nasid_to_compact_nodeid`, `cnode_exists` and `hub_slot_to_widget`) or in gp offsets and jump targets (1,080 rows); see [version-diffs-queue.tsv](version-diffs-queue.tsv). | software-now | [version-diffs.md](version-diffs.md) | The bytes match apart from those fields, so the routines are classed as layout. The gp offset differs, which fits a moved data layout, but no slot was resolved to its variable in either kernel. | For each such row, resolve gp plus the offset to the data symbol in each kernel (the `_gp` symbol gives the base in each kernel) and compare the two names. |
 
 ## Interrupt routing
 

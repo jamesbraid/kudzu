@@ -1,7 +1,7 @@
 binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_sites	unresolved_sites	status	doc	section
-6.5.22/unix.IP27	kernel-image	shared-kernel	executable	n64	11237256	40e3f6246b58aa9b		13658	symtab (dwarf addresses stale, dropped)	0	0	named-only	IRIX_FILES.md#2-irix-6522	2. IRIX 6.5.22
-6.5.22/unix.IP30	kernel-image	shared-kernel	executable	n64	9536856	e913b7022abb533f		12214	symtab (dwarf addresses stale, dropped)	0	0	undocumented		
-6.5.22/unix.IP35	kernel-image	shared-kernel	executable	n64	12168592	87563dbc0cbc35c5		14511	symtab (dwarf addresses stale, dropped)	0	0	named-only	docs/open-questions.md#klconfig-and-node-numbering	KLCONFIG and node numbering
+6.5.22/unix.IP27	kernel-image	shared-kernel	executable	n64	11237256	40e3f6246b58aa9b		13658	symtab (dwarf addresses stale, dropped)	0	0	named-only	docs/interrupts.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
+6.5.22/unix.IP30	kernel-image	shared-kernel	executable	n64	9536856	e913b7022abb533f		12214	symtab (dwarf addresses stale, dropped)	0	0	named-only	docs/ip30-kernel-functions.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
+6.5.22/unix.IP35	kernel-image	shared-kernel	executable	n64	12168592	87563dbc0cbc35c5		14511	symtab (dwarf addresses stale, dropped)	0	0	named-only	docs/interrupts.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.22/usr/cpu/sysgen/IP22boot/acl.a(acl.o)	kernel-other-objects	shared-kernel	object	n32	14852	5593b2e23b5181e6		16	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/acl_hwg.o	kernel-other-objects	shared-kernel	object	n32	4112	b14653bd2b863e81	6.5.22/usr/cpu/sysgen/IP32boot/acl_hwg.o	3	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/acl_nfs3.o	kernel-other-objects	shared-kernel	object	n32	4976	4c5600bf144c6d1d	6.5.22/usr/cpu/sysgen/IP32boot/acl_nfs3.o	2	symtab	0	0	undocumented		
@@ -1092,7 +1092,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP27boot/kdsp.a(kdsp_di.o)	kernel-other-objects	shared-kernel	object	n64	160324	15dc830133a6b03e		134	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kdsp.a(kdsp_events.o)	kernel-other-objects	shared-kernel	object	n64	24276	9638bc6ebe5fbe7e		25	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kdsp.a(audutil.o)	kernel-other-objects	shared-kernel	object	n64	36500	11c8afe1c00b9bc1		94	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	kernel-platform-objects	shared-kernel	object	n64	1250440	7beff2c6167155e3		1359	symtab+dwarf	0	0	named-only	docs/klconfig.md#the-same-routines-in-the-other-builds	The same routines in the other builds
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	kernel-platform-objects	shared-kernel	object	n64	1250440	7beff2c6167155e3		1359	symtab+dwarf	0	0	named-only	docs/interrupts.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.22/usr/cpu/sysgen/IP27boot/keyboard.a(pckbd.o)	kernel-other-objects	shared-kernel	object	n64	17668	dc2ec54da038540f		14	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kitchen_sync.o	kernel-other-objects	shared-kernel	object	n64	13992	bc1341f0defe8a95		10	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/klidbg.o	kernel-platform-drivers	shared-kernel	object	n64	21968	2a4230ef5c8b147b		19	symtab	0	0	undocumented		
@@ -1461,9 +1461,9 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(xthread_table.o)	kernel-other-objects	shared-kernel	object	n64	14420	6ae3692c86277109		10	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(mtext.o)	kernel-other-objects	shared-kernel	object	n64	1204	5ef49fb88a63b17c	6.5.22/usr/cpu/sysgen/IP30boot/os.a(mtext.o);6.5.22/usr/cpu/sysgen/IP35boot/os.a(mtext.o);6.5.30/usr/cpu/sysgen/IP27boot/os.a(mtext.o);6.5.30/usr/cpu/sysgen/IP30boot/os.a(mtext.o);6.5.30/usr/cpu/sysgen/IP35boot/os.a(mtext.o)	0	none	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/partition.o	kernel-other-objects	shared-kernel	object	n64	70568	49f670573708d6e4		70	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/partitionstubs.a(partitionstubs.o)	kernel-other-objects	shared-kernel	object	n64	13796	655b6436bc541d6e	6.5.22/usr/cpu/sysgen/IP30boot/partitionstubs.a(partitionstubs.o);6.5.22/usr/cpu/sysgen/IP35boot/partitionstubs.a(partitionstubs.o)	33	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/partitionstubs.a(partitionstubs.o)	kernel-other-objects	shared-kernel	object	n64	13796	655b6436bc541d6e	6.5.22/usr/cpu/sysgen/IP30boot/partitionstubs.a(partitionstubs.o);6.5.22/usr/cpu/sysgen/IP35boot/partitionstubs.a(partitionstubs.o)	33	symtab	0	0	named-only	docs/syssgi.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.22/usr/cpu/sysgen/IP27boot/pciba.o	kernel-other-objects	shared-kernel	object	n64	52192	79b46e980f02f571		25	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	kernel-platform-drivers	shared-kernel	object	n64	292272	3e367d03b3e994df		259	symtab+dwarf	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	kernel-platform-drivers	shared-kernel	object	n64	292272	3e367d03b3e994df		259	symtab+dwarf	0	0	named-only	docs/ip30-kernel-functions.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.22/usr/cpu/sysgen/IP27boot/pciio.o	kernel-platform-drivers	shared-kernel	object	n64	48472	2b28ff1b7d37201b		108	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/pciio_ppb.o	kernel-platform-drivers	shared-kernel	object	n64	28088	48f824abf764f69b		19	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/pciiostubs.a(pciiostubs.o)	kernel-other-objects	shared-kernel	object	n64	3812	afb67383730857e1	6.5.22/usr/cpu/sysgen/IP30boot/pciiostubs.a(pciiostubs.o);6.5.22/usr/cpu/sysgen/IP35boot/pciiostubs.a(pciiostubs.o)	2	symtab	0	0	undocumented		
@@ -1651,7 +1651,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP27boot/vmidbg.a(vmidbg.o)	kernel-other-objects	shared-kernel	object	n64	46196	87ec1d7d71cd9054		27	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/wacom.o	kernel-other-objects	shared-kernel	object	n64	174872	bc9ab99dead101b4		95	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/xbmon.o	kernel-other-objects	shared-kernel	object	n64	20064	88e31210e9c54edd		18	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/xbow.o	kernel-platform-drivers	shared-kernel	object	n64	38216	759c4dd830dc4e38		33	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/xbow.o	kernel-platform-drivers	shared-kernel	object	n64	38216	759c4dd830dc4e38		33	symtab	0	0	named-only	docs/ip30-kernel-functions.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.22/usr/cpu/sysgen/IP27boot/xbridge.o	kernel-platform-drivers	shared-kernel	object	n64	18760	7e535cc5fbb8b26a		2	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/xconn.o	kernel-platform-drivers	shared-kernel	object	n64	13776	408495e08116f1d4		9	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/xfs.a(xfs_alloc.o)	kernel-other-objects	shared-kernel	object	n64	39092	5798bc8b07a07f0b		24	symtab	0	0	undocumented		
@@ -1920,7 +1920,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/hardlocks.a(llsclocks.o)	kernel-other-objects	shared-kernel	object	n64	10404	e5f3909e32646d0b		22	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/hardlocks_statistics.a(chardlocks.o)	kernel-other-objects	shared-kernel	object	n64	10148	681a0655a9870ce4		19	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/hardlocks_statistics.a(llsclocks.o)	kernel-other-objects	shared-kernel	object	n64	11828	cc919e0bf1bdac08		22	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/heart.o	kernel-platform-drivers	shared-kernel	object	n64	47032	5b8a85410ec1b661		67	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/heart.o	kernel-platform-drivers	shared-kernel	object	n64	47032	5b8a85410ec1b661		67	symtab	0	0	named-only	docs/ip30-kernel-functions.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.22/usr/cpu/sysgen/IP30boot/hitachi.o	kernel-other-objects	shared-kernel	object	n64	26392	148cb97eb1eba559		9	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/hwgfs.a(hwgvnops.o)	kernel-platform-drivers	shared-kernel	object	n64	25812	85fed8f1e63a5497		21	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/idbg.o	kernel-platform-objects	shared-kernel	object	n64	944976	210fccb4ebb9fadb		295	symtab+dwarf	0	0	undocumented		
@@ -2258,7 +2258,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(xthread.o)	kernel-other-objects	shared-kernel	object	n64	16324	33fb8484a5253a52		15	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(xthread_table.o)	kernel-other-objects	shared-kernel	object	n64	14404	0c5324757cfb775c		10	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/pciba.o	kernel-other-objects	shared-kernel	object	n64	52104	fac9582e422f3986		25	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	kernel-platform-drivers	shared-kernel	object	n64	287544	3f133b9bafaaccd7		259	symtab+dwarf	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	kernel-platform-drivers	shared-kernel	object	n64	287544	3f133b9bafaaccd7		259	symtab+dwarf	0	0	named-only	docs/ip30-kernel-functions.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.22/usr/cpu/sysgen/IP30boot/pciio.o	kernel-platform-drivers	shared-kernel	object	n64	48296	aeedad4927ab238f		108	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/pciio_ppb.o	kernel-platform-drivers	shared-kernel	object	n64	27920	6413025a27db564e		19	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/pciiox.o	kernel-platform-drivers	shared-kernel	object	n64	6032	e523c14108498336		2	symtab	0	0	undocumented		
@@ -2296,7 +2296,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/satstubs.a(satstubs.o)	kernel-other-objects	shared-kernel	object	n64	27892	4e685f7d6f9a70a8		96	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/sball.o	kernel-other-objects	shared-kernel	object	n64	34744	a1e4eec9a2b7d55e		15	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/sduart.a(serialio.o)	kernel-other-objects	shared-kernel	object	n64	57012	fefde6eb1b0e62c4		59	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/sduart.a(sio_ioc3.o)	kernel-other-objects	shared-kernel	object	n64	30452	799f9632b30f7dce		36	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/sduart.a(sio_ioc3.o)	kernel-other-objects	shared-kernel	object	n64	30452	799f9632b30f7dce		36	symtab	0	0	named-only	docs/ip30-kernel-functions.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.22/usr/cpu/sysgen/IP30boot/sem.o	kernel-other-objects	shared-kernel	object	n64	45952	db1da9b24e46c0a7		50	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/sessionidbg.a(sessionidbg.o)	kernel-other-objects	shared-kernel	object	n64	13364	a9ebe78aea93d85e		7	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/sflash.o	kernel-other-objects	shared-kernel	object	n64	14280	ddd52e4254e95133		14	symtab	0	0	undocumented		
@@ -2399,7 +2399,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/vmidbg.a(vmidbg.o)	kernel-other-objects	shared-kernel	object	n64	39108	adfcdae56f71f7f7		24	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/wacom.o	kernel-other-objects	shared-kernel	object	n64	174848	03c587c361c94122		95	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/xbmon.o	kernel-other-objects	shared-kernel	object	n64	19776	197e2b5c2312d60d		18	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/xbow.o	kernel-platform-drivers	shared-kernel	object	n64	34824	a3c98960e22d1b25		30	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/xbow.o	kernel-platform-drivers	shared-kernel	object	n64	34824	a3c98960e22d1b25		30	symtab	0	0	named-only	docs/ip30-kernel-functions.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.22/usr/cpu/sysgen/IP30boot/xbridge.o	kernel-platform-drivers	shared-kernel	object	n64	18288	b6b4ae0967861595		2	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/xconn.o	kernel-platform-drivers	shared-kernel	object	n64	13760	8cca5339462b466d		9	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/xfs.a(xfs_alloc.o)	kernel-other-objects	shared-kernel	object	n64	39076	5dabaa32d95f3058		24	symtab	0	0	undocumented		
@@ -3323,7 +3323,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/kdsp.a(kdsp_di.o)	kernel-other-objects	shared-kernel	object	n64	160404	e0ecc111c2a405fc		134	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kdsp.a(kdsp_events.o)	kernel-other-objects	shared-kernel	object	n64	24180	ddf2815afca892ed		25	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kdsp.a(audutil.o)	kernel-other-objects	shared-kernel	object	n64	36500	037f9d9dffeb7777		94	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	kernel-platform-objects	shared-kernel	object	n64	1283704	afc16868bee285f8		1294	symtab+dwarf	0	0	named-only	docs/klconfig.md#the-same-routines-in-the-other-builds	The same routines in the other builds
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	kernel-platform-objects	shared-kernel	object	n64	1283704	afc16868bee285f8		1294	symtab+dwarf	0	0	named-only	docs/interrupts.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.22/usr/cpu/sysgen/IP35boot/keyboard.a(pckbd.o)	kernel-other-objects	shared-kernel	object	n64	17588	63056a46aa8c9017		14	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kitchen_sync.o	kernel-other-objects	shared-kernel	object	n64	14672	c38fa3a37be3000e		10	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/klidbg.o	kernel-platform-drivers	shared-kernel	object	n64	22192	b2bd1e28dcdc9fbe		19	symtab	0	0	undocumented		
@@ -3667,7 +3667,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(xthread_table.o)	kernel-other-objects	shared-kernel	object	n64	14340	7daffe2896e599bd		10	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/partition.o	kernel-other-objects	shared-kernel	object	n64	76448	709ccb2a4d18fc8f	6.5.22/usr/cpu/sysgen/IP35boot/partition_part.o	72	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/pciba.o	kernel-other-objects	shared-kernel	object	n64	52112	484e4826a5c3a062		25	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	kernel-platform-drivers	shared-kernel	object	n64	301824	a4bae55fc107c7a1		265	symtab+dwarf	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	kernel-platform-drivers	shared-kernel	object	n64	301824	a4bae55fc107c7a1		265	symtab+dwarf	0	0	named-only	docs/ip30-kernel-functions.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.22/usr/cpu/sysgen/IP35boot/pciio.o	kernel-platform-drivers	shared-kernel	object	n64	47992	757d03ffbcd662d2		108	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/pciio_ppb.o	kernel-platform-drivers	shared-kernel	object	n64	28008	7e10f59ad6d24cb3		19	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/pciiox.o	kernel-platform-drivers	shared-kernel	object	n64	6120	13345822aa97e3d9		2	symtab	0	0	undocumented		
@@ -3860,7 +3860,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/vmidbg.a(vmidbg.o)	kernel-other-objects	shared-kernel	object	n64	45940	a8019a357b435db8		27	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/wacom.o	kernel-other-objects	shared-kernel	object	n64	174784	b7c311fe889133a1		95	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/xbmon.o	kernel-other-objects	shared-kernel	object	n64	20288	36625e7d3596367f		18	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/xbow.o	kernel-platform-drivers	shared-kernel	object	n64	34880	43d7cf8eae3be4db		30	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/xbow.o	kernel-platform-drivers	shared-kernel	object	n64	34880	43d7cf8eae3be4db		30	symtab	0	0	named-only	docs/ip30-kernel-functions.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.22/usr/cpu/sysgen/IP35boot/xbridge.o	kernel-platform-drivers	shared-kernel	object	n64	22808	0353af78bfc72aec		2	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/xconn.o	kernel-platform-drivers	shared-kernel	object	n64	13696	b12ca5ce7f13ca68		9	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/xfs.a(xfs_alloc.o)	kernel-other-objects	shared-kernel	object	n64	39012	4a6e5c268be2689f		24	symtab	0	0	undocumented		

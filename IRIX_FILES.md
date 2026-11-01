@@ -47,10 +47,15 @@ d2899e9aac3f6f62a446d881ccc2f214afc181c195272ab0e658ca974528557f  IRIX 6.5.22 Ov
 
 The hash of every extracted file is in `scripts/inventory-root.sha256` under `6.5.22/`.
 
+Also present:
+
+- `unix.IP27`, `unix.IP30` and `unix.IP35`: the linked 6.5.22 kernels, in `root/6.5.22/`. This repository does not record which installed system they came from. Their SHA-256 hashes are in `scripts/inventory-root.sha256`, and [docs/version-diffs.md](docs/version-diffs.md) compares them with the 6.5.30 kernels.
+- `var/sysgen.IP27`, `var/sysgen.IP30` and `var/sysgen.IP35`: kernel configuration files (`master.d`, `mtune`, `system`, `stune`, `ioconfig`), with no object code.
+
 Not present, wanted next:
 
-- `unix.IP27`, `unix.IP30`, `unix.IP35` (and `unix.IP32`): no installed 6.5.22 system of those platforms is held, so there is no linked kernel. The object archives above are present; the scope rule already names `6.5.22/unix.IP27`, `IP30` and `IP35` and starts covering them once the files exist. The held IP22 6.5.22m disk image is a compressed image that has not been unpacked and is not needed for the IP22 objects, which the media above gives.
-- `var/sysgen/` and the base libraries and applications, as for 6.5.30.
+- `unix.IP32` (O2): no installed 6.5.22 O2 kernel is held.
+- The base libraries and applications, as for 6.5.30.
 
 The 6.5.22 patch sets for 32-bit and 64-bit systems are patches, not a base install, and are not in `root/`.
 
