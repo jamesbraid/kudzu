@@ -143,6 +143,23 @@ threshold spent it prints `Unrecoverable Interface error: Suspect memory address
 reason text exists and the record's byte at +38 is not 2 it sets it to 2 and copies 44 doubleword pairs of the save area to offset 1080. It calls
 `save_cache_error(image, record+8, record+16)` after every path that did not return early. The cache-operation encodings and the threshold arithmetic were not traced
 instruction by instruction, hence the grade.
+- `ecc_exception` (`6.5.30/unix.IP27`, address 0xc0000000000236d0, 432 bytes, no frame): **established.**
+The kernel's cache-error exception body: it saves the interrupted state into a fixed save area at absolute address 1152 (0x480), runs the cache-error handler, panics if
+the handler reports something it cannot recover, and otherwise restores everything and resumes with `eret`. It has no `jr ra` return: its only exit is the `eret` at
+0xc00000000002387c. `k1` is set to 1152 and the stores that follow use it as the base (the addresses given are the absolute ones): `s0` to `s7` at +120 to +176, `a0` to
+`a7` at +24 to +80 (all as doublewords), `gp` at +216, `sp` at +224 and `ra` at +240. It then forms the kernel global pointer 0xc0000000014d2170 in `gp` (the
+instruction sequence at 0xc000000000023720 to 0xc000000000023734) and calls `tfi_save` (0xc00000000003a550). Coprocessor 0 reads are stored in the area: Status (`mfc0`
+register 12) at +248, Cause (13) at +280, BadVAddr (`dmfc0` 8) at +272 and EPC (`dmfc0` 14) at +288 and again at +352. `s0` is kept as the area pointer and `s1` is the
+address area + 360 (0x5e8), a second record: the byte at its +38 (0x60e) is set to 1 if it was zero, ErrorEPC (`dmfc0` 30) is stored at its +0, TagHi (29) in the word
+at +32, TagLo (28) in the word at +28 and CacheErr (27) in the word at +24. The stack pointer is the doubleword at absolute address 4064 or, when that is zero, the
+constant 4048 (the `li` at 0xc0000000000237a8 runs only when the branch at 0xc0000000000237a0 is not taken). It calls `ecc_handler` (0xc00000000005614c) with the area
+as the first argument and the second record as the second. A zero result takes the resume path. A nonzero result (kept in `v0` and passed on as the first argument)
+first loads `sp` from the doubleword at absolute address 0xffffffffffffc440, rebuilds `gp` and clears Status bits 3 and 4 (mask -25), then calls `ecc_panic`
+(0xc000000000056924) with that result, the area and the second record; the code after it is the resume path, which would run only if `ecc_panic` returned. The resume
+path writes TagHi and TagLo back from the saved words, calls `tfi_restore` (0xc00000000003a588) with `k1` set to the area pointer in its delay slot, writes ErrorEPC
+back from the second record, reloads `a0` to `a7`, `s0` to `s7`, `ra`, the `at` register from +0, `sp` and `gp`, clears the byte at second record +38 (through `k0`),
+loads `k0` from +200 and `k1` from +208 and executes `eret`. The registers `k0`, `k1` and `at` are not stored by this routine; the area's +0, +200 and +208 slots are
+only loaded here.
 
 ## Interrupt allocation and hub error handling
 
@@ -296,6 +313,17 @@ that value the bit of every absent port (an inner loop over bits 0 to 5 testing 
 `router_reg_write` (0xc00000000001b374) at the same register number. After the six ports it stores the value at sp+0 in the doubleword at record +368, writes it to
 register 16 with `router_reg_write(record, 16, value)` and returns that call's result (exit 0xc00000000001be08). The name suggests the registers hold fence masks, one
 bit per port; that, and that bit `n` is port `n` + 1, are inferred from how the presence byte is used.
+- `router_port_hist_reselect` (`6.5.30/unix.IP27`, address 0xc00000000001bb34, 224 bytes, 80-byte frame): **established.**
+Changes a two-bit field in one router port's first register and then writes zero to that port's register 0x10, running on the node the router is attached to. `a0`
+(`s0`) is the router record, `a1` (saved at sp+24) a port number and `a2` (saved at sp+32) the new field value. The node is the halfword at record +2, and its record is
+the doubleword at that index of the table behind `p_nodepda` (absolute 0xffffffffffffc400); when the halfword at +18774 of that node record is -1 the routine returns 22
+at once (the 22 is set in the delay slot of the branch at 0xc00000000001bb6c). Otherwise it calls `setnoderun(node)` (0xc0000000000245dc) and keeps its result at sp+0,
+with the upper 32 bits stored as a word at sp+8 and the low 16 bits (sign-extended) as a halfword at sp+12. It then calls `router_reg_read(record, port << 16, &sp+16)`
+(0xc00000000001b344), clears bits 19 and 18 of the value (an AND with the complement of 0xc0000, formed with `lui` 0xc), ORs in `a2` shifted left 18 (`a2` is not
+masked, so a value above 3 also sets higher bits) and writes the result back with `router_reg_write(record, port << 16, value)` (0xc00000000001b374). A second
+`router_reg_write(record, (port << 16) | 0x10, 0)` follows; its result is kept at sp+48. The routine calls `restorenoderun` (0xc0000000000246d0) with the doubleword at
+sp+8 and returns the result of that second write (exit 0xc00000000001bc0c; the early exit at 0xc00000000001bc08 is the one with 22). No branch-likely instruction. That
+the field selects a history source and that register 0x10 holds the history are inferred from the routine's name; the code does not name them.
 
 ## Node driver control calls
 
@@ -647,6 +675,24 @@ otherwise bits 25 and 16 (0x2010000), as for the other types. It stores the valu
 `pcireg_device_set(soft, slot, value)` (0xc000000000086808), and logs
 `pcibr_debug(0x4000000, vertex, "pcibr_slot_device_init: Device(%d): %R\n", slot, value, table at 0xc000000001437f10)` (0xc000000000074e8c). It returns 0
 (0xc00000000007df4c). It does not take the soft lock. The code does not name the bits.
+- `pcibr_endian_set` (`6.5.30/unix.IP27`, address 0xc000000000074944, 232 bytes, 80-byte frame): **established.**
+Sets or clears the byte-swap bits of one slot's Device register and caches the new value. Arguments: `a0` the device's vertex (saved at sp+8 and passed on unchanged),
+`a1` (`s0`) and `a2` (`s2`) two values compared with each other. It calls `pciio_hostinfo_get(a0)` (0xc0000000000934d4) and reads the slot from the byte at +540 of the
+information it returns (`s1`), then `pciio_info_mfast_get` (0xc0000000000935dc) for the bridge soft record (`s3`) and takes the soft lock at +128 (`mutex_spinlock`,
+0xc0000000002863b4). The cached Device register is the doubleword at soft + 128 * slot + 312 (the `bss_device` member of the slot block). The new value is the cached
+one with bits 20 and 19 (the constant 0x180000) cleared when `a1` equals `a2`, and set when they differ. When the new value is unchanged it does not touch the hardware;
+otherwise it calls `pcireg_device_set(soft, slot, new)` (0xc000000000086808), stores the new value back in the cache and reads the flush register with
+`pcireg_tflush_get` (0xc000000000080ba8). It releases the lock (`mutex_io_spinunlock`, 0xc0000000002862c4) and logs through
+`pcibr_debug(0x4000000, vertex, "pcibr_endian_set: Device(%d): %R\n", slot, new value, the flag-name table at 0xc000000001437f10)` (0xc000000000074e8c). It returns
+`a2`. That bits 20 and 19 are the two byte-swap bits of the Device register is inferred from the published Linux header, where `BRIDGE_DEV_SWAP_PMU` is 0x100000 and
+`BRIDGE_DEV_SWAP_DIR` is 0x80000; the code itself does not name them.
+- `pcibr_bridge_ptr_get` (`6.5.30/unix.IP27`, address 0xc00000000007512c, 172 bytes, 16-byte frame): **established.**
+Maps a bridge widget's registers and returns their address, moving to the second bus's block for the two-bus part. `a0` is the widget vertex; `a1` (saved at sp+8)
+selects the interface, 0 or 1. It calls `xtalk_piotrans_addr(vertex, 0, 0, 8, 0)` (0xc00000000006be68) and reads the widget identification word at +4 of the result:
+part number in bits 27 to 12, manufacturer in bits 11 to 1. When the part is 0xd102 or 0xd112 and the manufacturer is 36, and `a1` is 1, it returns the mapped address
+plus 0x800000 (0xc0000000000751d0); in every other case, including a part or manufacturer that does not match and an `a1` other than 1, it returns the mapped address
+unchanged (0xc0000000000751a4). The result of a failed mapping is not tested: the word at +4 is read from whatever came back. That parts 0xd102 and 0xd112 are the two
+bus parts of one bridge chip is inferred from the published Linux headers that give those numbers.
 
 ## Hub widget and error helpers
 
@@ -787,6 +833,47 @@ the callee's result is returned (the one `jr ra` is at 0xc000000000034548). Any 
 (0xc0000000001fcbd4), then reloads `s0` from sp+8, `a2` from sp+4 and `a0` from sp+0, none of which this routine ever stores, and joins the type 2 path at the bit 42
 test; its outcome depends on whatever the stack held. No branch-likely instruction. That the two callees handle the write-buffer and read-buffer error cases is inferred
 from their symbol names.
+- `hub_set_piomode` (`6.5.30/unix.IP27`, address 0xc00000000003c3cc, 240 bytes, 64-byte frame): **established.**
+Puts all of one node's PIO read buffers into a given mode, with a register quiesced around the update. `a0` (`s1`) is the NASID and `a1` (`s2`) the mode. When the NASID
+is the console node (`get_console_nasid`, 0xc00000000001f8f0) it takes the console buffer lock first (`putbuf_lock`, 0xc0000000001ff7d8; `s3` records that) and releases
+it at the end (`putbuf_unlock`, 0xc0000000001ff94c). The hub register page is the pool constant 0x9200000001c00000 plus the NASID shifted left by 32. It saves the
+doubleword at page +272 (at sp+24) and zeroes it, then tests bit 17 of the doubleword at page +32. With that bit set it calls `hub_setup_prb(nasid, 0, 3, mode)`
+(0xc00000000003c338) for buffer 0; with it clear it calls `hub_setup_prb(nasid, 0, 1, 2)`. It then calls `hub_setup_prb(nasid, widget, 3, mode)` for widgets 8 to 15 in
+turn, writes the saved doubleword back to page +272 and reads it again. The return value is that read-back when the node is not the console node, and the
+`putbuf_unlock` result when it is. The code does not say what the register at +272 or bit 17 of the one at +32 is for; the read-back after the write is probably there
+to flush it (inferred).
+- `hubiio_crb_free` (`6.5.30/unix.IP27`, address 0xc000000000034990, 160 bytes, 32-byte frame): **established.**
+Frees one of a hub's I/O request-tracking entries (CRBs) and waits until the hub has finished with it. `a0` (`s1`) is the node's hub record, whose halfword at +10 is
+the NASID, and `a1` is the entry index. The hub register page is the pool constant 0x9200000001c00000 (held at 0xc0000000014cc198) plus the NASID shifted left by 32. It
+clears bit 50 and bit 1 of the doubleword at page + 1024 + 32 * index (an AND with the pool constant 0xfffbfffffffffffd held at 0xc0000000014cc390), then stores
+`index | 0x10` in the doubleword at page + 912 and reads that doubleword back. While bit 4 of the value read is still set it calls `us_delay(1)` (0xc000000000047c0c)
+and reads it again, so the wait has no bound. The bit 4 in the register at +912 is the pending flag of the free request (inferred by comparison with the neighbouring
+register at +904, which the widget reset routine writes the same way and whose assertion text names it a pending bit). There is one `jr ra` (0xc000000000034a28); the
+early branch at 0xc0000000000349f0 (bit 4 clear on the first read) reaches it with `v0` holding `index | 0x10`, and the loop exit leaves `v0` as `us_delay` returned it.
+- `hub_ifdr_fix_value` (`6.5.30/unix.IP27`, address 0xc000000000028f3c, 236 bytes, no frame): **established.**
+Waits for two hub queue-depth fields to reach zero and then rewrites the IFDR field with the node's stored value. `a0` is the compact node number; the NASID is the
+halfword of the table behind the gp-20496 slot (0xc0000000014cd160). It reads the doubleword at page +920 (page = the pool constant 0x9200000001c00000 plus the NASID
+shifted left by 32) and, when its 7-bit field in bits 14 to 8 is not below 65 (`sltiu` by 65), returns -1 at once (0xc000000000028f6c is the delay slot of the branch to
+the return). Otherwise it adds 1 to the halfword at +19586 of the node record (the doubleword at the node's slot of the table behind `p_nodepda`, absolute
+0xffffffffffffc400) and then polls, with no delay and no call, up to 99 rounds. Each round loads the doublewords at +208 and +216 of a second page (the pool constant
+0x9200000001a00000, held at 0xc0000000014cc1f8, plus the NASID shifted left by 32; the second load is in the delay slot of the first test, so it happens every round). A
+round in which bits 23 to 17 of the first are nonzero, or else those of the second are nonzero, counts down the budget (the second test is branch-likely, so its
+decrement in the delay slot runs only when taken). When both fields are zero the loop is left to the rewrite below. When the budget reaches zero (0xc000000000028fdc) it
+stores the second doubleword in the global `last_repqd_val` (gp+2408), the first in `last_reqqd_val` (gp+2400) and adds 1 to the word `wait_exceeded` (gp+2392). In both
+cases it then writes the register at page +920 with bits 14 to 8 replaced by the low 7 bits of the halfword at record +19588 (the AND uses 0xffffffffffff80ff) and
+returns 1 (the one `jr ra`, 0xc000000000029020; the -1 return is the first branch). That the fields at +208 and +216 are queue depths is inferred from the global names;
+the code does not name them.
+- `hubiio_prb_error_handler` (`6.5.30/unix.IP27`, address 0xc000000000034e08, 204 bytes, 64-byte frame): **established.**
+Scans a hub's PIO read buffer registers for the ones whose bit 48 is set and calls a clean-up routine for each. `a0` (saved at sp+0) is passed on unchanged and `a1`
+(saved at sp+8) is a hub record whose halfword at +10 is the NASID; the register page is the pool constant 0x9200000001c00000 (held at 0xc0000000014cc198) plus the
+NASID shifted left by 32. It tests the doubleword at page +408 (index 0): when bit 48 is set (the value shifted left 15 is negative) it calls the routine at
+0xc000000000034db0 with widget number 0 and sets the count `s4` to 1; otherwise the count starts at 0. It then loops over widgets 8 to 15 (`s1`) with register index 1
+to 8 (`s0`), reading the doubleword at page + 408 + 8 * index; each one with bit 48 set adds 1 to the count and calls the routine at 0xc000000000034db0 with the same
+`a0` and `a1` and the widget number in `a2`. The routine returns the count (the one `jr ra` is at 0xc000000000034e9c). The routine at 0xc000000000034db0 is not a
+separate symbol (the symbol table puts it under `hubiio_crb_error_handler`, 896 bytes in); it ignores `a0`, calls
+`cmn_err(4, "Hub nasid %d got a PIO Write error from widget %d, cleaning up and continuing", the halfword at +10 of a1, the widget)` (0xc0000000001fcbd4) and stores
+`1 << widget` in the doubleword at page + 504, returning with that store in the delay slot of its `jr ra`. The code does not say what bit 48 of the register at +408
+means; register +408 is the one `hub_setup_prb` rewrites for widget 0. No branch-likely instruction.
 
 ## Crossbar widget control
 
@@ -969,6 +1056,16 @@ compared with `a0`. Equal: the byte at record +18772 is set to 1, `vector_read_n
 is kept in `s1` and the byte is cleared again. Not equal: `s1` is -10 and nothing is called. `in_panic_mode` is tested a second time and, when it returns zero,
 `mutex_spinunlock` (0xc000000000286400) releases the lock with the saved state. The routine returns `s1`; the panic-mode path and the unlock path meet at the epilogue
 whose `jr ra` is at 0xc00000000001d514.
+- `hub_vector_write` (`6.5.30/unix.IP27`, address 0xc00000000001d56c, 224 bytes, 80-byte frame): **established.**
+The write counterpart of `hub_vector_read`: runs `vector_write_node` (0xc00000000001cbd0) on a given node under that node's lock, only when the caller runs on that
+node, and otherwise fails with -10. Its structure is the same as the read routine apart from the callee and the position of the load of the saved lock state, which here
+sits in the delay slot of the second panic-mode test. Arguments: a node number (`a0`, `s3`) and four values passed on (`a1` at sp+16, `a2` at sp+40, `a3` at sp+8, `a4`
+at sp+24). The NASID comes from the halfword table behind the gp-20792 slot (0xc0000000014cd038) indexed by `a0` (saved at sp+32); the node record comes from the table
+behind `p_nodepda` (absolute 0xffffffffffffc400). When `in_panic_mode` (0xc0000000001e5a94) returns zero it takes `mutex_spinlock` (0xc0000000002863b4) on the lock at
+record +18768 (state at sp+0). If the halfword at absolute address 0xffffffffffffc422 equals `a0` it sets the byte at record +18772 to 1, calls `vector_write_node` with
+the saved `a1`, the NASID and the saved `a2`, `a3`, `a4`, keeps the result in `s1` and clears the byte; otherwise `s1` is -10. A second `in_panic_mode` test decides
+whether `mutex_spinunlock` (0xc000000000286400) runs on the lock at +18768. It returns `s1`; the panic-mode path and the unlock path meet at the epilogue whose `jr ra`
+is at 0xc00000000001d5f8.
 
 ## Hub PIO maps
 
@@ -980,3 +1077,12 @@ length and `a4` (saved at sp+16) the flags. It takes the widget id from `xwidget
 result of that lookup is not tested. When offset + length is above 0x1000000 it returns 0 (0xc00000000003ba64). Otherwise it calls `hub_piomap_addr`
 (0xc00000000003b9a4) with the address (the doubleword at sp+0) + 16 + 48 * (widget id & 0xff) (a 48-byte record per widget), the offset and the length. If bit 3 of the
 flags is set the result has bits 61 to 59 set (7 shifted left by 59). The result is returned (0xc00000000003bab4 falls to the epilogue).
+- `hub_piomap_free` (`6.5.30/unix.IP27`, address 0xc00000000003b8b8, 236 bytes, 48-byte frame): **established.**
+Drops one use of a hub PIO map and, when it was the last, releases the hub window register it held and wakes a waiter. `a0` (`s0`) is the map. A map whose flags word at
++40 lacks bit 1 is ignored (the routine returns with `v0` unset, 0xc00000000003b8cc). Otherwise it reads the `_node` label of the vertex held in the word at map +32
+(`hwgraph_info_get_LBL`, 0xc000000000295310, into sp+0), takes the node record's lock at record +792 (`mutex_spinlock`, 0xc0000000002863b4), after saving the NASID (the
+halfword at record +10) at sp+8, and decrements the halfword use count at map +36. If the count is not zero it just unlocks (`mutex_spinunlock`, 0xc000000000286400).
+When it reaches zero it stores 768 in the doubleword at the hub register page (the pool constant 0x9200000001c00000 plus the NASID shifted left by 32) + 352 + 8 * (the
+byte at map +38), then updates the flags: if bit 2 is set it clears bits 0 and 2 and decrements the word at record +800; if bit 2 is clear it clears bit 0 only (and
+leaves the record's word alone). Either way it calls `sv_signal` (0xc00000000018bf30) on the record at +784 and then unlocks the lock at +792 with the saved state. The
+return value is that of `mutex_spinunlock`. The reading of the register as a window register and of +784 as a wait queue is inferred from the callee names.
