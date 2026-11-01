@@ -811,3 +811,20 @@ uncached address is its address masked with 0xffffffffff and or'd into 0x9000000
 `cacheErr_frames` at 8 times the identity and also at the uncached address 0x9000000000000ff0 plus 8 times the identity,
 where the cache-error handler finds it. When the allocation fails it logs "Unable to allocate ECCF" through `cmn_err`
 level 0 and then continues into the same call with a null block pointer. It returns nothing. **Inferred.**
+- `xbow_ioctl` (`6.5.30/unix.IP30`, occupies 876 bytes at address 0xa80000002003badc): handles the control requests of the
+crossbow character device and returns an error number. Arguments: a0 is the crossbow vertex, a1 the request, a2 the user
+argument pointer, a3 the open-mode flags (bit 0 read, bit 1 write), a4 the caller's credentials and a5 a pointer to the
+call's result word, which is set to 0 first. A privileged request first asks the capability check `cap_able_cred` (or
+`cap_able`) for the capability 0x2000000000 and returns 1 when it is denied. Request 1 and request 2 start a performance
+counter: they need the write flag (else 9), copy 12 bytes from the user with `copyin` (14 on a fault) and call
+`xbow_enable_perf_counter(vertex, port, mode, counter)`; request 2 forces the mode word to 0. A zero result gives 0 and
+any other 22. Request 3 reads the counters: it needs the read flag (else 9), takes the 0x100-byte block from
+`xbow_get_perf_counters` and copies it out with `copyout`, giving 0 or 14.
+Requests 4 and 5 call `xbow_enable_llp_monitor` and `xbow_disable_llp_monitor` after the capability check and return 0
+or 22. Request 6 reads the link status: read flag needed, the 0x80-byte block from `xbow_get_llp_status` copied out, 0
+or 14. Requests 0x6701 and 0x6702 reserve bandwidth between two widgets: after the capability check they copy 16 bytes
+in (14 on a fault), turn the first two words into widget numbers with `xbow_widget_num_get` and call
+`xbow_prio_bw_alloc` twice, once in each direction; 0x6701 passes bandwidth 0 and the fourth word, 0x6702 passes the
+third word and its negative. Both give 0. A null block from either getter ends in a failed assertion through `assfail`
+(the checks named "xbow_perf_cnt != NULL" and "xbow_llp_status != NULL" in its strings). Any other request returns 0.
+**Established.**
