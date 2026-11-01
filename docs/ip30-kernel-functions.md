@@ -338,3 +338,256 @@ else the global `default_intr_pri`), looks up the driver with `device_driver_get
 "ioc3[slot]" or "ioc3[slot]driver" with `sprintf` and `device_driver_name_get`. It sets 0x300 in the slot's flag word at
 +0x58 and returns the result of `xthread_setup(name, level, slot+0x58, 0xa8000000200617a4, slot+0x30)`, which sets up
 the interrupt thread; the fourth argument is the routine at 0xa8000000200617a4. **Established.**
+- `pcibr_reset` (`6.5.30/unix.IP30`, occupies 700 bytes at address 0xa800000020046188): pulses the PCI reset line of the
+slot that holds one device, saving and restoring the configuration state of every function on that slot around the
+pulse. The argument a0 is the device vertex, also used in the debug message. The slot comes from the byte at +540 of the
+record `pciio_hostinfo_get` returns, replaced by the byte at +260 of that slot's 0x80-byte record when the word at +256
+is nonzero; the bridge soft state is `pciio_info_mfast_get` of that record, with the register base at its doubleword +8.
+A slot outside the range from the byte at +49 to the byte at +51 logs "pcibr_reset unimplemented for slot %d" through
+`pcibr_debug` (mask 8) and returns -1. Otherwise it takes the soft-state lock at +128 with `mutex_spinlock` and reads
+the command register of every present function (the function table has the count at slot +272 and the pointer at +280;
+config offset 4, 4 bytes, `pcibr_func_config_get`) into a stack array. Next it clears and then sets the bits `1 <<
+slot` shifted left 24 of the Bridge control register with `pcireg_control_bit_clr` and
+`pcireg_control_bit_set`, calling `nano_delay` after each step on a time record of 0 seconds and 1000000 nanoseconds, so
+the line is held low for 1 ms and given 1 ms to recover. Afterwards, for each present function and each of the six base
+registers (config offsets 0x10 to 0x24, step 4), it writes back the saved window base from the function's record (the
+doubleword at +0x50 of the 0x38-byte window entry, skipped when zero) with `pcibr_func_config_set`; a second pass writes
+the saved command registers back at offset 4. It releases the lock with `mutex_io_spinunlock` and returns 0. The
+instruction at 0xa8000000200463c0 is never reached. **Established.**
+- `intr` (`6.5.30/unix.IP30`, occupies 696 bytes at address 0xa800000020013b98): top-level hardware-interrupt dispatcher;
+it repeatedly picks the highest-priority pending interrupt, runs its handler at that interrupt's priority level, and
+returns 1 when a handler whose level word equals 0xe001 ran, else 0. Arguments: a0 is the exception frame, passed
+unchanged to each handler; a2 is the interrupt-enable mask and a3 the pending cause value, both with the interrupt bits
+in 0xff00. At entry, when the word at absolute address 0xffffffffffffc048 has both bits 0x30 set, it calls
+`check_delay_tlbflush(0)` and remembers that; when the doubleword at 0xffffffffffffc280 has bit 0x20 set it logs
+`log_tstamp_event(0x66, 0,
+0, 0, 0)`. The dispatch table pointer is loaded from gp-21992 (the table at 0xa800000020420630). Each pass of the loop
+first services two counted software events: when the word at 0xffffffffffffc560 is nonzero and a2 bit 0x1000 is set, or
+the word at 0xffffffffffffc564 is nonzero and a2 bit 0x2000 is set, it raises the level with `spl65`, and for each such
+event not yet taken sets bit 0x10000 (first) or 0x20000 (second) in its pending set and decrements the matching counter;
+if neither was taken it restores the level with `splx`. The pending set is those bits or'd with a2 and a3 and 0xff00;
+when it is zero the loop ends. Otherwise the table index is a byte read from the table at +0x118 plus the set shifted
+right 13 when that is nonzero, else from +0x138 plus the set shifted right 8, and the entry is 0x18 bytes from the table
+start: the handler at +0x10, its level at +0x18, the mask of the cause bits it covers at +0x1c and a software-event bit
+at +0x20. The routine calls `splx` with the level, then the handler with a0 (a register call). When the level equals
+0xe001 the return value becomes 1. When the entry's software-event bit is zero it increments, with a load-linked and
+store-conditional pair starting at 0xa800000020013d18 (retried through the branch-likely test at 0xa800000020013d28),
+the word at offset 0xd0 of the structure whose pointer is at 0xffffffffffffc488; otherwise it clears that bit from the
+pending set. It then reads `getcause` and ANDs it with the entry's mask to form the next pass's cause. After the loop it
+calls `ip30_intr_maint`, calls `check_delay_tlbflush(1)` when the first test passed and bit 0x10 of the word at
+0xffffffffffffc048 is set, and logs `log_tstamp_event(0x65, 0x66,
+0, 0, 0)` when the tracing bit is set. **Established.**
+- `pcibr_error_intr_handler` (`6.5.30/unix.IP30`, occupies 1380 bytes at address 0xa80000002004c214): interrupt handler
+for the Bridge's own error interrupt; it counts each error bit, throttles or disables floods, panics on the fatal ones
+and acknowledges the rest. The argument a0 is the bridge soft-state record (word +0 is logged with `pcibr_debug`; the
+byte at +40 is the widget number; the halfword at +114 is the chip kind; the doubleword at +16 is the name used in
+messages). It reads the status with `pcireg_intr_status_get` and logs "pcibr_error_intr_handler: int_status=0x%lx" at
+mask 0x100. For widget 15 with bit 0x80 set it clears that enable bit with `pcireg_intr_enable_bit_clr` and calls
+`powerfail(0)`. When any bit above the low eight is set the main path runs: if the status contains any bit of the mask
+0x4400008800 (a stored constant at 0xa8000000204a89b0) it first calls the unnamed routine at 0xa80000002004c0ac, which
+was not read. It then walks bits 8 to 63 that are set in the status masked with 0xffffffff7fffffff, keeping for each bit
+a 12-byte counter record at soft state +0x8dc (count, tick of the last check, count at the last check): the count is
+incremented, and with the tick counter `lbolt` the number of errors per tick since the last check is computed by integer
+division. A rate above 100 per tick (with more than 100 ticks elapsed) logs "Error rate %d/tick" at level 5; bit 18
+(0x40000) on chip kinds other than 0 and 1 has its own limit, and on chip kind 0 or 1
+it logs "Excessive error interrupts : %d/tick" at level 4 and raises a stored high-water mark when more than 100 errors
+were seen in the interval. For chip kind 2, when the soft state's word at +0x78 masked with 0xf selects the bit pattern 2
+and a bit other than 40 has been seen more than 10000 times, it logs "Disabling error interrupt type %s. Error count %d"
+at level 5. When bit 24 (an unsupported-command report) is set, `pcireg_bus_err_get` has the signature 0xc00000 in its
+upper bits and `pcireg_cmdword_err_get` masked with 0xf07f00 equals 0x402000, bit 24 is dropped from the working set.
+The dump mask `bridge_errors_to_dump` is widened by the mask at 0xa8000000204a89b0 when `pcibr_pioerr_dump` is set and
+narrowed by the mask 0xffffffbbffff77ff when not; a working set that intersects it logs "BRIDGE ERR_STATUS 0x%lx" at
+level 6, as does chip kind 2 with the word +0x78 pattern 6 and bits 0x300000. A working set that intersects the fatal
+mask 0x22133fc06000 calls `machine_error_dump` and `panic("PCI Bridge Error interrupt killed the system")`. Otherwise
+the status is acknowledged: for chip kinds 0 and 1 with `pcibr_errintr_group` of the status written by
+`pcireg_intr_reset_set`, for kind 2 with the status or 0x40; kind 2 with bit 40 set and the same pattern also sets
+0xf00000 in the arbitration register with `pcireg_arbitration_bit_set`. It ends by storing 0 with `test_and_set_int64`
+at the address soft state +0x840, which resets the one-dump-per-error-set guard that `pcibr_error_dump` uses. The
+flood-rate arithmetic was read through the decompiler listing and the constants and callees checked against the
+instructions; the unnamed routine at 0xa80000002004c0ac was not read. **Inferred.**
+- `pciio_pio_addr` (`6.5.30/unix.IP30`, occupies 300 bytes at address 0xa80000002005f23c): returns a processor address for
+a programmed-I/O window of a PCI device, using the direct translation when one exists and otherwise a mapping object
+that the caller may keep. Arguments: a0 and a1 the device and its window selector, a2 the space,
+a3 and a4 the base and size, a5 a pointer to the caller's mapping slot (may be null) and
+a6 flags, passed on as the last argument of each call. If a5 is non-null the routine takes the mapping saved there and
+writes 0 to the slot. It then calls `pciio_piotrans_addr(a0, a1,
+a2, a3, a4,
+a6)`; a nonzero result is returned at once and the saved mapping, if any, is dropped without being freed. When it
+returns 0 the routine uses the saved mapping, or else allocates one with `pciio_piomap_alloc(a0, a1,
+a2, a3, a4, a4,
+a6)` (a zero result returns 0). It then calls `pciio_piomap_addr(map,
+a3, a4)`. If that returns 0 and the mapping was newly allocated it is released with
+`pciio_piomap_free` (a saved one is kept); in every case the address from `pciio_piomap_addr` is returned. When it is
+nonzero and a5 is non-null, the mapping is stored back through a5 for reuse. **Established.**
+- `heart_startup` (`6.5.30/unix.IP30`, occupies 488 bytes at address 0xa80000002003ee44): brings up the Heart I/O switch
+at boot by creating its hardware-graph vertices, registering the crosstalk provider and registering every widget that
+reports a link. It takes no arguments. It first stores a value into the word at 0x900000001800002c: 40000 (0x9c40) when
+the halfword `kdebug` is zero and 0x80 otherwise. It reads the Heart status doubleword at 0xffffffffaff00080, whose low
+four bits are the master widget number, and builds the vertices "node" (`hwgraph_path_add` on the argument-less root)
+with the crosstalk provider table `heart_provider` registered by `xtalk_provider_register` and `xtalk_provider_startup`,
+then "xtalk" below it with `xswitch_id_set(vertex, 0)`, then "0" below that, recorded in `the_error_vhdl`, joined back
+to the node by the edge "io" through `hwgraph_edge_add` and given the node as its master with `device_master_set`.
+Widget 0 (the Heart itself) is registered with `xwidget_register` using the part number (bits 12 to 27) and manufacturer
+number (bits 1 to 11) of the identification word at 0x9000000010000004. For widget numbers 15 down to 0 it asks
+`xswitch_info_link_ok` whether the link is up and, if so, creates a vertex named with the decimal number via `sprintf`
+and `hwgraph_path_add`, records it with `xswitch_info_vhdl_set`, reads the widget's identification word at
+0x9000000010000000 plus widget number times 0x1000000, plus 4, and registers it with `xwidget_register` under the same
+master widget number. If `xswitch_info_get` finds no switch information the loop is skipped. The routine returns
+nothing. **Established.**
+- `ioc3_attach` (`6.5.30/unix.IP30`, occupies 1196 bytes at address 0xa8000000200609bc): attach routine of the IOC3 I/O
+controller; it maps the chip's PCI configuration and memory windows, builds the driver state, programs a few chip
+registers, connects the chip interrupt and starts the serial and keyboard attach routines. The argument a0 is the PCI
+device vertex. It maps configuration space with `pciio_pio_addr(a0, 0,
+7, 0, 0x48, slot, 0)`; a failure logs
+"%v/ioc3: unable to get PIO mapping for my CFG space" through `cmn_err` level 1, and a second map of the memory space
+(space 8, size 0x20180) failing logs the MEM-space message after freeing the first mapping with `pciio_piomap_free`;
+both of those return -1. It looks up the ".host" and ".guest" vertices with `hwgraph_traverse` (falling back to a0 for
+either), adds the vertex "ioc3" with `hwgraph_path_add` and links it under both with `hwgraph_edge_add`. A 0xb48-byte
+state block comes from `kmem_zalloc`, with a lock named "is_ir_lock" at +0xb3c (`spinlock_init`) and the vertices at +0,
++4 and +8, the CFG window at +16 and the MEM window at +24; it is attached with `hwgraph_fastinfo_set`, saved in a
+static when the windows match `console_cfg` and `console_mem`, and registered with `pciio_error_register` for both
+vertices using the handler at 0xa800000020061468. It ORs 0x8146 into the CFG window's word at +4 (the command register),
+writes 0x7ae5e to the MEM window's word at +0x28, 0x2800 to the CFG word at +0xc,
+0xc0 to the MEM word at +0x34 and 0xffffffff to +0x1c, and clears the interrupt bits with `ioc3_write_ireg(state, -1,
+1)`. The vertex name from `vertex_to_name` decides the board kind: a name that contains "Ibrick/xtalk/15/pci/4" sets the
+byte at +0xb40 and enables subdevices with `ioc3_subdev_enables(a0, 0x91)`; names containing "baseio" or "menet" skip
+the nameplate read; otherwise `nic_ioc3_vertex_info` reads it. The unnamed helper at 0xa8000000200619e4 decides whether
+the chip uses interrupts; when it returns 0 the routine stores a zero interrupt handle, saves the processor identity
+(the halfword at absolute address 0xffffffffffffc3a0) at +40 and returns 0. Otherwise it copies the device descriptor
+with `device_desc_dup`, sets flag bit 2, software level 0 and the name "IOC3 UART", makes it the default with
+`device_desc_default_set`, allocates the interrupt with `pciio_intr_alloc` (pin set 2 when `ioc3_subdev_enabled` says
+subdevice 0 is on, else decided by the nameplate strings "030-1155-", "030-1657-" and "030-1664-"; failure logs "%v:
+ioc3_attach: unable to allocate interrupt" at level 0) and connects it with `pciio_intr_connect` to `ioc3_intr`. The
+processor chosen (`pciio_intr_cpu_get` and `cpuvertex_to_cpuid`) is stored at +40 and the requested one at +42; a
+mismatch logs "Request to target IOC3 interrupts to CPU %d could not be satisfied" at level 4. Finally it calls
+`ioc3_serial_attach` and `pckm_attach`, sets `console_device_attached` to 1 when this state is the console one, and
+returns 0. **Inferred.**
+- `pcibr_priority_bits_set` (`6.5.30/unix.IP30`, occupies 348 bytes at address 0xa80000002004652c): turns on or off, with
+a reference count, the priority bits of one slot's Bridge device register. Arguments: a0 is the bridge soft state, a1
+the slot and a2 the request (1 or 2 raise, 0 lowers, any other value changes nothing). The bits are 0x200000, replaced
+by 0 when the revision word at +0x78 equals 0xc0022, and 0x4000 is added to them unless the request is 2. With the
+soft-state lock at +128 held (`mutex_spinlock`), it reads the slot's shadow of the device register from the doubleword
+at soft state + slot*0x80 + 0x138 and the use count from the word at +0x140 of the same record. A raise adds one to the
+count; only when the count becomes 1 does it or the bits into the shadow, and when the bits are 0 in that case it
+returns -1. A lower with a count above zero subtracts one and, when the count reaches 0 and the bits are nonzero, clears
+the bits in the shadow; a lower with the count already at 0 or less returns -1 and changes nothing. All other results
+are 0. If the shadow changed it writes the new value with `pcireg_device_set(soft, slot, value)`, stores it back into
+the shadow and flushes with `pcireg_tflush_get`; the lock is released with `mutex_io_spinunlock` and the result
+returned. **Established.**
+- `pcibr_device_flags_set` (`6.5.30/unix.IP30`, occupies 512 bytes at address 0xa8000000200466d4): changes the
+device-register options of the slot that holds the calling device, from a request word of paired set and clear flags,
+and returns 1. The argument a1 is the request (a0 is the vertex, used only in the debug message). The slot is the byte
+at +540 of the record from `pciio_hostinfo_get`, and the bridge soft state is `pciio_info_mfast_get` of that record. Two
+masks are built from the request bits: bit 16 sets 0x1000000 and 0x800000, bit 17 clears both, bits 18 and 19
+set and clear 0x40000, bits 20 and 21 set and clear 0x20000, bit 22 sets and bit 23 clears 0x8000, bits 26 and 27
+set and clear 0x400000; for chip kind 2 (halfword +0x72) a request with bit 26 set also removes 0x400000 from the set
+mask. When both masks are zero nothing else happens. Otherwise, with the lock at +128 held, the new value is the set
+mask or the old shadow (the doubleword at slot record +0x138, slot records 0x80 bytes apart) with the clear mask
+removed; if it differs it is written with `pcireg_device_set`, stored back and flushed with `pcireg_tflush_get`. The
+lock is released and the change is logged through `pcibr_debug` (mask 0x4000000, "pcibr_device_flags_set: Device(%d):
+%R") whether or not the value changed. **Established.**
+- `pcibr_piomap_alloc` (`6.5.30/unix.IP30`, occupies 584 bytes at address 0xa80000002004437c): allocates a programmed-I/O
+mapping record for a PCI device window, bound to a crosstalk mapping, and returns it or 0. Arguments: a0 is the device
+vertex, a1 unused, a2 the window space, a3 the offset,
+a4 the base address and a5 the requested size, a6 the flags. A zero size or zero base (a4 or a5 when the maximum size is
+also zero) logs "pcibr_piomap_alloc: req_size | req_size_max < 1" at mask 0x8000000 and returns 0. The slot byte is read
+from the device record (+540) and the soft state from `pciio_info_mfast_get`; the unnamed helper at 0xa800000020043aac
+turns slot, space, offset, base and flags into a crosstalk address, and a result of -1 logs "pcibr_piomap_alloc:
+xio_addr == XIO_NOWHERE" and returns 0. Otherwise it scans the free list that starts at device record +0x210 (next link
+at +0x38) for a record whose doubleword at +0x18 is zero, reusing it, or allocates a new 0x60-byte record with
+`kmem_zalloc` under the soft-state lock at +128 and links it at the head of the list. It fills in the vertex, the slot
+(plus 1 for chip kind 2 when the slot is not 255), the soft state, the space, the base and size and the flags, and for
+chip kind 2 clears three more fields. Then it calls `xtalk_piomap_alloc(master vertex, 0, crosstalk address, base, size,
+flags & 0x1f)`: a zero result releases the record's size field and returns 0, otherwise the crosstalk map is stored at
++0x30 and the address at +0x28 of the record, which is returned. The helper was not read, so its translation is inferred
+from how its result is used. **Inferred.**
+- `pcibr_intr_free` (`6.5.30/unix.IP30`, occupies 504 bytes at address 0xa80000002004a584): releases an interrupt handle
+made by `pcibr_intr_alloc`, detaching it from every bit's handler list and from the crosstalk interrupt when it was the
+last user. The argument a0 is the handle: the pin-bit set is the word at +0x58, the soft-state pointer the doubleword at
++0x60, the thread record the doubleword at +0x40 and the flag word at +0. For each of the eight bits in the set it walks
+the bit's handler list (head at soft state +0x680 plus the bit's slot, next link at offset 0) and clears, with
+`compare_and_swap_int64`, each node that points at this handle, logging "pcibr_intr_free: cleared hdlr from bit 0x%x" at
+mask 0x1000 for any node that was not clear; when the bit's use count (+0x68c) is zero and its crosstalk interrupt is
+set it calls `xtalk_intr_free` on it, zeroes the pointer and clears the bit's three device bits with
+`pcireg_intr_device_bit_clr(soft, 7 shifted by 3 times the bit)`. When flag bit 1 of the word at +0 is clear (the handle
+has an interrupt thread) it waits up to 1000 ms in 10 ms steps (`nano_delay` of 10000000 ns) for bit 0x400 of the word
+at +0x28 to be set, ending in `cmn_err` level 4 "Unable to terminate pcibr_intrd thread" if it never is. It then points
+the thread at `xthread_exit` with `xthread_set_func`, wakes it with `vsema` on the semaphore at +0x30 and logs the wait.
+Finally it frees the 0xa0-byte handle with `kmem_free` and returns that call's result. **Inferred.**
+- `heart_addr_phys_to_xio` (`6.5.30/unix.IP30`, occupies 288 bytes at address 0xa80000002003f0cc): translates a physical
+address seen by a device into the crosstalk address form that the Heart provider uses, or -1 when no widget window
+covers it. The argument a0 is the address and the result is returned in v0. An address below 0x4000 first has 0x20000000
+added; every address that is then 0x20000000 or above is returned unchanged (the branch at 0xa80000002003f0d8). A value
+from 0x10000000 up to 0x20000000 is a widget window: the widget number is (address minus 0x10000000) shifted right 24
+and masked with 0xff, the result is the address masked with 0xffffff, with the widget number shifted left 60 or'd in,
+except that widget 8 is returned as the masked address alone. Everything from 0x4000 up to 0x10000000 returns -1. The
+code after the 0x10000000 test also compares against 0x800000000, 0x1000000000 and 0x10000000000 and forms larger-window
+results (widget number from address shifted right 31 or 36, with the same widget-8 exception), but every route to it
+holds a value below 0x10000000, which returns -1 first, so those instructions never run for an address that reaches
+them. **Established.**
+- `pcibr_rrb_flush` (`6.5.30/unix.IP30`, occupies 380 bytes at address 0xa800000020048458): flushes every read response
+buffer that is assigned to the slot of the calling device. It takes no arguments of its own: the slot is the byte at
++540 of the record from `pciio_hostinfo_get`, the bridge soft state is `pciio_info_mfast_get` of it and the register
+base is the soft state's doubleword +8. The width of a buffer's owner field depends on the chip: the identification word
+at register +4 with bits 12 to 27 equal to 0xc002 and bits 1 to 11 equal to 0x36, or 0xd002 with 0x24, selects 2-bit
+slot numbers, anything else 1-bit. It reads the buffer assignment word for the slot's half (slot bit 0) with
+`pcireg_rrb_get` and, with the lock at +128 held (`mutex_spinlock`), looks at its eight nibbles in turn; a nibble whose
+enable bit (8) and owner field equal the slot number shifted right 1 triggers `do_pcibr_rrb_flush(registers, half + 2
+times the nibble index)`. It releases the lock with `mutex_io_spinunlock` and returns nothing. **Established.**
+- `pcibr_intr_disconnect` (`6.5.30/unix.IP30`, occupies 476 bytes at address 0xa80000002004a9c8): detaches an interrupt
+handle from the Bridge's interrupt bits and from their crosstalk connections, keeping the connections that other handles
+still share. The argument a0 is the handle (+0x58 holds its bit set, +0x60 the soft state, +4 the vertex for messages).
+It zeroes the four words at +0x18 to +0x24 and clears bit 0 of the flag word at +0. From the bit set it removes every
+bit whose shared count (the word at soft state +0x68c plus 56 times the bit number) is nonzero; if bits remain it
+disables them with `pcireg_intr_enable_bit_clr` under the lock at +128 (`mutex_spinlock` and `mutex_io_spinunlock`),
+flushes with `pcireg_tflush_get` and logs "pcibr_intr_disconnect: disabled int_bits=0x%x" at mask 0x1000. For each
+remaining bit whose shared count is still zero it calls `xtalk_intr_disconnect` on the bit's crosstalk interrupt (the
+doubleword at soft state +0x668 plus 56 times the bit), clears the word at +0x690 and logs "disconnect int_bits". If the
+shared count has become nonzero meanwhile, it sets the connection word at +0x698 to the bit number or'd with the
+soft-state word +0x48 shifted left 3 and reconnects with `xtalk_intr_connect(intr, pcibr_intr_func, ...,
+0xa80000002004a77c, ..., 0)`, logging "now-sharing int_bits". It returns nothing meaningful. **Inferred.**
+- `heart_dmamap_list` (`6.5.30/unix.IP30`, occupies 364 bytes at address 0xa80000002003f4b4): rewrites every physical
+address in a DMA address list into the form the Heart provider uses, either into a copy or in place, and returns the
+resulting list or 0 on failure. Arguments: a0 is not read, a1 is the source list and a2 the flags (bit 1 passes an
+allocation hint on, bit 2 means rewrite in place). It resets the source's cursor with `alenlist_cursor_init(list, 0,
+0)`, and without the in-place flag creates the destination list with `alenlist_create` (a null result returns 0). Each
+element is read with `alenlist_get` into an address and a length on the stack; the address is converted by
+`heart_addr_phys_to_xio(address, length)`. In copy mode the converted address and the length are added with
+`alenlist_append`; in place mode `alenlist_replace` overwrites the element, but only when the converted address differs
+from the original. A failure in either call ends the loop; in copy mode the new list is released with `alenlist_destroy`
+and 0 is returned, in place mode the loop simply stops and the same list is returned as it stands. When all elements
+have been read, copy mode calls `alenlist_done` on the source and returns the new list; in place mode returns the source
+list. **Established.**
+- `heart_dmatrans_list` (`6.5.30/unix.IP30`, occupies 364 bytes at address 0xa80000002003f648): the same translation of an
+address list as `heart_dmamap_list`, with the list in the third argument and the flags in the fourth. Arguments a0 and
+a1 are not read; a2 is the source list and a3 the flags (bit 1 passes the allocation hint, bit 2 selects in-place
+rewriting). The body is instruction for instruction the body of `heart_dmamap_list` with the two argument registers
+shifted by one: `alenlist_cursor_init(list, 0, 0)`, a new list from
+`alenlist_create` unless in place, a loop over `alenlist_get` that converts each address with `heart_addr_phys_to_xio`
+and then either `alenlist_append` or, when the converted address differs, `alenlist_replace`, `alenlist_done` on the
+source in copy mode and `alenlist_destroy` of the new list on a failed copy, returning the list or 0. **Established.**
+- `heart_intr` (`6.5.30/unix.IP30`, occupies 364 bytes at address 0xa80000002003fe98): Heart interrupt dispatcher. It
+loops over the pending interrupt vectors that the caller's mask allows, runs each vector's handler or wakes its
+interrupt thread, and finally credits the handled count to a statistics word. Arguments: a0 is the exception frame
+(handed to `buserror_intr`) and a1 the mask of vectors this level may service. The pending set is the doubleword at
+0xffffffffaff10038 ANDed with a1; if it is zero the routine goes straight to the statistics update. Each pass takes the
+lowest vector number from `ffintr64` and uses the 64-byte entry of `heart_ivec` (handler pointer +0, its argument +8,
+flags +0x18, wake semaphore +0x20). Vectors 59 and above call `buserror_intr(a0)` and nothing else. For a lower vector,
+when the vector is 3 or above its bit is written to the clear doubleword at 0xffffffffaff10028 before the handler runs;
+vectors 0 to 2 are cleared after it instead. If bit 0x1000 of the entry's flags is set the interrupt belongs to a
+thread: `valusema` reads the semaphore, `vsema` posts it when the value is below 28673 and `cvsema` is called when it is
+not. Without that flag the handler is called with the entry's argument (a register call). After every vector the pending
+doubleword is read again and ANDed with a1; the loop ends when it is zero. The routine counts the vectors it handled
+minus one and adds that count to the word at offset 0xd0 of the structure whose pointer is at absolute address
+0xffffffffffffc488, with an `ll` and `sc` pair (the branch-likely retry at 0xa80000002003ffec), so an empty pass adds
+-1. **Established.**
+- `heart_piomap_alloc` (`6.5.30/unix.IP30`, occupies 192 bytes at address 0xa80000002003f2c8): allocates a programmed-I/O
+mapping record for a window of a Heart widget and returns it, or 0 when the window has no kernel address or the
+allocation fails. Arguments: a0 is the widget vertex, a2 the crosstalk address and a3 the size,
+a5 the flags; a1 and a4 are not read. A small unnamed routine at 0xa80000002003f0a4 gives the widget number (the
+routine's own callees are the widget-information getters for the vertex, and it masks the id with 0xff), which
+`heart_addr_xio_to_kva` turns, with the address and size, into a kernel address (the result of `heart_addr_xio_to_phys`
+with 0x9000000000000000 or'd in, or 0). A zero address returns 0. The record comes from `kmem_zalloc(0x28, flag)` where
+flag is 1 when bit 1 of a5 is set; a null result returns 0. When bit 3 of a5 is set the kernel address additionally gets
+the bits 7 shifted left 59. The record gets the vertex at +0, the widget number byte at +4, the crosstalk address at +8,
+the size at +16, the kernel address at +24 and the flags word at +32, and is returned. **Established.**
