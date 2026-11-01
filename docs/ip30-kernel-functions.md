@@ -712,7 +712,7 @@ kernel stack and jumps to the common exception code. It runs with the interrupte
 addresses written as numbers are process-page words reached through the zero register. Stage one runs only when the byte
 at -14584 is not 1, the doubleword at -15264 is nonzero and equals the doubleword at -16360, and the saved exception
 program counter (coprocessor 0 register 14) has its top bit clear. It probes the translation buffer for the page that
-holds the instruction before that counter (`tlbp`, `tlbr`), uses the even or odd entry by the page-size bit, sets the
+holds the instruction before that counter (the translation-buffer probe, then read, instructions), uses the even or odd entry by the page-size bit, sets the
 page mask to 0x6000 and gives up unless the entry is valid. It then reads the instruction word at the counter minus 4
 and gives up unless its opcode field is 0 and its function field bits 3 to 5 equal 3 (a multiply or divide). Otherwise
 it stores that word at +4 of the scratch routine whose pointer is at -14552 (given up when null), flushes it with cache
