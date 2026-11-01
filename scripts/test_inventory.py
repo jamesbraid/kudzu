@@ -169,7 +169,7 @@ class TemplateCap(unittest.TestCase):
                             inv.cap_key('Current normal from three signed bytes scaled to unit length.'))
 
     def test_a_short_cell_repeated_word_for_word_counts(self):
-        rows = ['| `arm_t%d` | 0x%x | prints payload, then hangs | **Established** |' % (i, i) for i in range(6)]
+        rows = ['| `row_a%d` | 0x%x | prints payload, then hangs | **Established** |' % (i, i) for i in range(6)]
         self.assertEqual(self.capped(rows), [True] * 6)
         self.assertEqual(self.capped(rows[:5]), [False] * 5)
 

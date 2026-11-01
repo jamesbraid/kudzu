@@ -5,3 +5,27 @@
 # docs/syscall-selector-crosscheck.md compares with the kernel.
 GET_CONTEXT_NAME
 SGI_
+#
+# Public names and ordinary words, each read at its use.
+# Field and key names of public ELF and ECOFF formats (binutils sym.h); the
+# tools here read those sections.
+dynsym_index
+isymMac
+# The public MIPSpro compiler name, cited in the published-sources table.
+MIPSpro
+# Ordinary English words and plurals in prose and comments.
+questions
+undocumented
+XORs
+ABIs
+# Public selector names in NetBSD's irix_syssgi.h (IRIX_SGI_SYSID,
+# IRIX_SGI_FO_SWITCH), listed by docs/syscall-selector-crosscheck.md and used
+# in a test fixture.
+SGI_SYSID
+FO_SWITCH
+# Public OpenGL and Xlib entry points, named in a comment and a test fixture.
+glColor3fv
+XDrawLine
+# The file name of a kernel object on the installation media, quoted from the
+# inventory tables in docs/coverage.md.
+shareIIstubs
