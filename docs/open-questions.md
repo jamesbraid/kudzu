@@ -17,3 +17,9 @@ Questions the binaries have not yet answered. Each entry names the routes alread
 | Question | Owner | Routes tried | Next route |
 |---|---|---|---|
 | Which IP35 node-controller registers sit at `0x9000000034000000` and `0x9000000014000000` (plus the NASID shifted left 33), and what bits 12 to 15 encode. `get_module_id`, `is_master_baseio` and `do_cpumask` treat `0xc` at the first as a PE-brick; `cpu_node_probe` treats 8 at the second as a PROM without PE-brick support. | [klconfig.md](klconfig.md) | The 6.5.30 IP35 kernel's uses of both addresses; Linux has no IP35 support. | Find every other reader of the two addresses in `6.5.30/unix.IP35` and the IP35 PROM image, and compare with the published Origin 3000-family node-controller documentation. |
+
+## Interrupt routing
+
+| Question | Owner | Routes tried | Next route |
+|---|---|---|---|
+| Whether a write to the first IP35 processor interface's pending-modify register (`0x9200000001000090`) clears a level pending on the second interface (`0x200000` higher). `intr_clear_all` reads both interfaces' pending registers but clears every set bit through the first. | [interrupts.md](interrupts.md#ip35-differences) | Read `intr_clear_all` and its clear loop in the 6.5.30 IP35 kernel; Linux has no IP35 support. | Look for another IP35 routine (error handlers, the interrupt entry path) that clears a second-interface level, and for published Origin 300 node-controller register descriptions. |
