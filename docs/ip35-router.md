@@ -89,6 +89,16 @@ Routines of the NUMAlink router code in the IRIX 6.5.30 IP35 kernel (`6.5.30/uni
   register `number | 0x20` and to `number | 0x28`, ignoring both results. It ends with `restorenoderun` (0xc00000000004ba50)
   on the doubleword at 8(sp), whose bytes 14 and 15 this routine never stores, and returns the result of the first
   write (exit 0xc000000000043094). What the two-bit field selects in the router hardware: unknown here. Established.
+- `router_port_init` (`6.5.30/unix.IP35`, address 0xc000000000042edc, 180 bytes, 48-byte frame): brings one router
+  port's registers to their starting state and returns the result of the first register write. `a0` is the router
+  state record (`ri`) and `a1` the port number, 1 to 8 as `router_init` passes it. The port's base register number is
+  `((n & 0xe) << 15) | ((n & 1) << 11)` for n = `a1` + 1 (kept in `s1`). It reads that register with
+  `router_reg_read(ri, number, &value)` (0xc0000000000427ec), clears bits 19 and 18 of the value (the mask is the
+  complement of 0xc0000, from `lui` and `nor`), sets 0x140000 in it (bits 20 and 18) and writes it back with
+  `router_reg_write(ri, number, value)` (0xc00000000004281c), keeping that call's result in `s8`. It then writes 0
+  to register `number | 0x20` and to `number | 0x28`, and reads register `number | 0x88` into the stack slot at 0(sp),
+  which it does not use. No result but the first write's is tested or returned (exit 0xc000000000042f88). Which port
+  state the bits 20 and 18-19 select, and what the register at |0x88 holds: unknown here. Established.
 
 ## Vector unit register access
 

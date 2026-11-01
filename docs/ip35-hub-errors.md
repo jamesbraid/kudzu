@@ -517,6 +517,31 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   0xc00000000005600c) with the doubleword read from the Hub register address 0x9200000001e80000 plus the NASID shifted
   left 33 plus 0x100, `a1` and `a2`. It returns nothing. Which register that doubleword is, beyond the routine name
   that decodes it: unknown here. Established.
+- `hub_dma_enabled` (`6.5.30/unix.IP35`, address 0xc0000000000790bc, 196 bytes, 48-byte frame): tells whether the
+  Hub allows inbound DMA from a crosstalk widget, and reports to the console when it does not. It returns 1 when the
+  widget's permission bit is set and 0 otherwise. `a0` is the widget vertex (saved at 8(sp)). It gets the widget
+  information with `xwidget_info_get(a0)` (0xc0000000000975e8), the widget number with `xwidget_info_id_get`
+  (0xc0000000000976cc; saved at 24(sp)) and the master vertex with `xwidget_info_master_get` (0xc000000000097700; saved
+  at 16(sp)). It then calls `hwgraph_info_get_LBL(master, "_node", &record)` (0xc000000000340d70; the string is at
+  0xc000000001527bc0) with the record slot at sp + 0, which the routine does not clear first, and reads that slot.
+  A zero record returns 0 (the branch at 0xc000000000079110); so does a node number of -1 in the halfword at record +10
+  (the branch at 0xc000000000079120). Otherwise it reads the doubleword at `0x9200000001c00000` (pool word
+  0xc000000001644020) + (node number << 33) + 280 and tests bit (widget number & 0xff) of it. A set bit returns 1.
+  A clear bit calls `cmn_err(6, "No Inbound access\n\tWidget %d(%v)\n\tNode  %d(%v)\n", widget number & 0xff, widget
+  vertex, node number, master vertex)` (0xc0000000002ad048; the string is at 0xc000000001528f78) and returns 0. Which
+  Hub register offset 280 is: unknown here. Established.
+- `hub_error_devenable` (`6.5.30/unix.IP35`, address 0xc000000000078d4c, 192 bytes, 48-byte frame): when the
+  error kind is 5, re-arms a widget's error reporting at the Hub if the widget's register says so. It always returns 0.
+  `a0` is the widget vertex, `a1` is not read and `a2` is the error kind (`s0`). It gets the widget number with
+  `xwidget_info_get(a0)` (0xc0000000000975e8) and `xwidget_info_id_get` (0xc0000000000976cc; saved at 8(sp)), and the
+  master vertex with `xwidget_info_master_get` (0xc000000000097700), then calls
+  `hwgraph_info_get_LBL(master, "_node", &record)` (0xc000000000340d70; the string is at 0xc000000001527bc0), with
+  the record slot at sp + 0. The result is not tested, and the halfword at record +10 (the node number) is loaded
+  before either kind test, so a missing record would be dereferenced. A kind of 6 returns 0 at once, as does any kind other
+  than 5 and 6. For kind 5 it reads the doubleword at `0x9200000001c00000` (pool word 0xc000000001644020) + (node
+  number << 33) + 8 x (widget number & 0xff) + 712 and tests its bit 63. When that is set it stores
+  `(widget number & 0xff) | 0x10` as the doubleword at the same base + (node number << 33) + 904; when clear it
+  stores nothing. Which two Hub registers these are, and what bit 63 and the 0x10 bit mean: unknown here. Established.
 
 ## Network interface error interrupts
 

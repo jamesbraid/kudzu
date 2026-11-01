@@ -116738,7 +116738,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004293c	608	router_acquire_port_info	symtab	ac74d82512ce		in	located	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000042b9c	288	router_acquire_info	symtab	d41a145683eb		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000042ddc	168	router_check_port	symtab	b6482a7a9c75		in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000042edc	180	router_port_init	symtab	5d5c6d4f9ad5		in	located	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000042edc	180	router_port_init	symtab	5d5c6d4f9ad5		in	understood	docs/ip35-router.md#port-register-fences-and-history	Port register fences and history
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000042f90	268	router_port_hist_reselect	symtab	a3f3069928d6		in	understood	docs/ip35-router.md#port-register-fences-and-history	Port register fences and history
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004309c	176	router_hist_reselect	symtab	8d2dbf2ad9f7		in	named-only	docs/panics.md#router_hist_reselect	`router_hist_reselect`
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004314c	312	router_set_fences	symtab	2678183eb1ce		in	understood	docs/ip35-router.md#port-register-fences-and-history	Port register fences and history
@@ -117694,10 +117694,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000077c64	104	is_widget_pio_enabled	symtab	a9773192eb1b		out:1	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000077ccc	1028	hub_ioerror_handler	symtab	51705f5184bc		in	understood	docs/ip35-hub-errors.md#hub-error-handling-in-the-ip35-kernel	Hub error handling in the IP35 kernel
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000780d0	3196	crbx	symtab	3ec6f312f0be		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000078d4c	192	hub_error_devenable	symtab	b5e66ad213f7		in	located	docs/ip27-kernel-io.md#hub-pio-maps	Hub PIO maps
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000078d4c	192	hub_error_devenable	symtab	b5e66ad213f7		in	understood	docs/ip35-hub-errors.md#hub-widget-shutdown	Hub widget shutdown
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000078e0c	160	hub_widgetdev_enable	symtab	f4cb3c3da3f7		in	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000078eac	528	hub_widgetdev_shutdown	symtab	58f2e97d3812		in	understood	docs/ip35-hub-errors.md#hub-widget-shutdown	Hub widget shutdown
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000790bc	196	hub_dma_enabled	symtab	32cfa4bbf3b6		in	located	docs/ip27-kernel-io.md#hub-pio-maps	Hub PIO maps
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000790bc	196	hub_dma_enabled	symtab	32cfa4bbf3b6		in	understood	docs/ip35-hub-errors.md#hub-widget-shutdown	Hub widget shutdown
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000079180	328	hub_widget_reset	symtab	cf92d9e9c78a		in	understood	docs/ip35-hub-errors.md#hub-error-handling-in-the-ip35-kernel	Hub error handling in the IP35 kernel
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000792d0	812	fpunit_fpload_s	symtab	b62329c9d2ee		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000795fc	280	renorm_d	symtab	1ed2d48a0d57		out:1	undocumented		
@@ -118204,7 +118204,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e2e8	212	pcibr_driver_reg_callback	symtab	f37fd0e3e0af		in	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e3bc	212	pcibr_driver_unreg_callback	symtab	dc04e6ce465b		in	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e490	284	pcibr_bus_cnvlink	symtab	f00372ce76ca		in	named-only	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e5ac	404	pcibr_detach	symtab	c35b5f67072a		in	located	docs/ip27-kernel-io.md#pci-bridge-interrupts-and-address-translation	PCI bridge interrupts and address translation
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e5ac	404	pcibr_detach	symtab	c35b5f67072a		in	understood	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e740	300	pcibr_directmap_init	symtab	fe8ff41376bf		in	understood	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e86c	104	pcibr_asic_rev	symtab	846a71ba6ea2		in	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e8d4	60	pcibr_write_gather_flush	symtab	95f6174ab6f0		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
@@ -118730,7 +118730,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c51e8	88	ioc3_init	symtab	f300e999807b		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c5278	1340	ioc3_attach	symtab	dde670ab975f		in	understood	docs/ip35-ioc3.md#ioc3-driver-routines-of-the-ip35-kernel	IOC3 driver routines of the IP35 kernel
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c57b4	632	ioc3_intr_connect	symtab	75d9c6f62032		in	understood	docs/ip35-ioc3.md#ioc3-driver-routines-of-the-ip35-kernel	IOC3 driver routines of the IP35 kernel
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c5a2c	356	ioc3_intr_disconnect	symtab	3be2eb0399d0		in	located	docs/ip27-kernel-io.md#interrupt-entry	Interrupt entry
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c5a2c	356	ioc3_intr_disconnect	symtab	3be2eb0399d0		in	understood	docs/ip35-ioc3.md#keyboard-and-mouse-aliases	Keyboard and mouse aliases
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c5b90	28	ioc3_intr	symtab	e318b19c5348		in	located	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c5bac	468	ioc3_handle_intr	symtab	dfdadf2722c3		in	understood	docs/ip35-ioc3.md#ioc3-driver-routines-of-the-ip35-kernel	IOC3 driver routines of the IP35 kernel
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c5d80	88	ioc3_is_console	symtab	1092e4dc8021		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines

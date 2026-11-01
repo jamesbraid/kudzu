@@ -176,3 +176,21 @@ Routines of the IOC3 PCI I/O controller code in the IRIX 6.5.30 IP35 kernel (`6.
   pointer. When the pointer is nonzero `ioc3_subdev_enabled` uses the doubleword at its start as the mask. When it is
   zero the mask is 0xdf, unless bits 12 to 15 of the doubleword read from the address 0x9000000014000000 (pool word
   0xc000000001644068) equal 4, in which case it is 0xff. Which hardware register the address 0x9000000014000000 is: unknown here. Established.
+- `ioc3_intr_disconnect` (`6.5.30/unix.IP35`, address 0xc0000000000c5a2c, 356 bytes, 48-byte frame): undoes
+  `ioc3_intr_connect` for a handler and a set of IOC3 interrupt bits, releasing each handler slot whose bits have all gone.
+  `a0` is the IOC3 vertex, `a1` the bit mask (saved at 8(sp)), `a2` the handler, `a3` its argument and `a4` the connecting
+  vertex. It returns no value. It finds the soft state with `hwgraph_traverse(a0, "ioc3", &vertex)`
+  (0xc0000000003411fc; the string is at 0xc00000000049d258) and `hwgraph_fastinfo_get` (0xc000000000341af8). A failed
+  traverse calls `cmn_err(1, "%v: ioc3_intr_connect: ioc3_attach not yet called", a4)` (0xc0000000002ad048; the string is at
+  0xc00000000049d338, the name it carries is that of the connect routine) and returns. Otherwise it reads the slot count from the
+  word at soft +2864 and scans slots 0 up to that count. Slot i is the 88-byte record at soft + 88 x i: the word at
+  +48 holds its bit mask, the doubleword at +56 its handler, the doubleword at +64 its argument and the word at +72 the
+  connecting vertex. A slot is taken when its handler, argument and vertex equal `a2`, `a3` and `a4` and the AND of its
+  mask with `a1` is nonzero. For a taken slot it clears the overlapping bits in the slot's word at +48 and in the word at soft
+  +2868, each with a load-linked and store-conditional loop (the retry branches at 0xc0000000000c5b00 and
+  0xc0000000000c5b14 are branch-likely). When the slot's mask is then zero it frees the slot: it stores -1 in the word at +72,
+  0 in the doubleword at +64 and 0 in the doubleword at +56, and sets bit i of the word at soft +2872 with a third
+  load-linked and store-conditional loop (retry branch 0xc0000000000c5b68, branch-likely). The scan does not stop at the
+  first taken slot. The word at soft +2872 is the free-slot bitmask that `ioc3_intr_connect` takes
+  the lowest set bit from, and the word at +2864 is its slot counter. What else uses the word at soft +2868:
+  unknown here. Established.

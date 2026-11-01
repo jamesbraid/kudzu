@@ -1,6 +1,6 @@
 table	rows	out_of_scope	understood	understood_with_open	understood_distinct	templated	located	named_only	undocumented	no_software_dependency	pct_understood	pct_located_or_better	pct_mentioned	pct_done	unresolved_sites	truncated	audited_real_pct	audited_sample	audited_date	computes	reused	multi_unit	shared_address	input
 binaries	7277	0	0	0	0	0	0	10	7267	0	0.0	0.0	0.1	0.0							0			
-functions	15836	186297	720	61	498	0	1237	2867	11012	0	4.5	12.4	30.5	4.5							0	0	16	
+functions	15836	186297	725	65	503	0	1232	2867	11012	0	4.6	12.4	30.5	4.6							0	0	16	
 functions (distinct names)	2783	22115	294	14	293	0	0	406	2083	0	10.6	10.6	25.2	10.6							0			
 mmio	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0	0						0			
 tokens	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -3870,7 +3870,7 @@ functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_snapshot.o)	0	60	0	0	0	0	0
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvmidbg.o	0	39	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/unix.IP27	1113	12371	199	10	198	0	51	221	642	0	17.9	22.5	42.3	17.9							0	0	0	
 functions in 6.5.30/unix.IP30	890	12197	128	5	128	0	26	170	566	0	14.4	17.3	36.4	14.4							0	0	5	
-functions in 6.5.30/unix.IP35	1074	14056	154	46	154	0	85	225	610	0	14.3	22.3	43.2	14.3							0	0	0	
+functions in 6.5.30/unix.IP35	1074	14056	159	50	159	0	80	225	610	0	14.8	22.3	43.2	14.8							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP22boot/isdnchan.o	0	75	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/acl.a(acl.o)	0	16	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/acl_hwg.o	0	3	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			

@@ -81,3 +81,16 @@ How the IRIX 6.5.30 IP35 kernel (`6.5.30/unix.IP35`, a linked 64-bit image with 
   back to registers 29 and 28, calls `tfi_restore` (0xc0000000000619b8) with `k1` = `s0` set in its delay slot, writes the
   doubleword at `s1` +0 back to register 30, reloads `a0` to `a7`, `s0` to `s7`, `ra`, `at` (from area +0), `sp` and `gp`,
   clears the byte at `s1` +38 (through `k0`), loads `k0` from area +200 and `k1` from +208, and does `eret`. Established.
+- `eccf_recoverable_threshold` (`6.5.30/unix.IP35`, address 0xc00000000007bc5c, 188 bytes, no stack frame): a rate
+  limit for recoverable errors of four classes, returning 1 while the rate is acceptable and 0 once it is not. `a0` is
+  not read, `a1` is the state record and `a2` a value whose bits 31 and 30 name the class. The state is a window
+  start (the doubleword at `a1` +704), shared by all classes, and one halfword counter per class at +712, +714, +716
+  and +718 for the class values 0, 1, 2 and 3 of bits 31:30 (the routine tests `a2` against `0xc0000000` sign-extended, 0,
+  0x40000000 and 0xffffffff80000000, so a value with any bit above 31 set matches no class and returns 1 at once, exit
+  0xc00000000007bce8). The clock is the doubleword at 0x9200000001030100, read at the start. When the window start is
+  zero, or the clock minus the window start is not below 60000000 (the `ori` value 0x3938700 built at 0xc00000000007bcb8),
+  it stores the clock as the new window start, clears the chosen class's counter to 0 (the store is in the delay
+  slot of the return at 0xc00000000007bcf8) and returns 1. Otherwise it adds 1 to the chosen counter, masked to 16
+  bits, stores it, and returns 0 when the new count is 101 or more and 1 when it is 100 or less. The other classes'
+  counters are not touched when a window restarts. What the clock's unit is, and which errors the four classes name:
+  unknown here. Established.

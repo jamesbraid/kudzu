@@ -314,6 +314,27 @@ Routines of the PCI bridge driver (`pcibr`) and the crosstalk bridge attach code
   number or a different `a1`, it returns the mapped address unchanged. Which chips carry those two part numbers, and
   that `a1` of 1 picks the second bus, are inferred from the two-bus layout the offset suggests; no name in the
   binary says so. It has one exit, 0xc0000000000a1d10. Established.
+- `pcibr_detach` (`6.5.30/unix.IP35`, address 0xc00000000009e5ac, 404 bytes, 64-byte frame): tears down one PCI
+  bridge: disables its interrupts, detaches every slot, frees its soft state and removes the hardware-graph entries it
+  made. It returns 1 when the bridge has no "pci" entry and 0 once it has finished. `a0` is the bridge vertex
+  (`s1`). It starts with `pcibr_debug(8, a0, "pcibr_detach\n")` (0xc0000000000a1978; the string is at 0xc00000000152a158)
+  and `hwgraph_traverse(a0, "pci", &vertex)` (0xc0000000003411fc; the string is at 0xc00000000152a188), whose third argument is the address
+  sp + 0 where it leaves the controller vertex; a nonzero result returns 1 (0xc00000000009e5e8). Otherwise the soft state is
+  `hwgraph_fastinfo_get(vertex)` (0xc000000000341af8). Under the lock at soft +140 (`mutex_spinlock`,
+  0xc000000000331f6c, level kept at 16(sp)) it calls `pcireg_intr_enable_set(soft, 0)` (0xc0000000000b127c) and
+  releases with `mutex_io_spinunlock` (0xc000000000331e84). It then runs `pcibr_slot_detach(vertex, slot, 0, 0, 0)`
+  (0xc0000000000abcd8) for every slot from the byte at soft +56 up to and including the byte at soft +57 (a signed
+  compare against the second byte plus one, with the counter masked to a byte). After the slots it calls
+  `pciio_device_info_unregister(vertex, the doubleword at soft +256)` (0xc0000000000c1660), `spinlock_destroy` on the lock
+  at soft +140 (0xc000000000331d58), and frees the name string at soft +16 with `kmem_free(pointer, strlen(pointer))`
+  (0xc00000000022c288; `strlen` is 0xc000000000047e54, and the size passed is the length without the terminator). It
+  calls `rmfreemap` (0xc0000000002514c8) on the doubleword at soft +96 when it is nonzero and then on the one at
+  soft +104 when it is nonzero, calls `xtalk_intr_disconnect` (0xc0000000000973b4) and `xtalk_intr_free`
+  (0xc00000000009737c) on the doubleword at soft +2096, and frees the soft state with `kmem_free(soft, 2752)`. Last it
+  removes the graph entries: `hwgraph_info_remove_LBL(vertex, "_pcibr_asic_rev", 0)` (0xc000000000340d00; string at
+  0xc00000000152a168), `hwgraph_edge_remove(vertex, "controller", 0)` (0xc000000000340954; string at 0xc00000000152a178) and
+  `hwgraph_edge_remove(a0, "pci", 0)`, and returns 0 (0xc00000000009e73c). None of the results other than the
+  traverse is tested. Established.
 
 ## Interrupt connections
 
