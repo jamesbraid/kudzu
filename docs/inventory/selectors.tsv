@@ -20,7 +20,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	18	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	19	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	20	0xc00000000023313c	setsid		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	21	0xc00000000023311c	setpgid		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	21	0xc00000000023311c	setpgid		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	22	0xc000000000233108	sysconf		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	23	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	24	0xc0000000002330e8			out	undocumented
@@ -1281,7 +1281,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	18	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	19	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	20	0xa8000000201ed12c	setsid		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	21	0xa8000000201ed10c	setpgid		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	21	0xa8000000201ed10c	setpgid		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	22	0xa8000000201ed0f8	sysconf		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	23	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	24	0xa8000000201ed0d8			out	undocumented
@@ -2536,7 +2536,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	12	0xc0000000002e0ecc			out	undocumented
 6.5.30/unix.IP35	compare	13	0xc0000000002e1bf8	copyin		out	documented
 6.5.30/unix.IP35	compare	20	0xc0000000002e1738	setsid		out	undocumented
-6.5.30/unix.IP35	compare	21	0xc0000000002e2754	setpgid		out	undocumented
+6.5.30/unix.IP35	compare	21	0xc0000000002e2754	setpgid		out	documented
 6.5.30/unix.IP35	compare	22	0xc0000000002e0744	sysconf		out	undocumented
 6.5.30/unix.IP35	compare	23	0xc0000000002e0598		yes	out	undocumented
 6.5.30/unix.IP35	compare	24	0xc0000000002e0570			out	undocumented

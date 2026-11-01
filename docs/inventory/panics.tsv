@@ -173,7 +173,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	fs_map_subr	0xc0000000001da3d4	panic	1	out	undocumented
 6.5.30/unix.IP27	ftrc_copyout	0xc0000000000df114	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	get_cnode_cpu	0xc00000000001e1c0	cmn_err	1	out	undocumented
-6.5.30/unix.IP27	get_matching_spool_addr	0xc000000000034668	cmn_err	2	out	undocumented
+6.5.30/unix.IP27	get_matching_spool_addr	0xc000000000034668	cmn_err	2	out	documented
 6.5.30/unix.IP27	getcontext	0xc0000000001c0718	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	getcpuid	0xc000000000027178	assfail	1	out	documented
 6.5.30/unix.IP27	getf	0xc00000000020e388	assfail	2	out	documented
@@ -321,7 +321,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	kmem_zoneset_create	0xc000000000184828	assfail	1	out	undocumented
 6.5.30/unix.IP27	kmissnxt	0xc00000000003d864	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	kona_arm_intr	0xc0000000003a7288	cmn_err	2	out	undocumented
-6.5.30/unix.IP27	kona_attach	0xc0000000003a680c	cmn_err	1	out	undocumented
+6.5.30/unix.IP27	kona_attach	0xc0000000003a680c	cmn_err	1	out	documented
 6.5.30/unix.IP27	kona_die	0xc00000000039e4e8	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	kona_ge_intr	0xc0000000003a7498	cmn_err	6	out	undocumented
 6.5.30/unix.IP27	kona_hiwater_intr	0xc0000000003973e4	cmn_err	2	out	undocumented
@@ -514,8 +514,8 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	pcireg_device_get	0xc0000000000865e8	panic	1	out	documented
 6.5.30/unix.IP27	pcireg_device_set	0xc000000000086808	assfail	3	out	documented
 6.5.30/unix.IP27	pcireg_device_set	0xc000000000086808	panic	1	out	documented
-6.5.30/unix.IP27	pcireg_dirmap_add512_clr	0xc000000000081d9c	panic	1	out	undocumented
-6.5.30/unix.IP27	pcireg_dirmap_add512_set	0xc000000000081c1c	panic	1	out	undocumented
+6.5.30/unix.IP27	pcireg_dirmap_add512_clr	0xc000000000081d9c	panic	1	out	documented
+6.5.30/unix.IP27	pcireg_dirmap_add512_set	0xc000000000081c1c	panic	1	out	documented
 6.5.30/unix.IP27	pcireg_dirmap_diroff_set	0xc000000000081a2c	panic	1	out	documented
 6.5.30/unix.IP27	pcireg_dirmap_get	0xc0000000000815d0	panic	1	out	undocumented
 6.5.30/unix.IP27	pcireg_dirmap_set	0xc000000000081738	panic	1	out	undocumented
@@ -758,7 +758,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	sn0drv_attach	0xc00000000006a76c	cmn_err	4	in	documented
 6.5.30/unix.IP27	snifunload	0xc0000000002932fc	cmn_err	2	out	undocumented
 6.5.30/unix.IP27	snoop_input2	0xc00000000010a29c	panic	1	out	undocumented
-6.5.30/unix.IP27	socketpair	0xc00000000033ed98	panic	1	out	undocumented
+6.5.30/unix.IP27	socketpair	0xc00000000033ed98	panic	1	out	documented
 6.5.30/unix.IP27	soclose	0xc000000000112d08	panic	3	out	undocumented
 6.5.30/unix.IP27	socreate	0xc000000000112724	cmn_err	2	out	undocumented
 6.5.30/unix.IP27	softfp_adderr	0xc00000000004c9a4	cmn_err	1	out	undocumented
@@ -929,7 +929,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	xthread_boot_bind	0xc0000000001cd3d8	assfail	1	out	undocumented
 6.5.30/unix.IP27	xthread_loop_prologue	0xc00000000022da1c	panic	1	out	undocumented
 6.5.30/unix.IP27	xthread_prologue	0xc00000000022d954	panic	1	out	undocumented
-6.5.30/unix.IP27	xwidget_gfx_reset	0xc00000000006c908	assfail	1	out	undocumented
+6.5.30/unix.IP27	xwidget_gfx_reset	0xc00000000006c908	assfail	1	out	documented
 6.5.30/unix.IP27	xwidget_info_dev_get	0xc00000000006c418	panic	1	out	undocumented
 6.5.30/unix.IP27	xwidget_info_get	0xc00000000006c368	cmn_err	1	out	documented
 6.5.30/unix.IP27	xwidget_info_id_get	0xc00000000006c44c	panic	1	out	documented
@@ -1453,8 +1453,8 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	pcireg_device_get	0xa800000020058074	panic	1	out	documented
 6.5.30/unix.IP30	pcireg_device_set	0xa800000020058294	assfail	3	out	documented
 6.5.30/unix.IP30	pcireg_device_set	0xa800000020058294	panic	1	out	documented
-6.5.30/unix.IP30	pcireg_dirmap_add512_clr	0xa800000020053828	panic	1	out	undocumented
-6.5.30/unix.IP30	pcireg_dirmap_add512_set	0xa8000000200536a8	panic	1	out	undocumented
+6.5.30/unix.IP30	pcireg_dirmap_add512_clr	0xa800000020053828	panic	1	out	documented
+6.5.30/unix.IP30	pcireg_dirmap_add512_set	0xa8000000200536a8	panic	1	out	documented
 6.5.30/unix.IP30	pcireg_dirmap_diroff_set	0xa8000000200534b8	panic	1	out	documented
 6.5.30/unix.IP30	pcireg_dirmap_get	0xa80000002005305c	panic	1	out	undocumented
 6.5.30/unix.IP30	pcireg_dirmap_set	0xa8000000200531c4	panic	1	out	undocumented
@@ -1673,7 +1673,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	sizememaccess	0xa80000002016fd6c	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	snifunload	0xa80000002023a89c	cmn_err	2	out	undocumented
 6.5.30/unix.IP30	snoop_input2	0xa8000000200e2358	panic	1	out	undocumented
-6.5.30/unix.IP30	socketpair	0xa800000020313948	panic	1	out	undocumented
+6.5.30/unix.IP30	socketpair	0xa800000020313948	panic	1	out	documented
 6.5.30/unix.IP30	soclose	0xa8000000200eadc4	panic	3	out	undocumented
 6.5.30/unix.IP30	socreate	0xa8000000200ea7e0	cmn_err	2	out	undocumented
 6.5.30/unix.IP30	softfp_adderr	0xa80000002001d2a4	cmn_err	1	out	undocumented
@@ -1700,7 +1700,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	ssram_discovery	0xa8000000200be348	cmn_err	10	out	undocumented
 6.5.30/unix.IP30	sthread_boot_bind	0xa8000000201b5688	assfail	1	out	undocumented
 6.5.30/unix.IP30	stkscr3	0xa800000020021a44	panic	1	out	undocumented
-6.5.30/unix.IP30	stop_lockd	0xa800000020082404	cmn_err	1	out	undocumented
+6.5.30/unix.IP30	stop_lockd	0xa800000020082404	cmn_err	1	out	documented
 6.5.30/unix.IP30	str_mp_init	0xa8000000201295f4	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	streams_timeout	0xa80000002012a288	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	stropen	0xa80000002012a7e8	cmn_err	1	out	undocumented
@@ -1814,7 +1814,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	xthread_boot_bind	0xa800000020191634	assfail	1	out	undocumented
 6.5.30/unix.IP30	xthread_loop_prologue	0xa8000000201eb6a8	panic	1	out	undocumented
 6.5.30/unix.IP30	xthread_prologue	0xa8000000201eb5e0	panic	1	out	undocumented
-6.5.30/unix.IP30	xwidget_gfx_reset	0xa80000002003b270	assfail	1	out	undocumented
+6.5.30/unix.IP30	xwidget_gfx_reset	0xa80000002003b270	assfail	1	out	documented
 6.5.30/unix.IP30	xwidget_info_dev_get	0xa80000002003ad80	panic	1	out	undocumented
 6.5.30/unix.IP30	xwidget_info_get	0xa80000002003acd0	cmn_err	1	out	documented
 6.5.30/unix.IP30	xwidget_info_id_get	0xa80000002003adb4	panic	1	out	documented
@@ -2011,7 +2011,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	get_address	0xc000000000101d00	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	get_chimera_type	0xc00000000004167c	cmn_err	1	out	documented
 6.5.30/unix.IP35	get_cnode_cpu	0xc000000000044ca8	cmn_err	1	out	undocumented
-6.5.30/unix.IP35	get_matching_spool_addr	0xc00000000005aa14	cmn_err	1	out	undocumented
+6.5.30/unix.IP35	get_matching_spool_addr	0xc00000000005aa14	cmn_err	1	out	documented
 6.5.30/unix.IP35	get_shortest_paths_from_node	0xc0000000003318a8	cmn_err	8	out	undocumented
 6.5.30/unix.IP35	getcontext	0xc0000000002700e0	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	getcpuid	0xc00000000004e898	assfail	1	out	documented
@@ -2121,7 +2121,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	ioc3_intr_disconnect	0xc0000000000c5a2c	cmn_err	1	in	documented
 6.5.30/unix.IP35	ioc3_is_io7	0xc0000000000c5dd8	cmn_err	2	in	documented
 6.5.30/unix.IP35	ioc3_serial_attach	0xc000000000221394	panic	1	in	documented
-6.5.30/unix.IP35	ioc4_attach	0xc0000000000c2fac	cmn_err	4	out	undocumented
+6.5.30/unix.IP35	ioc4_attach	0xc0000000000c2fac	cmn_err	4	out	documented
 6.5.30/unix.IP35	ioc4_intr	0xc0000000000c37d4	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	ioc4_intr_connect	0xc0000000000c33ac	cmn_err	2	out	undocumented
 6.5.30/unix.IP35	ioc4_intr_connect	0xc0000000000c33ac	panic	1	out	undocumented
@@ -2172,7 +2172,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	kmem_zoneset_create	0xc0000000002327a4	assfail	1	out	undocumented
 6.5.30/unix.IP35	kmissnxt	0xc000000000063e14	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	kona_arm_intr	0xc00000000047a2f0	cmn_err	2	out	undocumented
-6.5.30/unix.IP35	kona_attach	0xc000000000479880	cmn_err	1	out	undocumented
+6.5.30/unix.IP35	kona_attach	0xc000000000479880	cmn_err	1	out	documented
 6.5.30/unix.IP35	kona_die	0xc00000000047155c	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	kona_ge_intr	0xc00000000047a500	cmn_err	6	out	undocumented
 6.5.30/unix.IP35	kona_hiwater_intr	0xc00000000046a488	cmn_err	2	out	undocumented
@@ -2376,8 +2376,8 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	pcireg_device_get	0xc0000000000b3fc4	panic	1	out	documented
 6.5.30/unix.IP35	pcireg_device_set	0xc0000000000b41e4	assfail	3	out	documented
 6.5.30/unix.IP35	pcireg_device_set	0xc0000000000b41e4	panic	1	out	documented
-6.5.30/unix.IP35	pcireg_dirmap_add512_clr	0xc0000000000af778	panic	1	out	undocumented
-6.5.30/unix.IP35	pcireg_dirmap_add512_set	0xc0000000000af5f8	panic	1	out	undocumented
+6.5.30/unix.IP35	pcireg_dirmap_add512_clr	0xc0000000000af778	panic	1	out	documented
+6.5.30/unix.IP35	pcireg_dirmap_add512_set	0xc0000000000af5f8	panic	1	out	documented
 6.5.30/unix.IP35	pcireg_dirmap_diroff_set	0xc0000000000af408	panic	1	out	documented
 6.5.30/unix.IP35	pcireg_dirmap_get	0xc0000000000aefac	panic	1	out	undocumented
 6.5.30/unix.IP35	pcireg_dirmap_set	0xc0000000000af114	panic	1	out	undocumented
@@ -2633,7 +2633,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	sndrv_attach	0xc000000000095bc4	cmn_err	3	out	documented
 6.5.30/unix.IP35	snifunload	0xc00000000033ed64	cmn_err	2	out	undocumented
 6.5.30/unix.IP35	snoop_input2	0xc0000000001a600c	panic	1	out	undocumented
-6.5.30/unix.IP35	socketpair	0xc000000000418178	panic	1	out	undocumented
+6.5.30/unix.IP35	socketpair	0xc000000000418178	panic	1	out	documented
 6.5.30/unix.IP35	soclose	0xc0000000001aea78	panic	3	out	undocumented
 6.5.30/unix.IP35	socreate	0xc0000000001ae494	cmn_err	2	out	undocumented
 6.5.30/unix.IP35	softfp_adderr	0xc00000000006d9a4	cmn_err	1	out	undocumented
@@ -2659,7 +2659,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	ssram_discovery	0xc0000000001787d4	cmn_err	10	out	undocumented
 6.5.30/unix.IP35	sthread_boot_bind	0xc0000000002a47f8	assfail	1	out	undocumented
 6.5.30/unix.IP35	stkscr3	0xc000000000075660	panic	1	out	undocumented
-6.5.30/unix.IP35	stop_lockd	0xc0000000000fce24	cmn_err	1	out	undocumented
+6.5.30/unix.IP35	stop_lockd	0xc0000000000fce24	cmn_err	1	out	documented
 6.5.30/unix.IP35	str_mp_init	0xc000000000207be0	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	streams_timeout	0xc000000000208874	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	stropen	0xc000000000208dd4	cmn_err	1	out	undocumented
@@ -2813,7 +2813,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	xthread_boot_bind	0xc00000000027cd28	assfail	1	out	undocumented
 6.5.30/unix.IP35	xthread_loop_prologue	0xc0000000002dc5a0	panic	1	out	undocumented
 6.5.30/unix.IP35	xthread_prologue	0xc0000000002dc4d8	panic	1	out	undocumented
-6.5.30/unix.IP35	xwidget_gfx_reset	0xc000000000097b88	assfail	1	out	undocumented
+6.5.30/unix.IP35	xwidget_gfx_reset	0xc000000000097b88	assfail	1	out	documented
 6.5.30/unix.IP35	xwidget_info_dev_get	0xc000000000097698	panic	1	out	undocumented
 6.5.30/unix.IP35	xwidget_info_get	0xc0000000000975e8	cmn_err	1	out	documented
 6.5.30/unix.IP35	xwidget_info_id_get	0xc0000000000976cc	panic	1	out	documented
