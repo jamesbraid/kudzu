@@ -199,28 +199,30 @@ Routines of the PCI bridge driver (`pcibr`) and the crosstalk bridge attach code
   state). It returns 0 when `kmem_zalloc(160)` fails (address 0xc0000000000a5480) and when a needed crosstalk
   interrupt cannot be allocated and none was installed by another caller (after `cmn_err` level 1,
   0xc0000000000a5580); otherwise the new object (a 160-byte record). With no descriptor, or with one whose flags lack
-  bit 2, the object records a target cpu of -1 or the one the descriptor names (`intr_target_from_desc`, switch level
-  `device_desc_intr_swlevel_get`) and is marked as a thread-less direct interrupt (first word 0); with bit 2 set it is
-  first word 2 and takes no cpu from the descriptor. The record gets the vertex at +4, the pin mask at +16, the soft
-  state at +96 and its own lock (+104). The unnamed routine reached through the soft-state pointer at +1288
-  (`bs_intr_bits`, an indirect call with the info record, the pin mask and the slot count) returns the bridge
-  interrupt bits to use; they are logged ("pcibr_intr_alloc: pcibr_int_bits"). For each of the 8 bridge bits set in
-  that result it uses the per-bit record at soft +1648 + 56 x bit (`bs_intr[]`, eight 56-byte records ending at
-  +2096): if its first doubleword, the crosstalk interrupt, is null it calls
+  bit 4, the object is the threaded kind (first word 0; `pcibr_intr_free` waits for its interrupt thread, whose name
+  `pcibr_intrd` it prints): it records a target cpu of -1 or the one the descriptor names (`intr_target_from_desc`)
+  and the switch level (`device_desc_intr_swlevel_get`, or the kernel default when there is no descriptor); with bit 4
+  of the flags set it is first word 2 and has no thread and takes no cpu from the descriptor. The record gets the
+  vertex at +4, the pin mask at +16, the soft state at +96 and its own lock (+104). The unnamed routine reached
+  through the soft-state pointer at +1288 (`bs_intr_bits`, an indirect call with the info record, the pin mask and the
+  slot count) returns the bridge interrupt bits to use; they are logged ("pcibr_intr_alloc: pcibr_int_bits"). For each
+  of the 8 bridge bits set in that result it uses the per-bit record at soft +1648 + 56 x bit (`bs_intr[]`, eight
+  56-byte records ending at +2096): if its first doubleword, the crosstalk interrupt, is null it calls
   `xtalk_intr_alloc_nothd(master, descriptor, a3)` and installs it with a compare-and-swap; the loser frees its copy
   (`xtalk_intr_free`) and uses the winner's; the winner sets the bit's field in the bridge's device-interrupt register
   (`pcireg_intr_device_bit_clr` of the three bits for that bit position, then `pcireg_intr_device_bit_set` with the
-  slot number in those bits). For a direct object it reads the cpu (`xtalk_intr_cpuid_get`), warns with `cmn_err`
+  slot number in those bits). For a threaded object it reads the cpu (`xtalk_intr_cpuid_get`), warns with `cmn_err`
   level 4 when the bits it uses sit on two different cpus or when the cpu requested differs from the one allocated
   (printing the vertex name), and keeps the requested one. It then ORs the bit into the object's bit mask (+88),
   allocates a 32-byte list entry and appends this object to the bit's lock-free list (the list head is the pointer at
   record +24, record +1672 + 56 x bit in soft state, and the entries are linked with repeated `compare_and_swap_ptr`;
   a word at record +36 is set to 1 when an erased entry was reused), logging whether it was the first, second or Nth
-  user of the bit and whether it replaced an erased entry. When the loop is done and the object is a direct one it
+  user of the bit and whether it replaced an erased entry. When the loop is done and the object is a threaded one it
   calls an unnamed static routine that sits just before `pcibr_intr_alloc` in `pcibr.o` (it takes the object, the bit
-  mask and the switch level; its body was not read) and then logs completion with the interrupt name from the
-  descriptor (+16) or an empty string. Several branches were summarised from the decompiled body, not from the
-  instructions; the list-append loop was not stepped instruction by instruction. Inferred.
+  mask and the switch level; it is the likely creator of the interrupt thread, and its body was not read) and then
+  logs completion with the interrupt name from the descriptor (+16) or an empty string. Several branches were
+  summarised from the decompiled body, not from the instructions; the list-append loop was not stepped instruction by
+  instruction. Inferred.
 
 ## Slot information export
 
@@ -249,3 +251,195 @@ Routines of the PCI bridge driver (`pcibr`) and the crosstalk bridge attach code
   failure it returns 14 without freeing it (address 0xc0000000000a9a68). Every slot-entry member name above is the
   `pcibr_soft_slot_s` member at that offset, except slot +32 and +40, which lie inside the unnamed structure
   `bss_devio`. What each report field holds beyond the member name: unknown here. Inferred.
+
+## Error interrupt, slot attach and mappings
+
+- `pcibr_error_intr_handler` (`6.5.30/unix.IP35`, address 0xc0000000000a7274, 1460 bytes, 128-byte frame): the
+  interrupt handler for the bridge's own error interrupt. `a0` is the bridge soft state and the routine returns
+  nothing. It first walks the global list `pcibr_list` (address 0xc00000000163c870; each node holds a next pointer and
+  a soft-state pointer) for `a0` and panics with "pcibr_error_intr_handler: (0x%lx) is not a pcibr_soft!" when it is
+  absent. If `hubii_check_widget_disabled(node, widget)` says the bridge's widget is disabled (node from bits 39:33 of
+  the register window address at soft +8, widget from soft +40) it calls `timeout` to run this same handler again
+  later, adds one to the word at soft +2104 (`bs_errinfo.bserr_toutcnt`) and returns. Otherwise it reads the interrupt
+  status (`pcireg_intr_status_get`), logs "pcibr_error_intr_handler: int_status" with
+  `pcibr_debug` (mask 0x100), and does nothing more unless some bit from 8 up is set. With such a bit, status bits in
+  the mask 0x4400008800 (the pool word at 0xc000000001644490) first call the static routine `pcibr_pioerr_check`
+  (address 0xc0000000000a710c). Let E be the status with bit 31 cleared (mask 0xffffffff7fffffff). For each set bit n
+  of E from 8 to 63 it adds one to a 12-byte counter record in `bs_errintr_stat` (soft +2180 + 12 x n; the words are a
+  total count, the tick count of the last check and the total at that check) and measures the rate against the kernel
+  tick counter `lbolt`: for a bridge of type 0 with `bs_busnum` zero, bit 18 with a rate above the highest seen so far
+  (the word at 0xc000000001644d20) and more than 99 events since the last check logs "%s: %s, Excessive error
+  interrupts : %d/tick" at `cmn_err` level 4 with the bridge name (soft +16) and the bit's message from the 64-entry
+  table at 0xc000000001559b80 and updates the record; any other bit logs "%s: %s, Error rate %d/tick" at level 5 when
+  more than 100 ticks have passed and the rate is above 100; and on a type 2 bridge whose revision bit selects (bit
+  (soft +120 & 0xf) of 2) and which does not have bit 40 set, a total above 10000 logs "%s Disabling error interrupt
+  type %s. Error count %d" at level 5. When bit 24 of the raw status is set and the bus error register
+  (`pcireg_bus_err_get`) masked with 0xffffffffffc00000 equals 0xc00000 and the command word
+  (`pcireg_cmdword_err_get`) masked with 0xf07f00 equals 0x402000, bit 24 is cleared from E (a recognised benign
+  error). It then adjusts the global `bridge_errors_to_dump` (address 0xc00000000163c880): when the global flag
+  `pcibr_pioerr_dump` is zero it clears the bits of the mask 0xffffffbbffff77ff, otherwise it sets the bits
+  0x4400008800; if E has any bit in the result it prints "BRIDGE ERR_STATUS 0x%lx" at level 6 and runs
+  `pcibr_error_dump(a0)`. If E has any bit in the fatal mask 0x22133fc06000 (the pool word at 0xc0000000016444a8; for
+  type 2 with revision bit 1 or 2 selected, bits 0x300000 also get the dump), it calls `machine_error_dump` and then
+  `panic("PCI Bridge Error interrupt killed the system")`. Otherwise it clears the interrupt: for type 0 and 1
+  `pcireg_intr_reset_set(a0, pcibr_errintr_group(status))` and for type 2 `pcireg_intr_reset_set(a0, status | 0x40)`;
+  for type 2 with bit 40 set and the revision test above it also calls `pcireg_arbitration_bit_set(a0, 0xf00000)`. It
+  ends by writing 0 to the 64-bit word at soft +2120 (`bserr_intstat`, with `test_and_set_int64`), which re-arms the
+  dump in `pcibr_error_dump`. Which bridge revision the test `1 << (rev & 0xf) & 2` means is not stated by the code.
+  Inferred.
+- `pcibr_slot_attach` (`6.5.30/unix.IP35`, address 0xc0000000000aba1c, 700 bytes): powers up and attaches one bridge
+  slot, such as for a hot-plugged card, and returns a status code. `a0` is the bridge vertex, `a1` the slot number,
+  `a2` a value passed on to `pcibr_slot_call_device_attach`, `a3` a value passed to
+  `pcibr_slot_pwr`, and `a4` an optional pointer that receives the underlying error code when a step fails. The soft
+  state comes from `hwgraph_fastinfo_get(a0)`; the slot entry is at soft + 128 x slot and its status word is at
+  slot-entry +0x114 in the code's offsets (the member `slot_status`). If bit 0x10 of that word (the slot is
+  initialised) is clear, it runs the bring-up: `pcibr_slot_pwr(a0, slot, 0x2002, a3)` (address 0xc0000000000abe28; a
+  nonzero result is stored through `a4` and 7 is returned), sets the status word's bits 5:4 to 01, and, for any bridge
+  type other than 0, rebuilds the speed and mode halfword at soft +116 from `pcireg_mode_get` and
+  `pcireg_speed_get << 1`. It then waits
+  500,000,000 nanoseconds with
+  `nano_delay` (a pair of words, 0 and 0x1dcd6500, on the stack). The remaining steps each store their error code
+  through `a4` and return a fixed value on failure: `pcibr_slot_info_init(a0, slot)` (address 0xc0000000000a9c68)
+  returns 18 (0x12); `pcibr_slot_addr_space_init` 20 (0x14). In PCI-X mode (bit 0 of the halfword at soft +116) it
+  sets the word at soft +1312 to 16 and the word at soft +1308 to 0, stores `pcibr_pcix_rbars_calc(soft, ..., 0x10)`
+  (address 0xc0000000000a18bc) in the word at soft +1304, runs `pcibr_slot_pcix_rbar_init` (address
+  0xc0000000000aa8fc) for every other slot from the lowest to the highest slot (bytes soft +56 and +57) and then for
+  this slot last, and returns 29 (0x1d) if that last call fails. Then `pcibr_slot_device_init` returns 21 (0x15),
+  `pcibr_slot_guest_info_init` 23 (0x17) and `pcibr_slot_initial_rrb_alloc` 24 (0x18) on failure. Whether or not it
+  just initialised the slot, it then looks at the slot's function count (slot-entry +0x118, the member `bss_ninfo`): a
+  count of 2 or more stores 1 through `a4` and returns 28 (0x1c); otherwise it calls
+  `pcibr_slot_call_device_attach(a0, slot, a2)` (address 0xc0000000000ab4e0), returning 0 on success, 13 (0xd) when
+  that call fails with code 42 (0x2a) and 25 (0x19) for any other failure (the code is stored through `a4` in both
+  cases). The step order and codes were read from the decompiled body; the delay's units were taken from the argument
+  pair (0 and
+  500,000,000) and the callee name. Inferred.
+- `pcibr_piomap_alloc` (`6.5.30/unix.IP35`, address 0xc00000000009f1e4, 636 bytes): allocates a programmed-I/O map
+  object that gives a processor a window onto a range of one device's PCI space, and returns the record or 0. The
+  arguments are the device vertex (`a0`), a descriptor that is not used (`a1`), the PCI space number (`a2`), the PCI
+  address (`a3`), the size wanted (`a4`), the largest size the caller can use (`a5`) and the flags (`a6`). It gets the
+  device's info record with `pcibr_info_get(a0)` (slot byte at +540, the record's list head at +528) and the bridge
+  soft state with `pciio_info_mfast_get`. A size of 0 in either `a4` or `a5` logs
+  "pcibr_piomap_alloc: req_size | req_size_max < 1" with
+  `pcibr_debug` (mask 0x8000000) and returns 0. It converts the PCI range to a crosstalk address with an unnamed
+  static routine at 0xc00000000009e910 (arguments: `a0`, slot, space, PCI address, size, flags); an answer of -1 logs
+  "xio_addr == XIO_NOWHERE" and returns 0. It then takes the soft state's lock (+140) and searches the info record's
+  chain of 96-byte map records (next pointer at record +56) for one whose size doubleword at +24 is zero, which it
+  reuses; when there is none it releases the lock, allocates a new record with `kmem_zalloc(0x60)` and, after filling
+  it, links it at the head of the chain under the lock again. A record is filled with the flags at +0, the vertex at
+  +4, the slot at +8 (0xff stays 0xff and a bridge of type 2 adds one), the space at +12, the PCI address at +16, the
+  size at +24, the soft state at +64 and zero at +72 (and, for type 2, zero at +80 to +95). It then calls
+  `xtalk_piomap_alloc(bridge vertex, 0, crosstalk address, a4, a5, a6 & 0x1f)` (address 0xc000000000097078): a null
+  answer clears the size in the record (so it becomes free) and the routine returns 0; otherwise the crosstalk map
+  goes in the record at +48 and the crosstalk address at +40. On a type 2 bridge with flag bit 0x10 set it calls
+  `pic_pio_flush_new(record, info)` (address 0xc00000000009c550) and, if that returns 0, logs "pcibr_piomap_alloc:
+  flush-on-pio setup failed" at `cmn_err` level 4 and carries on. The result is the record, or 0 on any earlier
+  failure. The unnamed routine at 0xc00000000009e910 was not read. Inferred.
+- `pcibr_priority_bits_set` (`6.5.30/unix.IP35`, address 0xc0000000000a1518, 344 bytes): raises or lowers a slot's DMA
+  priority by counting users of the priority setting and changing one bit of the slot's device register when the count
+  crosses 1 and 0. `a0` is the bridge soft state,
+  `a1` the slot number and `a2` the request: 1 or
+  2 take a reference (high priority; 2 differs from 1 only in being accepted by the same test), 0 drops one. The bit
+  is 0x200000, except that when the bridge revision (the word at soft +120, `bs_rev_num`) equals 0xc0022 the bit mask
+  is 0 and no register write is ever made for it. The soft state's lock at +140 is held throughout (`mutex_spinlock`,
+  `mutex_io_spinunlock`). The slot's software copy of the device register is the doubleword at slot +56 (`bss_device`,
+  soft + 264 + 128 x slot + 56) and the reference count is the word at slot +64 (`bss_pri_uctr`). Requests 1 and 2:
+  the count goes up by one; when it becomes 1 and the bit mask is nonzero the bit is set in the new register value,
+  and when it becomes 1 and the mask is 0 the return value is -1; the return value is otherwise 0. Request 0: when the
+  count is above 0 it goes down by one and, if it reaches 0 and the mask is nonzero, the bit is cleared in the new
+  value (return 0); when the count is already 0 the return value is -1 and nothing changes. Any other request value
+  returns 0 and changes nothing. When the new register value differs from the old one it writes it with
+  `pcireg_device_set(soft, slot, value)` (address 0xc0000000000b41e4), stores it in the software copy and reads the
+  bridge's flush register with `pcireg_tflush_get` (address 0xc0000000000ae584) so the write is not left posted. The
+  return value is 0 for success and -1 as described above. Established.
+- `pcibr_rrb_flush` (`6.5.30/unix.IP35`, address 0xc0000000000a3470, 380 bytes, 96-byte frame): flushes every read
+  response buffer (RRB) that is currently assigned to the slot of the device being worked on. It takes no arguments
+  and returns nothing. It finds the current device with `pciio_hostinfo_get` (the slot byte at info +540 is `S`) and
+  its bridge soft state with `pciio_info_mfast_get`, and takes the register window from soft +8. It reads the widget
+  identification word at window +4 and sets a variable `k` to 2 when the part number (bits 27:12) is 0xc002 with
+  manufacturer (bits 11:1) 54, or 0xd002 with manufacturer 36, and to 1 for any other widget. It reads the RRB
+  assignment word for the bridge half `S & 1` with `pcireg_rrb_get(window, S & 1)` (address 0xc0000000000b4ac4), takes
+  the soft state's lock at +140 (`mutex_spinlock`) and examines the eight 4-bit fields of that word from the lowest
+  upward. A field matches when its value ANDed with the mask `(2 x k - 1) | 8` (9 for k = 1, 0xb for k = 2) equals
+  `(S >> 1) | 8`, meaning the valid bit is set and the device bits equal the slot's device number. For each match it
+  calls `do_pcibr_rrb_flush(window, n)` (address 0xc0000000000a30ac), where n starts at `S & 1` and rises by 2 per
+  field (so it names the RRB of that half), and then goes on with the next field. After the eighth field it releases
+  the lock with `mutex_io_spinunlock`. Which bridge register the assignment word is and what the nibble bits other
+  than the valid bit mean: unknown here. Established.
+
+## Crossbar performance counters
+
+- `xbow_enable_perf_counter` (`6.5.30/unix.IP35`, address 0xc0000000000999f0, 460 bytes): starts, or stops, counting
+  on one of the crossbar's two link performance counters. `a0` is the crossbar vertex, `a1` the port number (8 to 15),
+  `a2` the counting mode (0, 1 or
+  2) and `a3` the counter number (0 or 1). It returns -1 for a port outside 8 to 15, a mode outside 0 to 2 or a
+  counter outside 0 to 1, and 0 on success. The crossbar soft state comes from `hwgraph_fastinfo_get(a0)` (the
+  register window is the pointer at soft +16) and its lock is the one at soft +448 (`mutex_spinlock`,
+  `mutex_spinunlock`). Each counter has a 16-byte record at soft + 16 x counter: the saved count at +0x20 (word), the
+  port in use at +0x24 (byte, as port minus 8), the mode in use at +0x25 (byte), copies of the two bytes at +0x26 and
+  +0x27, and the pointer to the counter register at +0x28. It refuses (returns -1, lock released) when this counter is
+  already counting (+0x25 nonzero) and the new mode is nonzero, and when the other counter is already counting the
+  same port. Otherwise it stores the new mode in +0x25 and +0x27 and the port number minus 8 in +0x24 and +0x26. It
+  then sets bits 29:28 of the port's link register (the word at window + 64 x port - 0xf4, so +0x0c of each 64-byte
+  port block) to the mode, and rewrites the counter register through its pointer with bits 22:20 set to the port
+  number minus 8, and saves the counter's low 20 bits (the old count) at +0x20. It finishes by arming a repeating poll
+  with `timeout(xbow_update_perf_counters, a0, 4)` (the routine at address 0xc0000000000998c8) and returns 0, even
+  when the mode is 0 (stop). What the two modes 1 and 2 count: unknown here. Inferred.
+- `xbow_ioctl` (`6.5.30/unix.IP35`, address 0xc000000000098434, 876 bytes): the control-request handler of the
+  crossbar's device node. `a0` is the crossbar vertex, `a1` the request number, `a2` the user argument address,
+  `a3` the open mode (bit 0 read, bit 1 write), `a4` the caller's credentials and `a6` a pointer to a result word that
+  is set to 0 at once. It returns 0 for success or an error number, and its requests are: 0 and any request number it
+  does not list return 0. Requests 1 and 2 (start and stop a counter): without the capability 0x2000000000
+  (`cap_able_cred(a4, 0x2000000000)`) it returns 1; without write mode 9; it copies 12 bytes of three words from the
+  user (`copyin`, error 14), forces the second word (the counting mode) to 0 for request 2, and calls
+  `xbow_enable_perf_counter(a0, first, second, third)` (address 0xc0000000000999f0), returning 22 when that fails.
+  Request 3 (read the counters): without read mode it returns 9; it calls `xbow_get_perf_counters` (address
+  0xc0000000000999d0), `assfail("xbow_perf_cnt != NULL", "../io/xbow.c", 612)` when that gives null, and copies 0x100
+  bytes to the user (14 on failure). Requests 4 and 5 (start and stop the link-level monitor): with the capability
+  test (1 on failure) they call `xbow_enable_llp_monitor` (address 0xc0000000000999d38) or `xbow_disable_llp_monitor`
+  (address 0xc000000000099cf0) and return 22 on a nonzero result. Request 6 (read the link status): without read mode
+  9; `xbow_get_llp_status` (address 0xc000000000099bbc), `assfail("xbow_llp_status != NULL", "../io/xbow.c", 652)` on
+  null, and a 0x80-byte copy to the user (14 on failure). Requests 0x6701 and 0x6702 (bandwidth allocation between two
+  widgets) check the same capability with `cap_able` (return 1), copy 16 bytes from the user (14 on failure), turn the
+  two words at the start into widget numbers with `xbow_widget_num_get` (address 0xc000000000098370) and call
+  `xbow_prio_bw_alloc` (address 0xc000000000099fe8) once for each direction (widgets swapped): request 0x6701 passes 0
+  as the fourth argument and the 64-bit value at user offset 8 as the fifth, and request 0x6702 passes the 64-bit
+  value at offset 8 as the fourth argument and its negation as the fifth. Both return 0. What the 64-bit values mean
+  (bytes or a priority amount): unknown here. Inferred.
+- `pcibr_intr_disconnect` (`6.5.30/unix.IP35`, address 0xc0000000000a5a24, 476 bytes): disconnects a PCI interrupt
+  object from the bridge interrupt bits it uses, leaving shared bits alone. `a0` is the interrupt object and the
+  routine returns nothing. It zeroes the four words at object +24, +28, +32 and +36, clears bit 0 of the object's
+  first word (the connected flag) and takes the object's bit mask (word at +88) and the bridge soft state (pointer at
+  +96). It removes from the mask every bit whose per-bit record (soft +1648 + 56 x bit, `bs_intr[]`) has a nonzero
+  word at record +36, which marks a bit that other objects also use. If bits remain, it takes the soft state's lock at
+  +140, clears those bits from the bridge's interrupt enable with `pcireg_intr_enable_bit_clr` (address
+  0xc0000000000b13d4), reads the flush register (`pcireg_tflush_get`) so the write is not left posted, releases the
+  lock, and logs "pcibr_intr_disconnect: disabled int_bits=0x%x" with `pcibr_debug` (mask 0x1000). Then for each
+  remaining bit it calls `xtalk_intr_disconnect` on the record's crosstalk interrupt (the doubleword at record +0;
+  address 0xc0000000000973b4), clears the word at record +40, and logs "pcibr_intr_disconnect: disconnect
+  int_bits=0x%x". After that it tests the record's word at +36 again and, when it is nonzero, reconnects the interrupt
+  for the remaining users with
+  `xtalk_intr_connect(record +0, pcibr_intr_func, record +8, pcibr_setpciint, record +48, 0)` (the routines at
+  0xc0000000000a5cfc and 0xc0000000000a57d8) after storing `bit | bs_busnum << 3` at record +48, and logs "now-sharing
+  int_bits"; this reconnect runs only when another processor sets the word between the two tests, since the bit was
+  selected because the word was zero. With no bits left after the shared ones are removed the routine ends without
+  touching the hardware. Inferred.
+- `pcibr_intr_free` (`6.5.30/unix.IP35`, address 0xc0000000000a55e0, 504 bytes, 96-byte frame): releases a PCI
+  interrupt object made by `pcibr_intr_alloc`, detaching it from every bridge interrupt bit it used and stopping its
+  thread. `a0` is the object and the routine returns nothing. The object's bit mask is the word at +88 and the bridge
+  soft state the pointer at +96. For each bit n from 0 to 7 that is set in the mask it takes the bit's record (soft
+  +1648 + 56 x n, `bs_intr[]`) and walks the bit's list of registered users (head at record +24, next pointer at entry
+  +0): for each entry it does `compare_and_swap_int64(entry +8, object, 0)`, which clears the entry's pointer when it
+  still points at this object, and when that succeeded it logs "pcibr_intr_free: cleared hdlr from bit 0x%x" through
+  `pcibr_debug` (mask 0x1000). Then, if the record's word at +36 is zero (no other user shares the bit) and its
+  crosstalk interrupt (the doubleword at record +0) is nonzero, it frees that with `xtalk_intr_free` (address
+  0xc00000000009737c), zeroes the doubleword and clears the bit's three-bit field in the bridge's interrupt device
+  register with `pcireg_intr_device_bit_clr(soft, 7 << (3 x n))` (address 0xc0000000000b2380). When bit 1 of the
+  object's first word is clear (the threaded kind), it waits for the interrupt thread to have started: it checks bit
+  0x400 of the thread flag word at object +40 and, while that is clear, sleeps with `nano_delay` for
+  10,000,000 nanoseconds and counts 10 more milliseconds, up to 1000. If the bit never appears it logs
+  "pcibr_intr_free: Unable to terminate pcibr_intrd thread, xt=0x%lx" at `cmn_err` level 4 and goes on. It then sets
+  the thread's function to `xthread_exit` (address 0xc00000000027cbf4) with
+  `xthread_set_func(thread at +64, xthread_exit, 0)`, wakes it with `vsema(object +48)` (address 0xc00000000023559c)
+  and logs "pcibr_intrd xt exiting, wait=%d msec" with the thread and the milliseconds waited. Both kinds end with
+  `kmem_free(object, 0xa0)`. The record fields are named by offset only, because the debug type of `bs_intr[]` is
+  anonymous. Inferred.
