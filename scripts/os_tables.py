@@ -7,12 +7,11 @@ Run it from the repository root with root/ populated, inside the toolchain conta
 (tools/re-run python3 scripts/os_tables.py). It writes three tab-separated tables beside the output of
 scripts/inventory.py. Nothing here is hand-edited, and the output is deterministic.
 
-  syscalls.tsv  one row per entry of the kernel's `sysent` table, per kernel image: the entry index, the
+  syscalls.tsv  one row per entry of each system call table (`sysent` and `irix5_64_sysent`) per kernel
+                image, from scripts/syscall_table.py: the table, the entry index, the call number, the
                 handler symbol the entry's function pointer resolves to, the argument-count byte and the
                 raw flag bytes of the entry. The layout (three doublewords per entry: counts and flags,
-                handler, argument-size table) is read off the linked kernels and is **inferred**: it is
-                confirmed for the entries whose handler names match the call they sit at (read, write,
-                open, close) and is not otherwise checked.
+                handler, argument-size table) is confirmed against the dispatcher's loads by the extractor.
   structs.tsv   one row per named structure in a kernel image's DWARF: byte size and member count. Only the
                 kernel images (root/*/unix.*) are read. The DWARF also names the files that declare each
                 structure; they are not written down, because the paths are the layout of a source tree.
@@ -20,9 +19,12 @@ scripts/inventory.py. Nothing here is hand-edited, and the output is determinist
                 in the linked kernels' text by decoding jal targets: the function, its address and the
                 number of call sites. Message strings are not recovered here.
 
-  selectors.tsv, formats.tsv  the first lists the syssgi, sysmp and other selector tables (not generated
-                yet: the rows come with the extractor for them); the second lists the container and
-                section kinds the kernel images use.
+  selectors.tsv one row per `syssgi` selector that reaches code of its own, per kernel image, from
+                scripts/syssgi_selectors.py: the jump table or compare tree it came from, the selector, the
+                code address it reaches and the first routine that code calls (`first_call`, a heuristic:
+                blank when the block branches first). `shared` marks targets that several selectors reach.
+                Other selector functions (`sysmp` and the like) are not generated yet.
+  formats.tsv   the container and section kinds the kernel images use.
 
 Each row has a `scope` column: `in` or `out`, from scripts/scope.json (a function row takes the scope
 scripts/inventory.py gave that function in docs/inventory/functions.tsv; a structure row takes it from the
@@ -60,29 +62,16 @@ def label(p):
     return os.path.relpath(p, os.path.join(REPO, 'root'))
 
 
-def syscalls(path, elf):
-    from elftools.elf.elffile import ELFFile
-    sym = elf.get_section_by_name('.symtab')
-    syms = {s.name: s for s in sym.iter_symbols()}
-    s = syms.get('sysent')
-    if s is None:
-        return []
-    funcs = {}
-    for x in sym.iter_symbols():
-        if x['st_info']['type'] == 'STT_FUNC' and x.name:
-            funcs.setdefault(x['st_value'], x.name)
-    addr, size = s['st_value'], s['st_size']
-    for sec in elf.iter_sections():
-        if sec['sh_addr'] and sec['sh_addr'] <= addr < sec['sh_addr'] + sec['sh_size']:
-            data = sec.data()[addr - sec['sh_addr']:addr - sec['sh_addr'] + size]
-            break
-    else:
-        return []
-    rows = []
-    for i in range(size // 24):
-        w0, fn, tbl = struct.unpack('>QQQ', data[i * 24:i * 24 + 24])
-        rows.append((i, funcs.get(fn, '0x%x' % fn), w0 >> 56, '%014x' % (w0 & ((1 << 56) - 1)), '0x%x' % tbl))
-    return rows
+def syscalls(path, elf=None):
+    import syscall_table
+    rows, _how, _notes, _base = syscall_table.extract(path)
+    return [(r[0], r[1], r[2], r[4], r[5], r[6], r[7]) for r in rows]
+
+
+def selectors(path):
+    import syssgi_selectors
+    rows, _w, _resolved = syssgi_selectors.extract(path, 'syssgi')
+    return [(g, sel, '0x%x' % t, call, shared) for g, sel, t, call, shared in rows]
 
 
 def structs(path):
@@ -236,24 +225,30 @@ def main():
     from elftools.elf.elffile import ELFFile
     scope = json.load(open(os.path.join(REPO, 'scripts', 'scope.json')))
     spre = re.compile('(?:%s)' % '|'.join(scope['structure_prefixes']))
+    sel_re = re.compile('(?:%s)' % '|'.join(scope['narrow_prefixes']))
     fscope = function_scopes()
     known = doc_names()
-    sc, st, pn = [], [], []
+    sc, st, pn, se = [], [], [], []
     for k in kernels():
         lab = label(k)
         with open(k, 'rb') as fh:
             elf = ELFFile(io.BytesIO(fh.read()))
-            for i, name, nargs, flags, tbl in syscalls(k, elf):
-                sc.append((lab, i, name, nargs, flags, tbl, fscope.get((lab, name), 'out'),
+            for table, i, number, name, nargs, flags, tbl in syscalls(k, elf):
+                sc.append((lab, table, number, i, name, nargs, flags, tbl, fscope.get((lab, name), 'out'),
                            'documented' if name in known else 'undocumented'))
+        for group, sel, target, call, shared in selectors(k):
+            se.append((lab, group, sel, target, call, shared,
+                       'in' if call and sel_re.match(call) else 'out',
+                       'documented' if call and call in known else 'undocumented'))
         for n, size, members in structs(k):
             st.append((lab, n, size, members, 'in' if spre.match(n) else 'out', 'documented' if n in known else 'undocumented'))
         for fn, addr, callee, n in panics(k):
             pn.append((lab, fn, addr, callee, n, fscope.get((lab, fn), 'out'), 'documented' if fn in known else 'undocumented'))
-    write(out, 'syscalls.tsv', ['binary', 'index', 'handler', 'nargs', 'flags', 'arg_table', 'scope', 'status'], sc)
+    write(out, 'syscalls.tsv', ['binary', 'table', 'number', 'index', 'handler', 'nargs', 'flags', 'arg_table',
+                                'scope', 'status'], sc)
     write(out, 'structs.tsv', ['binary', 'name', 'bytes', 'members', 'scope', 'status'], st)
     write(out, 'panics.tsv', ['binary', 'function', 'address', 'callee', 'sites', 'scope', 'status'], pn)
-    write(out, 'selectors.tsv', ['binary', 'table', 'selector', 'handler', 'scope', 'status'], [])
+    write(out, 'selectors.tsv', ['binary', 'group', 'selector', 'target', 'first_call', 'shared', 'scope', 'status'], se)
     fm = [(k, n, d, c, ex, 'in', 'documented' if n in known else 'undocumented') for k, n, d, c, ex in formats(kernels())]
     write(out, 'formats.tsv', ['kind', 'name', 'detail', 'binaries', 'example', 'scope', 'status'], fm)
     rows = []

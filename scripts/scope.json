@@ -177,5 +177,9 @@
     "mace",
     "ioc3",
     "gio"
-  ]
+  ],
+  "selector_scope": {
+    "rule": "narrow",
+    "reason": "A syssgi selector is in scope when the first routine its code calls matches narrow_prefixes, the rule of the kernel image. first_call is a heuristic (blank when the code branches before calling anything), so a blank selector is out of scope for now, not excluded."
+  }
 }
