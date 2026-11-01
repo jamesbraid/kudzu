@@ -77,7 +77,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	chunkreread	0xc00000000014c730	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	cinit	0xc0000000001501ec	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	clock_prtimeout	0xc0000000001b3928	cmn_err	1	out	undocumented
-6.5.30/unix.IP27	closefd	0xc00000000020e50c	assfail	2	out	undocumented
+6.5.30/unix.IP27	closefd	0xc00000000020e50c	assfail	2	out	documented
 6.5.30/unix.IP27	closefp	0xc00000000020e8a8	assfail	2	out	undocumented
 6.5.30/unix.IP27	cn_link	0xc0000000000a1c08	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	cont_nmi_dump	0xc000000000044d8c	cmn_err	4	out	undocumented
@@ -176,7 +176,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	get_matching_spool_addr	0xc000000000034668	cmn_err	2	out	undocumented
 6.5.30/unix.IP27	getcontext	0xc0000000001c0718	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	getcpuid	0xc000000000027178	assfail	1	out	documented
-6.5.30/unix.IP27	getf	0xc00000000020e388	assfail	2	out	undocumented
+6.5.30/unix.IP27	getf	0xc00000000020e388	assfail	2	out	documented
 6.5.30/unix.IP27	getmpages	0xc0000000001ee960	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	getsanonpages	0xc0000000001ed130	assfail	1	out	undocumented
 6.5.30/unix.IP27	gfx_earlyinit	0xc000000000376ab0	cmn_err	3	out	undocumented
@@ -993,7 +993,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	chunkreread	0xa800000020123704	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	cinit	0xa8000000201271a0	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	clock_prtimeout	0xa8000000201779a0	cmn_err	1	out	undocumented
-6.5.30/unix.IP30	closefd	0xa8000000201cce6c	assfail	2	out	undocumented
+6.5.30/unix.IP30	closefd	0xa8000000201cce6c	assfail	2	out	documented
 6.5.30/unix.IP30	closefp	0xa8000000201cd208	assfail	2	out	undocumented
 6.5.30/unix.IP30	cn_link	0xa800000020069ee8	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	cont_nmi_dump	0xa800000020013064	cmn_err	1	out	undocumented
@@ -1103,7 +1103,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	ftrc_copyout	0xa8000000200b73f0	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	get_address	0xa8000000200872e0	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	getcontext	0xa800000020184d88	cmn_err	1	out	undocumented
-6.5.30/unix.IP30	getf	0xa8000000201ccce8	assfail	2	out	undocumented
+6.5.30/unix.IP30	getf	0xa8000000201ccce8	assfail	2	out	documented
 6.5.30/unix.IP30	getsanonpages	0xa8000000201b1848	assfail	1	out	undocumented
 6.5.30/unix.IP30	gfP_OdsyBRDMGRSetDACGain	0xa80000002038677c	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	gfP_OdsyBRDMGRVTGcontrol	0xa800000020386240	cmn_err	1	out	undocumented
@@ -1891,7 +1891,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	chunkreread	0xc0000000001e8824	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	cinit	0xc0000000001ec300	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	clock_prtimeout	0xc000000000262130	cmn_err	1	out	undocumented
-6.5.30/unix.IP35	closefd	0xc0000000002bd83c	assfail	2	out	undocumented
+6.5.30/unix.IP35	closefd	0xc0000000002bd83c	assfail	2	out	documented
 6.5.30/unix.IP35	closefp	0xc0000000002bdbd8	assfail	2	out	undocumented
 6.5.30/unix.IP35	cn_link	0xc0000000000dccf8	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	cont_nmi_dump	0xc000000000066a14	cmn_err	1	out	undocumented
@@ -2015,7 +2015,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	get_shortest_paths_from_node	0xc0000000003318a8	cmn_err	8	out	undocumented
 6.5.30/unix.IP35	getcontext	0xc0000000002700e0	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	getcpuid	0xc00000000004e898	assfail	1	out	documented
-6.5.30/unix.IP35	getf	0xc0000000002bd6b8	assfail	2	out	undocumented
+6.5.30/unix.IP35	getf	0xc0000000002bd6b8	assfail	2	out	documented
 6.5.30/unix.IP35	getsanonpages	0xc00000000029c9d0	assfail	1	out	undocumented
 6.5.30/unix.IP35	gfx_frs_install	0xc00000000017ee1c	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	gfx_frs_uninstall	0xc00000000017ee74	cmn_err	1	out	undocumented

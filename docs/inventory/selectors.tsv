@@ -29,8 +29,8 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	27	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	28	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	29	0xc0000000002330d0	setitimer_value		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	30	0xc000000000233084	getf	yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	31	0xc000000000233084	getf	yes	out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	30	0xc000000000233084	getf	yes	out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	31	0xc000000000233084	getf	yes	out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	32	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	33	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	34	0xc000000000231848		yes	out	undocumented
@@ -1290,8 +1290,8 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	27	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	28	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	29	0xa8000000201ed0c0	setitimer_value		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	30	0xa8000000201ed074	getf	yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	31	0xa8000000201ed074	getf	yes	out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	30	0xa8000000201ed074	getf	yes	out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	31	0xa8000000201ed074	getf	yes	out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	32	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	33	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	34	0xa8000000201eba10		yes	out	undocumented
@@ -2541,8 +2541,8 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	23	0xc0000000002e0598		yes	out	undocumented
 6.5.30/unix.IP35	compare	24	0xc0000000002e0570			out	undocumented
 6.5.30/unix.IP35	compare	29	0xc0000000002e1a20	setitimer_value		out	undocumented
-6.5.30/unix.IP35	compare	30	0xc0000000002e1340	getf	yes	out	undocumented
-6.5.30/unix.IP35	compare	31	0xc0000000002e1340	getf	yes	out	undocumented
+6.5.30/unix.IP35	compare	30	0xc0000000002e1340	getf	yes	out	documented
+6.5.30/unix.IP35	compare	31	0xc0000000002e1340	getf	yes	out	documented
 6.5.30/unix.IP35	compare	40	0xc0000000002e2ac0			out	undocumented
 6.5.30/unix.IP35	compare	41	0xc0000000002e1b10	getgroups		out	undocumented
 6.5.30/unix.IP35	compare	52	0xc0000000002e2d9c	settimeofday		out	undocumented
