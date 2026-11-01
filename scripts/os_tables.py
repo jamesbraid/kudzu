@@ -15,6 +15,8 @@ scripts/inventory.py. Nothing here is hand-edited, and the output is determinist
   structs.tsv   one row per named structure in a kernel image's DWARF: byte size and member count. Only the
                 kernel images (root/*/unix.*) are read. The DWARF also names the files that declare each
                 structure; they are not written down, because the paths are the layout of a source tree.
+                Status is `documented` when docs/structs/<name>.md exists: scripts/struct_fields.py writes that
+                page only after two kernels agree on the layout.
   panics.tsv    one row per calling function and callee in {panic, cmn_err, assfail, nopanicdebugger} found
                 in the linked kernels' text by decoding jal targets: the function, its address and the
                 number of call sites. Message strings are not recovered here.
@@ -28,7 +30,8 @@ scripts/inventory.py. Nothing here is hand-edited, and the output is determinist
 
 Each row has a `scope` column: `in` or `out`, from scripts/scope.json (a function row takes the scope
 scripts/inventory.py gave that function in docs/inventory/functions.tsv; a structure row takes it from the
-structure_prefixes list). Status is `documented` when the name appears in backticks in a docs/*.md page, else `undocumented`.
+structure_prefixes list). Status is `documented` when the name appears in backticks in a docs/*.md page, else
+`undocumented`; a structure row uses its field-table page instead (see structs.tsv above).
 """
 import glob
 import io
@@ -51,6 +54,16 @@ def doc_names():
     for p in glob.glob(os.path.join(REPO, 'docs', '*.md')):
         for m in re.finditer(r'`([^`\n]+)`', open(p, encoding='utf-8').read()):
             names.add(m.group(1).strip())
+    return names
+
+
+def struct_pages():
+    """Structure names with a field table page: docs/structs/<name>.md, titled with the name in backticks."""
+    names = set()
+    for p in glob.glob(os.path.join(REPO, 'docs', 'structs', '*.md')):
+        m = re.fullmatch(r'# `([^`]+)`', open(p, encoding='utf-8').readline().strip())
+        if m:
+            names.add(m.group(1))
     return names
 
 
@@ -228,6 +241,7 @@ def main():
     sel_re = re.compile('(?:%s)' % '|'.join(scope['narrow_prefixes']))
     fscope = function_scopes()
     known = doc_names()
+    pages = struct_pages()
     sc, st, pn, se = [], [], [], []
     for k in kernels():
         lab = label(k)
@@ -241,7 +255,7 @@ def main():
                        'in' if call and sel_re.match(call) else 'out',
                        'documented' if call and call in known else 'undocumented'))
         for n, size, members in structs(k):
-            st.append((lab, n, size, members, 'in' if spre.match(n) else 'out', 'documented' if n in known else 'undocumented'))
+            st.append((lab, n, size, members, 'in' if spre.match(n) else 'out', 'documented' if n in pages else 'undocumented'))
         for fn, addr, callee, n in panics(k):
             pn.append((lab, fn, addr, callee, n, fscope.get((lab, fn), 'out'), 'documented' if fn in known else 'undocumented'))
     write(out, 'syscalls.tsv', ['binary', 'table', 'number', 'index', 'handler', 'nargs', 'flags', 'arg_table',
