@@ -187,7 +187,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	185	0xc000000000232520	0xc000000000235750	yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	186	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	187	0xc000000000232510	0xc000000000234f80		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	188	0xc0000000002324cc	strlen		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	188	0xc0000000002324cc	strlen		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	189	0xc00000000023249c			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	190	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	191	0xc000000000232484			out	undocumented
@@ -1448,7 +1448,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	185	0xa8000000201ec510	0xa8000000201ef358	yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	186	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	187	0xa8000000201ec500	0xa8000000201eeefc		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	188	0xa8000000201ec4bc	strlen		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	188	0xa8000000201ec4bc	strlen		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	189	0xa8000000201ec48c			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	190	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	191	0xa8000000201ec47c			out	undocumented
@@ -2668,7 +2668,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	185	0xc0000000002e0e90	0xc0000000002e5418	yes	out	undocumented
 6.5.30/unix.IP35	compare	186	0xc0000000002e0598		yes	out	undocumented
 6.5.30/unix.IP35	compare	187	0xc0000000002e1910	0xc0000000002e4c44		out	undocumented
-6.5.30/unix.IP35	compare	188	0xc0000000002e28fc	strlen		out	undocumented
+6.5.30/unix.IP35	compare	188	0xc0000000002e28fc	strlen		out	documented
 6.5.30/unix.IP35	compare	191	0xc0000000002e07d8			out	undocumented
 6.5.30/unix.IP35	compare	192	0xc0000000002e1888	0xc0000000002e4450	yes	out	undocumented
 6.5.30/unix.IP35	compare	193	0xc0000000002e14b0			out	undocumented

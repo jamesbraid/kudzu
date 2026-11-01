@@ -3,4 +3,4 @@ syscalls	0	1422	0	0
 structs	173	2733	140	33
 panics	272	2551	272	0
 selectors	9	2770	9	0
-formats	29	0	0	29
+formats	29	0	1	28

@@ -9,7 +9,7 @@ section	.MIPS.events.text	type SHT_MIPS_EVENTS	3	6.5.30/unix.IP27	in	undocumente
 section	.MIPS.options	type SHT_MIPS_OPTIONS	3	6.5.30/unix.IP27	in	undocumented
 section	.bss	type SHT_NOBITS	3	6.5.30/unix.IP27	in	undocumented
 section	.comment	type SHT_PROGBITS	3	6.5.30/unix.IP27	in	undocumented
-section	.data	type SHT_PROGBITS	3	6.5.30/unix.IP27	in	undocumented
+section	.data	type SHT_PROGBITS	3	6.5.30/unix.IP27	in	documented
 section	.debug_abbrev	type SHT_MIPS_DWARF	3	6.5.30/unix.IP27	in	undocumented
 section	.debug_aranges	type SHT_MIPS_DWARF	3	6.5.30/unix.IP27	in	undocumented
 section	.debug_frame	type SHT_MIPS_DWARF	3	6.5.30/unix.IP27	in	undocumented
