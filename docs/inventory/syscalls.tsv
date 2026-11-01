@@ -170,8 +170,8 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP27	sysent	1168	168	getcontext	1	00000000000000	0x0	out	undocumented
 6.5.30/unix.IP27	sysent	1169	169	setcontext	1	10000000000000	0x0	out	undocumented
 6.5.30/unix.IP27	sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc0000000014cbad2	out	undocumented
-6.5.30/unix.IP27	sysent	1171	171	sigstack	2	00000000000000	0x0	out	undocumented
-6.5.30/unix.IP27	sysent	1172	172	_sigaltstack	2	00000000000000	0x0	out	undocumented
+6.5.30/unix.IP27	sysent	1171	171	sigstack	2	00000000000000	0x0	out	documented
+6.5.30/unix.IP27	sysent	1172	172	_sigaltstack	2	00000000000000	0x0	out	documented
 6.5.30/unix.IP27	sysent	1173	173	sigsendsys	2	00000000000000	0xc0000000014cba84	out	documented
 6.5.30/unix.IP27	sysent	1174	174	statvfs	2	00000000000000	0xc0000000014cba50	out	undocumented
 6.5.30/unix.IP27	sysent	1175	175	fstatvfs	2	00000000000000	0x0	out	undocumented
@@ -407,8 +407,8 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP27	irix5_64_sysent	1168	168	getcontext	1	00000000000000	0x0	out	undocumented
 6.5.30/unix.IP27	irix5_64_sysent	1169	169	setcontext	1	10000000000000	0x0	out	undocumented
 6.5.30/unix.IP27	irix5_64_sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc0000000014cbb12	out	undocumented
-6.5.30/unix.IP27	irix5_64_sysent	1171	171	sigstack	2	00000000000000	0x0	out	undocumented
-6.5.30/unix.IP27	irix5_64_sysent	1172	172	_sigaltstack	2	00000000000000	0x0	out	undocumented
+6.5.30/unix.IP27	irix5_64_sysent	1171	171	sigstack	2	00000000000000	0x0	out	documented
+6.5.30/unix.IP27	irix5_64_sysent	1172	172	_sigaltstack	2	00000000000000	0x0	out	documented
 6.5.30/unix.IP27	irix5_64_sysent	1173	173	sigsendsys	2	00000000000000	0xc0000000014cba84	out	documented
 6.5.30/unix.IP27	irix5_64_sysent	1174	174	statvfs	2	00000000000000	0xc0000000014cba50	out	undocumented
 6.5.30/unix.IP27	irix5_64_sysent	1175	175	fstatvfs	2	00000000000000	0x0	out	undocumented
@@ -644,8 +644,8 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP30	sysent	1168	168	getcontext	1	00000000000000	0x0	out	undocumented
 6.5.30/unix.IP30	sysent	1169	169	setcontext	1	10000000000000	0x0	out	undocumented
 6.5.30/unix.IP30	sysent	1170	170	waitsys_wrapper	5	00000000000000	0xa8000000204a8182	out	undocumented
-6.5.30/unix.IP30	sysent	1171	171	sigstack	2	00000000000000	0x0	out	undocumented
-6.5.30/unix.IP30	sysent	1172	172	_sigaltstack	2	00000000000000	0x0	out	undocumented
+6.5.30/unix.IP30	sysent	1171	171	sigstack	2	00000000000000	0x0	out	documented
+6.5.30/unix.IP30	sysent	1172	172	_sigaltstack	2	00000000000000	0x0	out	documented
 6.5.30/unix.IP30	sysent	1173	173	sigsendsys	2	00000000000000	0xa8000000204a8134	out	documented
 6.5.30/unix.IP30	sysent	1174	174	statvfs	2	00000000000000	0xa8000000204a8100	out	undocumented
 6.5.30/unix.IP30	sysent	1175	175	fstatvfs	2	00000000000000	0x0	out	undocumented
@@ -881,8 +881,8 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP30	irix5_64_sysent	1168	168	getcontext	1	00000000000000	0x0	out	undocumented
 6.5.30/unix.IP30	irix5_64_sysent	1169	169	setcontext	1	10000000000000	0x0	out	undocumented
 6.5.30/unix.IP30	irix5_64_sysent	1170	170	waitsys_wrapper	5	00000000000000	0xa8000000204a81c2	out	undocumented
-6.5.30/unix.IP30	irix5_64_sysent	1171	171	sigstack	2	00000000000000	0x0	out	undocumented
-6.5.30/unix.IP30	irix5_64_sysent	1172	172	_sigaltstack	2	00000000000000	0x0	out	undocumented
+6.5.30/unix.IP30	irix5_64_sysent	1171	171	sigstack	2	00000000000000	0x0	out	documented
+6.5.30/unix.IP30	irix5_64_sysent	1172	172	_sigaltstack	2	00000000000000	0x0	out	documented
 6.5.30/unix.IP30	irix5_64_sysent	1173	173	sigsendsys	2	00000000000000	0xa8000000204a8134	out	documented
 6.5.30/unix.IP30	irix5_64_sysent	1174	174	statvfs	2	00000000000000	0xa8000000204a8100	out	undocumented
 6.5.30/unix.IP30	irix5_64_sysent	1175	175	fstatvfs	2	00000000000000	0x0	out	undocumented
@@ -1118,8 +1118,8 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP35	sysent	1168	168	getcontext	1	00000000000000	0x0	out	undocumented
 6.5.30/unix.IP35	sysent	1169	169	setcontext	1	10000000000000	0x0	out	undocumented
 6.5.30/unix.IP35	sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc00000000163d4d2	out	undocumented
-6.5.30/unix.IP35	sysent	1171	171	sigstack	2	00000000000000	0x0	out	undocumented
-6.5.30/unix.IP35	sysent	1172	172	_sigaltstack	2	00000000000000	0x0	out	undocumented
+6.5.30/unix.IP35	sysent	1171	171	sigstack	2	00000000000000	0x0	out	documented
+6.5.30/unix.IP35	sysent	1172	172	_sigaltstack	2	00000000000000	0x0	out	documented
 6.5.30/unix.IP35	sysent	1173	173	sigsendsys	2	00000000000000	0xc00000000163d484	out	documented
 6.5.30/unix.IP35	sysent	1174	174	statvfs	2	00000000000000	0xc00000000163d450	out	undocumented
 6.5.30/unix.IP35	sysent	1175	175	fstatvfs	2	00000000000000	0x0	out	undocumented
@@ -1355,8 +1355,8 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP35	irix5_64_sysent	1168	168	getcontext	1	00000000000000	0x0	out	undocumented
 6.5.30/unix.IP35	irix5_64_sysent	1169	169	setcontext	1	10000000000000	0x0	out	undocumented
 6.5.30/unix.IP35	irix5_64_sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc00000000163d512	out	undocumented
-6.5.30/unix.IP35	irix5_64_sysent	1171	171	sigstack	2	00000000000000	0x0	out	undocumented
-6.5.30/unix.IP35	irix5_64_sysent	1172	172	_sigaltstack	2	00000000000000	0x0	out	undocumented
+6.5.30/unix.IP35	irix5_64_sysent	1171	171	sigstack	2	00000000000000	0x0	out	documented
+6.5.30/unix.IP35	irix5_64_sysent	1172	172	_sigaltstack	2	00000000000000	0x0	out	documented
 6.5.30/unix.IP35	irix5_64_sysent	1173	173	sigsendsys	2	00000000000000	0xc00000000163d484	out	documented
 6.5.30/unix.IP35	irix5_64_sysent	1174	174	statvfs	2	00000000000000	0xc00000000163d450	out	undocumented
 6.5.30/unix.IP35	irix5_64_sysent	1175	175	fstatvfs	2	00000000000000	0x0	out	undocumented
