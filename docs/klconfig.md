@@ -748,7 +748,7 @@ The 6.5.22 and 6.5.30 `kernel.o` objects for IP27 and for IP35 hold these routin
 
 ## Board serial numbers
 
-The kernels find a board's serial number in the manufacturing NIC string the PROM copies into KLCONFIG: a text of `name:value;` pairs. Each board class keeps the offset of that string in its main component; Linux names those fields `hub_mfg_nic`, `bri_mfg_nic`, `rou_mfg_nic` and `gfx_mfg_nic`, and component types 2, 5, 9 and 10 `KLSTRUCT_HUB`, `KLSTRUCT_BRI`, `KLSTRUCT_ROU` and `KLSTRUCT_GFX`.
+The kernels find a board's serial number in the manufacturing NIC string the PROM copies into KLCONFIG: a text of `name:value;` pairs. The kernel builds the same text itself when it reads a part directly; [nic.md](nic.md#manufacturing-text) gives the fields and the page bytes they come from. Each board class keeps the offset of that string in its main component; Linux names those fields `hub_mfg_nic`, `bri_mfg_nic`, `rou_mfg_nic` and `gfx_mfg_nic`, and component types 2, 5, 9 and 10 `KLSTRUCT_HUB`, `KLSTRUCT_BRI`, `KLSTRUCT_ROU` and `KLSTRUCT_GFX`.
 
 | Board class | Component type | NIC string offset (IP27) | NIC string offset (IP35) | Part names tried first |
 |---|---|---|---|---|
