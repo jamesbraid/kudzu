@@ -356,3 +356,142 @@ for that record (page `DAT_c0000000014cc198`, slot offset 0x160 plus 8 times the
 record (base, widget, vertex, address `DAT_c0000000014cc220` plus record times 0x20000000 plus 0x3800000000000000 when flag bit 3, use count 1, flags |1 or |5). With no
 free record and no-wait set it returns 0; otherwise it sleeps on the semaphore at +0x310 (`sv_wait`) and retries. The return value is the address of the record (+0x328
 style) or 0. The exits list shows 0 and record pointers.
+- `hubni_error_handler` (`6.5.30/unix.IP27`, address 0xc00000000003319c): **inferred.** Reports a fatal network-interface error of the local hub and halts or resets the
+node. Argument `a0` is the name of the detector (printed with `%s`); `a1` selects reset (nonzero) or spin (zero). If the global flag word at
+`DAT_c0000000014cc348` has bit 37 set and the word at `DAT_c0000000014cc350` is zero it calls `cmn_err(0x15, ...)`. It raises the interrupt level (`splerr`), stores 0x9e
+into the hub register page doubleword at +0x50 plus 8 times the slot byte when the per-CPU byte at absolute address 0xffffffffffffc523 is zero, sets the node panic flag,
+prints the hub's NI state to the PROM log (`hubni_print_state(nasid, 0, ip27log_printf, 2)`), enters panic mode, and when `a1` is nonzero logs `Resetting the NI link` and
+sets the global at `DAT_c0000000014cc1b0` to 2; it prints the router state, logs `Fatal Craylink error: NI error detected by %s`, switches to the PROM log, prints the NI
+and router states again with `cmn_err` as the printer (level 4) and then, when `a1` is zero, calls `panicspin`; with `a1` nonzero it falls through to
+`cmn_err(0, "Detected a link reset due to other partition reset")`. It returns nothing that a caller can use.
+- `pcibr_error_intr_handler` (`6.5.30/unix.IP27`, address 0xc00000000007a768): **inferred.** The interrupt handler for a PCI bridge's own error interrupt; the argument
+(`a0`) is the bridge soft record. It reads the interrupt status (`pcireg_intr_status_get`), logs it with `pcibr_debug(0x100, ...)` and does nothing more unless some bit
+from 8 up is set. It then (1) calls a helper at 0xc00000000007a600 when the status has a bit in the mask held at `DAT_c0000000014cc610`; (2) for the Bridge revision
+0xc0022 with status bit 21 set it reports the rev B data-correction erratum with `cmn_err(4, ...)` when the kernel variable `bridge_rev_b_data_check_disable` is nonzero,
+and otherwise runs `ql_bridge_rev_b_war` and calls `panic`; (3) for each set bit from 8 to 63 in the status masked by `DAT_c0000000014cc618` it counts the occurrence in a
+24-byte per-bit record at soft +0x8dc (count, time of first count, count at that time), compares the rate in events per clock tick (`lbolt`) with limits (more than 100
+per tick on an XBridge, and for bit 18 more than 99 events at a higher rate than the best seen so far) and prints the rate warnings `%s: %s, Error rate %d/tick`,
+`%s Disabling error interrupt type %s. Error count %d` and `%s: %s, Excessive error interrupts : %d/tick` (levels 4,
+5 and 5); (4) clears bit 24 of the working status when the bus error register shows the address pattern 0xc00000 and the command-word error register 0x402000; (5) prints
+the status and calls `pcibr_error_dump` when any bit of the working status is in `bridge_errors_to_dump` (kept in step with the variable `pcibr_pioerr_dump`) or, on an
+XBridge of revisions whose low nibble is 1 or 2, bits 20 or 21 are set, and then ends with `panic("PCI Bridge Error interrupt killed the system")` after
+`machine_error_dump`, an exit that does not return; (6) if the status has a bit in the fatal mask at `DAT_c0000000014cc620` it does the same machine dump and panic.
+Otherwise it clears the handled interrupt bits, using the group computed by `pcibr_errintr_group` for a Bridge (`pcireg_intr_reset_set`) or the status plus 0x40 for an
+XBridge, sets arbitration bits 0xf00000 for one XBridge case (`pcireg_arbitration_bit_set`) and releases the error-interrupt interlock with
+`test_and_set_int64(soft+0x840, 0)`. It returns nothing. The per-bit rate thresholds and the two branch-likely tests (0x7a8c4 and
+0x7a944) were not followed in detail.
+- `pcibr_reset` (`6.5.30/unix.IP27`, address 0xc000000000074688): **inferred.** Resets the PCI device in one slot of a bridge by pulsing the bridge's reset line for that
+slot and restoring the device's configuration afterwards. The argument (`a0`, saved at 64(sp)) is the device's vertex. It gets the device's host info
+(`pciio_hostinfo_get`) and the bridge soft record (`pciio_info_mfast_get`), takes the slot number from the byte at host info +540, and, when the slot record's word at
++256+128*slot is nonzero, replaces it with the byte at +260 of that record. A slot below the soft record's first slot (byte +49) or above its last (byte +51) is refused:
+it logs `pcibr_reset unimplemented for slot %d` with `pcibr_debug(8, vertex, ...)` and returns -1 (the `li v0,-1` at 0x748dc). Otherwise it takes the bridge lock at +128
+(`mutex_spinlock`) and for every function of the slot (count at slot +272, pointer array at +280) with an info record reads configuration register 4
+(`pcibr_func_config_get`, 4 bytes) into a stack array; then pulses the slot's reset bit, `(1 << slot) << 24` in the bridge control register: `pcireg_control_bit_clr`,
+`nano_delay` (a
+1,000,000 ns delay),
+`pcireg_control_bit_set`, `nano_delay`; then for every function writes back, through `pcibr_func_config_set`, the base address registers (configuration offsets 0x10 to
+0x24, at most six per function, from the 56-byte window entries' base at +0x50, skipping zero ones) and finally the saved command register at offset 4. It releases the
+lock with `mutex_io_spinunlock` and returns 0. The only values returned are 0 and -1.
+
+## Interrupt entry
+
+- `intr` (`6.5.30/unix.IP27`, address 0xc0000000000392d8): **established.** Picks the highest-priority pending processor interrupt and runs its registered handler.
+Arguments: the saved-register frame (`a0`, kept in `s1`, passed on to the handler), a second value stored at 8(sp) (`a2`, the Status image) and the pending-interrupt mask
+(`a3`, `s0`, a Cause image). A 636-byte routine with a 48-byte frame. If bits 4 and 5 of the word at absolute address 0xffffffffffffc048 are both set it calls
+`check_delay_tlbflush(0)` and notes that in 0(sp); if bit 5 of the doubleword at absolute address 0xffffffffffffc280 is set it logs
+`log_tstamp_event(102, 0, 0, 0, 0)`.
+If `a2 & a3 & 0xff00` is zero it calls the routine at 0xc00000000003907c (the symbol table places it at `cause_intr_disconnect+0x40`) and the result is 0. Otherwise it
+increments the word at +208 of the record whose pointer is at absolute address 0xffffffffffffc508, then tests the pending bits in this order: 0x4000, 0x800, 0x2000,
+0x8000, 0x1000, 0x100,
+0x400, 0x200. The table `cause_intr_tbl` (through the
+`gp-19984` slot) has one 16-byte entry per bit position, entry n for bit 0x100<<n: the handler pointer at +0, the interrupt level at +8 and a result word at +12. For the
+first bit found it calls `splx(level)`, takes the entry's result word as the return value and calls `handler(frame)`. When none of the eight bits is set it calls
+`intr_stray(frame)` and the result is 0. On the way out it calls `check_delay_tlbflush(1)` if the first call was made and bit 4 of the word at 0xffffffffffffc048 is still
+set, logs
+`log_tstamp_event(101, 102, 0, 0, 0)`
+when the 0x20 bit of the doubleword at 0xffffffffffffc280 is set, and returns the result word.
+- `intrnorm` (`6.5.30/unix.IP27`, address 0xc00000000004c3a4): **inferred.** The general interrupt entry stub (1344 bytes, no stack frame, uses `k0` and `k1` and ends in
+`eret` or a jump to `ecommon`); it is not a C function. Read as three parts. First, a guard at 0x4c3a4: when the byte at absolute address 0xffffffffffffc7d0 is not 1, the
+doubleword at 0xffffffffffffc4e0 is nonzero and equals the one at 0xffffffffffffc018, and the exception PC (`dmfc0 k1,$14`) has its top bit clear (a user address), it
+goes to 0x4c64c, a re-execution workaround: it probes the TLB for the page of EPC-4, reads the entry, checks the page is valid, loads the instruction word at EPC-4, and
+when its primary opcode is 0 and its function bits 5:3 are 3 (the multiply and divide group) it stores that instruction into a patch slot (the page at the doubleword at
+0xffffffffffffc7f0), flushes it with cache operations 0x15 and 0x10, runs it by `jalr`, compares the resulting multiply registers with the live ones and, depending on the
+opcode of the instruction before (a jump, a branch or neither), moves EPC back by 4 or 8 and counts it in the words at 0xffffffffffffc7d8 and
+0xffffffffffffc7d4 (the 8-byte case); the same test is made again for EPC-8 when EPC-4 is at the start of a 16 KB page. Second, at 0x4c3d0 a timer special case: when
+Cause bit 15 (0x8000) is set, the counter-overflow bits of the performance counters read by the four `.word` coprocessor-0 reads are all clear (CP0 register 25 selects 1,
+3, and for processors other than the one whose PRId field is 0x900 also 5 and 7) and bit 6 of the word at 0xffffffffffffc048 is set, it writes `Compare`
+(CP0 register 11) with 0xfffffffff8000000 and returns with `eret`. Third, from 0x4c438: when Status.IE is clear, or no enabled interrupt (Status bits 15:8 and Cause) is
+pending, it returns with `eret`; otherwise it chooses a stack and entry path by the state byte at absolute address 0xffffffffffffc04f (the byte at 0xffffffffffffc050 is
+also read): when a thread context pointer at 0xffffffffffffc028 is nonzero it builds a register frame below the pointer at +136 of that context (saving `a0` to `a7`, `s0`
+to `s7`, `ra`, `gp` and
+`sp`, calling `tfi_save` and `uli_setasids`) and jumps to `ecommon_allsaved`; with state 2 it builds a 360-byte frame on the current stack, `k0` = 256, and jumps to
+`ecommon`; with state 1 it switches to the interrupt stack held at 0xffffffffffffc030, records the old stack pointer at frame +224 and jumps to `ecommon` with `k0` = 2;
+with state 3 it takes the interrupt stack, sets the byte at 0xffffffffffffc053 to 1 and goes to `ecommon_allsaved` when the byte at 0xffffffffffffc050 is nonzero and to
+`ecommon` otherwise; with any other state it sets the state byte to 2 and takes a frame from the current process record, setting its `gp` to the kernel global pointer
+(0xc0000000014d2170) before the jump to `ecommon`. The block at 0x4c4d4 (an `assfail` call) is never reached. The multiply and divide re-execution is inferred to be a
+processor erratum workaround from its shape; no text states that. The addresses of the per-CPU words were read from the sign-extended 16-bit offsets in the instructions.
+
+## Crossbar, PCI window and router state helpers
+
+- `xbow_get_bridge_pointers` (`6.5.30/unix.IP27`, address 0xc00000000006eb84): **inferred.** Fills a table of the register addresses of the I/O widgets that hang off one
+node's crossbar (Xbow). Arguments: the compact node number (`a0`), a 16-entry table of doublewords (`a1`, kept in `s0`) and a pointer to a count
+(`a2`, saved at 288(sp)). It converts the node to a NASID through the halfword table whose pointer is in the `gp-17944` slot, zeroes all 16 table entries, then looks up
+the node's I/O vertex (`hwgraph_traverse(node's vertex at +20816 of its record, "xtalk", &v1)` and then `hwgraph_traverse(v1, "0", &v2)`); if either lookup fails it
+returns 0 with the table empty. It gets the widget info of the second vertex (`xwidget_info_get`) and reads its part number at +16 and manufacturer at +24. Case 1: part
+and manufacturer both 0 (no crossbar identified), or part 0xd000 or 0xd100 with manufacturer 0: it walks every edge of the first vertex (`hwgraph_edge_get_next`, starting
+with a cursor of 2); for each edge's widget whose info says part 0xc002 and manufacturer 54 (a Bridge) or part 0xd002 and manufacturer 36 (an XBridge) it takes the widget
+number from the byte at info +12 and stores `table[widget]` = the widget's register address, which is the NASID shifted left by 32 plus a global base (`gp-24504`,
+0x92000000e0000000 in this image) when the widget number is 0 and otherwise the NASID shifted left by 32 plus 0x1000000 times the widget number plus 0x9200000000000000;
+it also increments the count. Case 2: a single Bridge or XBridge directly as the vertex: `table[0]` gets the same computed address for its widget number and the count is
+incremented. The function returns 0 in every path.
+- `pciio_pio_addr` (`6.5.30/unix.IP27`, address 0xc0000000000929b4): **established.** The PCI layer's one-call way to get a host address for a device's PIO window.
+Arguments: `a0` to `a4` are the device vertex, the device number, the space type, the offset and the size, `a5` points to a map slot (or is 0) and
+`a6` is flags. It saves any existing map pointer from `*a5` and clears the slot. It calls `pciio_piotrans_addr(a0, a1, a2, a3, a4, a6)`; a nonzero result is returned at
+once. Otherwise it needs a map: the saved one, or, when there was none, a new one from `pciio_piomap_alloc(a0, a1, a2, a3, a4, a4, a6)` (note that the size is passed
+twice, as the size and the maximum), and a failed allocation returns 0. With a map it calls `pciio_piomap_addr(map, a3, a4)`; a nonzero address is returned and, when the
+caller supplied a slot, the map is stored in `*a5`; a zero address frees the map only if this call allocated it (`pciio_piomap_free`) and returns 0.
+- `router_print_state_specific` (`6.5.30/unix.IP27`, address 0xc00000000001c75c): **inferred.** Prints a router's error state once per reason. Arguments: the router
+record (`a0`, `s0`), a first argument for the printer (`a1`), the printer function
+(`a2`, called with `a1` and a format) and a one-bit reason mask (`a3`). Under the record's lock at +404 it tests the byte at +400: when any bit of the mask is already set
+it unlocks and returns; otherwise it sets the bits, unlocks and carries on. If the node's byte at +18772 (reached through the node table at absolute address
+0xffffffffffffc400) is nonzero it prints `vector unit busy for cnode %d.Waiting....`, calls `timeout_poll(nasid, 0x600300, 0x8000000000000000, max(256, 256), 1)` and
+clears the byte. It then calls the routine at 0xc00000000001c63c (the symbol table places it at `timeout_poll+0x88`) and returns at once if that returns nonzero;
+otherwise it prints `ROUTER ERROR STATE:`, the line
+`/hw/module/%M/slot/%s`
+with the module number (halfword +344) and slot name (`get_slotname` of byte +346), reads the router's register 0 into a local (`router_reg_read`) and prints it with
+`show_rr_status_rev_id(value, presence byte at +8, a1, a2)`, and for every port 1 to 6 whose bit is set in the presence byte reads register `(port << 16) | 8` and prints
+`show_rr_error_status(value & 0x3ffffffff, port, a1, a2, 0)`. It returns nothing a caller uses. What the routine at 0xc00000000001c63c checks is unknown here.
+- `ioc3_handle_intr` (`6.5.30/unix.IP27`, address 0xc000000000095ad8): **established.** Dispatches the pending interrupts of an IOC3 chip to the handlers that
+`ioc3_intr_connect` registered. Arguments: the chip's soft record (`a0`, or 0 to use the console chip's record held at `gp`+2840) and a flag
+(`a1`). With no record at all it returns. It reads the handler count from the word at record +2864 and asks the routine at 0xc00000000009513c (it sits straight after
+`ioc3_write_ireg` and has no symbol of its own; it takes the soft record and returns a mask, so it is read here as the pending-interrupt reader, which is inferred) for
+the pending mask; a zero mask ends the routine. For a nonzero mask: with `a1` zero it clears bits 27 and 28 (and with 0xe7ffffff); with `a1` nonzero and bit 0 of the flag
+byte at +2884 set (poll mode) it keeps only bits 23 and up (and with 0xff800000); a mask that is then zero also ends the routine. For each handler slot in turn (0x58-byte
+records, mask word at +48): when the slot's mask meets the pending mask it either calls the handler directly with `handler(arg at +64, matching bits)` (the pointer at
++56) when bit 0x1000 of the slot's flag word at +88 is clear, or, when that bit is set (a threaded handler), calls the optional filter function at +128 with the argument
+at +64 and, when there is no filter or it returns zero, calls the direct handler too, and otherwise masks the slot's bits off in the chip with
+`ioc3_write_ireg(soft, slot mask, 1)` and wakes the thread with `vsema(slot+96)`; it counts each matched slot and removes the matching bits from the pending mask. After
+the slots it adds the count minus one atomically (`ll`/`sc`, branch-likely at 0x95b68) to the word at +208 of the record whose pointer is at absolute address
+0xffffffffffffc508 (the interrupt statistics), then, when the pending mask still has bits no slot claimed, prints `unknown IOC3 interrupt 0x%x` (`cmn_err` level 1), and
+reads the pending mask again to loop. It returns nothing.
+- `ioc3_attach` (`6.5.30/unix.IP27`, address 0xc000000000095228): **inferred.** Attaches an IOC3 I/O chip found on a PCI bus; argument `a0` is the PCI vertex. It maps the
+chip's configuration space (`pciio_pio_addr(vertex, 0, 7,
+0, 0x48, &map1, 0)`) and its memory space
+(`pciio_pio_addr(vertex, 0, 8,
+0, 0x20180, &map2, 0)`); a failure prints
+`%v/ioc3: unable to get PIO mapping for my CFG space` or `... MEM space` (`cmn_err` level 1, freeing the first map with
+`pciio_piomap_free` in the second case) and returns -1. It finds the `.host` and `.guest` parents of the vertex (falling back to the vertex itself) and creates an
+`ioc3` vertex with edges from both. It allocates the 0xb48-byte soft record (`kmem_zalloc`), initialises the lock `is_ir_lock` and fills it (new vertex +0, host +4, guest
++8, config map +16, memory map +24), attaches it as fastinfo and makes it the console chip (the global at 0xc0000000014d2c88) when both `hub_check_pci_equiv` calls match
+the console configuration and memory values. It registers the error handler with `pciio_error_register` on both parents, writes the PCI command register (config offset 4
+ORed with 0x8146, bits for I/O, memory, bus master, parity and SERR), sets chip registers at memory base +0x28 to 0x7ae5e and +0x34 to 0xc0 and config +0xc to 0xff00,
+clears all interrupt enables with `ioc3_write_ireg(soft, -1, 1)`, sets the register at +0x1c to 0xffffffff, and tests the vertex name with
+`strstr` for `Ibrick/xtalk/15/pci/4` (the "console" chip: sets the byte at +2885 to 1 and calls `ioc3_subdev_enables(vertex, 0x91)`), `baseio` and `menet`, otherwise
+reading the board NIC with `nic_ioc3_vertex_info`. It sets the interrupt target (+32 doubleword to 0 and the halfword at +40 to the running CPU) when the helper at
+0xc0000000000962d4 returns 0, builds a device descriptor for the interrupt (`device_desc_dup`, flag bit 4 added, software level 0, name `IOC3 UART`), allocates the
+interrupt with `pciio_intr_alloc` (class 2 when the host is the guest and sub-device 0 is enabled, or when the NIC string contains `030-1657-` or `030-1664-`, otherwise
+1; a failure is `cmn_err(0, "%v: ioc3_attach: unable to allocate interrupt")`), connects it to `ioc3_intr` (`pciio_intr_connect`), records the CPU it landed on
+(`pciio_intr_cpu_get`, `cpuvertex_to_cpuid`, halfwords at +40 and +42), warns with `Request to target IOC3 interrupts to CPU %d could not be satisfied` (level 4) when
+they differ and then calls `ioc3_serial_attach(guest)` and `pckm_attach(guest)`. For the console chip it sets the global `console_device_attached` to 1. It returns 0 on
+success and -1 on the mapping failures. The condition on which a requested CPU is honoured was decoded from the decompiler output and checked against the compare at
+0x95540 only.
