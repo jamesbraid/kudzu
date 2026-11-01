@@ -1129,3 +1129,44 @@ has a zero doubleword stored through it. The routine calls `xtalk_piotrans_addr(
 `xtalk_piomap_alloc(a0, a1, a2, a3, a3, a5)` (the fifth argument is a copy of a3), and a zero result returns zero. It then calls `xtalk_piomap_addr(map, a2, a3)`. A zero result calls `xtalk_piomap_free(map)` and
 returns zero. A non-zero result is stored through a4 as the map when a4 is non-null (as a doubleword), and the routine returns the address. When a4 is null the map is neither
 freed nor returned. No branch-likely instruction. **Established.**
+- `pcibr_error_extract` (`6.5.30/unix.IP30`, occupies 120 bytes at address 0xa80000002004cab0): finds the slot a Bridge error address belongs to. a0 is a vertex, and a1 and a2 are two values
+saved at sp+16 and sp+24 and passed on. It calls `hwgraph_info_get_LBL(a0, "_pcibr_asic_rev", &value)`. A non-zero return gives 255 (the `addiu` is in the delay slot, so 255 is set on both paths and
+the fall-through returns it). Otherwise `hwgraph_fastinfo_get(a0)` gives the soft-state record, and a null record returns 255.
+Otherwise `pcireg_pci_bus_addr_get(record)` is called and its result goes to `pcibr_addr_toslot(record, that result, a1, a2, 0)`; the answer ANDed with 0xff is returned. No branch-likely instruction. **Established.**
+- `ioc3_is_io7` (`6.5.30/unix.IP30`, occupies 64 bytes at address 0xa800000020061428): reads one flag byte from an IOC3's
+soft-state record. a0 is the PCI device vertex. `hwgraph_traverse(a0, "ioc3", &result)` is called; a non-zero return makes the routine return 0 (the
+zero is set in the delay slot of the branch). Otherwise `hwgraph_fastinfo_get` of the vertex written to the result gives the record, and the
+routine returns the byte at record +2880, zero-extended (the load is in the delay slot of the final jump to the exit). No branch-likely instruction. **Established.**
+- `ioc3_is_console` (`6.5.30/unix.IP30`, occupies 88 bytes at address 0xa8000000200613d0): says whether an IOC3 is the one that
+carries the console. a0 is the PCI device vertex. It first loads the doubleword at 0xa8000000204ae538 (a variable with no symbol of its
+own; the nearest symbol below it is `usrpci_lock`); zero returns 0. Otherwise `hwgraph_traverse(a0, "ioc3", &result)` runs and a non-zero
+return gives 0. Otherwise `hwgraph_fastinfo_get` of the vertex written to the result gives the soft-state record, which is compared (64-bit xor, then `sltiu` with 1)
+with the doubleword at 0xa8000000204ae538, read again. The routine returns 1 when they are equal and 0 otherwise. No branch-likely instruction. **Established.**
+- `heart_intr_disconnect` (`6.5.30/unix.IP30`, occupies 112 bytes at address 0xa80000002003fb9c): the reverse of
+`heart_intr_connect`. a0 is the interrupt descriptor, saved at sp+0: the doubleword at +24 is the hook (s0), the byte at +5 the level (s3) and the
+halfword at +36 the first argument of the mask routine. It calls `heart_imr_bits_rmw(halfword, 1 << level, 0)` (a variable 64-bit shift in the delay slot), which clears the
+level's mask bit. It then rewrites the `heart_ivec` entry for the level (64 bytes apart, base through the pointer at 0xa8000000204a9720): the level is stored at entry +8 and the pointer at 0xa8000000204a9738,
+which holds the address of `heart_stray_intr` (0xa80000002003ec1c), is stored at entry +0 (the second store is in the delay slot of the
+test of the hook). If the hook is non-zero it is called with the descriptor as its argument and its result is returned; otherwise the result of `heart_imr_bits_rmw` is returned. No branch-likely
+instruction. **Established.**
+- `heart_intr_swlevel_to_hwlevel` (`6.5.30/unix.IP30`, occupies 84 bytes at address 0xa80000002003ea74): classifies a software
+interrupt level into one of three hardware levels. The only argument is a0, compared as a signed number with two kernel words,
+`swlevel_thread_hi` (0xa8000000204a776c) and `swlevel_thread_med` (0xa8000000204a7770). A negative a0 calls `cmn_err(0, "heart: unable to allocate level %d
+interrupt\n", a0)` and returns -1; the fourth argument register holds the value of `swlevel_thread_med`, which the text does not use. Otherwise it returns 2 when a0 is not below the first word, 0 when a0 is below the second word and 1
+otherwise (so values from the second word up to, not including, the first give 1). No branch-likely instruction. **Established.**
+- `heart_addr_xio_to_kva` (`6.5.30/unix.IP30`, occupies 56 bytes at address 0xa80000002003f290): the same as
+`heart_addr_xio_to_phys`, with the result placed in the uncached kernel window. It calls that routine with a0, a1 and a2 unchanged. A zero result is returned as zero. Any other result is ORed with
+0x9000000000000000 (the constant is -7 shifted left by 60 with `dsll32`) and returned. No branch-likely instruction. **Established.**
+- `pcibr_piomap_probe` (`6.5.30/unix.IP30`, occupies 80 bytes at address 0xa8000000200501c8): tries a read through a
+Bridge PIO map and says whether it faulted. a0 is the map record, a1 an offset, a2 a length and a3 an output pointer. The doubleword at +24 is the map's
+size; when offset plus length is above it (unsigned compare) the routine returns -1. Otherwise it calls the static routine at 0xa800000020050218
+(the symbol table puts it under `pcibr_piomap_probe`) with a0 = the doubleword at +8 of the structure the doubleword at map +64 points to, a1 = the doubleword at map +32 plus the offset, a2
+and a3 unchanged and a6 and a7 left as -1 and the map. The result is returned. That helper returns -1 for a length other than 1, 2, 4 or 8, or for an address that is not aligned to the length; otherwise it
+calls the unlabelled routine at 0xa80000002005032c, then `badaddr_val(address, length, a3)`, then `pcireg_intr_reset_set(a0, 64)`, then the unlabelled routine at 0xa800000020050380 when the first call returned non-zero, and returns 1 when
+`badaddr_val` reported a fault and 0 when it did not (`sltu` of zero below the value). No branch-likely instruction in either. **Established.**
+- `pcibr_map` (`6.5.30/unix.IP30`, occupies 204 bytes at address 0xa8000000200430ec): maps a window of a Bridge's PCI space into the
+caller's address space. a0 is a PCI vertex, a1 a map argument, a2 an offset and a3 a length. It gets the connection point with `hwgraph_connectpt_get(a0)`, the Bridge soft-state record with `hwgraph_fastinfo_get`,
+loads the doubleword at +8 of the record (the window base) and drops the vertex reference with `hwgraph_vertex_unref`. The length is rounded up to a multiple of 16 KB ((a3 + 16383) AND -16384, saved at sp+0). It then calls
+`v_mapphys(a1, a2 + base, rounded length, a3)` where the fourth argument register still holds the mask -16384. The result is kept in s0. When the halfword at record +114 (the chip kind) is non-zero, or when the result is non-zero, the
+routine returns the result. For kind 0 with a zero result, it calls `pcireg_control_bit_set(record, 0x80000000, kind)` (0x8000 shifted left by 16 in the delay slot) when the offset a2 equals 0xc00000 or the rounded length is
+above 0xc00000, and in every case it returns the `v_mapphys` result. No branch-likely instruction. **Established.**
