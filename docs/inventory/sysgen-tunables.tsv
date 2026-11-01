@@ -1,0 +1,614 @@
+release	module	block	class	name	condition	default	minimum	maximum	form	values	IP27	IP30	IP35	status	source
+6.5.22	autofs	autofs	run	autofs_logging	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/autofs:33
+6.5.22	bsd	net_ip6	static	ip6_enable	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/bsd:27
+6.5.22	bsd	net_ip6	static	auto_tunnel_enable	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/bsd:32
+6.5.22	bsd	net_ip6	static	nsit	-	1	0	16	bounded	1 0 16	yes	yes	yes	located	mtune/bsd:33
+6.5.22	bsd	inpcb	static	tcp_hashtablesz	-	0	0	262144	bounded	0 0 262144	yes	yes	yes	located	mtune/bsd:47
+6.5.22	bsd	inpcb	static	udp_hashtablesz	-	0	0	65536	bounded	0 0 65536	yes	yes	yes	located	mtune/bsd:48
+6.5.22	bsd	network	static	netthread_float	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/bsd:63
+6.5.22	bsd	network	static	config_tunnel_enable	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/bsd:69
+6.5.22	bsd	network	static	ngif	-	4	0	64	bounded	4 0 64	yes	yes	yes	located	mtune/bsd:70
+6.5.22	bsd	net_ip	run	icmp_dropredirects	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/bsd:121
+6.5.22	bsd	net_ip	run	icmp_respond_to_address_mask	-	1	0	1	bounded	1 0 1	yes	yes	yes	located	mtune/bsd:122
+6.5.22	bsd	net_ip	run	icmp_respond_to_timestamp	-	1	0	1	bounded	1 0 1	yes	yes	yes	located	mtune/bsd:123
+6.5.22	bsd	net_ip	run	ipfilterd_inactive_behavior	-	1	0	1	bounded	1 0 1	yes	yes	yes	located	mtune/bsd:125
+6.5.22	bsd	net_ip	run	ipforwarding	MINIROOT	0	0	2	bounded	0 0 2	yes	yes	yes	located	mtune/bsd:127
+6.5.22	bsd	net_ip	run	ipforwarding	NOT_MINIROOT	1	0	2	bounded	1 0 2	yes	yes	yes	located	mtune/bsd:128
+6.5.22	bsd	net_ip	run	ip6forwarding	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/bsd:141
+6.5.22	bsd	net_ip	run	ip6forwsrcrt	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/bsd:143
+6.5.22	bsd	net_ip	run	ip6_maxfragpackets	-	1024	0	4096	bounded	1024 0 4096	yes	yes	yes	located	mtune/bsd:145
+6.5.22	bsd	net_ip	run	ip6_maxheaders	-	64	16	64	bounded	64 16 64	yes	yes	yes	located	mtune/bsd:147
+6.5.22	bsd	net_ip	run	ipsendredirects	MINIROOT	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/bsd:156
+6.5.22	bsd	net_ip	run	ipsendredirects	NOT_MINIROOT	1	0	1	bounded	1 0 1	yes	yes	yes	located	mtune/bsd:157
+6.5.22	bsd	net_ip	run	ipdirected_broadcast	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/bsd:166
+6.5.22	bsd	net_ip	run	ip_nolgpg_brkup	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/bsd:179
+6.5.22	bsd	net_ip	run	allow_brdaddr_srcaddr	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/bsd:188
+6.5.22	bsd	net_ip	run	ip_allow_frag_bcast	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/bsd:196
+6.5.22	bsd	net_ip	run	ipv4_strict_reassembly	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/bsd:215
+6.5.22	bsd	net_ip	run	ipv4_frag_timeout	-	30	1	30	bounded	30 1 30	yes	yes	yes	located	mtune/bsd:227
+6.5.22	bsd	net_ip	run	subnetsarelocal	-	1	0	1	bounded	1 0 1	yes	yes	yes	located	mtune/bsd:243
+6.5.22	bsd	net_ip	run	tcpiss_md5	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/bsd:257
+6.5.22	bsd	net_ip	run	tcpiss_md5_secret_lo	-	0	0	0	bounded	0 0 0 LL	yes	yes	yes	located	mtune/bsd:262
+6.5.22	bsd	net_ip	run	tcpiss_md5_secret_hi	-	0	0	0	bounded	0 0 0 LL	yes	yes	yes	located	mtune/bsd:263
+6.5.22	bsd	net_mbuf	static	mbmaxpages	32	0	16	8192	bounded	0 16 8192	yes	yes	yes	located	mtune/bsd:275
+6.5.22	bsd	net_mbuf	static	mbmaxpages	64	0	16	2097152	bounded	0 16 2097152	yes	yes	yes	located	mtune/bsd:276
+6.5.22	bsd	net_mbuf	static	mbretain	-	20	2	1024	bounded	20 2 1024	yes	yes	yes	located	mtune/bsd:291
+6.5.22	bsd	net_rsvp	static	ps_enabled	-	1	0	1	bounded	1 0 1	yes	yes	yes	located	mtune/bsd:317
+6.5.22	bsd	net_rsvp	static	ps_rsvp_bandwidth	-	50	1	100	bounded	50 1 100	yes	yes	yes	located	mtune/bsd:318
+6.5.22	bsd	net_rsvp	static	ps_num_batch_pkts	-	0	1	100	bounded	0 1 100	yes	yes	yes	located	mtune/bsd:319
+6.5.22	bsd	net_tcp	run	tcp_ttl	-	60	1	255	bounded	60 1 255	yes	yes	yes	located	mtune/bsd:329
+6.5.22	bsd	net_tcp	run	tcp_keepidle	-	7200	600	86400	bounded	7200 600 86400	yes	yes	yes	located	mtune/bsd:335
+6.5.22	bsd	net_tcp	run	tcp_keepintvl	-	75	1	86400	bounded	75 1 86400	yes	yes	yes	located	mtune/bsd:341
+6.5.22	bsd	net_tcp	run	tcp_maxpersistidle	-	7200	60	86400	bounded	7200 60 86400	yes	yes	yes	located	mtune/bsd:352
+6.5.22	bsd	net_tcp	run	tcp_mtudisc	-	1	0	1	bounded	1 0 1	yes	yes	yes	located	mtune/bsd:362
+6.5.22	bsd	net_tcp	run	tcp_mss_min	-	32	32	1500	bounded	32 32 1500	yes	yes	yes	located	mtune/bsd:369
+6.5.22	bsd	net_tcp	run	tcp_2msl	-	60	1	240	bounded	60 1 240	yes	yes	yes	located	mtune/bsd:376
+6.5.22	bsd	net_tcp	run	tcprexmtthresh	-	3	1	16	bounded	3 1 16	yes	yes	yes	located	mtune/bsd:383
+6.5.22	bsd	net_tcp	run	tcp_sack	-	1	0	1	bounded	1 0 1	yes	yes	yes	located	mtune/bsd:388
+6.5.22	bsd	net_tcp	run	tcp_keepstyle	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/bsd:398
+6.5.22	bsd	net_tcp	run	tcp_sendspace	-	61440	2048	134217728	bounded	61440 2048 134217728	yes	yes	yes	located	mtune/bsd:403
+6.5.22	bsd	net_tcp	run	tcp_recvspace	-	61440	2048	134217728	bounded	61440 2048 134217728	yes	yes	yes	located	mtune/bsd:404
+6.5.22	bsd	net_tcp	run	tcp_gofast	-	0	0	2147483647	bounded	0 0 2147483647	yes	yes	yes	located	mtune/bsd:410
+6.5.22	bsd	net_tcp	run	tcp_stretch_ack_interval	-	8	2	8	bounded	8 2 8	yes	yes	yes	located	mtune/bsd:419
+6.5.22	bsd	net_tcp	run	tcp_agak_hysteresis_hi	-	1000	32	100000	bounded	1000 32 100000	yes	yes	yes	located	mtune/bsd:424
+6.5.22	bsd	net_tcp	run	tcp_timestamps	-	1	0	1	bounded	1 0 1	yes	yes	yes	located	mtune/bsd:430
+6.5.22	bsd	net_tcp	run	tcp_zaptw_secs	-	2	1	120	bounded	2 1 120	yes	yes	yes	located	mtune/bsd:435
+6.5.22	bsd	net_tcp	run	tcp_pcb_cache	-	0	0	65536	bounded	0 0 65536	yes	yes	yes	located	mtune/bsd:439
+6.5.22	bsd	net_tcp	run	tcp_rfc2414	-	1	1	4	bounded	1 1 4	yes	yes	yes	located	mtune/bsd:447
+6.5.22	bsd	net_tcp	run	tcp_last_ack_cnt	-	0	0	1000000	bounded	0 0 1000000	yes	yes	yes	located	mtune/bsd:454
+6.5.22	bsd	net_tcp	run	tcp_drop_SYN_with_extra_flags	-	0	0	2	bounded	0 0 2	yes	yes	yes	located	mtune/bsd:466
+6.5.22	bsd	net_udp	run	udp_ttl	-	60	1	255	bounded	60 1 255	yes	yes	yes	located	mtune/bsd:476
+6.5.22	bsd	net_udp	run	udp_sendspace	-	61440	2048	134217728	bounded	61440 2048 134217728	yes	yes	yes	located	mtune/bsd:479
+6.5.22	bsd	net_udp	run	udp_recvgrams	-	2	1	16	bounded	2 1 16	yes	yes	yes	located	mtune/bsd:482
+6.5.22	bsd	net_udp	run	arpreq_alias	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/bsd:488
+6.5.22	bsd	net_udp	run	vfe_ldtmr	-	144	80	512	bounded	144 80 512	yes	yes	yes	located	mtune/bsd:491
+6.5.22	bsd	net_udp	run	log_snoop_or_drain	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/bsd:503
+6.5.22	bsd	net_udp	run	udp_so_no_check	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/bsd:511
+6.5.22	bsd	net_udp	run	lomtu	-	0	0	2147483647	bounded	0 0 2147483647	yes	yes	yes	located	mtune/bsd:526
+6.5.22	cachefs	cachefs	run	cachefs_readahead	-	1	0	10	bounded	1 0 10	yes	yes	yes	located	mtune/cachefs:36
+6.5.22	cachefs	cachefs	run	cachefs_max_threads	-	5	1	10	bounded	5 1 10	yes	yes	yes	located	mtune/cachefs:37
+6.5.22	cachefs	cachefs	run	fileheader_cache_size	-	512	0	8192	bounded	512 0 8192	yes	yes	yes	located	mtune/cachefs:38
+6.5.22	cachefs	cachefs	run	replacement_timeout	-	600	30	86400	bounded	600 30 86400	yes	yes	yes	located	mtune/cachefs:39
+6.5.22	cell	cell	static	mesg_delay_time	-	0	0	1000000	bounded	0 0 1000000	no	no	no	located	mtune/cell:27
+6.5.22	cell	cell	static	mtcp_reserve_size	-	61440	2048	1073741824	bounded	61440 2048 1073741824	no	no	no	located	mtune/cell:32
+6.5.22	cell	cell	static	mtcp_nodelay	-	1	0	1	bounded	1 0 1	no	no	no	located	mtune/cell:34
+6.5.22	cell	cell	static	mtcp_hb_period	-	500	100	12000	bounded	500 100 12000	no	no	no	located	mtune/cell:38
+6.5.22	cell	cell	static	mtcp_hb_watchdog	-	0	0	2	bounded	0 0 2	no	no	no	located	mtune/cell:46
+6.5.22	cell	cell	static	cxfs_shutdown_time	-	50	0	6000	bounded	50 0 6000	no	no	no	located	mtune/cell:50
+6.5.22	cell	cell	static	cxfs_speculative_token	-	1	0	1	bounded	1 0 1	no	no	no	located	mtune/cell:54
+6.5.22	cell	cell	run	mtcp_mesg_validate	-	0	0	4	bounded	0 0 4	no	no	no	located	mtune/cell:67
+6.5.22	cell	cell	run	cms_reset_timeout	-	0	0	10000	bounded	0 0 10000	no	no	no	located	mtune/cell:75
+6.5.22	cell	cell	run	cms_reset_timeout_action	-	0	0	2	bounded	0 0 2	no	no	no	located	mtune/cell:86
+6.5.22	cell	cell	run	cms_fence_timeout	-	0	0	10000	bounded	0 0 10000	no	no	no	located	mtune/cell:94
+6.5.22	cell	cell	run	cms_fence_timeout_action	-	0	0	2	bounded	0 0 2	no	no	no	located	mtune/cell:105
+6.5.22	cell	cell	run	cms_reset_error_override	-	0	0	1	bounded	0 0 1	no	no	no	located	mtune/cell:112
+6.5.22	cxfs	cxfs	run	cxfs_relocation_ok	-	0	0	1	bounded	0 0 1	no	no	no	located	mtune/cxfs:33
+6.5.22	cxfs	cxfs	run	cxfsd_min	-	16	0	256	bounded	16 0 256	no	no	no	located	mtune/cxfs:49
+6.5.22	cxfs	cxfs	run	cxfsd_max	-	16	1	2048	bounded	16 1 2048	no	no	no	located	mtune/cxfs:56
+6.5.22	cxfs	cxfs	run	cxfs_dcvn_timeout	-	60	5	3600	bounded	60 5 3600	no	no	no	located	mtune/cxfs:64
+6.5.22	disp	disp	static	slice_size	-	0	1	100	bounded	0 1 100	yes	yes	yes	located	mtune/disp:38
+6.5.22	disp	disp	static	memaff_sched	-	1	0	1	bounded	1 0 1	yes	yes	yes	located	mtune/disp:39
+6.5.22	disp	disp	static	gang_sched_off	-	1	0	1	bounded	1 0 1	yes	yes	yes	located	mtune/disp:40
+6.5.22	disp	disp	static	rtcpus	-	0	0	512	bounded	0 0 512	yes	yes	yes	located	mtune/disp:41
+6.5.22	disp	disp	run	runq_waittime	-	8	0	1000000	bounded	8 0 1000000	yes	yes	yes	located	mtune/disp:47
+6.5.22	disp	disp	run	nonpreempts	-	32	0	256	bounded	32 0 256	yes	yes	yes	located	mtune/disp:48
+6.5.22	dms	dms	static	dms_always_use_lomem	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/dms:34
+6.5.22	efs	efs	run	efs_inline	-	0	-	-	default	0	yes	yes	yes	located	mtune/efs:29
+6.5.22	failover	failover	static	fo_maximum_paths	-	32	4	128	bounded	32 4 128	yes	yes	yes	located	mtune/failover:31
+6.5.22	gfx	gfx	static	gfxlockablemem	-	20	0	100	bounded	20 0 100	yes	yes	yes	located	mtune/gfx:39
+6.5.22	gfx	gfx	static	gfxlockablemem_gt64	-	50	0	100	bounded	50 0 100	yes	yes	yes	located	mtune/gfx:40
+6.5.22	gfx	gfx	static	gfxdmasleepthreshold	-	0	-	-	two-values	0 0	yes	yes	yes	located	mtune/gfx:41
+6.5.22	gfx	gfx	static	gfxupdatedmousehandling	-	1	0	1	bounded	1 0 1	yes	yes	yes	located	mtune/gfx:42
+6.5.22	grio2	grio2	run	min_volume_bandwidth	-	65536	65536	1048576	bounded	65536 65536 1048576	no	no	no	located	mtune/grio2:32
+6.5.22	grio2	grio2	run	token_bucket_size	-	2000	100	4000	bounded	2000 100 4000	no	no	no	located	mtune/grio2:45
+6.5.22	grio2	grio2	run	scheduler_rate	-	20	10	100	bounded	20 10 100	no	no	no	located	mtune/grio2:52
+6.5.22	if_ec2	if_ec2	run	ec_ipg_delay	-	0	0	24	bounded	0 0 24	no	no	no	located	mtune/if_ec2:34
+6.5.22	if_ec2	if_ec2	run	ec_xpg_delay	-	0	0	50	bounded	0 0 50	no	no	no	located	mtune/if_ec2:40
+6.5.22	if_ec2	if_ec2	run	ec_16coll_retry	-	2	0	5	bounded	2 0 5	no	no	no	located	mtune/if_ec2:47
+6.5.22	if_ec2	if_ec2	run	ec_rcv_desc	-	30	10	63	bounded	30 10 63	no	no	no	located	mtune/if_ec2:53
+6.5.22	if_ec2	if_ec2	run	ec_rcv_promisc	-	63	10	63	bounded	63 10 63	no	no	no	located	mtune/if_ec2:54
+6.5.22	if_ptr	if_ptr	run	mtr_max_rx_slots	-	16	8	32	bounded	16 8 32	yes	yes	yes	located	mtune/if_ptr:30
+6.5.22	if_ptr	if_ptr	run	mtr_max_tx_slots	-	16	8	32	bounded	16 8 32	yes	yes	yes	located	mtune/if_ptr:31
+6.5.22	if_ptr	if_ptr	run	mtr_bc_mask	-	0x8000	-	-	default	0x8000	yes	yes	yes	located	mtune/if_ptr:43
+6.5.22	if_ptr	if_ptr	run	mtr_mtu	-	4472	-	-	default	4472	yes	yes	yes	located	mtune/if_ptr:54
+6.5.22	if_ptr	if_ptr	run	mtr_batype	-	2	-	-	default	2	yes	yes	yes	located	mtune/if_ptr:67
+6.5.22	if_ptr	if_ptr	run	mtr_participant_claim_token	-	1	-	-	default	1	yes	yes	yes	located	mtune/if_ptr:70
+6.5.22	if_ptr	if_ptr	run	mtr_arb_enabled	-	1	-	-	default	1	yes	yes	yes	located	mtune/if_ptr:71
+6.5.22	if_ptr	if_ptr	run	mtr_s16Mb	-	1	-	-	default	1	yes	yes	yes	located	mtune/if_ptr:78
+6.5.22	jlimits	joblimits	static	jlimit_cpu_cur	-	0x7fffffffffffffff	0	0x7fffffffffffffff	bounded	0x7fffffffffffffff 0 0x7fffffffffffffff ll	yes	yes	yes	located	mtune/jlimits:27
+6.5.22	jlimits	joblimits	static	jlimit_cpu_max	-	0x7fffffffffffffff	0	0x7fffffffffffffff	bounded	0x7fffffffffffffff 0 0x7fffffffffffffff ll	yes	yes	yes	located	mtune/jlimits:28
+6.5.22	jlimits	joblimits	static	jlimit_data_cur	-	0x7fffffffffffffff	0	0x7fffffffffffffff	bounded	0x7fffffffffffffff 0 0x7fffffffffffffff ll	yes	yes	yes	located	mtune/jlimits:29
+6.5.22	jlimits	joblimits	static	jlimit_data_max	-	0x7fffffffffffffff	0	0x7fffffffffffffff	bounded	0x7fffffffffffffff 0 0x7fffffffffffffff ll	yes	yes	yes	located	mtune/jlimits:30
+6.5.22	jlimits	joblimits	static	jlimit_vmem_cur	-	0x7fffffffffffffff	0	0x7fffffffffffffff	bounded	0x7fffffffffffffff 0 0x7fffffffffffffff ll	yes	yes	yes	located	mtune/jlimits:31
+6.5.22	jlimits	joblimits	static	jlimit_vmem_max	-	0x7fffffffffffffff	0	0x7fffffffffffffff	bounded	0x7fffffffffffffff 0 0x7fffffffffffffff ll	yes	yes	yes	located	mtune/jlimits:32
+6.5.22	jlimits	joblimits	static	jlimit_rss_cur	-	0x7fffffffffffffff	0	0x7fffffffffffffff	bounded	0x7fffffffffffffff 0 0x7fffffffffffffff ll	yes	yes	yes	located	mtune/jlimits:33
+6.5.22	jlimits	joblimits	static	jlimit_rss_max	-	0x7fffffffffffffff	0	0x7fffffffffffffff	bounded	0x7fffffffffffffff 0 0x7fffffffffffffff ll	yes	yes	yes	located	mtune/jlimits:34
+6.5.22	jlimits	joblimits	static	jlimit_nofile_cur	-	0x7fffffffffffffff	40	0x7fffffffffffffff	bounded	0x7fffffffffffffff 40 0x7fffffffffffffff ll	yes	yes	yes	located	mtune/jlimits:35
+6.5.22	jlimits	joblimits	static	jlimit_nofile_max	-	0x7fffffffffffffff	0	0x7fffffffffffffff	bounded	0x7fffffffffffffff 0 0x7fffffffffffffff ll	yes	yes	yes	located	mtune/jlimits:36
+6.5.22	jlimits	joblimits	static	jlimit_pthread_cur	-	0x7fffffffffffffff	1	0x7fffffffffffffff	bounded	0x7fffffffffffffff 1 0x7fffffffffffffff ll	yes	yes	yes	located	mtune/jlimits:37
+6.5.22	jlimits	joblimits	static	jlimit_pthread_max	-	0x7fffffffffffffff	1	0x7fffffffffffffff	bounded	0x7fffffffffffffff 1 0x7fffffffffffffff ll	yes	yes	yes	located	mtune/jlimits:38
+6.5.22	jlimits	joblimits	static	jlimit_numproc_cur	-	0x7fffffffffffffff	1	0x7fffffffffffffff	bounded	0x7fffffffffffffff 1 0x7fffffffffffffff ll	yes	yes	yes	located	mtune/jlimits:39
+6.5.22	jlimits	joblimits	static	jlimit_numproc_max	-	0x7fffffffffffffff	1	0x7fffffffffffffff	bounded	0x7fffffffffffffff 1 0x7fffffffffffffff ll	yes	yes	yes	located	mtune/jlimits:40
+6.5.22	jlimits	joblimits	static	jlimit_pmem_cur	-	0x7fffffffffffffff	0	0x7fffffffffffffff	bounded	0x7fffffffffffffff 0 0x7fffffffffffffff ll	yes	yes	yes	located	mtune/jlimits:41
+6.5.22	jlimits	joblimits	static	jlimit_pmem_max	-	0x7fffffffffffffff	0	0x7fffffffffffffff	bounded	0x7fffffffffffffff 0 0x7fffffffffffffff ll	yes	yes	yes	located	mtune/jlimits:42
+6.5.22	jlimits	joblimitsign	run	jlimit_cpu_ign	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/jlimits:62
+6.5.22	jlimits	joblimitsign	run	jlimit_data_ign	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/jlimits:63
+6.5.22	jlimits	joblimitsign	run	jlimit_vmem_ign	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/jlimits:64
+6.5.22	jlimits	joblimitsign	run	jlimit_rss_ign	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/jlimits:65
+6.5.22	jlimits	joblimitsign	run	jlimit_nofile_ign	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/jlimits:66
+6.5.22	jlimits	joblimitsign	run	jlimit_pthread_ign	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/jlimits:67
+6.5.22	jlimits	joblimitsign	run	jlimit_numproc_ign	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/jlimits:68
+6.5.22	jlimits	joblimitsign	run	jlimit_pmem_ign	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/jlimits:69
+6.5.22	kdsp	kdsp	static	kdsp_pro_audio_subcode	-	2	0	2	bounded	2 0 2	yes	yes	yes	located	mtune/kdsp:31
+6.5.22	kernel	switch	static	nosuidshells	-	1	-	-	default	1	no	no	no	located	mtune/kernel:169
+6.5.22	kernel	switch	static	restricted_chown	-	0	-	-	default	0	no	no	no	located	mtune/kernel:170
+6.5.22	kernel	switch	static	posix_tty_default	-	0	-	-	default	0	no	no	no	located	mtune/kernel:171
+6.5.22	kernel	switch	static	use_old_serialnum	-	0	-	-	default	0	no	no	no	located	mtune/kernel:172
+6.5.22	kernel	switch	static	reboot_on_panic	-	-1	-	-	default	-1	no	no	no	located	mtune/kernel:173
+6.5.22	kernel	switch	static	restrict_fastprof	-	0	-	-	default	0	no	no	no	located	mtune/kernel:174
+6.5.22	kernel	switch	static	reset_limits_on_exec	-	1	-	-	default	1	no	no	no	located	mtune/kernel:175
+6.5.22	kernel	switch	static	ip26_allow_ucmem	-	0	-	-	default	0	no	no	no	located	mtune/kernel:176
+6.5.22	kernel	switch	static	add_kthread_stack	-	0	-	-	default	0	no	no	no	located	mtune/kernel:177
+6.5.22	kernel	switch	static	xpg4_sticky_dir	-	1	-	-	default	1	no	no	no	located	mtune/kernel:178
+6.5.22	kernel	switch	static	mload_auto_rtsyms	-	1	-	-	default	1	no	no	no	located	mtune/kernel:179
+6.5.22	kernel	switch	static	disable_ip25_check	-	0	-	-	default	0	no	no	no	located	mtune/kernel:180
+6.5.22	kernel	switch	static	prod_assertion_level	-	0	0	100	bounded	0 0 100	no	no	no	located	mtune/kernel:181
+6.5.22	kernel	switch	static	disable_r10k_log	-	0	-	-	default	0	no	no	no	located	mtune/kernel:182
+6.5.22	kernel	switch	static	r10k_halt_1st_cache_err	-	0	-	-	default	0	no	no	no	located	mtune/kernel:183
+6.5.22	kernel	switch	static	r10k_cache_debug	-	0	-	-	default	0	no	no	no	located	mtune/kernel:184
+6.5.22	kernel	switch	static	perfcnt_arch_swtch_sig	-	0	-	-	default	0	no	no	no	located	mtune/kernel:185
+6.5.22	kernel	switch	static	perfcnt_arch_swtch_msg	-	0	-	-	default	0	no	no	no	located	mtune/kernel:186
+6.5.22	kernel	switch	static	spec_udma_war_on	-	1	-	-	default	1	no	no	no	located	mtune/kernel:187
+6.5.22	kernel	switch	static	warbits_override	-	-1	-	-	default	-1	no	no	no	located	mtune/kernel:188
+6.5.22	kernel	switch	static	enable_pci_BIST	-	0	-	-	default	0	no	no	no	located	mtune/kernel:189
+6.5.22	kernel	switch	static	ip32_pci_enable_prefetch	-	0	-	-	default	0	no	no	no	located	mtune/kernel:190
+6.5.22	kernel	switch	static	ip32_pci_flush_prefetch	-	1	-	-	default	1	no	no	no	located	mtune/kernel:191
+6.5.22	kernel	switch	static	ignore_sysctlr_intr	-	0	-	-	default	0	no	no	no	located	mtune/kernel:192
+6.5.22	kernel	switch	static	powerfail_cleanio	-	0	-	-	default	0	no	no	no	located	mtune/kernel:193
+6.5.22	kernel	switch	static	intr_revive_delay	-	300	-	-	default	300	no	no	no	located	mtune/kernel:194
+6.5.22	kernel	switch	static	powerfail_routerwar	-	1	-	-	default	1	no	no	no	located	mtune/kernel:195
+6.5.22	kernel	switch	static	xbox_sysctlr_poll_interval	-	60	5	3600	bounded	60 5 3600	no	no	no	located	mtune/kernel:196
+6.5.22	kernel	switch	static	clean_shutdown_time	-	120	-	-	default	120	no	no	no	located	mtune/kernel:197
+6.5.22	kernel	switch	static	ignore_xsc	-	0	0	1	bounded	0 0 1	no	no	no	located	mtune/kernel:198
+6.5.22	kernel	switch	static	snerrste_pages_per_cube	-	1	1	4	bounded	1 1 4	no	no	no	located	mtune/kernel:199
+6.5.22	kernel	switch	static	xpc_override	-	0	-	-	default	0	no	no	no	located	mtune/kernel:200
+6.5.22	kernel	switch	static	origin_use_hardware_bzero	-	0	-	-	default	0	no	no	no	located	mtune/kernel:201
+6.5.22	kernel	switch	static	cpulimit_gracetime	-	0	0	86400	bounded	0 0 86400	no	no	no	located	mtune/kernel:202
+6.5.22	kernel	switch	static	ignore_isolated_cpu_warning	-	0	0	1	bounded	0 0 1	no	no	no	located	mtune/kernel:203
+6.5.22	kernel	switch	static	r10k_gfx_write_war_on	-	0	0	1	bounded	0 0 1	no	no	no	located	mtune/kernel:204
+6.5.22	kernel	switch	static	allow_chroot_with_open_dirs	-	1	-	-	two-values	1 0	no	no	no	located	mtune/kernel:205
+6.5.22	kernel	switch	static	limit_pinfo_access	-	0444	0400	0444	bounded	0444 0400 0444	no	no	no	located	mtune/kernel:206
+6.5.22	kernel	switch	run	tty_auto_strhold	-	0	-	-	default	0	no	no	no	located	mtune/kernel:210
+6.5.22	kernel	switch	run	async_udma_copy	-	1	-	-	default	1	no	no	no	located	mtune/kernel:211
+6.5.22	kernel	switch	run	ensure_no_rawio_conflicts	-	1	-	-	default	1	no	no	no	located	mtune/kernel:212
+6.5.22	kernel	switch	run	dbe_recovery	-	1	-	-	default	1	no	no	no	located	mtune/kernel:213
+6.5.22	kernel	switch	run	ip32_nvram_env_commit	-	1	-	-	default	1	no	no	no	located	mtune/kernel:214
+6.5.22	kernel	switch	run	enable_upanic	-	0	-	-	default	0	no	no	no	located	mtune/kernel:215
+6.5.22	kernel	switch	run	disable_uspollsema_chk	-	0	-	-	default	0	no	no	no	located	mtune/kernel:216
+6.5.22	kernel	switch	run	nodeslimitfrac	-	50	5	95	bounded	50 5 95	no	no	no	located	mtune/kernel:235
+6.5.22	kernel	switch	run	chunk_nodeshogfrac	-	20	1	100	bounded	20 1 100	no	no	no	located	mtune/kernel:236
+6.5.22	kernel	switch	run	nodeminfree	-	2000000	16384	-1	bounded	2000000 16384 -1 LL	no	no	no	located	mtune/kernel:237
+6.5.22	kernel	switch	run	maxfailcount	-	10	1	10000	bounded	10 1 10000	no	no	no	located	mtune/kernel:238
+6.5.22	kernel	misc	static	io4ia_userdma_war	-	1	-	-	default	1	no	no	no	located	mtune/kernel:251
+6.5.22	kernel	misc	static	ignore_conveyor_override	-	0	0	1	bounded	0 0 1	no	no	no	located	mtune/kernel:252
+6.5.22	kernel	misc	static	force_fire_and_forget	-	1	0	1	bounded	1 0 1	no	no	no	located	mtune/kernel:253
+6.5.22	kernel	misc	static	io4ia_war_enable	-	0	-	-	default	0	no	no	no	located	mtune/kernel:270
+6.5.22	kernel	misc	static	tigon2_war_enable	-	1	0	2	bounded	1 0 2	no	no	no	located	mtune/kernel:271
+6.5.22	kernel	misc	static	bpush_war_enable	-	1	0	1	bounded	1 0 1	no	no	no	located	mtune/kernel:277
+6.5.22	kernel	misc	static	bpush_source1	-	0x26	0x26	0x26	bounded	0x26 0x26 0x26	no	no	no	located	mtune/kernel:279
+6.5.22	kernel	misc	static	bpush_source2	-	0	0	0	bounded	0 0 0	no	no	no	located	mtune/kernel:281
+6.5.22	kernel	misc	static	bpush_source3	-	0	0	0	bounded	0 0 0	no	no	no	located	mtune/kernel:282
+6.5.22	kernel	misc	static	bpush_source4	-	0	0	0	bounded	0 0 0	no	no	no	located	mtune/kernel:283
+6.5.22	kernel	misc	run	r4k_div_patch	-	0	-	-	default	0	no	no	no	located	mtune/kernel:480
+6.5.22	kernel	misc	run	corepluspid	-	0	-	-	default	0	no	no	no	located	mtune/kernel:481
+6.5.22	kernel	misc	run	panic_on_sbe	-	0	-	-	default	0	no	no	no	located	mtune/kernel:482
+6.5.22	kernel	misc	run	sbe_log_errors	-	0	-	-	default	0	no	no	no	located	mtune/kernel:483
+6.5.22	kernel	misc	run	sbe_mem_verbose	-	0	-	-	default	0	no	no	no	located	mtune/kernel:484
+6.5.22	kernel	misc	run	sbe_mfr_override	-	0	-	-	default	0	no	no	no	located	mtune/kernel:485
+6.5.22	kernel	misc	run	sbe_report_cons	-	0	-	-	default	0	no	no	no	located	mtune/kernel:486
+6.5.22	kernel	misc	run	sbe_maxout	-	600	-	-	default	600	no	no	no	located	mtune/kernel:487
+6.5.22	kernel	misc	run	sbe_max_per_page	-	60	-	-	default	60	no	no	no	located	mtune/kernel:488
+6.5.22	kernel	misc	run	ecc_recover_enable	-	60	-	-	default	60	no	no	no	located	mtune/kernel:489
+6.5.22	kernel	misc	run	module_unld_delay	-	5	-	-	two-values	5 0	no	no	no	located	mtune/kernel:490
+6.5.22	kernel	misc	run	dump_level	-	4	-	-	default	4	no	no	no	located	mtune/kernel:491
+6.5.22	kernel	misc	run	dump_hub_info	-	2	0	2	bounded	2 0 2	no	no	no	located	mtune/kernel:492
+6.5.22	kernel	misc	run	disable_asyncdump	-	0	0	1	bounded	0 0 1	no	no	no	located	mtune/kernel:493
+6.5.22	kernel	misc	run	heartbeat_enable	-	0	-	-	default	0	no	no	no	located	mtune/kernel:494
+6.5.22	kernel	misc	run	craylnk_bypass_disable	-	0	-	-	default	0	no	no	no	located	mtune/kernel:495
+6.5.22	kernel	misc	run	disable_sbe_polling	-	0	0	1	bounded	0 0 1	no	no	no	located	mtune/kernel:496
+6.5.22	kernel	misc	run	rpparm_maxburst_val	-	0x24	0x1	0x3ff	bounded	0x24 0x1 0x3ff	no	no	no	located	mtune/kernel:497
+6.5.22	kernel	misc	run	mmap_async_write	-	0	0	1	bounded	0 0 1	no	no	no	located	mtune/kernel:498
+6.5.22	kernel	misc	run	r10k_intervene	-	1	-	-	default	1	no	no	no	located	mtune/kernel:499
+6.5.22	kernel	misc	run	r10k_progress_nmi	-	0	-	-	default	0	no	no	no	located	mtune/kernel:500
+6.5.22	kernel	misc	run	r10k_check_count	-	30000	-	-	default	30000	no	no	no	located	mtune/kernel:501
+6.5.22	kernel	misc	run	r10k_progress_diff	-	200000000	0	0x7fffffffffffffff	bounded	200000000 0 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:502
+6.5.22	kernel	misc	run	ip32_pio_predelay	-	5	-	-	two-values	5 0	no	no	no	located	mtune/kernel:503
+6.5.22	kernel	misc	run	ip32_pio_postdelay	-	5	-	-	two-values	5 0	no	no	no	located	mtune/kernel:504
+6.5.22	kernel	misc	run	crime_rev	-	0	0x100	0xff	bounded	0 0x100 0xff	no	no	no	located	mtune/kernel:505
+6.5.22	kernel	misc	run	cpu_prid	-	0	0x100	0xff	bounded	0 0x100 0xff	no	no	no	located	mtune/kernel:506
+6.5.22	kernel	misc	run	max_shared_reg_refcnt	-	4	-	-	two-values	4 1	no	no	no	located	mtune/kernel:507
+6.5.22	kernel	misc	run	peer_peer_dma	-	0	-	-	default	0	no	no	no	located	mtune/kernel:508
+6.5.22	kernel	misc	run	counter_intr_panic	-	0	-	-	default	0	no	no	no	located	mtune/kernel:509
+6.5.22	kernel	misc	run	hub_intr_wakeup_cnt	-	1	1	0x7000	bounded	1 1 0x7000	no	no	no	located	mtune/kernel:510
+6.5.22	kernel	misc	run	evdev_intr_wakeup_cnt	-	1	1	0x7000	bounded	1 1 0x7000	no	no	no	located	mtune/kernel:511
+6.5.22	kernel	misc	run	pci_user_dma_max_pages	-	128	-	-	two-values	128 1	no	no	no	located	mtune/kernel:512
+6.5.22	kernel	misc	run	fpcsr_fs_bit	-	1	0	1	bounded	1 0 1	no	no	no	located	mtune/kernel:513
+6.5.22	kernel	misc	run	mrlock_starve_threshold	-	3	0	10	bounded	3 0 10	no	no	no	located	mtune/kernel:514
+6.5.22	kernel	misc	run	mrlock_behavior	-	3	0	3	bounded	3 0 3	no	no	no	located	mtune/kernel:515
+6.5.22	kernel	misc	run	coremask	-	0	0	0177	bounded	0 0 0177	no	no	no	located	mtune/kernel:516
+6.5.22	kernel	misc	run	usb_discovery_verbose	-	0	0	1	bounded	0 0 1	no	no	no	located	mtune/kernel:517
+6.5.22	kernel	misc	run	pcmouse_mode	-	0	0	2	bounded	0 0 2	no	no	no	located	mtune/kernel:518
+6.5.22	kernel	misc	run	nomem_report_cons	-	0	0	1	bounded	0 0 1	no	no	no	located	mtune/kernel:519
+6.5.22	kernel	misc	run	pcibr_prefetch_enable_rev	-	3	-	-	default	3	no	no	no	located	mtune/kernel:526
+6.5.22	kernel	misc	run	pcibr_wg_enable_rev	-	4	-	-	default	4	no	no	no	located	mtune/kernel:529
+6.5.22	kernel	misc	run	bridge_rev_b_data_check_disable	-	0	-	-	default	0	no	no	no	located	mtune/kernel:533
+6.5.22	kernel	misc	run	full_fru_analysis	-	1	-	-	default	1	no	no	no	located	mtune/kernel:536
+6.5.22	kernel	misc	run	fru_disable_confidence	-	90	-	-	default	90	no	no	no	located	mtune/kernel:538
+6.5.22	kernel	misc	run	disable_bte	-	0	-	-	default	0	no	no	no	located	mtune/kernel:542
+6.5.22	kernel	misc	run	disable_bte_pbcopy	-	64	-	-	default	64	no	no	no	located	mtune/kernel:543
+6.5.22	kernel	misc	run	disable_bte_pbzero	-	64	-	-	default	64	no	no	no	located	mtune/kernel:544
+6.5.22	kernel	misc	run	disable_bte_poison_range	-	0	-	-	default	0	no	no	no	located	mtune/kernel:545
+6.5.22	kernel	misc	run	iio_icmr_precise	-	1	-	-	default	1	no	no	no	located	mtune/kernel:549
+6.5.22	kernel	misc	run	iio_icmr_c_cnt	-	6	-	-	default	6	no	no	no	located	mtune/kernel:550
+6.5.22	kernel	misc	run	iio_bte_crb_count	-	2	-	-	default	2	no	no	no	located	mtune/kernel:551
+6.5.22	kernel	misc	run	iio_ictp	-	0x800	-	-	default	0x800	no	no	no	located	mtune/kernel:552
+6.5.22	kernel	misc	run	iio_icto	-	0xff	-	-	default	0xff	no	no	no	located	mtune/kernel:553
+6.5.22	kernel	misc	run	la_trigger_nasid1	-	-1	-	-	default	-1	no	no	no	located	mtune/kernel:554
+6.5.22	kernel	misc	run	la_trigger_nasid2	-	-1	-	-	default	-1	no	no	no	located	mtune/kernel:555
+6.5.22	kernel	misc	run	la_trigger_val	-	0xdeadbeefbeefcafe	0	0	bounded	0xdeadbeefbeefcafe 0 0 ll	no	no	no	located	mtune/kernel:556
+6.5.22	kernel	misc	static	r4k_corrupt_scache_data	-	0	-	-	default	0	no	no	no	located	mtune/kernel:559
+6.5.22	kernel	misc	static	l2_sbe_check	-	0x000c	-	-	default	0x000c	no	no	no	located	mtune/kernel:574
+6.5.22	kernel	misc	static	l2_sbe_reset_sec	-	60	-	-	default	60	no	no	no	located	mtune/kernel:575
+6.5.22	kernel	misc	static	engr_dvt_flag	-	0	-	-	default	0	no	no	no	located	mtune/kernel:577
+6.5.22	kernel	misc	static	engr_dvt_sleep	-	300	-	-	default	300	no	no	no	located	mtune/kernel:578
+6.5.22	kernel	misc	static	engr_dvt_l2_scan_enable	-	0	-	-	default	0	no	no	no	located	mtune/kernel:579
+6.5.22	kernel	misc	static	engr_dvt_memchck_enable	-	0	-	-	default	0	no	no	no	located	mtune/kernel:580
+6.5.22	kernel	debug	static	utrace_bufsize	-	0	0	0x7fffffff	bounded	0 0 0x7fffffff	no	no	no	located	mtune/kernel:598
+6.5.22	kernel	debug	run	kmem_do_poison	-	1	0	2	bounded	1 0 2	no	no	no	located	mtune/kernel:719
+6.5.22	kernel	debug	run	kmem_make_zones_private_min	-	0	0	16384	bounded	0 0 16384	no	no	no	located	mtune/kernel:720
+6.5.22	kernel	debug	run	kmem_make_zones_private_max	-	0	0	16384	bounded	0 0 16384	no	no	no	located	mtune/kernel:721
+6.5.22	kernel	debug	run	kmem_split_zone	-	0	0	16384	bounded	0 0 16384	no	no	no	located	mtune/kernel:722
+6.5.22	kernel	debug	run	utrace_mask	-	0xfff3f	0	0x7fffffffffffffff	bounded	0xfff3f 0 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:723
+6.5.22	kernel	debug	run	power_button_changed_to_crash_dump	-	0	-	-	default	0	no	no	no	located	mtune/kernel:724
+6.5.22	kernel	debug	run	process_core_cpu_logging	-	0	0	1	bounded	0 0 1	no	no	no	located	mtune/kernel:725
+6.5.22	kernel	debug	run	r12k_bdiag	-	0	0	0xf830000	bounded	0 0 0xf830000	no	no	no	located	mtune/kernel:729
+6.5.22	kernel	limits	run	ncargs	-	20480	5120	262144	bounded	20480 5120 262144	no	no	no	located	mtune/kernel:753
+6.5.22	kernel	limits	run	shlbmax	-	8	3	32	bounded	8 3 32	no	no	no	located	mtune/kernel:754
+6.5.22	kernel	limits	run	maxwatchpoints	-	100	1	1000	bounded	100 1 1000	no	no	no	located	mtune/kernel:755
+6.5.22	kernel	limits	run	nprofile	-	100	100	10000	bounded	100 100 10000	no	no	no	located	mtune/kernel:756
+6.5.22	kernel	limits	run	maxsymlinks	-	30	0	50	bounded	30 0 50	no	no	no	located	mtune/kernel:757
+6.5.22	kernel	limits	run	maxup	-	0	15	30000	bounded	0 15 30000	no	no	no	located	mtune/kernel:758
+6.5.22	kernel	limits	run	maxup_enforce_penalty	-	0	0	100	bounded	0 0 100	no	no	no	located	mtune/kernel:759
+6.5.22	kernel	limits	run	idbgmaxfuncs	-	1200	-	-	default	1200	no	no	no	located	mtune/kernel:760
+6.5.22	kernel	resource	static	rlimit_cpu_cur	-	0x7fffffffffffffff	0	0x7fffffffffffffff	bounded	0x7fffffffffffffff 0 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:774
+6.5.22	kernel	resource	static	rlimit_cpu_max	-	0x7fffffffffffffff	0	0x7fffffffffffffff	bounded	0x7fffffffffffffff 0 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:775
+6.5.22	kernel	resource	static	rlimit_fsize_cur	-	0x7fffffffffffffff	0	0x7fffffffffffffff	bounded	0x7fffffffffffffff 0 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:776
+6.5.22	kernel	resource	static	rlimit_fsize_max	-	0x7fffffffffffffff	0	0x7fffffffffffffff	bounded	0x7fffffffffffffff 0 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:777
+6.5.22	kernel	resource	static	rlimit_data_cur	-	0	0	0x7fffffffffffffff	bounded	0 0 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:778
+6.5.22	kernel	resource	static	rlimit_data_max	-	0	0	0x7fffffffffffffff	bounded	0 0 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:779
+6.5.22	kernel	resource	static	rlimit_stack_cur	-	0x04000000	0	0x7fffffffffffffff	bounded	0x04000000 0 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:780
+6.5.22	kernel	resource	static	rlimit_stack_max	-	0x20000000	0	0x7fffffffffffffff	bounded	0x20000000 0 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:781
+6.5.22	kernel	resource	static	rlimit_core_cur	-	0x7fffffffffffffff	0	0x7fffffffffffffff	bounded	0x7fffffffffffffff 0 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:782
+6.5.22	kernel	resource	static	rlimit_core_max	-	0x7fffffffffffffff	0	0x7fffffffffffffff	bounded	0x7fffffffffffffff 0 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:783
+6.5.22	kernel	resource	static	rlimit_vmem_cur	-	0	0	0x7fffffffffffffff	bounded	0 0 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:784
+6.5.22	kernel	resource	static	rlimit_vmem_max	-	0	0	0x7fffffffffffffff	bounded	0 0 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:785
+6.5.22	kernel	resource	static	rlimit_rss_cur	-	0	0	0x7fffffffffffffff	bounded	0 0 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:786
+6.5.22	kernel	resource	static	rlimit_rss_max	-	0	0	0x7fffffffffffffff	bounded	0 0 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:787
+6.5.22	kernel	resource	static	rlimit_nofile_cur	-	200	40	0x7fffffffffffffff	bounded	200 40 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:788
+6.5.22	kernel	resource	static	rlimit_nofile_max	-	2500	0	0x7fffffffffffffff	bounded	2500 0 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:789
+6.5.22	kernel	resource	static	rlimit_pthread_cur	-	0x400	1	0xffff	bounded	0x400 1 0xffff ll	no	no	no	located	mtune/kernel:790
+6.5.22	kernel	resource	static	rlimit_pthread_max	-	0x400	1	0xffff	bounded	0x400 1 0xffff ll	no	no	no	located	mtune/kernel:791
+6.5.22	kernel	numproc	static	nproc	-	0	30	32767	extra	0 30 32767 /* auto-config */	no	no	no	located	mtune/kernel:820
+6.5.22	kernel	numproc	static	ndquot	-	0	268	6200	extra	0 268 6200 /* auto-config */	no	no	no	located	mtune/kernel:821
+6.5.22	kernel	numproc	static	ncallout	-	0	20	5000	extra	0 20 5000 /* auto-config */	no	no	no	located	mtune/kernel:822
+6.5.22	kernel	numproc	static	ncsize	-	0	268	1000000	extra	0 268 1000000 /* auto-config */	no	no	no	located	mtune/kernel:823
+6.5.22	kernel	numproc	static	ngroups_max	-	16	0	32	bounded	16 0 32	no	no	no	located	mtune/kernel:824
+6.5.22	kernel	numproc	static	nclrus	-	0	1	128	extra	0 1 128 /* auto-config */	no	no	no	located	mtune/kernel:825
+6.5.22	kernel	numproc	static	nlog	-	0	1	1000000	extra	0 1 1000000 /* auto-config */	no	no	no	located	mtune/kernel:826
+6.5.22	kernel	streams	static	nstrpush	-	8	5	10	bounded	8 5 10	no	no	no	located	mtune/kernel:834
+6.5.22	kernel	streams	static	nstrintr	-	1024	32	4096	bounded	1024 32 4096	no	no	no	located	mtune/kernel:835
+6.5.22	kernel	streams	static	strmsgsz	-	0x8000	-	-	default	0x8000	no	no	no	located	mtune/kernel:836
+6.5.22	kernel	streams	static	strctlsz	-	1024	-	-	default	1024	no	no	no	located	mtune/kernel:837
+6.5.22	kernel	streams	static	strpmonmax	-	4	0	1024	bounded	4 0 1024	no	no	no	located	mtune/kernel:838
+6.5.22	kernel	streams	run	strholdtime	-	50	0	1000	bounded	50 0 1000	no	no	no	located	mtune/kernel:843
+6.5.22	kernel	actions	static	nactions	-	0	-	-	two-values	0 0	no	no	no	located	mtune/kernel:868
+6.5.22	kernel	signals	run	maxsigq	-	128	-	-	two-values	128 32	no	no	no	located	mtune/kernel:881
+6.5.22	kernel	timer	static	fasthz	-	1000	500	2500	bounded	1000 500 2500	no	no	no	located	mtune/kernel:902
+6.5.22	kernel	timer	static	itimer_on_clkcpu	-	0	-	-	default	0	no	no	no	located	mtune/kernel:903
+6.5.22	kernel	timer	static	timetrim	-	0	-	-	default	0	no	no	no	located	mtune/kernel:904
+6.5.22	kernel	memsize	static	maxpmem	-	0	-	-	two-values	0 1024	no	no	no	located	mtune/kernel:943
+6.5.22	kernel	memsize	static	syssegsz	32	0	0x2000	0x20000	extra	0 0x2000 0x20000 /* auto-config */	no	no	no	located	mtune/kernel:944
+6.5.22	kernel	memsize	static	syssegsz	64	0	0x1000	0x10000000	extra	0 0x1000 0x10000000 /* auto-config */	no	no	no	located	mtune/kernel:945
+6.5.22	kernel	memsize	static	maxdmasz	32	1025	1024	syssegsz	extra	1025 1024 syssegsz /* auto-config */	no	no	no	located	mtune/kernel:946
+6.5.22	kernel	memsize	static	maxdmasz	64	257	256	syssegsz	extra	257 256 syssegsz /* auto-config */	no	no	no	located	mtune/kernel:947
+6.5.22	kernel	memsize	static	maxpglst	-	0	50	1024	extra	0 50 1024 /* auto-config */	no	no	no	located	mtune/kernel:948
+6.5.22	kernel	memsize	static	scache_pool_size	-	32	8	/*	extra	32 8 /* in Kbytes */	no	no	no	located	mtune/kernel:949
+6.5.22	kernel	paging	run	gpgslo	-	0	-	-	default	0	no	no	no	located	mtune/kernel:1008
+6.5.22	kernel	paging	run	gpgshi	-	0	-	-	two-values	0 30	no	no	no	located	mtune/kernel:1009
+6.5.22	kernel	paging	run	gpgsmsk	-	2	0	7	bounded	2 0 7	no	no	no	located	mtune/kernel:1010
+6.5.22	kernel	paging	run	maxsc	-	0	8	maxpglst	bounded	0 8 maxpglst	no	no	no	located	mtune/kernel:1011
+6.5.22	kernel	paging	run	maxfc	-	0	50	maxpglst	bounded	0 50 maxpglst	no	no	no	located	mtune/kernel:1012
+6.5.22	kernel	paging	run	maxdc	-	0	1	maxpglst	bounded	0 1 maxpglst	no	no	no	located	mtune/kernel:1013
+6.5.22	kernel	paging	run	bdflushr	-	5	1	31536000	bounded	5 1 31536000	no	no	no	located	mtune/kernel:1014
+6.5.22	kernel	paging	run	bdflush_interval	-	100	-	-	two-values	100 10	no	no	no	located	mtune/kernel:1015
+6.5.22	kernel	paging	run	vfs_syncr	-	30	1	31536000	bounded	30 1 31536000	no	no	no	located	mtune/kernel:1016
+6.5.22	kernel	paging	run	minarmem	-	0	-	-	default	0	no	no	no	located	mtune/kernel:1017
+6.5.22	kernel	paging	run	minasmem	-	0	-	-	default	0	no	no	no	located	mtune/kernel:1018
+6.5.22	kernel	paging	run	maxlkmem	-	2000	-	-	default	2000	no	no	no	located	mtune/kernel:1019
+6.5.22	kernel	paging	run	tlbdrop	-	100	-	-	default	100	no	no	no	located	mtune/kernel:1020
+6.5.22	kernel	paging	run	rsshogfrac	-	75	0	100	bounded	75 0 100	no	no	no	located	mtune/kernel:1021
+6.5.22	kernel	paging	run	rsshogslop	-	20	-	-	default	20	no	no	no	located	mtune/kernel:1022
+6.5.22	kernel	paging	run	dwcluster	-	64	-	-	default	64	no	no	no	located	mtune/kernel:1023
+6.5.22	kernel	paging	run	autoup	-	10	1	30	bounded	10 1 30	no	no	no	located	mtune/kernel:1024
+6.5.22	kernel	paging	run	min_file_pages	32	0	0	500000	bounded	0 0 500000	no	no	no	located	mtune/kernel:1025
+6.5.22	kernel	paging	run	min_file_pages	64	0	0	1000000	bounded	0 0 1000000	no	no	no	located	mtune/kernel:1026
+6.5.22	kernel	paging	run	min_free_pages	-	0	0	50000000	bounded	0 0 50000000	no	no	no	located	mtune/kernel:1027
+6.5.22	kernel	paging	run	min_bufmem	32	0	0	500000	bounded	0 0 500000	no	no	no	located	mtune/kernel:1028
+6.5.22	kernel	paging	run	min_bufmem	64	0	0	1000000	bounded	0 0 1000000	no	no	no	located	mtune/kernel:1029
+6.5.22	kernel	paging	run	shaked_interval	-	1	1	3600	bounded	1 1 3600	no	no	no	located	mtune/kernel:1030
+6.5.22	kernel	paging	run	zone_accum_limit	-	30	0	100	bounded	30 0 100	no	no	no	located	mtune/kernel:1031
+6.5.22	kernel	paging	run	cwcluster	-	64	-	-	default	64	no	no	no	located	mtune/kernel:1032
+6.5.22	kernel	paging	run	enable_devzero_opt	-	1	-	-	default	1	no	no	no	located	mtune/kernel:1041
+6.5.22	kernel	paging	run	max_heap_mapping_size_hint	-	0x7fffffff	0x8000	0x7fffffff	bounded	0x7fffffff 0x8000 0x7fffffff	no	no	no	located	mtune/kernel:1074
+6.5.22	kernel	paging	run	enable_kaio_fast_path	-	1	-	-	default	1	no	no	no	located	mtune/kernel:1082
+6.5.22	kernel	paging	run	buf_relse_age	-	0	0	0x7fffffff	bounded	0 0 0x7fffffff	no	no	no	located	mtune/kernel:1091
+6.5.22	kernel	paging	run	nfs_buf_commit_age	-	0	0	0x7fffffff	bounded	0 0 0x7fffffff	no	no	no	located	mtune/kernel:1102
+6.5.22	kernel	paging	run	buf_clback	-	0	0	1	bounded	0 0 1	no	no	no	located	mtune/kernel:1110
+6.5.22	kernel	paging	run	buf_throttle_on	-	0	0	1	bounded	0 0 1	no	no	no	located	mtune/kernel:1146
+6.5.22	kernel	paging	run	buf_throttle_threshold	-	70	1	100	bounded	70 1 100	no	no	no	located	mtune/kernel:1147
+6.5.22	kernel	paging	run	buf_throttle_off_threshold	-	60	1	100	bounded	60 1 100	no	no	no	located	mtune/kernel:1148
+6.5.22	kernel	paging	run	buf_throttle_pending_threshold	-	60	1	100	bounded	60 1 100	no	no	no	located	mtune/kernel:1149
+6.5.22	kernel	paging	run	buf_throttle_sleep_base_prd	-	50000000	1000000	1000000000	bounded	50000000 1000000 1000000000	no	no	no	located	mtune/kernel:1150
+6.5.22	kernel	paging	run	buf_throttle_sleep_recalc_prd	-	25	1	1000	bounded	25 1 1000	no	no	no	located	mtune/kernel:1151
+6.5.22	kernel	bufcache	static	nbuf	32	0	75	6000	bounded	0 75 6000	no	no	no	located	mtune/kernel:1168
+6.5.22	kernel	bufcache	static	nbuf	64	0	75	600000	bounded	0 75 600000	no	no	no	located	mtune/kernel:1169
+6.5.22	kernel	bufcache	static	nbufavoiddev	-	16	2	256	bounded	16 2 256	no	no	no	located	mtune/kernel:1171
+6.5.22	kernel	mload	static	bdevsw_extra	-	21	1	254	bounded	21 1 254	no	no	no	located	mtune/kernel:1184
+6.5.22	kernel	mload	static	cdevsw_extra	-	23	3	254	bounded	23 3 254	no	no	no	located	mtune/kernel:1185
+6.5.22	kernel	mload	static	fmodsw_extra	-	20	-	-	two-values	20 0	no	no	no	located	mtune/kernel:1186
+6.5.22	kernel	mload	static	vfssw_extra	-	5	-	-	two-values	5 0	no	no	no	located	mtune/kernel:1187
+6.5.22	kernel	extacct	static	do_procacct	-	1	-	-	default	1	no	no	no	located	mtune/kernel:1231
+6.5.22	kernel	extacct	static	do_extpacct	-	0	-	-	default	0	no	no	no	located	mtune/kernel:1232
+6.5.22	kernel	extacct	static	do_sessacct	-	0	-	-	default	0	no	no	no	located	mtune/kernel:1233
+6.5.22	kernel	extacct	static	do_csaacct	-	0	-	-	default	0	no	no	no	located	mtune/kernel:1234
+6.5.22	kernel	extacct	static	sessaf	-	1	1	2	bounded	1 1 2	no	no	no	located	mtune/kernel:1235
+6.5.22	kernel	extacct	static	spilen	-	64	0	1024	bounded	64 0 1024	no	no	no	located	mtune/kernel:1236
+6.5.22	kernel	extacct	static	dfltprid	-	0	0	0x7fffffffffffffff	bounded	0 0 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:1237
+6.5.22	kernel	extacct	static	dflt_paggid	-	0	0	0x7fffffffffffffff	bounded	0 0 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:1239
+6.5.22	kernel	extacct	static	min_local_paggid	-	1	1	0xffffff00	bounded	1 1 0xffffff00 ll	no	no	no	located	mtune/kernel:1240
+6.5.22	kernel	extacct	static	max_local_paggid	-	65535	255	0xffffffff	bounded	65535 255 0xffffffff ll	no	no	no	located	mtune/kernel:1241
+6.5.22	kernel	extacct	static	incr_paggid	-	1	1	0x7fffffffffffffff	bounded	1 1 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:1242
+6.5.22	kernel	extacct	static	asmachid	-	0	0	0x7fff	bounded	0 0 0x7fff	no	no	no	located	mtune/kernel:1243
+6.5.22	kernel	extacct	static	asarrayid	-	0xffff	0	0xffff	bounded	0xffff 0 0xffff	no	no	no	located	mtune/kernel:1244
+6.5.22	kernel	extacct	static	miser_rss_account	-	1	-	-	default	1	no	no	no	located	mtune/kernel:1245
+6.5.22	kernel	internal	static	histmax	-	0	-	-	default	0	no	no	no	located	mtune/kernel:1262
+6.5.22	kernel	internal	static	conbuf_maxsz	-	16384	-	-	default	16384	no	no	no	located	mtune/kernel:1263
+6.5.22	kernel	internal	static	putbuf_maxsz	-	16384	-	-	default	16384	no	no	no	located	mtune/kernel:1264
+6.5.22	kernel	internal	static	errbuf_maxsz	-	16384	-	-	default	16384	no	no	no	located	mtune/kernel:1265
+6.5.22	kernel	internal	static	conbuf_cpusz	-	2048	-	-	default	2048	no	no	no	located	mtune/kernel:1266
+6.5.22	kernel	internal	static	putbuf_cpusz	-	2048	-	-	default	2048	no	no	no	located	mtune/kernel:1267
+6.5.22	kernel	internal	static	errbuf_cpusz	-	2048	-	-	default	2048	no	no	no	located	mtune/kernel:1268
+6.5.22	kernel	internal	static	dumplo	-	0	-	-	default	0	no	no	no	located	mtune/kernel:1269
+6.5.22	kernel	internal	static	hub_core_arb_ctrl	-	0xfe	-	-	default	0xfe	no	no	no	located	mtune/kernel:1274
+6.5.22	kernel	internal	static	hub_2_4_iio_icmr_c_cnt	-	4	-	-	default	4	no	no	no	located	mtune/kernel:1275
+6.5.22	kernel	internal	static	hub_2_4_iio_icmr_p_cnt	-	0	-	-	default	0	no	no	no	located	mtune/kernel:1276
+6.5.22	kernel	internal	static	hub_2_4_iio_bte_crb_cnt	-	2	-	-	default	2	no	no	no	located	mtune/kernel:1277
+6.5.22	kernel	large_pages	static	nlpages_64k	-	0	-	-	two-values	0 0	no	no	no	located	mtune/kernel:1290
+6.5.22	kernel	large_pages	static	nlpages_256k	-	0	-	-	two-values	0 0	no	no	no	located	mtune/kernel:1291
+6.5.22	kernel	large_pages	static	nlpages_1m	-	0	-	-	two-values	0 0	no	no	no	located	mtune/kernel:1292
+6.5.22	kernel	large_pages	static	nlpages_4m	-	0	-	-	two-values	0 0	no	no	no	located	mtune/kernel:1293
+6.5.22	kernel	large_pages	static	nlpages_16m	-	0	-	-	two-values	0 0	no	no	no	located	mtune/kernel:1294
+6.5.22	kernel	large_pages	static	large_pages_enable	NEED_LPAGES	1	-	-	default	1	no	no	no	located	mtune/kernel:1315
+6.5.22	kernel	large_pages	static	large_pages_enable	NOT_NEED_LPAGES	0	-	-	default	0	no	no	no	located	mtune/kernel:1316
+6.5.22	kernel	lpage_watermarks	run	percent_totalmem_16k_pages	-	0	0	100	bounded	0 0 100	no	no	no	located	mtune/kernel:1319
+6.5.22	kernel	lpage_watermarks	run	percent_totalmem_64k_pages	-	20	0	100	bounded	20 0 100	no	no	no	located	mtune/kernel:1320
+6.5.22	kernel	lpage_watermarks	run	percent_totalmem_256k_pages	-	0	0	100	bounded	0 0 100	no	no	no	located	mtune/kernel:1321
+6.5.22	kernel	lpage_watermarks	run	percent_totalmem_1m_pages	-	0	0	100	bounded	0 0 100	no	no	no	located	mtune/kernel:1322
+6.5.22	kernel	lpage_watermarks	run	percent_totalmem_4m_pages	-	0	0	100	bounded	0 0 100	no	no	no	located	mtune/kernel:1323
+6.5.22	kernel	lpage_watermarks	run	percent_totalmem_16m_pages	-	0	0	100	bounded	0 0 100	no	no	no	located	mtune/kernel:1324
+6.5.22	kernel	lpage_watermarks	run	coalesced_run_period	-	300	-	-	two-values	300 60	no	no	no	located	mtune/kernel:1330
+6.5.22	kernel	lpage_watermarks	run	coalesced_precoalesce	-	0	-	-	default	0	no	no	no	located	mtune/kernel:1339
+6.5.22	kernel	vme_dma	static	nvme32_dma	-	64	32	512	bounded	64 32 512	no	no	no	located	mtune/kernel:1358
+6.5.22	kernel	shm	static	shmmax	32	0	0x1000	0x7fffffff	bounded	0 0x1000 0x7fffffff	no	no	no	located	mtune/kernel:1376
+6.5.22	kernel	shm	static	shmmin	32	1	1	1	bounded	1 1 1	no	no	no	located	mtune/kernel:1377
+6.5.22	kernel	shm	static	shmmax	64	0	0x1000	0x7fffffffffffffff	bounded	0 0x1000 0x7fffffffffffffff ll	no	no	no	located	mtune/kernel:1378
+6.5.22	kernel	shm	static	shmmin	64	1	1	1	bounded	1 1 1 ll	no	no	no	located	mtune/kernel:1379
+6.5.22	kernel	shm	static	shmmni	-	0	5	100000	bounded	0 5 100000	no	no	no	located	mtune/kernel:1380
+6.5.22	kernel	shm	static	sshmseg	-	2000	1	10000	bounded	2000 1 10000	no	no	no	located	mtune/kernel:1381
+6.5.22	kernel	io	static	hwgraph_num_dev	-	262144	4096	262144	bounded	262144 4096 262144	no	no	no	located	mtune/kernel:1415
+6.5.22	kernel	io	static	xxl_hwgraph_num_dev	-	262144	4096	262144	bounded	262144 4096 262144	no	no	no	located	mtune/kernel:1416
+6.5.22	kernel	io	static	graph_vertex_per_group	-	128	1	128	bounded	128 1 128	no	no	no	located	mtune/kernel:1417
+6.5.22	kernel	io	static	io_init_node_threads	-	0	0	1024	bounded	0 0 1024	no	no	no	located	mtune/kernel:1418
+6.5.22	kernel	io	static	io_init_async	-	1	0	1	bounded	1 0 1	no	no	no	located	mtune/kernel:1419
+6.5.22	kernel	io	static	pciba_broken_le_be_compat	-	0	0	1	bounded	0 0 1	no	no	no	located	mtune/kernel:1441
+6.5.22	kernel	io	static	pcibr_pioerr_dump	-	1	0	1	bounded	1 0 1	no	no	no	located	mtune/kernel:1452
+6.5.22	kernel	io	static	pciio_multimaster_override	-	0	0	1	bounded	0 0 1	no	no	no	located	mtune/kernel:1466
+6.5.22	kernel	sthread	static	console_pri	-	255	90	255	bounded	255 90 255	no	no	no	located	mtune/kernel:1474
+6.5.22	kernel	sthread	static	du_conpoll_pri	-	255	90	255	bounded	255 90 255	no	no	no	located	mtune/kernel:1475
+6.5.22	kernel	sthread	static	hb_pri	-	255	91	255	bounded	255 91 255	no	no	no	located	mtune/kernel:1476
+6.5.22	kernel	sthread	static	mtcp_discovery_pri	-	255	91	255	bounded	255 91 255	no	no	no	located	mtune/kernel:1477
+6.5.22	kernel	sthread	static	cmsd_pri	-	109	91	109	bounded	109 91 109	no	no	no	located	mtune/kernel:1478
+6.5.22	kernel	sthread	static	msc_shutdown_pri	-	109	90	109	bounded	109 90 109	no	no	no	located	mtune/kernel:1479
+6.5.22	kernel	sthread	static	msc_heartbeat_pri	-	109	90	109	bounded	109 90 109	no	no	no	located	mtune/kernel:1480
+6.5.22	kernel	sthread	static	reaper_pri	-	100	90	109	bounded	100 90 109	no	no	no	located	mtune/kernel:1481
+6.5.22	kernel	sthread	static	netthread_pri	-	98	90	109	bounded	98 90 109	no	no	no	located	mtune/kernel:1482
+6.5.22	kernel	sthread	static	klogthrd_pri	-	98	90	109	bounded	98 90 109	no	no	no	located	mtune/kernel:1483
+6.5.22	kernel	sthread	static	batchd_pri	-	98	90	109	bounded	98 90 109	no	no	no	located	mtune/kernel:1484
+6.5.22	kernel	sthread	static	pdflush_pri	-	98	90	109	bounded	98 90 109	no	no	no	located	mtune/kernel:1485
+6.5.22	kernel	sthread	static	rmonqd_pri	-	98	90	109	bounded	98 90 109	no	no	no	located	mtune/kernel:1486
+6.5.22	kernel	sthread	static	vhand_pri	-	98	90	109	bounded	98 90 109	no	no	no	located	mtune/kernel:1487
+6.5.22	kernel	sthread	static	shaked_pri	-	98	90	109	bounded	98 90 109	no	no	no	located	mtune/kernel:1488
+6.5.22	kernel	sthread	static	exim_pri	-	96	90	109	bounded	96 90 109	no	no	no	located	mtune/kernel:1489
+6.5.22	kernel	sthread	static	bpsqueue_pri	-	94	90	109	bounded	94 90 109	no	no	no	located	mtune/kernel:1490
+6.5.22	kernel	sthread	static	xlvd_pri	-	94	90	109	bounded	94 90 109	no	no	no	located	mtune/kernel:1491
+6.5.22	kernel	sthread	static	vfs_sync_pri	-	92	90	109	bounded	92 90 109	no	no	no	located	mtune/kernel:1492
+6.5.22	kernel	sthread	static	bdflush_pri	-	92	90	109	bounded	92 90 109	no	no	no	located	mtune/kernel:1493
+6.5.22	kernel	sthread	static	xfsd_pri	-	92	90	109	bounded	92 90 109	no	no	no	located	mtune/kernel:1494
+6.5.22	kernel	sthread	static	onesec_pri	-	90	90	109	bounded	90 90 109	no	no	no	located	mtune/kernel:1495
+6.5.22	kernel	sthread	static	unmountd_pri	-	90	90	109	bounded	90 90 109	no	no	no	located	mtune/kernel:1496
+6.5.22	kernel	sthread	static	async_call_pri	-	90	90	109	bounded	90 90 109	no	no	no	located	mtune/kernel:1497
+6.5.22	kernel	sthread	static	sched_pri	-	90	90	109	bounded	90 90 109	no	no	no	located	mtune/kernel:1498
+6.5.22	kernel	sthread	static	coalesced_pri	-	90	90	109	bounded	90 90 109	no	no	no	located	mtune/kernel:1499
+6.5.22	kernel	sthread	static	tiled_pri	-	90	90	109	bounded	90 90 109	no	no	no	located	mtune/kernel:1500
+6.5.22	kernel	sthread	static	recovery_pri	-	90	90	109	bounded	90 90 109	no	no	no	located	mtune/kernel:1501
+6.5.22	kernel	sthread	static	mtcp_pri	-	90	90	109	bounded	90 90 109	no	no	no	located	mtune/kernel:1502
+6.5.22	kernel	sthread	static	tpisockd_pri	-	90	90	109	bounded	90 90 109	no	no	no	located	mtune/kernel:1503
+6.5.22	kernel	sthread	static	io_init_pri	-	90	90	109	bounded	90 90 109	no	no	no	located	mtune/kernel:1504
+6.5.22	kernel	sthread	static	partition_pri	-	90	90	109	bounded	90 90 109	no	no	no	located	mtune/kernel:1505
+6.5.22	kernel	sthread	static	cdl_attach_pri	-	90	90	109	bounded	90 90 109	no	no	no	located	mtune/kernel:1506
+6.5.22	kernel	sthread	static	munldd_pri	-	90	90	109	bounded	90 90 109	no	no	no	located	mtune/kernel:1507
+6.5.22	kernel	sthread	static	dpipe_pri	-	90	90	109	bounded	90 90 109	no	no	no	located	mtune/kernel:1508
+6.5.22	kernel	sthread	static	xbox_poll_pri	-	90	90	109	bounded	90 90 109	no	no	no	located	mtune/kernel:1509
+6.5.22	kernel	sthread	static	cl_async_pri	-	90	90	109	bounded	90 90 109	no	no	no	located	mtune/kernel:1510
+6.5.22	kernel	sthread	static	randthread_pri	-	98	90	109	bounded	98 90 109	no	no	no	located	mtune/kernel:1511
+6.5.22	kernel	ithread	static	audio_intr_pri	-	235	200	239	bounded	235 200 239	no	no	no	located	mtune/kernel:1518
+6.5.22	kernel	ithread	static	tserialio_intr_pri	-	235	200	239	bounded	235 200 239	no	no	no	located	mtune/kernel:1519
+6.5.22	kernel	ithread	static	video_intr_pri	-	230	200	239	bounded	230 200 239	no	no	no	located	mtune/kernel:1520
+6.5.22	kernel	ithread	static	graphics_intr_pri	-	225	200	239	bounded	225 200 239	no	no	no	located	mtune/kernel:1521
+6.5.22	kernel	ithread	static	external_intr_pri	-	220	200	239	bounded	220 200 239	no	no	no	located	mtune/kernel:1522
+6.5.22	kernel	ithread	static	serial_intr_pri	-	215	200	239	bounded	215 200 239	no	no	no	located	mtune/kernel:1523
+6.5.22	kernel	ithread	static	parallel_intr_pri	-	215	200	239	bounded	215 200 239	no	no	no	located	mtune/kernel:1524
+6.5.22	kernel	ithread	static	network_intr_pri	-	210	200	239	bounded	210 200 239	no	no	no	located	mtune/kernel:1525
+6.5.22	kernel	ithread	static	scsi_intr_pri	-	205	200	239	bounded	205 200 239	no	no	no	located	mtune/kernel:1526
+6.5.22	kernel	ithread	static	disk_intr_pri	-	205	200	239	bounded	205 200 239	no	no	no	located	mtune/kernel:1527
+6.5.22	kernel	ithread	static	tape_intr_pri	-	205	200	239	bounded	205 200 239	no	no	no	located	mtune/kernel:1528
+6.5.22	kernel	ithread	static	default_intr_pri	-	200	200	239	bounded	200 200 239	no	no	no	located	mtune/kernel:1529
+6.5.22	kernel	ithread	static	default_timeout_pri	-	1	1	255	bounded	1 1 255	no	no	no	located	mtune/kernel:1530
+6.5.22	kernel	ksync	static	mrlock_num_mria	-	64	64	1024	bounded	64 64 1024	no	no	no	located	mtune/kernel:1546
+6.5.22	kernel	ckpt	run	ckpt_enabled	-	1	-	-	default	1	no	no	no	located	mtune/kernel:1554
+6.5.22	kernel	miser	static	cpuset_nobind	-	0	0	1	bounded	0 0 1	no	no	no	located	mtune/kernel:1566
+6.5.22	kernel	bpmode	static	r10k_bpmode	-	0	0	3	bounded	0 0 3	no	no	no	located	mtune/kernel:1579
+6.5.22	kernel	bpmode	static	enable_poq_war	-	0	0	1	bounded	0 0 1	no	no	no	located	mtune/kernel:1590
+6.5.22	kernel	bpmode	static	md_rq_depth	-	5	0	5	bounded	5 0 5	no	no	no	located	mtune/kernel:1605
+6.5.22	kernel	bpmode	static	randthread_float	-	0	0	1	bounded	0 0 1	no	no	no	located	mtune/kernel:1617
+6.5.22	lockd	lockd	run	lockd_grace_period	-	45	1	3600	bounded	45 1 3600	yes	yes	yes	located	mtune/lockd:36
+6.5.22	lockd	lockd	run	lock_share_requests	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/lockd:37
+6.5.22	lockd	lockd	run	nlm_granted_timeout	-	1	1	50	bounded	1 1 50	yes	yes	yes	located	mtune/lockd:38
+6.5.22	lockd	lockd	run	nlm_maxdupreqs	-	0	50	10000	bounded	0 50 10000	yes	yes	yes	located	mtune/lockd:39
+6.5.22	lockd	lockd	run	nlm_callback_retry	-	3	0	20	bounded	3 0 20	yes	yes	yes	located	mtune/lockd:40
+6.5.22	lockd	lockd	run	max_lockd_procs	-	0	20	13000	bounded	0 20 13000	yes	yes	yes	located	mtune/lockd:41
+6.5.22	msg			msgmax	-	0x4000	512	2147483584	bounded	0x4000 512 2147483584	yes	yes	yes	located	mtune/msg:39
+6.5.22	msg			msgmnb	-	0x8000	1	2147483584	bounded	0x8000 1 2147483584	yes	yes	yes	located	mtune/msg:40
+6.5.22	msg			msgmni	-	50	10	2000	bounded	50 10 2000	yes	yes	yes	located	mtune/msg:41
+6.5.22	msg			msgssz	-	8	1	64	bounded	8 1 64	yes	yes	yes	located	mtune/msg:42
+6.5.22	msg			msgtql	-	40	10	2147483584	bounded	40 10 2147483584	yes	yes	yes	located	mtune/msg:43
+6.5.22	msg			msgseg	-	1536	1	33554431	bounded	1536 1 33554431	yes	yes	yes	located	mtune/msg:44
+6.5.22	msg			pmqomax	-	128	-	-	default	128	yes	yes	yes	located	mtune/msg:51
+6.5.22	nfs	lockmgr	run	sm_timeout	-	5	1	150	bounded	5 1 150	yes	yes	yes	located	mtune/nfs:42
+6.5.22	nfs	lockmgr	run	GraceWaitTime	-	5	1	60	bounded	5 1 60	yes	yes	yes	located	mtune/nfs:43
+6.5.22	nfs	maxclient	static	max_nfs_clients	-	32	32	128	bounded	32 32 128	yes	yes	yes	located	mtune/nfs:51
+6.5.22	nfs	maxclient	static	max_nsd_clients	-	32	16	32	bounded	32 16 32	yes	yes	yes	located	mtune/nfs:52
+6.5.22	nfs	maxclient	static	max_xnfs_clients	-	32	32	128	bounded	32 32 128	yes	yes	yes	located	mtune/nfs:53
+6.5.22	nfs	maxclient	static	nfstcp_shutdown_wait	-	500	0	1000	bounded	500 0 1000	yes	yes	yes	located	mtune/nfs:64
+6.5.22	nfs	maxclient	static	nfs_close_sock	-	0	-	-	default	0	yes	yes	yes	located	mtune/nfs:75
+6.5.22	nfs3	nfs3	static	nfs3_default_xfer	-	32768	8192	49152	bounded	32768 8192 49152	yes	yes	yes	located	mtune/nfs3:48
+6.5.22	nfs3	nfs3	static	nfs3_max_threads	-	4	0	16	bounded	4 0 16	yes	yes	yes	located	mtune/nfs3:49
+6.5.22	nfs3	nfs3	static	nfs3_rah	-	2	0	7	bounded	2 0 7	yes	yes	yes	located	mtune/nfs3:50
+6.5.22	nfs3	nfs3	static	nfs3_commit_prd	-	50	20	80	bounded	50 20 80	yes	yes	yes	located	mtune/nfs3:51
+6.5.22	nfs3	nfs3	static	nfs3_posix_atime_on_read	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/nfs3:52
+6.5.22	nfs3	nfs3	static	nfs3_unst_wtmark	-	75	65	85	bounded	75 65 85	yes	yes	yes	located	mtune/nfs3:72
+6.5.22	nfs3	nfs3	static	nfs3_unst_crit_wtmark	-	67	50	85	bounded	67 50 85	yes	yes	yes	located	mtune/nfs3:73
+6.5.22	nfs3	nfs3	static	nfs3_unst_low_wtmark	-	60	50	75	bounded	60 50 75	yes	yes	yes	located	mtune/nfs3:74
+6.5.22	nfs3	nfs3	static	nfs3_unst_enforce_wtmark	-	40	20	60	bounded	40 20 60	yes	yes	yes	located	mtune/nfs3:75
+6.5.22	nfs3	nfs3	static	nfs3_abio_write_hiwat	-	0	50	1000	bounded	0 50 1000	yes	yes	yes	located	mtune/nfs3:98
+6.5.22	nfs3	nfs3	static	nfs3_abio_write_lowat	-	0	50	999	bounded	0 50 999	yes	yes	yes	located	mtune/nfs3:99
+6.5.22	nfs3	nfs3	run	nfs3_abio_write_quota	-	2	1	16	bounded	2 1 16	yes	yes	yes	located	mtune/nfs3:103
+6.5.22	nfs3	nfs3	run	nfs3_abio_read_quota	-	2	1	16	bounded	2 1 16	yes	yes	yes	located	mtune/nfs3:104
+6.5.22	nfs3	nfs3	run	nfs3_max_jukebox	-	360	0	8640	bounded	360 0 8640	yes	yes	yes	located	mtune/nfs3:120
+6.5.22	numa			numa_migr_default_mode	-	2	-	-	default	2	yes	yes	yes	located	mtune/numa:70
+6.5.22	numa			numa_migr_default_threshold	-	50	-	-	default	50	yes	yes	yes	located	mtune/numa:72
+6.5.22	numa			numa_migr_threshold_reference	-	0	-	-	default	0	yes	yes	yes	located	mtune/numa:74
+6.5.22	numa			numa_migr_vehicle	-	1	-	-	default	1	yes	yes	yes	located	mtune/numa:76
+6.5.22	numa			numa_migr_min_maxradius	-	2	-	-	default	2	yes	yes	yes	located	mtune/numa:78
+6.5.22	numa			numa_migr_auto_migr_mech	-	0	-	-	default	0	yes	yes	yes	located	mtune/numa:80
+6.5.22	numa			numa_migr_user_migr_mech	-	0	-	-	default	0	yes	yes	yes	located	mtune/numa:82
+6.5.22	numa			numa_migr_coaldmigr_mech	-	0	-	-	default	0	yes	yes	yes	located	mtune/numa:84
+6.5.22	numa			numa_refcnt_default_mode	-	0	-	-	default	0	yes	yes	yes	located	mtune/numa:103
+6.5.22	numa			numa_refcnt_overflow_threshold	-	50	-	-	default	50	yes	yes	yes	located	mtune/numa:105
+6.5.22	numa			numa_migr_min_distance	-	1	-	-	default	1	yes	yes	yes	located	mtune/numa:117
+6.5.22	numa			numa_migr_memory_low_enabled	-	1	-	-	default	1	yes	yes	yes	located	mtune/numa:124
+6.5.22	numa			numa_migr_memory_low_threshold	-	20	-	-	default	20	yes	yes	yes	located	mtune/numa:125
+6.5.22	numa			numa_migr_freeze_enabled	-	0	-	-	default	0	yes	yes	yes	located	mtune/numa:129
+6.5.22	numa			numa_migr_freeze_threshold	-	20	-	-	default	20	yes	yes	yes	located	mtune/numa:131
+6.5.22	numa			numa_migr_melt_enabled	-	0	-	-	default	0	yes	yes	yes	located	mtune/numa:135
+6.5.22	numa			numa_migr_melt_threshold	-	90	-	-	default	90	yes	yes	yes	located	mtune/numa:137
+6.5.22	numa			numa_migr_bounce_control_interval	-	0	-	-	default	0	yes	yes	yes	located	mtune/numa:143
+6.5.22	numa			numa_migr_dampening_enabled	-	0	-	-	default	0	yes	yes	yes	located	mtune/numa:147
+6.5.22	numa			numa_migr_dampening_factor	-	90	-	-	default	90	yes	yes	yes	located	mtune/numa:149
+6.5.22	numa			mem_tick_enabled	-	1	-	-	default	1	yes	yes	yes	located	mtune/numa:158
+6.5.22	numa			mem_tick_base_period	-	1	-	-	default	1	yes	yes	yes	located	mtune/numa:161
+6.5.22	numa			numa_migr_unpegging_control_enabled	-	1	-	-	default	1	yes	yes	yes	located	mtune/numa:165
+6.5.22	numa			numa_migr_unpegging_control_interval	-	0	-	-	default	0	yes	yes	yes	located	mtune/numa:169
+6.5.22	numa			numa_migr_unpegging_control_threshold	-	90	-	-	default	90	yes	yes	yes	located	mtune/numa:171
+6.5.22	numa			numa_migr_traffic_control_enabled	-	0	-	-	default	0	yes	yes	yes	located	mtune/numa:178
+6.5.22	numa			numa_migr_traffic_control_interval	-	400	-	-	default	400	yes	yes	yes	located	mtune/numa:180
+6.5.22	numa			numa_migr_traffic_control_threshold	-	80	-	-	default	80	yes	yes	yes	located	mtune/numa:182
+6.5.22	numa			numa_kernel_replication_ratio	-	1	-	-	default	1	yes	yes	yes	located	mtune/numa:198
+6.5.22	numa			numa_paging_node_freemem_low_threshold	-	40	-	-	default	40	yes	yes	yes	located	mtune/numa:210
+6.5.22	numa			numa_zone_radius	-	1	-	-	default	1	yes	yes	yes	located	mtune/numa:227
+6.5.22	numa			numa_migr_enqonfail_enabled	-	0	-	-	default	0	yes	yes	yes	located	mtune/numa:241
+6.5.22	numa			memoryd_enabled	-	0	-	-	default	0	yes	yes	yes	located	mtune/numa:246
+6.5.22	numa			numa_migr_queue_maxlen	-	70	1	100	bounded	70 1 100	yes	yes	yes	located	mtune/numa:252
+6.5.22	numa			numa_migr_queue_control_enabled	-	0	-	-	default	0	yes	yes	yes	located	mtune/numa:254
+6.5.22	numa			numa_migr_queue_control_interval	-	500	-	-	default	500	yes	yes	yes	located	mtune/numa:256
+6.5.22	numa			numa_migr_queue_control_mlimit	-	70	-	-	default	70	yes	yes	yes	located	mtune/numa:258
+6.5.22	numa			numa_migr_queue_traffic_trigger_enabled	-	0	-	-	default	0	yes	yes	yes	located	mtune/numa:265
+6.5.22	numa			numa_migr_queue_traffic_trigger_threshold	-	80	-	-	default	80	yes	yes	yes	located	mtune/numa:266
+6.5.22	numa			numa_migr_queue_capacity_trigger_enabled	-	0	-	-	default	0	yes	yes	yes	located	mtune/numa:268
+6.5.22	numa			numa_migr_queue_capacity_trigger_threshold	-	60	-	-	default	60	yes	yes	yes	located	mtune/numa:269
+6.5.22	numa			numa_migr_queue_time_trigger_enabled	-	0	-	-	default	0	yes	yes	yes	located	mtune/numa:271
+6.5.22	numa			numa_migr_queue_time_trigger_interval	-	1	-	-	default	1	yes	yes	yes	located	mtune/numa:272
+6.5.22	numa			numa_migr_queue_control_max_page_age	-	8	-	-	default	8	yes	yes	yes	located	mtune/numa:280
+6.5.22	oncrpc			portmap_timeout	-	5	1	200	bounded	5 1 200	yes	yes	yes	located	mtune/oncrpc:31
+6.5.22	oncrpc			first_retry	-	1	0	10000	bounded	1 0 10000	yes	yes	yes	located	mtune/oncrpc:32
+6.5.22	oncrpc			normal_retry	-	1	0	10000	bounded	1 0 10000	yes	yes	yes	located	mtune/oncrpc:33
+6.5.22	oncrpc	oncrpc	run	ksvc_min_threads	-	0	0	1024	bounded	0 0 1024	yes	yes	yes	located	mtune/oncrpc:53
+6.5.22	oncrpc	oncrpc	run	ksvc_max_threads	-	1024	4	1024	bounded	1024 4 1024	yes	yes	yes	located	mtune/oncrpc:62
+6.5.22	oncrpc	oncrpc	run	ksvc_queue_max_threads	-	32	1	256	bounded	32 1 256	yes	yes	yes	located	mtune/oncrpc:75
+6.5.22	oncrpc	oncrpc	run	ksvc_queue_timeout	-	5	-1	600	bounded	5 -1 600	yes	yes	yes	located	mtune/oncrpc:89
+6.5.22	oncrpc	oncrpc	run	ksvc_pool_timeout	-	60	-1	600	bounded	60 -1 600	yes	yes	yes	located	mtune/oncrpc:102
+6.5.22	oncrpc	oncrpc	run	ksvc_max_manages	-	0	0	2000	bounded	0 0 2000	yes	yes	yes	located	mtune/oncrpc:117
+6.5.22	oplock			oplocks_enabled	-	1	0	1	bounded	1 0 1	yes	yes	yes	located	mtune/oplock:29
+6.5.22	oplock			oplock_timeout	-	30	1	1000	bounded	30 1 1000	yes	yes	yes	located	mtune/oplock:30
+6.5.22	pipefs	pipefs	run	svr3pipe	-	1	-	-	default	1	yes	yes	yes	located	mtune/pipefs:32
+6.5.22	psema			psema_max_cnt	-	8192	512	65536	bounded	8192 512 65536	yes	yes	yes	located	mtune/psema:31
+6.5.22	sem			semmni	-	300	-	-	default	300	yes	yes	yes	located	mtune/sem:28
+6.5.22	sem			semmsl	-	100	-	-	default	100	yes	yes	yes	located	mtune/sem:29
+6.5.22	sem			semopm	-	100	-	-	default	100	yes	yes	yes	located	mtune/sem:30
+6.5.22	sem			semvmx	-	32767	-	-	default	32767	yes	yes	yes	located	mtune/sem:31
+6.5.22	sem			semaem	-	16384	-	-	default	16384	yes	yes	yes	located	mtune/sem:32
+6.5.22	snfs	snfs	run	nfs_portmon	-	0	0	1	bounded	0 0 1	yes	yes	yes	located	mtune/snfs:29
+6.5.22	snfs	snfs	run	nfs_access_check	-	1	0	1	bounded	1 0 1	yes	yes	yes	located	mtune/snfs:38
+6.5.22	snfs	snfs	run	nfsauth_cachesz	-	512	2	2147483647	bounded	512 2 2147483647	yes	yes	yes	located	mtune/snfs:45
+6.5.22	snfs	snfs	run	nfsauth_refresh	-	1800	0	2147483647	bounded	1800 0 2147483647	yes	yes	yes	located	mtune/snfs:50
+6.5.22	snfs	snfs	run	nfsauth_timeout	-	10	1	2147483647	bounded	10 1 2147483647	yes	yes	yes	located	mtune/snfs:54
+6.5.22	svckudp			svc_maxdupreqs	-	0	50	10000	bounded	0 50 10000	yes	yes	yes	located	mtune/svckudp:33
+6.5.22	uds			unpst_sendspace	-	0x20000	-	-	default	0x20000	yes	yes	yes	located	mtune/uds:32
+6.5.22	uds			unpst_recvspace	-	0x20000	-	-	default	0x20000	yes	yes	yes	located	mtune/uds:33
+6.5.22	uds			unpdg_sendspace	-	0x2000	-	-	default	0x2000	yes	yes	yes	located	mtune/uds:34
+6.5.22	uds			unpdg_recvspace	-	0x4000	-	-	default	0x4000	yes	yes	yes	located	mtune/uds:35
+6.5.22	usync			usync_max_objs	-	8192	1024	100000	bounded	8192 1024 100000	yes	yes	yes	located	mtune/usync:32
+6.5.22	xfs	xfs	static	xfs_nfs_io_units	-	10	0	30	bounded	10 0 30	yes	yes	yes	located	mtune/xfs:85
+6.5.22	xfs	xfs	static	xfs_refcache_percent	-	100	1	100	bounded	100 1 100	yes	yes	yes	located	mtune/xfs:86
+6.5.22	xfs	xfs	static	xfs_dcount	-	0	4	64	bounded	0 4 64	yes	yes	yes	located	mtune/xfs:87
+6.5.22	xfs	xfs	static	xfs_max_bmap_len	-	1024	1024	65536	bounded	1024 1024 65536	yes	yes	yes	located	mtune/xfs:88
+6.5.22	xfs	xfs	run	xfs_panic_mask	-	0	0x0	0x7fffffffffffffff	bounded	0 0x0 0x7fffffffffffffff LL	yes	yes	yes	located	mtune/xfs:92
+6.5.22	xfs	xfs	run	xfs_dcontention	-	1	0	1	bounded	1 0 1	yes	yes	yes	located	mtune/xfs:93
+6.5.22	xfs	xfs	run	xfs_error_level	-	3	0	11	bounded	3 0 11	yes	yes	yes	located	mtune/xfs:94
+6.5.22	xlv	xlv	static	xlv_lowmem_slots	-	15	3	999999	bounded	15 3 999999	yes	yes	yes	located	mtune/xlv:45
+6.5.22	xlv	xlv	static	xlv_low_mem_threshold	-	10	1	100	bounded	10 1 100	yes	yes	yes	located	mtune/xlv:46
+6.5.22	xlv	xlv	static	xlv_low_mem_scale	-	50	1	100	bounded	50 1 100	yes	yes	yes	located	mtune/xlv:47
+6.5.22	xlv	xlv	static	xlv_low_mem_max_size	-	4194304	64	4194304	bounded	4194304 64 4194304	yes	yes	yes	located	mtune/xlv:48
+6.5.22	xlv	xlv	static	xlv_topmem_slots	-	5	1	999999	bounded	5 1 999999	yes	yes	yes	located	mtune/xlv:68
+6.5.22	xlv	xlv	static	xlv_top_mem_threshold	-	10	1	100	bounded	10 1 100	yes	yes	yes	located	mtune/xlv:69
+6.5.22	xlv	xlv	static	xlv_top_mem_scale	-	50	1	100	bounded	50 1 100	yes	yes	yes	located	mtune/xlv:70
+6.5.22	xlv	xlv	static	xlv_top_mem_max_size	-	4194304	32	4194304	bounded	4194304 32 4194304	yes	yes	yes	located	mtune/xlv:71
+6.5.22	xvm	xvm_comm	static	xvm_distribution_size	-	2097152	16384	2097152	bounded	2097152 16384 2097152	yes	yes	yes	located	mtune/xvm:26
+6.5.22	xvm	xvm_rsc	run	xvm_multicast_pri	-	90	90	109	bounded	90 90 109	yes	yes	yes	located	mtune/xvm:33
+6.5.22	xvm	xvm_rsc	run	xvm_drl_pri	-	90	90	109	bounded	90 90 109	yes	yes	yes	located	mtune/xvm:34
+6.5.22	xvm	xvm_rsc	run	xvm_revive_pri	-	90	90	109	bounded	90 90 109	yes	yes	yes	located	mtune/xvm:35
+6.5.22	xvm	xvm_rsc	run	xvm_max_revive_threads	MINIROOT	0	0	12	bounded	0 0 12	yes	yes	yes	located	mtune/xvm:54
+6.5.22	xvm	xvm_rsc	run	xvm_max_revive_threads	NOT_MINIROOT	4	1	12	bounded	4 1 12	yes	yes	yes	located	mtune/xvm:55
+6.5.22	xvm	xvm_rsc	run	xvm_max_revive_rsc	-	5	1	10	bounded	5 1 10	yes	yes	yes	located	mtune/xvm:56
+6.5.22	xvm	xvm_rsc	run	xvm_revive_win_factor	-	2	1	4	bounded	2 1 4	yes	yes	yes	located	mtune/xvm:68
+6.5.22	xvm	xvm_rsc	run	xvm_maxfs_revive	-	1	1	255	bounded	1 1 255	yes	yes	yes	located	mtune/xvm:78

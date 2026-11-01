@@ -1,0 +1,53 @@
+{
+  "_comment": "Hand-written roles for driver and module rows in docs/inventory/sysgen-drivers.tsv. Each entry gives a grade (established: read from the configuration file and the kernel symbol table; inferred: reasoned from the module name, flags and symbols), a role in plain words, and a citation naming the release, the master file and the kernel symbols checked. A row counts as understood only with all three. Keys are module names.",
+  "bsd": {
+    "grade": "established",
+    "role": "Socket and network-stack base module, flags ox (not a driver, one device specification). Its routines bsd_init, bsd_copyin and bsd_copyout are in the 6.5.22 IP27 kernel. Its stub list has six entries: an empty bsd_init, and getdtablesize, gethostname, sethostname, getdomainname and setdomainname, each a stub that reports no package when the module is left out.",
+    "citation": "6.5.22 master.d/bsd (stub list); unix.IP27 bsd_init, bsd_copyin, bsd_copyout"
+  },
+  "clone": {
+    "grade": "established",
+    "role": "Software clone device, flags ofs, prefix cln, one device at external major 10. Its open routine clnopen and its character switch table clncdevsw are in the 6.5.22 IP27 kernel.",
+    "citation": "6.5.22 master.d/clone (data line); unix.IP27 clnopen, clncdevsw"
+  },
+  "efs": {
+    "grade": "established",
+    "role": "EFS filesystem type module, flags oxj (filesystem type), prefix efs_, depends on the sgi and specfs modules. The kernel holds 50 symbols under efs_, including efs_init.",
+    "citation": "6.5.22 master.d/efs (data line); unix.IP27 efs_init and the efs_ symbols"
+  },
+  "cachefs": {
+    "grade": "established",
+    "role": "Cache filesystem type module, flags oxj, prefix cachefs_, depends on sgi. The kernel holds 5 symbols under cachefs_ (for example cachefs_getstat and cachefs_clearstat). The module has no cachefs_init entry point.",
+    "citation": "6.5.22 master.d/cachefs (data line); unix.IP27 cachefs_getstat, cachefs_clearstat"
+  },
+  "fifofs": {
+    "grade": "established",
+    "role": "FIFO filesystem type module, flags oxj, prefix fifo_, with two stubs in its stub list. The kernel holds 29 fifo_ symbols, including fifo_access, fifo_attr_get and fifo_attr_set.",
+    "citation": "6.5.22 master.d/fifofs (data line and stub list); unix.IP27 fifo_access, fifo_attr_get, fifo_attr_set"
+  },
+  "hwgfs": {
+    "grade": "established",
+    "role": "Hardware graph filesystem type module, flags jox, prefix hwg. The kernel holds 84 symbols under hwg, including the hwgfs_ routines that allocate and change nodes and the hwgdev data object.",
+    "citation": "6.5.22 master.d/hwgfs (data line); unix.IP27 hwgfs_allocnode, hwgfs_chmod, hwgdev"
+  },
+  "ioc3": {
+    "grade": "established",
+    "role": "Driver for the IOC3 I/O controller: flags nsc, prefix ioc3_, a character switch table. The kernel has ioc3_attach and ioc3_cdevsw. The chip is described in the IP35 IOC3 notes in this repository.",
+    "citation": "6.5.22 master.d/ioc3 (data line); unix.IP27 ioc3_attach, ioc3_cdevsw; docs/ip35-ioc3.md"
+  },
+  "if_eg": {
+    "grade": "inferred",
+    "role": "Gigabit Ethernet interface driver: the kernel's own messages call each card \"the Gigabit Ethernet unit eg%d\" and report firmware missing, full init done, link up and link down. Flags cs, prefix if_eg, depends on bsd. The kernel has if_egattach, if_egopen, if_egdetach and the character switch table if_egcdevsw (7 if_eg symbols in all). Its master file holds per-unit tables of 32 entries for the packet size, send and receive interrupt coalescing, the MAC address and mask, request_rrbs and link preference. The chip it drives is not named here.",
+    "citation": "6.5.22 master.d/if_eg (data line and data tables); unix.IP27 if_egattach, if_egopen, if_egdetach, if_egcdevsw and the eg%d message strings"
+  },
+  "if_ef": {
+    "grade": "inferred",
+    "role": "Network interface driver, flags cs, prefix if_ef, depends on bsd. The kernel has its attach routine if_efattach and a character switch table if_efcdevsw. The chip it drives is not named here.",
+    "citation": "6.5.22 master.d/if_ef (data line); unix.IP27 if_efattach, if_efcdevsw"
+  },
+  "klog": {
+    "grade": "established",
+    "role": "Kernel message log: flags osc, prefix klog, one device at external major 41, with one stub. The kernel holds klogopen and klogcdevsw and 13 klog symbols in all.",
+    "citation": "6.5.22 master.d/klog (data line and stub); unix.IP27 klogopen, klogcdevsw"
+  }
+}

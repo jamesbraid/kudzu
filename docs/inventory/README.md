@@ -26,4 +26,8 @@ Every file in this directory is generated. Do not edit by hand: change the docum
 
 For these tables `status` is `documented` when the name appears in backticks in a page under `docs/`, and `undocumented` otherwise. The shared five-level grading applies to `binaries.tsv`, `functions.tsv` and `ioctls.tsv`; moving these tables to it is future work.
 
+## Tables from scripts/sysgen_tables.py
+
+`sysgen-drivers.tsv` (one row per driver master file) and `sysgen-tunables.tsv` (one row per `mtune` line) come from the configuration files of one release, read per machine. Run `tools/re-run python3 scripts/sysgen_tables.py --release <release>`. The method, the release in use and the open disagreements are in [sysgen.md](../sysgen.md). Driver roles are hand-written in `scripts/sysgen-roles.json`; a row is `understood` only with a grade, a role and a citation.
+
 The numbering of `syscalls.tsv` and `selectors.tsv` is compared with public lists in [syscall-selector-crosscheck.md](../syscall-selector-crosscheck.md).
