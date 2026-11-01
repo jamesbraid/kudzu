@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """Kernel tables the shared inventory does not measure: system calls, kernel structures and panic sites.
 
-Usage: scripts/os_tables.py [--out docs/inventory]
+Usage: scripts/os_tables.py [--out docs/inventory] [--release 6.5.30]
+
+--release limits the tables to the kernels of one release under root/. Without it every root/<release>/unix.IP*
+is read, so a release whose kernels are not yet documented adds rows the docs do not describe.
 
 Run it from the repository root with root/ populated, inside the toolchain container
 (tools/re-run python3 scripts/os_tables.py). It writes three tab-separated tables beside the output of
@@ -17,9 +20,10 @@ scripts/inventory.py. Nothing here is hand-edited, and the output is determinist
                 structure; they are not written down, because the paths are the layout of a source tree.
                 Status is `documented` when docs/structs/<name>.md exists: scripts/struct_fields.py writes that
                 page only after two kernels agree on the layout.
-  panics.tsv    one row per calling function and callee in {panic, cmn_err, assfail, nopanicdebugger} found
+  panics.tsv    one row per calling function and callee in {panic, cmn_err, assfail, nopanicdebugger, printf, sync_printf,
+                dri_printf, icmn_err, icmn_err_tag, cmn_err_tag} found
                 in the linked kernels' text by decoding jal targets: the function, its address and the
-                number of call sites. Message strings are not recovered here.
+                number of call sites. Message strings are not recovered here (scripts/panic_sites.py reads them).
 
   selectors.tsv one row per `syssgi` selector that reaches code of its own, per kernel image, from
                 scripts/syssgi_selectors.py: the jump table or compare tree it came from, the selector, the
@@ -46,7 +50,9 @@ os.environ['LC_ALL'] = os.environ['LANG'] = 'C'
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(REPO, 'scripts'))
 
-PANIC_CALLEES = ('panic', 'cmn_err', 'assfail', 'nopanicdebugger')
+RELEASE = None
+PANIC_CALLEES = ('panic', 'cmn_err', 'assfail', 'nopanicdebugger',
+                 'printf', 'sync_printf', 'dri_printf', 'icmn_err', 'icmn_err_tag', 'cmn_err_tag')
 
 
 def doc_names():
@@ -68,7 +74,7 @@ def struct_pages():
 
 
 def kernels():
-    return sorted(glob.glob(os.path.join(REPO, 'root', '*', 'unix.IP*')))
+    return sorted(glob.glob(os.path.join(REPO, 'root', RELEASE or '*', 'unix.IP*')))
 
 
 def label(p):
@@ -235,6 +241,9 @@ def main():
     out = os.path.join(REPO, 'docs', 'inventory')
     if '--out' in sys.argv:
         out = sys.argv[sys.argv.index('--out') + 1]
+    global RELEASE
+    if '--release' in sys.argv:
+        RELEASE = sys.argv[sys.argv.index('--release') + 1]
     from elftools.elf.elffile import ELFFile
     scope = json.load(open(os.path.join(REPO, 'scripts', 'scope.json')))
     spre = re.compile('(?:%s)' % '|'.join(scope['structure_prefixes']))

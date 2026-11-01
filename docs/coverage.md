@@ -47,7 +47,7 @@ Rows in scope are the ones the finish line counts; rows out of scope are listed 
 |---|---:|---:|---:|---:|
 | [syscalls](inventory/syscalls.tsv) | 0 | 1422 | 0 | 0 |
 | [structs](inventory/structs.tsv) | 173 | 2733 | 140 | 33 |
-| [panics](inventory/panics.tsv) | 272 | 2551 | 272 | 0 |
+| [panics](inventory/panics.tsv) | 348 | 3272 | 308 | 40 |
 | [selectors](inventory/selectors.tsv) | 9 | 2770 | 9 | 0 |
 | [formats](inventory/formats.tsv) | 29 | 0 | 3 | 26 |
 
