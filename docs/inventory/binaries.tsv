@@ -3940,7 +3940,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_snapshot.o)	kernel-other-objects	shared-kernel	object	n64	74212	6ce6deb1ef5096d3		60	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/xvmidbg.o	kernel-other-objects	shared-kernel	object	n64	108064	a47c444640f24c6b		39	symtab	0	0	undocumented		
 6.5.30/unix.IP27	kernel-image	shared-kernel	executable	n64	11101184	567474674eaa83d3		13484	symtab (dwarf addresses stale, dropped)	0	0	named-only	docs/hwgraph.md#routines	Routines
-6.5.30/unix.IP30	kernel-image	shared-kernel	executable	n64	10716216	607a432f441d15f7		13087	symtab (dwarf addresses stale, dropped)	0	0	named-only	docs/klconfig.md#klconfig-as-the-kernel-reads-it	KLCONFIG as the kernel reads it
+6.5.30/unix.IP30	kernel-image	shared-kernel	executable	n64	10716216	607a432f441d15f7		13087	symtab (dwarf addresses stale, dropped)	0	0	named-only	docs/ip30-kernel-functions.md#ip30-kernel-one-entry-per-routine	IP30 kernel: one entry per routine
 6.5.30/unix.IP35	kernel-image	shared-kernel	executable	n64	13104040	412a1aae553a3483		15130	symtab (dwarf addresses stale, dropped)	0	0	named-only	docs/klconfig.md#the-same-routines-in-the-other-builds	The same routines in the other builds
 6.5.30/usr/cpu/sysgen/IP22boot/isdnchan.o	kernel-other-objects	shared-kernel	object	n32	94648	53295a8cc89268f5		75	symtab+dwarf	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/acl.a(acl.o)	kernel-other-objects	shared-kernel	object	n64	20676	93e38b80d7e58c70		16	symtab	0	0	undocumented		
