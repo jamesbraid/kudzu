@@ -609,6 +609,7 @@ The memory component fields read, beyond the [component header](#component-recor
   allocator and adds a check that the node's page structures fit in slot 0, which IRIX lacks.
   Established.
 - `sub_c00000000002a024` (`6.5.30/unix.IP27` `0xc00000000002a024`, 316 bytes)
+  is unsymbolled in the linked kernel; the `kernel.o` DWARF names it `slot_psize_compute`. It
   returns the page count of slot a1 on compact node a0. It finds the node's first board through
   the directory as in [Finding a node's first board](#finding-a-nodes-first-board), calls
   `find_lboard` for type 17 and `find_first_component` for type 3, and returns 0 when either finds
@@ -659,7 +660,7 @@ On IP35 the same routines differ only as follows.
   word at gp+10276, line 106), `low_maxclick` (gp+10812), `slot_lastfilled_cache` and the return
   value are as on IP27. Established.
 - `sub_c00000000004f408` (`6.5.30/unix.IP35` `0xc00000000004f408`, 232 bytes)
-  finds the node board through the directory, or through `chk_for_pebrick` when the node's
+  (`slot_psize_compute` in the `kernel.o` DWARF) finds the node board through the directory, or through `chk_for_pebrick` when the node's
   register at `0x9000000034000000` (plus the NASID shifted left 33) has `0xc` in bits 12 to 15,
   then `find_lboard` type 17 and `find_first_component` type 3, returning 0 when either finds
   nothing. It returns the pages of one bank: the signed halfword at +60 plus twice (a1 XOR the

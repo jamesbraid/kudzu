@@ -218,6 +218,68 @@ The doubleword at +8 is the node's `PI_INT_PEND_MOD` (`0x90` in the hub window) 
   of the handle (through `pdaindr`, address from gp-19880; the load at 0xc00000000003c170).
   Established.
 
+## Choosing a target processor
+
+When a driver allocates an interrupt without naming a processor, `intr_heuristic` picks one: the processor the device's descriptor names, else the least loaded processor of the device's own node, else of the nearest node in rising distance, else of the boot processor's node. Load is two per-slice counters in the node's `nodepda_s`. Five unsymbolled routines do the work in the linked kernel; the 6.5.30 IP27 `kernel.o` DWARF gives each a name and an address in that object, quoted in its entry.
+
+- `sub_c0000000000389d8` (`6.5.30/unix.IP27` `0xc0000000000389d8`, 296 bytes)
+  is `do_intr_cpu_choose` (at 0x1f858 in `6.5.30/usr/cpu/sysgen/IP27boot/kernel.o` by its DWARF).
+  It takes a compact node in a0 and a selector in a1, and returns the least loaded usable processor
+  of the node, or -1. For slices 0 and 1 it calls `cnode_slice_to_cpuid`; it skips a slice that
+  gives -1, one for which `cpu_enabled` returns 0, and one whose `pda_s` (through `pdaindr`, loaded
+  from gp-20008) has bit `0x80` set in the word at +72 (the test at 0xc000000000038a70). It also
+  skips every slice when a1 is neither -1 nor 0. The load is the sum of the words at +10992 and
+  +18712 plus 4 × slice in node a0's `nodepda_s` (the loads at 0xc000000000038aa8 and
+  0xc000000000038aac); the first processor whose load is below the best so far, starting from 1000,
+  wins, so slice 0 wins a tie. Established.
+- `sub_c000000000038b00` (`6.5.30/unix.IP27` `0xc000000000038b00`, 28 bytes)
+  is `intr_cpu_choose_from_node` (kernel.o DWARF, 0x1f980): it calls `sub_c0000000000389d8` with its
+  own a0 and a1 (the call at 0xc000000000038b08) and returns the result. Established.
+- `sub_c000000000038b1c` (`6.5.30/unix.IP27` `0xc000000000038b1c`, 120 bytes)
+  is `subnodevertex_to_subnode` (kernel.o DWARF, 0x1f99c). It calls `hwgraph_info_get_LBL` on vertex
+  a0 for the label "_cpubus" (string block from gp-20040, plus 56) and returns -1 when the vertex has
+  no such label. Otherwise it calls `master_node_get` on the vertex and returns -1 when that gives
+  -1; else it stores the node as a halfword through a1 and the label's value as a word through a2
+  (the stores at 0xc000000000038b80 and 0xc000000000038b7c) and returns 0. Established.
+- `intr_target_from_desc` (`6.5.30/unix.IP27` `0xc000000000038c18`, 184 bytes)
+  turns a device descriptor (a0) into a processor number. It calls `device_desc_intr_target_get`
+  and returns -1 when the descriptor names no target vertex. A target that `cpuvertex_to_cpuid`
+  maps to a processor gives that processor. Otherwise, when `sub_c000000000038b1c` finds the target
+  is a CPU bus vertex, it returns `sub_c000000000038b00` for that node and subnode (the call at
+  0xc000000000038cbc); else it calls `master_node_get` on the target, returns -1 for -1, and returns
+  `sub_c000000000038b00` for that node with the caller's a1 as the selector (the call at
+  0xc000000000038ca8). Results are sign-extended from 16 bits. Established.
+- `sub_c000000000038cd0` (`6.5.30/unix.IP27` `0xc000000000038cd0`, 64 bytes)
+  is `intr_cnode_seen` (kernel.o DWARF, 0x1fb50), the filter `intr_heuristic` hands to
+  `physmem_select_neighbor_node`. It scans the signed halfwords of array a1 up to the count in the
+  word at a2 (the load at 0xc000000000038cd0) and returns 0 when one equals a0; otherwise it returns
+  a1 itself, a nonzero value, including when the count is 0 or less. Established.
+- `sub_c000000000038d10` (`6.5.30/unix.IP27` `0xc000000000038d10`, 168 bytes)
+  is `intr_bit_reserve_test` (kernel.o DWARF, 0x1fb90). It takes a processor in a0, a selector in
+  a1, a node in a2, then the level, flags, owner, name and a result pointer in a3 to a7. When a2 is
+  not -1 it replaces the processor with `sub_c000000000038b00` for that node and selector (the call
+  at 0xc000000000038d48). It returns -1 when it has no processor. Otherwise it calls
+  `sub_c00000000003810c` (the level reservation above) with the processor, level, flags, 1, owner
+  and name (the call at 0xc000000000038d84), stores that result as a word through a7 (in the delay
+  slot of the following branch, so on every path), and returns -1 when the result is negative and
+  the processor otherwise. Established.
+- `intr_heuristic` (`6.5.30/unix.IP27` `0xc000000000038db8`, 572 bytes)
+  takes the device vertex in a0, a descriptor in a1, and the level, flags, owner, name and result
+  pointer in a2 to a6, which it passes to `sub_c000000000038d10` at every step. It first calls
+  `physmem_maxradius`. (1) With a descriptor it tries the processor `intr_target_from_desc` names
+  (selector -1). (2) It tries the node `master_node_get` gives for the vertex (the call at
+  0xc000000000038e74). On failure it calls `cmn_err` with 4, "!Cannot target interrupts to closest
+  node: %v (0x%x)\n" and the owner twice. (3) For each radius from 1 to the maximum it calls
+  `physmem_select_neighbor_node` with the caller's node (the halfword at absolute
+  `0xffffffffffffc422`), the radius, a result slot, `sub_c000000000038cd0` as the filter, a
+  list of halfword nodes at sp+8 and its count at sp+0. Each node found is added to the list and tried; after a failure
+  the same radius is asked again, so every node at that distance is tried before the next. When none
+  succeeds it calls `cmn_err` with 4 and "!Cannot target interrupts to any close node: %v (0x%x)\n".
+  (4) It tries the node of the boot processor (`p_nodeid`, +1058 of the `pda_s` of
+  `master_procid`). When that fails too it calls `cmn_err` with 4 and "Cannot target interrupts: %v
+  (0x%x)\n" and returns -1. It returns the first processor that `sub_c000000000038d10` accepts.
+  Established.
+
 ## IP35 differences
 
 An IP35 node has up to four processors behind two processor interfaces. The kernel keeps the IP27 register offsets within each interface and adds `0x200000` for the second one: a processor whose `p_slice` (+1320 of the IP35 `pda_s`) has bit 1 set uses the second interface, and bit 0 of `p_slice` picks the A or B mask registers within it (16 bytes apart). Node registers are at `0x9200000001800000` (from gp+2288) plus the NASID shifted left 33. In the IP35 `pda_s`, `p_intmasks` is at +1440 (masks at +1440 and +1448, `dispatch0` at +1456, `dispatch1` at +1464), `p_cpuid` at +1064 and `p_nodeid` at +1066; `snpda` (+3256 of `nodepda_s`) holds two subnode records of 15456 bytes.
@@ -288,3 +350,9 @@ An IP35 node has up to four processors behind two processor interfaces. The kern
   first enabled processor on each interface gets the hardwired levels. Established.
 
 The IP35 `hardwired_intr` table (`.data` at `0xc000000001531598`) has the IP27 entries with three changes and four additions: level 4 is named "Bedrock/L1" and has flag `0x8`, the IO error moves from level 121 to 102, and the table adds 120 "CPU A Nack count == NACK_CMP", 121 "CPU B Nack count == NACK_CMP", 119 "Local Block Error" and 118 "Local XBar Error", all with flags 0. Linux has no IP35 support, so these levels have no public cross-check. Established for the table.
+- `intr_target_from_desc` (`6.5.30/unix.IP35` `0xc00000000005fc64`, 184 bytes)
+  is the IP27 routine with one instruction moved: it calls `device_desc_intr_target_get`, then
+  `cpuvertex_to_cpuid`, then the CPU bus lookup at `0xc00000000005fb68` (the call at
+  0xc00000000005fcc4) or `master_node_get`, and picks the processor through the node chooser at
+  `0xc00000000005fb4c` (calls at 0xc00000000005fcf4 and 0xc00000000005fd08), returning -1 where the
+  IP27 routine does. Established.
