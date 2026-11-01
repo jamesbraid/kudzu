@@ -144,6 +144,80 @@ The `hardwired_intr` table in `6.5.30/unix.IP27` (read from `.data` at `0xc00000
 
 The second-block levels agree with the hardware bit list in Linux 2.4's `include/asm-mips64/sn/intr.h` (IO error 57, clock error 58, correctable errors 59 and 60, memory correctable error 61, NI error 62, MSC panic 63 of `INT_PEND1`), and so do levels 0 to 3 and the crosscalls at 5 and 6 (Linux `CC_PEND_A` and `CC_PEND_B`). Linux names level 4 `UART_INTR` where the IRIX table says "Hub I2C". The software-chosen levels differ: IRIX 6.5.30 puts the processor actions at 7 and 8 and the MSC message at 9, where Linux uses 10, 11 and 13. Established for the table.
 
+## Hub interrupt handles
+
+Drivers reach the routines above through the crosstalk interrupt calls, which the IP27 hub provider implements with a 48-byte handle allocated on the target processor's node. No shipped DWARF defines the handle; offsets are from the instructions:
+
+| Offset | Width | Contents | Grade |
+|---|---|---|---|
+| +0 | word | the device vertex (set to -1 on free) | established |
+| +4 | byte | the device's crosstalk master widget, from `xwidget_info_masterid_get` | established |
+| +5 | byte | the bit within its block | established |
+| +8 | doubleword | the NASID shifted left 38, plus `0x800001800090` | established |
+| +16 | doubleword | the set-function argument given to connect | established |
+| +24 | doubleword | the set function given to connect, called on connect and disconnect | established |
+| +32 | word | the software level, used as the thread priority on connect | established |
+| +36 | halfword | the target processor | established |
+| +40 | word | the bit within its block, as returned by the reservation | established |
+| +44 | word | flags: bit 0 allocated, bit 2 connected | established |
+
+The doubleword at +8 is the node's `PI_INT_PEND_MOD` (`0x90` in the hub window) at the crosstalk address a widget writes to raise the level; that reading is inferred from the offset and the Linux name, since the kernel only stores it here.
+
+- `sub_c00000000003bd0c` (`6.5.30/unix.IP27` `0xc00000000003bd0c`, 688 bytes)
+  is unsymbolled; `hub_intr_alloc` and `hub_intr_alloc_nothd` call it with a device vertex (a0), a
+  device descriptor (a1), an owner vertex (a2) and a no-thread flag (a3). With no descriptor it calls
+  `device_desc_default_get`; when that also returns nothing it uses no name, `default_intr_pri` (gp-30460)
+  as the level, and reservation flags of 8 (threaded) when a3 is 0, or the word at sp+0, which the
+  routine never writes, when a3 is nonzero. With a descriptor it calls `device_desc_intr_name_get`
+  and `device_desc_intr_swlevel_get`, and takes flags 4 (second block) when bit 0 of the descriptor
+  word at +24 is set, else 0 when a3 is nonzero or the descriptor word has bit 2, else 8. It then calls
+  `hwgraph_edge_get` for the device's "pci" edge. When that succeeds, the edge's `hwgraph_fastinfo_get`
+  record has `0xc0022` at +120 and a nonzero pointer at +2088, `bridge_rev_b_data_check_disable`
+  (gp-29420) is 0, a descriptor was given and its name equals "Qlogic SCSI" (`strcmp`), it targets the
+  processor in the halfword at +36 of the record that pointer names and calls `intr_reserve_level`
+  for it with `allocate_my_bit` (gp-32516), calling `cmn_err` level 4 with "Could not reserve an
+  interrupt bit for cpu  %d and dev %v\n" when that fails. Otherwise it calls `intr_heuristic` with
+  the device, the descriptor, `allocate_my_bit`, the flags, the owner, the name and a result pointer.
+  A processor of -1 calls `cmn_err` level 4 with "%v hub_intr_alloc could not allocate interrupt\n"
+  and returns 0. On success it calls `kmem_alloc_node` for 48 bytes (a1 1) on the processor's node,
+  calling `assfail` (line 788) when that returns null, fills the handle as in the table (flags 1),
+  calls `xwidget_info_get` and, for a widget, `xwidget_info_masterid_get`, then calls
+  `sub_c00000000003bcb8` and returns the handle. Established; that the "Qlogic SCSI" path keeps the
+  SCSI interrupt on the processor of an earlier Bridge interrupt is inferred from the fields it reads.
+- `sub_c00000000003bcb8` (`6.5.30/unix.IP27` `0xc00000000003bcb8`, 84 bytes)
+  is unsymbolled. It calls `device_desc_intr_swlevel_set` on the descriptor (a0) with a1, formats
+  "/hw/cpunum/%d" with the processor (a2) by `sprintf`, looks the path up with
+  `hwgraph_path_to_dev` and calls `device_desc_intr_target_set` with the result, so the descriptor
+  records the processor vertex the interrupt went to. Established.
+- `hub_intr_alloc` (`6.5.30/unix.IP27` `0xc00000000003bfbc`, 28 bytes)
+  calls `sub_c00000000003bd0c` with its three arguments and a3 of 0 (threaded handlers allowed).
+  Established.
+- `hub_intr_alloc_nothd` (`6.5.30/unix.IP27` `0xc00000000003bfd8`, 28 bytes)
+  calls `sub_c00000000003bd0c` with its three arguments and a3 of 1. Established.
+- `hub_intr_connect` (`6.5.30/unix.IP27` `0xc00000000003c06c`, 136 bytes)
+  takes a handle (a0), a handler (a1), its argument (a2), a set function (a3) and its argument (a4),
+  and calls `intr_connect_level` with the handle's processor (+36), bit (+40) and level (+32) as the
+  priority, the handler, the argument and no pre-handler. A negative result is returned as is.
+  Otherwise it stores a3 at +24 and a4 at +16, calls a3 with the handle when a3 is not null, sets bit
+  2 of the flags word (+44) and returns 0. Established.
+- `hub_intr_disconnect` (`6.5.30/unix.IP27` `0xc00000000003c0f4`, 100 bytes)
+  calls the handle's set function (+24) with the handle and its bit when it is not null, then calls
+  `intr_disconnect_level` with the handle's processor (+36) and bit (+40) and clears bit 2 of the
+  flags word (+44, mask -5). It does not set a return value of its own: v0 holds -5, the mask, on
+  return. Established.
+- `hub_intr_free` (`6.5.30/unix.IP27` `0xc00000000003bff4`, 120 bytes)
+  reads the handle's processor (+36), bit (+40) and flags (+44). When the flags word has bit 2
+  (connected) it clears the byte at +5 and the doubleword at +8, stores -1 at +0 and calls
+  `hub_intr_disconnect`. When the flags word has bit 0 it calls `kmem_free` for the 48 bytes. It
+  then calls `intr_unreserve_level` with the saved processor and bit. Established.
+- `hub_intr_cpuid_get` (`6.5.30/unix.IP27` `0xc00000000003c174`, 8 bytes)
+  returns the handle's processor, the halfword at +36, loaded in the return's delay slot at
+  0xc00000000003c178. Established.
+- `hub_intr_cpu_get` (`6.5.30/unix.IP27` `0xc00000000003c158`, 28 bytes)
+  returns the processor's vertex: `p_vertex`, the word at +1844 of the `pda_s` of the processor at +36
+  of the handle (through `pdaindr`, address from gp-19880; the load at 0xc00000000003c170).
+  Established.
+
 ## IP35 differences
 
 An IP35 node has up to four processors behind two processor interfaces. The kernel keeps the IP27 register offsets within each interface and adds `0x200000` for the second one: a processor whose `p_slice` (+1320 of the IP35 `pda_s`) has bit 1 set uses the second interface, and bit 0 of `p_slice` picks the A or B mask registers within it (16 bytes apart). Node registers are at `0x9200000001800000` (from gp+2288) plus the NASID shifted left 33. In the IP35 `pda_s`, `p_intmasks` is at +1440 (masks at +1440 and +1448, `dispatch0` at +1456, `dispatch1` at +1464), `p_cpuid` at +1064 and `p_nodeid` at +1066; `snpda` (+3256 of `nodepda_s`) holds two subnode records of 15456 bytes.
