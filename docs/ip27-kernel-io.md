@@ -495,3 +495,108 @@ interrupt with `pciio_intr_alloc` (class 2 when the host is the guest and sub-de
 they differ and then calls `ioc3_serial_attach(guest)` and `pckm_attach(guest)`. For the console chip it sets the global `console_device_attached` to 1. It returns 0 on
 success and -1 on the mapping failures. The condition on which a requested CPU is honoured was decoded from the decompiler output and checked against the compare at
 0x95540 only.
+
+## Hub memory error classification
+
+- `huberror_process_rrb_error` (`6.5.30/unix.IP27`, address 0xc000000000034054): **inferred.** Decides what to do about a failed read that the hub's request buffer
+reported. Arguments: the error type (`a0`: 1 uncached read, 2 cached read with a directory error, 3 read timeout) and the physical address (`a1`, whose bits 32 to 39 are
+the NASID). For each type it asks which partition owns the address (`nasid_to_partid`) and compares with `part_id()`, then returns a small disposition code and never
+changes memory itself: type 3 on the local partition goes to `error_check_part_page` (zero means the page is not a partition-shared one and ends in
+`cmn_err(0x14, "Read timeout, physaddr 0x%x")`) and `partition_handle_error(0, addr, 1)`, giving 2 when that returns 3 and
+0 otherwise; type 3 on another partition gives 1 or 0 by the same test. Type 2 on the local partition checks `page_isdiscarded` (a page that is not discarded prints
+`Cached read directory error, physaddr 0x%x in %s` with the memory bank name from `membank_pathname_get`, at `cmn_err` level 0x14), then
+`error_check_part_page` (zero gives 0) and `partition_handle_error(0, addr, 4)` giving 6 or
+0; type 2 on another partition gives 4 or 0. Type 1 on the local partition checks `error_check_part_page` (zero ends in
+`Uncached read error, physaddr 0x%x`) and `partition_handle_error(0, addr, 10)` giving 8 or
+0; on another partition 7 or 0. Any other type is `Invalid RRB error type: 0x%x`. The
+`cmn_err` level 0x14 calls do not return. A call to `error_page_discard` at 0x3428c is present and its condition is unknown.
+- `huberror_process_wrb_error` (`6.5.30/unix.IP27`, address 0xc0000000000342ac): **inferred.** The write-side counterpart: arguments are the error type (`a0`: 0 cached
+write, 1 uncached write, 3 write timeout) and the physical address (`a1`). Type 1 calls `kl_ioerror_handler(cnode, cnode, -1, 6, addr, 0, 1, 0)` for the node the CPU is
+on and returns 0 when it returns 0, otherwise `cmn_err(0x14, "Uncached Write error, physaddr 0x%x node: %d")`. For types 0 and 3, with the owning partition looked up as
+in the read case: type 3 on the local partition with `error_check_part_page` nonzero gives 0xc when `partition_handle_error(0, addr, 3)` returns 3 and
+0 otherwise, with it zero returns 0 unless `error_check_poisoned_state(addr, 0, 1)` returns 3, which is
+`Write timeout, paddr 0x%x` at level 0x14; type 3 on another partition gives 0xb or 0. Type 0 on the local partition with
+`error_check_part_page` nonzero gives 0xf or 0, with it zero calls `error_check_memory_access(addr, 1, 0)`: zero is
+`Cached write error, physaddr 0x%x` at level 0x14, 3 gives 0x11 and any other value 0; type 0 on another partition gives 0xe or 0.
+Any other type is `Invalid WRB error type: 0x%x`. Returned values per path match the exits' "one of 0x0, 0xc", "0x0,
+0xf", "0x0, 0xb" and "0x0,
+0xe" entries.
+
+## PCI bridge PIO maps and device settings
+
+- `pcibr_piomap_alloc` (`6.5.30/unix.IP27`, address 0xc000000000072714): **inferred.** Allocates a PIO map for a device behind a PCI bridge. Arguments: the device vertex
+(`a0`), the device number (`a1`, unused), the space type (`a2`), the offset
+(`a3`), the size (`a4`), the maximum size (`a5`) and flags
+(`a6`). It reads the slot byte at the device's info record +540 and the soft record through `pciio_info_mfast_get`; when `a4` or
+`a5` is 0 it logs `pcibr_piomap_alloc: req_size | req_size_max < 1` through `pcibr_debug(0x8000000, ...)` and returns 0. It converts space, offset, size and flags to a
+crossbar address with the routine at 0xc000000000071e44 and, when that gives -1, logs `xio_addr == XIO_NOWHERE` and returns 0. It reuses a record from the device's free
+list at info +528 (a record whose size doubleword at +24 is zero) or allocates 0x60 bytes (`kmem_zalloc`) and links it into that list under the bridge lock at soft +128,
+then fills it: vertex +4, slot at +8 (the slot, plus 1 for a bridge whose type halfword at +114 is 2, 0xff for slot 0xff), soft record +64, size +24, offset +16, flags
++0, space +12, and for type 2 zeroes +80 to +95. It then calls `xtalk_piomap_alloc(widget vertex, 0, xio address, size, max size, flags & 0x1f)`; on failure it marks the
+record free again (size 0) and returns 0; on success it stores that map at +48 and the crossbar address at +40 and returns the record. The reuse scan and the list update
+were read from the decompiler output; the instruction-level order of the list update was not checked.
+- `pcibr_priority_bits_set` (`6.5.30/unix.IP27`, address 0xc000000000074a2c): **established.** Raises or lowers, with a use count, the high-priority bit of one PCI slot's
+bridge device register. Arguments: the bridge soft record (`a0`), the slot (`a1`) and a mode (`a2`: 1 or
+2 take a reference, 0 drops one, any other value changes nothing). The bit is 0x200000, except that for a bridge whose revision word at +120 is 0xc0022 the mask is 0, so
+the bit is never changed. It takes the lock at +128 (`mutex_spinlock`) and reads the slot's shadow of the device register, the doubleword at +312 plus 128 times the slot,
+with a use count in the word at +320. Take (modes 1 and 2): it increments the count; when the count becomes 1 it returns -1 if the mask is 0 (the `li s0,-1` at 0x74b80)
+and otherwise ORs the mask into the new value; a later reference only counts. Drop (mode 0): a count that is already 0 or less returns -1 and changes nothing; otherwise
+it decrements, and when the count reaches 0 with a nonzero mask it clears the bit. When the new value differs from the shadow it writes it with
+`pcireg_device_set(soft, slot, value)`, stores it back at +312 and flushes with `pcireg_tflush_get`. It releases the lock (`mutex_io_spinunlock`) and returns 0, or -1 in
+the two cases above.
+- `pcibr_device_flags_set` (`6.5.30/unix.IP27`, address 0xc000000000074bd0): **established.** Turns the driver-level flags of a PCI device into set and clear masks for
+its bridge device register and applies them. Arguments: the device vertex (`a0`, saved at 16(sp)) and a flag word (`a1`, `s2`); the slot is the byte at the device's host
+info +540 and the soft record comes from `pciio_info_mfast_get`. Each flag pair maps to one register bit as set (the low bit of the pair) and clear (the high bit of the
+pair): flags 0x10000 and 0x20000 set and clear 0x1000000, and also set (0x10000) and clear (0x20000) 0x800000; the pair at bits 18 and 19 sets and clears 0x40000; the
+pair at bits 20 and 21 sets and clears 0x20000; flag bit 22 sets 0x8000 and flag bit 23 (0x800000) clears 0x8000; flag bits 26 and 27 set and clear 0x400000. For a bridge
+whose type halfword at +114 is 2 with flag bit 26 (0x4000000) set it also removes 0x400000 from the set mask (the shift `1 << (revision & 0xf)` guarding it is always
+nonzero for the nibble's range, so the guard is always true). With both masks zero it returns 1 without touching the bridge. Otherwise it takes the lock at soft +128,
+computes `new = set | (shadow & ~clear)` from the slot's shadow doubleword at +312 plus 128 times the slot, and when that differs writes it with `pcireg_device_set`,
+stores it back and flushes (`pcireg_tflush_get`), then releases the lock and logs `pcibr_device_flags_set: Device(%d): %R` with `pcibr_debug(0x4000000, ...)` (the
+`%R` argument is the table `device_bits`). It returns 1 in every case.
+- `ioc3_serial_kill` (`6.5.30/unix.IP27`, address 0xc000000000176ce8): **inferred.** Quiets one IOC3 serial port. Argument `a0` is the port record. It calls the method at
+offset 40 of the table the record's doubleword at +8 points to, when that pointer is nonzero. If the port is the console port (the record equals the global at `gp`+5096)
+and an external callback table is present (a doubleword at the address in the `gp-23672` slot equals 0x53435241 and the table whose pointer is in the `gp-23664` slot is
+nonzero, has the marker word 0xfeeddead in its first word and a nonzero entry at +80), it raises the interrupt level with `spl7`, calls that entry at +80 with argument 0
+and keeps the saved level in the global at `gp`+5092. It then stores 0 to the word the record's pointer at +64 holds (the port's interrupt-enable register), repeats the
+same table test and, when it holds, calls the entry with argument 1 and restores the level (`splx`). It finally sets the record's word at +148 to 0. It returns nothing.
+What the external table is (the marker 0x53435241 and its +80 entry look like a firmware console hook) is inferred.
+- `pcibr_rrb_flush` (`6.5.30/unix.IP27`, address 0xc000000000076984): **established.** Flushes the response read buffers (RRBs) that belong to the device that is calling
+it. It takes no argument of its own: its `a0` is passed unchanged to `pciio_hostinfo_get`, whose result (kept in `s0`) holds the device slot as the byte at +540;
+`pciio_info_mfast_get` of it gives the bridge soft record (`s2`), and the doubleword at soft +8 is the bridge register base (`s5`). It tests the widget identification
+word at base +4: part number (bits 27:12) 0xc002 with manufacturer (bits 11:1) 54, or part 0xd002 with manufacturer 36, sets `s7` to 2 (a Bridge or XBridge); any other
+part leaves `s7` at 1. It reads the register of RRB assignments for the slot's group, `pcireg_rrb_get(base, slot & 1)`, takes the lock at soft +128 (`mutex_spinlock`),
+and compares, for eight nibbles of that value from the low end (the register is shifted right by 4 each step), the nibble masked with `((s7 << 1) - 1) | 8` (0x9 for 1,
+0xb for 2) against `((slot >> 1) | 8) & 0xffff` (the arithmetic shift of the slot byte); each match calls `do_pcibr_rrb_flush(base, n)` with `n` starting at `slot & 1`
+and growing by 2 per nibble. After the eight nibbles it releases the lock with `mutex_io_spinunlock(soft+128, saved level)` and returns; the return value is whatever that
+call leaves in `v0`, not a defined result. The meaning of the nibble layout (a valid bit 8 plus the owning device) is inferred from the masks.
+- `pcibr_intr_free` (`6.5.30/unix.IP27`, address 0xc000000000078ad4): **inferred.** Releases a PCI bridge interrupt record made by `pcibr_intr_alloc`. Argument `a0` is
+the record (`s` registers hold it). For each of the eight bridge interrupt bits set in the record's mask word at +88, it walks the singly linked list of handler nodes at
+soft +0x680 plus 56 times the bit (the soft record is the pointer at record +96), calls `compare_and_swap_int64(node+8, record, 0)` to take this record out of the node
+and, when that call returns nonzero, logs `pcibr_intr_free: cleared hdlr from bit 0x%x` with `pcibr_debug(0x1000, ...)`; and when the bit's handler count (word at +0x68c)
+is 0 and its crossbar interrupt pointer (at +0x668) is nonzero, frees it with `xtalk_intr_free`, zeroes the pointer and clears the bit's three device-bit field with
+`pcireg_intr_device_bit_clr(soft, 7 << (3 * bit))`. Then, when bit 1 of the record's first word is clear (it has a thread), it waits for bit 0x400 of the record's word at
++40 (thread exited-ready), polling every 10 ms with `nano_delay` for up to 1000 ms; if it never sets it prints
+`pcibr_intr_free: Unable to terminate pcibr_intrd thread, xt=0x%lx` with `cmn_err(4, ...)` (which does not return); otherwise it points the thread at `xthread_exit`
+(`xthread_set_func(thread, xthread_exit, 0)`), wakes it with `vsema(record+48)` and logs the wait. It ends with
+`kmem_free(record, 0xa0)`, whose result is the return value. Which result of the swap means success was read from the decompiler output only.
+- `pcibr_intr_disconnect` (`6.5.30/unix.IP27`, address 0xc000000000078f18): **inferred.** Disconnects a PCI bridge interrupt record from the hardware without freeing it.
+Argument `a0` is the record. It zeroes its words +24 to +39, clears bit 0 of its first word, takes the soft record from +96 and its bit mask from +88, then drops from the
+mask every bit whose wrapper (soft +56 times the bit, word +0x68c is the handler count) still has handlers. With bits left it takes the lock at soft +128 and clears them
+in the bridge's interrupt enable register (`pcireg_intr_enable_bit_clr`), flushes (`pcireg_tflush_get`), releases the lock and logs
+`pcibr_intr_disconnect: disabled int_bits=0x%x`; then for each remaining bit with a handler count of 0 it calls `xtalk_intr_disconnect` on the wrapper's crossbar
+interrupt (pointer at +0x668), zeroes the wrapper's word at +0x690 and logs `disconnect int_bits=0x%x`; a path that reconnects a wrapper whose count has become nonzero
+meanwhile (storing `bit | (soft word at +72 << 3)` at +0x698 and calling `xtalk_intr_connect(..., pcibr_intr_func, wrapper+0x670, pcibr_setpciint, wrapper+0x698, 0)` and
+logging `now-sharing int_bits=0x%x`) is in the code but the count is tested twice with nothing in between to change it, so whether it can run is unknown. It returns
+nothing.
+- `router_acquire_port_info` (`6.5.30/unix.IP27`, address 0xc00000000001b514): **established.** Reads and checks one Craylink router port. Arguments: the router record
+(`a0`), the port number 1 to 6 (`a1`) and a flag (`a2`; 0 means this call does the reading and takes the lock itself, nonzero means the caller already did and holds it).
+The port's data block is at record +48 times the port (the doubleword at +8 of the block holds the decoded error counters, +16 the second register, +40 the error summary
+word). With `a2` zero it reads router register `(port << 16) | 0x10` into block +8 and `(port << 16) | 0x88` into block +16
+(`router_reg_read`), takes the record lock at +404 (`mutex_spinlock`) and calls `router_decode_port_errors(block+8)`. If the summary word at block +40 is nonzero it sets
+bit `port - 1` of the byte at +7, either as `byte7 |= bit & ~byte6` (with `a2` zero, releasing the lock and returning 1) or as
+`byte7 ^= bit` (with `a2` nonzero, returning 1 with the lock untouched). If it is zero: when the byte at +384 is 1 it takes the count in bits 63:48 of block +8 into the
+halfword at block +50 and, when that count is nonzero, stores three rates (halfwords at block +44, +46 and +48), each being a 16-bit field of the doubleword (bits 15:0,
+31:16, 47:32) shifted left by 10 and divided by the count, and sets bit `port - 1` in the byte at +7 when the second or third rate is 20 or more; when the byte at +384 is
+not 1 it copies the four 16-bit fields of block +8 into the halfwords at block +44, +46, +48 and +50 unchanged. With `a2` zero it releases the lock and in every no-error
+case returns 0.
