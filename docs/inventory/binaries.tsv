@@ -1,4 +1,7 @@
 binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_sites	unresolved_sites	status	doc	section
+6.5.22/unix.IP27	kernel-image	shared-kernel	executable	n64	11237256	40e3f6246b58aa9b		13658	symtab (dwarf addresses stale, dropped)	0	0	named-only	IRIX_FILES.md#2-irix-6522	2. IRIX 6.5.22
+6.5.22/unix.IP30	kernel-image	shared-kernel	executable	n64	9536856	e913b7022abb533f		12214	symtab (dwarf addresses stale, dropped)	0	0	undocumented		
+6.5.22/unix.IP35	kernel-image	shared-kernel	executable	n64	12168592	87563dbc0cbc35c5		14511	symtab (dwarf addresses stale, dropped)	0	0	named-only	docs/open-questions.md#klconfig-and-node-numbering	KLCONFIG and node numbering
 6.5.22/usr/cpu/sysgen/IP22boot/acl.a(acl.o)	kernel-other-objects	shared-kernel	object	n32	14852	5593b2e23b5181e6		16	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/acl_hwg.o	kernel-other-objects	shared-kernel	object	n32	4112	b14653bd2b863e81	6.5.22/usr/cpu/sysgen/IP32boot/acl_hwg.o	3	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/acl_nfs3.o	kernel-other-objects	shared-kernel	object	n32	4976	4c5600bf144c6d1d	6.5.22/usr/cpu/sysgen/IP32boot/acl_nfs3.o	2	symtab	0	0	undocumented		

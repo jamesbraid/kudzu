@@ -117,7 +117,10 @@
       "binaries": [
         "6.5.30/unix.IP27",
         "6.5.30/unix.IP30",
-        "6.5.30/unix.IP35"
+        "6.5.30/unix.IP35",
+        "6.5.22/unix.IP27",
+        "6.5.22/unix.IP30",
+        "6.5.22/unix.IP35"
       ],
       "reason": "kernel-image: The linked kernels. Only the hardware-facing and boot-critical subsystems are in scope for now: PROM interface and KLCONFIG, hardware graph, interrupts, NUMA and memory initialisation, node and router topology, the I/O attach framework, and the debug and panic entry points.",
       "patterns": [
