@@ -1,11 +1,11 @@
 kind	cls	typ	class_macro	type_macro	hinv_keyword	hinv_entry	sites	printed_by_hinv	grade
-class	1		INV_PROCESSOR		processor	0x10011380	unix.IP27@0xc000000000043e10 (add_cpuboard); unix.IP27@0xc000000000043e28 (add_cpuboard); unix.IP27@0xc000000000043e40 (add_cpuboard); unix.IP27@0xc000000000043f30 (add_cpuboard); unix.IP27@0xc000000000043f84 (add_cpuboard); unix.IP27@0xc000000000043fc0 (add_cpuboard); unix.IP30@0xa8000000200132d0 (add_cpuboard); unix.IP30@0xa800000020013300 (add_cpuboard); unix.IP30@0xa800000020013318 (add_cpuboard); unix.IP35@0xc000000000065b40 (add_cpuboard); unix.IP35@0xc000000000065b58 (add_cpuboard); unix.IP35@0xc000000000065b70 (add_cpuboard); unix.IP35@0xc000000000065c60 (add_cpuboard); unix.IP35@0xc000000000065cb4 (add_cpuboard); unix.IP35@0xc000000000065cf0 (add_cpuboard)	not mapped	established
+class	1		INV_PROCESSOR		processor	0x10011380	unix.IP27@0xc000000000043e10 (add_cpuboard); unix.IP27@0xc000000000043e28 (add_cpuboard); unix.IP27@0xc000000000043e40 (add_cpuboard); unix.IP27@0xc000000000043f30 (add_cpuboard); unix.IP27@0xc000000000043f6c (add_cpuboard); unix.IP27@0xc000000000043f84 (add_cpuboard); unix.IP27@0xc000000000043fa8 (add_cpuboard); unix.IP27@0xc000000000043fc0 (add_cpuboard); unix.IP30@0xa8000000200132d0 (add_cpuboard); unix.IP30@0xa8000000200132e8 (add_cpuboard); unix.IP30@0xa800000020013300 (add_cpuboard); unix.IP35@0xc000000000065b40 (add_cpuboard); unix.IP35@0xc000000000065b58 (add_cpuboard); unix.IP35@0xc000000000065b70 (add_cpuboard); unix.IP35@0xc000000000065c60 (add_cpuboard); unix.IP35@0xc000000000065c9c (add_cpuboard); unix.IP35@0xc000000000065cb4 (add_cpuboard); unix.IP35@0xc000000000065cd8 (add_cpuboard); unix.IP35@0xc000000000065cf0 (add_cpuboard)	not mapped	established
 class	2		INV_DISK		disk	0x10011384		not mapped	established
-class	3		INV_MEMORY		memory	0x10011388	unix.IP27@0xc000000000043cc8 (add_sidcache); unix.IP27@0xc00000000022e8bc (main); unix.IP27@0xc00000000022e8dc (main); unix.IP27@0xc00000000022e8fc (main); unix.IP27@0xc00000000022e918 (main); unix.IP27@0xc00000000022e938 (main); unix.IP27@0xc00000000022e968 (main); unix.IP30@0xa8000000201f4650 (main); unix.IP30@0xa8000000201f4670 (main); unix.IP30@0xa8000000201f4690 (main); unix.IP30@0xa8000000201f46b0 (main); unix.IP30@0xa8000000201f46dc (main); unix.IP30@0xa8000000201f470c (main); unix.IP35@0xc0000000000659f8 (add_sidcache); unix.IP35@0xc0000000002dd484 (main); unix.IP35@0xc0000000002dd4a4 (main); unix.IP35@0xc0000000002dd4c4 (main); unix.IP35@0xc0000000002dd4e0 (main); unix.IP35@0xc0000000002dd500 (main); unix.IP35@0xc0000000002dd530 (main)	not mapped	established
+class	3		INV_MEMORY		memory	0x10011388	unix.IP27@0xc000000000043c90 (add_sidcache); unix.IP27@0xc000000000043cc8 (add_sidcache); unix.IP27@0xc00000000022e8bc (main); unix.IP27@0xc00000000022e8dc (main); unix.IP27@0xc00000000022e8fc (main); unix.IP27@0xc00000000022e918 (main); unix.IP27@0xc00000000022e938 (main); unix.IP27@0xc00000000022e950 (main); unix.IP27@0xc00000000022e968 (main); unix.IP30@0xa800000020013318 (add_cpuboard); unix.IP30@0xa8000000201f4650 (main); unix.IP30@0xa8000000201f4670 (main); unix.IP30@0xa8000000201f4690 (main); unix.IP30@0xa8000000201f46b0 (main); unix.IP30@0xa8000000201f46dc (main); unix.IP30@0xa8000000201f46f4 (main); unix.IP30@0xa8000000201f470c (main); unix.IP35@0xc0000000000659c0 (add_sidcache); unix.IP35@0xc0000000000659f8 (add_sidcache); unix.IP35@0xc0000000002dd484 (main); unix.IP35@0xc0000000002dd4a4 (main); unix.IP35@0xc0000000002dd4c4 (main); unix.IP35@0xc0000000002dd4e0 (main); unix.IP35@0xc0000000002dd500 (main); unix.IP35@0xc0000000002dd518 (main); unix.IP35@0xc0000000002dd530 (main)	not mapped	established
 class	4		INV_SERIAL		serial	0x1001138c		not mapped	established
 class	5		INV_PARALLEL		parallel	0x10011390		not mapped	established
 class	6		INV_TAPE		tape	0x10011394		not mapped	established
-class	7		INV_GRAPHICS		graphics	0x10011398	unix.IP27@0xc000000000376b78 (gfx_earlyinit+0xc8); unix.IP30@0xa80000002035f9f4 (odsyInitBoardGfx)	not mapped	established
+class	7		INV_GRAPHICS		graphics	0x10011398	unix.IP27@0xc000000000376b78 (no symbol, 0x5c past the end of gfx_earlyinit); unix.IP30@0xa80000002035f9f4 (odsyInitBoardGfx)	not mapped	established
 class	8		INV_NETWORK		network	0x1001139c		not mapped	established
 class	9		INV_SCSI		scsi	0x100113a0		not mapped	established
 class	10		INV_AUDIO		audio	0x100113a4		not mapped	established
@@ -15,7 +15,7 @@ class	13		INV_BUS		bus	0x100113b0	unix.IP27@0xc00000000026a708 (vme_init); unix.
 class	14		INV_MISC		misc	0x100113b4		not mapped	established
 class	15		INV_COMPRESSION		compression	0x100113b8		not mapped	established
 class	16		INV_VSCSI		vscsi	0x100113bc		not mapped	established
-class	17		INV_DISPLAY		display	0x100113c0	unix.IP27@0xc000000000376b9c (gfx_earlyinit+0xec)	not mapped	established
+class	17		INV_DISPLAY		display	0x100113c0	unix.IP27@0xc000000000376b9c (no symbol, 0x80 past the end of gfx_earlyinit)	not mapped	established
 class	18		INV_UNC_SCSILUN		unconnected scsi lun	0x100113c4		not mapped	established
 class	19		INV_PCI		PCI card	0x100113c8		not mapped	established
 class	20		INV_PCI_NO_DRV		PCI no driver	0x100113cc		not mapped	established
@@ -26,35 +26,24 @@ class	24		INV_TPU		tpu	0x100113dc		not mapped	established
 class	25		INV_FCNODE			0x100113e0		not mapped	established (helper class, no keyword)
 class	26		INV_USB		usb	0x100113e4		not mapped	established
 class	27		INV_1394NODE			0x100113e8		not mapped	established (helper class, no keyword)
-site-unresolved							unix.IP27@0xc000000000043c90 (add_sidcache): class variable, type 8	not mapped	unknown
-site-unresolved							unix.IP27@0xc000000000043f6c (add_cpuboard): class clobbered-by-call, type 2	not mapped	unknown
-site-unresolved							unix.IP27@0xc000000000043fa8 (add_cpuboard): class join, type 2	not mapped	unknown
-site-unresolved							unix.IP27@0xc00000000022e950 (main): class clobbered-by-call, type 4	not mapped	unknown
 site-unresolved							unix.IP27@0xc000000000396ebc (kona_inventory_board): class 7, type variable	not mapped	unknown
-site-unresolved							unix.IP30@0xa8000000200132e8 (add_cpuboard): class clobbered-by-call, type 2	not mapped	unknown
-site-unresolved							unix.IP30@0xa8000000201f46f4 (main): class clobbered-by-call, type 4	not mapped	unknown
 site-unresolved							unix.IP30@0xa80000002035fad8 (odsyInitBoardGfx): class join, type 3	not mapped	unknown
-site-unresolved							unix.IP35@0xc0000000000659c0 (add_sidcache): class variable, type 8	not mapped	unknown
-site-unresolved							unix.IP35@0xc000000000065c9c (add_cpuboard): class clobbered-by-call, type 2	not mapped	unknown
-site-unresolved							unix.IP35@0xc000000000065cd8 (add_cpuboard): class join, type 2	not mapped	unknown
-site-unresolved							unix.IP35@0xc0000000002dd518 (main): class clobbered-by-call, type 4	not mapped	unknown
 site-unresolved							unix.IP35@0xc000000000469f60 (kona_inventory_board): class 7, type variable	not mapped	unknown
 type	1	1	INV_PROCESSOR	INV_CPUBOARD			unix.IP27@0xc000000000043e10 (add_cpuboard); unix.IP27@0xc000000000043f30 (add_cpuboard); unix.IP30@0xa8000000200132d0 (add_cpuboard); unix.IP35@0xc000000000065b40 (add_cpuboard); unix.IP35@0xc000000000065c60 (add_cpuboard)	not mapped	established
-type	1	2	INV_PROCESSOR	INV_CPUCHIP	cpu	0x100113fc	unix.IP27@0xc000000000043e28 (add_cpuboard); unix.IP35@0xc000000000065b58 (add_cpuboard)	not mapped	established
+type	1	2	INV_PROCESSOR	INV_CPUCHIP	cpu	0x100113fc	unix.IP27@0xc000000000043e28 (add_cpuboard); unix.IP27@0xc000000000043f6c (add_cpuboard); unix.IP27@0xc000000000043fa8 (add_cpuboard); unix.IP30@0xa8000000200132e8 (add_cpuboard); unix.IP35@0xc000000000065b58 (add_cpuboard); unix.IP35@0xc000000000065c9c (add_cpuboard); unix.IP35@0xc000000000065cd8 (add_cpuboard)	not mapped	established
 type	1	3	INV_PROCESSOR	INV_FPUCHIP	fpu	0x100113f0	unix.IP27@0xc000000000043e40 (add_cpuboard); unix.IP27@0xc000000000043f84 (add_cpuboard); unix.IP27@0xc000000000043fc0 (add_cpuboard); unix.IP30@0xa800000020013300 (add_cpuboard); unix.IP35@0xc000000000065b70 (add_cpuboard); unix.IP35@0xc000000000065cb4 (add_cpuboard); unix.IP35@0xc000000000065cf0 (add_cpuboard)	not mapped	established
-type	1	8	INV_PROCESSOR				unix.IP30@0xa800000020013318 (add_cpuboard)	not mapped	established
 type	2	1	INV_DISK	INV_SCSICONTROL	scsictlr	0x10011450		not mapped	established
 type	3	1	INV_MEMORY	INV_MAIN			unix.IP27@0xc00000000022e8bc (main); unix.IP27@0xc00000000022e8dc (main); unix.IP30@0xa8000000201f4650 (main); unix.IP30@0xa8000000201f4670 (main); unix.IP35@0xc0000000002dd484 (main); unix.IP35@0xc0000000002dd4a4 (main)	not mapped	established
 type	3	3	INV_MEMORY	INV_DCACHE	dcache	0x10011408	unix.IP27@0xc00000000022e968 (main); unix.IP30@0xa8000000201f470c (main); unix.IP35@0xc0000000002dd530 (main)	not mapped	established
-type	3	4	INV_MEMORY	INV_ICACHE	icache	0x10011414		not mapped	established
+type	3	4	INV_MEMORY	INV_ICACHE	icache	0x10011414	unix.IP27@0xc00000000022e950 (main); unix.IP30@0xa8000000201f46f4 (main); unix.IP35@0xc0000000002dd518 (main)	not mapped	established
 type	3	6	INV_MEMORY	INV_SDCACHE			unix.IP27@0xc00000000022e938 (main); unix.IP30@0xa8000000201f46dc (main); unix.IP35@0xc0000000002dd500 (main)	not mapped	established
 type	3	7	INV_MEMORY	INV_SICACHE			unix.IP27@0xc00000000022e918 (main); unix.IP30@0xa8000000201f46b0 (main); unix.IP35@0xc0000000002dd4e0 (main)	not mapped	established
-type	3	8	INV_MEMORY	INV_SIDCACHE			unix.IP27@0xc000000000043cc8 (add_sidcache); unix.IP35@0xc0000000000659f8 (add_sidcache)	not mapped	established
+type	3	8	INV_MEMORY	INV_SIDCACHE			unix.IP27@0xc000000000043c90 (add_sidcache); unix.IP27@0xc000000000043cc8 (add_sidcache); unix.IP30@0xa800000020013318 (add_cpuboard); unix.IP35@0xc0000000000659c0 (add_sidcache); unix.IP35@0xc0000000000659f8 (add_sidcache)	not mapped	established
 type	3	9	INV_MEMORY	INV_MAIN_MB	memory	0x10011420	unix.IP27@0xc00000000022e8fc (main); unix.IP30@0xa8000000201f4690 (main); unix.IP35@0xc0000000002dd4c4 (main)	not mapped	established
 type	6	1	INV_TAPE	INV_SCSIQIC	qic	0x1001142c		not mapped	established
-type	7	15	INV_GRAPHICS	INV_MGRAS			unix.IP27@0xc000000000376b78 (gfx_earlyinit+0xc8)	not mapped	established
+type	7	15	INV_GRAPHICS	INV_MGRAS			unix.IP27@0xc000000000376b78 (no symbol, 0x5c past the end of gfx_earlyinit)	not mapped	established
 type	7	21	INV_GRAPHICS				unix.IP30@0xa80000002035f9f4 (odsyInitBoardGfx)	not mapped	established
 type	10	0	INV_AUDIO	INV_AUDIO_HDSP	dsp	0x10011444		not mapped	established
 type	10	3	INV_AUDIO	INV_AUDIO_A2	a2	0x10011438		not mapped	established
 type	13	0	INV_BUS	INV_BUS_VME			unix.IP27@0xc00000000026a708 (vme_init); unix.IP35@0xc00000000031a450 (vme_init)	not mapped	established
-type	17	2	INV_DISPLAY	INV_ICO_BOARD			unix.IP27@0xc000000000376b9c (gfx_earlyinit+0xec)	not mapped	established
+type	17	2	INV_DISPLAY	INV_ICO_BOARD			unix.IP27@0xc000000000376b9c (no symbol, 0x80 past the end of gfx_earlyinit)	not mapped	established
