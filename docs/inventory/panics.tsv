@@ -520,8 +520,8 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	pcireg_dirmap_get	0xc0000000000815d0	panic	1	out	undocumented
 6.5.30/unix.IP27	pcireg_dirmap_set	0xc000000000081738	panic	1	out	undocumented
 6.5.30/unix.IP27	pcireg_dirmap_wid_set	0xc000000000081890	panic	1	out	documented
-6.5.30/unix.IP27	pcireg_ext_ate_addr	0xc000000000088c9c	assfail	1	out	undocumented
-6.5.30/unix.IP27	pcireg_ext_ate_addr	0xc000000000088c9c	panic	2	out	undocumented
+6.5.30/unix.IP27	pcireg_ext_ate_addr	0xc000000000088c9c	assfail	1	out	documented
+6.5.30/unix.IP27	pcireg_ext_ate_addr	0xc000000000088c9c	panic	2	out	documented
 6.5.30/unix.IP27	pcireg_ext_ate_get	0xc000000000088904	assfail	1	out	documented
 6.5.30/unix.IP27	pcireg_ext_ate_get	0xc000000000088904	panic	2	out	documented
 6.5.30/unix.IP27	pcireg_ext_ate_set	0xc000000000088ad0	assfail	1	out	documented
@@ -533,8 +533,8 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	pcireg_force_intr_set	0xc0000000000863c8	assfail	1	out	undocumented
 6.5.30/unix.IP27	pcireg_force_intr_set	0xc0000000000863c8	panic	2	out	undocumented
 6.5.30/unix.IP27	pcireg_id_get	0xc00000000007ec2c	panic	1	out	documented
-6.5.30/unix.IP27	pcireg_int_ate_addr	0xc000000000089340	assfail	4	out	undocumented
-6.5.30/unix.IP27	pcireg_int_ate_addr	0xc000000000089340	panic	1	out	undocumented
+6.5.30/unix.IP27	pcireg_int_ate_addr	0xc000000000089340	assfail	4	out	documented
+6.5.30/unix.IP27	pcireg_int_ate_addr	0xc000000000089340	panic	1	out	documented
 6.5.30/unix.IP27	pcireg_int_ate_get	0xc000000000088e68	assfail	4	out	undocumented
 6.5.30/unix.IP27	pcireg_int_ate_get	0xc000000000088e68	panic	1	out	undocumented
 6.5.30/unix.IP27	pcireg_int_ate_set	0xc0000000000890d4	assfail	4	out	documented
@@ -1459,8 +1459,8 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	pcireg_dirmap_get	0xa80000002005305c	panic	1	out	undocumented
 6.5.30/unix.IP30	pcireg_dirmap_set	0xa8000000200531c4	panic	1	out	undocumented
 6.5.30/unix.IP30	pcireg_dirmap_wid_set	0xa80000002005331c	panic	1	out	documented
-6.5.30/unix.IP30	pcireg_ext_ate_addr	0xa80000002005a728	assfail	1	out	undocumented
-6.5.30/unix.IP30	pcireg_ext_ate_addr	0xa80000002005a728	panic	2	out	undocumented
+6.5.30/unix.IP30	pcireg_ext_ate_addr	0xa80000002005a728	assfail	1	out	documented
+6.5.30/unix.IP30	pcireg_ext_ate_addr	0xa80000002005a728	panic	2	out	documented
 6.5.30/unix.IP30	pcireg_ext_ate_get	0xa80000002005a390	assfail	1	out	documented
 6.5.30/unix.IP30	pcireg_ext_ate_get	0xa80000002005a390	panic	2	out	documented
 6.5.30/unix.IP30	pcireg_ext_ate_set	0xa80000002005a55c	assfail	1	out	documented
@@ -1472,8 +1472,8 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	pcireg_force_intr_set	0xa800000020057e54	assfail	1	out	undocumented
 6.5.30/unix.IP30	pcireg_force_intr_set	0xa800000020057e54	panic	2	out	undocumented
 6.5.30/unix.IP30	pcireg_id_get	0xa8000000200506b8	panic	1	out	documented
-6.5.30/unix.IP30	pcireg_int_ate_addr	0xa80000002005adcc	assfail	4	out	undocumented
-6.5.30/unix.IP30	pcireg_int_ate_addr	0xa80000002005adcc	panic	1	out	undocumented
+6.5.30/unix.IP30	pcireg_int_ate_addr	0xa80000002005adcc	assfail	4	out	documented
+6.5.30/unix.IP30	pcireg_int_ate_addr	0xa80000002005adcc	panic	1	out	documented
 6.5.30/unix.IP30	pcireg_int_ate_get	0xa80000002005a8f4	assfail	4	out	undocumented
 6.5.30/unix.IP30	pcireg_int_ate_get	0xa80000002005a8f4	panic	1	out	undocumented
 6.5.30/unix.IP30	pcireg_int_ate_set	0xa80000002005ab60	assfail	4	out	documented
@@ -2382,8 +2382,8 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	pcireg_dirmap_get	0xc0000000000aefac	panic	1	out	undocumented
 6.5.30/unix.IP35	pcireg_dirmap_set	0xc0000000000af114	panic	1	out	undocumented
 6.5.30/unix.IP35	pcireg_dirmap_wid_set	0xc0000000000af26c	panic	1	out	documented
-6.5.30/unix.IP35	pcireg_ext_ate_addr	0xc0000000000b6678	assfail	1	out	undocumented
-6.5.30/unix.IP35	pcireg_ext_ate_addr	0xc0000000000b6678	panic	2	out	undocumented
+6.5.30/unix.IP35	pcireg_ext_ate_addr	0xc0000000000b6678	assfail	1	out	documented
+6.5.30/unix.IP35	pcireg_ext_ate_addr	0xc0000000000b6678	panic	2	out	documented
 6.5.30/unix.IP35	pcireg_ext_ate_get	0xc0000000000b62e0	assfail	1	out	documented
 6.5.30/unix.IP35	pcireg_ext_ate_get	0xc0000000000b62e0	panic	2	out	documented
 6.5.30/unix.IP35	pcireg_ext_ate_set	0xc0000000000b64ac	assfail	1	out	documented
@@ -2395,8 +2395,8 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	pcireg_force_intr_set	0xc0000000000b3da4	assfail	1	out	undocumented
 6.5.30/unix.IP35	pcireg_force_intr_set	0xc0000000000b3da4	panic	2	out	undocumented
 6.5.30/unix.IP35	pcireg_id_get	0xc0000000000ac608	panic	1	out	documented
-6.5.30/unix.IP35	pcireg_int_ate_addr	0xc0000000000b6d1c	assfail	4	out	undocumented
-6.5.30/unix.IP35	pcireg_int_ate_addr	0xc0000000000b6d1c	panic	1	out	undocumented
+6.5.30/unix.IP35	pcireg_int_ate_addr	0xc0000000000b6d1c	assfail	4	out	documented
+6.5.30/unix.IP35	pcireg_int_ate_addr	0xc0000000000b6d1c	panic	1	out	documented
 6.5.30/unix.IP35	pcireg_int_ate_get	0xc0000000000b6844	assfail	4	out	undocumented
 6.5.30/unix.IP35	pcireg_int_ate_get	0xc0000000000b6844	panic	1	out	undocumented
 6.5.30/unix.IP35	pcireg_int_ate_set	0xc0000000000b6ab0	assfail	4	out	documented
