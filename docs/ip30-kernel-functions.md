@@ -832,12 +832,12 @@ third word and its negative. Both give 0. A null block from either getter ends i
 ## Heart, Bridge, GIO bridge and cache-error routines
 
 - `giobr_piomap_alloc` (`6.5.30/unix.IP30`, occupies 244 bytes at address 0xa800000020040e68): builds a programmed-I/O
-map for a window of the GIO bridge. The arguments are a0 (the bridge's vertex, kept as a word in the record), a1
-(never moved or saved, so it reaches the first `gioio_info_get` call unchanged; no other use), a2 (a window index),
+map for a window of the GIO bridge. The arguments are a0 (the bridge's vertex, passed unchanged to `gioio_info_get` and stored in the record), a1
+(not read), a2 (a window index),
 a3 (an offset into the window), a4 (a length), a5 (forwarded as the fifth argument of the crosstalk allocator) and a6
 (a flags word, saved at sp+0 and stored in the record). The routine calls `gioio_info_get` and `gioio_info_mfast_get`
 to reach the bridge's information record and loads the word at +20 of it. It then calls the static routine at
-0xa800000020040dc4 (inside the range of `giobr_attach`, with no symbol of its own) with a0, a2, a3 and a4. That helper
+0xa800000020040dc4 (inside the range of `giobr_attach`, with no symbol of its own) with a0 and, as its second to fourth arguments, a2, a3 and a4. That helper
 repeats the two lookups and returns 0 unless the window index is 0 to 4, the byte at +64 plus the index in the record
 is non-zero and offset plus length does not exceed the word at +8 of the 16-byte entry (the table is the one `gp`
 reaches at 0xa8000000204a9760, which holds 0xa80000002043e100; entries start 16 bytes into it); otherwise it returns
@@ -988,3 +988,78 @@ calls `xwidget_error_register(a0, 0xa80000002003fe64, record)`, where the second
 0xa8000000204a9730 (the address has no symbol; the nearest symbol below it is `heart_error_refine` at
 0xa80000002003fd70). The routine returns 0 and does not use the result of that call. No branch-likely instruction.
 **Established.**
+- `ioc3_intr_disconnect` (`6.5.30/unix.IP30`, occupies 356 bytes at address 0xa8000000200610e0): releases the interrupt
+claims that match one connection in an IOC3's table of interrupt connections. The arguments are a0 (the PCI device vertex,
+passed unchanged to `hwgraph_traverse`), a1 (a mask of interrupt bits, saved at sp+8) and a2, a3 and a4 (kept in s0, s1 and s2;
+a4 is also the argument of the failure message). The routine calls `hwgraph_traverse(a0, "ioc3", &result)`. A non-zero return
+makes it call `cmn_err(1, "%v: ioc3_intr_connect: ioc3_attach not yet called", a4)` and return what `cmn_err` returns.
+Otherwise `hwgraph_fastinfo_get` of the vertex written to the result gives the IOC3 soft-state record, and the word at record
++2864 is the number of table entries. Entries are 88 bytes apart and start at the record itself. An entry matches when its
+doubleword at +56 equals a2, its doubleword at +64 equals a3, its word at +72 equals a4 and its word at +48 shares a bit with
+a1; any other entry is skipped. For a match, the shared bits are cleared from the entry word at +48 and from the word at record
++2868, each with its own load-linked/store-conditional loop. If the entry word at +48 is then zero, the entry is released: -1 is
+stored as a word at +72, zero as doublewords at +64 and then +56, and the bit numbered by the entry's index is set in the word at record
++2872 with a third such loop. The scan continues through every entry (it does not stop at the first match). The retry
+loops end in the branch-likely `beql` instructions at 0xa8000000200611b4, 0xa8000000200611c8 and 0xa80000002006121c. v0 is never
+rewritten on the normal paths, so they return the record pointer that `hwgraph_fastinfo_get` gave (and so the pointer is
+returned even when nothing matched). **Established.**
+- `heart_intr_prealloc` (`6.5.30/unix.IP30`, occupies 92 bytes at address 0xa80000002003f834): marks one Heart interrupt
+level as taken and then hands the work to a caller-supplied routine. a0 is not read. a1 is the level (kept in s8), a2 is a function pointer and a3
+and a4 are two values passed on. It first calls the unlabelled routine at 0xa80000002003e9a8 (reached from the end of
+`heart_imr_bits_rmw`'s symbol range), with a0 equal to 1 shifted left by the level (a variable 64-bit shift in the delay slot). That
+routine clears those bits atomically with a load-linked/store-conditional doubleword loop in the word `heart_ivec_free`
+(0xa8000000204a7758), repeating until the conditional store succeeds. This routine itself holds no branch-likely instruction. It then reads the doubleword at
+the absolute address 0xffffffffaff00080 and calls a2 through `jalr` with a0 = a3, a1 = a4, a2 = the low four bits of that
+doubleword (the AND is in the delay slot), a3 = 128, a4 = the level and a5 = the function pointer. Its return value is the
+callee's. **Established.**
+- `heart_intr_preconn` (`6.5.30/unix.IP30`, occupies 104 bytes at address 0xa80000002003f7cc): installs a handler for a
+Heart interrupt level that was reserved in advance, and unmasks the level on the executing processor. a0 is not read; a1 is the level (s8), a2 the handler and a3 its
+argument. It calls the unlabelled routine at 0xa80000002003e9a8 with 1 shifted left by the level, which atomically clears those bits in
+`heart_ivec_free` (0xa8000000204a7758). It then takes the entry of `heart_ivec` for the level (64 bytes apart, base reached
+through the pointer at 0xa8000000204a9720) and stores a3 at entry +8 and a2 at entry +0, in that order (the second store is in the delay slot
+of the `getcpuid` call). It calls `heart_imr_bits_rmw(getcpuid(), 0, 1 << level)` to set the level's mask bit on the processor
+and returns that call's value, the register's previous contents. No other entry field is touched, unlike `heart_intr_connect`.
+**Established.**
+- `pcibr_errintr_group` (`6.5.30/unix.IP30`, occupies 132 bytes at address 0xa80000002004c028): turns a Bridge interrupt-status
+word (a0) into a small group code. It is a leaf with no frame, no memory access and no branch-likely instruction. The result
+starts at 65 when any bit of 0xfc00 is set in a0 and at 64 otherwise (`movz` in the delay slot of the first branch), and then
+gains one bit per class: 0x02 when a0 has a bit of 0x40010000, 0x04 for a bit of 0x3e0000, 0x08 for a bit of 0xb80000, 0x10 for a bit of 0x14000200
+and 0x20 for a bit of 0x20400000. The classes are tested in that order and every class that matches adds its bit. What the
+classes mean is not read from this routine. **Established.**
+- `heart_addr_xio_to_phys` (`6.5.30/unix.IP30`, occupies 164 bytes at address 0xa80000002003f1ec): converts a widget-relative
+crosstalk range into a physical address by the size of the range. a0 is a widget number, a1 an offset and a2 a length;
+a3 to a7 are scratch and no memory is touched. If the top four bits of a1 are non-zero, a0 is replaced by that nibble and
+a1 is cut to its low 48 bits. The end is a1 plus a2 and all comparisons are unsigned. For an end up to 0x1000000 the result is
+0x10000000 + (a0 << 24) + a1; for an end above that and up to 0x80000000 it is 0x800000000 + (a0 << 31) + a1; for an end above that and up to
+2^36 it is (a0 << 36) + a1; for an end above 2^36 it is 0. Those are the four exits. No branch-likely instruction.
+**Established.**
+- `heart_mlreset` (`6.5.30/unix.IP30`, occupies 164 bytes at address 0xa80000002003ed30): puts the Heart interrupt hardware
+for the executing processor back to a quiet state. It takes no arguments. `getcpuid` returns the processor number (sign-extended from 16 bits). The
+stores, in issue order, are: a doubleword 0 at 0x9000000018000068; a read of the doubleword at 0x9000000018000060 written straight
+back; a word 0 at 0x9000000018000044; a read of the doubleword at 0xffffffffaff10040 written straight back; the doubleword
+0x3ff62c07 at 0x9000000018000068; doublewords 0 at 0xffffffffaff10000, +8, +16 and +24; and last the doubleword at 0xffffffffaff10000
+plus 8 times the processor number, which receives bit 63 plus bits (cpu+42), (cpu+46) and (cpu+59). The three 0x9000000018xxxxxx
+addresses come from pointer cells in the small-data area (gp-24376, gp-24264 and gp-24384); the other four registers are the mask
+registers `heart_imr_bits_rmw` indexes. The last store is in the delay slot of the return, so v0 on return is the address of that mask register. The routine
+does not say what the 0x9000000018xxxxxx registers are. No branch-likely instruction. **Established.**
+- `ioc3_subdev_enabled` (`6.5.30/unix.IP30`, occupies 72 bytes at address 0xa8000000200618e4): says whether one subdevice
+of an IOC3 is enabled. a0 is the PCI device vertex and a1 the subdevice number (s8). It calls the unlabelled routine at 0xa800000020061824 with a0 and 0; a zero answer means no mask was recorded and the mask is 255 (bits 0 to 7), otherwise the mask is the doubleword the
+answer points to. The result is the mask ANDed with 1 shifted left by a1, cut to 32 bits (`sll v0,v0,0`), so it is
+non-zero exactly when that bit is set. The helper does `hwgraph_traverse(a0, ".host", &slot)` (the slot keeps a0 when the
+traverse fails), then `hwgraph_info_get_LBL(slot vertex, "_subdevs", &value)`; with its second argument zero it returns the label value (zero
+when nothing was recorded) and never creates one. With a non-zero second argument it would allocate 8 bytes with
+`kmem_zalloc`, store 255, add the label with `hwgraph_info_add_LBL`, read it back and free its block with `kmem_free(block, 8)`
+if another caller's block won; this routine never takes that path. No branch-likely instruction. **Established.**
+- `pcibr_directmap_init` (`6.5.30/unix.IP30`, occupies 148 bytes at address 0xa800000020043974): sets up the Bridge's
+direct-mapped DMA window. a0 is the bridge soft-state record (s0). It calls `xtalk_dmatrans_addr(word at +0, 0, 0, 0x4000, 0)`, keeps the result (s1),
+passes it shifted right by 31 to `pcireg_dirmap_diroff_set` (the shift is in the delay slot) and passes the byte at +48 to `pcireg_dirmap_wid_set`.
+It copies that byte to +88 as well. When the result equals 0x20000000 it calls `pcireg_dirmap_add512_set(a0)`, stores the doubleword
+0x20000000 at +80 and returns that call's result. Otherwise it calls `pcireg_dirmap_add512_clr(a0)`, stores the result ANDed with
+0xffffffff80000000 (the `lui` sign-extends, so the upper 32 bits are kept) as the doubleword at +80, and returns the value of
+that call. No branch-likely instruction. **Established.**
+- `giobr_piotrans_addr` (`6.5.30/unix.IP30`, occupies 140 bytes at address 0xa800000020040fc4): translates a window of the GIO
+bridge to a processor address. a0 is the bridge vertex (s2), a1 is not read, a2 is a window index, a3 an offset (saved at sp+40) and a4 a length
+(s0). `gioio_info_get(a0)` and `gioio_info_mfast_get` give the bridge record, and its word at +20 is saved at sp+0. The static
+routine at 0xa800000020040dc4 (the same lookup `giobr_piomap_alloc` uses, inside the range of `giobr_attach`) is called with a0, the window
+index, the offset and the length; a zero result returns 0. Otherwise `xtalk_piotrans_addr(saved word, 0, helper result, a4, 0)`
+is called and its result returned. No branch-likely instruction. **Established.**
