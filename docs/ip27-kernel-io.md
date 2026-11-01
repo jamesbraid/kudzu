@@ -160,6 +160,16 @@ path writes TagHi and TagLo back from the saved words, calls `tfi_restore` (0xc0
 back from the second record, reloads `a0` to `a7`, `s0` to `s7`, `ra`, the `at` register from +0, `sp` and `gp`, clears the byte at second record +38 (through `k0`),
 loads `k0` from +200 and `k1` from +208 and executes `eret`. The registers `k0`, `k1` and `at` are not stored by this routine; the area's +0, +200 and +208 slots are
 only loaded here.
+- `eccf_recoverable_threshold` (`6.5.30/unix.IP27`, address 0xc000000000055f98, 188 bytes, no frame): **established.**
+Rate-limits recoverable ECC reports: it counts events of four kinds inside a time window and returns 0 once one kind passes 100 events in the window, and 1 otherwise.
+`a1` is a record and `a2` a 32-bit value (sign-extended) whose top two bits select the kind; `a0` is not used. The kind is `a2 & 0xc0000000`: zero uses the halfword
+counter at record +712, 0x40000000 the one at +714, 0x80000000 the one at +716 and 0xc0000000 the one at +718. Any other masked value returns 1 with nothing changed
+(the `bne` at 0xc000000000055fe0 reaches the `jr ra` at 0xc000000000056024 with `v0` still 1 from the first instruction). It reads the 64-bit value at the absolute
+address 0x9200000001030100 (the `lui` 0x9200 shifted left 32 ORed with 0x1030100) and loads the doubleword at record +704. When that doubleword is zero or the new
+reading minus it is not below 0x3938700 (60,000,000) the window starts again: the reading is stored at +704, the selected counter is set to 0 and the routine returns 1
+(0xc00000000005602c to 0xc000000000056038, the counter store in the delay slot of the `jr ra`). Otherwise the selected halfword counter is incremented (kept to 16 bits)
+and stored, and the routine returns 1 while the counter is at most 100 and 0 once it is 101 or more (a `movz` clears `v0`). No branch-likely instruction. That the
+register at 0x1030100 is a free-running counter is inferred from its use as a difference against a stored copy; the code does not name it.
 
 ## Interrupt allocation and hub error handling
 
@@ -324,6 +334,16 @@ masked, so a value above 3 also sets higher bits) and writes the result back wit
 `router_reg_write(record, (port << 16) | 0x10, 0)` follows; its result is kept at sp+48. The routine calls `restorenoderun` (0xc0000000000246d0) with the doubleword at
 sp+8 and returns the result of that second write (exit 0xc00000000001bc0c; the early exit at 0xc00000000001bc08 is the one with 22). No branch-likely instruction. That
 the field selects a history source and that register 0x10 holds the history are inferred from the routine's name; the code does not name them.
+- `router_port_init` (`6.5.30/unix.IP27`, address 0xc00000000001ba70, 196 bytes, 48-byte frame): **established.**
+Programs the first register of one router port, then clears its register 0x10 and reads back its register 0x88. `a0` (`s0`) is the router record and `a1` (saved at
+sp+8) the port number; `s1` is the register number of the port's first register, the port number shifted left by 16. It calls
+`router_reg_read(record, port << 16, &sp+0)` (0xc00000000001b344), clears bits 19 and 18 of the value (an AND with the complement of 0xc0000, formed with `lui` 0xc) and
+sets bit 18 (0x40000), the same two-bit field that `router_port_hist_reselect` rewrites from a caller's value; the result is kept at sp+0. When the global word
+`hasmetarouter` (gp+2324) is nonzero and the port is 2 and the halfword at record +344 is below 80 (signed compare), it also replaces the low 10 bits of the value (an
+AND with -1024 then an OR) with the global word `rpparm_maxburst_val` (gp-29312), which is not masked. It then calls `router_reg_write(record, port << 16, value)`
+(0xc00000000001b374), keeps that call's result at sp+40, calls `router_reg_write(record, (port << 16) | 0x10, 0)` and finally
+`router_reg_read(record, (port << 16) | 0x88, &sp+0)`, whose value is dropped. The routine returns the result of the first write (the one `jr ra` is at
+0xc00000000001bb2c). No branch-likely instruction. That the low bits are a burst limit is inferred from the global's name; the code does not name the fields.
 
 ## Node driver control calls
 
@@ -480,6 +500,18 @@ with state 3 it takes the interrupt stack, sets the byte at 0xffffffffffffc053 t
 `ecommon` otherwise; with any other state it sets the state byte to 2 and takes a frame from the current process record, setting its `gp` to the kernel global pointer
 (0xc0000000014d2170) before the jump to `ecommon`. The block at 0x4c4d4 (an `assfail` call) is never reached. The multiply and divide re-execution is inferred to be a
 processor erratum workaround from its shape; no text states that. The addresses of the per-CPU words were read from the sign-extended 16-bit offsets in the instructions.
+- `ioc3_intr_disconnect` (`6.5.30/unix.IP27`, address 0xc000000000095958, 356 bytes, 48-byte frame): **established.**
+Removes the interrupt connections that match a caller's description from one IOC3's table and marks emptied entries free. `a0` is the PCI device vertex, `a1` (saved at
+sp+8) a bit mask, `a2` (`s0`) and `a3` (`s1`) two doublewords that identify the connection and `a4` (`s2`) a word that does too. It calls
+`hwgraph_traverse(a0, "ioc3", &sp+0)` (0xc00000000029579c). A nonzero result calls `cmn_err(1, "%v: ioc3_intr_connect: ioc3_attach not yet called", a4)`
+(0xc0000000001fcbd4; the text names the connect routine) and returns. Otherwise `hwgraph_fastinfo_get` of the vertex at sp+0 (0xc000000000296098) gives the soft record.
+The word at record +2864 is the number of table entries; a count of zero or less ends the routine. Entries are 88 bytes apart (the index times 88, built from shifts and
+subtractions) starting at record +0, with the doubleword at entry +56 compared with `a2`, the doubleword at +64 with `a3` and the word at +72 with `a4`. When all three
+match and the word at entry +48 ANDed with `a1` is nonzero, that AND result is cleared (`ll`/`sc` loops at 0xc000000000095a20, 0xc000000000095a34 and, below,
+0xc000000000095a88, each retried by a branch-likely instruction) from the word at entry +48 and from the word at record +2868. When the word at entry +48 is then zero
+it stores -1 in the word at entry +72, zeroes the doublewords at +64 and +56, and sets bit `index` in the word at record +2872. The scan does not stop at a match: it
+continues to the last entry. The routine returns what `hwgraph_fastinfo_get` returned (the record pointer, left in `v0`; the error path leaves the `cmn_err` result),
+which carries no meaning. That the record's three words at +2864 to +2872 are the entry count, an in-use mask and a free mask is inferred from how they are used.
 
 ## Crossbar, PCI window and router state helpers
 
@@ -693,6 +725,17 @@ part number in bits 27 to 12, manufacturer in bits 11 to 1. When the part is 0xd
 plus 0x800000 (0xc0000000000751d0); in every other case, including a part or manufacturer that does not match and an `a1` other than 1, it returns the mapped address
 unchanged (0xc0000000000751a4). The result of a failed mapping is not tested: the word at +4 is read from whatever came back. That parts 0xd102 and 0xd112 are the two
 bus parts of one bridge chip is inferred from the published Linux headers that give those numbers.
+- `pcibr_piotrans_addr` (`6.5.30/unix.IP27`, address 0xc0000000000729f4, 204 bytes, 64-byte frame): **established.**
+Turns a PCI address window of one device into a processor-visible PIO address through the Bridge's crosstalk widget, or returns 0 when the window has no crosstalk
+address. `a0` (`s2`) is the device vertex, `a2` (`s7`), `a3` (`s8`), `a4` (`s1`) and `a5` (`s0`) are four values handed on, and `a1` is not used. It calls
+`pciio_hostinfo_get(a0)` (0xc0000000000934d4), keeps the byte at +540 of the result as the slot (stored at sp+56) and calls `pciio_info_mfast_get` (0xc0000000000935dc)
+on it for the Bridge soft record. It then calls the routine at 0xc000000000071e44 with `a0` the device vertex, `a1` the slot, `a2` to `a5` the four saved values; the
+word at soft +0 is loaded just before the call and stored at sp+0 in the call's delay slot. That routine is not a separate symbol (the symbol table puts it under
+`pcibr_write_gather_flush`, 60 bytes in) and is not read here; it takes a PCI address and gives a crosstalk address, and its result of -1 means no address (inferred
+from the use made of it below and the log text). A result of -1 (the 64-bit compare with -1, 0xc000000000072a60) calls
+`pcibr_debug(0x10000000, device vertex, "pcibr_piotrans_addr: xio_addr == XIO_NOWHERE\n")` (0xc000000000074e8c) and returns 0 (the `move a0,zero` at 0xc000000000072abc,
+the delay slot of the branch back to the epilogue at 0xc000000000072ab8, sets the value that is returned). Any other result goes to
+`xtalk_piotrans_addr(the word from soft +0, 0, that result, a4, a5 & 0x1f)` (0xc00000000006be68), and its result is returned. No branch-likely instruction.
 
 ## Hub widget and error helpers
 
@@ -874,6 +917,36 @@ separate symbol (the symbol table puts it under `hubiio_crb_error_handler`, 896 
 `cmn_err(4, "Hub nasid %d got a PIO Write error from widget %d, cleaning up and continuing", the halfword at +10 of a1, the widget)` (0xc0000000001fcbd4) and stores
 `1 << widget` in the doubleword at page + 504, returning with that store in the delay slot of its `jr ra`. The code does not say what bit 48 of the register at +408
 means; register +408 is the one `hub_setup_prb` rewrites for widget 0. No branch-likely instruction.
+- `hub_xp_error_handler` (`6.5.30/unix.IP27`, address 0xc00000000002776c, 124 bytes, 16-byte frame): **established.**
+Passes a crosstalk error to the crosstalk error handler when the hub says the widget interface has something pending, and otherwise answers 7. `a1` is the NASID, `a2`,
+`a3` and `a4` are three values handed on, and `a0` is not used. It reads the doubleword at +488 of the hub register page (the pool constant 0x9200000001c00000 plus the
+NASID shifted left by 32) and tests bits 0 and 4 (mask 0x11). With both clear it returns 7 (`a6` is set to 7 by the `li` at 0xc000000000027790, just before the `beqz`
+at 0xc000000000027794, and the return takes `a6`). Otherwise it turns the NASID into a compact node number with the halfword table behind the gp-20480 slot
+(0xc0000000014cd170, pointing at 0xc0000000014d4c80), reaches the node record through the table behind `p_nodepda` (absolute 0xffffffffffffc400) and calls
+`xtalk_error_handler(the word at record +18912, a2, a3, a4)` (0xc00000000006c188). It returns that call's result (the one `jr ra` is at 0xc0000000000277e0). No
+branch-likely instruction. What bits 0 and 4 of the register at +488 mean is not named by the code.
+- `hub_merge_clean` (`6.5.30/unix.IP27`, address 0xc000000000028d44, 140 bytes, 16-byte frame): **established.**
+For each of the hub's 15 request-tracking entries (CRBs) that the hub marks, reads one word from the memory address held in the entry and drops the value. `a0` is the
+NASID; the register page is the pool constant 0x9200000001c00000 plus the NASID shifted left by 32. It loads the doubleword at page +936 and shifts it right 36, so bit
+`i` of the result is bit 36 + `i` of the register. For `i` from 0 to 14 (the loop test is `slti` of the already incremented counter with 15) it tests that bit, using
+`andi` with 0x7fff. When the bit is set it loads the doubleword at page + 1024 + 32 * `i` (the entry, which it keeps in a temporary on the stack), shifts it right 2,
+keeps the low 38 bits (the constant -1 shifted right 26), shifts that left 3, ORs in 0xa800000000000000 (-11 shifted left 59) and loads the word at that address with
+`lw`. The loaded value is not used. Nothing is returned, and the only stores are to that temporary. There are no calls and no branch-likely instructions. The code does
+not say why the read is done; the entry's address field is read as a physical address with the cache attribute in bits 61 to 59, and a read through it would pull the
+line in; that purpose is inferred from the routine's name.
+- `hubii_eint_handler` (`6.5.30/unix.IP27`, address 0xc000000000034ed4, 352 bytes, 32-byte frame): **established.**
+Handles the hub's I/O error interrupt: checks the network interface, prints why the crosstalk link failed when the hub reports it, runs the CRB and PRB error scans and
+clears the interrupt. `a0` (`s0`, kept at sp+8 and read back as a 32-bit value) is the hub's vertex, the argument `hubii_eint_init` connected the handler with. It calls
+`check_ni_errors` (0xc000000000032f40) and, when that is nonzero, `hubni_error_handler("II interrupt", 1)` (0xc00000000003319c). It reads the vertex's `_node` label
+(`hwgraph_info_get_LBL`, 0xc000000000295310, into sp+0); the halfword at +10 of the record is the NASID and the register page is the pool constant 0x9200000001c00000
+plus the NASID shifted left by 32. When bit 32 of the doubleword at page +8 is set it prints
+`cmn_err(0, "Hub %d to Xtalk Link failed (II_ECRAZY) Reason: %s", the halfword at record +8, reason)` (0xc0000000001fcbd4), the reason being the first match of this
+ladder: bit 9 of that doubleword "Micro Packet Retry Timeout", bit 6 "Crosstalk Tail Timeout", bit 5 "Crosstalk Credit Timeout", then in the doubleword at page +488 bit
+0 "Hub Widget 0 has been Shutdown", bit 4 "BTE 0 has been shutdown", bit 8 "BTE 1 has been shutdown", and otherwise "Unknown". Then, whether or not it printed, it calls
+`hubiio_crb_error_handler(vertex, record)` (0xc000000000034a30) and `hubiio_prb_error_handler(vertex, record)` (0xc000000000034e08), stores 0xffffff in the doubleword
+at page +504 and clears bit 28 (the constant 0x10000000 inverted) of the doubleword at page +312, the register `hubii_eint_init` filled in. It returns with the result
+of `hubiio_prb_error_handler` still in `v0` (the one `jr ra` is at 0xc000000000034fa8, the store to page +312 in its delay slot). No branch-likely instruction. The code
+does not name the registers at +8, +312, +488 and +504 or the bits tested.
 
 ## Crossbar widget control
 
@@ -1042,6 +1115,20 @@ optional flush); handles with bit 1 clear are skipped in pass 2. The register `s
 takes the soft lock, clears the bit's enable bit and reads `pcireg_tflush_get` (0xc000000000080ba8) before unlocking. It returns nothing: every path ends in the
 epilogue at 0xc0000000000793a8 to 0xc0000000000793cc (step 2 enters it at 0xc0000000000793a4). That flags bit 1 marks handlers that run in interrupt context is inferred
 from which handles are called directly.
+- `pcibr_detach` (`6.5.30/unix.IP27`, address 0xc000000000071ae4, 400 bytes, 64-byte frame): **established.**
+Tears down a Bridge: masks its interrupts, detaches every slot, frees its records and removes its hardware-graph entries. `a0` (`s1`) is the Bridge's widget vertex. It
+logs `pcibr_debug(8, vertex, "pcibr_detach\n")` (0xc000000000074e8c), then calls `hwgraph_traverse(vertex, "pci", &sp+0)` (0xc00000000029579c); a nonzero result returns
+1 (0xc000000000071b28; the `li v0,1` is in the branch's delay slot). Otherwise the child vertex at sp+0 gives the soft record through `hwgraph_fastinfo_get`
+(0xc000000000296098, `s0`). It takes the soft lock at +128 (`mutex_spinlock`, 0xc0000000002863b4), calls `pcireg_intr_enable_set(soft, 0)` (0xc0000000000838a0), which
+writes an empty interrupt enable mask, and releases the lock with `mutex_io_spinunlock` (0xc0000000002862c4) and the saved state. It then calls
+`pcibr_slot_detach(child, slot, 0, 0, 0)` (0xc00000000007e52c) for each slot from the byte at soft +56 up to and including the byte at soft +57 (a signed compare of the
+slot, masked to 8 bits, with the last plus 1). Next, `pciio_device_info_unregister(child, the doubleword at soft +248)` (0xc000000000093a44), `spinlock_destroy` of the
+soft lock (0xc000000000286198) and `strlen` (0xc000000000020244) of the string pointed to by the doubleword at +16 followed by `kmem_free` (0xc00000000017e3b0) of that
+pointer with the length as the size. Each of the doublewords at +96 and +104, when nonzero, goes to `rmfreemap` (0xc0000000001a2a64). The crosstalk interrupt object,
+the doubleword at +2088, is passed to `xtalk_intr_disconnect` (0xc00000000006c134) and then to `xtalk_intr_free` (0xc00000000006c0fc). `kmem_free(soft, 2744)` frees the
+record. Last, `hwgraph_info_remove_LBL(child, "_pcibr_asic_rev", 0)` (0xc0000000002952a0), `hwgraph_edge_remove(child, "controller", 0)` and
+`hwgraph_edge_remove(vertex, "pci", 0)` (0xc000000000294ef4) remove the entries, and the routine returns 0 (0xc000000000071c70). The meaning of the doublewords at +96,
++104 and +248 is not read here; the first two are freed with `rmfreemap`, so they are resource maps (inferred from the callee). No branch-likely instruction.
 
 ## Hub vector access and router state
 
@@ -1086,3 +1173,21 @@ When it reaches zero it stores 768 in the doubleword at the hub register page (t
 byte at map +38), then updates the flags: if bit 2 is set it clears bits 0 and 2 and decrements the word at record +800; if bit 2 is clear it clears bit 0 only (and
 leaves the record's word alone). Either way it calls `sv_signal` (0xc00000000018bf30) on the record at +784 and then unlocks the lock at +792 with the saved state. The
 return value is that of `mutex_spinunlock`. The reading of the register as a window register and of +784 as a wait queue is inferred from the callee names.
+- `hub_dma_enabled` (`6.5.30/unix.IP27`, address 0xc0000000000277e8, 196 bytes, 48-byte frame): **established.**
+Says whether a crosstalk widget may send DMA to its master hub, and prints a message when it may not. `a0` (saved at sp+8) is the widget vertex. It takes
+`xwidget_info_get(a0)` (0xc00000000006c368), the widget id from `xwidget_info_id_get` (0xc00000000006c44c; saved at sp+24) and the master from `xwidget_info_master_get`
+(0xc00000000006c480; saved at sp+16), and reads the master's `_node` label with `hwgraph_info_get_LBL` (0xc000000000295310) into the doubleword at sp+0 (the call's own
+result is not tested). It returns 0 when that doubleword is zero (0xc000000000027880) or when the halfword at +10 of the record it points to, the NASID, is -1
+(0xc000000000027888). Otherwise it tests bit (widget id & 0xff) of the doubleword at +280 of the node's register page (the pool constant 0x9200000001c00000 plus the
+NASID shifted left by 32) and returns 1 when it is set. When it is clear it calls
+`cmn_err(6, ...)` with a three-line message that starts "No Inbound access" and then gives the widget id and vertex and the node's NASID and master vertex, in that order (0xc0000000001fcbd4) and returns 0. No
+branch-likely instruction. `hub_device_inquiry` reads the same register and bit and prints them as "Inbound access".
+- `hub_error_devenable` (`6.5.30/unix.IP27`, address 0xc000000000027b24, 196 bytes, 48-byte frame): **established.**
+Acts on one widget's entry in the hub's table when the command in `a2` is 5; with command 6 or any other value it does nothing. `a0` is the widget vertex, `a1` is not
+used and `a2` (`s0`) is the command. It takes `xwidget_info_get` (0xc00000000006c368), the widget id from `xwidget_info_id_get` (0xc00000000006c44c; saved at sp+8) and
+the master from `xwidget_info_master_get` (0xc00000000006c480), and reads the master's `_node` label with `hwgraph_info_get_LBL` (0xc000000000295310) into sp+0. The
+record pointer is never tested for null: the halfword at +10 (the NASID) is loaded in the delay slot of the first command comparison at 0xc000000000027b7c, before
+either command is looked at. For command 5 the entry is the doubleword at (the pool constant 0x9200000001c00000 plus the NASID shifted left by 32) + 712 + 8 * (widget
+id & 0xff); when its bit 56 is set (the value shifted left 7 is negative) the routine stores `(widget id & 0xff) | 0x10` in the doubleword at page +904 of the same
+page. The routine always returns 0 (exits 0xc000000000027b90, 0xc000000000027bc4 and 0xc000000000027bd0). `hub_widget_reset` writes `index | 0x10` to the same +904
+register after clearing an entry of the neighbouring table at +776. No branch-likely instruction.
