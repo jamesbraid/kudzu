@@ -419,7 +419,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	nm_init	0xc00000000034d72c	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	nmgetid	0xc00000000034e298	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	node_meminit	0xc0000000001ac394	assfail	2	out	undocumented
-6.5.30/unix.IP27	nomemmsg	0xc0000000001c8280	cmn_err	2	out	undocumented
+6.5.30/unix.IP27	nomemmsg	0xc0000000001c8280	cmn_err	2	out	documented
 6.5.30/unix.IP27	noreach	0xc0000000001a74a4	cmn_err	1	out	undocumented
 6.5.30/unix.IP27	numa_init	0xc000000000277a1c	cmn_err	1	in	documented
 6.5.30/unix.IP27	p0	0xc00000000022ec5c	cmn_err	2	out	undocumented
@@ -1325,7 +1325,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	nlm_lock_exi	0xa800000020087c60	cmn_err	2	out	undocumented
 6.5.30/unix.IP30	nm_init	0xa8000000203222dc	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	nmgetid	0xa800000020322e48	cmn_err	1	out	undocumented
-6.5.30/unix.IP30	nomemmsg	0xa80000002018cefc	cmn_err	2	out	undocumented
+6.5.30/unix.IP30	nomemmsg	0xa80000002018cefc	cmn_err	2	out	documented
 6.5.30/unix.IP30	noreach	0xa80000002016ecd4	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	odsyBindDrawable	0xa800000020362ffc	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	odsyBlankScreen	0xa8000000203825fc	cmn_err	27	out	undocumented
@@ -2279,7 +2279,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	nm_init	0xc000000000426b0c	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	nmgetid	0xc000000000427678	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	node_meminit	0xc00000000025aa68	assfail	2	out	undocumented
-6.5.30/unix.IP35	nomemmsg	0xc000000000277bd8	cmn_err	2	out	undocumented
+6.5.30/unix.IP35	nomemmsg	0xc000000000277bd8	cmn_err	2	out	documented
 6.5.30/unix.IP35	noreach	0xc000000000256048	cmn_err	1	out	undocumented
 6.5.30/unix.IP35	numa_init	0xc0000000003272f0	cmn_err	1	in	documented
 6.5.30/unix.IP35	open_statmon_dir	0xc0000000000ff7a8	cmn_err	3	out	undocumented
