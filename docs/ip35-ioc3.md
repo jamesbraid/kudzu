@@ -251,6 +251,8 @@ Routines of the IOC3 PCI I/O controller code in the IRIX 6.5.30 IP35 kernel (`6.
   gp-19704 plus 472) and returns 0 when that returns nonzero. Otherwise it calls `hwgraph_fastinfo_get` on the vertex
   found and returns the byte at +2885 of the soft state (`lbu`), the flag `ioc3_attach` sets to 1 for the vertex name
   containing "Ibrick/xtalk/15/pci/4". The frame is 16 bytes. The branch after the traverse call (at 0xc0000000000c5df0) is a plain `beqz`, the other is an unconditional `b`, and no instruction is branch-likely. What the flag stands for beyond that is the kernel's own naming. Established.
+- `ioc3_intr` (`6.5.30/unix.IP35`, occupies 28 bytes at address 0xc0000000000c5b90): interrupt entry the IOC3 attach code connects; it calls the next routine, `ioc3_handle_intr`, with a second argument of 1.
+  The call at 0xc0000000000c5b98 goes to 0xc0000000000c5bac, the address right after this routine, and `a1` is set to 1 in its delay slot (`addiu a1,zero,1`). `a0` and the other argument registers pass through, and its result is returned. The frame is 16 bytes, there is no conditional branch and no instruction is branch-likely. Established.
 - `ioc3_mlreset` (`6.5.30/unix.IP35`, address 0xc0000000000c4ef4, 116 bytes, 16-byte frame): records the console
   IOC3's configuration and register windows and, unless the chip reports one of two other identifiers, registers the
   IOC3 serial port as a console device. `a1` is stored in the kernel variable `console_mem` (0xc00000000163c938) and
