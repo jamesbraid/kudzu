@@ -320,7 +320,7 @@ Routine at 0xc000000000034054.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc00000000003421c | cmn_err | level 20, `Invalid RRB error type: 0x%x` | The bne a0,v0 at 0x34080 branches (a0 differs from v0) into 0x34214. |
+| 0xc00000000003421c | cmn_err | level 20, `Invalid RRB error type: 0x%x` | Taken when the `bne a0,v0` at 0x34080 branches into 0x34214. The error type in a0 differs from 1 (v0), and the `beq a0,s1` at 0x3406c (s1 is 3) and the `beq a0,at` at 0x34078 (at is 2) did not branch first, so the type is none of 1, 2 or 3. |
 | 0xc000000000034238 | cmn_err | level 20, `Uncached read error, physaddr 0x%x` | The beqz v0 at 0x340b4 branches (v0 zero) into 0x3422c. |
 | 0xc000000000034254 | cmn_err | level 20, `Read timeout, physaddr 0x%x` | The beqz v0 at 0x34140 branches (v0 zero) into 0x34248. |
 | 0xc00000000003427c | cmn_err | level 20, `Cached read directory error, physaddr 0x%x in %s\n` | The beqz v0 at 0x34198 branches (v0 zero) into 0x34264. The membank pathname call at 0x34264 runs before this call. |

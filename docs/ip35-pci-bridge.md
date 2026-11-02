@@ -614,11 +614,11 @@ Routines of the PCI bridge driver (`pcibr`) and the crosstalk bridge attach code
   user (`copyin`, error 14), forces the second word (the counting mode) to 0 for request 2, and calls
   `xbow_enable_perf_counter(a0, first, second, third)` (address 0xc0000000000999f0), returning 22 when that fails.
   Request 3 (read the counters): without read mode it returns 9; it calls `xbow_get_perf_counters` (address
-  0xc0000000000999d0), `assfail("xbow_perf_cnt != NULL", "../io/xbow.c", 612)` when that gives null, and copies 0x100
+  0xc0000000000999d0), `assfail("xbow_perf_cnt != NULL", file argument not copied, line 612)` when that gives null, and copies 0x100
   bytes to the user (14 on failure). Requests 4 and 5 (start and stop the link-level monitor): with the capability
   test (1 on failure) they call `xbow_enable_llp_monitor` (address 0xc0000000000999d38) or `xbow_disable_llp_monitor`
   (address 0xc000000000099cf0) and return 22 on a nonzero result. Request 6 (read the link status): without read mode
-  9; `xbow_get_llp_status` (address 0xc000000000099bbc), `assfail("xbow_llp_status != NULL", "../io/xbow.c", 652)` on
+  9; `xbow_get_llp_status` (address 0xc000000000099bbc), `assfail("xbow_llp_status != NULL", file argument not copied, line 652)` on
   null, and a 0x80-byte copy to the user (14 on failure). Requests 0x6701 and 0x6702 (bandwidth allocation between two
   widgets) check the same capability with `cap_able` (return 1), copy 16 bytes from the user (14 on failure), turn the
   two words at the start into widget numbers with `xbow_widget_num_get` (address 0xc000000000098370) and call

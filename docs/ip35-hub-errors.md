@@ -43,7 +43,7 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   `kl_error_log[node]` and a 64-byte counter record with
   `kmem_zalloc_node(0x40, 0x101, node)` into
   `hub_err_count[node]` (the second array is at `kl_error_log` + 0x400), and calls `assfail` ("kl_error_log[i] &&
-  hub_err_count[i]", file "../ml/SN/SN1/huberror.c", line 340) when either is null. When `a0` is the node of the
+  hub_err_count[i]", line 340, file argument not copied) when either is null. When `a0` is the node of the
   processor running the routine (`get_compact_nodeid`), it re-asserts both pointers (lines 354 and 355), zeroes the
   first word of the log and calls `recover_error_init` on four 128-byte slots at log +0x2010, +0x2090, +0x2110 and
   +0x2190. Then, for each of the two processor register banks (the second is 0x200000 above the first), it reads the
@@ -219,7 +219,7 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   to 7. An entry is acted on when bit 63 is set and bits 24 to 31 equal the widget number. For such an entry it stores
   zero in it, stores the value `i | 0x10` in the doubleword at base + 0x388 (the same address every time), reads that
   doubleword back and, if bit 4 (0x10) of it is still set, calls `assfail("! (REMOTE_HUB_L(nasid, IIO_IPDR) &
-  IIO_IPDR_PND)", "../ml/SN/SN1/hubio.c", 1037)` (the strings at gp-21536 + 5440 and + 5496). That compare is
+  IIO_IPDR_PND)", file argument not copied, line 1037)` (the strings at gp-21536 + 5440 and + 5496). That compare is
   `beqzl`, so the increment of `i` in its delay slot runs only when the bit is clear; on the assert path the `addiu` at
   0xc0000000000792b8, in the delay slot of the branch at 0xc0000000000792b4, supplies it, and the scan always visits all eight
   entries. After the scan it calls `hub_setup_prb(nasid, widget, 3, 2)`, restores the level with `splx` (the same
@@ -486,7 +486,7 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   interface error interrupt for one node and programs where the Hub sends it. `a0` is the compact node number and the
   routine returns nothing. It reads the node's Hub vertex from the word at +0x8c80 of the node's per-node block
   (reached through the pointer at absolute address -15360, indexed by `a0`) and calls
-  `assfail("hub_v != GRAPH_VERTEX_NONE", "../ml/SN/SN1/huberror.c", 526)` when that is -1. It reads the node record
+  `assfail("hub_v != GRAPH_VERTEX_NONE", file argument not copied, line 526)` when that is -1. It reads the node record
   with `hwgraph_info_get_LBL(hub, "_node", ...)` and works in the Hub register block at the pool word
   0x9200000001c00000 plus the node's NASID (halfword at record +10) shifted left 33. When bit 13 of the register
   doubleword at block +0x128 is clear it clears bit 10 of that word (mask 0xfffffffffffffbff). It picks a processor
@@ -494,7 +494,7 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   0xc00000000005fe04); a result of -1 calls `cmn_err(20, "hubii_eint_init: intr_reserve_level failed, cnode %d", a0)`
   at level 20, which does not return. It connects the handler `hubii_eint_handler` (address 0xc00000000005b17c) with
   `intr_connect_level(cpu, level, 0, handler, hub, 0)` (address 0xc00000000005f308); a negative result calls
-  `assfail("rv >= 0", "../ml/SN/SN1/huberror.c", 556)`. It then writes the register doubleword at block +0x138 with
+  `assfail("rv >= 0", file argument not copied, line 556)`. It then writes the register doubleword at block +0x138 with
   the target: the 7-bit level plus bit 24 (0x1000000), masked with the pool word 0xfffffffffffe01ff
   (0xc000000001644170), with the NASID of the chosen processor's node (`get_cpu_cnode` and `compact_to_nasid_node`, 8
   bits) shifted left 9, bit 8 cleared and then set from bit 1 of the byte at +0x528 of that processor's per-processor

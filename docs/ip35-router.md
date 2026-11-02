@@ -30,7 +30,7 @@ Routines of the NUMAlink router code in the IRIX 6.5.30 IP35 kernel (`6.5.30/uni
   the state record with `kmem_free(ri, 704)` after clearing a2 +24, and then carries on with the freed pointer as the
   code is written, so this path is not trusted here. It copies the slot byte and module halfword from a2 into ri +506
   and +504, allocates the vector array (`kmem_alloc_node(numnodes x 8)` into ri +576; assert "rip->ri_vecarray" at
-  line 1131 of "../ml/SN/router.c"), finds the router's board with `vertex_to_router_board(nasid, vertex)` into ri
+  line 1131, file argument not copied), finds the router's board with `vertex_to_router_board(nasid, vertex)` into ri
   +584, builds the name (`kern_malloc_node(0x50)` into ri +592, assert "rip->ri_name" at line 1136, seeded with the
   first five bytes of the string at 0xc00000000151a390, then `board_to_path`), and, when the board exists, zeroes the
   eight 8-byte slots after the first of the board-specific block the board's pointer leads to. Then for ports 1 to 8

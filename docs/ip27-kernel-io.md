@@ -216,7 +216,7 @@ calls the handler table entry for the widget number (an indirect call through ei
 7 are used, other values print through `sn0_error_dump` and `cmn_err(0, "Fatal error (code : %d) on hub : %d")`), or ends in one of the fatal reports
 `Fatal %s on hub : %d`, `Xtalk Packet with error bit set to hub %d`, `Uncorrectable data error detected on data from Craylink to node %d` and
 `Unable to handle %s on hub %d`; a slot number outside 16 to 23 with the same bit set calls `assfail` with the failed condition that the transaction number lies between
-the bridge DMA write request limits (source file name `huberror.c`, line 1804). Every slot that was reported goes to `bte_crb_error_handler(opaque, flag, slot, record)`
+the bridge DMA write request limits (assert at line 1804, file argument not copied). Every slot that was reported goes to `bte_crb_error_handler(opaque, flag, slot, record)`
 and is freed with `hubiio_crb_free(hub, slot)`, and a counter at 152(sp) is incremented. It returns that count (the `ld v0,152(sp)` before the epilogue). The per-widget
 handler table and the record layout were followed from the control flow only, hence the grade.
 - `hub_dmatimeout_kick` (`6.5.30/unix.IP27`, address 0xc000000000029144): **inferred.** Recovers a hub whose DMA stalled by stopping the other CPUs, draining
@@ -294,7 +294,7 @@ record on the node's own memory (`kmem_zalloc_node(440, 0x101, node)`), stores i
 `cmn_err(1, "Router init read failed: ...")`). It forces the register's field (bits 28 to 35) to 0x20 when it is not, sets or clears bit 0 according to the kernel
 variables `craylnk_bypass_disable` and `hasmetarouter`, masks with a global, ORs in 0xafe000000000 and writes it back with `router_reg_write(record, 0x18, ...)`. The
 router's port count is taken from status bits 46 to 48 into the interface halfword at +2, and a status low nibble other than 1 ("Not a router") is a `cmn_err(4, ...)`
-panic. It allocates a pointer table of one doubleword per node (`kmem_alloc_node`, failure goes to `assfail("rip->ri_vecarray", "router.c", 1131)`) and the path-name
+panic. It allocates a pointer table of one doubleword per node (`kmem_alloc_node`, failure goes to `assfail("rip->ri_vecarray", file argument not copied, line 1131)`) and the path-name
 buffer (`kern_malloc_node(0x50)`, `assfail("rip->ri_name", ..., 1136)`), finds the router's board (`vertex_to_router_board`; a missing board is
 `Couldn't locate board structure for %v`, and a board whose type nibble (byte 0x15a) is not 1 is `Incorrectly jumpered router board in module %M`), builds the path name
 (`board_to_path`) and then initialises each of the six router ports 1 to 6 (`router_port_init`, which on failure gives
@@ -385,7 +385,7 @@ number and the routine returns no value that a caller uses. It starts with `hub_
 (`kmem_zalloc_node(0x1938, 1, node)`, stored in
 `kl_error_log[node]`) and a 0x40-byte count block (`kmem_zalloc_node(0x40,
 0x101, node)`, in `hub_err_count[node]`); a failure of either is
-`assfail("kl_error_log[i] && hub_err_count[i]", "huberror.c", 155)`. When the node is the one the running CPU belongs to (`get_compact_nodeid`), it asserts both blocks
+`assfail("kl_error_log[i] && hub_err_count[i]", file argument not copied, line 155)`. When the node is the one the running CPU belongs to (`get_compact_nodeid`), it asserts both blocks
 exist (lines 164 and 165), clears the log's first word, initialises two spooling areas with `recover_error_init` at log +0x1810 and +0x1890, programs the hub's
 error-spool registers (through global register pointers) with one of three bit patterns (0x1aaaaaa, 0x1555555, or 0x16555aa and
 0x9aaa55) chosen by two kernel flags, clears bit 21 and bit 20 in the two words, sets the spool start and end pointers in the log (+0x1910 to +0x1928) when the kernel
