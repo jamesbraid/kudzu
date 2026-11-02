@@ -4173,7 +4173,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP27boot/hwgfs.a(hwgvfsops.o)	kernel-platform-drivers	shared-kernel	object	n64	10612	5d1b65ae4a600a1d	6.5.30/usr/cpu/sysgen/IP30boot/hwgfs.a(hwgvfsops.o);6.5.30/usr/cpu/sysgen/IP35boot/hwgfs.a(hwgvfsops.o)	5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/hwgfs.a(hwgsubr.o)	kernel-platform-drivers	shared-kernel	object	n64	15428	74f197762fbc885f	6.5.30/usr/cpu/sysgen/IP30boot/hwgfs.a(hwgsubr.o);6.5.30/usr/cpu/sysgen/IP35boot/hwgfs.a(hwgsubr.o)	11	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/i2c.o	kernel-platform-drivers	shared-kernel	object	n64	12224	0eebeaa53cacbc83		7	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/idbg.o	kernel-platform-objects	shared-kernel	object	n64	991696	e6c9165004d38eb4		304	symtab+dwarf	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/idbg.o	kernel-platform-objects	shared-kernel	object	n64	991696	e6c9165004d38eb4		304	symtab+dwarf	0	0	named-only	docs/kernel-debug-signatures.md#6530usrcpusysgenip27bootidbgo	`6.5.30/usr/cpu/sysgen/IP27boot/idbg.o`
 6.5.30/usr/cpu/sysgen/IP27boot/idbgstubs.a(idbgstubs.o)	kernel-other-objects	shared-kernel	object	n64	10788	30bec94da714b427	6.5.30/usr/cpu/sysgen/IP30boot/idbgstubs.a(idbgstubs.o);6.5.30/usr/cpu/sysgen/IP35boot/idbgstubs.a(idbgstubs.o)	20	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/idev.o	kernel-other-objects	shared-kernel	object	n64	25896	1f3d93b2c33ae3dd		22	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/if_cl.o	kernel-other-objects	shared-kernel	object	n64	49024	f1c0f0c8ea19ab78		35	symtab	0	0	undocumented		
@@ -4327,7 +4327,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP27boot/mgras.a(mgras_frs.o)	kernel-other-objects	shared-kernel	object	n64	4868	23b916c310a2ea60		2	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/mgvstubs.a(mgvstubs.o)	kernel-other-objects	shared-kernel	object	n64	3316	dd8afa5b9d0db913	6.5.30/usr/cpu/sysgen/IP30boot/mgvstubs.a(mgvstubs.o);6.5.30/usr/cpu/sysgen/IP35boot/mgvstubs.a(mgvstubs.o)	1	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/mio.o	kernel-other-objects	shared-kernel	object	n64	6296	638c95bd3f710c02		2	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/mloadidbg.o	kernel-other-objects	shared-kernel	object	n64	42528	41c06ecc19b8ebc2		10	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/mloadidbg.o	kernel-other-objects	shared-kernel	object	n64	42528	41c06ecc19b8ebc2		10	symtab	0	0	named-only	docs/kernel-debug-signatures.md#6530usrcpusysgenip27bootmloadidbgo	`6.5.30/usr/cpu/sysgen/IP27boot/mloadidbg.o`
 6.5.30/usr/cpu/sysgen/IP27boot/mouse.a(pcmouse.o)	kernel-other-objects	shared-kernel	object	n64	14916	7d5d999592db31ea		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/msg.o	kernel-other-objects	shared-kernel	object	n64	24152	c15ed6c8934ce7b1		13	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/namefs.a(namevfs.o)	kernel-other-objects	shared-kernel	object	n64	19492	f64616560c34b228		12	symtab	0	0	undocumented		
@@ -5068,7 +5068,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	kernel-platform-drivers	shared-kernel	object	n64	47064	50c0bf96e614be14		67	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/hitachi.o	kernel-other-objects	shared-kernel	object	n64	26272	52a62e6d07e3fe7f		9	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/hwgfs.a(hwgvnops.o)	kernel-platform-drivers	shared-kernel	object	n64	25812	b028bacb55fe271f		21	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/idbg.o	kernel-platform-objects	shared-kernel	object	n64	961880	daccfdbb78270fc5		298	symtab+dwarf	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/idbg.o	kernel-platform-objects	shared-kernel	object	n64	961880	daccfdbb78270fc5		298	symtab+dwarf	0	0	named-only	docs/kernel-debug-signatures.md#6530usrcpusysgenip30bootidbgo	`6.5.30/usr/cpu/sysgen/IP30boot/idbg.o`
 6.5.30/usr/cpu/sysgen/IP30boot/idev.o	kernel-other-objects	shared-kernel	object	n64	25872	ab1e8520f962f0f7		22	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/if_ef.o	kernel-other-objects	shared-kernel	object	n64	49920	fea4df21fb80f8d7		47	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/if_eg.o	kernel-other-objects	shared-kernel	object	n64	77632	a88d78d7424f03ad		55	symtab	0	0	undocumented		
@@ -5169,7 +5169,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP30boot/mgras.a(mgras_share.o)	kernel-other-objects	shared-kernel	object	n64	5652	ef3fac15b370a741		2	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/mgras.a(mgras_frs.o)	kernel-other-objects	shared-kernel	object	n64	4692	c187ba1908b1b3f1		2	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/mio.o	kernel-other-objects	shared-kernel	object	n64	6120	0676bfdc3dfbccdf		2	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/mloadidbg.o	kernel-other-objects	shared-kernel	object	n64	42144	3b4a4f3d80cad9eb		10	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/mloadidbg.o	kernel-other-objects	shared-kernel	object	n64	42144	3b4a4f3d80cad9eb		10	symtab	0	0	named-only	docs/kernel-debug-signatures.md#6530usrcpusysgenip30bootmloadidbgo	`6.5.30/usr/cpu/sysgen/IP30boot/mloadidbg.o`
 6.5.30/usr/cpu/sysgen/IP30boot/mouse.a(pcmouse.o)	kernel-other-objects	shared-kernel	object	n64	14900	08e20f2565c82982		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/msg.o	kernel-other-objects	shared-kernel	object	n64	24128	dbdff9cdf8b83350		13	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/namefs.a(namevfs.o)	kernel-other-objects	shared-kernel	object	n64	19460	ff73a76f9118fc2a		12	symtab	0	0	undocumented		
@@ -5841,7 +5841,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP32boot/hwgfs.a(hwgvnops.o)	kernel-platform-drivers	shared-kernel	object	n32	20068	7f36ce541d15674a		21	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/hwgfs.a(hwgvfsops.o)	kernel-platform-drivers	shared-kernel	object	n32	7908	1efa8f67d409e916		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/hwgfs.a(hwgsubr.o)	kernel-platform-drivers	shared-kernel	object	n32	12548	a93d2283bff5aa83		11	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/idbg.o	kernel-platform-objects	shared-kernel	object	n32	492640	419283520bbb8adc		292	symtab+dwarf	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/idbg.o	kernel-platform-objects	shared-kernel	object	n32	492640	419283520bbb8adc		292	symtab+dwarf	0	0	named-only	docs/kernel-debug-signatures.md#6530usrcpusysgenip32bootidbgo	`6.5.30/usr/cpu/sysgen/IP32boot/idbg.o`
 6.5.30/usr/cpu/sysgen/IP32boot/idbgstubs.a(idbgstubs.o)	kernel-other-objects	shared-kernel	object	n32	7428	0581b27d42afd4a9		20	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/idev.o	kernel-other-objects	shared-kernel	object	n32	21952	8d7b69be9b64eb1a		22	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/if_clstubs.a(if_clstubs.o)	kernel-other-objects	shared-kernel	object	n32	2452	77830e1bbed687c4		1	symtab	0	0	undocumented		
@@ -5943,7 +5943,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP32boot/mem.o	kernel-platform-objects	shared-kernel	object	n32	11640	2b35f014642b5c47		12	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mgvstubs.a(mgvstubs.o)	kernel-other-objects	shared-kernel	object	n32	2564	8e5274ddef97040f		1	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mhpckm.o	kernel-other-objects	shared-kernel	object	n32	21960	fd0938e2ac2241d2		24	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/mloadidbg.o	kernel-other-objects	shared-kernel	object	n32	23072	40bdb1c199507d70		10	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/mloadidbg.o	kernel-other-objects	shared-kernel	object	n32	23072	40bdb1c199507d70		10	symtab	0	0	named-only	docs/kernel-debug-signatures.md#6530usrcpusysgenip32bootmloadidbgo	`6.5.30/usr/cpu/sysgen/IP32boot/mloadidbg.o`
 6.5.30/usr/cpu/sysgen/IP32boot/mouse.a(pcmouse.o)	kernel-other-objects	shared-kernel	object	n32	12004	43be2695e227e3ea		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/msg.o	kernel-other-objects	shared-kernel	object	n32	17872	84b59b6cd0e6d237		11	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	kernel-other-objects	shared-kernel	object	n32	167864	214b4dfbf57dcdc0		169	symtab+dwarf	0	0	undocumented		
@@ -6593,7 +6593,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/hitachi.o	kernel-other-objects	shared-kernel	object	n64	26208	0f5bfb107ca818cd		9	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/hubspc.o	kernel-platform-drivers	shared-kernel	object	n64	13056	899394978cddc968		13	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/hwgfs.a(hwgvnops.o)	kernel-platform-drivers	shared-kernel	object	n64	25812	9ca9d559bbede8ee		21	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/idbg.o	kernel-platform-objects	shared-kernel	object	n64	987960	8db9e6022bcc473a		304	symtab+dwarf	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/idbg.o	kernel-platform-objects	shared-kernel	object	n64	987960	8db9e6022bcc473a		304	symtab+dwarf	0	0	named-only	docs/kernel-debug-signatures.md#6530usrcpusysgenip35bootidbgo	`6.5.30/usr/cpu/sysgen/IP35boot/idbg.o`
 6.5.30/usr/cpu/sysgen/IP35boot/ide.o	kernel-other-objects	shared-kernel	object	n64	119144	1e61f46697355749		74	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ide_idbg.o	kernel-other-objects	shared-kernel	object	n64	20104	525922cbdc84aaae		10	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/idev.o	kernel-other-objects	shared-kernel	object	n64	25808	95261f60f2333df0		22	symtab	0	0	undocumented		
@@ -6728,7 +6728,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/menet.o	kernel-other-objects	shared-kernel	object	n64	6784	e64bfe1f843919e7		2	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/mgrasstubs.a(mgrasstubs.o)	kernel-other-objects	shared-kernel	object	n64	3988	4f406e7634318fc0		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/mio.o	kernel-other-objects	shared-kernel	object	n64	6208	d55bdfa1fbadd3b1		2	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/mloadidbg.o	kernel-other-objects	shared-kernel	object	n64	42248	67ea8afb1d230e3e		10	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/mloadidbg.o	kernel-other-objects	shared-kernel	object	n64	42248	67ea8afb1d230e3e		10	symtab	0	0	named-only	docs/kernel-debug-signatures.md#6530usrcpusysgenip35bootmloadidbgo	`6.5.30/usr/cpu/sysgen/IP35boot/mloadidbg.o`
 6.5.30/usr/cpu/sysgen/IP35boot/mouse.a(pcmouse.o)	kernel-other-objects	shared-kernel	object	n64	14836	43705691e3954d21		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/msg.o	kernel-other-objects	shared-kernel	object	n64	24064	447db9f9607c2cb4		13	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/namefs.a(namevfs.o)	kernel-other-objects	shared-kernel	object	n64	19396	2302e4de3d7ad8e4		12	symtab	0	0	undocumented		
