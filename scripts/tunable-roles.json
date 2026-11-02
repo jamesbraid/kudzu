@@ -79,5 +79,45 @@
     "kernels": [
       "IP27"
     ]
+  },
+  "r10k_intervene": {
+    "grade": "established",
+    "role": "Enable flag for the R10000 cache-error intervention countdown. tick_actions reads it at 0xc000000000046294 and, when it is nonzero, decrements the countdown word at the fixed address 0xffffffffffffc7b0 (base $0, offset -14416); when the countdown reaches zero it reloads the countdown from r10k_check_count (0xc0000000000462dc). A second read at 0xc000000000046374 compares it with the constant 1 held in s7 and branches on equality. cont_nmi_dump reads it at 0xc000000000044db8 and branches to 0xc000000000044e38 unless it and r10k_progress_nmi are both nonzero. allowboot clears it to zero at 0xc0000000000443c0 when it is nonzero and a halfword flag at -26518($28) is nonzero. No read site in IP35 or IP30.",
+    "citation": "6.5.30 unix.IP27 tick_actions (0xc0000000000461e0; loads 0xc000000000046294, 0xc000000000046374), cont_nmi_dump (0xc000000000044d8c; load 0xc000000000044db8), allowboot (0xc000000000044380; load 0xc0000000000443b4, store 0xc0000000000443c0)",
+    "kernels": [
+      "IP27"
+    ]
+  },
+  "r10k_progress_nmi": {
+    "grade": "established",
+    "role": "Enable flag for the R10000 progress check, read as a boolean. tick_actions reads it at five sites (0xc000000000046390, 0xc0000000000464b4, 0xc0000000000464d0, 0xc000000000046550 and 0xc0000000000462e4); at 0xc000000000046390 a zero value skips an atomic increment (ll/sc) of the word at offset 1992 of a per-CPU record. At 0xc0000000000464d0 a nonzero value clears the word at offset 1992 of the same record and branches to 0xc000000000046318; a zero value goes to 0xc00000000004631c. cont_nmi_dump reads it at 0xc000000000044dc0 and branches to 0xc000000000044e38 when it is zero. No read site in IP35 or IP30.",
+    "citation": "6.5.30 unix.IP27 tick_actions (0xc0000000000461e0; loads 0xc0000000000462e4, 0xc000000000046390, 0xc0000000000464b4, 0xc0000000000464d0, 0xc000000000046550), cont_nmi_dump (0xc000000000044d8c; load 0xc000000000044dc0)",
+    "kernels": [
+      "IP27"
+    ]
+  },
+  "r10k_check_count": {
+    "grade": "established",
+    "role": "Countdown period for the R10000 intervention check. alloc_cpupda copies it into the per-CPU record at offset 1968 (load 0xc0000000001e4014, store to 1968 of the record). tick_actions reloads the countdown word at the fixed address 0xffffffffffffc7b0 from it when the countdown reaches zero (load 0xc0000000000462dc, store 0xc0000000000462e0). No read site in IP35 or IP30.",
+    "citation": "6.5.30 unix.IP27 alloc_cpupda (0xc0000000001e3de8; load 0xc0000000001e4014), tick_actions (0xc0000000000461e0; load 0xc0000000000462dc)",
+    "kernels": [
+      "IP27"
+    ]
+  },
+  "r10k_progress_diff": {
+    "grade": "inferred",
+    "role": "Threshold, an 8-byte value, for the R10000 progress check. tick_actions loads it at 0xc000000000046364 and branches back to 0xc00000000004631c when the 64-bit difference computed just before it (dsubu at 0xc000000000046360, against the value in s5) is less than the threshold (sltu). The unit of the difference is not identified. No read site in IP35 or IP30.",
+    "citation": "6.5.30 unix.IP27 tick_actions (0xc0000000000461e0; load 0xc000000000046364, branch target 0xc00000000004631c)",
+    "kernels": [
+      "IP27"
+    ]
+  },
+  "r10k_bpmode": {
+    "grade": "established",
+    "role": "R10000 mode selector, a small integer. mlreset loads it at 0xc000000000026154 and branches on zero (to 0xc0000000000261fc), on 1 (to 0xc00000000002620c) and on 2 (a later beq), so the value selects one of several arms. A second load at 0xc00000000002649c sits on a path that calls printf with a message string. The arms beyond the first three and the message are not traced. No read site in IP35 or IP30.",
+    "citation": "6.5.30 unix.IP27 mlreset (0xc0000000000260e0; loads 0xc000000000026154, 0xc00000000002649c)",
+    "kernels": [
+      "IP27"
+    ]
   }
 }
