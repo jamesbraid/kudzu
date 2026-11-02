@@ -1,0 +1,300 @@
+callee	kind	name	prefix	routine	builds	sites	grade
+graph_edge_add	edge	(not a literal: load through unknown base at ADDR)		hwgraph_edge_add	IP27,IP30,IP35	IP27 0xc000000000294e80; IP30 0xa80000002023c420; IP35 0xc0000000003408e0	unresolved
+hwgraph_block_device_add	path	block		hwgraph_device_add	IP27,IP30,IP35	IP27 0xc000000000295a60; IP30 0xa80000002023d000; IP35 0xc0000000003414c0	located
+hwgraph_char_device_add	path	(not a literal: add of unknown at ADDR (join at ADDR))	rad1pci	rad1pciattach	IP27	IP27 0xc000000000156f14,0xc00000000015703c,0xc000000000157178	unresolved
+hwgraph_char_device_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		sio_initport	IP27,IP30,IP35	IP27 0xc000000000179f20; IP30 0xa800000020144d70; IP35 0xc0000000002248f0	unresolved
+hwgraph_char_device_add	path	(not a literal: add of unknown at ADDR (join at ADDR))	usrpci_	sub_0xa80000002005cf88	IP30	IP30 0xa80000002005d154	unresolved
+hwgraph_char_device_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xa8000000200d4220	IP30	IP30 0xa8000000200d4348	unresolved
+hwgraph_char_device_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc00000000008dc30	IP27	IP27 0xc00000000008df84	unresolved
+hwgraph_char_device_add	path	(not a literal: add of unknown at ADDR (join at ADDR))	usrpci_	sub_0xc000000000090700	IP27	IP27 0xc0000000000908cc	unresolved
+hwgraph_char_device_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc0000000000bb64c	IP35	IP35 0xc0000000000bb9a0	unresolved
+hwgraph_char_device_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc0000000000fbfac	IP27	IP27 0xc0000000000fc0d4	unresolved
+hwgraph_char_device_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc000000000197c58	IP35	IP35 0xc000000000197da0	unresolved
+hwgraph_char_device_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		universe_attach	IP27,IP35	IP27 0xc00000000008b63c; IP35 0xc0000000000b9058	unresolved
+hwgraph_char_device_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		usrvme_device_register	IP27,IP35	IP27 0xc00000000008a7c8,0xc00000000008a848,0xc00000000008a8c8,0xc00000000008a930,0xc00000000008a998,0xc00000000008aa00; IP35 0xc0000000000b81e4,0xc0000000000b8264,0xc0000000000b82e4,0xc0000000000b834c,0xc0000000000b83b4,0xc0000000000b841c	unresolved
+hwgraph_char_device_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		xbmon_attach	IP27,IP30,IP35	IP27 0xc00000000006f6b0; IP30 0xa80000002003dbcc; IP35 0xc00000000009a538	unresolved
+hwgraph_char_device_add	path	(not a literal: add of unknown at ADDR (join at ADDR))	pcibr_	xbridge_attach	IP27,IP30,IP35	IP27 0xc00000000007047c; IP30 0xa8000000200421c8; IP35 0xc00000000009c978	unresolved
+hwgraph_char_device_add	path	(not a literal: add of unknown at ADDR (load through unknown base at ADDR))	midi_	sub_0xa8000000200326d8	IP30	IP30 0xa800000020032978	unresolved
+hwgraph_char_device_add	path	(not a literal: add of unknown at ADDR (load through unknown base at ADDR))	midi_	sub_0xc0000000000624d0	IP27	IP27 0xc000000000062770	unresolved
+hwgraph_char_device_add	path	(not a literal: add of unknown at ADDR (load through unknown base at ADDR))	midi_	sub_0xc00000000008a264	IP35	IP35 0xc00000000008a504	unresolved
+hwgraph_char_device_add	path	(not a literal: join at ADDR)		if_hwgraph_add	IP27,IP30,IP35	IP27 0xc000000000117a7c; IP30 0xa8000000200efb30; IP35 0xc0000000001b37ec	unresolved
+hwgraph_char_device_add	path	(not a literal: join at ADDR)		sndrv_attach	IP35	IP35 0xc000000000095cd4	unresolved
+hwgraph_char_device_add	path	(not a literal: load through unknown base at ADDR)	du	sio_initport	IP27,IP30,IP35	IP27 0xc000000000179dec; IP30 0xa800000020144c48; IP35 0xc0000000002247c8	unresolved
+hwgraph_char_device_add	path	(not a literal: load through unknown base at ADDR)		sub_0xc0000000000bd750	IP35	IP35 0xc0000000000bdb24	unresolved
+hwgraph_char_device_add	path	(not a literal: load through unknown base at ADDR)		sub_0xc0000000000c64c0	IP35	IP35 0xc0000000000c6a98	unresolved
+hwgraph_char_device_add	path	.nullkeyboard	usb_pckm_	sub_0xc0000000000c83e4	IP35	IP35 0xc0000000000c85a8	located
+hwgraph_char_device_add	path	.nullmouse	usb_pckm_	sub_0xc0000000000c83e4	IP35	IP35 0xc0000000000c85e8	located
+hwgraph_char_device_add	path	bus	fire_	fire_attach	IP30,IP35	IP30 0xa80000002034a094; IP35 0xc00000000045b32c	located
+hwgraph_char_device_add	path	bus	scsiha_	scsi_bus_create	IP27,IP30,IP35	IP27 0xc0000000000c5014; IP30 0xa80000002009653c; IP35 0xc000000000110f5c	located
+hwgraph_char_device_add	path	char		hwgraph_device_add	IP27,IP30,IP35	IP27 0xc000000000295a78; IP30 0xa80000002023d018; IP35 0xc0000000003414d8	located
+hwgraph_char_device_add	path	config	usrpci_	sub_0xa80000002005cf88	IP30	IP30 0xa80000002005d080	located
+hwgraph_char_device_add	path	config	usrpci_	sub_0xc000000000090700	IP27	IP27 0xc0000000000907f8	located
+hwgraph_char_device_add	path	controller	giobr_	giobr_attach	IP30	IP30 0xa800000020040b78	located
+hwgraph_char_device_add	path	controller	pcibr_	pic_attach2	IP35	IP35 0xc00000000009b8f0	located
+hwgraph_char_device_add	path	controller	sn0drv_	sn0drv_attach	IP27	IP27 0xc00000000006a8ac	located
+hwgraph_char_device_add	path	d16	usrvme_	usrvme_device_register	IP27,IP35	IP27 0xc00000000008a7f8,0xc00000000008a878,0xc00000000008a8e0,0xc00000000008a948,0xc00000000008a9b0,0xc00000000008aa18; IP35 0xc0000000000b8214,0xc0000000000b8294,0xc0000000000b82fc,0xc0000000000b8364,0xc0000000000b83cc,0xc0000000000b8434	located
+hwgraph_char_device_add	path	d32	usrvme_	usrvme_device_register	IP27,IP35	IP27 0xc00000000008a7e0,0xc00000000008a860; IP35 0xc0000000000b81fc,0xc0000000000b827c	located
+hwgraph_char_device_add	path	d8	usrvme_	usrvme_device_register	IP27,IP35	IP27 0xc00000000008a810,0xc00000000008a890,0xc00000000008a8f8,0xc00000000008a960,0xc00000000008a9c8,0xc00000000008aa30; IP35 0xc0000000000b822c,0xc0000000000b82ac,0xc0000000000b8314,0xc0000000000b837c,0xc0000000000b83e4,0xc0000000000b844c	located
+hwgraph_char_device_add	path	default	usrpci_	sub_0xa80000002005cf88	IP30	IP30 0xa80000002005d098	located
+hwgraph_char_device_add	path	default	usrpci_	sub_0xc000000000090700	IP27	IP27 0xc000000000090810	located
+hwgraph_char_device_add	path	dma_engine	ude_	ude_device_register	IP27,IP35	IP27 0xc00000000008a2a0; IP35 0xc0000000000b7cbc	located
+hwgraph_char_device_add	path	ef	if_ef	if_efattach	IP27,IP30,IP35	IP27 0xc0000000000e5c2c; IP30 0xa8000000200bdef8; IP35 0xc0000000001781c4	located
+hwgraph_char_device_add	path	eg	if_eg	if_egattach	IP27,IP30,IP35	IP27 0xc0000000000df8d8; IP30 0xa8000000200b7bbc; IP35 0xc000000000171e88	located
+hwgraph_char_device_add	path	ei	ei	eiattach	IP27,IP35	IP27 0xc000000000094540; IP35 0xc0000000000c453c	located
+hwgraph_char_device_add	path	ei	ioc4_ei	ioc4_eiattach	IP35	IP35 0xc0000000000c23d8	located
+hwgraph_char_device_add	path	emu_subsys	emu_	sub_0xc00000000018ca54	IP35	IP35 0xc00000000018cba8	located
+hwgraph_char_device_add	path	flash	srflash_	srflash_attach	IP30	IP30 0xa8000000200a7890	located
+hwgraph_char_device_add	path	imidi	midi_	midi_init	IP27,IP30,IP35	IP27 0xc0000000000633e8; IP30 0xa8000000200335f0; IP35 0xc00000000008b17c	located
+hwgraph_char_device_add	path	io	usrpci_	sub_0xa80000002005cf88	IP30	IP30 0xa80000002005d068	located
+hwgraph_char_device_add	path	io	usrpci_	sub_0xc000000000090700	IP27	IP27 0xc0000000000907e0	located
+hwgraph_char_device_add	path	keyboard	ioc4_pckm	ioc4_pckm_attach	IP35	IP35 0xc0000000000c943c	located
+hwgraph_char_device_add	path	keyboard	pckm	pckm_attach	IP35	IP35 0xc0000000000cba48	located
+hwgraph_char_device_add	path	kmem	mm	mmreg	IP27,IP30,IP35	IP27 0xc0000000000ac484; IP30 0xa80000002007461c; IP35 0xc0000000000e7594	located
+hwgraph_char_device_add	path	machdep/mmsc_control	du	sio_initport	IP27	IP27 0xc000000000179fb0	located
+hwgraph_char_device_add	path	mad_subsys	mad_	sub_0xa8000000200d1088	IP30	IP30 0xa8000000200d1174	located
+hwgraph_char_device_add	path	mad_subsys	mad_	sub_0xc0000000000f8e14	IP27	IP27 0xc0000000000f8f00	located
+hwgraph_char_device_add	path	mad_subsys	mad_	sub_0xc000000000190238	IP35	IP35 0xc000000000190324	located
+hwgraph_char_device_add	path	mem	mm	mmreg	IP27,IP30,IP35	IP27 0xc0000000000ac46c; IP30 0xa800000020074604; IP35 0xc0000000000e757c	located
+hwgraph_char_device_add	path	mem32	usrpci_	sub_0xa80000002005cf88	IP30	IP30 0xa80000002005d038	located
+hwgraph_char_device_add	path	mem32	usrpci_	sub_0xc000000000090700	IP27	IP27 0xc0000000000907b0	located
+hwgraph_char_device_add	path	mem64	usrpci_	sub_0xa80000002005cf88	IP30	IP30 0xa80000002005d050	located
+hwgraph_char_device_add	path	mem64	usrpci_	sub_0xc000000000090700	IP27	IP27 0xc0000000000907c8	located
+hwgraph_char_device_add	path	mgras	mgras_	mgras_attach	IP27	IP27 0xc000000000377068	located
+hwgraph_char_device_add	path	midi	midi_	sio_initport	IP27,IP30,IP35	IP27 0xc00000000017a014; IP30 0xa800000020144e08; IP35 0xc000000000224988	located
+hwgraph_char_device_add	path	mmem	mm	mmreg	IP27,IP30,IP35	IP27 0xc0000000000ac4b4; IP30 0xa80000002007464c; IP35 0xc0000000000e75c4	located
+hwgraph_char_device_add	path	mon	sn0drv_	sn0drv_attach	IP27	IP27 0xc00000000006a7a0	located
+hwgraph_char_device_add	path	mon	sndrv_	sndrv_attach	IP35	IP35 0xc000000000095bfc	located
+hwgraph_char_device_add	path	mouse	ioc4_pckm	ioc4_pckm_attach	IP35	IP35 0xc0000000000c95a0	located
+hwgraph_char_device_add	path	mouse	pckm	pckm_attach	IP35	IP35 0xc0000000000cbbac	located
+hwgraph_char_device_add	path	net/if_tg	if_tg	sub_0xa8000000200b0e48	IP30	IP30 0xa8000000200b0e8c	located
+hwgraph_char_device_add	path	net/if_tg	if_tg	sub_0xc0000000000d8a2c	IP27	IP27 0xc0000000000d8a70	located
+hwgraph_char_device_add	path	net/if_tg	if_tg	sub_0xc00000000016afdc	IP35	IP35 0xc00000000016b020	located
+hwgraph_char_device_add	path	net/if_xframe	if_xframe	sub_0xc00000000015d94c	IP35	IP35 0xc00000000015d990	located
+hwgraph_char_device_add	path	null	mm	mmreg	IP27,IP30,IP35	IP27 0xc0000000000ac49c; IP30 0xa800000020074634; IP35 0xc0000000000e75ac	located
+hwgraph_char_device_add	path	nvram	sn0drv_	sn0drv_attach	IP27	IP27 0xc00000000006a878	located
+hwgraph_char_device_add	path	odsy	odsy_	odsy_attach	IP30	IP30 0xa80000002035f4cc	located
+hwgraph_char_device_add	path	pckb	pckm	pckm_attach	IP27,IP30	IP27 0xc0000000000964f0; IP30 0xa800000020061c00	located
+hwgraph_char_device_add	path	pcms	pckm	pckm_attach	IP27,IP30	IP27 0xc000000000096648; IP30 0xa800000020061d58	located
+hwgraph_char_device_add	path	poll		devpoll_init	IP27,IP30,IP35	IP27 0xc00000000009f960; IP30 0xa800000020067c40; IP35 0xc0000000000da9ec	located
+hwgraph_char_device_add	path	prom	hubspc_	cpuprom_attach	IP27,IP35	IP27 0xc00000000006ba3c; IP35 0xc000000000096ca0	located
+hwgraph_char_device_add	path	random	rand	randreg	IP27,IP30,IP35	IP27 0xc00000000018ce6c; IP30 0xa800000020155d2c; IP35 0xc00000000023acc0	located
+hwgraph_char_device_add	path	refcnt	hubspc_	mem_refcnt_attach	IP27,IP35	IP27 0xc00000000027a0d4; IP35 0xc000000000329c70	located
+hwgraph_char_device_add	path	scsi	ds	scsi_dev_add	IP27,IP30,IP35	IP27 0xc0000000000c4654; IP30 0xa800000020095b7c; IP35 0xc00000000011059c	located
+hwgraph_char_device_add	path	sharena	sharena	sharenareg	IP27,IP30,IP35	IP27 0xc0000000000ab6bc; IP30 0xa80000002007399c; IP35 0xc0000000000e67ac	located
+hwgraph_char_device_add	path	spi	spi_	spi_attach	IP35	IP35 0xc0000000000c1c8c	located
+hwgraph_char_device_add	path	tablet	usb_tablet_	sub_0xc000000000187518	IP35	IP35 0xc000000000188b8c	located
+hwgraph_char_device_add	path	tg	if_tg	if_tgattach	IP27,IP30,IP35	IP27 0xc0000000000d8bb0; IP30 0xa8000000200b0fcc; IP35 0xc00000000016b160	located
+hwgraph_char_device_add	path	ts	tsio	sio_initport	IP27,IP30,IP35	IP27 0xc000000000179eec; IP30 0xa800000020144d3c; IP35 0xc0000000002248bc	located
+hwgraph_char_device_add	path	urandom	rand	randreg	IP27,IP30,IP35	IP27 0xc00000000018ce84; IP30 0xa800000020155d44; IP35 0xc00000000023acd8	located
+hwgraph_char_device_add	path	us	usio_	sio_initport	IP27,IP30,IP35	IP27 0xc000000000179f58; IP30 0xa800000020144da8; IP35 0xc000000000224928	located
+hwgraph_char_device_add	path	usbaudio_subsys	usbaudio_	sub_0xc000000000194b3c	IP35	IP35 0xc000000000194f28	located
+hwgraph_char_device_add	path	xbow	xbow_	xbow_attach	IP27,IP30,IP35	IP27 0xc00000000006cda8; IP30 0xa80000002003b694; IP35 0xc000000000098028	located
+hwgraph_char_device_add	path	xframe	if_xframe	if_xframeattach	IP35	IP35 0xc00000000015da94	located
+hwgraph_char_device_add	path	xpmem	xpmem_	xpmem_init	IP35	IP35 0xc0000000000e77fc	located
+hwgraph_char_device_add	path	zero	zero	zeroreg	IP27,IP30,IP35	IP27 0xc0000000000ab9ec; IP30 0xa800000020073ccc; IP35 0xc0000000000e6adc	located
+hwgraph_device_add	path	(not a literal: add of unknown at ADDR (add of unknown at ADDR (unconditional jump at ADDR)))	dksc	scsi_part_vertex_add	IP27,IP30,IP35	IP27 0xc0000000000c44d0; IP30 0xa8000000200959f8; IP35 0xc000000000110418	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		GfxAddHwgraphEdge	IP27,IP30,IP35	IP27 0xc0000000000e9e8c; IP30 0xa8000000200c2150; IP35 0xc00000000017c5a0	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		cdl_add_connpt_reg_locked	IP27,IP30,IP35	IP27 0xc0000000000c6324,0xc0000000000c64c8; IP30 0xa80000002009784c,0xa8000000200979f0; IP35 0xc00000000011226c,0xc000000000112410	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		devinit	IP27,IP30,IP35	IP27 0xc0000000001f32b8,0xc0000000001f34d4,0xc0000000001f3810; IP30 0xa8000000201b45c0,0xa8000000201b47dc,0xa8000000201b4b18; IP35 0xc0000000002a3730,0xc0000000002a3950,0xc0000000002a3c88	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		dk_add_hw_disk_alias	IP27,IP30,IP35	IP27 0xc0000000000c2048; IP30 0xa800000020093570; IP35 0xc00000000010df90	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		dsioctl	IP27,IP30,IP35	IP27 0xc000000000366b28; IP30 0xa80000002033afec; IP35 0xc00000000043fa28	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		fire_connect_to_node	IP30,IP35	IP30 0xa80000002034b6a4; IP35 0xc00000000045c93c	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		hwgraph_path_add	IP27,IP30,IP35	IP27 0xc0000000002956d8; IP30 0xa80000002023cc78; IP35 0xc000000000341138	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		io_xswitch_widget_init	IP27,IP35	IP27 0xc000000000024a78; IP35 0xc00000000004bf38,0xc00000000004c024	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		klhwg_add_cpu	IP27,IP35	IP27 0xc000000000041510; IP35 0xc000000000072c44	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		klhwg_connect_one_router	IP27,IP35	IP27 0xc0000000000423bc; IP35 0xc000000000073c60	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		mark_cpuvertex_as_cpu	IP27,IP30,IP35	IP27 0xc000000000296dbc; IP30 0xa80000002023e35c; IP35 0xc00000000034281c	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		mark_nodevertex_as_node	IP27,IP30,IP35	IP27 0xc000000000296f10; IP30 0xa80000002023e4a0; IP35 0xc000000000342978	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		pcibr_bus_cnvlink	IP35	IP35 0xc00000000009e59c	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		scsiha_ioctl	IP27,IP30,IP35	IP27 0xc0000000000bc790; IP30 0xa80000002008dcb8; IP35 0xc0000000001086d8	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		sio_make_hwgraph_nodes	IP27,IP30,IP35	IP27 0xc00000000017b864; IP30 0xa8000000201462ec; IP35 0xc000000000225e48	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		smfd_alias_make	IP27,IP30,IP35	IP27 0xc0000000000c3358,0xc0000000000c3380; IP30 0xa800000020094880,0xa8000000200948a8; IP35 0xc00000000010f2a0,0xc00000000010f2c8	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xa800000020061fd8	IP30	IP30 0xa800000020062270,0xa800000020062288	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xa80000002009c7a8	IP30	IP30 0xa80000002009c828	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xa80000002034f064	IP30	IP30 0xa80000002034f110	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc000000000093fb0	IP27	IP27 0xc00000000009403c	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc0000000000968c8	IP27	IP27 0xc000000000096b60,0xc000000000096b78	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc0000000000bd750	IP35	IP35 0xc0000000000bdb84	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc0000000000c1e44	IP35	IP35 0xc0000000000c1ed0	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc0000000000c3fac	IP35	IP35 0xc0000000000c4038	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc000000000205338	IP35	IP35 0xc0000000002053ec	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc0000000004602f8	IP35	IP35 0xc0000000004603a4	unresolved
+hwgraph_edge_add	edge	(not a literal: add of unknown at ADDR (join at ADDR))		universe_ioctl	IP27,IP35	IP27 0xc00000000008ba78; IP35 0xc0000000000b9494	unresolved
+hwgraph_edge_add	edge	(not a literal: join at ADDR)		devinit	IP27,IP30,IP35	IP27 0xc0000000001f3294; IP30 0xa8000000201b459c; IP35 0xc0000000002a370c	unresolved
+hwgraph_edge_add	edge	(not a literal: join at ADDR)		dk_add_hw_disk_alias	IP27,IP30,IP35	IP27 0xc0000000000c2188; IP30 0xa8000000200936b0; IP35 0xc00000000010e0d0	unresolved
+hwgraph_edge_add	edge	(not a literal: join at ADDR)		dsioctl	IP27,IP30,IP35	IP27 0xc000000000366ddc; IP30 0xa80000002033b2a0; IP35 0xc00000000043fcdc	unresolved
+hwgraph_edge_add	edge	(not a literal: join at ADDR)		ioc_pckm_add_hwgraph_alias	IP35	IP35 0xc0000000000cde98	unresolved
+hwgraph_edge_add	edge	(not a literal: load through unknown base at ADDR)		hwgraph_link_add	IP27,IP30,IP35	IP27 0xc000000000295a00; IP30 0xa80000002023cfa0; IP35 0xc000000000341460	unresolved
+hwgraph_edge_add	edge	(not a literal: load through unknown base at ADDR)		if_hwgraph_add	IP27,IP30,IP35	IP27 0xc000000000117ac8; IP30 0xa8000000200efb7c; IP35 0xc0000000001b3838	unresolved
+hwgraph_edge_add	edge	(not a literal: load through unknown base at ADDR)		sub_0xc0000000000c64c0	IP35	IP35 0xc0000000000c6964	unresolved
+hwgraph_edge_add	edge	(not a literal: move)		emu_ioctl	IP35	IP35 0xc00000000018c9e4	unresolved
+hwgraph_edge_add	edge	(not a literal: move)		if_hwgraph_alias_add	IP27,IP30,IP35	IP27 0xc000000000117b28; IP30 0xa8000000200efbdc; IP35 0xc0000000001b3898	unresolved
+hwgraph_edge_add	edge	(not a literal: move)		mad_ioctl	IP27,IP30,IP35	IP27 0xc0000000000f8d04; IP30 0xa8000000200d0f78; IP35 0xc000000000190128	unresolved
+hwgraph_edge_add	edge	(not a literal: move)		rad_ioctl	IP27,IP30,IP35	IP27 0xc0000000000fc548; IP30 0xa8000000200d47b8; IP35 0xc000000000198214	unresolved
+hwgraph_edge_add	edge	(not a literal: move)		sub_0xa80000002005b098	IP30	IP30 0xa80000002005b298,0xa80000002005b2ac	unresolved
+hwgraph_edge_add	edge	(not a literal: move)		sub_0xc000000000089650	IP27	IP27 0xc000000000089854,0xc000000000089868	unresolved
+hwgraph_edge_add	edge	(not a literal: move)		sub_0xc0000000000b7088	IP35	IP35 0xc0000000000b7288,0xc0000000000b729c	unresolved
+hwgraph_edge_add	edge	(not a literal: move)		sub_0xc0000000000c8d1c	IP35	IP35 0xc0000000000c8d9c	unresolved
+hwgraph_edge_add	edge	(not a literal: move)		usbaudio_ioctl	IP35	IP35 0xc000000000194ae0	unresolved
+hwgraph_edge_add	edge	.connection		heart_attach	IP30	IP30 0xa80000002003f074	located
+hwgraph_edge_add	edge	.guest		pcibr_slot_guest_info_init	IP27,IP30,IP35	IP27 0xc00000000007e008; IP30 0xa80000002004fa94; IP35 0xc0000000000ab458	located
+hwgraph_edge_add	edge	.host		pcibr_slot_guest_info_init	IP27,IP30,IP35	IP27 0xc00000000007dff4; IP30 0xa80000002004fa80; IP35 0xc0000000000ab444	located
+hwgraph_edge_add	edge	.master		device_master_set	IP27,IP30,IP35	IP27 0xc000000000296c2c; IP30 0xa80000002023e1cc; IP35 0xc00000000034268c	located
+hwgraph_edge_add	edge	console		l1_attach	IP35	IP35 0xc000000000228300	located
+hwgraph_edge_add	edge	heart		heart_attach	IP30	IP30 0xa80000002003f060	located
+hwgraph_edge_add	edge	io		heart_startup	IP30	IP30 0xa80000002003eee4	located
+hwgraph_edge_add	edge	io		sub_0xc000000000024b70	IP27	IP27 0xc000000000025018	located
+hwgraph_edge_add	edge	io		sub_0xc00000000004c304	IP35	IP35 0xc00000000004c710	located
+hwgraph_edge_add	edge	ioc3		ioc3_attach	IP27,IP30,IP35	IP27 0xc000000000095310,0xc000000000095324; IP30 0xa800000020060aa0,0xa800000020060ab4; IP35 0xc0000000000c5360,0xc0000000000c5374	located
+hwgraph_edge_add	edge	keyboard		sub_0xc0000000000c83e4	IP35	IP35 0xc0000000000c8694	located
+hwgraph_edge_add	edge	link		klhwg_connect_hubs	IP27,IP35	IP27 0xc000000000042740; IP35 0xc000000000074030	located
+hwgraph_edge_add	edge	mouse		sub_0xc0000000000c83e4	IP35	IP35 0xc0000000000c86a8	located
+hwgraph_edge_add	edge	root		devinit	IP27,IP30,IP35	IP27 0xc0000000001f3624,0xc0000000001f3648; IP30 0xa8000000201b492c,0xa8000000201b4950; IP35 0xc0000000002a3aa0,0xc0000000002a3ac4	located
+hwgraph_edge_add	edge	swap		devinit	IP27,IP30,IP35	IP27 0xc0000000001f3500; IP30 0xa8000000201b4808; IP35 0xc0000000002a397c	located
+hwgraph_edge_add	edge	swap		sd_init	IP27,IP30,IP35	IP27 0xc00000000022efe4,0xc00000000022f024; IP30 0xa8000000201f4cc0,0xa8000000201f4d00; IP35 0xc0000000002ddc4c,0xc0000000002ddc8c	located
+hwgraph_edge_add	edge	sys_critical_parent		sys_critical_graph_vertex_add	IP27,IP30,IP35	IP27 0xc0000000001757d4; IP30 0xa800000020141d44; IP35 0xc00000000022033c	located
+hwgraph_edge_add	edge	tablet		sub_0xc0000000001894e0	IP35	IP35 0xc0000000001895f0	located
+hwgraph_edge_add	edge	usr		devinit	IP27,IP30,IP35	IP27 0xc0000000001f36dc,0xc0000000001f3708; IP30 0xa8000000201b49e4,0xa8000000201b4a10; IP35 0xc0000000002a3b58,0xc0000000002a3b84	located
+hwgraph_edge_add	edge	xtalk		klhwg_add_xbow	IP27,IP35	IP27 0xc0000000000418ac; IP35 0xc00000000007300c,0xc00000000007311c	located
+hwgraph_link_add	edge	(not a literal: add of unknown at ADDR (call at ADDR clobbers v0))		klhwg_add_node	IP35	IP35 0xc000000000073594	unresolved
+hwgraph_link_add	edge	0		init_all_devices	IP30	IP30 0xa800000020013994	located
+hwgraph_link_add	edge	1		init_all_devices	IP30	IP30 0xa8000000200139a8	located
+hwgraph_link_add	edge	baseio		init_all_devices	IP30	IP30 0xa800000020013980	located
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (add of unknown at ADDR (add of unknown at ADDR (unconditional jump at ADDR))))		gioio_device_register	IP30	IP30 0xa80000002005c2e8	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (add of unknown at ADDR (add of unknown at ADDR (unconditional jump at ADDR))))		klhwg_add_cpu	IP27,IP35	IP27 0xc0000000000413e8; IP35 0xc000000000072b1c	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (add of unknown at ADDR (add of unknown at ADDR (unconditional jump at ADDR))))		pciio_device_info_register	IP27,IP30,IP35	IP27 0xc0000000000939bc; IP30 0xa800000020060244; IP35 0xc0000000000c160c	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (add of unknown at ADDR (add of unknown at ADDR (unconditional jump at ADDR))))		pic_bus1_redist	IP35	IP35 0xc00000000009b58c	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (add of unknown at ADDR (unconditional jump at ADDR)))		klhwg_add_disabled_cpu	IP27,IP35	IP27 0xc00000000004133c; IP35 0xc000000000072a68	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (add of unknown at ADDR (unconditional jump at ADDR)))		l1_attach	IP35	IP35 0xc00000000022823c	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (add of unknown at ADDR (unconditional jump at ADDR)))		pcibr_hints_subdevs	IP27,IP30,IP35	IP27 0xc000000000077ff8; IP30 0xa800000020049acc; IP35 0xc0000000000a4ae4	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (add of unknown at ADDR (unconditional jump at ADDR)))		sub_0xa80000002005d2e4	IP30	IP30 0xa80000002005d778	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (add of unknown at ADDR (unconditional jump at ADDR)))		sub_0xa80000002009c7a8	IP30	IP30 0xa80000002009c7e0	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (add of unknown at ADDR (unconditional jump at ADDR)))		sub_0xc000000000090a5c	IP27	IP27 0xc000000000090ef0	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (add of unknown at ADDR (unconditional jump at ADDR)))		sub_0xc0000000000be81c	IP35	IP35 0xc0000000000beb98	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (add of unknown at ADDR (unconditional jump at ADDR)))		sub_0xc0000000000cb1d8	IP27	IP27 0xc0000000000cb208	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (add of unknown at ADDR (unconditional jump at ADDR)))		sub_0xc0000000001290dc	IP35	IP35 0xc00000000012910c	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (add of unknown at ADDR (unconditional jump at ADDR)))		sub_0xc000000000445ac4	IP35	IP35 0xc0000000004464dc	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		cdl_add_connpt_reg_locked	IP27,IP30,IP35	IP27 0xc0000000000c6608; IP30 0xa800000020097b30; IP35 0xc000000000112550	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		dk_add_hw_disk_alias	IP27,IP30,IP35	IP27 0xc0000000000c2020; IP30 0xa800000020093548; IP35 0xc00000000010df68	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		dsioctl	IP27,IP30,IP35	IP27 0xc000000000366b00; IP30 0xa80000002033afc4; IP35 0xc00000000043fa00	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		fire_finish_probe	IP30,IP35	IP30 0xa80000002034b8bc; IP35 0xc00000000045cb54	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		heart_startup	IP30	IP30 0xa80000002003ef98	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		i2cinit	IP27	IP27 0xc00000000009b884	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		init_all_devices	IP30	IP30 0xa8000000200138ac	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		io_xswitch_widget_init	IP27,IP35	IP27 0xc000000000024978,0xc000000000024a34; IP35 0xc00000000004bdf8,0xc00000000004bfe8	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		ioc3_attach	IP27,IP30,IP35	IP27 0xc0000000000952fc; IP30 0xa800000020060a8c; IP35 0xc0000000000c534c	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		klhwg_add_all_modules	IP27,IP35	IP27 0xc000000000042e1c,0xc000000000042e4c; IP35 0xc0000000000747dc,0xc00000000007480c	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		klhwg_add_all_routers	IP27,IP35	IP27 0xc00000000004211c; IP35 0xc0000000000739fc	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		klhwg_add_node	IP27,IP35	IP27 0xc000000000041b4c,0xc000000000041bcc; IP35 0xc000000000073360,0xc0000000000736d4	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		ksync_attach	IP27,IP30,IP35	IP27 0xc000000000089bc4; IP30 0xa80000002005b608; IP35 0xc0000000000b75f8	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		mark_nodevertex_as_node	IP27,IP30,IP35	IP27 0xc000000000296f34; IP30 0xa80000002023e4c4; IP35 0xc00000000034299c	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		scsi_lun_vertex_add	IP27,IP30,IP35	IP27 0xc0000000000c3afc; IP30 0xa800000020095024; IP35 0xc00000000010fa44	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		scsi_node_port_vertex_add	IP27,IP30,IP35	IP27 0xc0000000000c3010; IP30 0xa800000020094538; IP35 0xc00000000010ef58	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xa800000020061fd8	IP30	IP30 0xa8000000200621f4	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xa80000002034f064	IP30	IP30 0xa80000002034f164	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc000000000024b70	IP27	IP27 0xc00000000002509c	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc00000000004c304	IP35	IP35 0xc00000000004c788	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc00000000008b744	IP27	IP27 0xc00000000008b7b0	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc0000000000968c8	IP27	IP27 0xc000000000096ae4	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc0000000000b9160	IP35	IP35 0xc0000000000b91cc	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc0000000000bd750	IP35	IP35 0xc0000000000bdc54	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc0000000000c8d1c	IP35	IP35 0xc0000000000c8d58,0xc0000000000c8de8	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc0000000001148c8	IP35	IP35 0xc0000000001170e8,0xc00000000011de40	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc0000000001894e0	IP35	IP35 0xc0000000001895dc	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		sub_0xc0000000004602f8	IP35	IP35 0xc0000000004603f8	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		usb_attach	IP35	IP35 0xc000000000202bfc	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		usrvme_device_register	IP27,IP35	IP27 0xc00000000008a7a4; IP35 0xc0000000000b81c0	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (join at ADDR))		xbridge_attach	IP27,IP30,IP35	IP27 0xc000000000070444; IP30 0xa800000020042190; IP35 0xc00000000009c940	unresolved
+hwgraph_path_add	path	(not a literal: add of unknown at ADDR (unconditional jump at ADDR))		ioc_pckm_add_hwgraph_alias	IP35	IP35 0xc0000000000cdef8	unresolved
+hwgraph_path_add	path	(not a literal: join at ADDR)		cdl_add_connpt_reg_locked	IP27,IP30,IP35	IP27 0xc0000000000c647c; IP30 0xa8000000200979a4; IP35 0xc0000000001123c4	unresolved
+hwgraph_path_add	path	(not a literal: join at ADDR)		hwgraph_link_add	IP27,IP30,IP35	IP27 0xc0000000002959ec; IP30 0xa80000002023cf8c; IP35 0xc00000000034144c	unresolved
+hwgraph_path_add	path	(not a literal: load through unknown base at ADDR)		cdl_add_connpt_reg_locked	IP27,IP30,IP35	IP27 0xc0000000000c6640; IP30 0xa800000020097b68; IP35 0xc000000000112588	unresolved
+hwgraph_path_add	path	(not a literal: load through unknown base at ADDR)		ioc3_serial_attach	IP27,IP30,IP35	IP27 0xc000000000176b84; IP30 0xa800000020142db4; IP35 0xc000000000221740	unresolved
+hwgraph_path_add	path	(not a literal: load through unknown base at ADDR)		ioc4_serial_attach	IP35	IP35 0xc0000000002298e8	unresolved
+hwgraph_path_add	path	(not a literal: load through unknown base at ADDR)		pcibr_bus_cnvlink	IP35	IP35 0xc00000000009e574	unresolved
+hwgraph_path_add	path	(not a literal: load through unknown base at ADDR)		scsi_targ_str_vertex_add	IP27,IP30,IP35	IP27 0xc0000000000c2f50; IP30 0xa800000020094478; IP35 0xc00000000010ee98	unresolved
+hwgraph_path_add	path	(not a literal: move)		hwgraph_block_device_add	IP27,IP30,IP35	IP27 0xc000000000295b50; IP30 0xa80000002023d0f0; IP35 0xc0000000003415b0	unresolved
+hwgraph_path_add	path	(not a literal: move)		hwgraph_char_device_add	IP27,IP30,IP35	IP27 0xc000000000295ca4; IP30 0xa80000002023d244; IP35 0xc000000000341704	unresolved
+hwgraph_path_add	path	(not a literal: move)		sub_0xa80000002005b098	IP30	IP30 0xa80000002005b148,0xa80000002005b198	unresolved
+hwgraph_path_add	path	(not a literal: move)		sub_0xa800000020093d2c	IP30	IP30 0xa800000020093d50	unresolved
+hwgraph_path_add	path	(not a literal: move)		sub_0xc000000000089650	IP27	IP27 0xc000000000089704,0xc000000000089754	unresolved
+hwgraph_path_add	path	(not a literal: move)		sub_0xc0000000000b7088	IP35	IP35 0xc0000000000b7138,0xc0000000000b7188	unresolved
+hwgraph_path_add	path	(not a literal: move)		sub_0xc0000000000c2804	IP27	IP27 0xc0000000000c2828	unresolved
+hwgraph_path_add	path	(not a literal: move)		sub_0xc00000000010e74c	IP35	IP35 0xc00000000010e770	unresolved
+hwgraph_path_add	path	(not a literal: unconditional jump at ADDR)		hwgraph_device_add	IP27,IP30,IP35	IP27 0xc000000000295a30; IP30 0xa80000002023cfd0; IP35 0xc000000000341490	unresolved
+hwgraph_path_add	path	.devhdl		hwginit	IP27,IP30,IP35	IP27 0xc0000000003506b4; IP30 0xa800000020325250; IP35 0xc000000000429a9c	located
+hwgraph_path_add	path	.id		cdl_add_connpt_reg_locked	IP27,IP30,IP35	IP27 0xc0000000000c6624; IP30 0xa800000020097b4c; IP35 0xc00000000011256c	located
+hwgraph_path_add	path	.invent		hwgraph_inventory_add	IP27,IP30,IP35	IP27 0xc000000000296280; IP30 0xa80000002023d820; IP35 0xc000000000341ce0	located
+hwgraph_path_add	path	0		heart_startup	IP30	IP30 0xa80000002003eec8	located
+hwgraph_path_add	path	a16n		usrvme_device_register	IP27,IP35	IP27 0xc00000000008a9dc; IP35 0xc0000000000b83f8	located
+hwgraph_path_add	path	a16s		usrvme_device_register	IP27,IP35	IP27 0xc00000000008a974; IP35 0xc0000000000b8390	located
+hwgraph_path_add	path	a24n		usrvme_device_register	IP27,IP35	IP27 0xc00000000008a90c; IP35 0xc0000000000b8328	located
+hwgraph_path_add	path	a24s		usrvme_device_register	IP27,IP35	IP27 0xc00000000008a8a4; IP35 0xc0000000000b82c0	located
+hwgraph_path_add	path	a32n		usrvme_device_register	IP27,IP35	IP27 0xc00000000008a824; IP35 0xc0000000000b8240	located
+hwgraph_path_add	path	agp/0		pic_attach	IP35	IP35 0xc00000000009b858	located
+hwgraph_path_add	path	agp/1		pic_attach	IP35	IP35 0xc00000000009b874	located
+hwgraph_path_add	path	audio		emu_ioctl	IP35	IP35 0xc00000000018c9d4	located
+hwgraph_path_add	path	audio		mad_ioctl	IP27,IP30,IP35	IP27 0xc0000000000f8cf4; IP30 0xa8000000200d0f68; IP35 0xc000000000190118	located
+hwgraph_path_add	path	audio		rad_ioctl	IP27,IP30,IP35	IP27 0xc0000000000fc534; IP30 0xa8000000200d47a4; IP35 0xc000000000198200	located
+hwgraph_path_add	path	audio		usbaudio_ioctl	IP35	IP35 0xc000000000194ad0	located
+hwgraph_path_add	path	base		sub_0xa80000002005cf88	IP30	IP30 0xa80000002005d0ac	located
+hwgraph_path_add	path	base		sub_0xc000000000090700	IP27	IP27 0xc000000000090824	located
+hwgraph_path_add	path	consumer		ksync_attach	IP27,IP30,IP35	IP27 0xc000000000089be8; IP30 0xa80000002005b62c; IP35 0xc0000000000b761c	located
+hwgraph_path_add	path	cpu		init_all_devices	IP30	IP30 0xa80000002001384c	located
+hwgraph_path_add	path	cpu		klhwg_add_node	IP27,IP35	IP27 0xc000000000041ce8; IP35 0xc0000000000735e0	located
+hwgraph_path_add	path	cpubus		klhwg_add_node	IP27,IP35	IP27 0xc000000000041b0c; IP35 0xc00000000007366c	located
+hwgraph_path_add	path	cpunum		mark_cpuvertex_as_cpu	IP27,IP30,IP35	IP27 0xc000000000296e44; IP30 0xa80000002023e3e4; IP35 0xc0000000003428a4	located
+hwgraph_path_add	path	disk		devinit	IP27,IP30,IP35	IP27 0xc0000000001f35d0; IP30 0xa8000000201b48d8; IP35 0xc0000000002a3a4c	located
+hwgraph_path_add	path	disk		dk_add_hw_disk_alias	IP27,IP30,IP35	IP27 0xc0000000000c20a0; IP30 0xa8000000200935c8; IP35 0xc00000000010dfe8	located
+hwgraph_path_add	path	disk		init_all_devices	IP30	IP30 0xa80000002001392c	located
+hwgraph_path_add	path	disk		scsi_disk_vertex_add	IP27,IP30,IP35	IP27 0xc0000000000c40dc; IP30 0xa800000020095604; IP35 0xc000000000110024	located
+hwgraph_path_add	path	disk		smfd_alias_make	IP27,IP30,IP35	IP27 0xc0000000000c33d0; IP30 0xa8000000200948f8; IP35 0xc00000000010f318	located
+hwgraph_path_add	path	external_int		sub_0xc000000000093fb0	IP27	IP27 0xc000000000094014	located
+hwgraph_path_add	path	external_int		sub_0xc0000000000c1e44	IP35	IP35 0xc0000000000c1ea8	located
+hwgraph_path_add	path	external_int		sub_0xc0000000000c3fac	IP35	IP35 0xc0000000000c4010	located
+hwgraph_path_add	path	gfx		GfxAddHwgraphEdge	IP27,IP30,IP35	IP27 0xc0000000000e9eb0; IP30 0xa8000000200c2174; IP35 0xc00000000017c5c4	located
+hwgraph_path_add	path	gio		giobr_attach	IP30	IP30 0xa800000020040b58	located
+hwgraph_path_add	path	hub		klhwg_add_hub	IP27,IP35	IP27 0xc000000000041238; IP35 0xc000000000072960	located
+hwgraph_path_add	path	input		sub_0xc0000000000c83e4	IP35	IP35 0xc0000000000c856c	located
+hwgraph_path_add	path	ioc4		ioc4_attach	IP35	IP35 0xc0000000000c3028	located
+hwgraph_path_add	path	ipl		sub_0xc00000000008dc30	IP27	IP27 0xc00000000008df4c	located
+hwgraph_path_add	path	ipl		sub_0xc0000000000bb64c	IP35	IP35 0xc0000000000bb968	located
+hwgraph_path_add	path	memory		init_all_devices	IP30	IP30 0xa8000000200138f0	located
+hwgraph_path_add	path	memory		klhwg_add_mem	IP27,IP35	IP27 0xc0000000000417cc; IP35 0xc000000000072c94	located
+hwgraph_path_add	path	midi		midi_init	IP27,IP30,IP35	IP27 0xc0000000000633c8; IP30 0xa8000000200335d0; IP35 0xc00000000008b15c	located
+hwgraph_path_add	path	net		if_init_hwgraph	IP27,IP30,IP35	IP27 0xc000000000117a10; IP30 0xa8000000200efac4; IP35 0xc0000000001b3780	located
+hwgraph_path_add	path	node		heart_startup	IP30	IP30 0xa80000002003ee7c	located
+hwgraph_path_add	path	node		init_all_devices	IP30	IP30 0xa800000020013828	located
+hwgraph_path_add	path	ohci/0		fire_attach	IP30,IP35	IP30 0xa80000002034a028; IP35 0xc00000000045b2c0	located
+hwgraph_path_add	path	pci-x/0		pic_attach	IP35	IP35 0xc00000000009b71c	located
+hwgraph_path_add	path	pci-x/1		pic_attach	IP35	IP35 0xc00000000009b738	located
+hwgraph_path_add	path	producer		ksync_attach	IP27,IP30,IP35	IP27 0xc000000000089c0c; IP30 0xa80000002005b650; IP35 0xc0000000000b7640	located
+hwgraph_path_add	path	rdisk		devinit	IP27,IP30,IP35	IP27 0xc0000000001f35f4; IP30 0xa8000000201b48fc; IP35 0xc0000000002a3a70	located
+hwgraph_path_add	path	rdisk		dk_add_hw_disk_alias	IP27,IP30,IP35	IP27 0xc0000000000c2134; IP30 0xa80000002009365c; IP35 0xc00000000010e07c	located
+hwgraph_path_add	path	rdisk		smfd_alias_make	IP27,IP30,IP35	IP27 0xc0000000000c33b4; IP30 0xa8000000200948dc; IP35 0xc00000000010f2fc	located
+hwgraph_path_add	path	rps		klhwg_add_rps	IP27	IP27 0xc000000000041564	located
+hwgraph_path_add	path	scsi		dsioctl	IP27,IP30,IP35	IP27 0xc000000000366d98; IP30 0xa80000002033b25c; IP35 0xc00000000043fc98	located
+hwgraph_path_add	path	scsi		init_all_devices	IP30	IP30 0xa800000020013904	located
+hwgraph_path_add	path	scsi_ctlr		init_all_devices	IP30	IP30 0xa800000020013918	located
+hwgraph_path_add	path	scsi_ctlr		scsiha_ioctl	IP27,IP30,IP35	IP27 0xc0000000000bc854; IP30 0xa80000002008dd7c; IP35 0xc00000000010879c	located
+hwgraph_path_add	path	scsi_ctlr/0		fcadp_ctlr_add	IP27,IP30	IP27 0xc00000000036ed48; IP30 0xa8000000203431b4	located
+hwgraph_path_add	path	scsi_ctlr/0		sbp2_proto_add	IP30,IP35	IP30 0xa8000000200a1390; IP35 0xc000000000137380	located
+hwgraph_path_add	path	scsi_ctlr/0		sub_0xc00000000012e020	IP35	IP35 0xc00000000012e058	located
+hwgraph_path_add	path	target		sub_0xc0000000001148c8	IP35	IP35 0xc00000000011e060	located
+hwgraph_path_add	path	ttys		sio_make_hwgraph_nodes	IP27,IP30,IP35	IP27 0xc00000000017b818; IP30 0xa8000000201462a0; IP35 0xc000000000225dfc	located
+hwgraph_path_add	path	usrpci		sub_0xa80000002005cf88	IP30	IP30 0xa80000002005d000	located
+hwgraph_path_add	path	usrpci		sub_0xc000000000090700	IP27	IP27 0xc000000000090778	located
+hwgraph_path_add	path	usrvme		usrvme_device_register	IP27,IP35	IP27 0xc00000000008a77c; IP35 0xc0000000000b8198	located
+hwgraph_path_add	path	vme		universe_attach	IP27,IP35	IP27 0xc00000000008b450; IP35 0xc0000000000b8e6c	located
+hwgraph_path_add	path	vme		universe_ioctl	IP27,IP35	IP27 0xc00000000008b9f0; IP35 0xc0000000000b940c	located
+hwgraph_path_add	path	xbox_rps		klhwg_add_xbox_rps	IP27	IP27 0xc00000000004169c	located
+hwgraph_path_add	path	xtalk		heart_startup	IP30	IP30 0xa80000002003eea8	located
+hwgraph_path_add	path	xtalk		sub_0xc000000000024b70	IP27	IP27 0xc000000000025004	located
+hwgraph_path_add	path	xtalk		sub_0xc00000000004c304	IP35	IP35 0xc00000000004c6fc	located
+hwgraph_path_add	path	xtalk/15		init_all_devices	IP30	IP30 0xa80000002001393c	located
+if_hwgraph_alias_add	alias	(not a literal: add of unknown at ADDR (join at ADDR))		ef_ifattach	IP27,IP30,IP35	IP27 0xc0000000000e5b54; IP30 0xa8000000200bde20; IP35 0xc0000000001780ec	unresolved
+if_hwgraph_alias_add	alias	(not a literal: add of unknown at ADDR (join at ADDR))		if_egopen	IP27,IP30,IP35	IP27 0xc0000000000e0564; IP30 0xa8000000200b8834; IP35 0xc000000000172b00	unresolved
+if_hwgraph_alias_add	alias	(not a literal: move)		sub_0xa8000000200b15e4	IP30	IP30 0xa8000000200b1678	unresolved
+if_hwgraph_alias_add	alias	(not a literal: move)		sub_0xc0000000000d91e0	IP27	IP27 0xc0000000000d9278	unresolved
+if_hwgraph_alias_add	alias	(not a literal: move)		sub_0xc00000000015e2a0	IP35	IP35 0xc00000000015e2dc	unresolved
+if_hwgraph_alias_add	alias	(not a literal: move)		sub_0xc00000000016b78c	IP35	IP35 0xc00000000016b824	unresolved
