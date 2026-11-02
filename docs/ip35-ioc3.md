@@ -289,3 +289,12 @@ Routines of the IOC3 PCI I/O controller code in the IRIX 6.5.30 IP35 kernel (`6.
   +1128, +1136, +1144 and +1152 of the structure `cn` and returns nothing, and this routine returns what `v0` holds. All
   six are unnamed static routines; the first, 0xc0000000000cb854, is only `jr ra` with a `nop` delay slot. The other
   five were not read for this entry. Established.
+
+### The same routines in the 6.5.22 builds
+
+The 6.5.22 copies of the routines above. Each row is a routine whose bytes match a 6.5.30 routine on the same page; the note gives the SHA-256 prefix of the bytes (first 12 hex digits). A linked-kernel row is established when the whole body has no calls, address constants or gp accesses; the others are inferred, because the 6.5.22 target of each constant or call was not checked. An object row compares section bytes, not relocated code, so it is inferred. The comparison is in [version-diffs.md](version-diffs.md).
+
+| Routine | Binary | Address | Size | Note | Label |
+|---|---|---|---|---|---|
+| `ioc3_intr_cpu_get` | `6.5.22/unix.IP35` | `0xc0000000000c7294` | 8 | returns the halfword at +40 of `a0`, sign-extended (`lh` in the delay slot of the return); same bytes as the 6.5.30 linked kernel (SHA-256 prefix e03406f826de), at a different address; no calls, address constants or gp accesses in the body | Established |
+| `ioc3_mem_ptr` | `6.5.22/unix.IP35` | `0xc0000000000c8788` | 8 | returns the doubleword at +24 of `a0`, loaded in the delay slot of the return; same bytes as the 6.5.30 linked kernel (SHA-256 prefix 402de11c1126), at a different address; no calls, address constants or gp accesses in the body | Established |

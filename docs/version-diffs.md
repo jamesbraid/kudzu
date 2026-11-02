@@ -10,7 +10,7 @@ This page compares the routines of the IRIX 6.5.22 and 6.5.30 kernels. It covers
 
 ## Method
 
-Routines are matched by the code hash in [functions.tsv](inventory/functions.tsv): the first 12 hex digits of the SHA-256 of the routine's bytes, over the symbol's size. Rows with no address (address 0 in the table, all from DWARF) have no bytes and are not matched. There are 16,695 of them in 6.5.30 and 16,697 in 6.5.22 across all the objects.
+Routines are matched by the code hash in [functions.tsv](inventory/functions.tsv): the first 12 hex digits of the SHA-256 of the routine's bytes, over the symbol's size. Rows without a code hash have no bytes and are not matched. Across the linked kernels and the IP27, IP30 and IP35 boot objects there are 13,308 such rows in 6.5.30 and 12,753 in 6.5.22; most are DWARF names with no address.
 
 Within each linked kernel or object, a routine in one release is paired with the other release in this order:
 
@@ -81,32 +81,37 @@ Counts for the objects that hold routines in either release. Objects present in 
 
 | Platform | Objects | Located in 6.5.30 | Located in 6.5.22 | Identical | Moved | Changed | Added | Removed |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
-| IP27, hardware-facing driver objects | 88 | 1,339 | 1,389 | 1,013 | 278 | 45 | 3 | 53 |
-| IP27, platform core (`kernel.o`, `idbg.o`, `mem.o`) | 3 | 1,674 | 1,669 | 43 | 1,045 | 581 | 5 | 0 |
-| IP27, other objects | 804 | 16,279 | 15,519 | 9,362 | 3,028 | 2,938 | 946 | 186 |
-| IP30, hardware-facing driver objects | 39 | 1,072 | 1,081 | 777 | 263 | 30 | 2 | 11 |
-| IP30, platform core | 3 | 1,033 | 1,028 | 47 | 704 | 277 | 5 | 0 |
-| IP30, other objects | 642 | 14,283 | 13,256 | 7,626 | 2,756 | 2,717 | 1,179 | 152 |
-| IP35, hardware-facing driver objects | 70 | 1,242 | 1,292 | 854 | 320 | 65 | 3 | 53 |
-| IP35, platform core | 3 | 1,631 | 1,604 | 43 | 783 | 771 | 34 | 7 |
-| IP35, other objects | 743 | 16,908 | 15,661 | 8,428 | 3,245 | 3,648 | 1,581 | 334 |
+| IP27, hardware-facing driver objects | 103 | 1,433 | 1,492 | 1,102 | 278 | 50 | 3 | 62 |
+| IP27, platform core (`kernel.o`, `idbg.o`, `mem.o`) | 3 | 1,677 | 1,672 | 46 | 1,045 | 581 | 5 | 0 |
+| IP27, other objects | 866 | 17,141 | 16,367 | 10,076 | 3,035 | 3,057 | 968 | 194 |
+| IP30, hardware-facing driver objects | 45 | 1,116 | 1,126 | 817 | 263 | 34 | 2 | 12 |
+| IP30, platform core | 3 | 1,036 | 1,031 | 50 | 704 | 277 | 5 | 0 |
+| IP30, other objects | 675 | 14,954 | 13,906 | 8,151 | 2,760 | 2,831 | 1,207 | 159 |
+| IP35, hardware-facing driver objects | 78 | 1,311 | 1,370 | 916 | 320 | 72 | 3 | 62 |
+| IP35, platform core | 3 | 1,634 | 1,607 | 46 | 783 | 771 | 34 | 7 |
+| IP35, other objects | 784 | 17,684 | 16,418 | 9,039 | 3,250 | 3,778 | 1,611 | 345 |
 
-Objects with routines in only one release: IP27 21 in 6.5.30 only and 17 in 6.5.22 only; IP30 27 and 9; IP35 29 and 21. The "other objects" rows are out of the current scope and are counted here so the totals are complete. The moved (renamed) pairs number 5, 5 and 6 in the sysgen objects of IP27, IP30 and IP35.
+Objects with routines in only one release: IP27 21 in 6.5.30 only and 16 in 6.5.22 only; IP30 28 and 8; IP35 30 and 20. The "other objects" rows are out of the current scope and are counted here so the totals are complete. The moved (renamed) pairs number 5, 5 and 6 in the sysgen objects of IP27, IP30 and IP35.
 
 ## Sibling rows in the 6.5.30 pages
 
-Sixty-five routines that the pages already understand on 6.5.30 have bytes identical to a 6.5.22 copy. Twelve of them already had 6.5.22 rows (the `find_lboard` family in the `kernel.o` objects, in [klconfig.md](klconfig.md)). The other 53 now have a 6.5.22 row on the same page:
+191 routines that the pages understand on 6.5.30 have bytes identical to a 6.5.22 copy of the same name. Twelve already had 6.5.22 rows (the `find_lboard` family in the `kernel.o` objects, in [klconfig.md](klconfig.md)). Another 107 now have a 6.5.22 row on their page:
 
 - [klconfig.md](klconfig.md), in the table "The same routines in the other builds": 20 rows.
-- [ip30-kernel-functions.md](ip30-kernel-functions.md), at the end: 26 rows.
+- [ip30-kernel-functions.md](ip30-kernel-functions.md), at the end: 31 rows.
+- [nic.md](nic.md), at the end: 46 rows.
 - [interrupts.md](interrupts.md), at the end: 4 rows.
 - [syssgi.md](syssgi.md), at the end: 3 rows.
+- [ip35-ioc3.md](ip35-ioc3.md), at the end: 2 rows.
+- [ip35-hub-errors.md](ip35-hub-errors.md), at the end: 1 row.
 
-A linked-kernel row is labelled established when the whole body has no calls, address constants or gp accesses (the `find_lboard` family and `part_operation` are in that group). The others are inferred, because the 6.5.22 target of each call or constant was not checked.
+The other 74 have no row yet. Their 6.5.30 entry on the page either has no role sentence for that build, or the page describes the routine in a layout the row generator did not read. Those entries need writing before the 6.5.22 row can state a role.
+
+A linked-kernel row is labelled established when the whole body has no calls, address constants or gp accesses (the `find_lboard` family and `part_operation` are in that group). The others are inferred, because the 6.5.22 target of each call or constant was not checked. The role text in each row is the one the 6.5.30 entry gives, because the bytes are the same.
 
 ## Changed routines already understood on 6.5.30
 
-431 routines that the pages understand on 6.5.30 have a 6.5.22 copy whose bytes differ. 377 of them are hardware-facing. Each has `understood_6.5.30` set to `yes` in the queue, so the 6.5.22 side can be read against the 6.5.30 entry.
+553 routines that the pages understand on 6.5.30 have a 6.5.22 copy whose bytes differ. 499 of them are hardware-facing. Each has `understood_6.5.30` set to `yes` in the queue, so the 6.5.22 side can be read against the 6.5.30 entry.
 
 ## Reading order
 

@@ -726,3 +726,11 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   device. It calls `device_info_get` with the word at `a0` and truncates the result to 32 bits. Value 0: it returns what
   `mem_refcnt_close(a0, a1, a2, a3)` returns. Value 1: it returns 0 without any call. Any other value returns 19.
   Established.
+
+### The same routines in the 6.5.22 builds
+
+The 6.5.22 copies of the routines above. Each row is a routine whose bytes match a 6.5.30 routine on the same page; the note gives the SHA-256 prefix of the bytes (first 12 hex digits). A linked-kernel row is established when the whole body has no calls, address constants or gp accesses; the others are inferred, because the 6.5.22 target of each constant or call was not checked. An object row compares section bytes, not relocated code, so it is inferred. The comparison is in [version-diffs.md](version-diffs.md).
+
+| Routine | Binary | Address | Size | Note | Label |
+|---|---|---|---|---|---|
+| `hub_dmatrans_addr` | `6.5.22/unix.IP35` | `0xc00000000006315c` | 8 | returns its third argument (`a2`), copied to `v0` in the delay slot of the return; same bytes as the 6.5.30 linked kernel (SHA-256 prefix 0e2e26765928), at a different address; no calls, address constants or gp accesses in the body | Established |
