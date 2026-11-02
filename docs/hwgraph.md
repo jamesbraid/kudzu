@@ -402,6 +402,67 @@ The 6.5.30 IP35 kernel builds the same graph with the IP35 NASID position, its o
   (plus the NASID shifted left 33) has `0xc` in bits 12 to 15 it calls `chk_for_pebrick` for the
   first board; and it searches for type 66 (`0x42`; Linux `KLTYPE_PBRICK_XBOW`) instead of 65. It
   calls `find_lboard` and `klhwg_add_xbow` as there. Established.
+- `klhwg_add_xbow` (`6.5.30/unix.IP35` `0xc000000000072f34`, 692 bytes)
+  takes three arguments and reads the second (a1, kept in s0 as a NASID) and the third (a2, the crossbow board); the
+  first (the compact node on IP27) is never read. It returns at once when the board's byte at +9 has bit 2 set, and when
+  `find_component` (type 4, crossbow) finds no component on the board. Otherwise it calls `hwgraph_vertex_create` and
+  `xswitch_vertex_init` as the IP27 routine does, but it makes no "_xswitch_id" label and does not call
+  `hub_slot_to_crossbow`. It then reads the doubleword at `0x9000000034000000` plus the NASID shifted left 33 (pool
+  word at gp+2256; see [the IP35 node class nibble](klconfig.md#the-ip35-node-class-nibble)) and branches on bits 12 to
+  15 being `0xc` (a PE-brick node). The two branches differ.
+  Not `0xc` (an ordinary node): it calls `iobrick_module_get_nasid` with the NASID and 8, sign-extends the low halfword
+  of the result and, unless that is -1, calls `iobrick_register` with it. Then it scans ports 8 to 15 as the IP27
+  routine does (port record at the component +56 plus 8 times (port - 8): signed halfword NASID at +0, flag byte at +2,
+  bit 1 set for a hub). A port whose NASID is -1 logs level 4 "hub widget %d, skipping xbow graph\n" with the port
+  number times 8, as on IP27. The compact node of a NASID is the halfword at index NASID of the array
+  `nasid_to_compact_node` (read directly through gp-21656; on IP35 this is a data array here, not a call).
+  `is_specified` is called with `arg_maxnodes` (gp-21640); only when it returns nonzero does a compact node of -1 skip
+  the port. The per-node data is the entry at index compact node of the array behind the doubleword at absolute address
+  -15360. The routine stores the crossbow vertex in the word at +34300 of it (`xbow_vhdl`), reads the word at +35968
+  (`node_vertex`) and, when the port NASID differs from the argument NASID, stores the argument NASID as a halfword at
+  +34304 (`xbow_peer`) of the port's node and the port NASID at +34304 of the argument's node. It calls
+  `hwgraph_edge_add` from the node vertex to the crossbow vertex with the name "xtalk" (string at
+  `0xc0000000015268d8`). On a nonzero return it logs as IP27 does: level 4 "klhwg_add_xbow: Check for working routers
+  and router links!" first when the return is 1, then "klhwg_add_xbow: Failed to add edge: ..." at level 4 for 1 and
+  level 0 for any other error, with the node vertex twice, the crossbow vertex twice and the error. The loop goes on
+  with the next port after a failure.
+  `0xc` (a PE-brick node): it skips the port scan, the `is_specified` call and the `xbow_vhdl` and `xbow_peer` stores.
+  It takes the compact node as the halfword at index NASID of the same array, reads `node_vertex` (+35968) of that
+  node's per-node data and calls `hwgraph_edge_add` with the same "xtalk" name from the node vertex to the crossbow
+  vertex. A nonzero return logs only the "Failed to add edge" message at level 4 (the "Check for working routers"
+  message is not on this path) and the routine goes on. It then calls `elsc_module_get_nasid` with the NASID,
+  sign-extends the low halfword of the result and, unless that is -1, calls `iobrick_register` with it.
+  There is one return, and the routine sets no return value (v0 is whatever the last callee left). So the two module
+  calls register the brick's module id in the table described under `iobrick_register`: on the ordinary-node path through
+  `iobrick_module_get_nasid`, on the PE-brick path through `elsc_module_get_nasid`. Established for the control flow,
+  callees and offsets; what the 4-bit class field means is unknown, as recorded in klconfig.md.
+- `iobrick_module_get_nasid` (`6.5.30/unix.IP35` `0xc0000000000d084c`, 204 bytes)
+  takes a NASID and a second value (a1, kept in s1) and returns a module id from one of three sources. It calls
+  `get_elsc` first and keeps the result. It reads the node class doubleword for the NASID (pool word at gp+2256) and,
+  when bits 12 to 15 are `0xc`, calls `peer_iobrick_rack_bay_get` with the NASID and the addresses of two stack words
+  (rack at 0(sp), bay at 4(sp)); a nonzero return prints "Could not read rack and bay location of PEBrick at nasid
+  %d\n" through `printf`; either way it then calls `peer_iobrick_module_get` with the `get_elsc` result and those two
+  words. Otherwise it calls `get_nasid`: when that equals the argument NASID it calls `iobrick_module_get` with the
+  `get_elsc` result and the second value; when it differs it calls `elsc_init` on a stack buffer for the argument NASID
+  and then `iobrick_module_get` on that buffer with the second value. The return is the callee's result on all three
+  paths. Established.
+- `elsc_module_get_nasid` (`6.5.30/unix.IP35` `0xc0000000000cf1f4`, 224 bytes)
+  takes a NASID and returns a module id. It reads the node class doubleword (gp+2256) first. When bits 12 to 15 are
+  `0xc` it calls `peer_iobrick_rack_bay_get` (rack at 0(sp), bay at 4(sp); a nonzero return prints the PEBrick rack and
+  bay message through `printf` as above), then `get_elsc` and `peer_iobrick_type_get` with the rack, the bay and the
+  address of a third stack word. A negative return is returned as it is; otherwise it calls `sc_rbt_to_moduleid` with
+  the rack, the bay and the type and returns its result. For any other class it calls `get_nasid`: when that equals the
+  argument it calls `elsc_module_get` on the `get_elsc` result; otherwise it calls `elsc_init` on a stack buffer for the
+  NASID and `elsc_module_get` on it. Established.
+- `iobrick_register` (`6.5.30/unix.IP35` `0xc00000000006f6fc`, 36 bytes)
+  passes its argument (a0, a module id) to the unlabelled routine at `0xc00000000006f5c0` (the symbol table labels
+  the address `dprintf+0x33c`; it is its own routine), with the table at gp-21936 (`0xc000000001652498`), the count word
+  at gp-32356 (`0xc00000000163b90c`) and the capacity 128. That routine returns 0 and prints a message through
+  `printf` when the count is not below 128, or when the same id is already present (compared through a key derived by
+  the routine at `0xc00000000006f4b4` and then the low 6 bits); otherwise it stores the id as a halfword at index count of
+  the table, adds one to the count and returns 1. `rbrick_register` (`0xc00000000006f6b0`) makes the same call with the
+  table plus 256 and the count at gp-32352. Established for the capacity, the append and the return values; the key
+  derivation was read but its equivalence classes were not worked out, so what counts as "the same id" is inferred.
 - `klhwg_hub_invent_info` (`6.5.30/unix.IP35` `0xc000000000072664`, 152 bytes)
   calls `klhwg_invent_alloc` for the same 32-byte class-14 record and fills it as on IP27 (enable
   flag at +4, 4 at +20, the component's revision byte (+3) as the word at +12, the doubleword at +88

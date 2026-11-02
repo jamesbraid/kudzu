@@ -6546,7 +6546,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/efs.a(efs_inode.o)	kernel-other-objects	shared-kernel	object	n64	26404	76eed6d79746d7eb		20	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/efs.a(efs_vfsops.o)	kernel-other-objects	shared-kernel	object	n64	29812	89384d43b629903c		21	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/efs.a(efs_vnodeops.o)	kernel-other-objects	shared-kernel	object	n64	47316	691847f75f1c71d9		37	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/emu_dd.o	kernel-other-objects	shared-kernel	object	n64	65616	621698b1da9928b6		59	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/emu_dd.o	kernel-other-objects	shared-kernel	object	n64	65616	621698b1da9928b6		59	symtab	0	0	named-only	docs/ioconfig.md#who-reads-it-and-the-two-messages	Who reads it, and the two messages
 6.5.30/usr/cpu/sysgen/IP35boot/fcadp.a(fcadp.o)	kernel-other-objects	shared-kernel	object	n64	98740	ad48815990a88c5c		93	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/fd.a(fdops.o)	kernel-other-objects	shared-kernel	object	n64	19284	882161a21c46db6d		16	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/fglrx.o	kernel-other-objects	shared-kernel	object	n64	567504	072451083d188a26		384	symtab+dwarf	0	0	undocumented		
@@ -6599,7 +6599,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/idev.o	kernel-other-objects	shared-kernel	object	n64	25808	95261f60f2333df0		22	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/if_cl.o	kernel-other-objects	shared-kernel	object	n64	48944	3b269259a1d9ab75	6.5.30/usr/cpu/sysgen/IP35boot/if_cl_part.o	35	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/if_ef.o	kernel-other-objects	shared-kernel	object	n64	51464	a774c88129088821		47	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/if_eg.o	kernel-other-objects	shared-kernel	object	n64	77752	1709305ad09ba880		55	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/if_eg.o	kernel-other-objects	shared-kernel	object	n64	77752	1709305ad09ba880		55	symtab	0	0	named-only	docs/ioconfig.md#who-reads-it-and-the-two-messages	Who reads it, and the two messages
 6.5.30/usr/cpu/sysgen/IP35boot/if_ppp.o	kernel-other-objects	shared-kernel	object	n64	53400	44cb49b119fb6dab		25	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/if_ptr.o	kernel-other-objects	shared-kernel	object	n64	129480	34ed14a5789c01b8		69	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/if_rns.o	kernel-other-objects	shared-kernel	object	n64	71720	7f47b05406d7d937		61	symtab	0	0	undocumented		
@@ -6721,7 +6721,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/log.o	kernel-other-objects	shared-kernel	object	n64	18824	8991eacf457db2b2		12	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ls.o	kernel-other-objects	shared-kernel	object	n64	202896	dbd69055f358bdd3		126	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/lsidbg.o	kernel-other-objects	shared-kernel	object	n64	28720	5deb1c9f0b3d7d4d		21	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/mad_dd.o	kernel-other-objects	shared-kernel	object	n64	61800	905a72a73b035137		61	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/mad_dd.o	kernel-other-objects	shared-kernel	object	n64	61800	905a72a73b035137		61	symtab	0	0	named-only	docs/ioconfig.md#who-reads-it-and-the-two-messages	Who reads it, and the two messages
 6.5.30/usr/cpu/sysgen/IP35boot/magellan.o	kernel-other-objects	shared-kernel	object	n64	30632	4a2fd4a502103fd8		16	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/mem.o	kernel-platform-objects	shared-kernel	object	n64	15032	1c82fc37a65a3330		12	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/mem_alloc.o	kernel-other-objects	shared-kernel	object	n64	59800	5b2ec6680e49a59b		23	symtab	0	0	undocumented		

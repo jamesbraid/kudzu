@@ -4,7 +4,7 @@ Questions the binaries have not yet answered. Each entry names the routes alread
 
 ## Triage (2026-11-01)
 
-Seven entries: 4 software-now, 2 missing-input, 1 hardware-only.
+Eight entries: 4 software-now, 3 missing-input, 1 hardware-only.
 
 Route classes:
 
@@ -27,6 +27,7 @@ Software-now, in order:
 Missing input:
 
 - The IP32 linked kernel (row 1): no IP32 configuration is held for either release.
+- The user-space `ioconfig` program and an `/etc/ioconfig.conf` file: neither is held for either release; the kernel side is in [ioconfig.md](ioconfig.md). Next route: extract `ioconfig` from the installation media named in [IRIX_FILES.md](../IRIX_FILES.md), then read how it assigns numbers and which control request sets the controller number from user space.
 - The Octane2, Origin 350, Tezro and Fuel base-I/O PROMs, the IP22 PROM and an installed 6.5.22 `mediad` with its device module: none held ([scsi-cdrom-inquiry.md](scsi-cdrom-inquiry.md)).
 
 Hardware-only:
@@ -52,5 +53,4 @@ Hardware-only:
 
 | Question | Class | Owner | Routes tried | Next route |
 |---|---|---|---|---|
-| What the 6.5.30 IP35 crossbar vertex routine (`klhwg_add_xbow` at 0xc000000000072f34, 616 bytes) does beyond the port 8 to 15 scan it shares with IP27: it also calls an I/O-brick registration routine and two module-to-node routines that the IP27 routine lacks. | software-now | [hwgraph.md](hwgraph.md) | Disassembled for its port range, board-type search (type 66) and callee list; the body past the port scan was not read. | Read the whole routine with `scripts/facts.py`, name each callee, and add an IP35 entry to `hwgraph.md` beside the IP27 one. |
-| How the kernels assign and persist device unit numbers through the ioconfig file (the "unit number %d from ioconfig is invalid" and Gigabit Ethernet unit-limit messages are in `unix.IP27` and `unix.IP35`). No page here describes the numbering. | software-now | none yet | Searched the kernel strings for `ioconfig`: four messages, all in network driver attach paths. | Find the readers of those messages in the 6.5.30 kernels, then the user-space `ioconfig` binary in `root/`, and write a page on how the file's numbers reach the hardware graph. |
+| How the kernels assign and persist device unit numbers through the ioconfig file, and which control request sets a controller number from user space. | missing-input | [ioconfig.md](ioconfig.md) | The kernel side is read: where the number lives (an inventory record word), the getter and setter, the Ethernet and audio readers and both messages, and the shipped configuration fragments. The setter calls found by a whole-kernel scan are driver attach and ioctl routines, not a user-space entry; only three were read. The user-space program is not held. | Extract `ioconfig` from the installation media, read how it assigns numbers and saves them, and read the remaining 20 setter call sites to find the one reachable from user space. |
