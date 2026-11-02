@@ -756,6 +756,12 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   `hubni_eint_init` connects at levels 103 and 104. It takes no argument. It calls
   `hubni_error_handler("Remote NI interrupt", 0)`; the string is at 0xc000000001521800, the same pool word plus 2576. It
   returns the result. Established.
+- `kl_panic` (`6.5.30/unix.IP35`, occupies 48 bytes at address 0xc00000000005e6a8): prints a fatal message after putting the machine in panic mode.
+  `a0` is the message, kept in `s8` (the move is in the delay slot of the first call). It calls `kl_panic_setup`, which runs `enter_panic_mode`,
+  `check_ni_errors` (with `hubni_error_handler` when that finds an error) and `sn0_error_dump`, then calls `cmn_err(18, a0)`: the level 18 is set
+  right after the first call and the message in the call's delay slot. Registers `a2` to `a7` are not reloaded between the calls,
+  so any further format arguments are whatever `kl_panic_setup` leaves. After the call it restores `ra` and `s8` and returns what
+  `cmn_err` leaves in `v0`. The frame is 16 bytes. No instruction is branch-likely. Established.
 
 ## DMA maps, error counters and the crosstalk provider
 
@@ -838,6 +844,13 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   list entry of the same provider. Its two instructions are `jr ra` and, in the delay slot, `or v0,a2,zero`, so it
   returns its third argument (`a2`) and reads and writes nothing else. It is the same code as `hub_dmatrans_addr`.
   Established.
+- `xtalk_piotrans_addr` (`6.5.30/unix.IP35`, occupies 28 bytes at address 0xc0000000000970e8): the crosstalk entry point for translating a programmed-I/O address; it calls `hub_piotrans_addr` and nothing else.
+  A 16-byte frame holds only `ra`. The arguments reach `hub_piotrans_addr` untouched, and its result comes back as this routine's. The only branch is the call, whose delay slot is a `nop`; no instruction is branch-likely. Established.
+- `xtalk_pio_addr` (`6.5.30/unix.IP35`, occupies 248 bytes at address 0xc000000000097104): returns a processor-side address for a crosstalk range, using a direct translation when there is one and a map object otherwise.
+  The six arguments are `a0` to `a3` (passed on), `a4` a pointer to a map-object slot that may be null (`s2`) and `a5` the flags (`s3`). When `a4` is nonzero it stores 0 there first. It calls
+  `xtalk_piotrans_addr(a0, a1, a2, a3, a5)` and returns that result when it is nonzero. When it is zero it calls
+  `xtalk_piomap_alloc(a0, a1, a2, a3, a3, a5)` (the length is passed twice) and, if that gives zero, returns 0. Otherwise it calls `xtalk_piomap_addr(map, a2, a3)`. A zero result there makes it call
+  `xtalk_piomap_free(map)` and return 0; a nonzero result is stored in `*a4` when `a4` is nonzero and returned. A map object is never left in `*a4` unless the address was obtained. The frame is 64 bytes. No instruction is branch-likely. Established.
 
 ## Hub special-device entry points
 
