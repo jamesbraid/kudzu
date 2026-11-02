@@ -119,5 +119,61 @@
     "kernels": [
       "IP27"
     ]
+  },
+  "dbe_recovery": {
+    "grade": "established",
+    "role": "Boolean that enables recovery after a double-bit memory error. Read in IP27 at pas_vfault (0xc000000000250b60, branch to 0xc000000000250d14 when nonzero, and further sites in the same routine), _pagefree_size (0xc0000000001aee74, skip when zero), and scache_pool_add (0xc0000000001cce28, skip when zero). The paths behind the branches are not traced. The IP35 build has the same reads, in pas_vfault, _pagefree_size and scache_pool_add.",
+    "citation": "6.5.30 unix.IP27 pas_vfault (0xc00000000024ef9c; load 0xc000000000250b60), _pagefree_size (0xc0000000001aede0; load 0xc0000000001aee74), scache_pool_add (0xc0000000001cce28; load 0xc0000000001cce28); unix.IP35 pas_vfault (0xc0000000002fedfc; load 0xc0000000002ff64c)",
+    "kernels": [
+      "IP27"
+    ]
+  },
+  "l2_sbe_check": {
+    "grade": "established",
+    "role": "Mask for the secondary-cache single-bit error check. Only the low byte is tested: counter_intr reads it at 0xc0000000000457fc, masks with 0xff and calls l2_sbe_intr only when the byte is nonzero; l2_sbe_init reads it at 0xc000000000055464 and tests the same low byte at 0xc00000000005547c before its setup. l2_sbe_sched and sched read it at further sites. The default 0x000c keeps the low byte nonzero. The meaning of the other bits is not traced.",
+    "citation": "6.5.30 unix.IP27 counter_intr (0xc0000000000457a0; load 0xc0000000000457fc), l2_sbe_init (0xc000000000055440; load 0xc000000000055464), l2_sbe_sched (0xc000000000055840), sched (0xc00000000026834c); unix.IP35 counter_intr (0xc000000000067478), l2_sbe_init (0xc00000000007b114)",
+    "kernels": [
+      "IP27"
+    ]
+  },
+  "l2_sbe_reset_sec": {
+    "grade": "inferred",
+    "role": "Interval in seconds for the secondary-cache single-bit error reset, read as a word. l2_sbe_sched loads it at three sites (0xc000000000055844, 0xc000000000055894, 0xc00000000005590c) and uses the value as an operand; the arithmetic that consumes it is not traced, so the unit is taken from the name. IP35 has three sites in l2_sbe_sched (0xc00000000007b518 region).",
+    "citation": "6.5.30 unix.IP27 l2_sbe_sched (0xc000000000055840; loads 0xc000000000055844, 0xc000000000055894, 0xc00000000005590c); unix.IP35 l2_sbe_sched (0xc00000000007b518)",
+    "kernels": [
+      "IP27"
+    ]
+  },
+  "sbe_max_per_page": {
+    "grade": "established",
+    "role": "Per-page single-bit error limit. memerror_sbe_intr increments a count word at offset 16 of a record (addiu +1, sw at 0xc00000000004a580), then tests it for equality with this word (beq at 0xc00000000004a588). Equality takes the branch to 0xc00000000004a754. The action on equality is not traced. IP35 has two sites in memerror_sbe_intr (0xc00000000006c34c and 0xc00000000006c490).",
+    "citation": "6.5.30 unix.IP27 memerror_sbe_intr (0xc000000000049e74; loads 0xc00000000004a584, 0xc00000000004a73c); unix.IP35 memerror_sbe_intr (0xc00000000006bce8; loads 0xc00000000006c34c, 0xc00000000006c490)",
+    "kernels": [
+      "IP27"
+    ]
+  },
+  "sbe_maxout": {
+    "grade": "established",
+    "role": "Single-bit error limit, read as a word and compared for equality with the same count word that sbe_max_per_page uses in memerror_sbe_intr (beq at 0xc00000000004a590 branches to 0xc00000000004a7cc on equality). One of its two IP27 reads is dead: at 0xc00000000004a744 the word is loaded into a5 and the next instruction (dsrl a5) overwrites it, so that read does not use the value. IP35 has two reads in memerror_sbe_intr (0xc00000000006c354 and 0xc00000000006c498) that are not traced.",
+    "citation": "6.5.30 unix.IP27 memerror_sbe_intr (0xc000000000049e74; loads 0xc00000000004a58c, 0xc00000000004a744); unix.IP35 memerror_sbe_intr (0xc00000000006bce8)",
+    "kernels": [
+      "IP27"
+    ]
+  },
+  "sbe_mem_verbose": {
+    "grade": "established",
+    "role": "Verbose flag for single-bit memory error logging. page_discard_enqueue tests bit 0 of the word (andi 1, bne at 0xc0000000001b09e4) and takes the branch to 0xc0000000001b09fc when it is set; the message the branch leads to is not traced. The IP35 build has one read in page_discard_enqueue (0xc00000000025f1a4 region).",
+    "citation": "6.5.30 unix.IP27 page_discard_enqueue (0xc0000000001b0934; load 0xc0000000001b09dc); unix.IP35 page_discard_enqueue (0xc00000000025f0fc; load 0xc00000000025f1a4)",
+    "kernels": [
+      "IP27"
+    ]
+  },
+  "dump_hub_info": {
+    "grade": "established",
+    "role": "Level of hub register dumping. dump_hub_data loads it at 0xc000000000219dc0 and skips the register dump (branch to 0xc000000000219dec) when the value is zero or negative (blez); otherwise it calls dump_hub_registers at 0xc000000000219dd0. The level values above 0 are not traced. IP35 has one read in dump_hub_data (0xc0000000002c90e4 region).",
+    "citation": "6.5.30 unix.IP27 dump_hub_data (0xc000000000219dc0; load 0xc000000000219dc0, call 0xc000000000219dd0); unix.IP35 dump_hub_data (0xc0000000002c90e4)",
+    "kernels": [
+      "IP27"
+    ]
   }
 }
