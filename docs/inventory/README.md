@@ -30,6 +30,10 @@ For these tables `status` is `documented` when the name appears in backticks in 
 
 `sysgen-drivers.tsv` (one row per driver master file) and `sysgen-tunables.tsv` (one row per `mtune` line) come from the configuration files of one release, read per machine. Run `tools/re-run python3 scripts/sysgen_tables.py --release <release>`. The method, the release in use and the open disagreements are in [sysgen.md](../sysgen.md). Driver roles are hand-written in `scripts/sysgen-roles.json`; a row is `understood` only with a grade, a role and a citation.
 
+## Table from scripts/userland_tables.py
+
+`userland.tsv` has one row per base user-space binary listed in `scripts/userland-roles.json` (commands, daemons and their RPC and cluster companions of the 6.5.30 install). The ELF facts (ABI from the header flags, interpreter, section headers, undefined dynamic symbols) come from the file under `root/`; the package, type, interfaces, role, grade and citation come from the roles file. Run `tools/re-run python3 scripts/userland_tables.py`. The rows are described in [userland.md](../userland.md).
+
 ## Table from scripts/errno_table.py
 
 `errnos.tsv` has one row per nonzero constant, callee-propagated value or unresolved value that a 6.5.30 system call handler or `syssgi` case returns, and per such value of the first-level callee whose return it passes on. It needs `syscalls.tsv` and `selectors.tsv` from `scripts/os_tables.py`. Its columns, the grades and the known limits are in [errnos.md](../errnos.md). Run `tools/re-run python3 scripts/errno_table.py` (about four minutes for the three kernels).
