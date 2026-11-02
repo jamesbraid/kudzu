@@ -1215,7 +1215,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP27boot/nfs3.a(xattr_subr.o)	kernel-other-objects	shared-kernel	object	n64	9892	b0bf79b37457cc73		2	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/nfsidbg.a(nfsidbg.o)	kernel-other-objects	shared-kernel	object	n64	15428	3a8729b0949b0a4a		6	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/nfsstubs.a(nfsstubs.o)	kernel-other-objects	shared-kernel	object	n64	7444	728a3524bc73fc15	6.5.22/usr/cpu/sysgen/IP30boot/nfsstubs.a(nfsstubs.o);6.5.22/usr/cpu/sysgen/IP35boot/nfsstubs.a(nfsstubs.o)	10	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/nic.o	kernel-platform-drivers	shared-kernel	object	n64	27512	41de0d462691bbd7		32	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/nic.o	kernel-platform-drivers	shared-kernel	object	n64	27512	41de0d462691bbd7		32	symtab	0	0	named-only	docs/nic.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.22/usr/cpu/sysgen/IP27boot/nlmstubs.a(nlmstubs.o)	kernel-other-objects	shared-kernel	object	n64	11284	e2c2f700a6138a96		26	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/nolocks.a(cnolocks.o)	kernel-other-objects	shared-kernel	object	n64	8564	ccd8ff4e71879f14		14	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/nolocks.a(asmnolocks.o)	kernel-other-objects	shared-kernel	object	n64	6212	d631dcb81f51b045		16	symtab	0	0	undocumented		
@@ -2051,7 +2051,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/nfs3.a(xattr_clnt.o)	kernel-other-objects	shared-kernel	object	n64	14868	9f8017d7ad24b96b		10	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/nfs3.a(xattr_subr.o)	kernel-other-objects	shared-kernel	object	n64	9876	dc7f2ab9d1dbd384		2	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/nfsidbg.a(nfsidbg.o)	kernel-other-objects	shared-kernel	object	n64	15412	66c96d3fb225d375		6	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/nic.o	kernel-platform-drivers	shared-kernel	object	n64	25800	ff3573a584f93a6c		29	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/nic.o	kernel-platform-drivers	shared-kernel	object	n64	25800	ff3573a584f93a6c		29	symtab	0	0	named-only	docs/nic.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.22/usr/cpu/sysgen/IP30boot/nlmstubs.a(nlmstubs.o)	kernel-other-objects	shared-kernel	object	n64	11268	02f0db0d70baee6a		26	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/nolocks.a(cnolocks.o)	kernel-other-objects	shared-kernel	object	n64	8484	738e086cd288730d		14	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/nolocks.a(asmnolocks.o)	kernel-other-objects	shared-kernel	object	n64	5748	9631c8cd33c8ed6d		16	symtab	0	0	undocumented		
@@ -3418,7 +3418,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/nfs3.a(xattr_subr.o)	kernel-other-objects	shared-kernel	object	n64	9812	7c7c512a3aa0f091		2	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/nfsidbg.a(nfsidbg.o)	kernel-other-objects	shared-kernel	object	n64	15348	2cb0d1e5725ce55b		6	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/ng1stubs.a(ng1stubs.o)	kernel-other-objects	shared-kernel	object	n64	4164	40e310bd2487e072		6	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/nic.o	kernel-platform-drivers	shared-kernel	object	n64	27424	cbd0261594e16d0f		32	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/nic.o	kernel-platform-drivers	shared-kernel	object	n64	27424	cbd0261594e16d0f		32	symtab	0	0	named-only	docs/nic.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.22/usr/cpu/sysgen/IP35boot/nlmstubs.a(nlmstubs.o)	kernel-other-objects	shared-kernel	object	n64	11204	de6d4e88db14a986		26	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/nolocks.a(cnolocks.o)	kernel-other-objects	shared-kernel	object	n64	8468	39e28eb0a5bdf21a		14	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/nolocks.a(asmnolocks.o)	kernel-other-objects	shared-kernel	object	n64	6468	a8983fa96903b986		16	symtab	0	0	undocumented		
