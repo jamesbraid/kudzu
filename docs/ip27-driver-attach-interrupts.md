@@ -321,3 +321,164 @@ under the lock at +2876. Its handler slots are 0x58 bytes each starting at recor
   `nested_spinunlock`; finally it releases the lock with `mutex_spinunlock`. All three paths end by re-enabling the interrupt bits with
   `ioc3_write_ireg(soft record at +48, mask at +16, 0)` (operation 0 sets the enable bits), and the return value is that call's result. That the two
   bits are the external-interrupt inputs is inferred from the routine's name and from the path through the frame scheduler and user-level interrupts.
+
+## IOC3 Ethernet (IP27 `ef` driver)
+
+The Ethernet driver (`if_ef.o`) works on the IOC3's Ethernet register block, a window of 100 bytes at offset 0xf0 of the chip's memory space, held in
+the doubleword at record +816; the registers are 32-bit words. Register names below are by offset. The meanings are inferred from the public Linux
+IOC3 Ethernet driver's register map where it agrees with how the code uses them.
+
+- `if_efattach` (`6.5.30/unix.IP27`, address 0xc0000000000e5bec, 792 bytes, 64-byte frame): **established.**
+  The PCI attach of the IOC3 Ethernet function; `a0` is the PCI vertex (saved at sp+52). It returns -1 when the Ethernet sub-device is disabled, 12 on
+  any later failure after calling `ef_detach(device vertex)`, and 0 on success. `ioc3_subdev_enabled(vertex, 0)` zero returns -1.
+  `hwgraph_traverse(vertex, ".host", &sp+52)` replaces the vertex by its host (a failed lookup leaves it).
+  `hwgraph_char_device_add(vertex, "ef", "if_ef", &sp+0)` makes the device vertex; a nonzero result prints
+  `if_efattach: hwgraph_char_device_add error %d` and goes on. `kmem_zalloc(1072, 0)` gives the record (failure: 12); the vertex is stored at +908,
+  the device vertex at +916 and `hwgraph_fastinfo_set` attaches the record. Four register windows are mapped with
+  `pciio_piotrans_addr(vertex, 0, 8, offset, size, 0)`, any failure returning 12: offset 0xf0 and size 100 (Ethernet registers, stored at +816);
+  offset 0 and size 0x20180 (the whole chip window, +920); offset 0x40000 and size 0x20000 (the external SSRAM window, passed to
+  `ssram_discovery(record, window)`), and `pciio_piotrans_addr(vertex, 0, 7, 0, 72, 0)` for configuration space, from which the low byte of the word
+  at offset 8 (the revision) is stored in the word at +928; the halfword at +26 is set to -1 (unit not yet assigned).
+  `hwgraph_traverse(vertex, "ioc3", &sp+4)` finds the chip's vertex (stored at +912); a failure prints `if_efattach(%v): unable to find ioc3 vertex`
+  and returns 12. A descriptor is duplicated, named `IOC3 Ethernet` and made the default (`device_desc_dup`, `device_desc_intr_name_set`,
+  `device_desc_default_set`).
+  Hardware: `ef_phyunreset(record)`, `ef_ioc3reset(record)`, then `ef_ioc3eaddr(record, &sp+8)` reads the board's Ethernet address from its NIC (a
+  failure returns 12). The six bytes are copied to +288 and +240 (`bcopy`); with `showconfig` set it prints `%v: hardware ethernet address %s`.
+  `ef_allocef(record)` nonzero returns 12.
+  Interrupt: the words at +948, +972 and +968 are set to -1; `pciio_intr_alloc(vertex, descriptor, 1, device vertex)` is stored at +936 and connected
+  with `pciio_intr_connect(intr, ef_intr, record, 0)`; `pciio_dmamap_alloc(vertex, descriptor, 4, 0x200061)` is stored at +832, and a zero result
+  prints `%v: pciio_dmamap_alloc() failed!` and returns 12.
+  Last: `device_inventory_add(device vertex, 8, 0, 19, -1, the revision at +928)`, `idbg_addfunc("ef_dump", ef_dump)` and
+  `init_bitlock(record+856, 4096, "ef drv lock", 0)`.
+
+- `ef_ifattach` (`6.5.30/unix.IP27`, address 0xc0000000000e5ad4, 236 bytes, 32-byte frame): **established.**
+  Registers the interface with the network stack, called once the unit number is known. `a0` is the record and `a1` the unit number (stored as the
+  halfword at +26, and saved at sp+8). It finds the processor the interrupt landed on (`pciio_intr_cpu_get(the interrupt object at +936)`, then
+  `cpuvertex_to_cpuid`) and reads the word at +1856 of that processor's private record through the table `pdaindr` (16 bytes a processor, the pointer
+  in the second doubleword). When that word is 126 or more and the global `ef_delaydiv` is nonzero it stores 1 in a `.sdata` word. If the device
+  vertex at +916 is not -1 it builds `ef<unit>` with `sprintf` and adds it as an alias (`if_hwgraph_alias_add`). When the global `if_efdevflag` has
+  bit 0x1000 set it stores 0x8000000 in the flags word at +32. It then calls
+  `ether_attach(record, "ef", unit, record, the interface table, record+288, 19, the word at +928)`, sets bit 0x4000 of the word at +32, and returns
+  the result of `ef_ps_register(record, 0)`. No device register is touched.
+
+- `ef_ioc3reset` (`6.5.30/unix.IP27`, address 0xc0000000000e74dc, 208 bytes, 32-byte frame): **established.**
+  Resets the Ethernet part of the chip and leaves its registers cleared. `a0` is the record; the register block is the doubleword at +816. It writes
+  0x80000000 to the word at +0 and reads it back twice. When bit 0x200000 of the second read is clear it polls the register up to 1000001 times with
+  `us_delay(1)` for that bit to become set, and on running out prints `ef%d: IOC3 reset timed out` (`cmn_err` level 1, unit from the halfword at +26).
+  It then stores zero in the registers at +0, +64, +28, +68 and +32, in that order, the last store in the delay slot of a `flushbus`. It returns
+  nothing a caller uses. Taking bit 31 of +0 as a reset request and bit 21 as "reset done" is inferred; the code names neither.
+
+- `ef_ioc3init` (`6.5.30/unix.IP27`, address 0xc0000000000e6498, 776 bytes, 80-byte frame): **established.**
+  Programs the Ethernet registers from the interface's settings and enables its interrupts. `a0` is the record (`s0`), `a1` (saved at sp+40) interface
+  flags, `a2` (saved at sp+32) the argument for `ef_phyerr`; `s1` is the register block at +816. It returns 0, or what `ef_phyinit` returned when that
+  is nonzero. It calls `ef_phyinit(record)` (a nonzero result is returned at once), then `ef_phyerr(record, a2)`.
+  Buffer count and speed: the word at +968 (nonzero: 100 Mbit/s) picks the count `ef_nrbuf100` or `ef_nrbuf10`, or the `_promisc` variants when bit
+  0x100 of `a1` is set; it stores the count and then the count plus 15 in the word at +864. It sets the low 28 bits of the word at +48 apart from its
+  top four bits to 100000000 or 10000000 (the bit rate).
+  Duplex: the word at +972 (nonzero: full) sets bit 0x10000 of the flags word at +32 (clears it when zero) and selects the gap table
+  `ef_fullduplex_ipg` or `ef_halfduplex_ipg`.
+  Register writes, in order: the register at +40 gets the three words of the gap table packed as word0 | word1 << 8 | word2 << 16; `microtime(&sp+0)`
+  and its microsecond field goes to +44; 0x1000000 goes to +24; +12 gets the buffer count divided by `ef_nrbufthreshdiv` and masked to 9 bits (an
+  unsigned divide with a trap on a zero divisor); +36 gets 0; +76 gets the first four bytes of the hardware address at +240 (byte 0 lowest) and +72
+  the next two; +84 and +80 get the multicast filter, either -1 and -1 when bit 0x200 of `a1` is set or the bytes at +956 to +959 and +960 to +963
+  packed the same way. `pcibr_rrb_alloc(the Bridge at +908, &sp+16 (0), &sp+20 (2))`; a negative result prints `ef%d: Unable to get bridge RRB's`
+  (level 0). The bus address of the receive ring (`kvtophys` of the doubleword at +872, then `pciio_dmatrans_addr(+908, 0, address, 4, 0x200050)`)
+  goes to +20 (low word) and +16 (high word); the transmit ring at +824 goes to +60 and +56, and bit 0x1 is set in +60.
+  Last: +0 gets the word at +976 with bit 0x1 set when the word at +972 is nonzero, bit 0x2 set when `a1` has bit 0x100, and 0xac, then +8 gets
+  0x7fe003f (the interrupt enable mask) in the delay slot of a final `flushbus` call. The reading of +40 as the transmit control and gap register, +44
+  as the random seed, +12 as the receive threshold, +72 and +76 as the station address, +80 and +84 as the multicast hash, +16 to +20 and +56 to +60
+  as ring base addresses, +0 as the MAC control register and +8 as the interrupt enable register is inferred from the Linux register map.
+
+- `ef_intr` (`6.5.30/unix.IP27`, address 0xc0000000000e7704, 1360 bytes, 96-byte frame): **established.**
+  The Ethernet interrupt handler. `a0` is the record (`s0`), `s6` the lock word at +856 and `s3` the unit halfword at +26. Every register access: the
+  status word at +4 is read once and written back unchanged, which acknowledges exactly the bits that were read; the word at +32 is written once with
+  the receive producer position; nothing else is touched on the chip directly (`ef_recv`, `ef_reclaim`, `ef_getcdc` and `ef_init` do their own).
+  Entry: `mutex_bitlock(record+856, 4096)`. It adds 1 to the word at +904; when the result reaches 99 it clears the word and calls `randproc_input`
+  with a 32-bit value read through a literal-pool pointer and 5 in the upper word (entropy collection; the purpose is inferred).
+  Ack: it reads the word at +4 into `s2` and stores it back.
+  Running check: when the transmit ring pointer at +824 is nonzero and `(word at +32) & 0x41` is 0x41 it continues; otherwise it releases the lock and
+  returns. It writes `(word at +884) * 8 | 0x80000000` to the register at +32 (with `flushbus`); when the word at the address in +888 has bit 31 set
+  it calls `ef_recv(record)` and keeps its result, a chain of received packets, in `s1`.
+  Errors: when `s2 & 0x07fe003c` is zero it unlocks and delivers the packets. Otherwise, per status bit: 0x4 (print `dropped packets`), 0x8 (`receive
+  overflow`), 0x10 (`receive PCI error`, `cmn_err` level 1) and 0x20 (`rx SSRAM hardware parity error`, level 1) add 1 to the word at +56 and to the
+  counters at +1016, +1020, +1028 and +1032; bits 0x20000 (`excessive collisions`), 0x40000 (`excessive defers`), 0x80000 (`late collision`), 0x100000
+  (`transmit giant packet error`) and 0x200000 (`transmit underflow`) add 1 to the word at +64 and to the counters at +1036, +1040, +1044, +1048 and
+  +1024; bit 0x2000000 (`transmit PCI error`, level 4) and 0x4000000 (`tx SSRAM hardware parity error`, level 1) add 1 to +64 and to +1028 and +1032.
+  The printf lines appear only when bit 0x4 of the flags word at +32 is set. Bit 0x400000 with bit 0x10 of the word at +856 set unlocks, runs
+  `ef_reclaim(record)`, reports `ps_txq_stat(record, 512 minus the ring occupancy)`, frees the returned buffers with `m_freem` and takes the lock
+  again; with that bit clear it only prints `stray TXEXPLICIT interrupt` (when the debug flag allows); bits 0x1800000 call `ef_getcdc(record)` and
+  print `collision or defer count wrapped`. The bits 0x4, 0x8, 0x10, 0x20, 0x200000, 0x2000000 and 0x4000000 also mark the interface for restart: at
+  the end `ef_init(record, the flags word at +32, saved lock state)` runs.
+  Delivery: it releases the lock and walks the packet chain (link at +16). Each packet goes to
+  `ether_input(record, 4096 while another packet follows else 0, packet)`; when that returns 132 the rest are passed to `network_drop` instead. The
+  returned value carries no meaning. The mapping of the status bits to the names comes only from the strings printed; the register's real bit
+  assignment is inferred.
+
+## Bridge interrupt wiring and threads
+
+The PCI Bridge interrupt code (`pcibr.o`) is described in [ip27-kernel-io.md](ip27-kernel-io.md) for the connect and the handler; these are the
+helpers they use.
+
+- `pcibr_setpciint` (`6.5.30/unix.IP27`, address 0xc000000000078ccc, 168 bytes, 64-byte frame): **established.**
+  Programs one of the Bridge's PCI interrupt bits with where to send the interrupt, called back by the crosstalk layer when `pcibr_intr_connect`
+  connects the bit. `a0` (`s0`) is the crosstalk interrupt object. It gets the target address (`xtalk_intr_addr_get`, kept at sp+24), the vector
+  (`xtalk_intr_vector_get`, `s8`), the Bridge widget vertex (`xtalk_intr_dev_get`, `s7`) and the set-function argument (`xtalk_intr_sfarg_get`), whose
+  first word holds the bit number in its low 3 bits (`s1`) and the bus number in bit 3. Then `pcibr_bridge_ptr_get(vertex, bus)` gives the Bridge's
+  register accessor and the routine calls, in this order, `pcireg_intr_addr_vect_set(bridge, bit, vector & 0xff)` and
+  `pcireg_intr_addr_addr_set(bridge, bit, address)`. It returns the second call's result. The registers those two accessors write are in the Bridge's
+  per-bit interrupt address registers (not read here).
+
+- `pcibr_setwidint` (`6.5.30/unix.IP27`, address 0xc00000000007916c, 132 bytes, 48-byte frame): **established.**
+  The same for the Bridge's own error interrupt: sets its destination. `a0` (`s0`) is the crosstalk interrupt object. It reads the target
+  (`xtalk_intr_target_get`, `s7`), the address (`xtalk_intr_addr_get`, `s8`), the vector (`xtalk_intr_vector_get`, saved at sp+16) and the
+  set-function argument (`xtalk_intr_sfarg_get`, which replaces `s0`: here it is the Bridge's soft record). It then calls
+  `pcireg_intr_dst_target_id_set(record, target & 0xff)`, `pcireg_intr_dst_addr_set(record, address)` and
+  `pcireg_intr_host_err_set(record, vector & 0xff)`, in that order, and returns the last result. That it is installed as the hook of the Bridge's
+  error interrupt is inferred from the accessor names.
+
+- `pcibr_wrap_get` (`6.5.30/unix.IP27`, address 0xc000000000078154, 100 bytes, 16-byte frame): **established.**
+  Takes the oldest pending handler request from a five-slot queue. `a0` is the queue: the word at +4 is the put index, the word at +8 the get index
+  and the doublewords from +16 are the slots (the queue is embedded in the interrupt handle at +104). When the two indexes are equal it calls `panic`
+  (the string pointer comes from the global slot, the argument is the queue) and then continues as if it had a request. It stores get + 1 in the word
+  at +8, then replaces it with (get + 1) modulo 5 (two stores, the second after a signed divide) and returns the doubleword that was in slot `get`.
+
+- `pcibr_wrap_put` (`6.5.30/unix.IP27`, address 0xc0000000000781b8, 148 bytes, 48-byte frame): **established.**
+  Adds a request to that queue. `a0` is the wrapper to queue (`s8`) and `a1` the queue (`s0`). It takes the lock at the queue's address with
+  `mutex_spinlock`, computes (put + 1) modulo 5, panics when that equals the get index (queue full; the message argument is the queue), stores `a0` in
+  the slot at +16 + 8 * put, stores the new put index at +4, and releases the lock with `mutex_spinunlock`. It returns nothing.
+
+- `pcibr_intrd_start` (`6.5.30/unix.IP27`, address 0xc00000000007838c, 124 bytes, 32-byte frame): **established.**
+  First code of a Bridge interrupt thread. `a0` (`s0`) is the handle: the handler function is at +24, a semaphore at +48, a flag word at +40 and the
+  preferred processor in the halfword at +80. It pins the thread (`setmustrun(halfword at +80)`), installs `pcibr_intrd` as the thread function with
+  the handle as argument (`xthread_set_func`), names the thread after the handler (`fetch_kname(+24)` copied with at most 16 bytes by `strncpy` to the
+  thread record at +832), sets bit 0x400 in the word at +40 atomically (`ll`/`sc`, branch-likely at 0xc0000000000783e8), and blocks in
+  `ipsema(handle+48)`. No device register is touched.
+
+- `pcibr_intrd` (`6.5.30/unix.IP27`, address 0xc000000000078314, 120 bytes, 16-byte frame): **established.**
+  The loop body of a Bridge interrupt thread, run each time the thread is woken. `a0` (`s0`) is the handle. It calls the handler, the function at +24,
+  with the argument at +32. It then takes the oldest wrapper from the queue embedded at +104 (`pcibr_wrap_get(handle+104)`), subtracts 1 atomically
+  from the wrapper's request count at +24 (`ll`/`sc`, branch-likely at 0xc000000000078350), and when the count is then zero calls
+  `pcibr_force_interrupt(wrapper)`. It ends in `ipsema(handle+48)` and returns that call's value. It touches no register itself.
+
+## Graphics board interrupt (InfiniteReality, `kona`)
+
+The graphics board driver's main interrupt handler is a global symbol of the linked kernel (object `kona_intr_hip2.o` of the `kona.a` archive). The
+board record's doubleword at +2376 is the mapped register window and its word at +2368 is the interrupt enable mask; the interrupt status register is
+the 32-bit word at window +0x800238 and is read and written with `gfx_pio_read_32` and `gfx_pio_write_32`. The printed prefix is the string at the
+base held in the global slot at `gp`+1528 (the board name `IR`, unit number from the word at +2184).
+
+- `kona_intr_handler` (`6.5.30/unix.IP27`, address 0xc0000000003a6fe4, 588 bytes, 48-byte frame): **established.**
+  The main interrupt handler of the graphics board. `a0` is the board record (`s0`). It adds 1 to the word at +16 of the CPU's 32-byte record in the
+  table behind the global slot at `gp`+3368 (the CPU number is the halfword at absolute address 0xffffffffffffc420) and 1 to the board's word at
+  +5268, then returns at once when the word at +2368 equals 256 (0x100). Otherwise:
+  It takes the lock at +2352 (`mutex_spinlock`, spl kept at sp+0) and reads the status register at window +0x800238. The pending set is that value
+  ANDed with the word at +2368 and with ~0x20.
+  The bits are handled in this order. 0x1: prints the "unexpected HIP2 graphics fifo hi-water interrupt. Ignored." line (`cmn_err` level 4). 0x2:
+  `kona_lowater_intr(s0)`. 0x4: prints "graphics fifo overflow. Data lost. Resetting pipe." and calls `kona_die(s0, 10)`. 0x8: `kona_video_intr(s0)`.
+  0x10: `kona_arm_intr(s0)`. 0x40: prints "odma overflow." through `cmn_err_tag` (tag 2120, level 4; no `kona_die`). 0x100: prints "parity error. Data
+  lost. Resetting pipe." and calls `kona_die(s0, 22)`. 0x200: `kona_voc_intr(s0)`. 0x400: "PIO overflow. Data lost. Resetting pipe." and
+  `kona_die(s0, 13)`. 0x800: "IDMA overflow. Data lost. Resetting pipe." and `kona_die(s0, 14)`.
+  Acknowledge: when the pending set is nonzero it writes it back to window +0x800238; it then always writes 0xbadc0ffe to window +0x800228 (the value
+  is formed by `lui` with 0xbadc and `ori` with 0xffe), releases the lock with the saved spl and returns. The status register is acknowledged only for
+  the handled bits; bit 0x20 is left for the geometry handler. Reading the write-back as write-one-to-clear and the write to +0x800228 as the re-arm
+  is inferred from the order. A return value carries no meaning. Bit names come from the strings and the callee names.
