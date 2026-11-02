@@ -482,3 +482,131 @@ base held in the global slot at `gp`+1528 (the board name `IR`, unit number from
   is formed by `lui` with 0xbadc and `ori` with 0xffe), releases the lock with the saved spl and returns. The status register is acknowledged only for
   the handled bits; bit 0x20 is left for the geometry handler. Reading the write-back as write-one-to-clear and the write to +0x800228 as the re-arm
   is inferred from the order. A return value carries no meaning. Bit names come from the strings and the callee names.
+
+## IOC3 serial ports (IP27)
+
+The two serial ports of an IOC3 chip are driven by the routines of the object `sio_ioc3.o` (in the archive `sduart.a` of release 6.5.30), whose text sits at
+0xc000000000175dd4 plus the object-relative address. The attach routine `ioc3_serial_attach` is in [ip27-kernel-io.md](ip27-kernel-io.md); this section
+covers what it hands to the interrupt connection and the routines the interrupt path and the open path use. Port records are 168 bytes
+(0xa8) apart, port 0 first, in one block. The fields these routines use, read from the instructions (all meanings are inferred from use):
+
+- +8: a pointer to a table of notification methods of the serial-line layer above (it is not stored by any routine in this section); the methods used
+  here sit at +0, +8, +24 and +32 of that table.
+- +48: the chip's PCI vertex. +56: the mapped register window of the chip. +64: the address of the port's control block, window +184 for port 0 and window
+  +212 for port 1 (seven words: +0 control word, +4 and +16 two ring positions, +8 and +12 two more ring positions, +20 a timer, +24 a shadow status word).
+  +72: the port's byte-wide UART registers, in a region 0x20000 above the window (+376 for port 0, +368 for port 1; 16550-style: +0 data or divisor low, +1
+  interrupt enable or divisor high, +2 FIFO control, +3 line control, +4 modem control, +5 line status, +7 a prescaler).
+- +88, +96, +104: the 16 KB ring buffer block (port 0 only) and the two 4 KB halves of it this port transmits and receives from (+96 and +104).
+- +112: a pointer to a per-port table of nine words (the table for port 0 is at 0xc000000001463a48, the one for port 1 at 0xc000000001463a6c), read with
+  `lw` or `lbu` from the `.data` of the image: word +0 (0x10 for port 0, 0x2000 for port 1), +4 (0x20, 0x4000), +8 (0x1, 0x200), +12 (0x8, 0x1000), +16
+  (0x4, 0x800), +20 (0x80, 0x10000), +24 and +28 (0x1ff, 0x3fe00: every interrupt bit of the port), and the byte at +32 (7, 6). These are bits of the
+  chip's interrupt status word at window +28; that the first is a modem-carrier change, the second a modem-clear-to-send change, the third a
+  transmitter-empty, the fourth a receive timer, the fifth a receive-high-water, and the sixth an explicit transmit-done is **inferred** from the order
+  the handler tests them in and the table of interrupt-bit positions a published Linux driver for the same chip uses.
+- +120: a flag word (the handler sets and clears bits 1, 2, 4 and 8). +128: the baud rate. +132: set to 1 when the port is open. +136: the last receive
+  timeout. +140: the notification bits the upper layer asked for (1 receive, 2 transmit, 0x40 carrier, 0x80 clear-to-send). +144: the driver's copy of
+  this port's enabled interrupt bits. +148: the driver's copy of the control word. +152 and +156: saved ring positions. +160: the chip's soft record
+  (the argument `ioc3_write_ireg` takes).
+
+Several routines bracket one register access with a hook of the console firmware. The test, every time, is: the port record equals the doubleword at
+`gp`+5096 (the console port), the doubleword at the address in the `gp`-23672 slot (0xa800000000001000) equals 0x53435241, the pointer at the address in
+the `gp`-23664 slot (0xa800000000001020) is nonzero, the word it points at is 0xfeeddead and the doubleword at +80 in that table is nonzero. When it
+holds, the routine raises the interrupt level (`spl7`, level kept in the word at `gp`+5092), calls that doubleword with argument 0, does the access,
+and afterwards calls it with argument 1 and restores the level with `splx`. The bracket is only a firmware console lock; whatever the hook does is unknown.
+
+- `ioc3_serial_intr` (`6.5.30/unix.IP27`, address 0xc000000000175f04, 1436 bytes, 112-byte frame): **established.**
+  The interrupt handler of both serial ports, given to `ioc3_intr_connect` by `ioc3_serial_attach` with mask 0x1ff for port 0 and 0x3fe00 for port 1.
+  `a0` is the port record, `a1` the interrupt bits that are both asserted and in the connection's mask. It calls `sio_lock_port(record, 0)`, works out
+  the working set as `a1` with the port's word +8 removed (tab+8 is the transmitter-empty bit), and loops, each pass in six steps in this order. In
+  every step the "ack" is a store of that bit to the interrupt status word at window +28, and the table words are those of the port record's +112 table.
+  1. Word +0 set (carrier): ack; then reads the shadow word at port control block +24 (inside the console bracket). When record +140 has bit 0x40:
+     if shadow bit 0x800000 is clear it sets bit 2 of record +120 and calls nothing; if set and record +8 is nonzero it calls the method at +24 of the
+     table with the record and 1.
+  2. Word +4 set (clear-to-send): ack; reads the shadow word the same way. When record +140 has bit 0x80 and record +8 is nonzero it calls the method at
+     +32 with the record and 0 or 1, 1 when shadow bit 0x100000 is set.
+  3. Word +12 set (receive timer): ack; when record +140 has bit 1 and record +8 is nonzero, calls the method at +0 with the record.
+  4. Word +16 set (receive high water), only looked at when step 3's bit was clear: the method at +0 is called (same conditions) with the record and the bit value; it then re-reads window +28,
+     ANDs it with record +144, and if the bit is still set and bit 8 of record +120 is clear it calls `mask_disable_intrs(record, bit)` and sets bit 1
+     of record +120; if bit 8 is set it instead adds 1 to a pass counter (the doubleword at sp+48). The ack of this bit is not in this step.
+  5. Word +20 set (explicit transmit done): clears bit 4 of record +120, acks, and when record +140 has bit 2 and record +8 is nonzero calls the method at
+     +8 with the record.
+  6. Word +8 set (transmitter empty), only looked at when step 5's bit was clear (the first pass never has it, the working set lacks it): when record +140 has bit 2 and record +8 is nonzero calls the method at +8 with the
+     record and the bit; if the status word, re-read and ANDed with record +144, still has the bit, it calls `mask_disable_intrs(record, bit)`; if
+     record +140 has neither bit 1 nor bit 0x40, it first clears bit 28 (0x10000000) of record +148 and writes record +148 to the control word.
+  After each pass it re-reads window +28 (ANDed with record +144) and loops while any bit of table word +28 is set in it. When it ends it calls
+  `sio_unlock_port(record)` and then `ioc3_write_ireg(record +160, record +144, 0)`, which sets the enable bits from the driver's copy, and returns the
+  result of that call. It prints nothing and has no failure path. Which bit is acknowledged where, and the loop test, are read; the names of the
+  bits are inferred as the section header says. There is no branch-likely instruction.
+
+- `mask_disable_intrs` (`6.5.30/unix.IP27`, address 0xc000000000175e4c, 20 bytes, no frame): **established.**
+  `a0` is the port record, `a1` a bit set. It clears those bits in the driver's copy of the enabled bits (the word at record +144) and stores it back
+  in the delay slot of the return. No chip register is touched; the chip's own enable bits stay as they were. The return value is not set.
+
+- `enable_intrs` (`6.5.30/unix.IP27`, address 0xc000000000175e60, 80 bytes, 32-byte frame): **established.**
+  `a0` is the port record, `a1` a bit set. When all of the bits are already in the word at record +144 it returns at once. Otherwise it calls
+  `ioc3_write_ireg(record +160, a1, 0)` (operation 0 sets the chip's enable bits) and then ORs `a1` into record +144. The return value is not set.
+
+- `disable_intrs` (`6.5.30/unix.IP27`, address 0xc000000000175eb0, 84 bytes, 32-byte frame): **established.**
+  `a0` is the port record, `a1` a bit set. When none of the bits is in the word at record +144 it returns at once. Otherwise it calls
+  `ioc3_write_ireg(record +160, a1, 1)` (operation 1 clears the chip's enable bits) and then removes the bits from record +144. The return value is not set.
+
+- `ring_dmatrans` (`6.5.30/unix.IP27`, address 0xc000000000175e00, 76 bytes, 16-byte frame): **established.**
+  Turns the ring buffer's address into one the chip can use. `a0` is the chip's PCI vertex, `a1` the address. The address is ANDed with 0xffffffffff
+  (the mask is formed by a shift of -1 right by 24). When `a0` is -1 that value is returned. Otherwise it returns the result of
+  `pciio_dmatrans_addr(a0, 0, address, 0x4000, 0x40)`, the whole 16 KB ring with the flag value 0x40.
+
+- `set_baud_ti` (`6.5.30/unix.IP27`, address 0xc0000000001764a0, 232 bytes, no frame): **established.**
+  Programs the divisor and prescaler of a port's UART. `a0` is the port record, `a1` the wanted baud rate. It tries prescaler values `a4` from 6 up to
+  63: with `q` = 44,000,000 / `a4` (the constant 0x29f6300), it takes the divisor (`q` + 8 * baud) / (16 * baud), skips this value when the divisor is
+  zero, computes the baud rate that divisor gives as (`q` / 16, signed, rounded toward zero for a negative `q`) / divisor, and accepts the first value
+  where that rate is not further from the wanted one than 1 percent (the test is: achieved >= 100 * |achieved - wanted|). When no prescaler up to 63
+  is accepted it returns 1 and writes nothing. Otherwise it saves the line control byte (UART +3), sets bit 0x80 in it, writes the divisor low byte
+  to UART +0, the divisor shifted right by 8 to +1 and the prescaler to +7, restores the line control byte and returns 0. The divide instructions are
+  followed by `teq` traps on a zero divisor.
+
+- `hardware_init` (`6.5.30/unix.IP27`, address 0xc000000000176588, 676 bytes, 48-byte frame): **established.**
+  Resets one serial port and leaves its interrupts off. `a0` is the port record, `a1` nonzero for the console chip. It runs, in this order:
+  1. With `a1` nonzero it polls the UART line status (+5) up to 4200 times for bit 0x20 and waits `us_delay(3)` between polls; it goes on whatever the result.
+  2. Writes 0x80000000 to the port's control word (block +0). It then reads the word at window +40 until bit 22 (0x400000) is set or the field in bits 19 to 21
+     holds 4 or more; there is no timeout. It then writes 0 to the control word.
+  3. Reads block +8, keeps bits 3 to 11 (AND 0xff8), stores that in record +152 and in block +4; the same with block +12 into record +156 and block +16.
+  4. UART +3 and +1 are zeroed; `set_baud_ti(record, the baud at +128)` is called (its result is not used); then UART +3 = 3, +2 = 1, +2 = 7 and +4 = 0.
+  5. Block +24 is written 0.
+  6. For port 0 only (the record's +112 table is the port 0 table): it calls `ring_dmatrans(record +48, ring base at +88)` and writes the high 32 bits of
+     the result to window +176 and the low 32 bits with bit 0 set to window +180.
+  7. Block +20 is written 0xa0, and record +148 is set to 0x100180.
+  8. The control word at block +0 is written from record +148, inside the console bracket.
+  9. `ioc3_write_ireg(record +160, table word +24, 1)` clears all of this port's enable bits in the chip, the same bits are cleared in record +144, and
+     table word +24 is stored to window +28 (in the delay slot of the return) to acknowledge everything pending. It returns 0.
+  It prints nothing and has no failure path.
+
+- `ioc3_open` (`6.5.30/unix.IP27`, address 0xc000000000176dfc, 676 bytes, 48-byte frame): **established.**
+  The open method, entry +0 of the port method table that `ioc3_serial_attach` stores at record +0 (the table is at 0xc000000001463a90). `a0` is the port
+  record. It zeroes the byte at +124 and the word at +120. When bit 28 (0x10000000) of record +148 is set it writes record +148 with bit 29 (0x20000000)
+  set to the control word (block +0, console bracket) and reads block +0 until bit 30 (0x40000000) is set, at most 1,000,000 times; when it never sets,
+  `ioc3_open` returns -1 at once. In every other case it then calls `set_baud_ti(record, 9600)` (the rate is fixed here, not taken from +128), and the
+  delay slot of that call writes UART +2 = 3; it writes UART +3 = 3, sets the low nine bits of record +148 to 1, writes record +148 to the control word
+  (console bracket), writes block +20 = 0, stores 1 at record +132 and returns 0. It does not touch the chip's interrupt enables.
+
+- `ioc3_enable_hfc` (`6.5.30/unix.IP27`, address 0xc000000000177434, 292 bytes, 32-byte frame): **established.**
+  Method +16 of the port table. `a0` is the port record, `a1` nonzero to turn the bit on. It sets (`a1` nonzero) or clears bit 17 (0x20000) of record +148, writes
+  record +148 to the control word (block +0) inside the console bracket, and returns 0. (Reading the bit as hardware flow control is inferred from the name.)
+
+- `ioc3_notification` (`6.5.30/unix.IP27`, address 0xc000000000178500, 512 bytes, 48-byte frame): **established.**
+  Method +80 of the port table. `a0` is the port record, `a1` a set of the notification bits (1, 2, 0x40, 0x80), `a2` nonzero to turn them on. It builds an
+  interrupt mask from table words: bit 1 gives word +12 and +16 (receive timer and high water), bit 2 gives word +20, bit 0x40 gives word +0, bit 0x80 gives
+  word +4. With `a2` nonzero it calls `enable_intrs(record, mask)`, sets bit 0x40000 in record +148 when `a1` has bit 0x40 and ORs `a1` into record
+  +140. With `a2` zero it calls `disable_intrs(record, mask)`, clears that bit 0x40000 and clears `a1` in record +140. Then, when record +140 has bit 1 or bit 0x40,
+  it sets bit 24 (0x1000000) of record +148; when it has neither, it clears that bit if record +144 has no bit of table word +8 and leaves it alone otherwise. In all
+  cases it writes record +148 to the control word (block +0, console bracket) and returns 0.
+
+- `ioc3_rx_timeout` (`6.5.30/unix.IP27`, address 0xc000000000178700, 440 bytes, 48-byte frame): **established.**
+  Method +88 of the port table. `a0` is the port record, `a1` a timeout. It stores `a1` at record +136. The threshold is (baud at +128 * `a1` / 10 / 100),
+  divided by 4 with signed rounding, or 1 when that is zero. When it is 512 or more the routine returns 1 and writes nothing else. Otherwise it puts it in
+  the low nine bits of record +148, writes record +148 to the control word (console bracket), then writes the receive timer (block +20) with
+  160 * `a1` limited to 4095 (the code computes `a1` * 16000 / 100), and returns 0.
+
+- `ioc3_set_proto` (`6.5.30/unix.IP27`, address 0xc000000000178cd4, 84 bytes, no frame): **established.**
+  Method +128 of the port table. `a0` is the port record, `a1` the mode, 0 or 1. It takes the byte at +32 of the record's +112 table (7 for port 0, 6 for
+  port 1) and stores `a1` in the register word at window +64 + 4 * that byte, then returns 0; for any other `a1` it stores nothing and returns 1. That
+  this word is a pin that selects the line standard for the port is inferred from the published Linux driver's use of the same pins.

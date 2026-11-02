@@ -283,8 +283,8 @@ port as a console device (`cons_devs` and the other globals through `gp`). Each 
 (`kvpalloc(1, 0x100,
 0)`, `panic` when it fails, `blkclr` over 0x4000 bytes) split into receive at +0x68 and transmit at +0x60 halves 0x1000 apart, an interrupt connection
 (`ioc3_intr_connect(vertex, 0x1ff, handler, port, ...)`), controller number 1 (`device_controller_num_set`) and `sio_make_hwgraph_nodes`; port 1 does the same with mask
-0x3fe00 and controller number 2, using the ring's upper halves at +0x2000 and +0x3000. It returns 0. The remaining port-record fields and the routine at
-0xc000000000176588 that is called for each port are unknown here.
+0x3fe00 and controller number 2, using the ring's upper halves at +0x2000 and +0x3000. It returns 0. The routine at 0xc000000000176588 that is called for each port is `hardware_init`, and the interrupt handler it connects is `ioc3_serial_intr`; both, and the port-record
+fields they use, are in [ip27-driver-attach-interrupts.md](ip27-driver-attach-interrupts.md#ioc3-serial-ports-ip27). The other port-record fields are not read here.
 - `router_init` (`6.5.30/unix.IP27`, address 0xc00000000001c084): **inferred.** Brings up one Craylink router node: arguments are the compact node number (`a0`), a value
 kept in `s3` and an interface record (`a2`) whose word at +0 is the router's vertex and doubleword at +16 an address printed in errors. It allocates the 440-byte router
 record on the node's own memory (`kmem_zalloc_node(440, 0x101, node)`), stores it at interface +24 and as the vertex label
