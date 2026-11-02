@@ -433,6 +433,13 @@ Routines of the PCI bridge driver (`pcibr`) and the crosstalk bridge attach code
   soft state's lock, calls `pcireg_intr_enable_bit_clr(soft, 1 << n)`, reads `pcireg_tflush_get(soft)`
   (0xc0000000000ae584) and releases the lock, which turns the bit off. Every path ends at 0xc0000000000a5ed8. The code the woken thread of the threaded
   kind then runs: unknown here. Established.
+- `pcibr_close` (`6.5.30/unix.IP35`, address 0xc00000000009dc64, 8 bytes, no stack frame): close entry of the PCI bridge
+  device. It reads nothing and returns 0 (`or v0,zero,zero` in the delay slot of `jr ra`). Established.
+- `pcibr_provider_startup` (`6.5.30/unix.IP35`, address 0xc0000000000a1164, 8 bytes, no stack frame): the bridge's
+  provider start-up routine, by its name. The body is `jr ra` with a `nop` delay slot: no argument is
+  read, nothing is stored, `v0` is untouched. Established.
+- `pcibr_provider_shutdown` (`6.5.30/unix.IP35`, address 0xc0000000000a116c, 8 bytes, no stack frame): the matching
+  provider shutdown routine, with the same body (`jr ra`, `nop` delay slot, nothing read or stored, `v0` untouched). Established.
 
 ## Slot information export
 

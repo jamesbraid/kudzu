@@ -417,6 +417,37 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   Otherwise it divides `a1` by the size (`ddivu`, remainder taken with `mfhi`) and returns the record's doubleword at +24
   plus that remainder. It is the address itself, not its distance from the base, that is reduced modulo the size.
   A zero size reaches the `teq` at 0xc000000000062658 with trap code 7. Established.
+- `hub_check_window_equiv` (`6.5.30/unix.IP35`, address 0xc000000000062dec, 104 bytes, 32-byte frame): says whether two
+  crosstalk addresses can name the same window. `a0` is kept at sp+0 and `a1` in `s0`. It calls `hub_check_is_widget0`
+  (0xc000000000062d98) with `a0` and, if that is nonzero, with `a1`; when both are nonzero it returns 1 (the `li` at
+  0xc000000000062e20, in the delay slot of the unconditional branch before it). Otherwise it returns 1 when bits 24 to 31 of the two addresses (shift
+  right 24, mask 0xff) are equal and 0 when they differ (the `or v0,zero,zero` at
+  0xc000000000062e3c is the delay slot of the compare-and-branch before it). The instruction at 0xc000000000062e24 is never reached. Established.
+- `hub_widget_flags_set` (`6.5.30/unix.IP35`, address 0xc000000000063060, 72 bytes, 16-byte frame): turns a flag word
+  into a per-widget register update. `a0` is the NASID, `a1` the widget number and `a2` the flags. When bit 0 of `a2` is set it
+  calls `hub_setup_prb(a0, a1, 3, 1)`. Otherwise, when bit 1 is set, it calls `hub_setup_prb(a0, a1, 3, 2)`. Bit 0 takes
+  precedence and no call is made when both are clear. It always returns 1 (the `li` at 0xc00000000006309c). Established.
+- `hub_device_flags_set` (`6.5.30/unix.IP35`, address 0xc0000000000630a8, 148 bytes, 48-byte frame): sets flags for the
+  widget that a device vertex sits on. `a0` is the device vertex and `a1` the flags (saved at sp+16). It calls
+  `xwidget_info_get(a0)`, then `xwidget_info_id_get` on the result (kept at sp+40) and `xwidget_info_master_get` on the
+  same result, and `hwgraph_info_get_LBL(master, "_node", &record)` (the string at 0xc000000001524ef8, pool word gp-22568),
+  after storing zero in the record slot at sp+0; the result is not tested. It takes
+  `mutex_spinlock(record + 792)` (level kept at sp+32), calls `hub_widget_flags_set(halfword at record +10, widget id
+  & 0xff, a1)` and releases the lock with `mutex_spinunlock(record + 792, level)`. It returns what
+  `hub_widget_flags_set` returned. Established.
+- `hubii_ixtt_set` (`6.5.30/unix.IP35`, address 0xc00000000006313c, 124 bytes, 32-byte frame): the writing counterpart of
+  `hubii_ixtt_get`. `a0` is a widget vertex and `a1` points to a doubleword (kept in `s8`). It calls `xwidget_info_get(a0)`,
+  `xwidget_info_master_get` on the result and `hwgraph_info_get_LBL(master, "_node", &record)` (slot at sp+0 cleared
+  first). It takes `mutex_spinlock(record + 792)`, stores the doubleword that `a1` points to at the address 0x9200000001c00000
+  plus the NASID (halfword at record +10) shifted left 33 plus 496 (the pool word at gp+2840 holds the negated base,
+  which the code subtracts), releases the lock with `mutex_spinunlock(record + 792, level)` and returns 0. Established.
+- `hub_widget_id` (`6.5.30/unix.IP35`, address 0xc00000000004141c, 24 bytes, no stack frame): reads a four-bit field of a Hub register
+  that the name calls the widget id. `a0` is the NASID. It returns the low four bits (`andi` in the delay slot of the return) of the
+  doubleword at 0x9200000001c00000 (pool word gp+2224) plus `a0` shifted left 33 plus 32. Which Hub register that is: unknown
+  here. Established.
+- `hubio_init` (`6.5.30/unix.IP35`, address 0xc000000000062098, 28 bytes, 16-byte frame): calls
+  `early_brl1_port_init()` (0xc0000000002283b0) with no argument set and returns its result. Its 28 bytes end at
+  0xc0000000000620b4, where the next routine begins. Established.
 
 ## Interrupt dispatch
 
@@ -472,6 +503,64 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   and jumps to `ecommon_allsaved`. The block at 0xc00000000006d774 to 0xc00000000006d7ac, which loads sp from -15288
   and jumps to the routine at 0xc0000000000619f4 with the strings "invalid kstk" (0xc000000001531cc8) and
   "intrnorm.s" (0xc000000001531cd5) and 0, has no branch into it from inside the routine. Inferred.
+- `sub_c000000000062980` (`6.5.30/unix.IP35`, address 0xc000000000062980, 520 bytes, 96-byte frame): the unnamed
+  routine behind `hub_intr_alloc` and `hub_intr_alloc_nothd`; it picks a processor and an interrupt bit for a device and
+  builds the 48-byte handle that the other `hub_intr_*` routines use. `a0` is the device vertex (kept in `s2`), `a1` a
+  device descriptor or zero (`s0`), `a2` an owner vertex (`s1`) and `a3` a no-thread flag, saved at sp+8. With `a1` zero it
+  calls `device_desc_default_get(a0)` and uses the result as the descriptor (zero stays zero). With no descriptor the name
+  is zero, the level is the word `default_intr_pri` (0xc00000000163c1bc, gp-30132) and the flags are 8 when the flag is
+  zero, or the word at sp+0, which this routine never stores, when it is not. With a descriptor the name comes from
+  `device_desc_intr_name_get` and the level from `device_desc_intr_swlevel_get`, and the flags are 4 when bit 0 of the
+  descriptor's word at +24 is set, otherwise 0 when the flag is nonzero or descriptor bit 2 is set, otherwise 8. It calls
+  `intr_heuristic(a0, descriptor, allocate_my_bit, flags, a2, name, result pointer)`, the pointer being the address of a word in its own frame, where `allocate_my_bit` is the word at
+  0xc00000000163b874 (gp-32508). The processor is the low 16 bits of the result, sign-extended. When it is -1 the
+  routine calls `cmn_err(4, "%v hub_intr_alloc could not allocate interrupt\n", owner)` (the string at
+  0xc000000001524f98) and returns 0. Otherwise it finds the processor's per-processor block through `pdaindr` (entry
+  index shifted left 4, doubleword at +8), reads that block's halfword at +1066 (member `p_nodeid` in the debug
+  information, the compact node) and byte at +1320 (`p_slice`), and forms an offset that is 0x200090 when bit 1 of the
+  byte is set and 0x90 otherwise. The node's NASID is the halfword at `compact_to_nasid_node` plus twice the
+  node. It calls `kmem_alloc_node(48, 1, node)`; a null result calls `assfail` with the expression text "intr_hdl", a
+  source file name and line 788 and then goes on into the stores below with the null pointer in `s1`. The handle is filled in this order: word +0 the device
+  vertex, byte +5 the low byte of the word that `intr_heuristic` stored through that pointer (the bit), doubleword +8 the offset plus the NASID
+  shifted left 39 plus the pool word at gp+2824 (0x0000800001800000), then
+  `xwidget_info_get(a0)` and, when that is nonzero, byte +4 from `xwidget_info_masterid_get`, then word +32 the level,
+  halfword +36 the processor, word +44 the value 1 and word +40 the bit. It then calls the unnamed routine at
+  0xc00000000006292c with the descriptor (it may be zero; the call is unconditional), the level and the processor, and returns the
+  handle. Established.
+- `sub_c00000000006292c` (`6.5.30/unix.IP35`, address 0xc00000000006292c, 84 bytes, 64-byte frame): records on a device
+  descriptor which processor an interrupt went to. `a0` is the descriptor (saved at sp+48), `a1` a level and `a2` a
+  processor number (kept in `s8`). It calls `device_desc_intr_swlevel_set(a0, a1)`, formats the path with
+  `sprintf(&sp+0, "/hw/cpunum/%d", a2)` (the string at 0xc000000001524f88, the "_node" block address from gp-22568 plus
+  144), looks it up with `hwgraph_path_to_dev` and calls `device_desc_intr_target_set(a0, result)`, returning its result.
+  Established.
+- `hub_intr_alloc` (`6.5.30/unix.IP35`, address 0xc000000000062b88, 28 bytes, 16-byte frame): calls the unnamed routine
+  at 0xc000000000062980 with its three arguments unchanged and `a3` set to 0 (in the delay slot of the call), and
+  returns its result. Established.
+- `hub_intr_alloc_nothd` (`6.5.30/unix.IP35`, address 0xc000000000062ba4, 28 bytes, 16-byte frame): the same as
+  `hub_intr_alloc` except that `a3` is set to 1. Established.
+- `hub_intr_free` (`6.5.30/unix.IP35`, address 0xc000000000062bc0, 120 bytes, 32-byte frame): releases a handle from
+  the allocation routine. `a0` is the handle (kept in `s0`). It first loads the handle's halfword at +36 (processor), word at
+  +40 (bit) and word at +44 (flags), saving the first two at sp+8 and sp+16. When flag bit 2 is set it stores, in this
+  order, zero in the byte at +5, zero in the doubleword at +8 and -1 in the word at +0, then calls `hub_intr_disconnect`
+  with the handle and reloads the flags. When flag bit 0 is then set it calls `kmem_free(handle, 48)`. It finally calls
+  `intr_unreserve_level(processor, bit)` with the saved values and returns its result. It does not clear the flag words
+  before freeing. Established.
+- `hub_intr_connect` (`6.5.30/unix.IP35`, address 0xc000000000062c38, 136 bytes, 32-byte frame): attaches a handler to a
+  handle. `a0` is the handle, `a1` the handler, `a2` the handler's argument, `a3` a callback (kept in `s1`) and `a4` the
+  callback's own value (saved at sp+0). It calls `intr_connect_level(processor from +36, bit from +40, word at +32,
+  a1, a2, 0)`. A negative result is returned as it is. Otherwise it stores `a3` at +24 and then `a4` at +16 (the second
+  store is in the delay slot of the test of `a3`), calls `a3(handle)` when `a3` is nonzero, sets bit 2 of the word at
+  +44 and returns 0. Established.
+- `hub_intr_disconnect` (`6.5.30/unix.IP35`, address 0xc000000000062cc0, 100 bytes, 32-byte frame): detaches the handler.
+  `a0` is the handle. It loads the word at +40 (kept at sp+24), the halfword at +36 and the doubleword at +24. When the
+  doubleword at +24 is nonzero it calls it with the handle as the only argument. It then calls
+  `intr_disconnect_level(processor, bit)` and clears bit 2 of the word at +44 (the mask -5 is formed in `v0`). It sets
+  no return value of its own: `v0` holds -5 on return. Established.
+- `hub_intr_cpu_get` (`6.5.30/unix.IP35`, address 0xc000000000062d24, 28 bytes, no stack frame): returns the vertex
+  recorded for the handle's processor. `a0` is the handle. The processor is the halfword at +36; the routine reads the
+  doubleword at +8 of that processor's entry in `pdaindr` (pool word gp-22560, 16-byte entries) and returns the word
+  at +1852 of that block (member `p_vertex` in the debug information), loaded in the delay slot of the return.
+  Established.
 
 ## Hub widget shutdown
 
@@ -655,6 +744,18 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   value 0 comes from the delay slot at 0xc00000000005b05c, the value 1 from the one at 0xc00000000005b064). The same
   bit 32 of the +8 doubleword is the one `hubii_eint_handler` reports as a failed link to crosstalk. Which fields
   bits 51 to 48 of the per-widget registers are: unknown here. Established.
+- `hubni_error_handler` (`6.5.30/unix.IP35`, address 0xc000000000059064, 56 bytes, 32-byte frame): the common front end
+  of the Hub network-interface error reports. `a0` is a description string (kept in `s8`) and `a1` a flag (saved at
+  sp+16). It calls `get_nasid()` (0xc000000000041434), then the unnamed static routine at 0xc000000000058ea0 with
+  `(a0, NASID, a1)` (the flag reloaded in the delay slot of the call), and returns its result. Established.
+- `hubni_eint_handler` (`6.5.30/unix.IP35`, address 0xc00000000005909c, 36 bytes, 16-byte frame): the handler that
+  `hubni_eint_init` connects at level 126. It takes no argument. It calls
+  `hubni_error_handler("NI interrupt", 1)`; the string is at 0xc0000000015217f0, the pool word at gp-22872
+  (0xc000000001520df0) plus 2560. It returns the result. Established.
+- `hubni_rmteint_handler` (`6.5.30/unix.IP35`, address 0xc0000000000590c0, 36 bytes, 16-byte frame): the handler that
+  `hubni_eint_init` connects at levels 103 and 104. It takes no argument. It calls
+  `hubni_error_handler("Remote NI interrupt", 0)`; the string is at 0xc000000001521800, the same pool word plus 2576. It
+  returns the result. Established.
 
 ## DMA maps, error counters and the crosstalk provider
 
