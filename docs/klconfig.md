@@ -26,7 +26,7 @@ The kernels reach a node's board list in three loads, inlined in each caller (`g
 
 The directory therefore sits at offset `0x2000` of each node and the configuration entry is the second 64-byte entry, with its offset field at +8 of the entry. Linux reads the same: `KLDIR_OFFSET` is `0x2000`, `KLI_KLCONFIG` is entry 1, `kldir_ent_t.offset` is at +8, and `kl_config_hdr_t.ch_board_info` is at +20. Established.
 
-On IP35 this path is taken only after a check: `get_module_id` and `is_master_baseio` first read the doubleword at `0x9000000034000000` plus the NASID shifted left 33, and when bits 12 to 15 of it equal `0xc` they call `chk_for_pebrick` instead of reading the node's own directory (see [IP35 differences](#ip35-differences)). Which register that address names is not settled; it is listed in [open-questions.md](open-questions.md).
+On IP35 this path is taken only after a check: `get_module_id` and `is_master_baseio` first read the doubleword at `0x9000000034000000` plus the NASID shifted left 33, and when bits 12 to 15 of it equal `0xc` they call `chk_for_pebrick` instead of reading the node's own directory (see [IP35 differences](#ip35-differences)). What the value means is in [the IP35 node class nibble](#the-ip35-node-class-nibble).
 
 ## Board record
 
@@ -343,6 +343,31 @@ Linux's `gda_t` places `g_nasidtable` at +128 too and uses directory entry 3 (`K
   Established.
 
 The 6.5.22 objects carry the same instructions for all of these routines in both platforms; the only difference found is in the 6.5.22 IP35 `chk_for_pebrick`, whose message string sits 856 bytes into its string block instead of 864.
+
+## The IP35 node class nibble
+
+Both IP35 kernels read one 4-bit field, bits 12 to 15 of a doubleword, from two uncached addresses, and branch on its value. The two addresses differ only in address bit 29: `0x9000000034000000` is indexed by node (the NASID shifted left 33 is added), `0x9000000014000000` is read for the local node with no NASID added. The pool words are at `0xc000000001644040` (gp+2256) and `0xc000000001644068` (gp+2296) in `6.5.30/unix.IP35`, and at `0xc00000000159a0d8` (gp+232) and `0xc00000000159a100` (gp+272) in `6.5.22/unix.IP35`.
+
+Every load of either pool word was found by scanning the whole disassembly of each kernel for loads from the gp slot. In `6.5.30` the node-indexed address has 75 load sites in 60 routines, and each is within reach of a shift left 32 by 1 of the NASID. The local address has 24 load sites in 18 routines. `6.5.22` has the same 60 routines for the node-indexed address (74 sites) and the same 18 for the local one, except that `init_all_devices` takes the place of `cn_init`. The only values any site compares the field with are `0x4000`, `0x8000` and `0xc000` (as `addiu 16384`, `dli 0x8000` and `dli 0xc000`, or an `xori` with `0x4000`); every other value takes the default path. Established for the reader census and the compared values.
+
+What the kernel does for each value (all in `6.5.30/unix.IP35`, read in full unless stated):
+
+| Field | Where it is read | Effect |
+|---|---|---|
+| `0xc` | the node-indexed address, in `get_module_id`, `is_master_baseio`, `do_cpumask`, `get_board_name`, `slot_getsize`, `klhwg_add_node` and the other routines that start a board walk | the first board comes from `chk_for_pebrick` instead of the node's own directory. This is the PE-brick case already described above |
+| `0x8` | the local address, in `cpu_node_probe` (`0xc000000000046704`), when the PE-brick table magic is absent | prints "IP35 prom is out of sync with Irix kernel.\n" and "PE-Brick support not available.\n" |
+| `0x8`, `0x4` or `0xc` | the node-indexed address, in `set_sn12_type` (`0xc000000000041550`, the load at `0xc00000000004157c`) | the routine first stores 1 in the byte at +128 of its per-node table (base from gp-23440; the store sits in the delay slot of the first compare, so it happens for every value) and then returns without asking the system controller. For any other value it calls `elsc_cbrick_type_get` and stores a type byte at +0 of the table entry: 55 gives 1, 56 gives 2, 57 gives 3, 48 gives 4, 81 gives 5; a negative return logs through `cmn_err` at level 4 and leaves the type alone; other returns leave it alone. `get_chimera_type` (`0xc00000000004167c`) returns that type byte, calling `cmn_err` and then `set_sn12_type` first when the flag byte is zero. So the type stays 0 on a node whose field is `0x4`, `0x8` or `0xc` |
+| `0x4` | the node-indexed address, in `sc_command_interp` (loads at `0xc0000000000d0024`, `0xc0000000000d0064` and `0xc0000000000d00d8`) | a field of `0x4` sends the routine to its shared tail (`0xc0000000000cff44`) with the result register cleared, as does a chimera type of 3; a field of `0x8` does the same only for the commands 1, 14 and 15, and only when the first test did not already match |
+| `0x8`, `0x4` | the node-indexed address, in `ioc3_attach` | with the vertex name "Ibrick/xtalk/15/pci/4", the sub-device enable argument is `0xb1` for `0x8`, `0x79` for `0x4` and `0x91` otherwise (ip35-ioc3.md has the surrounding routine) |
+| `0x4` | the local address, in `ioc3_subdev_enabled` (`0xc0000000000c62c4`) | the default enable mask is `0xff`; for any other value it is `0xdf` |
+| `0x4` | the local address, in `ioc3_attach` (`0xc0000000000c55d4`) | calls `pckm_attach`, the PC keyboard and mouse attach |
+| `0x4` | the local address, in `cn_init` (`0xc0000000000dca00`) | when the word at gp-32476 is non-zero and the field is `0x4`, the call to `gfx_earlyinit` is skipped; otherwise it is made |
+| `0x4` | the local address, in `rad_init` (`0xc00000000019cd60`) | stores 1 when the field is `0x4` and 0 otherwise as the word at gp+6524, then registers the PCI driver |
+| `0x4` | the local address, in `scsi_ctlr_nums_add` (first load, `0xc00000000004cadc`) | stores 2 as the word at gp-25004 when the field is `0x4` and 6 otherwise |
+
+The other readers (the iobrick EEPROM and system-controller helpers, `mactoh`, `get_host_id`, `main`, `syssgi`, `fake_a_part_number`, `fake_a_product_name`, `set_leds`, the error-save and hardware-graph routines) were found by the scan and compare the field with the same three constants; their individual effects are not described here. Their loads are in `docs/inventory/functions.tsv` under the routines named.
+
+Reading: the field sorts a node into a class before any system-controller or directory access. `0xc` is a PE-brick node (established by the routines above). `0x8` is the value a PROM that lacks the PE-brick table leaves (inferred from the `cpu_node_probe` message, which names the PROM). `0x4` is the value on a platform where `set_sn12_type` does not query the system controller, the PC keyboard and mouse attach, and the graphics console start is skipped (inferred from those effects; the code does not name the platform). Which register the doublewords are, and which hardware or PROM action sets the four bits: unknown: no shipped software or published source depends on it. The routes tried were the 6.5.30 and 6.5.22 IP35 kernels (every reader, above) and the PROM-window routines already documented; no IP35 PROM image is held, and the Linux tree has no IP35 support.
 
 ## Node and processor lookups
 

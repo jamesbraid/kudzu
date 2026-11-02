@@ -338,8 +338,29 @@ An IP35 node has up to four processors behind two processor interfaces. The kern
   has the IP27 body: for each set bit of the pending register at a1 it writes the level to
   `0x9200000001000090` and reads `0x9200000001000098`. Those are the first interface of the caller's
   own node, so bits pending on the second interface are cleared through the first. Established for
-  the accesses; whether the node controller lets the first interface's modify register clear the
-  second interface's pending bits is unknown.
+  the accesses. Whether the node controller lets the first interface's modify register clear the
+  second interface's pending bits is unknown: no shipped software depends on it (see below).
+
+  Every other user of a modify register was found by scanning both IP35 kernels. Six routines load the first
+  interface's modify-register pool word (gp+2792 in 6.5.30, gp+768 in 6.5.22), the same six in both:
+  `sub_c000000000061060` (the symbol table gives it as `intr_reserve_hardwired+0x15c`, above),
+  `cause_intr_disconnect`, `install_cpuintr`, `install_dbgintr`, `gfx_flow_detach_me` and `sendintr`.
+  The only routines that build an offset of `0x200000` or more with `lui 0x20` and a register offset of `0x90`
+  or `0x98` are `sendintr` (0xc00000000006083c) and `intr_connect_level` (0xc00000000005f468); the five
+  others contain no such `lui`. Each of the two picks `0x200090` or `0x90` by bit 1 of the processor's
+  `p_slice`. `sendintr` writes `0x100` ORed with a level (7 or 8 when its second argument is 171, else 107
+  or 108, by bit 0 of `p_slice`) to the target processor's interface, the form that sets a level. `intr_connect_level` writes the level alone, which clears it, to the modify register of the interface the connecting
+  processor sits behind (`0x90` or `0x200090`) and reads back that interface's `0x98` or `0x200098`. The `sendintr` and
+  `intr_connect_level` accesses were read in the instructions around those two addresses, and the other five by their pool-word loads
+  only.
+  So the only clear of a level on the second interface that goes through the second interface's own
+  modify register is the one in `intr_connect_level`; `intr_clear_all` is the one place that clears second-interface
+  pending bits through the first. Its only direct call (`jal` at 0xc000000000065f54, inside the range the symbol
+  table gives `VEC_fpe`) is in a loop over the compact nodes, run right after `init_platform_nodepda` for the same node. Nothing
+  in these routines shows software relying on the first-interface write to clear a second-interface level.
+  Inferred, from the accesses listed. The hardware behaviour itself: unknown: no shipped software or published
+  source depends on it. Routes tried: every user of the pool words in both IP35 kernels; the node controller's
+  own description is in no binary.
 - `intr_reserve_hardwired` (`6.5.30/unix.IP35` `0xc000000000060f04`, 348 bytes)
   differs from the IP27 routine in whom it reserves for: it keeps a two-byte flag on the stack, one per
   interface, and walks the node's processors from `cnodetocpu` while they are below `maxcpus`
