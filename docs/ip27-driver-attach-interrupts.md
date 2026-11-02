@@ -695,3 +695,41 @@ established. Otherwise the halfword at soft record +114 is a Bridge kind, 0 to 3
   it is a byte at (offset ^ 3) and the value shifted right by 8 at ((offset + 1) ^ 3). Size 3 with an even offset is a halfword at the same halfword address and
   the value shifted right by 16 as a byte at ((offset + 2) ^ 3); with an odd offset it is a byte at (offset ^ 3) and the value shifted right by 8 as a
   halfword at a0 + 2 * ((((offset + 1) >> 1)) ^ 1). Size 4 is one word store of the value at a0 + (offset >> 2) * 4, unswapped. No return value is set.
+
+- `kona_lowater_intr` (`6.5.30/unix.IP27`, address 0xc0000000003976c8, 216 bytes, 16-byte frame): **established.**
+  The low-water step of the graphics board's main handler, called with the lock at +2352 held. `a0` is the board record (`s0`). It calls `gfx_waitf_on()` first
+  and ends with `gfx_waitf_off()`, whose result it returns. It adds 1 to the word at +5264 and then does nothing more when the word at +104 is zero.
+  Otherwise: when the doubleword at +2336 (a pending timeout) is nonzero it calls `kona_untimeout(record, that value)` and clears it; when it is zero it prints
+  "pipe was backed up without timeout being set." (`cmn_err` level 4, prefixed with the board name and unit) and carries on. It removes bit 0x2 from the enable
+  mask word at +2368 and writes the mask to window +0x800230 (the register that holds the enable mask: that reading is inferred from the order and the word it
+  is stored from), clears the word at +2344, and then writes 3 to the status register at window +0x800238 (the high-water and low-water bits). When the word at +108 is
+  zero it subtracts 1 from the word at +80. Finally it clears the words at +104 and +108. All device access goes through `gfx_pio_write_32`.
+
+- `kona_xg_intr_handler` (`6.5.30/unix.IP27`, address 0xc0000000003a6f74, 112 bytes, 16-byte frame): **established.**
+  The handler for an error interrupt from the board's crosstalk-side logic (the "XG" in the message); it is not called by `kona_intr_handler` and reads no device register.
+  `a0` is the board record (`s0`). It adds 1 to the word at +16 of the CPU's 32-byte record, selected as in `kona_intr_handler` by the halfword at absolute address
+  0xffffffffffffc420, and 1 to the board's word at +5268. It prints "XG error interrupt received." (`cmn_err` level 4, board name and unit from +2184),
+  calls `kona_die(record, 12)` and returns the result of `kona_report_errs(record)`.
+
+- `kona_die` (`6.5.30/unix.IP27`, address 0xc00000000039e4e8, 372 bytes, 64-byte frame): **established.**
+  Stops the board after a fatal error. `a0` is the board record (`s0`), `a1` the reason code (kept at sp+24). It takes `mutex_spinlock(record+2168)`. When the word at
+  +2172 is already nonzero (the board is dying) it only unlocks and returns the unlock's result. Otherwise, in this order: it sets the global word at `gp`+10100 to 1;
+  stores the reason at +2172; reads the registers at window +0x800220 and +0x8003a8 into the words at +2176 and +2180; writes window +0x800220 with the word at
+  +2364 with bit 15 (0x8000) cleared, window +0x8003a8 with 8, and window +0x800298 with 0xbadc0ffe; prints "Fatal error.  bdata = 0x%0lx death_reason = %ld"
+  through `cmn_err_tag` (tag 2114, level 4; the record address is printed as bdata); reads window +0x800208 and prints it with "Graphics FIFO depth is %d words."
+  (`cmn_err`, level 6); clears the words at +104, +108 and +120; and calls `gthread_scan(callback, block, 9)`, where the callback is the routine at
+  0xc0000000000ea548 (from the `gp`+1272 slot) and the block on the stack holds the word 9, the board record and a zero doubleword. It then unlocks with the saved
+  level and returns the unlock's result. What the three writes mean on the chip (a stop of the pipe, most likely) is not established.
+
+- `kona_arm_intr` (`6.5.30/unix.IP27`, address 0xc0000000003a7288, 528 bytes, 48-byte frame): **established.**
+  Handles the interrupt of the board's on-board processor (the "ARM"), reached from the main handler on status bit 0x10. `a0` is the board record (`s0`). It stores 1 at
+  the word +5464, then reads one 32-bit value from window +0x800240 (the reason code) and chooses:
+  - 0x100: `vsema(record+5176)`; when the doubleword at +5192 is nonzero, `kona_untimeout(record, that value)` and clear it.
+  - 0x102: `kona_mem_swapin_complete(record, 0, 0)`.
+  - 0x103: `mutex_spinlock(record+2576)`; when the doubleword at +5312 is nonzero, `vsema(record+5296)`, `kona_untimeout(record, that value)` and clear it; `mutex_spinunlock`.
+  - 0: reads a text message the processor sends, one byte per read. Each pass writes 0x10 to the status register at window +0x800238, then polls that register (read,
+    then `us_delay(20)`, at most 5001 reads) until bit 0x10 is set, stores 1 at +5464 again, reads window +0x800240 and keeps its low byte at record +2616 plus the number of bytes kept so far
+    (only while fewer than 511 are kept; the zero-byte test still sees every byte), and stops at the first zero byte or after 5000 passes. It then writes a zero
+    byte after the text, prints "ARM: %s" with the text (`cmn_err` level 6) and, when it ran 5000 passes, prints "ARM is spewing garbage (%d)" with the pass count (level 4).
+  - anything else: prints "unknown reason for ARM interrupt (0x%x)" through `cmn_err_tag` (tag 2100, level 4, board name and unit, the value read).
+  Every message is prefixed with the board name and the unit from +2184. Whether reading window +0x800240 pops a hardware queue is inferred from the byte-per-read loop.
