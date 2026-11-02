@@ -1473,3 +1473,69 @@ vertex, `a1` (`s0`) the command and `a2` a user pointer kept at sp+40. Before an
 the six argument registers, calls `device_info_get` (0xc0000000001734d0) on the vertex in `a0` and branches on its result as a 32-bit value. Result 0 restores the six
 registers and calls `mem_refcnt_ioctl` (0xc00000000027a210) with them, then returns that call's result. Result 1 returns 0. Any other result returns 19 and calls
 nothing.
+
+## Crossbar, Bridge and hub provider set-up stubs
+
+- `xbow_disable` (`6.5.30/unix.IP27`, address 0xc00000000006edf8, 136 bytes, 288-byte frame): **established.**
+A stub that only reports failure. `a0` is a vertex, kept in `s0`.
+It calls `cmn_err(1, "%v: xbow_disable does not work\n", a0)` (0xc0000000001fcbd4; the format is at 0xc0000000003c5e18, the `xbow_` string at 0xc0000000003c5648 from the gp-17976 slot plus 2000).
+It then calls `hwgraph_fastinfo_get` (0xc000000000296098) on the vertex and loads the word at the returned record +8 into `s0` (no null test). It stores 2 at sp+0 and calls
+`hwgraph_edge_get_next` (0xc000000000295098) with that word as `a0`, `a1` = sp+8, `a2` = sp+264, `a3` = sp+0 and `a4` = 2. A nonzero result returns -1 (the `li v0,-1` at 0xc00000000006ee4c).
+The path where the call returns 0 enters a loop at 0xc00000000006ee5c that repeats the call with the same pointers (`a4` not set again) as long as the call returns 0; the first nonzero return also leaves with -1. Every path returns -1 and nothing else is changed.
+No branch-likely instruction.
+- `xbow_enable` (`6.5.30/unix.IP27`, address 0xc00000000006ee80, 124 bytes, 288-byte frame): **established.**
+The twin stub of `xbow_disable`, with a different message and without the
+fast-info step. `a0` is a vertex, kept in `s0`. It calls `cmn_err(1, "%v: xbow_enable does not work\n", a0)` (0xc0000000001fcbd4; format at 0xc0000000003c5e38, the `xbow_` string plus 2032). It
+then passes the vertex itself, not a fast-info word, as `a0` to `hwgraph_edge_get_next` (0xc000000000295098) with `a1` = sp+8, `a2` = sp+264, `a3` = sp+0 and `a4` = 2; the doubleword at sp+0 is set to 2 by
+the `sd` in the delay slot of that call. A nonzero result falls through to the `li v0,-1` at 0xc00000000006eec8. When the call returns 0 the loop at 0xc00000000006eedc repeats it (without
+`a4`) and leaves through the branch at 0xc00000000006eef4 to 0xc00000000006eec8 on the first nonzero return. Every path returns -1. No branch-likely instruction.
+- `xbow_init` (`6.5.30/unix.IP27`, address 0xc00000000006cd10, 80 bytes, 16-byte frame): **established.**
+Registers the crossbar driver for three widget identities. It makes three
+calls to `xwidget_driver_register` (0xc00000000006c630), each with `a1` = 0, `a2` = the string `xbow_` (0xc0000000003c5648, gp-17976 slot) and `a3` = 1; only `a0` differs, in this order:
+0xd100 (`dli`, call at 0xc00000000006cd24), 0xd000 (call at 0xc00000000006cd38) and 0 (call at 0xc00000000006cd4c). The delay slot of each `jal` carries one argument: `a3` for the first
+and third calls and `a0` for the second. The routine returns what the third call returns. That the values are widget part numbers is inferred from the callee's name. No branch-likely instruction.
+- `xbridge_init` (`6.5.30/unix.IP27`, address 0xc000000000070358, 84 bytes, 16-byte frame): **established.**
+The Bridge driver's set-up entry. It first calls `pcibr_debug`
+(0xc000000000074e8c) with `a0` = 1, `a1` = 0 and `a2` the string "pcibr_init()\n" (0xc0000000003c6040, the gp-17896 slot). It then calls `xwidget_driver_register` (0xc00000000006c630)
+twice with the name prefix "xbridge_" (the same slot plus 16, 0xc0000000003c6050) and `a3` = 0: first with `a0` = 0xd002 and `a1` = 36 (0x24), then with `a0` = 0xc002 and `a1` = 54 (0x36).
+The delay slot of each call sets the prefix (`daddiu a2,a2,16`). It returns the second registration's result. No branch-likely instruction.
+- `pciiox_init` (`6.5.30/unix.IP27`, address 0xc000000000070dcc, 32 bytes, 16-byte frame): **established.**
+Registers a serial-number prefix handler with the NIC layer. It calls
+`nic_vmc_add` (0xc00000000006a668) with the string "030-1062-" (0xc0000000003c6238, gp-17848 slot) and the code address 0xc000000000070dec (gp-17840 slot, loaded in the delay slot), which
+is the first byte after this routine. It returns the callee's result. The body of the routine at 0xc000000000070dec was not read here. No branch-likely instruction.
+- `hub_provider_startup` (`6.5.30/unix.IP27`, address 0xc00000000003c17c, 52 bytes, 16-byte frame): **established.**
+Runs three start-up steps for the hub's crosstalk provider. `a0` (kept
+in `s0`) is passed unchanged to three static routines in this order: 0xc00000000003b440 (described next), 0xc00000000003bad0 and 0xc00000000003bcb0. The last two are each `jr ra` and a `nop`, with no symbol
+of their own (they are the bytes after the symbols `hub_piotrans_addr` and `hub_dmalist_drain`) and no effect on `v0`. The return value is what the third call leaves in `v0`, which is the value the first routine returned. No branch-likely instruction.
+- `sub_c00000000003b440` (`6.5.30/unix.IP27` `0xc00000000003b440`, 352 bytes, 32-byte frame) is unsymbolled: it follows the 8-byte `hubio_init` symbol at 0xc00000000003b438 (`jr ra`, `nop`) and
+is the first routine `hub_provider_startup` calls. **Established.** It initialises a hub's per-node record. `a0` is the vertex, kept in `s0`.
+  - It calls `hwgraph_info_get_LBL` (0xc000000000295310) with the vertex, the label "_node" (0xc00000000140cba0, gp-19888 slot) and the address sp+0; the result is not tested. The label's value is a
+    record pointer, called R here. The halfword at R+10 (`lh`) is the NASID, used as NASID << 32 below.
+  - For j = 0 to 15, with E = R + 48j: the byte at E+20 is j (`sb`); the doubleword at E+24 is 0 and the one at E+32 is 0x1000000; the doubleword at E+40 is an address; the word at E+48 is the vertex and the word at E+56 is 1.
+    The address is 0x92000000e0000000 (gp-24504 slot) + (NASID << 32) for j = 0, and 0x9200000000000000 + (NASID << 32) + (j << 24) for j from 1.
+  - For k = 0 to 5, with F = R + 48k: the doubleword at F+824 is 0x20000000, the word at F+840 is the vertex, the halfword at F+844 is 0 and the word at F+848 is 2. The loop's closing branch is not likely, so its delay-slot store
+    runs every pass: the doubleword 0x300 goes to the address 0x9200000001c00000 (gp-24536 slot) + (NASID << 32) + 0x160 + 8k. The value 0x300 is held in `ra` during the loop; `ra` is restored from 16(sp) at the end.
+  - It calls `hub_set_piomode` (0xc00000000003c3cc) with the NASID and 2, then `init_sv` (0xc00000000018b4a4) with R+784, 0, the string "bigwin" (0xc00000000140cba8) and -1, then `spinlock_init`
+    (0xc00000000028618c) with R+792 and "bigwin", and returns the last result.
+  What the entry fields stand for is not read here: the stores are described, not interpreted. No branch-likely instruction.
+- `hub_dmamap_free` (`6.5.30/unix.IP27`, address 0xc00000000003bb58, 40 bytes, 16-byte frame): **established.**
+Releases a hub DMA map. `a0` is the map. It clears bit 0 of the word at map +12
+(`lw`, `and` with -2, `sw` in the delay slot of the call) and then calls `kern_free` (0xc00000000017e590) with `a0` unchanged. The word is the flags word that `hub_dmamap_alloc`
+(0xc00000000003bad8) sets to 1, or to 5 when bit 0 of its fourth argument is set. The routine returns whatever `v0` holds after `kern_free`. No branch-likely instruction.
+- `hub_xtalk_link_up` (`6.5.30/unix.IP27`, address 0xc000000000042fa0, 40 bytes, no frame): **established.**
+Says whether a node's crosstalk link is up. `a0` is the NASID. It loads the doubleword at
+the hub register page (the pool constant 0x9200000001c00000 from the gp-24536 slot, plus the NASID shifted left 32) +296 and tests bit 13 (`andi` 0x2000). It returns 1 when the bit is set and 0 when
+clear (`v0` is cleared in the delay slot of the branch at 0xc000000000042fb4). That the bit means "link up" is inferred from the routine's name. No branch-likely instruction.
+- `hub_error_count_update` (`6.5.30/unix.IP27`, address 0xc0000000000351c0, 120 bytes, 32-byte frame): **established.**
+The timed routine that samples one node's link error monitors and
+schedules itself again. `a0` is the NASID (saved at sp+0). The halfword at (the pointer in the gp-20160 slot, 0xc0000000014cd2b0, which points at 0xc0000000014d4c80) + 2 x NASID is the compact node number,
+with no range check. `s0` is the address of the doubleword at (the gp-20232 slot, `kl_error_log` 0xc0000000014cd268, plus 512) + 8 x that number. The routine calls `ii_llp_error_monitor`
+(0xc000000000035094) with the doubleword at `s0` plus 8 and `ni_llp_error_monitor` (0xc0000000000350fc) with the doubleword at `s0` plus 32, reloading it each time. It then loads the first word of the record
+at `s0`. When that is zero the routine returns, with `v0` as the second monitor call left it. Otherwise it calls `timeout` (0xc0000000001b3498) with the function from the gp-20136 slot
+(0xc0000000000351c0, this routine), `a1` = the saved NASID and `a2` = 100; this routine does not set `a3`. The return value is what `timeout` leaves in `v0`. `hub_error_count_enable` starts the cycle. No branch-likely instruction.
+- `hubspc_open` (`6.5.30/unix.IP27`, address 0xc00000000006bba0, 116 bytes, 48-byte frame): **established.**
+The open entry for the node special-file driver. `a0` is a pointer, and the vertex is the
+word it points to (`lw a0,0(a0)` in the delay slot of the call); `a1` to `a3` are passed on. All four arguments are saved at sp+0 to sp+24. It calls `device_info_get` (0xc0000000001734d0) on the word and reads
+the low 32 bits of the result. Result 0 calls `mem_refcnt_open` (0xc00000000027a0f8) with the original `a0` (not the loaded word) and the three other arguments, and returns its result. Result 1 calls
+`cap_able(1 << 37)` (0xc00000000028741c; `a0` = 1 shifted left 37 by `dsll32 a0,a0,5`) and returns 1 when it returns 0 and 0 when it returns nonzero (`sltiu v0,1`). Any other result returns 19 without a call.
+Return values by path: 19, the open routine's result, 0 or 1. No branch-likely instruction.

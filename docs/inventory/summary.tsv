@@ -1,14 +1,14 @@
 table	rows	out_of_scope	understood	understood_with_open	understood_distinct	templated	located	named_only	undocumented	no_software_dependency	pct_understood	pct_located_or_better	pct_mentioned	pct_done	unresolved_sites	truncated	audited_real_pct	audited_sample	audited_date	computes	reused	multi_unit	shared_address	input
 binaries	7280	0	0	0	0	0	0	39	7241	0	0.0	0.0	0.5	0.0							0			
-functions	18903	223613	1286	95	786	0	4170	9579	3868	0	6.8	28.9	79.5	6.8			100.0	6	2026-11-02		0	0	21	
-functions (distinct names)	2785	22113	471	27	469	0	167	1310	837	0	16.9	22.9	69.9	16.9							0			
+functions	18903	223613	1296	95	796	0	4168	9571	3868	0	6.9	28.9	79.5	6.9			100.0	6	2026-11-02		0	0	21	
+functions (distinct names)	2785	22113	473	26	471	0	167	1308	837	0	17.0	23.0	69.9	17.0							0			
 mmio	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0	0						0			
 tokens	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 ioctls	7	0	0	0	0	0	0	7	0	0	0.0	0.0	100.0	0.0							0			
 ucode	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0						0	0			
 spec-registers	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 input root manifest	2488																							61cae8770d903646aedce8415a07b11d1460ec2e39b264c8f65d493ff936b335
-functions in 6.5.22/unix.IP27	1110	12548	32	0	32	0	335	585	158	0	2.9	33.1	85.8	2.9							0	0	0	
+functions in 6.5.22/unix.IP27	1110	12548	32	0	32	0	337	583	158	0	2.9	33.2	85.8	2.9							0	0	0	
 functions in 6.5.22/unix.IP30	886	11328	37	0	37	0	233	449	167	0	4.2	30.5	81.2	4.2							0	0	5	
 functions in 6.5.22/unix.IP35	1068	13443	30	0	30	0	324	566	148	0	2.8	33.1	86.1	2.8							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP22boot/acl.a(acl.o)	0	16	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -1610,7 +1610,7 @@ functions in 6.5.22/usr/cpu/sysgen/IP27boot/vmeuli.o	0	2	0	0	0	0	0	0	0	0	0.0	0.0
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/vmidbg.a(vmidbg.o)	0	27	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/wacom.o	0	95	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/xbmon.o	0	18	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.22/usr/cpu/sysgen/IP27boot/xbow.o	33	0	7	0	7	0	17	8	1	0	21.2	72.7	97.0	21.2							0	0	0	
+functions in 6.5.22/usr/cpu/sysgen/IP27boot/xbow.o	33	0	7	0	7	0	19	6	1	0	21.2	78.8	97.0	21.2							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/xbridge.o	2	0	0	0	0	0	2	0	0	0	0.0	100.0	100.0	0.0							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/xconn.o	9	0	0	0	0	0	0	9	0	0	0.0	0.0	100.0	0.0							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/xfs.a(xfs_alloc.o)	0	24	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -3871,7 +3871,7 @@ functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_irix_memmgmt.o)	0	1	0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_irix_root.o)	0	2	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_snapshot.o)	0	60	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvmidbg.o	0	39	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.30/unix.IP27	1114	12370	284	10	283	0	83	585	162	0	25.5	32.9	85.5	25.5							0	0	0	
+functions in 6.5.30/unix.IP27	1114	12370	294	10	293	0	75	583	162	0	26.4	33.1	85.5	26.4							0	0	0	
 functions in 6.5.30/unix.IP30	891	12196	219	6	219	0	51	449	172	0	24.6	30.3	80.7	24.6							0	0	5	
 functions in 6.5.30/unix.IP35	1075	14055	279	59	278	0	75	566	155	0	26.0	32.9	85.6	26.0							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP22boot/isdnchan.o	0	75	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -4702,7 +4702,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP27boot/vmeuli.o	0	2	0	0	0	0	0	0	0	0	0.0	0.0
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/vmidbg.a(vmidbg.o)	0	27	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/wacom.o	0	95	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/xbmon.o	0	18	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.30/usr/cpu/sysgen/IP27boot/xbow.o	33	0	7	0	7	0	17	8	1	0	21.2	72.7	97.0	21.2							0	0	0	
+functions in 6.5.30/usr/cpu/sysgen/IP27boot/xbow.o	33	0	7	0	7	0	19	6	1	0	21.2	78.8	97.0	21.2							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/xbridge.o	2	0	0	0	0	0	2	0	0	0	0.0	100.0	100.0	0.0							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/xconn.o	9	0	0	0	0	0	0	9	0	0	0.0	0.0	100.0	0.0							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_alloc.o)	0	24	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
