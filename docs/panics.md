@@ -3900,7 +3900,7 @@ Routine at 0xc00000000005614c.
 
 | Call | Callee | Message | Condition |
 |---|---|---|---|
-| 0xc0000000000568a0 | cmn_err_tag | tag 2966, level 4, format not resolved (add of unknown at 0xc000000000056884 (join at 0xc00000000005686c)) | Reached on both sides of the `beq a2,t9` at 0x5684c (t9 is -1). When a2, the halfword loaded at 0x56844, is -1, that branch goes to 0x568b4, which jumps back to this block at 0x5686c and skips the table lookup at 0x56854 to 0x56868. The format is the context pointer s0 plus 432, the vararg is the doubleword at 72(sp). |
+| 0xc0000000000568a0 | cmn_err_tag | tag 2966, level 4, format not resolved (add of unknown at 0xc000000000056884 (join at 0xc00000000005686c)) | Reached on both sides of the `beq a2,t9` at 0x5684c (t9 is -1). When a2, the halfword loaded at 0x56844, is -1, that branch goes to 0x568b4, which jumps back to this block at 0x5686c and skips the table lookup at 0x56854 to 0x56868. The format is the context pointer s0 plus 432. Three more arguments follow: a3 is the doubleword at 72(sp), a4 is s0 on the skip path or a word loaded through the table on the other, and a5 is a three-bit field computed from the doublewords at 8(sp) and 16(sp) (0x56870 to 0x568a4). |
 
 ### `ecc_panic`
 
