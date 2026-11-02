@@ -6996,7 +6996,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(xthread_table.o)	kernel-other-objects	shared-kernel	object	n64	14852	fe5b5191224df067		10	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/partition.o	kernel-other-objects	shared-kernel	object	n64	76352	2a403e50ad5c03a9	6.5.30/usr/cpu/sysgen/IP35boot/partition_part.o	72	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/pciba.o	kernel-other-objects	shared-kernel	object	n64	52008	c63361dc9bed7553		25	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	kernel-platform-drivers	shared-kernel	object	n64	300848	5a79bfd6f2bf07f4		265	symtab+dwarf	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	kernel-platform-drivers	shared-kernel	object	n64	300848	5a79bfd6f2bf07f4		265	symtab+dwarf	0	0	named-only	docs/ip35-pcibr-registers.md#bridge-register-accessors-in-the-ip35-pcibr-object	Bridge register accessors in the IP35 pcibr object
 6.5.30/usr/cpu/sysgen/IP35boot/pciio.o	kernel-platform-drivers	shared-kernel	object	n64	47872	4d2e3ed5eac64973		108	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/pciio_ppb.o	kernel-platform-drivers	shared-kernel	object	n64	27528	aadca7cfd050b4f2		18	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/pciiox.o	kernel-platform-drivers	shared-kernel	object	n64	6120	bc9406dffebc6428		2	symtab	0	0	undocumented		
