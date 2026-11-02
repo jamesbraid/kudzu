@@ -235,10 +235,12 @@ meaning is inferred from the places that set and test it.
   allocates a buffer of twice that many bytes (`kmem_zalloc(2 * count, 0x8901)`; failure: step 7), copies the image from the pointer at +56, swaps
   each 16-bit word (`munge16`), converts the buffer with `kvtophys` and `pciio_dmatrans_addr(device at +8, 0, address, 2 * count, 0x2001060)` and
   sends command 9 with the load address, the count and the 64-bit bus address split over the mailbox values (failure: step 2), then frees the buffer.
-  Start: command 2 (execute firmware at the load address); failure is step 5. Then command 8 through `ql_mbox_cmd(record, &sp+32, 1, 3, 8, ...)`;
-  failure is step 6. When the global `showconfig` is set it prints `Firmware version: %d.%d.%d` with the reply halfwords 1, 2 and 3 of the array at
-  sp+32; the command asks for only three replies, so halfword 3 is not set by it and holds what an earlier command left there. It clears flag bit
-  0x200 (an AND with -513) and returns 0. The reading of the commands as register test, write word, load, execute and about-firmware, and of 0x200 as
+  Start: command 2 (execute firmware at the load address); failure is step 5. Then the global `showconfig` (the word at gp-8000, loaded in the delay slot of
+  the branch that tests command 2's result) decides the rest. When it is zero the routine skips straight to clearing flag bit 0x200 (an AND with -513)
+  and returns 0, so command 8 is never sent. When it is set, command 8 goes through `ql_mbox_cmd(record, &sp+32, 1, 3, 8, ...)`; failure is step 6 and
+  leaves the flag bit set. On success it prints `Firmware version: %d.%d.%d` with the reply halfwords 1, 2 and 3 of the array at
+  sp+32; the command asks for only three replies, so halfword 3 is not set by it and holds what an earlier command left there. Then it clears flag bit
+  0x200 and returns 0. The reading of the commands as register test, write word, load, execute and about-firmware, and of 0x200 as
   "firmware loading", is inferred; the numbers are those passed to `ql_mbox_cmd`.
 
 - `qlattach` (`6.5.30/unix.IP27`, address 0xc0000000000cb36c, 2060 bytes, 192-byte frame): **inferred.**
