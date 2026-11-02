@@ -7086,7 +7086,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000011fca8	76	in_bcast_iaddr_refcnt	symtab	370da7df96a6		out:1	undocumented		
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000011fcf4	84	in_bcast_update	symtab	8a6dcd6a206f		out:1	undocumented		
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000011fd48	128	in_inifaddr_alloc	symtab	9dcf48c44d0c		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000011fdc8	248	inet_ntoa	symtab	0d56f47a6821		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000011fdc8	248	inet_ntoa	symtab	0d56f47a6821		out:1	named-only	docs/userland.md#6530usretcrpcrquotad	`6.5.30/usr/etc/rpc.rquotad`
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000011fec0	712	inet_addr	symtab	276faf19c6c4		out:1	undocumented		
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000120188	20	in_net_enummatch	symtab	8799841c3575		out:1	undocumented		
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000012019c	200	in_netof	symtab	8b992d26a4ad		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -9285,7 +9285,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001f4a1c	160	fchproj	symtab	83f4c42c2f2c		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001f4abc	276	truncate64	symtab	80e675a76d75		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001f4bd0	252	truncate	symtab	f872852fd7d4		out:1	named-only	docs/syscalls.md#entries	Entries
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001f4ccc	392	ftruncate64	symtab	7623cc0bfc74		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001f4ccc	392	ftruncate64	symtab	7623cc0bfc74		out:1	named-only	docs/userland.md#6530usrsbinxfs_db	`6.5.30/usr/sbin/xfs_db`
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001f4e54	368	ftruncate	symtab	68ccc283439b		out:1	named-only	docs/syscalls.md#entries	Entries
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001f50b8	260	utime	symtab	f450deb5fcf6		out:1	named-only	docs/syscalls.md#entries	Entries
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001f51bc	356	utimets	symtab	7af525016486		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -11731,9 +11731,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000324800	28	xdr_bp_fileid_t	symtab	e44772c44fe5		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000032481c	116	xdr_ip_addr_t	symtab	ade9e6e77ce5		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000324890	40	xdr_bp_address	symtab	ca083a3cdbfd		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000003248b8	28	xdr_bp_whoami_arg	symtab	a84fbe2fdef7		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000003248b8	28	xdr_bp_whoami_arg	symtab	a84fbe2fdef7		out:1	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000003248d4	100	xdr_bp_whoami_res	symtab	ba8b1612b0bb		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000324938	72	xdr_bp_getfile_arg	symtab	9f97c0b76e36		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000324938	72	xdr_bp_getfile_arg	symtab	9f97c0b76e36		out:1	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000324980	108	xdr_bp_getfile_res	symtab	2ef2d4ec3b4c		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000326844	164	autofs_init	symtab	8205b9239346		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000003270a8	432	autofs_sys	symtab	7f5c5622c8a1		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -19809,7 +19809,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200dc4a8	76	in_bcast_iaddr_refcnt	symtab	370da7df96a6		out:1	undocumented		
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200dc4f4	84	in_bcast_update	symtab	8a6dcd6a206f		out:1	undocumented		
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200dc548	128	in_inifaddr_alloc	symtab	0f44097d6be5		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200dc5c8	248	inet_ntoa	symtab	5b411597e783		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200dc5c8	248	inet_ntoa	symtab	5b411597e783		out:1	named-only	docs/userland.md#6530usretcrpcrquotad	`6.5.30/usr/etc/rpc.rquotad`
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200dc6c0	712	inet_addr	symtab	276faf19c6c4		out:1	undocumented		
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200dc988	20	in_net_enummatch	symtab	8799841c3575		out:1	undocumented		
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200dc99c	200	in_netof	symtab	7aea2998de4b		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -21880,7 +21880,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa80000002019a13c	160	fchproj	symtab	d695a944d62c		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa80000002019a1dc	276	truncate64	symtab	eaa35d231695		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa80000002019a2f0	252	truncate	symtab	f212675c747a		out:1	named-only	docs/syscalls.md#entries	Entries
-6.5.22/unix.IP30	shared-kernel	n64	.text	0xa80000002019a3ec	392	ftruncate64	symtab	d75712783780		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP30	shared-kernel	n64	.text	0xa80000002019a3ec	392	ftruncate64	symtab	d75712783780		out:1	named-only	docs/userland.md#6530usrsbinxfs_db	`6.5.30/usr/sbin/xfs_db`
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa80000002019a574	368	ftruncate	symtab	fa8f2bb337e3		out:1	named-only	docs/syscalls.md#entries	Entries
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa80000002019a7d8	260	utime	symtab	8474a4773fd4		out:1	named-only	docs/syscalls.md#entries	Entries
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa80000002019a8dc	356	utimets	symtab	005526e832e6		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -24152,9 +24152,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000202ae248	28	xdr_bp_fileid_t	symtab	50944a1c0e11		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000202ae264	116	xdr_ip_addr_t	symtab	90443b9fc522		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000202ae2d8	40	xdr_bp_address	symtab	3695e9ca15a0		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000202ae300	28	xdr_bp_whoami_arg	symtab	138e9cb078dd		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000202ae300	28	xdr_bp_whoami_arg	symtab	138e9cb078dd		out:1	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000202ae31c	100	xdr_bp_whoami_res	symtab	71bd03610f15		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000202ae380	72	xdr_bp_getfile_arg	symtab	996769c7d331		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000202ae380	72	xdr_bp_getfile_arg	symtab	996769c7d331		out:1	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000202ae3c8	108	xdr_bp_getfile_res	symtab	4dd5138cc4e9		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000202b028c	164	autofs_init	symtab	08a4cb89004e		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000202b0af0	432	autofs_sys	symtab	d2ff793e6a8b		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -33709,7 +33709,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000182f8c	76	in_bcast_iaddr_refcnt	symtab	370da7df96a6		out:1	undocumented		
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000182fd8	84	in_bcast_update	symtab	8a6dcd6a206f		out:1	undocumented		
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000018302c	128	in_inifaddr_alloc	symtab	a6814123a0ee		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000001830ac	248	inet_ntoa	symtab	5346fc4c0c21		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000001830ac	248	inet_ntoa	symtab	5346fc4c0c21		out:1	named-only	docs/userland.md#6530usretcrpcrquotad	`6.5.30/usr/etc/rpc.rquotad`
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000001831a4	712	inet_addr	symtab	276faf19c6c4		out:1	undocumented		
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000018346c	20	in_net_enummatch	symtab	8799841c3575		out:1	undocumented		
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000183480	200	in_netof	symtab	b51aa41ed506		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -36124,7 +36124,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000026b8a4	160	fchproj	symtab	21450b0db199		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000026b944	276	truncate64	symtab	96a9ad765a67		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000026ba58	252	truncate	symtab	5a2adaae0aa0		out:1	named-only	docs/syscalls.md#entries	Entries
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000026bb54	392	ftruncate64	symtab	2b0fc24f7a40		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000026bb54	392	ftruncate64	symtab	2b0fc24f7a40		out:1	named-only	docs/userland.md#6530usrsbinxfs_db	`6.5.30/usr/sbin/xfs_db`
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000026bcdc	368	ftruncate	symtab	9ee5a2f24f00		out:1	named-only	docs/syscalls.md#entries	Entries
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000026bf40	260	utime	symtab	02fe3922be72		out:1	named-only	docs/syscalls.md#entries	Entries
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000026c044	356	utimets	symtab	cbbe9d12bac0		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -38539,9 +38539,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000397ffc	28	xdr_bp_fileid_t	symtab	7ff1e47ffab5		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000398018	116	xdr_ip_addr_t	symtab	95fc39ef5128		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000039808c	40	xdr_bp_address	symtab	a8d3cba577d9		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000003980b4	28	xdr_bp_whoami_arg	symtab	c18ee4055d9d		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000003980b4	28	xdr_bp_whoami_arg	symtab	c18ee4055d9d		out:1	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000003980d0	100	xdr_bp_whoami_res	symtab	7ee0a34104b2		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000398134	72	xdr_bp_getfile_arg	symtab	3b2714c8ddf3		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000398134	72	xdr_bp_getfile_arg	symtab	3b2714c8ddf3		out:1	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000039817c	108	xdr_bp_getfile_res	symtab	359c6e6917ee		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000039a040	164	autofs_init	symtab	84b15b6498a2		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000039a8a4	432	autofs_sys	symtab	0f436b62e3fc		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -40791,7 +40791,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/bsd.a(in.o)	shared-kernel	n32	.text	0xd10	76	in_bcast_iaddr_refcnt	dwarf+symtab	e7a26bf84e05		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/bsd.a(in.o)	shared-kernel	n32	.text	0xd5c	84	in_bcast_update	dwarf+symtab	6c7b77e019d3		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/bsd.a(in.o)	shared-kernel	n32	.text	0xdb0	128	in_inifaddr_alloc	dwarf+symtab	f3e4fa7235f9		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP22boot/bsd.a(in.o)	shared-kernel	n32	.text	0xe30	252	inet_ntoa	dwarf+symtab	cd8940990bc0		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP22boot/bsd.a(in.o)	shared-kernel	n32	.text	0xe30	252	inet_ntoa	dwarf+symtab	cd8940990bc0		out:3	named-only	docs/userland.md#6530usretcrpcrquotad	`6.5.30/usr/etc/rpc.rquotad`
 6.5.22/usr/cpu/sysgen/IP22boot/bsd.a(in.o)	shared-kernel	n32	.text	0xf2c	704	inet_addr	dwarf+symtab	1e0080bcc49a		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/bsd.a(in.o)	shared-kernel	n32	.text	0x11ec	16	in_net_enummatch	dwarf+symtab	e07cd1a1c1eb		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/bsd.a(in.o)	shared-kernel	n32	.text	0x11fc	204	in_netof	dwarf+symtab	a08680968215		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -47336,9 +47336,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/nfs.a(bootparam_xdr.o)	shared-kernel	n32	.text	0x38	28	xdr_bp_fileid_t	dwarf+symtab	4d5fe93a3886		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/nfs.a(bootparam_xdr.o)	shared-kernel	n32	.text	0x54	116	xdr_ip_addr_t	dwarf+symtab	16de7153bdf0		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/nfs.a(bootparam_xdr.o)	shared-kernel	n32	.text	0xc8	44	xdr_bp_address	dwarf+symtab	2f43d452f8c5		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP22boot/nfs.a(bootparam_xdr.o)	shared-kernel	n32	.text	0xf4	28	xdr_bp_whoami_arg	dwarf+symtab	34d7a2e33b85		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP22boot/nfs.a(bootparam_xdr.o)	shared-kernel	n32	.text	0xf4	28	xdr_bp_whoami_arg	dwarf+symtab	34d7a2e33b85		out:3	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.22/usr/cpu/sysgen/IP22boot/nfs.a(bootparam_xdr.o)	shared-kernel	n32	.text	0x110	100	xdr_bp_whoami_res	dwarf+symtab	66d2b56fcde7		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP22boot/nfs.a(bootparam_xdr.o)	shared-kernel	n32	.text	0x174	72	xdr_bp_getfile_arg	dwarf+symtab	6fb4b84fc94d		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP22boot/nfs.a(bootparam_xdr.o)	shared-kernel	n32	.text	0x174	72	xdr_bp_getfile_arg	dwarf+symtab	6fb4b84fc94d		out:3	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.22/usr/cpu/sysgen/IP22boot/nfs.a(bootparam_xdr.o)	shared-kernel	n32	.text	0x1bc	108	xdr_bp_getfile_res	dwarf+symtab	71c81e7c7e98		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/nfs.a(nfs_vfsops.o)	shared-kernel	n32	.text	0x0	208	nfs_init	dwarf+symtab	46c13b289366		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/nfs.a(nfs_vfsops.o)	shared-kernel	n32	.text	0xd0	1700	nfs_mount	dwarf+funcnames+symtab	f569a65c8118		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -50834,7 +50834,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x4034	160	fchproj	dwarf+symtab	10136335f197		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x40d4	264	truncate64	dwarf+symtab	6d868f030bb5		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x41dc	304	truncate	dwarf+symtab	c327668ba3ee		out:3	named-only	docs/syscalls.md#entries	Entries
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x430c	380	ftruncate64	dwarf+symtab	29dbd00b8fc0		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x430c	380	ftruncate64	dwarf+symtab	29dbd00b8fc0		out:3	named-only	docs/userland.md#6530usrsbinxfs_db	`6.5.30/usr/sbin/xfs_db`
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x4488	404	ftruncate	dwarf+symtab	bc18334c51a4		out:3	named-only	docs/syscalls.md#entries	Entries
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x461c	184	ctruncate	dwarf+funcnames+symtab	d2b402115e45		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x46d4	256	utime	dwarf+symtab	e65480e9c215		out:3	named-only	docs/syscalls.md#entries	Entries
@@ -56424,7 +56424,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/bsd.a(in.o)	shared-kernel	n64	.text	0xc54	76	in_bcast_iaddr_refcnt	dwarf+symtab	370da7df96a6		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/bsd.a(in.o)	shared-kernel	n64	.text	0xca0	84	in_bcast_update	dwarf+symtab	8a6dcd6a206f		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/bsd.a(in.o)	shared-kernel	n64	.text	0xcf4	128	in_inifaddr_alloc	dwarf+symtab	b1c13017247a		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP27boot/bsd.a(in.o)	shared-kernel	n64	.text	0xd74	248	inet_ntoa	dwarf+symtab	2be7d6255350		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP27boot/bsd.a(in.o)	shared-kernel	n64	.text	0xd74	248	inet_ntoa	dwarf+symtab	2be7d6255350		out:3	named-only	docs/userland.md#6530usretcrpcrquotad	`6.5.30/usr/etc/rpc.rquotad`
 6.5.22/usr/cpu/sysgen/IP27boot/bsd.a(in.o)	shared-kernel	n64	.text	0xe6c	712	inet_addr	dwarf+symtab	276faf19c6c4		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/bsd.a(in.o)	shared-kernel	n64	.text	0x1134	20	in_net_enummatch	dwarf+symtab	8799841c3575		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/bsd.a(in.o)	shared-kernel	n64	.text	0x1148	200	in_netof	dwarf+symtab	519f6c45d8e9		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -64725,9 +64725,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/nfs.a(bootparam_xdr.o)	shared-kernel	n64	.text	0x38	28	xdr_bp_fileid_t	dwarf+symtab	97a1c0640bc0		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/nfs.a(bootparam_xdr.o)	shared-kernel	n64	.text	0x54	116	xdr_ip_addr_t	dwarf+symtab	96dd85de7aaf		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/nfs.a(bootparam_xdr.o)	shared-kernel	n64	.text	0xc8	40	xdr_bp_address	dwarf+symtab	922835c76806		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP27boot/nfs.a(bootparam_xdr.o)	shared-kernel	n64	.text	0xf0	28	xdr_bp_whoami_arg	dwarf+symtab	a86de4a9d7a4		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP27boot/nfs.a(bootparam_xdr.o)	shared-kernel	n64	.text	0xf0	28	xdr_bp_whoami_arg	dwarf+symtab	a86de4a9d7a4		out:3	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.22/usr/cpu/sysgen/IP27boot/nfs.a(bootparam_xdr.o)	shared-kernel	n64	.text	0x10c	100	xdr_bp_whoami_res	dwarf+symtab	690c2c63d6b7		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP27boot/nfs.a(bootparam_xdr.o)	shared-kernel	n64	.text	0x170	72	xdr_bp_getfile_arg	dwarf+symtab	337ad9eceb15		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP27boot/nfs.a(bootparam_xdr.o)	shared-kernel	n64	.text	0x170	72	xdr_bp_getfile_arg	dwarf+symtab	337ad9eceb15		out:3	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.22/usr/cpu/sysgen/IP27boot/nfs.a(bootparam_xdr.o)	shared-kernel	n64	.text	0x1b8	108	xdr_bp_getfile_res	dwarf+symtab	f0ca1677d247		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/nfs.a(nfs_vfsops.o)	shared-kernel	n64	.text	0x0	196	nfs_init	dwarf+symtab	f7d47ed98588		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/nfs.a(nfs_vfsops.o)	shared-kernel	n64	.text	0xc4	1504	nfs_mount	dwarf+symtab	4bb78667b1ca		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -68636,7 +68636,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4748	160	fchproj	dwarf+symtab	33477d96e51e		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x47e8	276	truncate64	dwarf+symtab	f3fcfab462eb		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x48fc	252	truncate	dwarf+symtab	dd9e193a46c4		out:3	named-only	docs/syscalls.md#entries	Entries
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x49f8	392	ftruncate64	dwarf+symtab	058712b386e8		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x49f8	392	ftruncate64	dwarf+symtab	058712b386e8		out:3	named-only	docs/userland.md#6530usrsbinxfs_db	`6.5.30/usr/sbin/xfs_db`
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4b80	368	ftruncate	dwarf+symtab	7a6a31ddcabe		out:3	named-only	docs/syscalls.md#entries	Entries
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4cf0	244	ctruncate	dwarf+symtab	67622203bab3		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4de4	260	utime	dwarf+symtab	bbf9a38a5211		out:3	named-only	docs/syscalls.md#entries	Entries
@@ -75916,7 +75916,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/bsd.a(in.o)	shared-kernel	n64	.text	0xc54	76	in_bcast_iaddr_refcnt	dwarf+symtab	370da7df96a6		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/bsd.a(in.o)	shared-kernel	n64	.text	0xca0	84	in_bcast_update	dwarf+symtab	8a6dcd6a206f		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/bsd.a(in.o)	shared-kernel	n64	.text	0xcf4	128	in_inifaddr_alloc	dwarf+symtab	b1c13017247a		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP30boot/bsd.a(in.o)	shared-kernel	n64	.text	0xd74	248	inet_ntoa	dwarf+symtab	2be7d6255350		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP30boot/bsd.a(in.o)	shared-kernel	n64	.text	0xd74	248	inet_ntoa	dwarf+symtab	2be7d6255350		out:3	named-only	docs/userland.md#6530usretcrpcrquotad	`6.5.30/usr/etc/rpc.rquotad`
 6.5.22/usr/cpu/sysgen/IP30boot/bsd.a(in.o)	shared-kernel	n64	.text	0xe6c	712	inet_addr	dwarf+symtab	276faf19c6c4		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/bsd.a(in.o)	shared-kernel	n64	.text	0x1134	20	in_net_enummatch	dwarf+symtab	8799841c3575		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/bsd.a(in.o)	shared-kernel	n64	.text	0x1148	200	in_netof	dwarf+symtab	519f6c45d8e9		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -86129,7 +86129,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4748	160	fchproj	dwarf+symtab	33477d96e51e		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x47e8	276	truncate64	dwarf+symtab	f3fcfab462eb		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x48fc	252	truncate	dwarf+symtab	dd9e193a46c4		out:3	named-only	docs/syscalls.md#entries	Entries
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x49f8	392	ftruncate64	dwarf+symtab	058712b386e8		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x49f8	392	ftruncate64	dwarf+symtab	058712b386e8		out:3	named-only	docs/userland.md#6530usrsbinxfs_db	`6.5.30/usr/sbin/xfs_db`
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4b80	368	ftruncate	dwarf+symtab	7a6a31ddcabe		out:3	named-only	docs/syscalls.md#entries	Entries
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4cf0	244	ctruncate	dwarf+symtab	67622203bab3		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4de4	260	utime	dwarf+symtab	bbf9a38a5211		out:3	named-only	docs/syscalls.md#entries	Entries
@@ -92163,7 +92163,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/bsd.a(in.o)	shared-kernel	n32	.text	0xd10	76	in_bcast_iaddr_refcnt	dwarf+symtab	e7a26bf84e05		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/bsd.a(in.o)	shared-kernel	n32	.text	0xd5c	84	in_bcast_update	dwarf+symtab	6c7b77e019d3		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/bsd.a(in.o)	shared-kernel	n32	.text	0xdb0	128	in_inifaddr_alloc	dwarf+symtab	f3e4fa7235f9		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP32boot/bsd.a(in.o)	shared-kernel	n32	.text	0xe30	252	inet_ntoa	dwarf+symtab	cd8940990bc0		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP32boot/bsd.a(in.o)	shared-kernel	n32	.text	0xe30	252	inet_ntoa	dwarf+symtab	cd8940990bc0		out:3	named-only	docs/userland.md#6530usretcrpcrquotad	`6.5.30/usr/etc/rpc.rquotad`
 6.5.22/usr/cpu/sysgen/IP32boot/bsd.a(in.o)	shared-kernel	n32	.text	0xf2c	704	inet_addr	dwarf+symtab	1e0080bcc49a		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/bsd.a(in.o)	shared-kernel	n32	.text	0x11ec	16	in_net_enummatch	dwarf+symtab	e07cd1a1c1eb		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/bsd.a(in.o)	shared-kernel	n32	.text	0x11fc	204	in_netof	dwarf+symtab	a08680968215		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -101489,7 +101489,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x4034	160	fchproj	dwarf+symtab	10136335f197		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x40d4	264	truncate64	dwarf+symtab	6d868f030bb5		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x41dc	304	truncate	dwarf+symtab	c327668ba3ee		out:3	named-only	docs/syscalls.md#entries	Entries
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x430c	380	ftruncate64	dwarf+symtab	29dbd00b8fc0		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x430c	380	ftruncate64	dwarf+symtab	29dbd00b8fc0		out:3	named-only	docs/userland.md#6530usrsbinxfs_db	`6.5.30/usr/sbin/xfs_db`
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x4488	404	ftruncate	dwarf+symtab	bc18334c51a4		out:3	named-only	docs/syscalls.md#entries	Entries
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x461c	184	ctruncate	dwarf+funcnames+symtab	d2b402115e45		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x46d4	256	utime	dwarf+symtab	e65480e9c215		out:3	named-only	docs/syscalls.md#entries	Entries
@@ -106389,7 +106389,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/bsd.a(in.o)	shared-kernel	n64	.text	0xc54	76	in_bcast_iaddr_refcnt	dwarf+symtab	370da7df96a6		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/bsd.a(in.o)	shared-kernel	n64	.text	0xca0	84	in_bcast_update	dwarf+symtab	8a6dcd6a206f		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/bsd.a(in.o)	shared-kernel	n64	.text	0xcf4	128	in_inifaddr_alloc	dwarf+symtab	b1c13017247a		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP35boot/bsd.a(in.o)	shared-kernel	n64	.text	0xd74	248	inet_ntoa	dwarf+symtab	2be7d6255350		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP35boot/bsd.a(in.o)	shared-kernel	n64	.text	0xd74	248	inet_ntoa	dwarf+symtab	2be7d6255350		out:3	named-only	docs/userland.md#6530usretcrpcrquotad	`6.5.30/usr/etc/rpc.rquotad`
 6.5.22/usr/cpu/sysgen/IP35boot/bsd.a(in.o)	shared-kernel	n64	.text	0xe6c	712	inet_addr	dwarf+symtab	276faf19c6c4		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/bsd.a(in.o)	shared-kernel	n64	.text	0x1134	20	in_net_enummatch	dwarf+symtab	8799841c3575		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/bsd.a(in.o)	shared-kernel	n64	.text	0x1148	200	in_netof	dwarf+symtab	519f6c45d8e9		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -118517,7 +118517,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4748	160	fchproj	dwarf+symtab	33477d96e51e		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x47e8	276	truncate64	dwarf+symtab	f3fcfab462eb		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x48fc	252	truncate	dwarf+symtab	dd9e193a46c4		out:3	named-only	docs/syscalls.md#entries	Entries
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x49f8	392	ftruncate64	dwarf+symtab	058712b386e8		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x49f8	392	ftruncate64	dwarf+symtab	058712b386e8		out:3	named-only	docs/userland.md#6530usrsbinxfs_db	`6.5.30/usr/sbin/xfs_db`
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4b80	368	ftruncate	dwarf+symtab	7a6a31ddcabe		out:3	named-only	docs/syscalls.md#entries	Entries
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4cf0	244	ctruncate	dwarf+symtab	67622203bab3		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4de4	260	utime	dwarf+symtab	bbf9a38a5211		out:3	named-only	docs/syscalls.md#entries	Entries
@@ -132519,7 +132519,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000011898c	76	in_bcast_iaddr_refcnt	symtab	370da7df96a6		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001189d8	84	in_bcast_update	symtab	8a6dcd6a206f		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000118a2c	128	in_inifaddr_alloc	symtab	ddeac505029d		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000118aac	248	inet_ntoa	symtab	af6e197cf2d4		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000118aac	248	inet_ntoa	symtab	af6e197cf2d4		out:1	named-only	docs/userland.md#6530usretcrpcrquotad	`6.5.30/usr/etc/rpc.rquotad`
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000118ba4	712	inet_addr	symtab	276faf19c6c4		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000118e6c	20	in_net_enummatch	symtab	8799841c3575		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000118e80	200	in_netof	symtab	d0aea87be8dc		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -134762,7 +134762,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001f8c7c	160	fchproj	symtab	c8b010dce672		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001f8d1c	276	truncate64	symtab	a9cfe87e8126		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001f8e30	252	truncate	symtab	900288d87209		out:1	named-only	docs/syscalls.md#entries	Entries
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001f8f2c	392	ftruncate64	symtab	d568796f6dcc		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001f8f2c	392	ftruncate64	symtab	d568796f6dcc		out:1	named-only	docs/userland.md#6530usrsbinxfs_db	`6.5.30/usr/sbin/xfs_db`
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001f90b4	368	ftruncate	symtab	ae574c4f9661		out:1	named-only	docs/syscalls.md#entries	Entries
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001f9318	260	utime	symtab	5f0d15acd02f		out:1	named-only	docs/syscalls.md#entries	Entries
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001f941c	356	utimets	symtab	29f49b2878c8		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -137163,9 +137163,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000032abd0	28	xdr_bp_fileid_t	symtab	15d9860523b1		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000032abec	116	xdr_ip_addr_t	symtab	8054089d966f		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000032ac60	40	xdr_bp_address	symtab	775f05e5a44c		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000032ac88	28	xdr_bp_whoami_arg	symtab	ad270a42c7a3		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000032ac88	28	xdr_bp_whoami_arg	symtab	ad270a42c7a3		out:1	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000032aca4	100	xdr_bp_whoami_res	symtab	35890dfa84e1		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000032ad08	72	xdr_bp_getfile_arg	symtab	37ab03ac222a		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000032ad08	72	xdr_bp_getfile_arg	symtab	37ab03ac222a		out:1	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000032ad50	108	xdr_bp_getfile_res	symtab	2ae5ed4ddc9d		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000032adc4	84	udf_rwlock	symtab	98350c5ec142		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000032ae18	76	udf_rwunlock	symtab	9daa88e0b7dc		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -145531,7 +145531,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200f0a40	76	in_bcast_iaddr_refcnt	symtab	370da7df96a6		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200f0a8c	84	in_bcast_update	symtab	8a6dcd6a206f		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200f0ae0	128	in_inifaddr_alloc	symtab	c779beac2c3b		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200f0b60	248	inet_ntoa	symtab	92af56b05c94		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200f0b60	248	inet_ntoa	symtab	92af56b05c94		out:1	named-only	docs/userland.md#6530usretcrpcrquotad	`6.5.30/usr/etc/rpc.rquotad`
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200f0c58	712	inet_addr	symtab	276faf19c6c4		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200f0f20	20	in_net_enummatch	symtab	8799841c3575		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200f0f34	200	in_netof	symtab	a05b20e70248		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -147657,7 +147657,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201b9f80	160	fchproj	symtab	92e91f0af21a		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201ba020	276	truncate64	symtab	d2bac219e440		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201ba134	252	truncate	symtab	547a5c52732d		out:1	named-only	docs/syscalls.md#entries	Entries
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201ba230	392	ftruncate64	symtab	c935074eee9e		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201ba230	392	ftruncate64	symtab	c935074eee9e		out:1	named-only	docs/userland.md#6530usrsbinxfs_db	`6.5.30/usr/sbin/xfs_db`
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201ba3b8	368	ftruncate	symtab	ce3938250a5a		out:1	named-only	docs/syscalls.md#entries	Entries
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201ba61c	260	utime	symtab	c4ff12c8d1e7		out:1	named-only	docs/syscalls.md#entries	Entries
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201ba720	356	utimets	symtab	548fd48b25a5		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -149958,9 +149958,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000202d9950	28	xdr_bp_fileid_t	symtab	fd595ad17e8e		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000202d996c	116	xdr_ip_addr_t	symtab	79aec054477f		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000202d99e0	40	xdr_bp_address	symtab	9aea2d39e330		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000202d9a08	28	xdr_bp_whoami_arg	symtab	65090e891005		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000202d9a08	28	xdr_bp_whoami_arg	symtab	65090e891005		out:1	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000202d9a24	100	xdr_bp_whoami_res	symtab	a31cc06ad61a		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000202d9a88	72	xdr_bp_getfile_arg	symtab	e91f58ed544d		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000202d9a88	72	xdr_bp_getfile_arg	symtab	e91f58ed544d		out:1	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000202d9ad0	108	xdr_bp_getfile_res	symtab	ffcc59860950		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000202d9cb4	2076	nfs3_fcntl	symtab	4626b2a7ed60		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000202da4d0	8	nfs3_getvnodeops	symtab	022c5250663d		out:1	located	docs/kernel-debug-signatures.md#6530unixip27	`6.5.30/unix.IP27`
@@ -160388,7 +160388,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001b46fc	76	in_bcast_iaddr_refcnt	symtab	370da7df96a6		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001b4748	84	in_bcast_update	symtab	8a6dcd6a206f		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001b479c	128	in_inifaddr_alloc	symtab	1ef98ac3f4f5		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001b481c	248	inet_ntoa	symtab	d5ecfb993c78		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001b481c	248	inet_ntoa	symtab	d5ecfb993c78		out:1	named-only	docs/userland.md#6530usretcrpcrquotad	`6.5.30/usr/etc/rpc.rquotad`
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001b4914	712	inet_addr	symtab	276faf19c6c4		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001b4bdc	20	in_net_enummatch	symtab	8799841c3575		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001b4bf0	200	in_netof	symtab	d642b2d5777a		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -162859,7 +162859,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002a90f0	160	fchproj	symtab	8775e8ead1e7		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002a9190	276	truncate64	symtab	a811ae72ae1c		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002a92a4	252	truncate	symtab	af0eea8222cf		out:1	named-only	docs/syscalls.md#entries	Entries
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002a93a0	392	ftruncate64	symtab	4ed0192dc440		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002a93a0	392	ftruncate64	symtab	4ed0192dc440		out:1	named-only	docs/userland.md#6530usrsbinxfs_db	`6.5.30/usr/sbin/xfs_db`
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002a9528	368	ftruncate	symtab	d29ef08a3e67		out:1	named-only	docs/syscalls.md#entries	Entries
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002a978c	260	utime	symtab	6ee08b9b01b6		out:1	named-only	docs/syscalls.md#entries	Entries
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002a9890	356	utimets	symtab	0b04703e6779		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -165272,9 +165272,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003de180	28	xdr_bp_fileid_t	symtab	90742246e62d		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003de19c	116	xdr_ip_addr_t	symtab	ea5b34459382		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003de210	40	xdr_bp_address	symtab	6ccf03e8ce95		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003de238	28	xdr_bp_whoami_arg	symtab	89681b4e3358		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003de238	28	xdr_bp_whoami_arg	symtab	89681b4e3358		out:1	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003de254	100	xdr_bp_whoami_res	symtab	96e38a8a3e19		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003de2b8	72	xdr_bp_getfile_arg	symtab	02716c692395		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003de2b8	72	xdr_bp_getfile_arg	symtab	02716c692395		out:1	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003de300	108	xdr_bp_getfile_res	symtab	3f49abe8bad4		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003de4e4	2076	nfs3_fcntl	symtab	91eec16bc585		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000003ded00	8	nfs3_getvnodeops	symtab	dec1dcb84a49		out:1	located	docs/kernel-debug-signatures.md#6530unixip27	`6.5.30/unix.IP27`
@@ -167951,7 +167951,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cluster/bin/ha_gcd	userland	n32		0x10006220	2952	do_2phase	dwarf+dynsym	0e773d28ffe3		out:4	undocumented		
 6.5.30/usr/cluster/bin/ha_gcd	userland	n32		0x10006db0	2144	commit_membership_msg	dwarf+dynsym	c5259451595b		out:4	undocumented		
 6.5.30/usr/cluster/bin/ha_gcd	userland	n32		0x10007610	468	send_commit_msg_to_clients	dwarf+dynsym	6bd619f40557		out:4	undocumented		
-6.5.30/usr/cluster/bin/ha_gcd	userland	n32		0x100077f0	256	send_msg_to_all_clients_in_group	dwarf+dynsym	e52cd556b946		out:4	undocumented		
+6.5.30/usr/cluster/bin/ha_gcd	userland	n32		0x100077f0	256	send_msg_to_all_clients_in_group	dwarf+dynsym	e52cd556b946		out:4	named-only	docs/userland.md#6530usrclusterbinha_gcd	`6.5.30/usr/cluster/bin/ha_gcd`
 6.5.30/usr/cluster/bin/ha_gcd	userland	n32		0x100078f0	924	diff_and_apply_membership	dwarf+dynsym	bb6fd6ad0af8		out:4	undocumented		
 6.5.30/usr/cluster/bin/ha_gcd	userland	n32		0x10007c90	2268	recv_peermsg	dwarf+dynsym	07a5fa9a075c		out:4	undocumented		
 6.5.30/usr/cluster/bin/ha_gcd	userland	n32		0x10008570	960	apply_membership_change_to_temp	dwarf+dynsym	0f62b8a43592		out:4	undocumented		
@@ -168641,7 +168641,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/bsd.a(in.o)	shared-kernel	n64	.text	0xc54	76	in_bcast_iaddr_refcnt	dwarf+symtab	370da7df96a6		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/bsd.a(in.o)	shared-kernel	n64	.text	0xca0	84	in_bcast_update	dwarf+symtab	8a6dcd6a206f		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/bsd.a(in.o)	shared-kernel	n64	.text	0xcf4	128	in_inifaddr_alloc	dwarf+symtab	b1c13017247a		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP27boot/bsd.a(in.o)	shared-kernel	n64	.text	0xd74	248	inet_ntoa	dwarf+symtab	2be7d6255350		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP27boot/bsd.a(in.o)	shared-kernel	n64	.text	0xd74	248	inet_ntoa	dwarf+symtab	2be7d6255350		out:3	named-only	docs/userland.md#6530usretcrpcrquotad	`6.5.30/usr/etc/rpc.rquotad`
 6.5.30/usr/cpu/sysgen/IP27boot/bsd.a(in.o)	shared-kernel	n64	.text	0xe6c	712	inet_addr	dwarf+symtab	276faf19c6c4		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/bsd.a(in.o)	shared-kernel	n64	.text	0x1134	20	in_net_enummatch	dwarf+symtab	8799841c3575		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/bsd.a(in.o)	shared-kernel	n64	.text	0x1148	200	in_netof	dwarf+symtab	519f6c45d8e9		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -177013,9 +177013,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/nfs.a(bootparam_xdr.o)	shared-kernel	n64	.text	0x38	28	xdr_bp_fileid_t	dwarf+symtab	97a1c0640bc0		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/nfs.a(bootparam_xdr.o)	shared-kernel	n64	.text	0x54	116	xdr_ip_addr_t	dwarf+symtab	96dd85de7aaf		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/nfs.a(bootparam_xdr.o)	shared-kernel	n64	.text	0xc8	40	xdr_bp_address	dwarf+symtab	922835c76806		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP27boot/nfs.a(bootparam_xdr.o)	shared-kernel	n64	.text	0xf0	28	xdr_bp_whoami_arg	dwarf+symtab	a86de4a9d7a4		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP27boot/nfs.a(bootparam_xdr.o)	shared-kernel	n64	.text	0xf0	28	xdr_bp_whoami_arg	dwarf+symtab	a86de4a9d7a4		out:3	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.30/usr/cpu/sysgen/IP27boot/nfs.a(bootparam_xdr.o)	shared-kernel	n64	.text	0x10c	100	xdr_bp_whoami_res	dwarf+symtab	690c2c63d6b7		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP27boot/nfs.a(bootparam_xdr.o)	shared-kernel	n64	.text	0x170	72	xdr_bp_getfile_arg	dwarf+symtab	337ad9eceb15		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP27boot/nfs.a(bootparam_xdr.o)	shared-kernel	n64	.text	0x170	72	xdr_bp_getfile_arg	dwarf+symtab	337ad9eceb15		out:3	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.30/usr/cpu/sysgen/IP27boot/nfs.a(bootparam_xdr.o)	shared-kernel	n64	.text	0x1b8	108	xdr_bp_getfile_res	dwarf+symtab	f0ca1677d247		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/nfs.a(nfs_vfsops.o)	shared-kernel	n64	.text	0x0	204	nfs_init	dwarf+symtab	496ca60faf5d		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/nfs.a(nfs_vfsops.o)	shared-kernel	n64	.text	0xcc	968	nfs_processargs	dwarf+symtab	fbe2d6ba064d		out:3	undocumented		
@@ -180924,7 +180924,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4748	160	fchproj	dwarf+symtab	33477d96e51e		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x47e8	276	truncate64	dwarf+symtab	f3fcfab462eb		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x48fc	252	truncate	dwarf+symtab	dd9e193a46c4		out:3	named-only	docs/syscalls.md#entries	Entries
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x49f8	392	ftruncate64	dwarf+symtab	058712b386e8		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x49f8	392	ftruncate64	dwarf+symtab	058712b386e8		out:3	named-only	docs/userland.md#6530usrsbinxfs_db	`6.5.30/usr/sbin/xfs_db`
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4b80	368	ftruncate	dwarf+symtab	7a6a31ddcabe		out:3	named-only	docs/syscalls.md#entries	Entries
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4cf0	244	ctruncate	dwarf+symtab	67622203bab3		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4de4	260	utime	dwarf+symtab	bbf9a38a5211		out:3	named-only	docs/syscalls.md#entries	Entries
@@ -188853,7 +188853,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/bsd.a(in.o)	shared-kernel	n64	.text	0xc54	76	in_bcast_iaddr_refcnt	dwarf+symtab	370da7df96a6		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/bsd.a(in.o)	shared-kernel	n64	.text	0xca0	84	in_bcast_update	dwarf+symtab	8a6dcd6a206f		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/bsd.a(in.o)	shared-kernel	n64	.text	0xcf4	128	in_inifaddr_alloc	dwarf+symtab	b1c13017247a		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP30boot/bsd.a(in.o)	shared-kernel	n64	.text	0xd74	248	inet_ntoa	dwarf+symtab	2be7d6255350		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP30boot/bsd.a(in.o)	shared-kernel	n64	.text	0xd74	248	inet_ntoa	dwarf+symtab	2be7d6255350		out:3	named-only	docs/userland.md#6530usretcrpcrquotad	`6.5.30/usr/etc/rpc.rquotad`
 6.5.30/usr/cpu/sysgen/IP30boot/bsd.a(in.o)	shared-kernel	n64	.text	0xe6c	712	inet_addr	dwarf+symtab	276faf19c6c4		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/bsd.a(in.o)	shared-kernel	n64	.text	0x1134	20	in_net_enummatch	dwarf+symtab	8799841c3575		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/bsd.a(in.o)	shared-kernel	n64	.text	0x1148	200	in_netof	dwarf+symtab	519f6c45d8e9		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -199380,7 +199380,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4748	160	fchproj	dwarf+symtab	33477d96e51e		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x47e8	276	truncate64	dwarf+symtab	f3fcfab462eb		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x48fc	252	truncate	dwarf+symtab	dd9e193a46c4		out:3	named-only	docs/syscalls.md#entries	Entries
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x49f8	392	ftruncate64	dwarf+symtab	058712b386e8		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x49f8	392	ftruncate64	dwarf+symtab	058712b386e8		out:3	named-only	docs/userland.md#6530usrsbinxfs_db	`6.5.30/usr/sbin/xfs_db`
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4b80	368	ftruncate	dwarf+symtab	7a6a31ddcabe		out:3	named-only	docs/syscalls.md#entries	Entries
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4cf0	244	ctruncate	dwarf+symtab	67622203bab3		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4de4	260	utime	dwarf+symtab	bbf9a38a5211		out:3	named-only	docs/syscalls.md#entries	Entries
@@ -206177,7 +206177,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/bsd.a(in.o)	shared-kernel	n32	.text	0xd10	76	in_bcast_iaddr_refcnt	dwarf+symtab	e7a26bf84e05		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/bsd.a(in.o)	shared-kernel	n32	.text	0xd5c	84	in_bcast_update	dwarf+symtab	6c7b77e019d3		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/bsd.a(in.o)	shared-kernel	n32	.text	0xdb0	128	in_inifaddr_alloc	dwarf+symtab	f3e4fa7235f9		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP32boot/bsd.a(in.o)	shared-kernel	n32	.text	0xe30	252	inet_ntoa	dwarf+symtab	cd8940990bc0		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP32boot/bsd.a(in.o)	shared-kernel	n32	.text	0xe30	252	inet_ntoa	dwarf+symtab	cd8940990bc0		out:3	named-only	docs/userland.md#6530usretcrpcrquotad	`6.5.30/usr/etc/rpc.rquotad`
 6.5.30/usr/cpu/sysgen/IP32boot/bsd.a(in.o)	shared-kernel	n32	.text	0xf2c	704	inet_addr	dwarf+symtab	1e0080bcc49a		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/bsd.a(in.o)	shared-kernel	n32	.text	0x11ec	16	in_net_enummatch	dwarf+symtab	e07cd1a1c1eb		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/bsd.a(in.o)	shared-kernel	n32	.text	0x11fc	204	in_netof	dwarf+symtab	a08680968215		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -213088,9 +213088,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/nfs.a(bootparam_xdr.o)	shared-kernel	n32	.text	0x38	28	xdr_bp_fileid_t	dwarf+symtab	4d5fe93a3886		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/nfs.a(bootparam_xdr.o)	shared-kernel	n32	.text	0x54	116	xdr_ip_addr_t	dwarf+symtab	16de7153bdf0		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/nfs.a(bootparam_xdr.o)	shared-kernel	n32	.text	0xc8	44	xdr_bp_address	dwarf+symtab	2f43d452f8c5		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP32boot/nfs.a(bootparam_xdr.o)	shared-kernel	n32	.text	0xf4	28	xdr_bp_whoami_arg	dwarf+symtab	34d7a2e33b85		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP32boot/nfs.a(bootparam_xdr.o)	shared-kernel	n32	.text	0xf4	28	xdr_bp_whoami_arg	dwarf+symtab	34d7a2e33b85		out:3	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.30/usr/cpu/sysgen/IP32boot/nfs.a(bootparam_xdr.o)	shared-kernel	n32	.text	0x110	100	xdr_bp_whoami_res	dwarf+symtab	66d2b56fcde7		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP32boot/nfs.a(bootparam_xdr.o)	shared-kernel	n32	.text	0x174	72	xdr_bp_getfile_arg	dwarf+symtab	6fb4b84fc94d		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP32boot/nfs.a(bootparam_xdr.o)	shared-kernel	n32	.text	0x174	72	xdr_bp_getfile_arg	dwarf+symtab	6fb4b84fc94d		out:3	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.30/usr/cpu/sysgen/IP32boot/nfs.a(bootparam_xdr.o)	shared-kernel	n32	.text	0x1bc	108	xdr_bp_getfile_res	dwarf+symtab	71c81e7c7e98		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/nfs.a(nfs_vfsops.o)	shared-kernel	n32	.text	0x0	216	nfs_init	dwarf+symtab	f09cf54fbe1f		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/nfs.a(nfs_vfsops.o)	shared-kernel	n32	.text	0xd8	972	nfs_processargs	dwarf+symtab	e31c09e9b3c1		out:3	undocumented		
@@ -216631,7 +216631,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x4034	160	fchproj	dwarf+symtab	10136335f197		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x40d4	264	truncate64	dwarf+symtab	6d868f030bb5		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x41dc	304	truncate	dwarf+symtab	c327668ba3ee		out:3	named-only	docs/syscalls.md#entries	Entries
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x430c	380	ftruncate64	dwarf+symtab	29dbd00b8fc0		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x430c	380	ftruncate64	dwarf+symtab	29dbd00b8fc0		out:3	named-only	docs/userland.md#6530usrsbinxfs_db	`6.5.30/usr/sbin/xfs_db`
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x4488	404	ftruncate	dwarf+symtab	bc18334c51a4		out:3	named-only	docs/syscalls.md#entries	Entries
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x461c	184	ctruncate	dwarf+funcnames+symtab	d2b402115e45		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(vncalls.o)	shared-kernel	n32	.text	0x46d4	256	utime	dwarf+symtab	e65480e9c215		out:3	named-only	docs/syscalls.md#entries	Entries
@@ -223277,7 +223277,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/bsd.a(in.o)	shared-kernel	n64	.text	0xc54	76	in_bcast_iaddr_refcnt	dwarf+symtab	370da7df96a6		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/bsd.a(in.o)	shared-kernel	n64	.text	0xca0	84	in_bcast_update	dwarf+symtab	8a6dcd6a206f		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/bsd.a(in.o)	shared-kernel	n64	.text	0xcf4	128	in_inifaddr_alloc	dwarf+symtab	b1c13017247a		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP35boot/bsd.a(in.o)	shared-kernel	n64	.text	0xd74	248	inet_ntoa	dwarf+symtab	2be7d6255350		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP35boot/bsd.a(in.o)	shared-kernel	n64	.text	0xd74	248	inet_ntoa	dwarf+symtab	2be7d6255350		out:3	named-only	docs/userland.md#6530usretcrpcrquotad	`6.5.30/usr/etc/rpc.rquotad`
 6.5.30/usr/cpu/sysgen/IP35boot/bsd.a(in.o)	shared-kernel	n64	.text	0xe6c	712	inet_addr	dwarf+symtab	276faf19c6c4		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/bsd.a(in.o)	shared-kernel	n64	.text	0x1134	20	in_net_enummatch	dwarf+symtab	8799841c3575		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/bsd.a(in.o)	shared-kernel	n64	.text	0x1148	200	in_netof	dwarf+symtab	519f6c45d8e9		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -235926,7 +235926,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4748	160	fchproj	dwarf+symtab	33477d96e51e		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x47e8	276	truncate64	dwarf+symtab	f3fcfab462eb		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x48fc	252	truncate	dwarf+symtab	dd9e193a46c4		out:3	named-only	docs/syscalls.md#entries	Entries
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x49f8	392	ftruncate64	dwarf+symtab	058712b386e8		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x49f8	392	ftruncate64	dwarf+symtab	058712b386e8		out:3	named-only	docs/userland.md#6530usrsbinxfs_db	`6.5.30/usr/sbin/xfs_db`
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4b80	368	ftruncate	dwarf+symtab	7a6a31ddcabe		out:3	named-only	docs/syscalls.md#entries	Entries
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4cf0	244	ctruncate	dwarf+symtab	67622203bab3		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(vncalls.o)	shared-kernel	n64	.text	0x4de4	260	utime	dwarf+symtab	bbf9a38a5211		out:3	named-only	docs/syscalls.md#entries	Entries
