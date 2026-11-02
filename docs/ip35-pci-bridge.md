@@ -844,3 +844,5 @@ Routines of the PCI bridge driver (`pcibr`) and the crosstalk bridge attach code
   than about a millisecond, it returns -1 without restoring +268; if not it delays
   `xbow_reset_delay` microseconds again and repeats. What the words at +268, +276 and +308 are in the crossbar's link
   registers: unknown here. Established.
+- `xbow_gbr_to_bytes` (`6.5.30/unix.IP35`, occupies 24 bytes at address 0xc000000000099fd0): converts a guaranteed-rate count into bytes by multiplying it by four million.
+  `a0` is the count. The multiplier comes from `lui at,0x3d` and `ori at,at,0x900` (0x3d0900, 4,000,000). `mult a0,at` is the 32-bit signed multiply, and `mflo v0` returns its low word, so the product wraps at 32 bits and the high word is never read. It makes no call, has no frame, and has no branch other than the return. Its three call sites are inside `xbow_prio_bw_alloc` (0xc00000000009a08c, 0xc00000000009a120 and 0xc00000000009a148). Established.
