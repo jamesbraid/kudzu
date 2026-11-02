@@ -4,13 +4,13 @@ Questions the binaries have not yet answered. Each entry names the routes alread
 
 ## Triage (2026-11-01)
 
-Seven entries: 6 software-now, 1 missing-input, 0 hardware-only.
+Ten entries: 7 software-now, 2 missing-input, 1 hardware-only.
 
 Route classes:
 
 - **software-now**: the next route reads or runs something already held, in a 6.5.30 or 6.5.22 binary or a held file.
 - **missing-input**: the next route needs a release, binary or configuration file that is not held. The entry names it.
-- **hardware-only**: no shipped software or published source can answer it, so it is recorded and not scheduled. No entry is in this class.
+- **hardware-only**: no shipped software or published source can answer it, so it is recorded and not scheduled. One entry is in this class (the SCSI CD-ROM section).
 
 Premises corrected in place, with the check that corrected them:
 
@@ -25,10 +25,16 @@ Software-now, in order:
 4. The panic and assert messages: extend `scripts/panic_sites.py` to the 529 sites marked not resolved.
 5. The five `sgi_mconfig` routines: read them by address in the 6.5.30 and 6.5.22 IP27 kernels.
 6. The `sysmp` and `syssgi` selector tables: run the extractor on the other selector functions. These are out of the current scope rules, so they come last.
+7. The CD-ROM class table in the media daemon's device module: read the routines at `0x01cf2c88`, `0x01cf31d8` and `0x01cf32f8` to the end ([scsi-cdrom-inquiry.md](scsi-cdrom-inquiry.md)).
 
 Missing input:
 
 - The IP32 linked kernel (row 1): no IP32 configuration is held for either release.
+- The Octane2, Origin 350, Tezro and Fuel base-I/O PROMs, the IP22 PROM and an installed 6.5.22 `mediad` with its device module: none held ([scsi-cdrom-inquiry.md](scsi-cdrom-inquiry.md)).
+
+Hardware-only:
+
+- What opcodes `0xc4` and `0xc9` do to a Toshiba or Sony drive. Routes tried: both PROM families, both kernels, the media daemon and `scsicontrol` send them but nothing reveals their effect. Next route: a vendor drive manual ([scsi-cdrom-inquiry.md](scsi-cdrom-inquiry.md)).
 
 ## Scaffold
 
