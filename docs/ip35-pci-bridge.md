@@ -335,6 +335,8 @@ Routines of the PCI bridge driver (`pcibr`) and the crosstalk bridge attach code
   0xc00000000152a168), `hwgraph_edge_remove(vertex, "controller", 0)` (0xc000000000340954; string at 0xc00000000152a178) and
   `hwgraph_edge_remove(a0, "pci", 0)`, and returns 0 (0xc00000000009e73c). None of the results other than the
   traverse is tested. Established.
+- `pciiox_init` (`6.5.30/unix.IP35`, occupies 32 bytes at address 0xc00000000009d648): registers one board-part number prefix with the NIC code.
+  It takes no argument. It calls `nic_vmc_add(string, routine)`, where the string is the pool word at 0xc00000000163e770 (gp-20480), "030-1062-" at 0xc00000000049b248, and the routine is the pool word at gp-20472, 0xc00000000009d668, the address right after this routine (set in the delay slot). It returns what `nic_vmc_add` returns. The routine at 0xc00000000009d668 was not read for this entry. The frame is 16 bytes. No instruction is branch-likely. Established.
 
 ## Interrupt connections
 
@@ -593,6 +595,43 @@ Routines of the PCI bridge driver (`pcibr`) and the crosstalk bridge attach code
   "pcibr_piotrans_addr: xio_addr == XIO_NOWHERE\n")` (0xc0000000000a1978; the string is at 0xc00000000152a3f0) and
   returns 0. Otherwise it returns `xtalk_piotrans_addr(the word at soft +0, 0, crosstalk address, size, flags & 0x1f)`
   (0xc0000000000970e8). The routine has one exit, 0xc00000000009f5a4. Established.
+- `pcibr_error_cleanup` (`6.5.30/unix.IP35`, occupies 84 bytes at address 0xc0000000000a7b10): clears the bridge's pending error state and reads back the flush register.
+  `a0` is the bridge soft state, kept in `s0`. The value passed to `pcireg_intr_reset_set` depends on the halfword at soft +114 (the chip kind): for 0 and for 1 it is 65 (0x41); for any other kind it is the
+  doubleword at 0xc0000000016444b0 (gp+3392), which holds 0x00003cff00000041. (The load of that doubleword is in the delay slot of the compare against 1, and the branch for kind 1 then overwrites it with 65.)
+  It calls `pcireg_intr_reset_set(soft, value)` and then `pcireg_tflush_get(soft)`, and returns what the second call leaves in `v0`. The frame is 16 bytes. No instruction is branch-likely. Established.
+- `pcibr_error_extract` (`6.5.30/unix.IP35`, occupies 120 bytes at address 0xc0000000000a7b64): finds the slot number of the bridge device that a bus address and size fall into, or 255.
+  `a0` is a vertex, with `a1` and `a2` saved at sp+16 and sp+24 and `a0` at sp+32. It calls `hwgraph_info_get_LBL(a0, label, &sp+0)`; the label string is at 0xc00000000152bfc0 ("_pcibr_asic_rev"), pool word
+  at gp-20320 (0xc00000000152b978) plus 1608. A nonzero result returns 255 (set in that branch's delay slot). Otherwise it calls `hwgraph_fastinfo_get(a0)`, kept at sp+8; a null result returns 255.
+  With a record it calls `pcireg_pci_bus_addr_get(record)` and then `pcibr_addr_toslot(record, that value, a1, a2, 0)`, and returns the low byte of the result (`andi` 0xff). The frame is 48 bytes. No instruction is branch-likely. Established.
+- `pcibr_piomap_probe` (`6.5.30/unix.IP35`, occupies 80 bytes at address 0xc0000000000ac0a4): checks that a probe range lies inside a bridge PIO map and hands it to a probing routine.
+  `a0` is the map record, `a1` an offset, `a2` a length and `a3` a pointer that is passed through unchanged. It returns -1 when `a1 + a2` is above the doubleword at map +24 (unsigned). Otherwise it calls the unnamed static routine
+  at 0xc0000000000ac0f4 with `a0` set to the doubleword at +8 of the soft state whose pointer is at map +64, `a1` set to `a1` plus the doubleword at map +32 (set in the delay slot) and `a2`, `a3` unchanged, and returns its result.
+  That static routine returns -1 unless `a2` is 1, 2, 4 or 8 and `a1` is a multiple of `a2` (`a1 & (a2 - 1)` is zero). Otherwise it calls the unnamed static routine at 0xc0000000000ac208 with `a0`, keeps its result, calls
+  `badaddr_val(a1, a2, a3)`, calls `pcireg_intr_reset_set(a0, 64)`, calls the static routine at 0xc0000000000ac25c when the kept result is nonzero, and returns 1 when the probe's result was nonzero and 0 when it was zero. The two static routines at 0xc0000000000ac208 and 0xc0000000000ac25c are the pair the `pcibr_disable_mst_timeout`/`pcibr_enable_mst_timeout` symbols fold together; only 0xc0000000000ac25c was read. The frame is 16 bytes. No instruction is branch-likely. Established.
+- `pcibr_map` (`6.5.30/unix.IP35`, occupies 204 bytes at address 0xc00000000009dc6c): maps a window of the bridge's registers into a process, and switches on a bridge control bit for a large window.
+  `a0` is a vertex, `a1` the first argument for `v_mapphys` (kept in `s7`), `a2` an offset (`s1`) and `a3` a length (`s8`). It calls `hwgraph_connectpt_get(a0)`, then `hwgraph_fastinfo_get` on that result (soft state `s2`), saves the
+  doubleword at soft +8 (the bridge register window) at sp+40 and drops the vertex with `hwgraph_vertex_unref`. The length is rounded up to 16 kilobytes (`a3 + 16383` ANDed with -16384, kept at sp+0). It calls
+  `v_mapphys(a1, offset + window base, rounded length)` and keeps the result. When the halfword at soft +114 is nonzero or the result is nonzero it returns the result. Otherwise, when the offset equals 0xc00000 or the rounded length is above 0xc00000, it calls `pcireg_control_bit_set(soft, 0x80000000)`.
+  It returns the `v_mapphys` result on every path. The frame is 64 bytes. No instruction is branch-likely. Established.
+- `pcibr_write_gather_flush` (`6.5.30/unix.IP35`, occupies 60 bytes at address 0xc00000000009e8d4): reads the write-response flush register for the device's slot and returns 0.
+  `a0` goes unchanged to `pciio_hostinfo_get`; the result is kept in `s8`. `pciio_info_mfast_get(that record)` gives a pointer, which the routine passes unchanged as the first argument of the unnamed static routine at 0xc00000000009dc14, with the byte at record +540 (loaded in the delay slot)
+  as the second. That static routine is a 20-byte wrapper that calls `pcireg_wrb_flush_get` with its two arguments unchanged. The result is discarded and `v0` is set to 0 after the call. The frame is 16 bytes. No instruction is branch-likely. Established.
+- `pcibr_wrb_flush` (`6.5.30/unix.IP35`, occupies 60 bytes at address 0xc0000000000a35ec): the other caller of the write-response flush read; it passes the register window and the slot, and returns 0.
+  `a0` goes unchanged to `pciio_hostinfo_get`. The byte at record +540 is loaded into `s8` in the delay slot of the next call, `pciio_info_mfast_get(record)`, whose result is a soft state; the routine passes the doubleword at +8 of it (the register window) and the slot byte to
+  `pcireg_wrb_flush_get`, discards the result, and returns 0. The frame is 16 bytes. No instruction is branch-likely. Established.
+- `pcibr_setpciint` (`6.5.30/unix.IP35`, occupies 168 bytes at address 0xc0000000000a57d8): writes a PCI interrupt's destination address and vector into the bridge.
+  `a0` is a crosstalk interrupt record (`s0`). It calls, in order, `xtalk_intr_addr_get` (result kept at sp+24), `xtalk_intr_vector_get` (`s8`), `xtalk_intr_dev_get` (`s7`) and `xtalk_intr_sfarg_get` twice. The word at the first sfarg result gives the pin (its low three bits, `s1`); the word at the second, shifted right 3 and ANDed with 1, is the second argument of `pcibr_bridge_ptr_get` (the form `pcibr_intr_disconnect` stores is the bit number with the bus number shifted left 3).
+  `pcibr_bridge_ptr_get(device, that bit)` gives the register block (sp+16). It then calls `pcireg_intr_addr_vect_set(block, pin, vector & 0xff)` and last `pcireg_intr_addr_addr_set(block, pin, address)`, whose result is returned. The frame is 64 bytes. No instruction is branch-likely. Established.
+- `pcibr_setwidint` (`6.5.30/unix.IP35`, occupies 132 bytes at address 0xc0000000000a5c78): writes the bridge's own error-interrupt destination from a crosstalk interrupt record.
+  `a0` is the crosstalk interrupt record (`s0`). It calls `xtalk_intr_target_get` (`s7`), `xtalk_intr_addr_get` (`s8`), `xtalk_intr_vector_get` (kept at sp+16) and `xtalk_intr_sfarg_get`, whose result (the bridge soft state) replaces `s0`. It then calls
+  `pcireg_intr_dst_target_id_set(soft, target & 0xff)`, `pcireg_intr_dst_addr_set(soft, address)` and `pcireg_intr_host_err_set(soft, vector & 0xff)`, in that order, and returns the last result. The frame is 48 bytes. No instruction is branch-likely. Established.
+- `pcibr_ate_addr` (`6.5.30/unix.IP35`, occupies 64 bytes at address 0xc0000000000a23fc): returns the address of one address-translation entry, from the internal or the external table.
+  `a0` is the bridge soft state and `a1` the entry index. It compares `a1` (signed, 64-bit register) with the halfword at soft +112: below it, it calls `pcireg_int_ate_addr(a0, a1)`; otherwise `pcireg_ext_ate_addr(a0, a1)`. The arguments pass through unchanged, the delay slots are `nop`, and the result is returned. The frame is 16 bytes. No instruction is branch-likely. Established.
+- `pcibr_unmap` (`6.5.30/unix.IP35`, occupies 120 bytes at address 0xc00000000009dd38): undoes the control bit that `pcibr_map` sets, and always returns 0.
+  `a0` is a vertex. It calls `hwgraph_connectpt_get(a0)` (kept in `s7`), `hwgraph_fastinfo_get` on the result (soft state, `s0`) and `hwgraph_vertex_unref(connect point)`. When the halfword at soft +114 is nonzero it returns 0. Otherwise it calls `pcireg_control_get(soft)` and, when bit 31 (0x80000000) of the result is set, `pcireg_control_bit_clr(soft, 0x80000000)`. `v0` is 0 on every path. The frame is 32 bytes. No instruction is branch-likely. Established.
+- `pcibr_enable_mst_timeout` (`6.5.30/unix.IP35`, occupies 36 bytes at address 0xc0000000000ac1e4): sets two bits in the bridge's interrupt enable register and reports whether the register changed.
+  `a0` goes unchanged to `hwgraph_fastinfo_get`; the doubleword at +8 of the result (the register window, loaded in the delay slot of the next call) is the argument of the unnamed static routine at 0xc0000000000ac25c, whose result is returned. That routine reads `pcireg_intr_enable_get`, sets the bits 0x400000800 (the doubleword at gp+3408, 0xc0000000016444c0;
+  the name suggests the master timeout, which the bits' layout here does not confirm) with `pcireg_intr_enable_bit_set` and reads the enable register again; it returns 1 when the value changed and 0 when it did not. The frame is 16 bytes. No instruction is branch-likely. Established.
 
 ## Crossbar performance counters
 
@@ -671,6 +710,40 @@ Routines of the PCI bridge driver (`pcibr`) and the crosstalk bridge attach code
   and logs "pcibr_intrd xt exiting, wait=%d msec" with the thread and the milliseconds waited. Both kinds end with
   `kmem_free(object, 0xa0)`. The record fields are named by offset only, because the debug type of `bs_intr[]` is
   anonymous. Inferred.
+- `xbow_update_llp_status` (`6.5.30/unix.IP35`, occupies 276 bytes at address 0xc000000000099bdc): timer routine that folds the crossbar's per-link status words into running totals and reports a bad link status.
+  `a0` is the crossbar vertex, kept at sp+0 and later passed on as a zero-extended 32-bit value. `hwgraph_fastinfo_get(a0)` gives the
+  soft state (`s3`); the doubleword at +16 is the register block (`s5`), the word at +8 the crossbar's own widget vertex, and the address
+  soft +320 starts a table of 16-byte total slots, one per link. The loop runs for link 0 to 7 with the widget number 8 to 15 in `s1`.
+  Every pass first calls `xbow_widget_lookup(word at +8, widget)` and then `xwidget_name_get` on its result, used or not. It reads two
+  words of the link's 64-byte slot in the register block, at slot +300 (the status) and +316. When bit 31 of the status is set it adds
+  bits 23:16 of the +316 word to the second doubleword of the link's total slot (stored first) and its top byte to the first
+  doubleword (the store is in the delay slot of the next branch), and when the status ANDed with 0x7fffffe7 is nonzero it calls
+  `cmn_err(4, "link %d[%s]: bad status 0x%x\n", link, name, status)`; the format string is at 0xc00000000049a420 (pool word
+  0xc000000000499cc8 plus 1880) and the status in `a4` is the register loaded for the test, not reloaded. That test runs only
+  when bit 31 was set. After link 7, when the word at soft +452 is nonzero, it calls
+  `timeout(itself, a0 as an unsigned 32-bit value, 100)`; the routine's own address is the pool word at 0xc00000000163e6e0 (gp-20624).
+  The routine sets no value of its own: `v0` is the result of `timeout` when that call is made. The frame is 64 bytes. No instruction is branch-likely. Established.
+- `xbow_update_perf_counters` (`6.5.30/unix.IP35`, occupies 264 bytes at address 0xc0000000000998c8): timer routine that adds each active crossbar link counter's change since the last visit to a running total, then re-arms itself.
+  `a0` is the crossbar vertex, kept in `s8`; `hwgraph_fastinfo_get(a0)` gives the soft state (`s4`). The two 16-byte counter records start at
+  soft +32 (`s0`), and the lock is the address soft +448. For counter 0 then 1 it skips a record whose byte at +5 is zero. For an active one it takes the
+  lock with `mutex_spinlock`, reads the word the pointer at record +8 points to, keeps its low 20 bits as the new count and takes bits 22:20 of that word as a
+  port index, subtracts the saved count at record +0 and masks the difference to 20 bits (zero-extended), adds it to the doubleword at
+  soft + 64 + 32 x (port index) + 8 x (byte at record +7), stores the new count at record +0 (the store is in the delay slot of the unlock call) and releases the lock with
+  `mutex_spinunlock(soft + 448, level)`. After both counters it calls `timeout(itself, a0 as an unsigned 32-bit value, 4)`, with the routine's own
+  address from the pool word 0xc00000000163e6d8 (gp-20632), and returns what `timeout` leaves in `v0`. The rearm happens whether or not a counter was active. The frame is 64 bytes. No instruction is branch-likely. Established.
+- `xbow_enable_llp_monitor` (`6.5.30/unix.IP35`, occupies 76 bytes at address 0xc000000000099d38): starts the crossbar link-status timer and sets the flag that lets it re-arm itself.
+  `a0` is the crossbar vertex, kept in `s8`. `hwgraph_fastinfo_get(a0)` gives the soft state, kept at sp+16. It calls
+  `timeout(function, a0 as an unsigned 32-bit value, 100)`; the function is the pool word at 0xc00000000163e6e0 (gp-20624), which holds 0xc000000000099bdc, the address of
+  `xbow_update_llp_status`. It returns 0 and stores the word 1 at soft +452 in the delay slot of the final `jr`, so the flag is set after the first timer is queued; that is the
+  word `xbow_update_llp_status` tests before re-arming. The frame is 32 bytes. No instruction is branch-likely. Established.
+- `xbow_disable_llp_monitor` (`6.5.30/unix.IP35`, occupies 72 bytes at address 0xc000000000099cf0): stops the link-status timer from re-arming and clears the link totals.
+  `a0` is passed unchanged to `hwgraph_fastinfo_get`; the result is the soft state (`a3`). A loop over link 0 to 7 stores a zero doubleword at soft + 16 x link + 328 and then a zero
+  doubleword at soft + 16 x link + 320 (the second store is in the delay slot of the loop branch). These are the two fields of each total slot that
+  `xbow_update_llp_status` adds to. The routine returns 0 and stores a zero word at soft +452 in the delay slot of the final `jr`. The timer already queued is not cancelled.
+  The frame is 16 bytes. No instruction is branch-likely. Established.
+- `xbow_widget_lookup` (`6.5.30/unix.IP35`, occupies 48 bytes at address 0xc00000000009881c): finds the vertex of a crossbar port from its widget number.
+  `a0` is the crossbar vertex and `a1` the widget number, kept in `s8` (saved in the delay slot of the first call). It calls `xswitch_info_get(a0)`, then
+  `xswitch_info_vhdl_get(that result, widget number & 0xff)` (the mask is in the delay slot) and returns that result. The frame is 16 bytes. No instruction is branch-likely. Established.
 
 ## Crossbar attach and links
 
