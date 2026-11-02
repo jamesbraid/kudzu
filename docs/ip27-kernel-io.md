@@ -1626,3 +1626,45 @@ No branch-likely instruction.
 Reads the four-character system controller password. `a0` is the controller handle (saved at sp+0) and `a1` the destination buffer (saved at sp+8). It calls `elsc_nvram_magic` (0xc000000000099404) with `a0`; a negative result is returned as it is.
 Otherwise it calls `elsc_nvram_read` (0xc000000000098c64) with `a0`, offset 1793 (0x701), `a1` as the destination and a length of 4, and returns that call's result. A zero byte is stored at buffer +4 (`sb zero,4(at)`, in the delay slot of the read call, so
 before the read runs), so the buffer must hold five bytes. No branch-likely instruction.
+
+## System controller non-volatile configuration bytes
+
+- `elsc_debug_get` (`6.5.30/unix.IP27`, address 0xc0000000000994c0, 120 bytes, 32-byte frame): **established.**
+Reads the two debug bytes kept in the system controller's non-volatile memory. `a0` is the controller handle (`s0`), `a1` the destination of the first byte (saved at sp+8) and `a2` the destination of the second (saved at sp+0).
+It calls `elsc_nvram_magic` (0xc000000000099404) with `a0`; a negative result is returned unchanged (0xc000000000099518). Then it calls `elsc_nvram_read` (0xc000000000098c64) twice, each for one byte: offset 1797 (0x705) into `a1`, and, if that was not
+negative, offset 1798 (0x706) into `a2`. A negative result from either read is returned unchanged; otherwise it returns 0. No branch-likely instruction.
+- `elsc_debug_set` (`6.5.30/unix.IP27`, address 0xc000000000099448, 120 bytes, 48-byte frame): **established.**
+Writes the two debug bytes. `a0` is the controller handle (`s0`), `a1` the first byte and `a2` the second. They are stored as bytes at sp+31 (`a1`) and sp+39 (`a2`; the second `sb` is in the delay slot of the magic call). `elsc_nvram_magic`
+(0xc000000000099404) is called with `a0`; a negative result is returned unchanged. Then `elsc_nvram_write` (0xc000000000098b68) is called for one byte at offset 1797 (0x705) from sp+31 and, if that was not negative, one byte at offset 1798 (0x706)
+from sp+39. A negative result from either write is returned unchanged; otherwise it returns 0. No branch-likely instruction.
+- `elsc_bist_get` (`6.5.30/unix.IP27`, address 0xc000000000099868, 84 bytes, 32-byte frame): **established.**
+Reads the built-in self-test setting byte at offset 1801 (0x709) of the controller's non-volatile memory. `a0` is the controller handle (saved at sp+8). It calls `elsc_nvram_magic` (0xc000000000099404) and then `elsc_nvram_read` (0xc000000000098c64) for one byte into sp+0.
+On success it returns that byte, zero-extended (`lbu`). On a failed marker check or a failed read it returns the low 8 bits of the negative result (`andi v0,v0,0xff` at 0xc0000000000998b0 and 0xc0000000000998b8), so an error looks like a byte value. The other getters of this group return the negative
+result unchanged. No branch-likely instruction.
+- `elsc_bist_set` (`6.5.30/unix.IP27`, address 0xc00000000009981c, 76 bytes, 32-byte frame): **established.**
+A guarded one-byte store of the self-test setting into the controller's non-volatile memory at offset 1801 (0x709). The handle in `a0` is spilled to sp+0 and the byte in `a1` to sp+31, the latter by the delay slot of the call to
+`elsc_nvram_magic` (0xc000000000099404) at 0xc000000000099828. The first `bltz` (0xc000000000099830) leaves with that call's negative result. Past it, `elsc_nvram_write` (0xc000000000098b68) is called with the handle, 1801, the address sp+31 and a length of 1;
+the second `bltz` (0xc000000000099848) leaves with a negative write result. The fall-through sets `v0` to 0 at 0xc000000000099850. No branch-likely instruction.
+- `elsc_cell_set` (`6.5.30/unix.IP27`, address 0xc000000000099788, 76 bytes, 32-byte frame): **established.**
+Offset 1805 (0x70d) of the controller's non-volatile memory holds the cell number, and this routine stores the byte it is given there. It takes the handle in `a0` (kept at sp+8) and the byte in `a1`, which an `sb` in the delay slot of the
+`elsc_nvram_magic` call (0xc000000000099794) puts at sp+0. If that check call returns a negative number, the routine returns it as it stands. Otherwise `elsc_nvram_write` (0xc000000000098b68) receives the handle, 1805, sp+0 and the length 1; a negative
+result is returned unchanged and anything else gives 0. There is no branch-likely instruction.
+- `elsc_cluster_set` (`6.5.30/unix.IP27`, address 0xc0000000000996f4, 76 bytes, 32-byte frame): **established.**
+This is the setter for the cluster number, stored at offset 1804 (0x70c). Its two arguments are the controller handle, which it keeps at sp+8, and the new byte, which lands at sp+0 during the delay slot of the call at 0xc000000000099700 to
+`elsc_nvram_magic` (0xc000000000099404). Failure of that call ends the routine with the same negative value. The write that follows, `elsc_nvram_write` (0xc000000000098b68) on one byte from sp+0, can end it the same way through the branch at 0xc000000000099720; if
+neither fails the routine returns 0. No branch-likely instruction is present.
+- `elsc_domain_set` (`6.5.30/unix.IP27`, address 0xc000000000099660, 76 bytes, 32-byte frame): **established.**
+Domain numbers go to offset 1803 (0x70b); the routine stores the byte passed in `a1` there, after the handle in `a0` has been checked. The check is `elsc_nvram_magic` (0xc000000000099404), called at 0xc00000000009966c, and the
+byte is spilled to sp+0 while the call is being made. A negative answer from the check is the routine's answer. Next comes a single-byte `elsc_nvram_write` (0xc000000000098b68), and a negative result from it again becomes the return value (branch at
+0xc00000000009968c). When both calls succeed the value returned is 0. No branch-likely instruction.
+- `elsc_module_set` (`6.5.30/unix.IP27`, address 0xc000000000099538, 76 bytes, 32-byte frame): **established.**
+The module number is the byte at offset 1800 (0x708) of the controller's non-volatile memory, and this routine replaces it. The caller supplies the handle (`a0`, saved at sp+8) and the value (`a1`, stored at sp+0 by the `sb` at 0xc000000000099548).
+Before anything is written the marker check `elsc_nvram_magic` (0xc000000000099404) must give a non-negative result, or that result is returned. The write itself is `elsc_nvram_write` (0xc000000000098b68) with length 1 from sp+0; its negative result is returned,
+and a good write ends with 0 in `v0` (0xc00000000009956c). The routine has no branch-likely instruction.
+- `elsc_partition_set` (`6.5.30/unix.IP27`, address 0xc0000000000995cc, 76 bytes, 32-byte frame): **established.**
+Partition numbers are kept at offset 1802 (0x70a). This routine puts the byte from `a1` there, with the controller handle from `a0` kept at sp+8, and the byte placed at sp+0 by the delay slot of the check call at 0xc0000000000995d8.
+The check is `elsc_nvram_magic` (0xc000000000099404); the single-byte write is `elsc_nvram_write` (0xc000000000098b68). Either may hand back a negative number, which the routine then returns without further work (branches at 0xc0000000000995e0 and 0xc0000000000995f8).
+If both are fine, 0 is returned. No instruction here is branch-likely.
+- `elsc_cell_get` (`6.5.30/unix.IP27`, address 0xc0000000000997d4, 72 bytes, 32-byte frame): **established.**
+Reads the cell number byte at offset 1805 (0x70d). `a0` is the controller handle (saved at sp+8). After `elsc_nvram_magic` (0xc000000000099404) passes, it calls `elsc_nvram_read` (0xc000000000098c64) for one byte into sp+0 and returns that byte zero-extended (`lbu` at
+0xc000000000099804). A negative result from the check or the read is returned unchanged. No branch-likely instruction.

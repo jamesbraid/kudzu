@@ -6207,20 +6207,20 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009aa90	468	elsc_process	symtab	2ad7493a3c7e		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009ac64	108	elsc_version	symtab	7755baab75c6		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009acd0	68	elsc_nvram_magic	symtab	79a5506726bc		in	located	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009ad14	120	elsc_debug_set	symtab	8ffaabef9837		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009ad8c	120	elsc_debug_get	symtab	0c903c7d1fbd		in	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009ae04	76	elsc_module_set	symtab	30df39f58659		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009ad14	120	elsc_debug_set	symtab	8ffaabef9837		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009ad8c	120	elsc_debug_get	symtab	0c903c7d1fbd		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009ae04	76	elsc_module_set	symtab	30df39f58659		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009ae50	72	elsc_module_get	symtab	9ff458fa57ec		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009ae98	76	elsc_partition_set	symtab	8ca74ee5a7ec		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009ae98	76	elsc_partition_set	symtab	8ca74ee5a7ec		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009aee4	72	elsc_partition_get	symtab	98fe4550db77		in	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009af2c	76	elsc_domain_set	symtab	0216ab4ec289		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009af2c	76	elsc_domain_set	symtab	0216ab4ec289		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009af78	72	elsc_domain_get	symtab	317c6f45542c		in	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009afc0	76	elsc_cluster_set	symtab	90e59801e424		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009afc0	76	elsc_cluster_set	symtab	90e59801e424		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009b00c	72	elsc_cluster_get	symtab	cf095490e9be		in	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009b054	76	elsc_cell_set	symtab	50d5483c70a7		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009b0a0	72	elsc_cell_get	symtab	b64ac37d66fe		in	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009b0e8	76	elsc_bist_set	symtab	ed28adcbb745		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009b134	84	elsc_bist_get	symtab	95c284ad5068		in	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009b054	76	elsc_cell_set	symtab	50d5483c70a7		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009b0a0	72	elsc_cell_get	symtab	b64ac37d66fe		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009b0e8	76	elsc_bist_set	symtab	ed28adcbb745		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009b134	84	elsc_bist_get	symtab	95c284ad5068		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009b188	280	elsc_lock	symtab	ba467b62672d		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009b2a0	104	elsc_unlock	symtab	0e69ab2c164c		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000009b308	116	elsc_display_char	symtab	d24882b737c8		in	named-only	docs/version-diffs-gp-slots.tsv	
@@ -32601,8 +32601,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d0d48	272	sc_version	symtab	45a346bd4930		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d0e58	104	sc_version_comp	symtab	94a14ab7a03d		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d0ec0	92	elsc_version	symtab	1734781633e6		in	named-only	docs/version-diffs-gp-slots.tsv	
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d0f1c	8	elsc_debug_set	symtab	87506497337c		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d0f24	280	elsc_debug_get	symtab	ba911d56f021		in	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d0f1c	8	elsc_debug_set	symtab	87506497337c		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d0f24	280	elsc_debug_get	symtab	ba911d56f021		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d103c	32	elsc_rack_bay_get	symtab	c47cb976b74e		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d1274	264	elsc_cbrick_type_get	symtab	6bb908e57bf7		in	named-only	docs/klconfig.md#the-ip35-node-class-nibble	The IP35 node class nibble
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d137c	28	elsc_rack_bay_type_get	symtab	7cb62ccd0bf6		in	named-only	docs/version-diffs-queue.tsv	
@@ -32610,7 +32610,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d1490	108	elsc_module_slab_get	symtab	cb32ccdd26c2		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d14fc	96	elsc_module_get	symtab	80237de5e15d		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d155c	224	elsc_module_get_nasid	symtab	26aec0fe1923		in	located	docs/hwgraph.md#ip35-differences	IP35 differences
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d163c	256	elsc_partition_set	symtab	612677e1888e		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d163c	256	elsc_partition_set	symtab	612677e1888e		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d173c	240	elsc_evt_unreg	symtab	da38e3d2466e		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d182c	240	elsc_pwr_off	symtab	24c9d969a305		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d191c	240	elsc_pwr_cycle	symtab	a2a1ecc97e28		in	named-only	docs/version-diffs-queue.tsv	
@@ -58386,20 +58386,20 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0x8d8	468	elsc_process	dwarf+symtab	c2edeb0a84ed		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xaac	108	elsc_version	dwarf+symtab	776417f340bf		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xb18	68	elsc_nvram_magic	dwarf+symtab	9f09a186efe8		in	located	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xb5c	120	elsc_debug_set	dwarf+symtab	14b9c9996b2c		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xbd4	120	elsc_debug_get	dwarf+symtab	ba0ec8c971a5		in	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xc4c	76	elsc_module_set	dwarf+symtab	7beb7b2e57ba		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xb5c	120	elsc_debug_set	dwarf+symtab	14b9c9996b2c		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xbd4	120	elsc_debug_get	dwarf+symtab	ba0ec8c971a5		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xc4c	76	elsc_module_set	dwarf+symtab	7beb7b2e57ba		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xc98	72	elsc_module_get	dwarf+symtab	af319d5029a2		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
-6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xce0	76	elsc_partition_set	dwarf+symtab	65e2004b34c2		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xce0	76	elsc_partition_set	dwarf+symtab	65e2004b34c2		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xd2c	72	elsc_partition_get	dwarf+symtab	e0f2e81926e2		in	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xd74	76	elsc_domain_set	dwarf+symtab	4c4a3d2438f3		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xd74	76	elsc_domain_set	dwarf+symtab	4c4a3d2438f3		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xdc0	72	elsc_domain_get	dwarf+symtab	8d02edf3062a		in	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xe08	76	elsc_cluster_set	dwarf+symtab	4f68ef6b8e9a		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xe08	76	elsc_cluster_set	dwarf+symtab	4f68ef6b8e9a		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xe54	72	elsc_cluster_get	dwarf+symtab	92d60290378a		in	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xe9c	76	elsc_cell_set	dwarf+symtab	cf15468a6f39		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xee8	72	elsc_cell_get	dwarf+symtab	c5df4b7a3f02		in	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xf30	76	elsc_bist_set	dwarf+symtab	e94b8e183086		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xf7c	84	elsc_bist_get	dwarf+symtab	378cb54cbfad		in	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xe9c	76	elsc_cell_set	dwarf+symtab	cf15468a6f39		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xee8	72	elsc_cell_get	dwarf+symtab	c5df4b7a3f02		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xf30	76	elsc_bist_set	dwarf+symtab	e94b8e183086		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xf7c	84	elsc_bist_get	dwarf+symtab	378cb54cbfad		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xfd0	280	elsc_lock	dwarf+symtab	af3c62554c7f		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0x10e8	104	elsc_unlock	dwarf+symtab	327b7bf1b83b		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0x1150	116	elsc_display_char	dwarf+symtab	d981ed9649e9		in	named-only	docs/version-diffs-gp-slots.tsv	
@@ -113869,8 +113869,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x108	272	sc_version	dwarf+symtab	e2c327083db9		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x218	104	sc_version_comp	dwarf+symtab	db96256e2435		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x280	92	elsc_version	dwarf+symtab	e28f88901abb		out:3	named-only	docs/version-diffs-gp-slots.tsv	
-6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x2dc	8	elsc_debug_set	dwarf+symtab	87506497337c		out:3	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x2e4	280	elsc_debug_get	dwarf+symtab	ebe176b7e37c		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x2dc	8	elsc_debug_set	dwarf+symtab	87506497337c		out:3	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x2e4	280	elsc_debug_get	dwarf+symtab	ebe176b7e37c		out:3	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x3fc	32	elsc_rack_bay_get	dwarf+symtab	a6fe2f721c2a		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x41c	536	_elsc_rack_bay_type_get	dwarf+symtab	df766695dbdd		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x634	264	elsc_cbrick_type_get	dwarf+symtab	dd670deb93e5		out:3	named-only	docs/klconfig.md#the-ip35-node-class-nibble	The IP35 node class nibble
@@ -113879,7 +113879,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x850	108	elsc_module_slab_get	dwarf+symtab	75017aaeb355		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x8bc	96	elsc_module_get	dwarf+symtab	752feb2a63fb		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x91c	224	elsc_module_get_nasid	dwarf+symtab	98a5d1e0869f		out:3	located	docs/hwgraph.md#ip35-differences	IP35 differences
-6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x9fc	256	elsc_partition_set	dwarf+symtab	d766196536de		out:3	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x9fc	256	elsc_partition_set	dwarf+symtab	d766196536de		out:3	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0xafc	240	elsc_evt_unreg	dwarf+symtab	988f7e769637		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0xbec	240	elsc_pwr_off	dwarf+symtab	18a361be4b54		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0xcdc	240	elsc_pwr_cycle	dwarf+symtab	e083e4739b2a		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -131690,20 +131690,20 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000991c4	468	elsc_process	symtab	812ec7e54571		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000099398	108	elsc_version	symtab	4a9b504b3306		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000099404	68	elsc_nvram_magic	symtab	30645699303f		in	understood	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000099448	120	elsc_debug_set	symtab	c27dd53e30bf		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000994c0	120	elsc_debug_get	symtab	5e05d4d5d5e9		in	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000099538	76	elsc_module_set	symtab	5f00e7887f55		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000099448	120	elsc_debug_set	symtab	c27dd53e30bf		in	understood	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000994c0	120	elsc_debug_get	symtab	5e05d4d5d5e9		in	understood	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000099538	76	elsc_module_set	symtab	5f00e7887f55		in	understood	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000099584	72	elsc_module_get	symtab	eded25329433		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000995cc	76	elsc_partition_set	symtab	3f87bd3d6d93		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000995cc	76	elsc_partition_set	symtab	3f87bd3d6d93		in	understood	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000099618	72	elsc_partition_get	symtab	9847794fa611		in	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000099660	76	elsc_domain_set	symtab	2d06b216451f		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000099660	76	elsc_domain_set	symtab	2d06b216451f		in	understood	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000996ac	72	elsc_domain_get	symtab	d61a4efa2865		in	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000996f4	76	elsc_cluster_set	symtab	671ead8c95fb		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000996f4	76	elsc_cluster_set	symtab	671ead8c95fb		in	understood	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000099740	72	elsc_cluster_get	symtab	f54e61b7e3d4		in	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000099788	76	elsc_cell_set	symtab	09c63ba62b8c		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000997d4	72	elsc_cell_get	symtab	42095cf1f8a4		in	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000009981c	76	elsc_bist_set	symtab	1596cd94ddbd		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000099868	84	elsc_bist_get	symtab	39564d4cbd86		in	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000099788	76	elsc_cell_set	symtab	09c63ba62b8c		in	understood	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000997d4	72	elsc_cell_get	symtab	42095cf1f8a4		in	understood	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000009981c	76	elsc_bist_set	symtab	1596cd94ddbd		in	understood	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000099868	84	elsc_bist_get	symtab	39564d4cbd86		in	understood	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000998bc	280	elsc_lock	symtab	6ef9c418571f		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000999d4	104	elsc_unlock	symtab	563b8ffd22dd		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000099a3c	116	elsc_display_char	symtab	c662f0d4e61a		in	named-only	docs/version-diffs-gp-slots.tsv	
@@ -159206,8 +159206,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000ce9e0	272	sc_version	symtab	39e09412c912		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000ceaf0	104	sc_version_comp	symtab	974affe80614		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000ceb58	92	elsc_version	symtab	731e6283868e		in	named-only	docs/version-diffs-gp-slots.tsv	
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000cebb4	8	elsc_debug_set	symtab	87506497337c		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000cebbc	280	elsc_debug_get	symtab	ae8c5deecac1		in	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000cebb4	8	elsc_debug_set	symtab	87506497337c		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000cebbc	280	elsc_debug_get	symtab	ae8c5deecac1		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000cecd4	32	elsc_rack_bay_get	symtab	fd0e7ea53997		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000cef0c	264	elsc_cbrick_type_get	symtab	6ffe5fc7c882		in	named-only	docs/klconfig.md#the-ip35-node-class-nibble	The IP35 node class nibble
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000cf014	28	elsc_rack_bay_type_get	symtab	84b678297303		in	named-only	docs/version-diffs-queue.tsv	
@@ -159215,7 +159215,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000cf128	108	elsc_module_slab_get	symtab	41eaaf03e0ce		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000cf194	96	elsc_module_get	symtab	a5690e6f8132		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000cf1f4	224	elsc_module_get_nasid	symtab	80dc1de65c12		in	understood	docs/hwgraph.md#ip35-differences	IP35 differences
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000cf2d4	256	elsc_partition_set	symtab	5f1b4ec89c6c		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000cf2d4	256	elsc_partition_set	symtab	5f1b4ec89c6c		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000cf3d4	240	elsc_evt_unreg	symtab	660c37dc9467		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000cf4c4	240	elsc_pwr_off	symtab	ac823878b390		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000cf5b4	240	elsc_pwr_cycle	symtab	cfe5b8803df3		in	named-only	docs/version-diffs-queue.tsv	
@@ -170646,20 +170646,20 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0x8d8	468	elsc_process	dwarf+symtab	c2edeb0a84ed		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xaac	108	elsc_version	dwarf+symtab	776417f340bf		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xb18	68	elsc_nvram_magic	dwarf+symtab	9f09a186efe8		in	located	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xb5c	120	elsc_debug_set	dwarf+symtab	14b9c9996b2c		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xbd4	120	elsc_debug_get	dwarf+symtab	ba0ec8c971a5		in	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xc4c	76	elsc_module_set	dwarf+symtab	7beb7b2e57ba		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xb5c	120	elsc_debug_set	dwarf+symtab	14b9c9996b2c		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xbd4	120	elsc_debug_get	dwarf+symtab	ba0ec8c971a5		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xc4c	76	elsc_module_set	dwarf+symtab	7beb7b2e57ba		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xc98	72	elsc_module_get	dwarf+symtab	af319d5029a2		in	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
-6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xce0	76	elsc_partition_set	dwarf+symtab	65e2004b34c2		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xce0	76	elsc_partition_set	dwarf+symtab	65e2004b34c2		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xd2c	72	elsc_partition_get	dwarf+symtab	e0f2e81926e2		in	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xd74	76	elsc_domain_set	dwarf+symtab	4c4a3d2438f3		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xd74	76	elsc_domain_set	dwarf+symtab	4c4a3d2438f3		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xdc0	72	elsc_domain_get	dwarf+symtab	8d02edf3062a		in	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xe08	76	elsc_cluster_set	dwarf+symtab	4f68ef6b8e9a		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xe08	76	elsc_cluster_set	dwarf+symtab	4f68ef6b8e9a		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xe54	72	elsc_cluster_get	dwarf+symtab	92d60290378a		in	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xe9c	76	elsc_cell_set	dwarf+symtab	cf15468a6f39		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xee8	72	elsc_cell_get	dwarf+symtab	c5df4b7a3f02		in	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xf30	76	elsc_bist_set	dwarf+symtab	e94b8e183086		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xf7c	84	elsc_bist_get	dwarf+symtab	378cb54cbfad		in	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xe9c	76	elsc_cell_set	dwarf+symtab	cf15468a6f39		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xee8	72	elsc_cell_get	dwarf+symtab	c5df4b7a3f02		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xf30	76	elsc_bist_set	dwarf+symtab	e94b8e183086		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xf7c	84	elsc_bist_get	dwarf+symtab	378cb54cbfad		in	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0xfd0	280	elsc_lock	dwarf+symtab	af3c62554c7f		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0x10e8	104	elsc_unlock	dwarf+symtab	327b7bf1b83b		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/elsc.o	shared-kernel	n64	.text	0x1150	116	elsc_display_char	dwarf+symtab	d981ed9649e9		in	named-only	docs/version-diffs-gp-slots.tsv	
@@ -231244,8 +231244,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x108	272	sc_version	dwarf+symtab	e2c327083db9		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x218	104	sc_version_comp	dwarf+symtab	db96256e2435		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x280	92	elsc_version	dwarf+symtab	e28f88901abb		out:3	named-only	docs/version-diffs-gp-slots.tsv	
-6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x2dc	8	elsc_debug_set	dwarf+symtab	87506497337c		out:3	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x2e4	280	elsc_debug_get	dwarf+symtab	ebe176b7e37c		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x2dc	8	elsc_debug_set	dwarf+symtab	87506497337c		out:3	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
+6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x2e4	280	elsc_debug_get	dwarf+symtab	ebe176b7e37c		out:3	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x3fc	32	elsc_rack_bay_get	dwarf+symtab	a6fe2f721c2a		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x41c	536	_elsc_rack_bay_type_get	dwarf+symtab	df766695dbdd		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x634	264	elsc_cbrick_type_get	dwarf+symtab	dd670deb93e5		out:3	named-only	docs/klconfig.md#the-ip35-node-class-nibble	The IP35 node class nibble
@@ -231254,7 +231254,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x850	108	elsc_module_slab_get	dwarf+symtab	75017aaeb355		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x8bc	96	elsc_module_get	dwarf+symtab	752feb2a63fb		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x91c	224	elsc_module_get_nasid	dwarf+symtab	98a5d1e0869f		out:3	located	docs/hwgraph.md#ip35-differences	IP35 differences
-6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x9fc	256	elsc_partition_set	dwarf+symtab	d766196536de		out:3	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0x9fc	256	elsc_partition_set	dwarf+symtab	d766196536de		out:3	located	docs/ip27-kernel-io.md#system-controller-non-volatile-configuration-bytes	System controller non-volatile configuration bytes
 6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0xafc	240	elsc_evt_unreg	dwarf+symtab	988f7e769637		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0xbec	240	elsc_pwr_off	dwarf+symtab	18a361be4b54		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o	shared-kernel	n64	.text	0xcdc	240	elsc_pwr_cycle	dwarf+symtab	e083e4739b2a		out:3	named-only	docs/version-diffs-queue.tsv	
