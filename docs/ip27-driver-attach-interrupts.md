@@ -160,6 +160,113 @@ meaning is inferred from the places that set and test it.
   of the controller list `ql_chip_list` (0xc0000000000cb35c) and a second `.sbss` word, the flag that tells `ql_init` whether the watchdog timer was
   started yet. It touches no hardware and returns no value.
 
+- `ql_init_board` (`6.5.30/unix.IP27`, address 0xc0000000000c75e0, 1152 bytes, 96-byte frame): **established.**
+  Creates the controller record for one QLogic board and starts the chip. `a0` is the PCI vertex (`s5`) and `a1` the mapped register block (saved at
+  sp+16). It returns the controller number of the first bus, or -1.
+  Identification: it reads config offset 0 (2 bytes, vendor), offset 2 (2 bytes, device) and offset 8 (1 byte, revision) with `pciio_config_get`. A
+  vendor other than 0x1077, or a device other than 0x1020, 0x1240, 0x1080, 0x1280 or 0x1216, prints `ql_init_board failed (1)` (`cmn_err` level 6) and
+  returns -1. The device sets two values: the bus count (1 for 0x1020 and 0x1080, 2 for 0x1240, 0x1280 and 0x1216) and a clock figure kept at sp+0 (60
+  for 0x1020 and 0x1240, 100 for 0x1080 and 0x1280, 80 for 0x1216).
+  Record: `kmem_zalloc(528, 0x901)`; a failure prints `ql_init_board failed (4)` and returns -1. It fills the name at +264 (`sprintf("%v", vertex)`),
+  the halfword device at +44, the revision byte as a halfword at +46, the result of `pcibr_asic_rev(vertex)` at +48, the clock at +52, the bus count
+  at +68, the vertex at +8 and the register block pointer at +0. The firmware image is chosen by device: 0x1020 the 1040 image, 0x1216 the 12160 image
+  and every other device the 1080 image; the image pointer goes to +56, its length (a halfword read from the image's length variable) to +64 and its
+  load address to +66.
+  Locks: `init_mutex` on +208, +176 and +192 and `init_sema(record+224, 0, "ql_mboxsema", -1)`; `alenlist_create(0)` at +168 grown by the size the
+  global `v` gives.
+  Buses: for each of the bus-count buses it allocates a 680-byte bus record (`kmem_zalloc(680, 0x901)`; failure ends with message 4), stores the
+  controller record at the bus record's +0, the bus record at controller +16+8*bus, the bus number as a halfword at +416, and calls
+  `ql_ctlr_add(vertex, bus, count)`. Its result is the bus's controller number: stored at bus +12 and at controller +32+4*bus, printed into the name
+  at bus +420, registered with `ql_ha_info_put`, and `ql_set_defaults(bus, number)` runs. The 16 words at bus +112 to +172 are set to 1.
+  Registration and start: the controller is pushed on the global list `ql_chip_list` (the old head to +520) under the driver lock;
+  `pciio_intr_alloc(vertex, device_desc_default_get(vertex), 1, vertex)` is stored at +160 and connected with
+  `pciio_intr_connect(intr, qlintr, record, 0)`; then `ql_init_isp(record, 1)`.
+  Result: when `ql_init_isp` fails it clears flag bit 0x8 (waking `vsema(record+224)` when it was set), sets the flags word at +40 to 0x20 (board
+  dead), prints `ql_init_board failed (2)` through `ql_cpmsg` and returns -1. When it succeeds, each bus's byte at +304 must have bit 0x10 set,
+  otherwise `ql_init_board failed (3)` is printed and -1 returned; with all buses accepted it returns the word at +32. The two clock figures and the
+  byte at +304 are named by use only (inferred); the register block itself is not touched here.
+
+- `ql_reset_interface` (`6.5.30/unix.IP27`, address 0xc0000000000cd340, 1792 bytes, 160-byte frame): **established.**
+  The full restart of the chip's host interface: stop it, reset it, wait for its boot firmware, start the downloaded firmware, set up both queues and
+  push every setting. `a0` (saved at sp+80) is the controller record; `a1` is saved at sp+64 and not used again. It returns 0 or a step number, and
+  every nonzero step prints `ql_reset_interface failed (%d)` with it through `ql_ppmsg`.
+  Software state first: when flag bit 0x8 is set it clears it and calls `vsema(record+224)`; it clears flag bit 0x1 of the word at +40. For each bus
+  it sets bit 0x10 in the bus word at +8 and, for each of the 16 targets that `scsi_targ_vertex_exist` reports and each of the 8 logical units that
+  `scsi_lun_vhdl_get` finds, takes the unit's lock at +84 and clears bits 0x1 and 0x8 in the unit's word at +16.
+  Ring state: it zeroes the halfwords at +74, +72 and +70 and the word at +80, sets the request queue pointer +88 to the base at +96 and the response
+  pointer +104 to the base at +112, and stores 0xdead in the word at +4 of each of the 256 response entries (64 bytes apart, a loop unrolled three
+  times).
+  Stop and reset (register offsets as used by the code): it writes 0 to +10, then 0x2000 to +194 with `flushbus`, polls +194 up to 10000 times with
+  `us_delay(100)` for bit 0x20 (failure: step 1); writes 1 to +10, `flushbus`, waits 30 microseconds; writes 0x1000 to +194, then 0x3000 to +194 with
+  `flushbus`; waits 30 microseconds and polls +194 up to 10000 times with `us_delay(100)` for bit 0x40 to clear (failure: step 2).
+  Chip-specific set-up: for the 0x1020 chip it stores 14 in the halfwords at +32 and +64; for every other chip it reads the halfword at +4, writes it
+  back with bits 0x300 set (`flushbus` after), stores 14 at +128, +160 and +192 (`flushbus` after the third), sets bit 0x2 of the halfword at +130
+  (`flushbus` after) and of the halfword at +194 (`flushbus` after) and restores the original value of +4 (`flushbus` after).
+  Boot wait and start: it polls the halfword at +114 up to 1000 times with `us_delay(1000)` while it equals 4, calls
+  `ql_enable_sram_parity(record, 0)`, writes 0x44 to +4, 0 to +14 and 0x3000 to +194, waits 30 microseconds, calls `ql_enable_intrs`, and, when the
+  process-page byte at absolute address 0xffffffffffffc523 is nonzero, writes 1 to +180 and 0 to +182 and waits 100 milliseconds. It then issues
+  mailbox command 2 through `ql_mbox_cmd(record, &sp+40, 2, 1, 2, the halfword at +66, 0, 0, ...)` (execute firmware at the load address; failure:
+  step 3).
+  Settings: `ql_set_pci_control_parameters` (step 4) and `ql_set_clock_rate` (step 5). The response queue: when the doubleword at +144 is empty it
+  builds the chip's bus address of the ring at +104 with `kvtophys` and `pciio_dmatrans_addr(device at +8, 0, address, 16384, 0x2001050)` and stores
+  it at +144; it clears the 16384-byte ring at +112 with `bzero` and sends command 83 with all eight mailbox values: 256 (queue length), the address
+  bits 16 to 31, bits 0 to 15, 0, the halfword at +74, address bits 48 to 63 and 32 to 47 (step 6). The request queue is the same with command 82, the
+  address stored at +136, the base at +96 and the halfword at +70, and the fifth value 0 is also loaded (step 7). `ql_mbox_cmd` skips the register at
+  +122 for command 83 but not for 82, so only the request queue command loads its fifth value. Then for each bus
+  `ql_set_bus_reset(record, &sp+40, the halfword at bus +416)` (step 8), and in this order, with the step number in parentheses: `ql_set_scsi_id` (9),
+  `ql_set_selection_timeout` (10), `ql_set_retry_count` (11), `ql_set_tag_age_limit` (12), `ql_set_negation_state` (13),
+  `ql_set_asynchronous_data_setup_time` (14), `ql_set_data_over_recovery_mode` (15), `ql_set_reset_delay_parameters` (16), `ql_set_system_parameters`
+  (17) and `ql_set_firmware_features` (18). On success it sets flag bit 0x1 again and returns 0. The meaning of the halfword-register names (+194 as
+  the host command register, +10 as the interrupt control register, +114 as mailbox 0) and of the values 0x2000, 0x1000 and 0x3000 as pause, reset and
+  release is inferred from the published register map.
+
+- `ql_download_fw` (`6.5.30/unix.IP27`, address 0xc0000000000ccf8c, 948 bytes, 96-byte frame): **established.**
+  Loads the chip's firmware and starts it. `a0` is the controller record (`s2`); `s1` is its register block. It returns 0 or a step number and prints
+  `ql_download_fw failed (%d)` for a nonzero one. Order of events:
+  It writes 5 to the register at +10, waits 30 microseconds, writes 0x1000 and then 0x3000 to +194 (`flushbus` after the second), waits 30
+  microseconds and polls +194 up to 10000 times with `us_delay(100)` for bit 0x40 to clear; a timeout is step 11.
+  It sets bits 0x200 and 0x800 in the flags word at +40 (the store is in the delay slot of the call) and calls `ql_enable_sram_parity(record, 1)`; a
+  nonzero result is step 7. Then `ql_enable_intrs`.
+  A mailbox register test: command 6 through `ql_mbox_cmd(record, &sp+32, 8, 8, 6, 0x1111, 0x2222, 0x3333, 0x4444, 0x5555, 0x6666, 0x7777)`; a failure
+  is step 1. It writes 0x2000 to +194, 0x44 to +4 and, after a 100-microsecond wait whose delay slot writes 0 to +14, 0x3000 to +194 with `flushbus`,
+  then waits 30 microseconds.
+  Loading: for the 0x1020 chip (halfword at record +44) it writes the image one 16-bit word at a time: mailbox command 4 with the load address (the
+  halfword at +66) plus the word index and the word, for the number of words in the halfword at +64 (failure: step 4). For every other chip it
+  allocates a buffer of twice that many bytes (`kmem_zalloc(2 * count, 0x8901)`; failure: step 7), copies the image from the pointer at +56, swaps
+  each 16-bit word (`munge16`), converts the buffer with `kvtophys` and `pciio_dmatrans_addr(device at +8, 0, address, 2 * count, 0x2001060)` and
+  sends command 9 with the load address, the count and the 64-bit bus address split over the mailbox values (failure: step 2), then frees the buffer.
+  Start: command 2 (execute firmware at the load address); failure is step 5. Then command 8 through `ql_mbox_cmd(record, &sp+32, 1, 3, 8, ...)`;
+  failure is step 6. When the global `showconfig` is set it prints `Firmware version: %d.%d.%d` with the reply halfwords 1, 2 and 3 of the array at
+  sp+32; the command asks for only three replies, so halfword 3 is not set by it and holds what an earlier command left there. It clears flag bit
+  0x200 (an AND with -513) and returns 0. The reading of the commands as register test, write word, load, execute and about-firmware, and of 0x200 as
+  "firmware loading", is inferred; the numbers are those passed to `ql_mbox_cmd`.
+
+- `qlattach` (`6.5.30/unix.IP27`, address 0xc0000000000cb36c, 2060 bytes, 192-byte frame): **inferred.**
+  The PCI attach routine of the QLogic driver, registered for the five device numbers by `qlinit`. Every device access and every failure message was
+  read; the part that probes each bus for disks (a series of hardware-graph lookups and `ql_probe_bus` calls) is summarised, which is why the grade is
+  inferred. `a0` is the PCI vertex (`s3`). It returns 0 on success and otherwise a step number, printing `qlattach() failed (%d)` through `ql_ppmsg`
+  for the failures of steps 1 to 4 below.
+  Already attached: under the driver lock it walks `ql_chip_list` for a record whose vertex (+8) matches; when found it prints
+  `%s is already attached` with the name at +264 (`cmn_err` level 6) and returns 0.
+  Mapping and enabling: it maps the register block with `pciio_pio_addr(vertex, 0, 9, 0, 256, &sp+0, 0)`, reads config offset 4 (2 bytes) and writes
+  it back with bit 0x2 set (memory space enable), duplicates the interrupt descriptor (`device_desc_dup`), names its interrupt `Qlogic SCSI`
+  (`device_desc_intr_name_set`) and installs it as the vertex's default (`device_desc_default_set`).
+  Settings by device: the device id (config offset 2) and revision (config offset 8) are read. It writes config offset 13 (1 byte) the value 64 and
+  config offset 12 (1 byte) the value 128, then asks the bridge for read response buffers with `pcibr_rrb_alloc(vertex, &sp+8, &sp+12)`: the two
+  counts are 0 and 2 for devices 0x1020 and 0x1080, 3 and 3 for 0x1216 and 2 and 2 otherwise. A negative result prints
+  `ql: Unable to get Bridge RRB's` at level 0 and goes on.
+  Controller: `ql_init(vertex, register block)` (which starts the watchdog timer on first use and calls `ql_init_board`); -1 counts a failure in the
+  `.sbss` counter and returns 1. Otherwise `ql_ha_info_from_ctlr_get` gives the record, which is locked (+208); the map handle from `pciio_pio_addr`
+  is stored at +152; for each bus (`device_inventory_add(controller number, 2, 1, -1, 0, type)`) an inventory entry is added whose type comes from the
+  device and revision: for device 0x1020 revision 4 is 9, 2 is 7, 1 is 6, 3 is 8, 5 is 11 and anything else 12; device 0x1240 is 13, 0x1080 is 14,
+  0x1280 is 15, 0x1216 is 17 and any other is 12. Type 7 (a 1020 revision 2) prints `INVALID CUSTOMER CONFIGURATION: Downrev SCSI QL1040A`.
+  Settings: `ql_set_selection_timeout` (failure: step 1), `ql_set_retry_count` (step 2), flag bit 0x1 is set in the word at +40, each bus is probed
+  (`Probing SCSI bus`, `Probing MSCSI/A [channel 0] internal SE bus.` and similar lines when `showconfig` is set), then `ql_set_selection_timeout`
+  again (step 3) and, after storing two bytes at +260 and +261, `ql_set_retry_count` again (step 4). The lock is released and 0 returned. The bus
+  probing selects a probe mode from the board's part-number text (`030-0872-`, `030-1243-`, `030-1281-`, found through the `_nic` hardware-graph label
+  with `strstr`), the bus's own slot number (`pciio_info_slot_get`, with slot 1 setting bit 0x1 of the bus word at +8 and calling `ql_set_defaults`)
+  and the differential-sense result of `ql_diffsense_sp`; those decisions are not traced to the end.
+
 ## IOC3 interrupt dispatch
 
 The IOC3 base driver (`ioc3.o`) and its external-interrupt helper (`ioc3ei.o`). The chip's interrupt status register is the word at offset 0x1c of its
