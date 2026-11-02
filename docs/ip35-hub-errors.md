@@ -405,6 +405,18 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   the doubleword at `a1`, and releases the lock with `mutex_spinunlock(record + 792, level)` (0xc000000000331fb8). Its
   callers are two sites in `xbridge_attach`. The name's "ixtt" and the register at offset 496: unknown here beyond this
   access. Established.
+- `hub_piomap_done` (`6.5.30/unix.IP35`, address 0xc000000000062678, 8 bytes, no stack frame): ends a use of a window
+  record from `hub_piomap_alloc`. The body is `jr ra` with a `nop` delay slot: no argument is read, nothing is stored
+  and `v0` is untouched, so a use leaves no state to undo. Established.
+- `hub_piomap_addr` (`6.5.30/unix.IP35`, address 0xc000000000062618, 96 bytes, no stack frame): looks an address up in a
+  small-window record. `a0` is the record, `a1` the crosstalk address and `a2` the length; `hub_piotrans_addr` calls it.
+  The record's doubleword at +8 is the base and the one at +16 the size. It returns 0 when `a1` is below the base
+  (unsigned compare, the branch at 0xc000000000062620) and 0 when the base plus the size is below `a1 + a2` (unsigned,
+  the branch at 0xc000000000062634), so a range may end exactly at the end of the window; the sum has no wrap-around
+  test. It then returns 0 when bit 0 of the record's word at +40 is clear (the word `hub_piomap_free` calls the flags).
+  Otherwise it divides `a1` by the size (`ddivu`, remainder taken with `mfhi`) and returns the record's doubleword at +24
+  plus that remainder. It is the address itself, not its distance from the base, that is reduced modulo the size.
+  A zero size reaches the `teq` at 0xc000000000062658 with trap code 7. Established.
 
 ## Interrupt dispatch
 
@@ -712,6 +724,19 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   label of the vertex, fills per-node and per-widget tables, calls `hub_set_piomode(.., 1)`, then `init_sv` and
   `spinlock_init` on addresses 784 and 792 bytes into the node record. That routine was read only in part, so what the
   tables hold is not stated here. This routine returns what the last call leaves in `v0`. Inferred.
+- `hub_dmamap_drain` (`6.5.30/unix.IP35`, address 0xc00000000006290c, 8 bytes, no stack frame): the hub's DMA map drain
+  entry for a crosstalk provider. The body is `jr ra` with a `nop` delay slot. It reads no argument, writes nothing and
+  leaves `v0` as the caller had it. Established.
+- `hub_dmaaddr_drain` (`6.5.30/unix.IP35`, address 0xc000000000062914, 8 bytes, no stack frame): the address-range drain
+  entry of the same provider, with the same body: `jr ra` and a `nop` delay slot, no argument read, no store, `v0`
+  untouched. Established.
+- `hub_dmalist_drain` (`6.5.30/unix.IP35`, address 0xc00000000006291c, 8 bytes, no stack frame): the list drain entry of
+  the same provider, with the same body: `jr ra` and a `nop` delay slot, no argument read, no store, `v0` untouched.
+  Established.
+- `hub_dmatrans_list` (`6.5.30/unix.IP35`, address 0xc000000000062904, 8 bytes, no stack frame): the direct-translation
+  list entry of the same provider. Its two instructions are `jr ra` and, in the delay slot, `or v0,a2,zero`, so it
+  returns its third argument (`a2`) and reads and writes nothing else. It is the same code as `hub_dmatrans_addr`.
+  Established.
 
 ## Hub special-device entry points
 
@@ -726,6 +751,32 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   device. It calls `device_info_get` with the word at `a0` and truncates the result to 32 bits. Value 0: it returns what
   `mem_refcnt_close(a0, a1, a2, a3)` returns. Value 1: it returns 0 without any call. Any other value returns 19.
   Established.
+- `hubspc_init` (`6.5.30/unix.IP35`, address 0xc000000000096de4, 60 bytes, 16-byte frame): start-up of the hub special
+  device. It takes no argument. It calls `hubdev_register` three times, each time with a routine address that it loads
+  from a pool word into `a0` in the call's delay slot, in this order: `mem_refcnt_attach` (0xc000000000329c60, pool word
+  at gp-20720), `cpuprom_attach` (0xc000000000096c60, gp-20712) and `l1_attach` (0xc000000000228180, gp-20704). It then
+  calls `spinlock_init` with the address gp+5712 (0xc000000001644dc0, the variable `cpuprom_spinlock`) in `a0` and, in
+  `a1` the address 0xc000000000499a70, which is the block address from the pool word at gp-20736
+  (0xc000000000499a50) plus 32 and holds "promlist" (the delay slot of the call does the addition). It returns what
+  `spinlock_init` leaves in `v0`. It does not call the three routines itself; it only hands them to `hubdev_register`. Established.
+- `hubspc_map` (`6.5.30/unix.IP35`, address 0xc000000000096f00, 156 bytes, 48-byte frame): map entry point of the same
+  device, which serves two kinds of node. `a0` is passed to `device_info_get`, and `a1` to `a4` are saved at sp+8, sp+16,
+  sp+24 and sp+0. When `a3` is zero it returns 6 at once, before any call (`v0` is set to 6 at 0xc000000000096f14, ahead
+  of the branch). Otherwise it calls `device_info_get(a0)` twice, the first result discarded (the second call's
+  delay slot copies `a0` from `s0`, where the routine kept it), and truncates the second result to 32 bits. Value 0: it calls
+  `mem_refcnt_mmap(a0, a1, a2, a3, a4)` with the saved arguments and returns what it returns. Value 1: it calls
+  `cpuprom_map(a0, a1, a2, a3)` (0xc000000000096d20) with the first four and returns what it returns (`a4` is not
+  passed). Any other value returns 19. Established.
+- `hubspc_unmap` (`6.5.30/unix.IP35`, address 0xc000000000096f9c, 96 bytes, 32-byte frame): unmap entry point of the
+  same device. `a0` and `a1` are saved at sp+0 and sp+8. It calls `device_info_get(a0)` and truncates the result to 32
+  bits. Value 0: it calls `mem_refcnt_unmap(a0, a1)` and returns its result. Value 1: it calls `cpuprom_unmap(a0, a1)`
+  (0xc000000000096ddc) and returns its result. Any other value returns 19. Established.
+- `hubspc_ioctl` (`6.5.30/unix.IP35`, address 0xc000000000096ffc, 124 bytes, 64-byte frame): control entry point of the
+  same device. It saves `a0` to `a5` (a0 at sp+0, a5 at sp+8, a4 at sp+16, a1 at sp+24, a2 at sp+32, a3 at sp+40) and
+  calls `device_info_get(a0)`, truncating the result to 32 bits. Value 0: it calls
+  `mem_refcnt_ioctl(a0, a1, a2, a3, a4, a5)` with all six saved arguments and returns its result. Value 1: it
+  returns 0 without calling anything (the branch at 0xc000000000097030 reaches the instruction that zeroes `a0`, which
+  `v0` then copies). Any other value returns 19. Established.
 
 ### The same routines in the 6.5.22 builds
 
