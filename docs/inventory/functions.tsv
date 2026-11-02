@@ -4237,9 +4237,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000001aecc	164	numalinkstats_up2date	symtab	aada8dc69525		in	named-only	docs/syssgi.md#numa	NUMA
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000001af70	272	get_router_invent_info	symtab	f5548ce7b18a		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000001b080	148	build_router_invent_info	symtab	2ab8dfad01bb		out:1	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000001b114	48	router_reg_read	symtab	1ea9ff6afcb7		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000001b144	48	router_reg_write	symtab	a40341392406		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000001b224	84	router_set_leds	symtab	e1308ebf2063		in	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000001b114	48	router_reg_read	symtab	1ea9ff6afcb7		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000001b144	48	router_reg_write	symtab	a40341392406		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000001b224	84	router_set_leds	symtab	e1308ebf2063		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000001b278	108	router_decode_port_errors	symtab	80305b65ea87		in	named-only	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000001b2e4	496	router_acquire_port_info	symtab	fcf5c8feadbb		in	located	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000001b4d4	424	router_acquire_info	symtab	58de8d6564a9		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
@@ -4687,7 +4687,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000371f8	312	dump_crb	symtab	b1e6aed42abd		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000037330	380	kl_ioerror_handler	symtab	c128e30581b8		in	named-only	docs/ip27-kernel-io.md#hub-memory-error-classification	Hub memory error classification
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000374ac	72	kl_panic_setup	symtab	0234c41c5827		in	named-only	docs/ip35-hub-errors.md#hub-error-handling-in-the-ip35-kernel	Hub error handling in the IP35 kernel
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000374f4	48	kl_panic	symtab	321101f42a22		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000374f4	48	kl_panic	symtab	321101f42a22		in	located	docs/ip35-hub-errors.md#network-interface-error-interrupts	Network interface error interrupts
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000003779c	124	error_clean_cache_line	symtab	5e89970d4996		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000037818	88	initiator_to_cpunum	symtab	304e5b38dcee		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000037870	368	poison_page	symtab	02b53d421886		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -5825,7 +5825,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000007ff28	272	pcibr_is_slot_sys_critical	symtab	753912036516		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000080038	32	pcibr_probe_slot	symtab	9ff3583f0523		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000080058	80	pcibr_piomap_probe	symtab	012f83ba5c55		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000080174	36	pcibr_disable_mst_timeout	symtab	83a39668ee1a		in	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000080174	36	pcibr_disable_mst_timeout	symtab	83a39668ee1a		in	named-only	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000080198	36	pcibr_enable_mst_timeout	symtab	78847c88bf06		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000080264	568	pcibr_device_info_free	symtab	298a564a02df		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000008049c	144	pcibr_bus_addr_alloc	symtab	aa7caeef83bb		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
@@ -18667,7 +18667,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020045d78	272	pcibr_is_slot_sys_critical	symtab	feca1d26afd0		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020045e88	32	pcibr_probe_slot	symtab	1f3748fcb67d		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020045ea8	80	pcibr_piomap_probe	symtab	652e1778c8f9		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020045fc4	36	pcibr_disable_mst_timeout	symtab	225510dcc328		in	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020045fc4	36	pcibr_disable_mst_timeout	symtab	225510dcc328		in	named-only	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020045fe8	36	pcibr_enable_mst_timeout	symtab	e3aa677aecfe		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200460b4	568	pcibr_device_info_free	symtab	d3b76ac5818f		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200462ec	144	pcibr_bus_addr_alloc	symtab	c04e79b5ca14		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
@@ -30583,9 +30583,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000042294	224	numalinkstats_up2date	symtab	41ba22bfb2dd		in	named-only	docs/syssgi.md#numa	NUMA
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000042418	272	get_router_invent_info	symtab	395c8d73baf0		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000042528	148	build_router_invent_info	symtab	b1720726a58f		out:1	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000425bc	48	router_reg_read	symtab	0be1dd96f441		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000425ec	48	router_reg_write	symtab	7becbae2d35e		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000004261c	64	router_set_leds	symtab	43ff81a85550		in	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000425bc	48	router_reg_read	symtab	0be1dd96f441		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000425ec	48	router_reg_write	symtab	7becbae2d35e		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000004261c	64	router_set_leds	symtab	43ff81a85550		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000004265c	176	router_decode_port_errors	symtab	671ce8ec8ec9		in	named-only	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000004270c	608	router_acquire_port_info	symtab	bbd90b368ac7		in	located	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000004296c	288	router_acquire_info	symtab	f843eadd16a0		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
@@ -30998,7 +30998,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005ec50	312	dump_crb	symtab	959ee435c5db		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005ed88	388	kl_ioerror_handler	symtab	bc714293de59		in	named-only	docs/ip27-kernel-io.md#hub-memory-error-classification	Hub memory error classification
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005ef0c	72	kl_panic_setup	symtab	c66d507a7fb8		in	named-only	docs/ip35-hub-errors.md#hub-error-handling-in-the-ip35-kernel	Hub error handling in the IP35 kernel
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005ef54	48	kl_panic	symtab	d038e7bc9e70		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005ef54	48	kl_panic	symtab	d038e7bc9e70		in	located	docs/ip35-hub-errors.md#network-interface-error-interrupts	Network interface error interrupts
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005f1fc	124	error_clean_cache_line	symtab	215b66b381a3		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005f278	100	initiator_to_cpunum	symtab	88a9b6e21d7d		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005f2dc	396	poison_page	symtab	ac8596355b1f		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -32165,7 +32165,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000ae140	272	pcibr_is_slot_sys_critical	symtab	c476e8093e9f		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000ae250	32	pcibr_probe_slot	symtab	f154f9c36f28		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000ae270	80	pcibr_piomap_probe	symtab	0f88d024e61d		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000ae38c	36	pcibr_disable_mst_timeout	symtab	116dba7b41d7		in	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000ae38c	36	pcibr_disable_mst_timeout	symtab	116dba7b41d7		in	named-only	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000ae3b0	36	pcibr_enable_mst_timeout	symtab	57b669e4d262		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000ae47c	568	pcibr_device_info_free	symtab	73ea9b397e24		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000ae6b4	144	pcibr_bus_addr_alloc	symtab	6f0dd23537db		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
@@ -61351,10 +61351,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1d4c	164	numalinkstats_up2date	dwarf+symtab	b50059462ebe		in	named-only	docs/syssgi.md#numa	NUMA
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1df0	272	get_router_invent_info	dwarf+symtab	356efb83f353		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f00	148	build_router_invent_info	dwarf+symtab	a6a472635972		out:2	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f94	48	router_reg_read	dwarf+symtab	64760c9e7385		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1fc4	48	router_reg_write	dwarf+symtab	64760c9e7385		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f94	48	router_reg_read	dwarf+symtab	64760c9e7385		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1fc4	48	router_reg_write	dwarf+symtab	64760c9e7385		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1ff4	176	router_nic_access	dwarf	5a3fefe5d13e		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20a4	84	router_set_leds	dwarf+symtab	1f15ee0f77b4		in	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20a4	84	router_set_leds	dwarf+symtab	1f15ee0f77b4		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20f8	108	router_decode_port_errors	dwarf+symtab	80305b65ea87		in	named-only	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2164	496	router_acquire_port_info	dwarf+symtab	cd1714189899		in	located	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2354	424	router_acquire_info	dwarf+symtab	234d1d5e4770		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
@@ -61869,7 +61869,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1e078	312	dump_crb	dwarf+symtab	d51dc5d27234		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1e1b0	380	kl_ioerror_handler	dwarf+symtab	3db13a20cf22		in	named-only	docs/ip27-kernel-io.md#hub-memory-error-classification	Hub memory error classification
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1e32c	72	kl_panic_setup	dwarf+symtab	e98742d2b10a		in	named-only	docs/ip35-hub-errors.md#hub-error-handling-in-the-ip35-kernel	Hub error handling in the IP35 kernel
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1e374	48	kl_panic	dwarf+symtab	ba2e0984be7f		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1e374	48	kl_panic	dwarf+symtab	ba2e0984be7f		in	located	docs/ip35-hub-errors.md#network-interface-error-interrupts	Network interface error interrupts
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1e3a4	192	vphys_get_pattr	dwarf	180b94e59da8		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1e464	124	pde_get_pattr	dwarf	53e382b8b5bc		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1e4e0	316	vtop_attr_get	dwarf	551e2d0c865b		out:2	named-only	docs/version-diffs-queue.tsv	
@@ -69080,7 +69080,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xd8b4	32	pcibr_probe_slot	dwarf+symtab	a33b9bb443ff		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xd8d4	80	pcibr_piomap_probe	dwarf+symtab	a3fd2ad506f7		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xd924	204	pcibr_probe_work	dwarf	11a335b6ad08		in	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xd9f0	36	pcibr_disable_mst_timeout	dwarf+symtab	31d6dde5b748		in	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xd9f0	36	pcibr_disable_mst_timeout	dwarf+symtab	31d6dde5b748		in	named-only	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xda14	36	pcibr_enable_mst_timeout	dwarf+symtab	b82b2cf50417		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xda38	84	pcibr_disable_mst_timeout_work	dwarf	9c4c6e22e764		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xda8c	84	pcibr_enable_mst_timeout_work	dwarf	9c4c6e22e764		in	undocumented		
@@ -86470,7 +86470,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xd640	32	pcibr_probe_slot	dwarf+symtab	f587b618ab97		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xd660	80	pcibr_piomap_probe	dwarf+symtab	404be07bc66f		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xd6b0	204	pcibr_probe_work	dwarf	6a339144fed4		in	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xd77c	36	pcibr_disable_mst_timeout	dwarf+symtab	c3cada76333a		in	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xd77c	36	pcibr_disable_mst_timeout	dwarf+symtab	c3cada76333a		in	named-only	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xd7a0	36	pcibr_enable_mst_timeout	dwarf+symtab	adbe140da27d		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xd7c4	84	pcibr_disable_mst_timeout_work	dwarf	424621cf1a29		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xd818	84	pcibr_enable_mst_timeout_work	dwarf	424621cf1a29		in	undocumented		
@@ -111412,9 +111412,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x21f4	164	external_router_port	dwarf	5846b64a28cd		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2298	272	get_router_invent_info	dwarf+symtab	79468b7e120d		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x23a8	148	build_router_invent_info	dwarf+symtab	4d78caa3c9b0		out:2	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x243c	48	router_reg_read	dwarf+symtab	64760c9e7385		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x246c	48	router_reg_write	dwarf+symtab	64760c9e7385		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x249c	64	router_set_leds	dwarf+symtab	c25ef3d8bf80		in	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x243c	48	router_reg_read	dwarf+symtab	64760c9e7385		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x246c	48	router_reg_write	dwarf+symtab	64760c9e7385		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x249c	64	router_set_leds	dwarf+symtab	c25ef3d8bf80		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x24dc	176	router_decode_port_errors	dwarf+symtab	671ce8ec8ec9		in	named-only	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x258c	608	router_acquire_port_info	dwarf+symtab	cc7fccf6dce5		in	located	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x27ec	288	router_acquire_info	dwarf+symtab	f2c5094f8efb		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
@@ -111889,7 +111889,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1ead0	312	dump_crb	dwarf+symtab	916fbdeda733		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1ec08	388	kl_ioerror_handler	dwarf+symtab	1ceb3fe63bd4		in	named-only	docs/ip27-kernel-io.md#hub-memory-error-classification	Hub memory error classification
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1ed8c	72	kl_panic_setup	dwarf+symtab	130ab4b493aa		in	named-only	docs/ip35-hub-errors.md#hub-error-handling-in-the-ip35-kernel	Hub error handling in the IP35 kernel
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1edd4	48	kl_panic	dwarf+symtab	ba2e0984be7f		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1edd4	48	kl_panic	dwarf+symtab	ba2e0984be7f		in	located	docs/ip35-hub-errors.md#network-interface-error-interrupts	Network interface error interrupts
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1ee04	192	vphys_get_pattr	dwarf	180b94e59da8		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1eec4	124	pde_get_pattr	dwarf	077685a6b9bc		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1ef40	316	vtop_attr_get	dwarf	ed7bcec51a58		out:2	named-only	docs/version-diffs-queue.tsv	
@@ -118935,7 +118935,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xe99c	32	pcibr_probe_slot	dwarf+symtab	498775ad06bd		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xe9bc	80	pcibr_piomap_probe	dwarf+symtab	87e551754936		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xea0c	204	pcibr_probe_work	dwarf	ab3c3abac547		in	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xead8	36	pcibr_disable_mst_timeout	dwarf+symtab	88819aad8387		in	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xead8	36	pcibr_disable_mst_timeout	dwarf+symtab	88819aad8387		in	named-only	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xeafc	36	pcibr_enable_mst_timeout	dwarf+symtab	225d29061b19		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xeb20	84	pcibr_disable_mst_timeout_work	dwarf	d5c341126c30		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xeb74	84	pcibr_enable_mst_timeout_work	dwarf	d5c341126c30		in	undocumented		
@@ -129635,9 +129635,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001b0fc	164	numalinkstats_up2date	symtab	b9cc27d0ad2f		in	named-only	docs/syssgi.md#numa	NUMA
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001b1a0	272	get_router_invent_info	symtab	9b8ca7cf6564		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001b2b0	148	build_router_invent_info	symtab	e7f6cdd8cad7		out:1	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001b344	48	router_reg_read	symtab	f4cbd1663ec7		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001b374	48	router_reg_write	symtab	5e92c40d7b2e		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001b454	84	router_set_leds	symtab	bbe0a05c5f7b		in	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001b344	48	router_reg_read	symtab	f4cbd1663ec7		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001b374	48	router_reg_write	symtab	5e92c40d7b2e		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001b454	84	router_set_leds	symtab	bbe0a05c5f7b		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001b4a8	108	router_decode_port_errors	symtab	80305b65ea87		in	named-only	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001b514	496	router_acquire_port_info	symtab	3941c2a1fedf		in	understood	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000001b704	424	router_acquire_info	symtab	b3c2e17a5775		in	understood	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
@@ -130085,7 +130085,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000374bc	312	dump_crb	symtab	5489a722cda5		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000375f4	380	kl_ioerror_handler	symtab	792ca9dd2802		in	named-only	docs/ip27-kernel-io.md#hub-memory-error-classification	Hub memory error classification
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000037770	68	kl_panic_setup	symtab	a86cf0204ad5		in	named-only	docs/ip35-hub-errors.md#hub-error-handling-in-the-ip35-kernel	Hub error handling in the IP35 kernel
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000377b4	48	kl_panic	symtab	d58dc8681f34		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000377b4	48	kl_panic	symtab	d58dc8681f34		in	located	docs/ip35-hub-errors.md#network-interface-error-interrupts	Network interface error interrupts
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000037a5c	124	error_clean_cache_line	symtab	a04dfb26ae8f		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000037ad8	88	initiator_to_cpunum	symtab	c60fcc887f59		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000037b30	368	poison_page	symtab	0420ee502111		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -131265,7 +131265,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000007e60c	272	pcibr_is_slot_sys_critical	symtab	7e1b3307b9a6		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000007e71c	32	pcibr_probe_slot	symtab	a13d97143ba6		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000007e73c	80	pcibr_piomap_probe	symtab	b707305aaa87		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000007e858	36	pcibr_disable_mst_timeout	symtab	b24515486b34		in	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000007e858	36	pcibr_disable_mst_timeout	symtab	b24515486b34		in	named-only	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000007e87c	36	pcibr_enable_mst_timeout	symtab	547769de90e2		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000007e948	568	pcibr_device_info_free	symtab	54688f3efb28		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000007eb80	144	pcibr_bus_addr_alloc	symtab	29d287dfea89		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
@@ -144253,7 +144253,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020050098	272	pcibr_is_slot_sys_critical	symtab	d73f23fb7495		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200501a8	32	pcibr_probe_slot	symtab	32afd9615538		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200501c8	80	pcibr_piomap_probe	symtab	da0fc8cab0ab		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200502e4	36	pcibr_disable_mst_timeout	symtab	fe44f141d511		in	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200502e4	36	pcibr_disable_mst_timeout	symtab	fe44f141d511		in	named-only	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020050308	36	pcibr_enable_mst_timeout	symtab	79fc09d7bb79		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200503d4	568	pcibr_device_info_free	symtab	8bb0c4fc87e5		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002005060c	144	pcibr_bus_addr_alloc	symtab	c0b238064e1f		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
@@ -157114,9 +157114,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000424c4	224	numalinkstats_up2date	symtab	a267cde2042c		in	named-only	docs/syssgi.md#numa	NUMA
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000042648	272	get_router_invent_info	symtab	fc4cdbdec93f		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000042758	148	build_router_invent_info	symtab	4cdee0f61954		out:1	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000427ec	48	router_reg_read	symtab	14e914293d6f		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004281c	48	router_reg_write	symtab	032ababe7966		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004284c	64	router_set_leds	symtab	9610dd37100b		in	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000427ec	48	router_reg_read	symtab	14e914293d6f		in	understood	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004281c	48	router_reg_write	symtab	032ababe7966		in	understood	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004284c	64	router_set_leds	symtab	9610dd37100b		in	understood	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004288c	176	router_decode_port_errors	symtab	671ce8ec8ec9		in	named-only	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004293c	608	router_acquire_port_info	symtab	ac74d82512ce		in	located	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000042b9c	288	router_acquire_info	symtab	d41a145683eb		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
@@ -157535,7 +157535,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005e3a4	312	dump_crb	symtab	79df4afa5dbc		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005e4dc	388	kl_ioerror_handler	symtab	31cb06809358		in	named-only	docs/ip27-kernel-io.md#hub-memory-error-classification	Hub memory error classification
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005e660	72	kl_panic_setup	symtab	abec857a8b7e		in	named-only	docs/ip35-hub-errors.md#hub-error-handling-in-the-ip35-kernel	Hub error handling in the IP35 kernel
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005e6a8	48	kl_panic	symtab	4644dbc7c080		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005e6a8	48	kl_panic	symtab	4644dbc7c080		in	understood	docs/ip35-hub-errors.md#network-interface-error-interrupts	Network interface error interrupts
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005e950	124	error_clean_cache_line	symtab	f1a47e504622		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005e9cc	100	initiator_to_cpunum	symtab	6be0d1284d8d		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005ea30	396	poison_page	symtab	b8fadd794e45		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -158446,8 +158446,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000097094	28	xtalk_piomap_free	symtab	7740a7dac262		in	located	docs/ip30-kernel-functions.md#graphics-board-odyssey-attach-as-the-kernel-sees-it	Graphics board (Odyssey) attach as the kernel sees it
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000970b0	28	xtalk_piomap_addr	symtab	703940935c45		in	located	docs/ip30-kernel-functions.md#graphics-board-odyssey-attach-as-the-kernel-sees-it	Graphics board (Odyssey) attach as the kernel sees it
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000970cc	28	xtalk_piomap_done	symtab	f04e7763710f		in	located	docs/ip30-kernel-functions.md#heart-interrupt-glue-board-revision-and-cache-stubs	Heart interrupt glue, board revision and cache stubs
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000970e8	28	xtalk_piotrans_addr	symtab	8ce9d9aaea90		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000097104	248	xtalk_pio_addr	symtab	9dd2fb0c75f8		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000970e8	28	xtalk_piotrans_addr	symtab	8ce9d9aaea90		in	understood	docs/ip35-hub-errors.md#dma-maps-error-counters-and-the-crosstalk-provider	DMA maps, error counters and the crosstalk provider
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000097104	248	xtalk_pio_addr	symtab	9dd2fb0c75f8		in	understood	docs/ip35-hub-errors.md#dma-maps-error-counters-and-the-crosstalk-provider	DMA maps, error counters and the crosstalk provider
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000971fc	8	xtalk_set_early_piotrans_addr	symtab	de067200c8e0		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000097204	32	xtalk_early_piotrans_addr	symtab	929200036ff4		in	named-only	docs/ip30-kernel-functions.md#graphics-board-odyssey-attach-as-the-kernel-sees-it	Graphics board (Odyssey) attach as the kernel sees it
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009722c	28	xtalk_dmamap_alloc	symtab	0840d04e73e7		in	located	docs/ip30-kernel-functions.md#crosstalk-provider-entry-points-and-their-heart-routines	Crosstalk provider entry points and their Heart routines
@@ -158535,16 +158535,16 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000098370	196	xbow_widget_num_get	symtab	9c5a3ffa6c7a		in	understood	docs/ip35-pci-bridge.md#crossbar-attach-and-links	Crossbar attach and links
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000098434	876	xbow_ioctl	symtab	ec942f35ae13		in	understood	docs/ip35-pci-bridge.md#crossbar-performance-counters	Crossbar performance counters
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000987a0	100	xbow_widget_present	symtab	26d2fae0aee3		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009881c	48	xbow_widget_lookup	symtab	6bcc4cd5cb8e		in	located	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009881c	48	xbow_widget_lookup	symtab	6bcc4cd5cb8e		in	understood	docs/ip35-pci-bridge.md#crossbar-performance-counters	Crossbar performance counters
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000988b8	52	xbow_intr_preset	symtab	e034de02bbfe		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000098b20	260	xbow_xmit_retry_error	symtab	76057e5e103e		in	understood	docs/ip35-pci-bridge.md#crossbar-attach-and-links	Crossbar attach and links
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000998c8	264	xbow_update_perf_counters	symtab	b610eeda7c7f		in	located	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000998c8	264	xbow_update_perf_counters	symtab	b610eeda7c7f		in	understood	docs/ip35-pci-bridge.md#crossbar-performance-counters	Crossbar performance counters
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000999d0	32	xbow_get_perf_counters	symtab	e26d9c1b5b35		in	located	docs/ip30-kernel-functions.md#crosstalk-provider-entry-points-and-their-heart-routines	Crosstalk provider entry points and their Heart routines
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000999f0	460	xbow_enable_perf_counter	symtab	5660912935ec		in	understood	docs/ip35-pci-bridge.md#crossbar-performance-counters	Crossbar performance counters
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000099bbc	32	xbow_get_llp_status	symtab	22a5b714b54f		in	located	docs/ip30-kernel-functions.md#ioc3-bring-up-xbridge-and-crossbar-registration-and-bridge-helpers	IOC3 bring-up, Xbridge and crossbar registration, and Bridge helpers
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000099bdc	276	xbow_update_llp_status	symtab	f8c82feaaad3		in	located	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000099cf0	72	xbow_disable_llp_monitor	symtab	1418d06d4538		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000099d38	76	xbow_enable_llp_monitor	symtab	98a01fc4c607		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000099bdc	276	xbow_update_llp_status	symtab	f8c82feaaad3		in	understood	docs/ip35-pci-bridge.md#crossbar-performance-counters	Crossbar performance counters
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000099cf0	72	xbow_disable_llp_monitor	symtab	1418d06d4538		in	understood	docs/ip35-pci-bridge.md#crossbar-performance-counters	Crossbar performance counters
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000099d38	76	xbow_enable_llp_monitor	symtab	98a01fc4c607		in	understood	docs/ip35-pci-bridge.md#crossbar-performance-counters	Crossbar performance counters
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000099d84	260	xbow_reset_link	symtab	c06f47652462		in	understood	docs/ip35-pci-bridge.md#crossbar-attach-and-links	Crossbar attach and links
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000099e88	228	idbg_xbowregs	symtab	936e93f6a3bf		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000099f6c	100	xbow_bytes_to_gbr	symtab	8cee067198e7		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
@@ -158573,12 +158573,12 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009c7f0	104	pcibr_pio_flush_init	symtab	41809e7598a8		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009c858	84	xbridge_init	symtab	4270c6accfcd		in	located	docs/ip30-kernel-functions.md#ioc3-bring-up-xbridge-and-crossbar-registration-and-bridge-helpers	IOC3 bring-up, Xbridge and crossbar registration, and Bridge helpers
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009c8ac	3484	xbridge_attach	symtab	dd85eca36fa2		in	understood	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009d648	32	pciiox_init	symtab	47dc8ede71b2		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009d648	32	pciiox_init	symtab	47dc8ede71b2		in	understood	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009db64	176	pcibr_release_device	symtab	a6c308be89ba		in	understood	docs/ip35-pci-bridge.md#slot-probing	Slot probing
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009dc30	52	pcibr_open	symtab	efeb0055b5df		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009dc64	8	pcibr_close	symtab	87506497337c		in	understood	docs/ip35-pci-bridge.md#interrupt-connections	Interrupt connections
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009dc6c	204	pcibr_map	symtab	bbec31af1295		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009dd38	120	pcibr_unmap	symtab	2db936a3c263		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009dc6c	204	pcibr_map	symtab	bbec31af1295		in	understood	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009dd38	120	pcibr_unmap	symtab	2db936a3c263		in	understood	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009ddb0	136	pcibr_device_slot_get	symtab	9f9f194065c0		in	named-only	docs/driver-ioctls.md#pci-bridge	PCI bridge
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009de38	572	pcibr_ioctl	symtab	1acc3870e765		in	named-only	docs/driver-ioctls.md#pci-bridge	PCI bridge
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e074	28	pcibr_info_get	symtab	65210c55bd7a		in	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
@@ -158590,7 +158590,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e5ac	404	pcibr_detach	symtab	c35b5f67072a		in	understood	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e740	300	pcibr_directmap_init	symtab	fe8ff41376bf		in	understood	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e86c	104	pcibr_asic_rev	symtab	846a71ba6ea2		in	located	docs/ip30-kernel-functions.md#ioc3-bring-up-xbridge-and-crossbar-registration-and-bridge-helpers	IOC3 bring-up, Xbridge and crossbar registration, and Bridge helpers
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e8d4	60	pcibr_write_gather_flush	symtab	95f6174ab6f0		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009e8d4	60	pcibr_write_gather_flush	symtab	95f6174ab6f0		in	understood	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009f1e4	636	pcibr_piomap_alloc	symtab	55386280bf0a		in	understood	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009f460	80	pcibr_piomap_free	symtab	a8dae129333d		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009f4b0	44	pcibr_piomap_addr	symtab	82c26c2febf3		in	located	docs/ip30-kernel-functions.md#graphics-board-odyssey-attach-as-the-kernel-sees-it	Graphics board (Odyssey) attach as the kernel sees it
@@ -158629,7 +158629,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a22b8	76	pcibr_ate_alloc	symtab	3cca1cdf90bd		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a2304	68	pcibr_ate_free	symtab	a9d4bbabbd6e		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a2348	180	pcibr_flags_to_ate	symtab	8017d4fbffee		in	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a23fc	64	pcibr_ate_addr	symtab	78f2c2bb2687		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a23fc	64	pcibr_ate_addr	symtab	78f2c2bb2687		in	understood	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a243c	784	ate_write	symtab	eece0fe2e32d		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a274c	464	do_pcibr_rrb_count_valid	symtab	b707619d055b		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a291c	276	do_pcibr_rrb_count_avail	symtab	48b0c6d1d700		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -158641,7 +158641,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a314c	464	pcibr_rrb_alloc_init	symtab	97e00cf8a585		in	named-only	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a331c	340	pcibr_rrb_alloc_more	symtab	d5d21be01cb4		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a3470	380	pcibr_rrb_flush	symtab	940b32d7cb43		in	understood	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a35ec	60	pcibr_wrb_flush	symtab	672ee71f510e		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a35ec	60	pcibr_wrb_flush	symtab	672ee71f510e		in	understood	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a3628	1028	pcibr_rrb_alloc	symtab	45c748a8acc6		in	named-only	docs/ip27-driver-attach-interrupts.md#qlogic-scsi-controller	QLogic SCSI controller
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a3a2c	308	pcibr_rrb_check	symtab	72963a52721f		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a3b60	980	pcibr_alloc_all_rrbs	symtab	8111662fd5ed		in	understood	docs/ip35-pci-bridge.md#read-response-buffers	Read response buffers
@@ -158663,11 +158663,11 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a4f8c	1552	pcibr_intr_alloc	symtab	6f9bda74ed3d		in	understood	docs/ip35-pci-bridge.md#interrupt-connections	Interrupt connections
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a559c	68	pcibr_intr_setmustrun	symtab	3c2428cb921f		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a55e0	504	pcibr_intr_free	symtab	8061e7c8e798		in	understood	docs/ip35-pci-bridge.md#crossbar-performance-counters	Crossbar performance counters
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a57d8	168	pcibr_setpciint	symtab	6d78f927411f		in	located	docs/ip27-driver-attach-interrupts.md#bridge-interrupt-wiring-and-threads	Bridge interrupt wiring and threads
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a57d8	168	pcibr_setpciint	symtab	6d78f927411f		in	understood	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a5880	420	pcibr_intr_connect	symtab	b6d0a08d5004		in	understood	docs/ip35-pci-bridge.md#interrupt-connections	Interrupt connections
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a5a24	476	pcibr_intr_disconnect	symtab	25a7f1beed11		in	understood	docs/ip35-pci-bridge.md#crossbar-performance-counters	Crossbar performance counters
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a5c00	120	pcibr_intr_cpu_get	symtab	b4d36da05a8b		in	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a5c78	132	pcibr_setwidint	symtab	913a8e535818		in	located	docs/ip27-driver-attach-interrupts.md#bridge-interrupt-wiring-and-threads	Bridge interrupt wiring and threads
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a5c78	132	pcibr_setwidint	symtab	913a8e535818		in	understood	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a5cfc	592	pcibr_intr_func	symtab	65a723839c44		in	understood	docs/ip35-pci-bridge.md#interrupt-connections	Interrupt connections
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a5f4c	92	pcibr_show_dir_state	symtab	0bc224659a5b		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a5fa8	52	print_bridge_errcmd	symtab	f53a8f378f9d		out:1	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
@@ -158675,8 +158675,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a7088	132	pcibr_errintr_group	symtab	ecd63d84c398		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a7274	1460	pcibr_error_intr_handler	symtab	12f57aa20a54		in	understood	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a7828	744	pcibr_addr_toslot	symtab	d03ec44043d9		in	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a7b10	84	pcibr_error_cleanup	symtab	b58380dc02da		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a7b64	120	pcibr_error_extract	symtab	12048e269af6		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a7b10	84	pcibr_error_cleanup	symtab	b58380dc02da		in	understood	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a7b64	120	pcibr_error_extract	symtab	12048e269af6		in	understood	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a7bdc	8	pcibr_device_disable	symtab	78aa5094d5ec		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a7be4	3408	pcibr_pioerror	symtab	bdac71ab5b90		in	understood	docs/ip35-pci-bridge.md#slot-probing	Slot probing
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000a8934	296	pcibr_dmard_error	symtab	66fca27aeffe		in	understood	docs/ip35-pci-bridge.md#read-response-buffers	Read response buffers
@@ -158715,9 +158715,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000abe28	332	pcibr_slot_pwr	symtab	133bad7354c6		in	named-only	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000abf74	272	pcibr_is_slot_sys_critical	symtab	63b4a7efdd77		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000ac084	32	pcibr_probe_slot	symtab	9828f94d5bdc		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000ac0a4	80	pcibr_piomap_probe	symtab	e36930a7cd75		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000ac1c0	36	pcibr_disable_mst_timeout	symtab	3be03d0c2745		in	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000ac1e4	36	pcibr_enable_mst_timeout	symtab	0bd76699d45b		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000ac0a4	80	pcibr_piomap_probe	symtab	e36930a7cd75		in	understood	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000ac1c0	36	pcibr_disable_mst_timeout	symtab	3be03d0c2745		in	named-only	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000ac1e4	36	pcibr_enable_mst_timeout	symtab	0bd76699d45b		in	understood	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000ac2b0	568	pcibr_device_info_free	symtab	c9cf83600810		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000ac4e8	144	pcibr_bus_addr_alloc	symtab	ab172ff9d092		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000ac578	28	pcibr_bus_addr_free	symtab	415080b707cc		in	named-only	docs/version-diffs-queue.tsv	
@@ -158953,9 +158953,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c057c	72	pciio_ppb_businfo_get	symtab	8524805ad70a		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c05c4	28	pciio_piomap_alloc	symtab	adc95251db91		in	located	docs/ip30-kernel-functions.md#graphics-board-odyssey-attach-as-the-kernel-sees-it	Graphics board (Odyssey) attach as the kernel sees it
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c05e0	28	pciio_piomap_free	symtab	7e6c8d37f376		in	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c05fc	40	pciio_piomap_addr	symtab	1af6c45b1ee8		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c05fc	40	pciio_piomap_addr	symtab	1af6c45b1ee8		in	understood	docs/ip35-pciio.md#generic-pci-layer-routines-of-the-ip35-kernel	Generic PCI layer routines of the IP35 kernel
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c0624	28	pciio_piomap_done	symtab	33c1a52ffbc6		in	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c0640	28	pciio_piotrans_addr	symtab	890154f3ab34		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c0640	28	pciio_piotrans_addr	symtab	890154f3ab34		in	understood	docs/ip35-pciio.md#generic-pci-layer-routines-of-the-ip35-kernel	Generic PCI layer routines of the IP35 kernel
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c065c	300	pciio_pio_addr	symtab	ca1f8b533ac0		in	understood	docs/ip35-pciio.md#generic-pci-layer-routines-of-the-ip35-kernel	Generic PCI layer routines of the IP35 kernel
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c0788	36	pciio_piospace_alloc	symtab	b17017007cb8		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c07ac	28	pciio_piospace_free	symtab	065c96f4c4f3		in	named-only	docs/version-diffs-queue.tsv	
@@ -159095,7 +159095,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c3f3c	72	ioc4_subdev_disable	symtab	c7bf9ef925a6		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c3f84	8	ioc4_mem_ptr	symtab	5168f5d3aa16		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c3f8c	32	ioc4_get_mem	symtab	69b08460497c		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c42a0	308	ioc3_ei_intr	symtab	1c4403668abf		in	located	docs/ip27-driver-attach-interrupts.md#ioc3-interrupt-dispatch	IOC3 interrupt dispatch
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c42a0	308	ioc3_ei_intr	symtab	1c4403668abf		in	understood	docs/ip35-ioc3.md#keyboard-and-mouse-aliases	Keyboard and mouse aliases
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c43d4	8	eiinit	symtab	78aa5094d5ec		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c43dc	44	eireg	symtab	67b8e3d6584f		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c4408	32	eiunreg	symtab	82280708eb0d		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -159116,11 +159116,11 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c5a2c	356	ioc3_intr_disconnect	symtab	3be2eb0399d0		in	understood	docs/ip35-ioc3.md#keyboard-and-mouse-aliases	Keyboard and mouse aliases
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c5b90	28	ioc3_intr	symtab	e318b19c5348		in	located	docs/ip27-driver-attach-interrupts.md#ioc3-interrupt-dispatch	IOC3 interrupt dispatch
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c5bac	468	ioc3_handle_intr	symtab	dfdadf2722c3		in	understood	docs/ip35-ioc3.md#ioc3-driver-routines-of-the-ip35-kernel	IOC3 driver routines of the IP35 kernel
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c5d80	88	ioc3_is_console	symtab	1092e4dc8021		in	located	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c5d80	88	ioc3_is_console	symtab	1092e4dc8021		in	understood	docs/ip35-ioc3.md#keyboard-and-mouse-aliases	Keyboard and mouse aliases
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c5dd8	64	ioc3_is_io7	symtab	cbc7f9840c6f		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c61d4	24	ioc3_console_vhdl_get	symtab	31caf1e3e055		in	understood	docs/ip35-ioc3.md#keyboard-and-mouse-aliases	Keyboard and mouse aliases
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c62a8	96	ioc3_subdev_enabled	symtab	af64ab4973d9		in	understood	docs/ip35-ioc3.md#keyboard-and-mouse-aliases	Keyboard and mouse aliases
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c6308	44	ioc3_subdev_enables	symtab	c957ea558184		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c6308	44	ioc3_subdev_enables	symtab	c957ea558184		in	understood	docs/ip35-ioc3.md#keyboard-and-mouse-aliases	Keyboard and mouse aliases
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c6334	68	ioc3_subdev_enable	symtab	4a6cf45126b9		in	understood	docs/ip35-ioc3.md#keyboard-and-mouse-aliases	Keyboard and mouse aliases
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c6378	72	ioc3_subdev_disable	symtab	8b735288212d		in	understood	docs/ip35-ioc3.md#keyboard-and-mouse-aliases	Keyboard and mouse aliases
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000c63fc	8	ioc3_mem_ptr	symtab	402de11c1126		in	understood	docs/ip35-ioc3.md#keyboard-and-mouse-aliases	Keyboard and mouse aliases
@@ -172667,10 +172667,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1f7c	164	numalinkstats_up2date	dwarf+symtab	b50059462ebe		in	named-only	docs/syssgi.md#numa	NUMA
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2020	272	get_router_invent_info	dwarf+symtab	356efb83f353		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2130	148	build_router_invent_info	dwarf+symtab	a6a472635972		out:2	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x21c4	48	router_reg_read	dwarf+symtab	64760c9e7385		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x21f4	48	router_reg_write	dwarf+symtab	64760c9e7385		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x21c4	48	router_reg_read	dwarf+symtab	64760c9e7385		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x21f4	48	router_reg_write	dwarf+symtab	64760c9e7385		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2224	176	router_nic_access	dwarf	5a3fefe5d13e		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x22d4	84	router_set_leds	dwarf+symtab	1f15ee0f77b4		in	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x22d4	84	router_set_leds	dwarf+symtab	1f15ee0f77b4		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2328	108	router_decode_port_errors	dwarf+symtab	80305b65ea87		in	named-only	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2394	496	router_acquire_port_info	dwarf+symtab	cd1714189899		in	located	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2584	424	router_acquire_info	dwarf+symtab	234d1d5e4770		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
@@ -173185,7 +173185,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1e33c	312	dump_crb	dwarf+symtab	d51dc5d27234		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1e474	380	kl_ioerror_handler	dwarf+symtab	3db13a20cf22		in	named-only	docs/ip27-kernel-io.md#hub-memory-error-classification	Hub memory error classification
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1e5f0	68	kl_panic_setup	dwarf+symtab	84774aadb0ee		in	named-only	docs/ip35-hub-errors.md#hub-error-handling-in-the-ip35-kernel	Hub error handling in the IP35 kernel
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1e634	48	kl_panic	dwarf+symtab	ba2e0984be7f		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1e634	48	kl_panic	dwarf+symtab	ba2e0984be7f		in	located	docs/ip35-hub-errors.md#network-interface-error-interrupts	Network interface error interrupts
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1e664	192	vphys_get_pattr	dwarf	8759d2288f9f		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1e724	124	pde_get_pattr	dwarf	53e382b8b5bc		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1e7a0	316	vtop_attr_get	dwarf	2f4252241d03		out:2	named-only	docs/version-diffs-queue.tsv	
@@ -180424,7 +180424,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xd8dc	32	pcibr_probe_slot	dwarf+symtab	dc08ed1fb058		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xd8fc	80	pcibr_piomap_probe	dwarf+symtab	4964491f6758		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xd94c	204	pcibr_probe_work	dwarf	6c9a723d6f64		in	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xda18	36	pcibr_disable_mst_timeout	dwarf+symtab	e0935f3ade12		in	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xda18	36	pcibr_disable_mst_timeout	dwarf+symtab	e0935f3ade12		in	named-only	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xda3c	36	pcibr_enable_mst_timeout	dwarf+symtab	e15fd89f29f7		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xda60	84	pcibr_disable_mst_timeout_work	dwarf	9c4c6e22e764		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0xdab4	84	pcibr_enable_mst_timeout_work	dwarf	9c4c6e22e764		in	undocumented		
@@ -198777,7 +198777,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xd668	32	pcibr_probe_slot	dwarf+symtab	586e9371565b		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xd688	80	pcibr_piomap_probe	dwarf+symtab	8d7893c32c36		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xd6d8	204	pcibr_probe_work	dwarf	25c789f9859e		in	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xd7a4	36	pcibr_disable_mst_timeout	dwarf+symtab	23594637f423		in	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xd7a4	36	pcibr_disable_mst_timeout	dwarf+symtab	23594637f423		in	named-only	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xd7c8	36	pcibr_enable_mst_timeout	dwarf+symtab	bc85b34a0eef		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xd7ec	84	pcibr_disable_mst_timeout_work	dwarf	424621cf1a29		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0xd840	84	pcibr_enable_mst_timeout_work	dwarf	424621cf1a29		in	undocumented		
@@ -227807,9 +227807,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2424	164	external_router_port	dwarf	5846b64a28cd		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x24c8	272	get_router_invent_info	dwarf+symtab	79468b7e120d		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x25d8	148	build_router_invent_info	dwarf+symtab	4d78caa3c9b0		out:2	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x266c	48	router_reg_read	dwarf+symtab	64760c9e7385		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x269c	48	router_reg_write	dwarf+symtab	64760c9e7385		in	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x26cc	64	router_set_leds	dwarf+symtab	c25ef3d8bf80		in	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x266c	48	router_reg_read	dwarf+symtab	64760c9e7385		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x269c	48	router_reg_write	dwarf+symtab	64760c9e7385		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x26cc	64	router_set_leds	dwarf+symtab	c25ef3d8bf80		in	located	docs/ip35-router.md#vector-unit-register-access	Vector unit register access
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x270c	176	router_decode_port_errors	dwarf+symtab	671ce8ec8ec9		in	named-only	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x27bc	608	router_acquire_port_info	dwarf+symtab	cc7fccf6dce5		in	located	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2a1c	288	router_acquire_info	dwarf+symtab	f2c5094f8efb		in	located	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
@@ -228299,7 +228299,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1e224	312	dump_crb	dwarf+symtab	f35b4a1324ad		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1e35c	388	kl_ioerror_handler	dwarf+symtab	9f0bf4d4a33a		in	named-only	docs/ip27-kernel-io.md#hub-memory-error-classification	Hub memory error classification
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1e4e0	72	kl_panic_setup	dwarf+symtab	250d66b35c1c		in	named-only	docs/ip35-hub-errors.md#hub-error-handling-in-the-ip35-kernel	Hub error handling in the IP35 kernel
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1e528	48	kl_panic	dwarf+symtab	ba2e0984be7f		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1e528	48	kl_panic	dwarf+symtab	ba2e0984be7f		in	located	docs/ip35-hub-errors.md#network-interface-error-interrupts	Network interface error interrupts
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1e558	192	vphys_get_pattr	dwarf	180b94e59da8		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1e618	124	pde_get_pattr	dwarf	077685a6b9bc		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1e694	316	vtop_attr_get	dwarf	54c479f1c880		out:2	named-only	docs/version-diffs-queue.tsv	
@@ -235400,7 +235400,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xe9c4	32	pcibr_probe_slot	dwarf+symtab	0ff4248a2ff3		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xe9e4	80	pcibr_piomap_probe	dwarf+symtab	8a5165998120		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xea34	204	pcibr_probe_work	dwarf	6173137c4840		in	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xeb00	36	pcibr_disable_mst_timeout	dwarf+symtab	0ba45eeaa5a8		in	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xeb00	36	pcibr_disable_mst_timeout	dwarf+symtab	0ba45eeaa5a8		in	named-only	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xeb24	36	pcibr_enable_mst_timeout	dwarf+symtab	f6f176866461		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xeb48	84	pcibr_disable_mst_timeout_work	dwarf	d5c341126c30		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0xeb9c	84	pcibr_enable_mst_timeout_work	dwarf	d5c341126c30		in	undocumented		
