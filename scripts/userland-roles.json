@@ -70,7 +70,7 @@
     "grade": "inferred",
     "interfaces": "socket, connect, sendto, recvfrom and gethostbyname for the network path to an L2 controller; serial lines through termios (tcsetattr) for a direct connection; the L1 controller node pattern /hw/module/*c*/L1/controller; getpass for the L2 password; the temporary file /usr/tmp/UNIX_%04x.",
     "role": "Command-line client for the L1 controller of one module (the module management controller). It reaches the L1 directly over a serial line, or through an L2 controller over the network, and sends L1 command packets. Its options (--l2, --sysname, --ssn, --sc, --scdev, --dev, --serial, --interface, --pw, --irtr) select the route. It shares its routine set with the L2 client.",
-    "citation": "6.5.30 usr/sbin/l1cmd: usage and option strings, sn1SC* and L1Direct* routine names, /hw/module L1 controller pattern, dynamic imports connect, sendto, tcsetattr"
+    "citation": "6.5.30 usr/sbin/l1cmd: usage and option strings, sn1SC* and L1Direct* routine names, /hw/module L1 controller pattern, dynamic imports connect, sendto and __new_tcsetattr"
   },
   "usr/sbin/l2cmd": {
     "package": "field_diags_sysco.sw.stand (product field_diags_sysco)",
@@ -232,9 +232,9 @@
     "type": "daemon",
     "status": "located",
     "grade": "inferred",
-    "interfaces": "the temporary directory a per-request temporary directory under /var/tmp with a random suffix; two temporary mount-table files in /etc with random suffixes; /etc/mtab; the login records /etc/utmp and /etc/wtmp; mount, with an 'RPC create error' message on a failed mount.",
+    "interfaces": "the temporary directory a per-request temporary directory named from the template /var/tmp_rex/rexdXXXXXX; two temporary mount-table files in /etc with random suffixes; /etc/mtab; the login records /etc/utmp and /etc/wtmp; mount, with an 'RPC create error' message on a failed mount.",
     "role": "Remote execution RPC server. It runs commands that remote clients submit, in a temporary work directory, and mounts the file systems those commands need, recording the session in the login records.",
-    "citation": "6.5.30 usr/etc/rpc.rexd: a per-request temporary directory under /var/tmp with a random suffix, two temporary mount-table files in /etc with random suffixes, /etc/utmp and /etc/wtmp strings, 'not responding: RPC create error' message"
+    "citation": "6.5.30 usr/etc/rpc.rexd: a per-request temporary directory named from the template /var/tmp_rex/rexdXXXXXX, two temporary mount-table files in /etc with random suffixes, /etc/utmp and /etc/wtmp strings, 'not responding: RPC create error' message"
   },
   "usr/etc/rpc.passwd": {
     "package": "nfs.sw.nfs (product nfs_6530m)",
@@ -250,7 +250,7 @@
     "type": "daemon",
     "status": "located",
     "grade": "inferred",
-    "interfaces": "the terminal device prefix /dev/ in its strings; ioctl; svc_register and svc_run.",
+    "interfaces": "the terminal device prefix /dev/ in its strings; the utmp calls, among them getutent; svc_register, svc_run and rpc_control.",
     "role": "Remote logged-in users RPC server, named after the rusers service. Few strings are present; the method of reading the user list was not read.",
     "citation": "6.5.30 usr/etc/rpc.rusersd: /dev/ string, the service name in the file name, dynamic imports svc_register and svc_run"
   },
@@ -269,7 +269,7 @@
     "status": "located",
     "grade": "inferred",
     "interfaces": "the cluster monitor daemon cmond (control requests); the options -f, -r, -g process_group and -l level.",
-    "role": "Command-line control for the cluster monitor daemon. Its action argument, with -g to pick a process group and -l to set a log level, starts, stops or changes the monitor. The action names are not read.",
+    "role": "Command-line control for the cluster monitor daemon. Its action argument names an operation on the monitor; -g picks a process group and -l sets a log level. The action names are not read, so the operations are not described.",
     "citation": "6.5.30 usr/cluster/bin/cmon_ctrl: usage line 'action [-f] [-r] [-g process_group] [-l level]'"
   },
   "usr/cluster/bin/ha_gcd": {
