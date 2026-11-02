@@ -1539,3 +1539,40 @@ word it points to (`lw a0,0(a0)` in the delay slot of the call); `a1` to `a3` ar
 the low 32 bits of the result. Result 0 calls `mem_refcnt_open` (0xc00000000027a0f8) with the original `a0` (not the loaded word) and the three other arguments, and returns its result. Result 1 calls
 `cap_able(1 << 37)` (0xc00000000028741c; `a0` = 1 shifted left 37 by `dsll32 a0,a0,5`) and returns 1 when it returns 0 and 0 when it returns nonzero (`sltiu v0,1`). Any other result returns 19 without a call.
 Return values by path: 19, the open routine's result, 0 or 1. No branch-likely instruction.
+
+## Node special-file close and unmap, crosstalk and PIO map forwarders
+
+- `hubspc_close` (`6.5.30/unix.IP27`, address 0xc00000000006bc14, 108 bytes, 48-byte frame): **established.**
+The close entry of the node special-file driver. It saves `a0` to `a3` at sp+0 to sp+24 and calls `device_info_get` (0xc0000000001734d0) with `a0` unchanged, then reads the low
+32 bits of the result. Result 0 calls `mem_refcnt_close` (0xc00000000027a164) with the four saved arguments and returns its result. Result 1 returns 0 without a call (`a0` is cleared at
+0xc00000000006bc58 and moved to `v0` at 0xc00000000006bc4c). Any other result returns 19. No branch-likely instruction.
+- `hubspc_unmap` (`6.5.30/unix.IP27`, address 0xc00000000006bd1c, 96 bytes, 32-byte frame): **established.**
+The unmap entry of the same driver. `a0` and `a1` are saved at sp+0 and sp+8, and `device_info_get` (0xc0000000001734d0) is called on `a0`; the low 32 bits of the result select the path.
+Result 0 calls `mem_refcnt_unmap` (0xc00000000027a208) with `a0` and `a1`, and returns its result. Result 1 calls `cpuprom_unmap` (0xc00000000006bb64) with the same two arguments and returns its result.
+Any other result returns 19 and calls nothing further. The reload of `a0` from sp+0 is in the delay slot of the branch at 0xc00000000006bd40, so both calls see it. No branch-likely instruction.
+- `xtalk_piomap_alloc` (`6.5.30/unix.IP27`, address 0xc00000000006bdf8, 28 bytes, 16-byte frame): **established.**
+The crosstalk-level entry for allocating a programmed-I/O map. It saves `ra` in a 16-byte frame and calls `hub_piomap_alloc` (0xc00000000003b5a0) with every argument register untouched;
+the delay slot of the call is a `nop`. The result of that call is the routine's result. No branch-likely instruction.
+- `xtalk_piomap_free` (`6.5.30/unix.IP27`, address 0xc00000000006be14, 28 bytes, 16-byte frame): **established.**
+The crosstalk-level entry for releasing a programmed-I/O map. The body is the same shape as `xtalk_piomap_alloc`: a call of `hub_piomap_free` (0xc00000000003b8b8) with the argument
+registers untouched and a `nop` delay slot, and that call's result as the result. No branch-likely instruction.
+- `xtalk_piomap_addr` (`6.5.30/unix.IP27`, address 0xc00000000006be30, 28 bytes, 16-byte frame): **established.**
+The crosstalk-level entry that turns an offset in a programmed-I/O map into an address. It calls `hub_piomap_addr` (0xc00000000003b9a4) with all argument registers untouched
+(`nop` delay slot) and returns that call's result. No branch-likely instruction.
+- `xtalk_piotrans_addr` (`6.5.30/unix.IP27`, address 0xc00000000006be68, 28 bytes, 16-byte frame): **established.**
+The crosstalk-level entry for translating a programmed-I/O address without a map. It calls `hub_piotrans_addr` (0xc00000000003ba0c) with all argument registers untouched
+(`nop` delay slot) and returns that call's result. No branch-likely instruction.
+- `xtalk_dmamap_free` (`6.5.30/unix.IP27`, address 0xc00000000006bfc8, 28 bytes, 16-byte frame): **established.**
+The crosstalk-level entry for releasing a DMA map. It calls `hub_dmamap_free` (0xc00000000003bb58) with every argument register untouched (`nop` delay slot) and returns that call's result.
+No branch-likely instruction.
+- `xtalk_dmatrans_addr` (`6.5.30/unix.IP27`, address 0xc00000000006c038, 28 bytes, 16-byte frame): **established.**
+The crosstalk-level entry for translating a DMA address without a map. It calls `hub_dmatrans_addr` (0xc00000000003bc88) with every argument register untouched (`nop` delay slot) and
+returns that call's result. No branch-likely instruction.
+- `pciio_piomap_alloc` (`6.5.30/unix.IP27`, address 0xc00000000009291c, 28 bytes, 16-byte frame): **established.**
+The generic PCI-level entry for allocating a programmed-I/O map. It calls `pcibr_piomap_alloc` (0xc000000000072714) with every argument register untouched (`nop` delay slot) and returns that
+call's result. No table is consulted in this routine. No branch-likely instruction.
+- `pcibr_piomap_addr` (`6.5.30/unix.IP27`, address 0xc0000000000729ac, 44 bytes, 16-byte frame): **established.**
+Turns an offset in a Bridge programmed-I/O map into an address by delegating to the crosstalk layer. `a0` is the map and `a1` the offset.
+The routine loads three doublewords from the map: +40 (`a4`), +16 (`a3`) and +48 (`a0`). It forms `a1` + (the doubleword at +40) - (the doubleword at +16), the subtraction being in the delay slot of the
+call, and calls `xtalk_piomap_addr` (0xc00000000006be30) with `a0` = the doubleword at map +48 and `a1` = that sum. The caller's `a3` and `a4` are overwritten, with the doubleword at map +16 and the one at +40, before the call; `a2`, `a5` and the later arguments reach the callee untouched. The result of the call is
+the routine's result. `pciio_piomap_addr` stores that result in the doubleword at map +32. No branch-likely instruction.
