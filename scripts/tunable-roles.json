@@ -1,3 +1,83 @@
 {
-  "_comment": "Hand-written roles for kernel tunables in docs/inventory/tunable-summary.tsv. Each entry gives a grade (established: the read sites were read in the disassembly and the statements about them are mechanical; inferred: the meaning of the value is reasoned from the code around it), a role in plain words, and a citation naming the 6.5.30 kernel and the routine and address of the sites. A row counts as understood only with all three. Keys are tunable names. Sites that the symbolic pass did not find are stated as absent, not as unused. A role applies to the kernels in its kernels list (IP27 only where the IP35 and IP30 sites are listed but not traced); other kernels stay located."
+  "_comment": "Hand-written roles for kernel tunables in docs/inventory/tunable-summary.tsv. Each entry gives a grade (established: the read sites were read in the disassembly and the statements about them are mechanical; inferred: the meaning of the value is reasoned from the code around it), a role in plain words, and a citation naming the 6.5.30 kernel and the routine and address of the sites. A row counts as understood only with all three. Keys are tunable names. Sites that the symbolic pass did not find are stated as absent, not as unused. A role applies to the kernels in its kernels list (IP27 only where the IP35 and IP30 sites are listed but not traced); other kernels stay located.",
+  "numa_migr_default_mode": {
+    "grade": "established",
+    "role": "Default page-migration mode, a small integer. In IP27 migr_control_init loads it at 0xc0000000014ca8b4 and compares it with 0, 1, 3, 2 and 4 in turn (beq chain); each value runs one arm that updates a flag byte in a per-node record, and any other value falls to a cmn_err call at 0xc000000000282194 with the first argument set to 4 in the branch delay slot. mem_tick_init_node reads the low byte of the word (symbol+3, lbu at 0xc00000000027a744) and branches on zero. IP35 has one word load in migr_control_init (0xc00000000032e068) that is not traced further. IP30 has no read site.",
+    "citation": "6.5.30 unix.IP27 migr_control_init (0xc000000000281558; compare chain 0xc000000000281608 region, default arm 0xc000000000282194) and mem_tick_init_node (0xc00000000027a424; lbu at 0xc00000000027a744); unix.IP35 migr_control_init (0xc00000000032dfe8; load 0xc00000000032e068)",
+    "kernels": [
+      "IP27"
+    ]
+  },
+  "numa_migr_default_threshold": {
+    "grade": "established",
+    "role": "Default migration threshold, an integer that must lie in 0 to 100. In IP27 migr_control_init loads it at 0xc0000000002816dc and branches to 0xc000000000281ecc (a cmn_err error arm) when it is negative (bltz) or 101 or more (slti 101, beq). The value is used only on the accepted path, which is not traced. No read site in IP35 or IP30 was found by the symbolic pass; the IP35 gp-relative offset of the symbol has no access.",
+    "citation": "6.5.30 unix.IP27 migr_control_init (load 0xc0000000002816dc, error arm 0xc000000000281ecc); unix.IP35 migr_control_init (no site)",
+    "kernels": [
+      "IP27"
+    ]
+  },
+  "numa_migr_threshold_reference": {
+    "grade": "inferred",
+    "role": "Selector for the migration threshold reference, with values 0 and 1 handled as separate arms. In IP27 migr_control_init loads it at 0xc00000000028169c, branches to 0xc000000000281de0 when it is zero, and to 0xc0000000002820e8 when it differs from the constant 1 held in s2. The arm for value 1 is not traced. No read site in IP35 or IP30.",
+    "citation": "6.5.30 unix.IP27 migr_control_init (load 0xc00000000028169c; branch targets 0xc000000000281de0, 0xc0000000002820e8)",
+    "kernels": [
+      "IP27"
+    ]
+  },
+  "numa_migr_vehicle": {
+    "grade": "established",
+    "role": "Migration vehicle selector, a small integer. migr_control_init stores the constant 1 from register s2 into it at 0xc000000000281d64 on one path (path condition not traced). migr_pagemove loads it at 0xc00000000027df0c and passes it as the third argument to a cmn_err call with level 0 on an error path. IP35 has the same pair: a store in migr_control_init (0xc00000000032e148) and a load in migr_pagemove (0xc00000000032bcc0).",
+    "citation": "6.5.30 unix.IP27 migr_control_init (store 0xc000000000281d64) and migr_pagemove (load 0xc00000000027df0c); unix.IP35 migr_pagemove (load 0xc00000000032bcc0) and migr_control_init (store 0xc00000000032e148)",
+    "kernels": [
+      "IP27"
+    ]
+  },
+  "numa_migr_min_maxradius": {
+    "grade": "inferred",
+    "role": "Minimum maximum radius for a migration target, read as a 32-bit word. In IP27 migr_control_init it is compared at 0xc000000000281628 with register v0 (set earlier, not traced): when v0 is less than the value, the byte at offset 0 of the record reached through the table pointer at +8 gets bits 0x30, otherwise bit 0x20. A second load at 0xc0000000002817bc stores the low byte of the value at offset 4 of that record. IP35 has one load in migr_control_init (0xc00000000032e0bc) that is not traced.",
+    "citation": "6.5.30 unix.IP27 migr_control_init (loads 0xc000000000281628 and 0xc0000000002817bc); unix.IP35 migr_control_init (load 0xc00000000032e0bc)",
+    "kernels": [
+      "IP27"
+    ]
+  },
+  "numa_migr_auto_migr_mech": {
+    "grade": "established",
+    "role": "Automatic migration mechanism switch, read as a boolean. migr_control_init loads it at 0xc0000000002818d8 and compares it with the constant 1 in s2; equality is one of the short-circuit tests of the same branch sequence as the user and coaldmigr mechanisms. A second load at 0xc0000000002819bc takes its low bit (andi 1), shifts it to bit 0x10 and merges it into the flag byte at record+8 after clearing that bit (mask 0xef). No read site in IP35 or IP30.",
+    "citation": "6.5.30 unix.IP27 migr_control_init (loads 0xc0000000002818d8 and 0xc0000000002819bc)",
+    "kernels": [
+      "IP27"
+    ]
+  },
+  "numa_migr_user_migr_mech": {
+    "grade": "established",
+    "role": "User-requested migration mechanism switch, read as a boolean. migr_control_init loads it at 0xc0000000002818e4 and compares it with the constant 1 in s2 (same branch sequence as auto and coaldmigr). A second load at 0xc0000000002819f0 takes its low bit, shifts it to bit 0x08 and merges it into the flag byte at record+8, clearing that bit first (mask 0xf7). No read site in IP35 or IP30.",
+    "citation": "6.5.30 unix.IP27 migr_control_init (loads 0xc0000000002818e4 and 0xc0000000002819f0)",
+    "kernels": [
+      "IP27"
+    ]
+  },
+  "numa_migr_coaldmigr_mech": {
+    "grade": "established",
+    "role": "Coalesced-migration mechanism switch, read as a boolean. migr_control_init loads it at 0xc0000000002818f0 and compares it with the constant 1 in s2. A second load at 0xc000000000281a24 takes its low bit, shifts it to bit 0x04 and merges it into the flag byte at record+8, clearing that bit first (mask 0xfb). No read site in IP35 or IP30.",
+    "citation": "6.5.30 unix.IP27 migr_control_init (loads 0xc0000000002818f0 and 0xc000000000281a24)",
+    "kernels": [
+      "IP27"
+    ]
+  },
+  "numa_refcnt_default_mode": {
+    "grade": "inferred",
+    "role": "Default reference-count mode, a small integer. migr_control_init loads it at 0xc000000000281654, branches to 0xc000000000281dbc when it is zero and to 0xc000000000281e28 when it equals the constant 1 in s2; other values fall through to a further compare with 3. The arms are not traced. No read site in IP35 or IP30.",
+    "citation": "6.5.30 unix.IP27 migr_control_init (load 0xc000000000281654; branch targets 0xc000000000281dbc, 0xc000000000281e28)",
+    "kernels": [
+      "IP27"
+    ]
+  },
+  "numa_refcnt_overflow_threshold": {
+    "grade": "established",
+    "role": "Reference-count overflow threshold, an integer that must lie in 0 to 100. migr_control_init loads it at 0xc000000000281738 and branches to 0xc000000000281f44 when it is negative (bltz) or 101 or more (slti 101, beq), the same bounds test as numa_migr_default_threshold. The accepted path is not traced. No read site in IP35 or IP30.",
+    "citation": "6.5.30 unix.IP27 migr_control_init (load 0xc000000000281738; reject target 0xc000000000281f44)",
+    "kernels": [
+      "IP27"
+    ]
+  }
 }
