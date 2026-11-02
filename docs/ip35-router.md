@@ -128,3 +128,14 @@ Routines of the NUMAlink router code in the IRIX 6.5.30 IP35 kernel (`6.5.30/uni
   `vector_write_node(a1, NASID, a2, a3, a4)` and clears the byte after the call returns (the store is in the delay slot of the branch at the join). It then calls
   `in_panic_mode()` again and, when that is zero, releases the lock with `mutex_spinunlock(block + 0x8590, level)`.
   Established.
+- `router_reg_read` (`6.5.30/unix.IP35`, occupies 48 bytes at address 0xc0000000000427ec): reads one router register through the Hub vector unit, for a router state record.
+  `a0` is the router state record, `a1` the register number and `a2` the address that receives the value. It calls
+  `hub_vector_read(halfword at ri +2, doubleword at ri +24, word at ri +32, a1, a2)` (the word at +32 is loaded in the delay slot) and returns its result. The frame is 16 bytes, and no
+  instruction is branch-likely. Established.
+- `router_reg_write` (`6.5.30/unix.IP35`, occupies 48 bytes at address 0xc00000000004281c): writes one router register through the Hub vector unit, for a router state record.
+  `a0` is the router state record, `a1` the register number and `a2` the value. It calls
+  `hub_vector_write(halfword at ri +2, doubleword at ri +24, word at ri +32, a1, a2)` (the word at +32 is loaded in the delay slot) and returns its result. The frame is 16 bytes, and no
+  instruction is branch-likely. Established.
+- `router_set_leds` (`6.5.30/unix.IP35`, occupies 64 bytes at address 0xc00000000004284c): writes the router's LED register when the wanted LED byte differs from the one last written.
+  `a0` is the router state record. It loads the byte at ri +7 and the byte at ri +6 and returns 0 when they are equal. Otherwise it copies the byte at +7 into +6 (the store is in the delay slot of the
+  call) and calls `router_reg_write(ri, 0x200, byte at +7)`, returning that result. From the compare and the copy, +7 reads as the wanted value and +6 as the last value written (inferred; the body does not name the fields). The frame is 16 bytes. No instruction is branch-likely. Established.

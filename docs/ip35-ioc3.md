@@ -232,12 +232,20 @@ Routines of the IOC3 PCI I/O controller code in the IRIX 6.5.30 IP35 kernel (`6.
   (second argument 1, so a missing mask is created as 255 first). A zero result ends the routine. Otherwise it forms
   `1 << a1` with `sllv`, inverts it with `nor` against zero and ANDs it into the doubleword with a `lld`/`scd` loop
   whose retry is the branch-likely `beql` at 0xc0000000000c63b0. The helper's result is left in `v0`. Established.
-- `ioc3_is_console` (`6.5.30/unix.IP35`, address 0xc0000000000c5d80, 88 bytes, 16-byte frame): says whether the IOC3
+- `ioc3_subdev_enables` (`6.5.30/unix.IP35`, occupies 44 bytes at address 0xc0000000000c6308): replaces an IOC3's whole sub-device enable mask with a caller's value.
+  `a0` is the IOC3 vertex and `a1` the new mask, which the routine keeps at sp+8. It calls the unnamed static routine at
+  0xc0000000000c61ec with `a0` and 1 (the 1 is set in the call's delay slot). That routine, described under
+  `ioc3_subdev_enable`, returns the pointer to the mask doubleword, creating the doubleword with the value 255 when the
+  label is missing, or returns 0. A zero result ends the routine at once with no store and 0 in `v0`. Otherwise the saved
+  `a1` is stored as one whole doubleword (`sd`) at the returned pointer and the routine returns with `v0` still holding that
+  pointer. The store is a plain write, not the `lld`/`scd` loop that `ioc3_subdev_enable` and `ioc3_subdev_disable` use,
+  and no instruction is branch-likely. The frame is 16 bytes. Established.
+- `ioc3_is_console` (`6.5.30/unix.IP35`, occupies 88 bytes at address 0xc0000000000c5d80): says whether the IOC3
   vertex `a0` is the console controller. It returns 0 when the doubleword at 0xc000000001644dd8 (gp+5736, the console
   controller's soft state, set by `ioc3_attach`) is zero. Otherwise it calls `hwgraph_traverse(a0, "ioc3", &sp+0)`, the
   string at 0xc00000000049d258 (pool word at gp-19704 plus 472), and returns 0 if that call returns nonzero. If it
   succeeds it calls `hwgraph_fastinfo_get` on the vertex found and returns 1 when the result equals the global and 0
-  when it does not (`xor` then `sltiu` against 1). Established.
+  when it does not (`xor` then `sltiu` against 1). The frame is 16 bytes. Established.
 - `ioc3_is_io7` (`6.5.30/unix.IP35`, address 0xc0000000000c5dd8, 64 bytes, 16-byte frame): returns the flag byte that `ioc3_attach`
   keeps in an IOC3's soft state. It calls `hwgraph_traverse(a0, "ioc3", &sp+0)` (the string at 0xc00000000049d258, pool word at
   gp-19704 plus 472) and returns 0 when that returns nonzero. Otherwise it calls `hwgraph_fastinfo_get` on the vertex
@@ -253,14 +261,14 @@ Routines of the IOC3 PCI I/O controller code in the IRIX 6.5.30 IP35 kernel (`6.
   `ioc3_serial_attach` compares with 0x000310a9. When that word equals 0x0300fafa or 0x0300fafb the routine returns at
   once. Otherwise it calls `ioc3_sio_mlreset` and returns. What the two other identifiers belong to is unknown here.
   There is no return value. Established.
-- `ioc3_ei_intr` (`6.5.30/unix.IP35`, address 0xc0000000000c42a0, 308 bytes, 48-byte frame): the handler that `eiattach`
-  connects with `ioc3_intr_connect` for the interrupt mask 0x18000000, with its own state record as the argument. `a0`
+- `ioc3_ei_intr` (`6.5.30/unix.IP35`, occupies 308 bytes at address 0xc0000000000c42a0): the handler for the external interrupts of the IOC3, which
+  `eiattach` connects with `ioc3_intr_connect` for the interrupt mask 0x18000000, with its own state record as the argument. `a0`
   is that record (56 bytes, from `eiattach`'s `kmem_zalloc`). The offsets used are the register window pointer at +8
   (`eiattach` stores `ioc3_mem_ptr`'s result there), a word at +16 (the mask passed to `ioc3_write_ireg`; `eiattach`
   stores 0 there after connecting), a spin lock whose address is record + 20, the head of a list at +24, a pointer at +32 to a page that
   `eiattach` allocates with `kvpalloc`, a word at +44 (`eiattach` stores -1) and the IOC3 soft state at +48. The
   routine first stores 0x18000000 in the word at +0x1c of the register window, the word `ioc3_handle_intr` reads as the
-  pending word; what a store there does to the chip is unknown here. It then reads the word at the absolute address
+  pending word; what a store there does to the chip is not stated by the body. It then reads the word at the absolute address
   0xffffffffffffc6a8 (-14680). When that is nonzero it calls `frs_handle_eintr`, a stub whose whole body is `jr ra`.
   When it is zero it reads the record word at +44: a nonnegative value is passed to `uli_callup`, and a negative value
   (the value `eiattach` leaves) takes the third path. That path takes the lock at the address record + 20 with `mutex_spinlock`,
