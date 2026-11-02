@@ -38,7 +38,7 @@ Rules for what is written down:
 - `root/` is gitignored. It mirrors the install of each release under `root/<release>/` (for example `root/6.5.30/usr/cpu/sysgen/IP27boot/kernel.o`) and holds the linked kernels as `root/<release>/unix.IPnn`. [IRIX_FILES.md](IRIX_FILES.md) lists the paths and which media each came from. `scripts/populate-root` links per-area directories into it.
 - `docs/` holds the findings (`docs/<area>.md`), [docs/coverage.md](docs/coverage.md) (the map and the measured totals), [docs/open-questions.md](docs/open-questions.md) and the generated [docs/inventory/](docs/inventory/README.md).
 - `include/` and per-area directories hold C headers that describe structure layouts and constants, each field commented with its grade and derivation.
-- `scripts/` holds the shared inventory, fact sheet and claim checker, and the tables specific to this repository (`os_tables.py`, `gen-scope.py`). `tools/` holds the container definitions and wrappers shared with the sibling repositories; `tools/check-shared` keeps them identical.
+- `scripts/` holds the shared inventory, fact sheet and claim checker, and the tables specific to this repository (`os_tables.py`, `gen-scope.py`). `tools/` holds the container definitions and wrappers, shared through the `retools/` submodule; `tools/check-shared` verifies its pin.
 - Public sources are pinned submodules ([docs/published-sources.md](docs/published-sources.md) says why each pin).
 
 ## 4. Tools

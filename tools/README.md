@@ -11,7 +11,7 @@ Everything runs in a container built from `Containerfile`, so the host needs onl
 
 `tools/re-run COMMAND` runs COMMAND in the image with this repository mounted at `/work`, `root/` included. Set `RE_ENGINE` to the container command to use instead of `podman` (a wrapper that selects a particular Podman service works). `tools/re-run --ghidra COMMAND` uses the optional Ghidra 12.1.3 image from `Containerfile.ghidra`, which has `analyzeHeadless` and the BSim support; `tools/re-run --ghidra-export OBJECT` decompiles an ELF object or kernel to JSON under `.cache/ghidra-export/`. Decompiler output is navigation, not evidence. The Ghidra scripts are in `ghidra-scripts/`. [README-analysis.md](README-analysis.md) describes the `.mdebug` importer and the syscall and syssgi extractors.
 
-`tools/check-shared` verifies that the container definitions, wrappers, Ghidra helpers and the shared scripts (inventory, fact sheet, claim checker, pre-push hook, leak check) are byte-identical to the copies in the sibling reverse-engineering repositories. Edit them in one repository, run `tools/check-shared --update`, copy the files and `shared.sha256` everywhere, and run it in each. `scripts/os_tables.py`, `scripts/gen-scope.py` and `scripts/scope.json` are specific to this repository and are not shared.
+The container definitions, wrappers, Ghidra helpers and the shared scripts (inventory, fact sheet, claim checker, pre-push hook, leak check) are the `retools/` submodule (sgi-retools); the paths here and in `scripts/` link into it. `tools/check-shared` verifies the pin. `scripts/os_tables.py`, `scripts/gen-scope.py` and `scripts/scope.json` are specific to this repository and are not shared.
 
 ## Checking for copied reference source before a push
 

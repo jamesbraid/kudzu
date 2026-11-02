@@ -74,3 +74,6 @@
 [submodule "irix-657m-src"]
 	path = irix-657m-src
 	url = https://github.com/calmsacibis995/irix-657m-src.git
+[submodule "retools"]
+	path = retools
+	url = ../sgi-retools.git
