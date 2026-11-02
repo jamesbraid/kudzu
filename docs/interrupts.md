@@ -345,18 +345,27 @@ An IP35 node has up to four processors behind two processor interfaces. The kern
   interface's modify-register pool word (gp+2792 in 6.5.30, gp+768 in 6.5.22), the same six in both:
   `sub_c000000000061060` (the symbol table gives it as `intr_reserve_hardwired+0x15c`, above),
   `cause_intr_disconnect`, `install_cpuintr`, `install_dbgintr`, `gfx_flow_detach_me` and `sendintr`.
-  The only routines that build an offset of `0x200000` or more with `lui 0x20` and a register offset of `0x90`
-  or `0x98` are `sendintr` (0xc00000000006083c) and `intr_connect_level` (0xc00000000005f468); the five
-  others contain no such `lui`. Each of the two picks `0x200090` or `0x90` by bit 1 of the processor's
-  `p_slice`. `sendintr` writes `0x100` ORed with a level (7 or 8 when its second argument is 171, else 107
-  or 108, by bit 0 of `p_slice`) to the target processor's interface, the form that sets a level. `intr_connect_level` writes the level alone, which clears it, to the modify register of the interface the connecting
-  processor sits behind (`0x90` or `0x200090`) and reads back that interface's `0x98` or `0x200098`. The `sendintr` and
-  `intr_connect_level` accesses were read in the instructions around those two addresses, and the other five by their pool-word loads
-  only.
-  So the only clear of a level on the second interface that goes through the second interface's own
-  modify register is the one in `intr_connect_level`; `intr_clear_all` is the one place that clears second-interface
-  pending bits through the first. Its only direct call (`jal` at 0xc000000000065f54, inside the range the symbol
-  table gives `VEC_fpe`) is in a loop over the compact nodes, run right after `init_platform_nodepda` for the same node. Nothing
+  The second interface's modify register is reached by a different route: a `lui 0x20` and an `ori` of `0x90`
+  or `0x98` on the same register, which gives `0x200090` or `0x200098`. A scan of both IP35 kernels finds that pair
+  in `sendintr` (0xc00000000006083c), `intr_connect_level` (0xc00000000005f468), `cleanup_remote_pi`,
+  `protected_broadcast`, `debug_stop_all_cpus`, `sendgroupintr`, `pcibr_force_interrupt`, `intr_clear_all`,
+  `intr_dumpvec`, `sn0_skip_dump` and one more range the symbol table calls `hub_dmalist_drain`. None of the five
+  pool-word routines other than `sendintr` contains that `lui`. In the first seven the `0x90` or `0x200090` is chosen
+  by bit 1 of the processor's `p_slice`, or by a two-pass loop in `cleanup_remote_pi`; the last four were found by
+  the scan and not read. `sendintr` writes `0x100` ORed with a level (7 or 8 when its second argument is 171, else 107
+  or 108, by bit 0 of `p_slice`) to the target processor's interface, the form that sets a level;
+  `protected_broadcast`, `debug_stop_all_cpus`, `sendgroupintr` and `pcibr_force_interrupt` also OR in `0x100`.
+  `intr_connect_level` writes the level plus 64 times a value that an earlier call returns, with no `0x100`, to the
+  modify register of the interface the connecting processor sits behind (`0x90` or `0x200090`) and reads back that
+  interface's `0x98` or `0x200098`. `cleanup_remote_pi` makes the same kind of write, without `0x100`, once to each
+  of a node's two interfaces; its one caller (`hubii_eint_handler`, `jal` at 0xc00000000005b204) passes 126. The
+  `sendintr`, `intr_connect_level` and `cleanup_remote_pi` accesses were read in the instructions; the pool-word
+  routines other than `sendintr` by their pool-word loads only.
+  So two routines clear a level, in the form without `0x100`, through the second interface's own
+  modify register: `intr_connect_level` and `cleanup_remote_pi`. `intr_clear_all` is the one place found that clears second-interface
+  pending bits through the first. Its only direct call (`jal` at 0xc000000000065f54, in the unnamed routine that starts at
+  0xc000000000065f0c; the symbol table sizes `VEC_fpe` at 108 bytes from 0xc000000000065d10, so the disassembler's
+  `VEC_fpe+0x...` label there is only the nearest preceding symbol) is in a loop over the compact nodes, run right after `init_platform_nodepda` for the same node. Nothing
   in these routines shows software relying on the first-interface write to clear a second-interface level.
   Inferred, from the accesses listed. The hardware behaviour itself: unknown: no shipped software or published
   source depends on it. Routes tried: every user of the pool words in both IP35 kernels; the node controller's

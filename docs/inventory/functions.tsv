@@ -4433,7 +4433,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000024294	280	iograph_early_init	symtab	c5959ac19833		out:1	named-only	docs/klconfig.md#early-platform-setup	Early platform setup
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000243ac	244	setnoderun	symtab	fa74297e5bba		out:1	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000244a0	28	restorenoderun	symtab	5bf51fd3bd60		out:1	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000245e0	864	io_xswitch_widget_init	symtab	e3f5463e17bc		out:1	named-only	docs/hwgraph.md#hub-device-callouts-and-prom-device-records	Hub device callouts and PROM device records
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000245e0	864	io_xswitch_widget_init	symtab	e3f5463e17bc		out:1	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000002506c	252	io_init_pebrick	symtab	21a0ab8635f8		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000251c0	216	scsi_ctlr_nums_add	symtab	5cf59dd10c31		out:1	named-only	docs/ioconfig.md#who-sets-it-in-the-kernel	Who sets it in the kernel
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000025564	452	sn00_rrb_alloc	symtab	e9cb595bb6b6		in	named-only	docs/panics.md#sn00_rrb_alloc	`sn00_rrb_alloc`
@@ -4672,7 +4672,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000353f4	108	recover_error_init	symtab	cc26a8816c56		out:1	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000035460	108	klerror_global_check	symtab	8aebd6328996		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000354cc	416	klerror_check_recoverable	symtab	a580d2db8db5		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000003566c	24	sn0_skip_dump	symtab	cc64f692ccbe		in	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000003566c	24	sn0_skip_dump	symtab	cc64f692ccbe		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000035684	448	sn0_error_dump	symtab	53c2ba932411		in	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000035844	44	sn0_error_state	symtab	aafda923cc83		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000035870	1360	dobuserre	symtab	da41e0bca424		out:1	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
@@ -4723,14 +4723,14 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000394b8	96	install_cpuintr	symtab	f6d061b05981		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000039564	176	install_dbgintr	symtab	a410a7a77ebc		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000039658	176	install_tlbintr	symtab	307bc529e7c5		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000039708	264	protected_broadcast	symtab	7c9c6263ebd2		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000039708	264	protected_broadcast	symtab	7c9c6263ebd2		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000039810	80	chkdebug	symtab	f3bf6da935d6		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000039860	104	install_gfxintr	symtab	5bbce04db1c8		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000398c8	108	hub_migrintr_init	symtab	c1f86a76fbd1		in	located	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000039934	236	debug_stop_all_cpus	symtab	ea3e267d824e		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000039934	236	debug_stop_all_cpus	symtab	ea3e267d824e		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000039a20	292	intr_reserve_hardwired	symtab	ff6c3d8f54bb		in	located	docs/interrupts.md#routines	Routines
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000039bbc	120	intr_clear_all	symtab	e1d4430ff5bf		in	located	docs/interrupts.md#routines	Routines
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000039df4	608	intr_dumpvec	symtab	fa4bc7e8ac25		in	named-only	docs/version-diffs-gp-slots.tsv	
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000039df4	608	intr_dumpvec	symtab	fa4bc7e8ac25		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000003a054	256	enable_ithreads	symtab	b58dbbd319ab		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000003a240	56	tfi_save	symtab	23e6f8986331		out:1	named-only	docs/ip27-kernel-io.md#cache-error-handling	Cache error handling
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000003a278	56	tfi_restore	symtab	0a54feea6840		out:1	named-only	docs/ip27-kernel-io.md#cache-error-handling	Cache error handling
@@ -4840,7 +4840,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000003c7ec	108	hub_slotbits_to_slot	symtab	7dc0dad8d594		in	located	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000003c858	104	hub_slot_to_widget	symtab	e3118e726d12		in	located	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000003c8c0	36	hub_slot_to_crossbow	symtab	11261d777a5d		in	understood	docs/klconfig.md#node-and-processor-lookups	Node and processor lookups
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000003c8e4	40	router_slotbits_to_slot	symtab	ae3df19eea93		in	named-only	docs/version-diffs-gp-slots.tsv	
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000003c8e4	40	router_slotbits_to_slot	symtab	ae3df19eea93		in	named-only	docs/version-diffs.md#what-the-moved-gp-slots-name	What the moved gp slots name
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000003c90c	40	meta_router_slotbits_to_slot	symtab	ed743a28fff2		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000003c99c	156	get_slotname	symtab	6c5a78a4a4ea		out:1	named-only	docs/hwgraph.md#routines	Routines
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000003ca38	44	get_node_slotid	symtab	03279686aa26		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -5106,7 +5106,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000004a260	276	intrgroup_unjoin	symtab	0f653f0d5001		in	named-only	docs/panics.md#intrgroup_unjoin	`intrgroup_unjoin`
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000004a374	232	intrgroup_free	symtab	cb6c7fef8448		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000004a45c	128	groupintr	symtab	1e126e113662		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000004a4dc	228	sendgroupintr	symtab	0f65c2dec73c		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000004a4dc	228	sendgroupintr	symtab	0f65c2dec73c		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000004a5c0	36	get_nvreg	symtab	1a2ac1631233		out:1	named-only	docs/klconfig.md#memory-sizing	Memory sizing
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000004a5e4	128	set_nvreg	symtab	48f70f915907		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000004a664	164	get_nvram_buf	symtab	ccb9c961847e		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -6588,7 +6588,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000ccf3c	448	dk_alloc_ioreq	symtab	e50558574bc7		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000cd0fc	144	dk_callback_frontend	symtab	dd9371a80699		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000cd5e8	372	dksc_partition_to_canonical_special	symtab	2e64f9e09a9e		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000cdadc	584	dk_add_hw_disk_alias	symtab	f0f4abe8459a		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000cdadc	584	dk_add_hw_disk_alias	symtab	f0f4abe8459a		out:1	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000cdd24	552	dk_remove_hw_disk_alias	symtab	a6b49e796a64		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000cdf4c	320	dk_alias_make	symtab	ebc5e21f31e4		out:1	named-only	docs/ioconfig.md#who-sets-it-in-the-kernel	Who sets it in the kernel
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000000ce08c	144	dk_namespace_remove	symtab	e40574625157		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -8819,7 +8819,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001ca480	356	sgi_symtab	symtab	6b3cb1a817eb		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001ca5e4	188	st_findaddr	symtab	4920fd66ad65		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001ca6a0	188	st_findname	symtab	69c05ef5a3f1		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001ca75c	692	mload_init	symtab	3704ea639526		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001ca75c	692	mload_init	symtab	3704ea639526		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001ccf8c	540	mload_driver_load	symtab	fc002905b866		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001cdbe8	52	cdhold	symtab	6b11e5912c41		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001cdc1c	44	cdrele	symtab	bc7c62a761e1		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -9321,7 +9321,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001f8260	3020	icmn_err_tag	symtab	c172eccaf584		out:1	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001f8e2c	48	icmn_err	symtab	9566998ab113		out:1	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001f8e5c	48	vsprintf	symtab	dfc9a6ccbba9		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001f8e8c	56	sprintf	symtab	1d211f6188ce		out:1	named-only	docs/hwgraph.md#path-names	Path names
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001f8e8c	56	sprintf	symtab	1d211f6188ce		out:1	named-only	docs/hwgraph-paths.md#hardware-graph-path-and-edge-names-in-the-6530-kernels	Hardware-graph path and edge names in the 6.5.30 kernels
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001f8ec4	48	lo_vsprintf	symtab	dfc9a6ccbba9		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001f8ef4	56	lo_sprintf	symtab	c63328b5fc67		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000001f8f2c	76	printf	symtab	5392b66b1b8f		out:1	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
@@ -13205,7 +13205,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000003c30f8	8	xlvd_queue_failover	symtab	87506497337c		out:1	undocumented		
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000003c3100	8	xlv_configchange_notification	symtab	78aa5094d5ec		out:1	undocumented		
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000003c3108	8	sesmgr_init	symtab	78aa5094d5ec		out:1	undocumented		
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000003c3110	8	sgi_sesmgr	symtab	6bc8e674fbf7		out:1	undocumented		
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000003c3110	8	sgi_sesmgr	symtab	6bc8e674fbf7		out:1	named-only	docs/version-diffs.md#system-calls	System calls
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000003c3118	8	sesmgr_confignote	symtab	78aa5094d5ec		out:1	undocumented		
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000003c3120	8	sesmgr_lreceive	symtab	78aa5094d5ec		out:1	undocumented		
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc0000000003c3128	8	sesmgr_get_label	symtab	78aa5094d5ec		out:1	undocumented		
@@ -17625,7 +17625,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200072a8	56	cpu_isvalid	symtab	e9b94f54b17b		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020007588	548	init_all_devices	symtab	898534557cf6		out:1	named-only	docs/hwgraph-paths.md#names-by-kind	Names by kind
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200077ac	28	sendintr	symtab	0aa68a818cd4		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
-6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200077c8	140	debug_stop_all_cpus	symtab	4f653de98bb8		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200077c8	140	debug_stop_all_cpus	symtab	4f653de98bb8		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200078cc	28	pokesoftclk	symtab	07976d2a2e13		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200078e8	48	ip30_intr_maint	symtab	a6a71a9470c4		in	located	docs/ip30-kernel-functions.md#heart-interrupt-glue-board-revision-and-cache-stubs	Heart interrupt glue, board revision and cache stubs
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020007918	696	intr	symtab	a68c2d3d5616		in	located	docs/ip27-kernel-io.md#interrupt-entry	Interrupt entry
@@ -19300,7 +19300,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020089478	448	dk_alloc_ioreq	symtab	b12a20c90fcb		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020089638	144	dk_callback_frontend	symtab	1a586ad70a05		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020089b24	372	dksc_partition_to_canonical_special	symtab	5ae612edd05a		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP30	shared-kernel	n64	.text	0xa80000002008a018	584	dk_add_hw_disk_alias	symtab	62537b7954da		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP30	shared-kernel	n64	.text	0xa80000002008a018	584	dk_add_hw_disk_alias	symtab	62537b7954da		out:1	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa80000002008a260	552	dk_remove_hw_disk_alias	symtab	84a2f0cbba6e		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa80000002008a488	320	dk_alias_make	symtab	fccf59420ece		out:1	named-only	docs/ioconfig.md#who-sets-it-in-the-kernel	Who sets it in the kernel
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa80000002008a5c8	144	dk_namespace_remove	symtab	427573bf020f		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -21454,7 +21454,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020172dcc	356	sgi_symtab	symtab	9eeeecf20740		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020172f30	188	st_findaddr	symtab	828c0db97e01		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020172fec	188	st_findname	symtab	ce57984158d4		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
-6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000201730a8	692	mload_init	symtab	f17573dc3a2d		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
+6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000201730a8	692	mload_init	symtab	f17573dc3a2d		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000201758d8	540	mload_driver_load	symtab	3158746c0319		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020176534	52	cdhold	symtab	9a5647e9c09b		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020176568	44	cdrele	symtab	445220613ada		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -22001,7 +22001,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000201a6584	2844	icmn_err_tag	symtab	f58ccc990b81		out:1	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000201a70a0	48	icmn_err	symtab	8ea2f9ae5109		out:1	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000201a70d0	48	vsprintf	symtab	1f66fcdcb792		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000201a7100	56	sprintf	symtab	24434f8c5741		out:1	named-only	docs/hwgraph.md#path-names	Path names
+6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000201a7100	56	sprintf	symtab	24434f8c5741		out:1	named-only	docs/hwgraph-paths.md#hardware-graph-path-and-edge-names-in-the-6530-kernels	Hardware-graph path and edge names in the 6.5.30 kernels
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000201a7138	48	lo_vsprintf	symtab	1f66fcdcb792		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000201a7168	56	lo_sprintf	symtab	9742e8f7a025		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000201a71a0	76	printf	symtab	663d3de41532		out:1	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
@@ -25419,7 +25419,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000203396e8	8	xlvd_queue_failover	symtab	87506497337c		out:1	undocumented		
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000203396f0	8	xlv_configchange_notification	symtab	78aa5094d5ec		out:1	undocumented		
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000203396f8	8	sesmgr_init	symtab	78aa5094d5ec		out:1	undocumented		
-6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020339700	8	sgi_sesmgr	symtab	6bc8e674fbf7		out:1	undocumented		
+6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020339700	8	sgi_sesmgr	symtab	6bc8e674fbf7		out:1	named-only	docs/version-diffs.md#system-calls	System calls
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020339708	8	sesmgr_confignote	symtab	78aa5094d5ec		out:1	undocumented		
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020339710	8	sesmgr_lreceive	symtab	78aa5094d5ec		out:1	undocumented		
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020339718	8	sesmgr_get_label	symtab	78aa5094d5ec		out:1	undocumented		
@@ -30771,7 +30771,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000004c0e0	376	iograph_early_init	symtab	f55cc9532a1a		out:1	named-only	docs/klconfig.md#early-platform-setup	Early platform setup
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000004c258	264	setnoderun	symtab	07c840642c5a		out:1	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000004c360	28	restorenoderun	symtab	798a5c4a9a87		out:1	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000004c480	1940	io_xswitch_widget_init	symtab	59cf3da42f1e		out:1	named-only	docs/hwgraph.md#hub-device-callouts-and-prom-device-records	Hub device callouts and PROM device records
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000004c480	1940	io_xswitch_widget_init	symtab	59cf3da42f1e		out:1	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000004d244	304	io_init_pebrick	symtab	22943c2e1977		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000004d3cc	644	scsi_ctlr_nums_add	symtab	0d9834b30a21		out:1	named-only	docs/ioconfig.md#who-sets-it-in-the-kernel	Who sets it in the kernel
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000004d978	452	sn00_rrb_alloc	symtab	9cae4f6c1d33		in	named-only	docs/panics.md#sn00_rrb_alloc	`sn00_rrb_alloc`
@@ -30967,7 +30967,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005ba68	416	hubii_eint_handler	symtab	3681bae393f1		in	located	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005bc08	104	ii_llp_error_monitor	symtab	cdc6d3aad5dd		out:1	named-only	docs/ip35-hub-errors.md#dma-maps-error-counters-and-the-crosstalk-provider	DMA maps, error counters and the crosstalk provider
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005bc70	292	ni_llp_error_monitor	symtab	c2551232266f		out:1	named-only	docs/ip35-hub-errors.md#dma-maps-error-counters-and-the-crosstalk-provider	DMA maps, error counters and the crosstalk provider
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005bd94	64	cleanup_remote_pi	symtab	d677aa1fe400		out:1	named-only	docs/ip35-hub-errors.md#network-interface-error-interrupts	Network interface error interrupts
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005bd94	64	cleanup_remote_pi	symtab	d677aa1fe400		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005bdd4	116	hub_error_count_update	symtab	71f3a6b335fb		in	located	docs/ip35-hub-errors.md#dma-maps-error-counters-and-the-crosstalk-provider	DMA maps, error counters and the crosstalk provider
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005be48	172	hub_error_count_enable	symtab	d0da1da82aef		in	located	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005bef4	84	hub_error_count_disable	symtab	024cf33f2f05		in	located	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
@@ -30983,7 +30983,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005c4c0	108	recover_error_init	symtab	44a83f41e94b		out:1	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005c52c	108	klerror_global_check	symtab	4ba608be5f7a		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005c598	416	klerror_check_recoverable	symtab	a7c20283aa64		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005c738	24	sn0_skip_dump	symtab	bfab7d1b6025		in	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005c738	24	sn0_skip_dump	symtab	bfab7d1b6025		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005c98c	456	sn0_error_dump	symtab	6e1dc7ebe719		in	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005cb54	44	sn0_error_state	symtab	4c3ecd77589d		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000005cb80	1352	dobuserre	symtab	6deb190641f5		out:1	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
@@ -31034,13 +31034,13 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000061228	100	install_cpuintr	symtab	8cb031c1f4b8		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000612dc	180	install_dbgintr	symtab	3c4caa466b73		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000613d8	180	install_tlbintr	symtab	3114e20abe26		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006148c	304	protected_broadcast	symtab	9300c69377e2		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006148c	304	protected_broadcast	symtab	9300c69377e2		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000615bc	84	chkdebug	symtab	c178250722ce		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000061610	108	install_gfxintr	symtab	cdc23d614f29		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006167c	272	debug_stop_all_cpus	symtab	509ccf1f737f		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006167c	272	debug_stop_all_cpus	symtab	509ccf1f737f		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006178c	348	intr_reserve_hardwired	symtab	fb901777d6fd		in	located	docs/interrupts.md#routines	Routines
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000061960	316	intr_clear_all	symtab	0ccae276d6f8		in	located	docs/interrupts.md#routines	Routines
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000061c5c	844	intr_dumpvec	symtab	ebb44f20f5cf		in	named-only	docs/version-diffs-gp-slots.tsv	
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000061c5c	844	intr_dumpvec	symtab	ebb44f20f5cf		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000061fa8	332	enable_ithreads	symtab	d660e5e6cae4		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000621e0	56	tfi_save	symtab	23e6f8986331		out:1	named-only	docs/ip27-kernel-io.md#cache-error-handling	Cache error handling
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000062218	56	tfi_restore	symtab	0a54feea6840		out:1	named-only	docs/ip27-kernel-io.md#cache-error-handling	Cache error handling
@@ -31352,7 +31352,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006cf60	276	intrgroup_unjoin	symtab	ea805f1cdc8d		in	named-only	docs/panics.md#intrgroup_unjoin	`intrgroup_unjoin`
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006d074	232	intrgroup_free	symtab	b749dab3f88d		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006d15c	128	groupintr	symtab	51b8f0d7d675		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006d1dc	264	sendgroupintr	symtab	b64d2a223292		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006d1dc	264	sendgroupintr	symtab	b64d2a223292		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006d2f0	12	VEC_breakpoint	symtab	9c4641a4bc9d		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006d2f8	4	kernelbp	symtab	cd09e81bee54		out:1	undocumented		
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006d2fc	120	debug	symtab	9b2ad9decc66		out:1	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
@@ -32697,7 +32697,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d6b68	32	l1_cons_tx_notif	symtab	87793ac15a1c		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d6b88	32	l1_cons_rx_notif	symtab	a16fa29c138f		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d6ba8	44	sc_data_ready	symtab	f245809af04c		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d6bd4	320	sc_open	symtab	f430832f18e1		out:1	named-only	docs/panics.md#elsc_ody_expander_set	`elsc_ody_expander_set`
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d6bd4	320	sc_open	symtab	f430832f18e1		out:1	named-only	docs/klconfig.md#the-ip35-node-class-nibble	The IP35 node class nibble
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d6d14	200	sc_close	symtab	a273ac6b88e2		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d6ddc	648	sc_construct_msg	symtab	789a72041bf0		out:1	named-only	docs/panics.md#elsc_ody_expander_set	`elsc_ody_expander_set`
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000d7064	508	sc_interpret_resp	symtab	e6d6a18d5067		out:1	named-only	docs/panics.md#elsc_ody_expander_get	`elsc_ody_expander_get`
@@ -33051,7 +33051,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000001101a4	448	dk_alloc_ioreq	symtab	f0751f1d8c38		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000110364	144	dk_callback_frontend	symtab	e664f3a4cc02		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000110850	372	dksc_partition_to_canonical_special	symtab	cf84f6d51f28		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000110d44	584	dk_add_hw_disk_alias	symtab	29e5655877f5		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000110d44	584	dk_add_hw_disk_alias	symtab	29e5655877f5		out:1	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000110f8c	552	dk_remove_hw_disk_alias	symtab	3ec962555b88		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000001111b4	320	dk_alias_make	symtab	ae2e003869a6		out:1	named-only	docs/ioconfig.md#who-sets-it-in-the-kernel	Who sets it in the kernel
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000001112f4	144	dk_namespace_remove	symtab	334cd21329ab		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -35658,7 +35658,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000002402e0	356	sgi_symtab	symtab	ac8389ee2f99		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000240444	188	st_findaddr	symtab	141326106512		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000240500	188	st_findname	symtab	5eb469161490		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000002405bc	692	mload_init	symtab	cd6517395e0a		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000002405bc	692	mload_init	symtab	cd6517395e0a		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000242dec	540	mload_driver_load	symtab	6d1f8ba07fd3		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000243a48	52	cdhold	symtab	9be64b54ab7e		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000243a7c	44	cdrele	symtab	e18d6acd991a		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -36160,7 +36160,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000026f0e8	3020	icmn_err_tag	symtab	11fdc3697ead		out:1	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000026fcb4	48	icmn_err	symtab	f3d8036166f4		out:1	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000026fce4	48	vsprintf	symtab	2b42a48a3e39		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000026fd14	56	sprintf	symtab	15a615f3b986		out:1	named-only	docs/hwgraph.md#path-names	Path names
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000026fd14	56	sprintf	symtab	15a615f3b986		out:1	named-only	docs/hwgraph-paths.md#hardware-graph-path-and-edge-names-in-the-6530-kernels	Hardware-graph path and edge names in the 6.5.30 kernels
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000026fd4c	48	lo_vsprintf	symtab	2b42a48a3e39		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000026fd7c	56	lo_sprintf	symtab	1a7eec3cff1e		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000026fdb4	76	printf	symtab	39d55418ac22		out:1	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
@@ -39930,7 +39930,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000443918	8	xlvd_queue_failover	symtab	87506497337c		out:1	undocumented		
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000443920	8	xlv_configchange_notification	symtab	78aa5094d5ec		out:1	undocumented		
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000443928	8	sesmgr_init	symtab	78aa5094d5ec		out:1	undocumented		
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000443930	8	sgi_sesmgr	symtab	6bc8e674fbf7		out:1	undocumented		
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000443930	8	sgi_sesmgr	symtab	6bc8e674fbf7		out:1	named-only	docs/version-diffs.md#system-calls	System calls
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000443938	8	sesmgr_confignote	symtab	78aa5094d5ec		out:1	undocumented		
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000443940	8	sesmgr_lreceive	symtab	78aa5094d5ec		out:1	undocumented		
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000443948	8	sesmgr_get_label	symtab	78aa5094d5ec		out:1	undocumented		
@@ -41984,7 +41984,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/dksc.o	shared-kernel	n32	.text	0x4d4c	540	get_hw_scsi_info	dwarf+funcnames+symtab	c63f7435f818		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/dksc.o	shared-kernel	n32	.text	0x4f68	228	dk_disk_stat_info_add	dwarf+funcnames+symtab	6284a4a3f55b		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/dksc.o	shared-kernel	n32	.text	0x504c	128	dk_disk_stat_info_remove	dwarf+funcnames+symtab	ed11237e0334		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/dksc.o	shared-kernel	n32	.text	0x50cc	596	dk_add_hw_disk_alias	dwarf+symtab	71a33671c8a9		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP22boot/dksc.o	shared-kernel	n32	.text	0x50cc	596	dk_add_hw_disk_alias	dwarf+symtab	71a33671c8a9		out:3	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.22/usr/cpu/sysgen/IP22boot/dksc.o	shared-kernel	n32	.text	0x5320	552	dk_remove_hw_disk_alias	dwarf+symtab	69c189421ad1		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/dksc.o	shared-kernel	n32	.text	0x5548	324	dk_alias_make	dwarf+symtab	6e08192b8c51		out:3	named-only	docs/ioconfig.md#who-sets-it-in-the-kernel	Who sets it in the kernel
 6.5.22/usr/cpu/sysgen/IP22boot/dksc.o	shared-kernel	n32	.text	0x568c	144	dk_namespace_remove	dwarf+symtab	612afcaff594		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -45041,7 +45041,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x9ef8	88	timestamp_init	dwarf+symtab	4b9b771fe735		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x9f50	376	volumeintr	dwarf+funcnames	dd23549f33ca		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xa0c8	56	cpu_isvalid	dwarf+symtab	5ceef3eb1a95		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xa100	8	debug_stop_all_cpus	dwarf+symtab	78aa5094d5ec		out:2	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xa100	8	debug_stop_all_cpus	dwarf+symtab	78aa5094d5ec		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xa108	76	gioreset	dwarf+symtab	533950e84612		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xa154	88	sharedfanout	dwarf+funcnames	4fdfdce00715		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xa1ac	308	setgiosharedvector	dwarf+symtab	e5910a9b7d02		out:2	undocumented		
@@ -49835,7 +49835,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(mload.o)	shared-kernel	n32	.text	0x154	312	sgi_symtab	dwarf+symtab	9a283c86c32a		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(mload.o)	shared-kernel	n32	.text	0x28c	176	st_findaddr	dwarf+symtab	ab210c7c2e29		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(mload.o)	shared-kernel	n32	.text	0x33c	180	st_findname	dwarf+symtab	5ca4a9820775		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(mload.o)	shared-kernel	n32	.text	0x3f0	708	mload_init	dwarf+symtab	9c6bcddb6cee		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(mload.o)	shared-kernel	n32	.text	0x3f0	708	mload_init	dwarf+symtab	9c6bcddb6cee		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(mload.o)	shared-kernel	n32	.text	0x6b4	416	mload	dwarf+funcnames+symtab	06d668202923		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(mload.o)	shared-kernel	n32	.text	0x854	1160	munload	dwarf+funcnames+symtab	48f89f7a3283		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(mload.o)	shared-kernel	n32	.text	0xcdc	560	mregister	dwarf+funcnames+symtab	7d62b973a01c		out:3	undocumented		
@@ -50167,7 +50167,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(printf.o)	shared-kernel	n32	.text	0x1d8	2816	icmn_err_tag	dwarf+symtab	21ecbea42d26		out:3	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(printf.o)	shared-kernel	n32	.text	0xcd8	48	icmn_err	dwarf+symtab	e882b5e3fed9		out:3	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(printf.o)	shared-kernel	n32	.text	0xd08	48	vsprintf	dwarf+symtab	3c880a7fb282		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(printf.o)	shared-kernel	n32	.text	0xd38	56	sprintf	dwarf+symtab	70f6e15162a9		out:3	named-only	docs/hwgraph.md#path-names	Path names
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(printf.o)	shared-kernel	n32	.text	0xd38	56	sprintf	dwarf+symtab	70f6e15162a9		out:3	named-only	docs/hwgraph-paths.md#hardware-graph-path-and-edge-names-in-the-6530-kernels	Hardware-graph path and edge names in the 6.5.30 kernels
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(printf.o)	shared-kernel	n32	.text	0xd70	48	lo_vsprintf	dwarf+symtab	3c880a7fb282		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(printf.o)	shared-kernel	n32	.text	0xda0	56	lo_sprintf	dwarf+symtab	70f6e15162a9		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(printf.o)	shared-kernel	n32	.text	0xdd8	76	printf	dwarf+symtab	f01d8a4172b2		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
@@ -51973,7 +51973,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/sem.o	shared-kernel	n32	.text	0x2a98	24	vsem_islocal	dwarf+symtab	90928b199f42		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/sem.o	shared-kernel	n32	.text	0x2ab0	28	seminit	dwarf+symtab	34d7a2e33b85		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n32	.text	0x0	8	sesmgr_init	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n32	.text	0x8	8	sgi_sesmgr	dwarf+symtab	6bc8e674fbf7		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n32	.text	0x8	8	sgi_sesmgr	dwarf+symtab	6bc8e674fbf7		out:3	named-only	docs/version-diffs.md#system-calls	System calls
 6.5.22/usr/cpu/sysgen/IP22boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n32	.text	0x10	8	sesmgr_confignote	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n32	.text	0x18	8	sesmgr_lreceive	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n32	.text	0x20	8	sesmgr_get_label	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
@@ -57903,7 +57903,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/dksc.o	shared-kernel	n64	.text	0x4f58	540	get_hw_scsi_info	dwarf+symtab	39698e8f3b73		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/dksc.o	shared-kernel	n64	.text	0x5174	236	dk_disk_stat_info_add	dwarf+symtab	38aa345b8879		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/dksc.o	shared-kernel	n64	.text	0x5260	120	dk_disk_stat_info_remove	dwarf+symtab	1fe398bbcd5b		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/dksc.o	shared-kernel	n64	.text	0x52d8	584	dk_add_hw_disk_alias	dwarf+symtab	c3d387f3f6e4		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP27boot/dksc.o	shared-kernel	n64	.text	0x52d8	584	dk_add_hw_disk_alias	dwarf+symtab	c3d387f3f6e4		out:3	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.22/usr/cpu/sysgen/IP27boot/dksc.o	shared-kernel	n64	.text	0x5520	552	dk_remove_hw_disk_alias	dwarf+symtab	b1560d51605c		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/dksc.o	shared-kernel	n64	.text	0x5748	320	dk_alias_make	dwarf+symtab	0c1d35df1b88		out:3	named-only	docs/ioconfig.md#who-sets-it-in-the-kernel	Who sets it in the kernel
 6.5.22/usr/cpu/sysgen/IP27boot/dksc.o	shared-kernel	n64	.text	0x5888	144	dk_namespace_remove	dwarf+symtab	10f46fc615a4		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -61574,7 +61574,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0xb33c	48	io_init_done	dwarf	fad4ce17ee91		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0xb36c	144	early_probe_for_widget	dwarf	03b3a7e7e6a3		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0xb3fc	100	xwidget_inventory_add	dwarf	c30700b87e37		out:2	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0xb460	864	io_xswitch_widget_init	dwarf+symtab	f5e0b73a2bf8		out:2	named-only	docs/hwgraph.md#hub-device-callouts-and-prom-device-records	Hub device callouts and PROM device records
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0xb460	864	io_xswitch_widget_init	dwarf+symtab	f5e0b73a2bf8		out:2	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0xb7c0	152	io_init_xswitch_widgets	dwarf	31bd7c9001ba		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0xb858	564	io_link_xswitch_widgets	dwarf	a3c62d3f584f		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0xba8c	284	io_link_direct_widget	dwarf	14bf269bb9a7		out:2	undocumented		
@@ -61854,7 +61854,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1c274	108	recover_error_init	dwarf+symtab	0dd34a5330f3		out:2	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1c2e0	108	klerror_global_check	dwarf+symtab	a18c842d72f8		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1c34c	416	klerror_check_recoverable	dwarf+symtab	5c5db296d55d		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1c4ec	24	sn0_skip_dump	dwarf+symtab	afb930e68e83		in	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1c4ec	24	sn0_skip_dump	dwarf+symtab	afb930e68e83		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1c504	448	sn0_error_dump	dwarf+symtab	680e06abe951		in	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1c6c4	44	sn0_error_state	dwarf+symtab	df62e8cbd278		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1c6f0	1360	dobuserre	dwarf+symtab	bc5eb19f18bf		out:2	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
@@ -61921,16 +61921,16 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x203e4	176	install_dbgintr	dwarf+symtab	8349dbcda648		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20494	68	tlbintr	dwarf	e0c0c63b87f1		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x204d8	176	install_tlbintr	dwarf+symtab	f0973873e6c4		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20588	264	protected_broadcast	dwarf+symtab	91641c4471bb		out:2	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20588	264	protected_broadcast	dwarf+symtab	91641c4471bb		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20690	80	chkdebug	dwarf+symtab	c79808fd4a0b		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x206e0	104	install_gfxintr	dwarf+symtab	b46b8249de5a		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20748	108	hub_migrintr_init	dwarf+symtab	b2d92f247684		in	located	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x207b4	236	debug_stop_all_cpus	dwarf+symtab	91f1209595c3		out:2	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x207b4	236	debug_stop_all_cpus	dwarf+symtab	91f1209595c3		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x208a0	292	intr_reserve_hardwired	dwarf+symtab	061649ecc96e		in	located	docs/interrupts.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x209c4	120	intr_clear_bits	dwarf	b1ded536c68c		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20a3c	120	intr_clear_all	dwarf+symtab	fcb9124fa78e		in	located	docs/interrupts.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20ab4	448	dump_vector	dwarf	0140d918f2a1		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20c74	608	intr_dumpvec	dwarf+symtab	571028e8e648		in	named-only	docs/version-diffs-gp-slots.tsv	
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20c74	608	intr_dumpvec	dwarf+symtab	571028e8e648		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20ed4	256	enable_ithreads	dwarf+symtab	e0850073c759		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20fd4	52	intpend0_intrd	dwarf	99ec815db0c3		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x21008	92	intpend0_intrd_start	dwarf	379b9337b869		out:2	named-only	docs/version-diffs-queue.tsv	
@@ -62048,7 +62048,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2366c	108	hub_slotbits_to_slot	dwarf+symtab	8dd2529f3e47		in	located	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x236d8	104	hub_slot_to_widget	dwarf+symtab	39df55ba0a9e		in	located	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23740	36	hub_slot_to_crossbow	dwarf+symtab	11261d777a5d		in	understood	docs/klconfig.md#node-and-processor-lookups	Node and processor lookups
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23764	40	router_slotbits_to_slot	dwarf+symtab	436e1316ed03		in	named-only	docs/version-diffs-gp-slots.tsv	
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23764	40	router_slotbits_to_slot	dwarf+symtab	436e1316ed03		in	named-only	docs/version-diffs.md#what-the-moved-gp-slots-name	What the moved gp slots name
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2378c	40	meta_router_slotbits_to_slot	dwarf+symtab	df7aea102d8a		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x237b4	104	get_slotclass	dwarf	5fbba4934a1d		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2381c	156	get_slotname	dwarf+symtab	4165b786d18a		out:2	named-only	docs/hwgraph.md#routines	Routines
@@ -62342,7 +62342,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x310e0	276	intrgroup_unjoin	dwarf+symtab	5b9805a7d2d4		in	named-only	docs/panics.md#intrgroup_unjoin	`intrgroup_unjoin`
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x311f4	232	intrgroup_free	dwarf+symtab	b02cf6c5b450		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x312dc	128	groupintr	dwarf+symtab	bfffcd8ecddb		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x3135c	228	sendgroupintr	dwarf+symtab	bd6c168cdb00		out:2	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x3135c	228	sendgroupintr	dwarf+symtab	bd6c168cdb00		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x31440	36	get_nvreg	dwarf+symtab	de8bba12aebb		out:2	named-only	docs/klconfig.md#memory-sizing	Memory sizing
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x31464	128	set_nvreg	dwarf+symtab	5d5a842a3546		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x314e4	164	get_nvram_buf	dwarf+symtab	589876a18339		out:2	named-only	docs/version-diffs-queue.tsv	
@@ -67550,7 +67550,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(mload.o)	shared-kernel	n64	.text	0x154	356	sgi_symtab	dwarf+symtab	a0098a3294a4		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(mload.o)	shared-kernel	n64	.text	0x2b8	188	st_findaddr	dwarf+symtab	d2717ace3a97		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(mload.o)	shared-kernel	n64	.text	0x374	188	st_findname	dwarf+symtab	ade91b55a084		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(mload.o)	shared-kernel	n64	.text	0x430	692	mload_init	dwarf+symtab	8b6fd4906ca0		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(mload.o)	shared-kernel	n64	.text	0x430	692	mload_init	dwarf+symtab	8b6fd4906ca0		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(mload.o)	shared-kernel	n64	.text	0x6e4	400	mload	dwarf+symtab	7f30bb5e5502		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(mload.o)	shared-kernel	n64	.text	0x874	1192	munload	dwarf+symtab	0b5a2c5b176c		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(mload.o)	shared-kernel	n64	.text	0xd1c	564	mregister	dwarf+symtab	8e291f02174c		out:3	undocumented		
@@ -67892,7 +67892,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(printf.o)	shared-kernel	n64	.text	0x1d0	3020	icmn_err_tag	dwarf+symtab	e1b4c0aa4783		out:3	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(printf.o)	shared-kernel	n64	.text	0xd9c	48	icmn_err	dwarf+symtab	afca0c5e346e		out:3	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(printf.o)	shared-kernel	n64	.text	0xdcc	48	vsprintf	dwarf+symtab	c3d9a5b49428		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(printf.o)	shared-kernel	n64	.text	0xdfc	56	sprintf	dwarf+symtab	0034dc9ff69d		out:3	named-only	docs/hwgraph.md#path-names	Path names
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(printf.o)	shared-kernel	n64	.text	0xdfc	56	sprintf	dwarf+symtab	0034dc9ff69d		out:3	named-only	docs/hwgraph-paths.md#hardware-graph-path-and-edge-names-in-the-6530-kernels	Hardware-graph path and edge names in the 6.5.30 kernels
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(printf.o)	shared-kernel	n64	.text	0xe34	48	lo_vsprintf	dwarf+symtab	c3d9a5b49428		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(printf.o)	shared-kernel	n64	.text	0xe64	56	lo_sprintf	dwarf+symtab	0034dc9ff69d		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(printf.o)	shared-kernel	n64	.text	0xe9c	76	printf	dwarf+symtab	0eb7e5d0bb6d		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
@@ -70702,7 +70702,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/sem.o	shared-kernel	n64	.text	0x2d34	20	vsem_islocal	dwarf+symtab	eb946c265dbd		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/sem.o	shared-kernel	n64	.text	0x2d48	28	seminit	dwarf+symtab	a86de4a9d7a4		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n64	.text	0x0	8	sesmgr_init	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n64	.text	0x8	8	sgi_sesmgr	dwarf+symtab	6bc8e674fbf7		out:3	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n64	.text	0x8	8	sgi_sesmgr	dwarf+symtab	6bc8e674fbf7		out:3	named-only	docs/version-diffs.md#system-calls	System calls
 6.5.22/usr/cpu/sysgen/IP27boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n64	.text	0x10	8	sesmgr_confignote	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n64	.text	0x18	8	sesmgr_lreceive	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n64	.text	0x20	8	sesmgr_get_label	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
@@ -77180,7 +77180,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/dksc.o	shared-kernel	n64	.text	0x4f58	540	get_hw_scsi_info	dwarf+symtab	39698e8f3b73		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP30boot/dksc.o	shared-kernel	n64	.text	0x5174	236	dk_disk_stat_info_add	dwarf+symtab	38aa345b8879		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP30boot/dksc.o	shared-kernel	n64	.text	0x5260	120	dk_disk_stat_info_remove	dwarf+symtab	1fe398bbcd5b		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/dksc.o	shared-kernel	n64	.text	0x52d8	584	dk_add_hw_disk_alias	dwarf+symtab	c3d387f3f6e4		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP30boot/dksc.o	shared-kernel	n64	.text	0x52d8	584	dk_add_hw_disk_alias	dwarf+symtab	c3d387f3f6e4		out:3	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.22/usr/cpu/sysgen/IP30boot/dksc.o	shared-kernel	n64	.text	0x5520	552	dk_remove_hw_disk_alias	dwarf+symtab	b1560d51605c		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP30boot/dksc.o	shared-kernel	n64	.text	0x5748	320	dk_alias_make	dwarf+symtab	0c1d35df1b88		out:3	named-only	docs/ioconfig.md#who-sets-it-in-the-kernel	Who sets it in the kernel
 6.5.22/usr/cpu/sysgen/IP30boot/dksc.o	shared-kernel	n64	.text	0x5888	144	dk_namespace_remove	dwarf+symtab	10f46fc615a4		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -80213,7 +80213,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x32b4	340	ip30_early_piotrans_addr	dwarf	cdebabf88b45		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x3408	548	init_all_devices	dwarf+symtab	bc27230d4631		out:2	named-only	docs/hwgraph-paths.md#names-by-kind	Names by kind
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x362c	28	sendintr	dwarf+symtab	0aa68a818cd4		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
-6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x3648	140	debug_stop_all_cpus	dwarf+symtab	09b9c330cac9		out:2	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x3648	140	debug_stop_all_cpus	dwarf+symtab	09b9c330cac9		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x36d4	120	tsfastick_maint	dwarf	0b9156534829		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x374c	28	pokesoftclk	dwarf+symtab	7c97d765735d		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x3768	48	ip30_intr_maint	dwarf+symtab	c78cb27a3af0		in	located	docs/ip30-kernel-functions.md#heart-interrupt-glue-board-revision-and-cache-stubs	Heart interrupt glue, board revision and cache stubs
@@ -85100,7 +85100,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(mload.o)	shared-kernel	n64	.text	0x154	356	sgi_symtab	dwarf+symtab	a0098a3294a4		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(mload.o)	shared-kernel	n64	.text	0x2b8	188	st_findaddr	dwarf+symtab	d2717ace3a97		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(mload.o)	shared-kernel	n64	.text	0x374	188	st_findname	dwarf+symtab	ade91b55a084		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(mload.o)	shared-kernel	n64	.text	0x430	692	mload_init	dwarf+symtab	8b6fd4906ca0		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(mload.o)	shared-kernel	n64	.text	0x430	692	mload_init	dwarf+symtab	8b6fd4906ca0		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(mload.o)	shared-kernel	n64	.text	0x6e4	400	mload	dwarf+symtab	7f30bb5e5502		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(mload.o)	shared-kernel	n64	.text	0x874	1192	munload	dwarf+symtab	0b5a2c5b176c		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(mload.o)	shared-kernel	n64	.text	0xd1c	564	mregister	dwarf+symtab	8e291f02174c		out:3	undocumented		
@@ -85413,7 +85413,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(printf.o)	shared-kernel	n64	.text	0x1d0	2844	icmn_err_tag	dwarf+symtab	e1c7fde689d7		out:3	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(printf.o)	shared-kernel	n64	.text	0xcec	48	icmn_err	dwarf+symtab	afca0c5e346e		out:3	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(printf.o)	shared-kernel	n64	.text	0xd1c	48	vsprintf	dwarf+symtab	c3d9a5b49428		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(printf.o)	shared-kernel	n64	.text	0xd4c	56	sprintf	dwarf+symtab	0034dc9ff69d		out:3	named-only	docs/hwgraph.md#path-names	Path names
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(printf.o)	shared-kernel	n64	.text	0xd4c	56	sprintf	dwarf+symtab	0034dc9ff69d		out:3	named-only	docs/hwgraph-paths.md#hardware-graph-path-and-edge-names-in-the-6530-kernels	Hardware-graph path and edge names in the 6.5.30 kernels
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(printf.o)	shared-kernel	n64	.text	0xd84	48	lo_vsprintf	dwarf+symtab	c3d9a5b49428		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(printf.o)	shared-kernel	n64	.text	0xdb4	56	lo_sprintf	dwarf+symtab	0034dc9ff69d		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(printf.o)	shared-kernel	n64	.text	0xdec	76	printf	dwarf+symtab	0eb7e5d0bb6d		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
@@ -93475,7 +93475,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/dksc.o	shared-kernel	n32	.text	0x4d4c	540	get_hw_scsi_info	dwarf+funcnames+symtab	c63f7435f818		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP32boot/dksc.o	shared-kernel	n32	.text	0x4f68	228	dk_disk_stat_info_add	dwarf+funcnames+symtab	6284a4a3f55b		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP32boot/dksc.o	shared-kernel	n32	.text	0x504c	128	dk_disk_stat_info_remove	dwarf+funcnames+symtab	ed11237e0334		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/dksc.o	shared-kernel	n32	.text	0x50cc	596	dk_add_hw_disk_alias	dwarf+symtab	71a33671c8a9		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP32boot/dksc.o	shared-kernel	n32	.text	0x50cc	596	dk_add_hw_disk_alias	dwarf+symtab	71a33671c8a9		out:3	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.22/usr/cpu/sysgen/IP32boot/dksc.o	shared-kernel	n32	.text	0x5320	552	dk_remove_hw_disk_alias	dwarf+symtab	69c189421ad1		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP32boot/dksc.o	shared-kernel	n32	.text	0x5548	324	dk_alias_make	dwarf+symtab	6e08192b8c51		out:3	named-only	docs/ioconfig.md#who-sets-it-in-the-kernel	Who sets it in the kernel
 6.5.22/usr/cpu/sysgen/IP32boot/dksc.o	shared-kernel	n32	.text	0x568c	144	dk_namespace_remove	dwarf+symtab	612afcaff594		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -96436,7 +96436,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x10ea4	52	set_leds	symtab	1cb005a19113		out:2	named-only	docs/klconfig.md#the-ip35-node-class-nibble	The IP35 node class nibble
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x10ed8	12	get_except_norm	symtab	75b443875f64		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x10ee4	68	cpu_isvalid	symtab	46708260f754		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x10f28	8	debug_stop_all_cpus	symtab	78aa5094d5ec		out:2	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x10f28	8	debug_stop_all_cpus	symtab	78aa5094d5ec		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x10f30	8	pmem_getfirstclick	symtab	87506497337c		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x10f38	8	node_getfirstfree	symtab	87506497337c		out:2	located	docs/klconfig.md#memory-sizing	Memory sizing
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x10f40	44	node_getmaxclick	symtab	17acff0d5a03		out:2	located	docs/klconfig.md#memory-sizing	Memory sizing
@@ -100477,7 +100477,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(mload.o)	shared-kernel	n32	.text	0x154	312	sgi_symtab	dwarf+symtab	9a283c86c32a		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(mload.o)	shared-kernel	n32	.text	0x28c	176	st_findaddr	dwarf+symtab	ab210c7c2e29		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(mload.o)	shared-kernel	n32	.text	0x33c	180	st_findname	dwarf+symtab	5ca4a9820775		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(mload.o)	shared-kernel	n32	.text	0x3f0	708	mload_init	dwarf+symtab	9c6bcddb6cee		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(mload.o)	shared-kernel	n32	.text	0x3f0	708	mload_init	dwarf+symtab	9c6bcddb6cee		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(mload.o)	shared-kernel	n32	.text	0x6b4	416	mload	dwarf+funcnames+symtab	06d668202923		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(mload.o)	shared-kernel	n32	.text	0x854	1160	munload	dwarf+funcnames+symtab	48f89f7a3283		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(mload.o)	shared-kernel	n32	.text	0xcdc	560	mregister	dwarf+funcnames+symtab	7d62b973a01c		out:3	undocumented		
@@ -100808,7 +100808,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(printf.o)	shared-kernel	n32	.text	0x1d8	2816	icmn_err_tag	dwarf+symtab	21ecbea42d26		out:3	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(printf.o)	shared-kernel	n32	.text	0xcd8	48	icmn_err	dwarf+symtab	e882b5e3fed9		out:3	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(printf.o)	shared-kernel	n32	.text	0xd08	48	vsprintf	dwarf+symtab	3c880a7fb282		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(printf.o)	shared-kernel	n32	.text	0xd38	56	sprintf	dwarf+symtab	70f6e15162a9		out:3	named-only	docs/hwgraph.md#path-names	Path names
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(printf.o)	shared-kernel	n32	.text	0xd38	56	sprintf	dwarf+symtab	70f6e15162a9		out:3	named-only	docs/hwgraph-paths.md#hardware-graph-path-and-edge-names-in-the-6530-kernels	Hardware-graph path and edge names in the 6.5.30 kernels
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(printf.o)	shared-kernel	n32	.text	0xd70	48	lo_vsprintf	dwarf+symtab	3c880a7fb282		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(printf.o)	shared-kernel	n32	.text	0xda0	56	lo_sprintf	dwarf+symtab	70f6e15162a9		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(printf.o)	shared-kernel	n32	.text	0xdd8	76	printf	dwarf+symtab	f01d8a4172b2		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
@@ -107712,7 +107712,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/dksc.o	shared-kernel	n64	.text	0x4f58	540	get_hw_scsi_info	dwarf+symtab	39698e8f3b73		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/dksc.o	shared-kernel	n64	.text	0x5174	236	dk_disk_stat_info_add	dwarf+symtab	38aa345b8879		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/dksc.o	shared-kernel	n64	.text	0x5260	120	dk_disk_stat_info_remove	dwarf+symtab	1fe398bbcd5b		out:3	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/dksc.o	shared-kernel	n64	.text	0x52d8	584	dk_add_hw_disk_alias	dwarf+symtab	c3d387f3f6e4		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP35boot/dksc.o	shared-kernel	n64	.text	0x52d8	584	dk_add_hw_disk_alias	dwarf+symtab	c3d387f3f6e4		out:3	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.22/usr/cpu/sysgen/IP35boot/dksc.o	shared-kernel	n64	.text	0x5520	552	dk_remove_hw_disk_alias	dwarf+symtab	b1560d51605c		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/dksc.o	shared-kernel	n64	.text	0x5748	320	dk_alias_make	dwarf+symtab	0c1d35df1b88		out:3	named-only	docs/ioconfig.md#who-sets-it-in-the-kernel	Who sets it in the kernel
 6.5.22/usr/cpu/sysgen/IP35boot/dksc.o	shared-kernel	n64	.text	0x5888	144	dk_namespace_remove	dwarf+symtab	10f46fc615a4		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -111628,7 +111628,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xc1fc	48	io_init_done	dwarf	241c7308494f		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xc22c	148	early_probe_for_widget	dwarf	a2ea0ccf1dc5		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xc2c0	64	xwidget_inventory_add	dwarf	a8f89c74b4cc		out:2	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xc300	1940	io_xswitch_widget_init	dwarf+symtab	ec12696dd47c		out:2	named-only	docs/hwgraph.md#hub-device-callouts-and-prom-device-records	Hub device callouts and PROM device records
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xc300	1940	io_xswitch_widget_init	dwarf+symtab	ec12696dd47c		out:2	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xca94	168	io_init_xswitch_widgets	dwarf	78a9d87e086d		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xcb3c	640	io_link_xswitch_widgets	dwarf	6c7f450f9f6b		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xcdbc	776	do_io_init_node	dwarf	ffbc6dbd6e72		out:2	named-only	docs/version-diffs-queue.tsv	
@@ -111857,7 +111857,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1b8e8	416	hubii_eint_handler	dwarf+symtab	5f41ffefaccc		in	located	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1ba88	104	ii_llp_error_monitor	dwarf+symtab	ba461350b9b4		out:2	named-only	docs/ip35-hub-errors.md#dma-maps-error-counters-and-the-crosstalk-provider	DMA maps, error counters and the crosstalk provider
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1baf0	292	ni_llp_error_monitor	dwarf+symtab	3ac272da31c9		out:2	named-only	docs/ip35-hub-errors.md#dma-maps-error-counters-and-the-crosstalk-provider	DMA maps, error counters and the crosstalk provider
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1bc14	64	cleanup_remote_pi	dwarf+symtab	a071b143366f		out:2	named-only	docs/ip35-hub-errors.md#network-interface-error-interrupts	Network interface error interrupts
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1bc14	64	cleanup_remote_pi	dwarf+symtab	a071b143366f		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1bc54	116	hub_error_count_update	dwarf+symtab	eae1f0ea8bc8		in	located	docs/ip35-hub-errors.md#dma-maps-error-counters-and-the-crosstalk-provider	DMA maps, error counters and the crosstalk provider
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1bcc8	172	hub_error_count_enable	dwarf+symtab	31b9ef16480b		in	located	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1bd74	84	hub_error_count_disable	dwarf+symtab	001d157f33de		in	located	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
@@ -111873,7 +111873,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1c340	108	recover_error_init	dwarf+symtab	a2901b9c8273		out:2	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1c3ac	108	klerror_global_check	dwarf+symtab	692fded6df1d		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1c418	416	klerror_check_recoverable	dwarf+symtab	2e93dcb205eb		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1c5b8	24	sn0_skip_dump	dwarf+symtab	d8a8f504dc63		in	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1c5b8	24	sn0_skip_dump	dwarf+symtab	d8a8f504dc63		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1c5d0	572	stop_all_cpus	dwarf	f9f32bbbb4eb		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1c80c	456	sn0_error_dump	dwarf+symtab	afc3af76c4d6		in	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1c9d4	44	sn0_error_state	dwarf+symtab	4e2756969c19		in	named-only	docs/version-diffs-gp-slots.tsv	
@@ -111941,15 +111941,15 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2115c	180	install_dbgintr	dwarf+symtab	553e5aff215b		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x21210	72	tlbintr	dwarf	97ec7700515d		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x21258	180	install_tlbintr	dwarf+symtab	91dece2fc318		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2130c	304	protected_broadcast	dwarf+symtab	d378b42f237a		out:2	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2130c	304	protected_broadcast	dwarf+symtab	d378b42f237a		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2143c	84	chkdebug	dwarf+symtab	8c24c65d34c4		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x21490	108	install_gfxintr	dwarf+symtab	119974fe3e38		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x214fc	272	debug_stop_all_cpus	dwarf+symtab	ebcf7d7379bb		out:2	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x214fc	272	debug_stop_all_cpus	dwarf+symtab	ebcf7d7379bb		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2160c	348	intr_reserve_hardwired	dwarf+symtab	87d74d2396ee		in	located	docs/interrupts.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x21768	120	intr_clear_bits	dwarf	10af38853fbc		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x217e0	316	intr_clear_all	dwarf+symtab	609961ab1ad5		in	located	docs/interrupts.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2191c	448	dump_vector	dwarf	bd453a9c3949		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x21adc	844	intr_dumpvec	dwarf+symtab	20fdc6519706		in	named-only	docs/version-diffs-gp-slots.tsv	
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x21adc	844	intr_dumpvec	dwarf+symtab	20fdc6519706		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x21e28	332	enable_ithreads	dwarf+symtab	d9695198053e		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x21f74	52	intpend0_intrd	dwarf	99ec815db0c3		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x21fa8	92	intpend0_intrd_start	dwarf	0094dab5daf0		out:2	named-only	docs/version-diffs-queue.tsv	
@@ -112279,7 +112279,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2cde0	276	intrgroup_unjoin	dwarf+symtab	bc7627e382f0		in	named-only	docs/panics.md#intrgroup_unjoin	`intrgroup_unjoin`
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2cef4	232	intrgroup_free	dwarf+symtab	db9af9ce8a1b		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2cfdc	128	groupintr	dwarf+symtab	e944a9b26ea6		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2d05c	264	sendgroupintr	dwarf+symtab	8cfbe237d515		out:2	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2d05c	264	sendgroupintr	dwarf+symtab	8cfbe237d515		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2d170	12	VEC_breakpoint	dwarf+symtab	3614e4802762		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2d178	4	kernelbp	symtab	cd09e81bee54		out:2	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2d17c	120	debug	dwarf+symtab	920ba04ec3dd		out:2	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
@@ -113836,7 +113836,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/l1.o	shared-kernel	n64	.text	0x28b8	32	l1_cons_tx_notif	dwarf+symtab	45cd5bbdea27		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/l1.o	shared-kernel	n64	.text	0x28d8	32	l1_cons_rx_notif	dwarf+symtab	45cd5bbdea27		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/l1.o	shared-kernel	n64	.text	0x28f8	44	sc_data_ready	dwarf+symtab	cf0f20e3352b		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP35boot/l1.o	shared-kernel	n64	.text	0x2924	320	sc_open	dwarf+symtab	e70cddf91d18		out:3	named-only	docs/panics.md#elsc_ody_expander_set	`elsc_ody_expander_set`
+6.5.22/usr/cpu/sysgen/IP35boot/l1.o	shared-kernel	n64	.text	0x2924	320	sc_open	dwarf+symtab	e70cddf91d18		out:3	named-only	docs/klconfig.md#the-ip35-node-class-nibble	The IP35 node class nibble
 6.5.22/usr/cpu/sysgen/IP35boot/l1.o	shared-kernel	n64	.text	0x2a64	200	sc_close	dwarf+symtab	719b4ebe5d0f		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/l1.o	shared-kernel	n64	.text	0x2b2c	648	sc_construct_msg	dwarf+symtab	e5b9748bd92f		out:3	named-only	docs/panics.md#elsc_ody_expander_set	`elsc_ody_expander_set`
 6.5.22/usr/cpu/sysgen/IP35boot/l1.o	shared-kernel	n64	.text	0x2db4	508	sc_interpret_resp	dwarf+symtab	f85b0b392dd5		out:3	named-only	docs/panics.md#elsc_ody_expander_get	`elsc_ody_expander_get`
@@ -117457,7 +117457,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(mload.o)	shared-kernel	n64	.text	0x154	356	sgi_symtab	dwarf+symtab	a0098a3294a4		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(mload.o)	shared-kernel	n64	.text	0x2b8	188	st_findaddr	dwarf+symtab	d2717ace3a97		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(mload.o)	shared-kernel	n64	.text	0x374	188	st_findname	dwarf+symtab	ade91b55a084		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(mload.o)	shared-kernel	n64	.text	0x430	692	mload_init	dwarf+symtab	8b6fd4906ca0		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(mload.o)	shared-kernel	n64	.text	0x430	692	mload_init	dwarf+symtab	8b6fd4906ca0		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(mload.o)	shared-kernel	n64	.text	0x6e4	400	mload	dwarf+symtab	7f30bb5e5502		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(mload.o)	shared-kernel	n64	.text	0x874	1192	munload	dwarf+symtab	0b5a2c5b176c		out:3	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(mload.o)	shared-kernel	n64	.text	0xd1c	564	mregister	dwarf+symtab	8e291f02174c		out:3	undocumented		
@@ -117786,7 +117786,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(printf.o)	shared-kernel	n64	.text	0x1d0	3020	icmn_err_tag	dwarf+symtab	12a582a012ed		out:3	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(printf.o)	shared-kernel	n64	.text	0xd9c	48	icmn_err	dwarf+symtab	afca0c5e346e		out:3	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(printf.o)	shared-kernel	n64	.text	0xdcc	48	vsprintf	dwarf+symtab	c3d9a5b49428		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(printf.o)	shared-kernel	n64	.text	0xdfc	56	sprintf	dwarf+symtab	0034dc9ff69d		out:3	named-only	docs/hwgraph.md#path-names	Path names
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(printf.o)	shared-kernel	n64	.text	0xdfc	56	sprintf	dwarf+symtab	0034dc9ff69d		out:3	named-only	docs/hwgraph-paths.md#hardware-graph-path-and-edge-names-in-the-6530-kernels	Hardware-graph path and edge names in the 6.5.30 kernels
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(printf.o)	shared-kernel	n64	.text	0xe34	48	lo_vsprintf	dwarf+symtab	c3d9a5b49428		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(printf.o)	shared-kernel	n64	.text	0xe64	56	lo_sprintf	dwarf+symtab	0034dc9ff69d		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(printf.o)	shared-kernel	n64	.text	0xe9c	76	printf	dwarf+symtab	0eb7e5d0bb6d		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
@@ -129831,7 +129831,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000244c4	280	iograph_early_init	symtab	7abd8d27af1a		out:1	named-only	docs/klconfig.md#early-platform-setup	Early platform setup
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000245dc	244	setnoderun	symtab	d67e2d99c49d		out:1	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000246d0	28	restorenoderun	symtab	343e0ef9ad67		out:1	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000024810	864	io_xswitch_widget_init	symtab	9f8f2fbb02d9		out:1	named-only	docs/hwgraph.md#hub-device-callouts-and-prom-device-records	Hub device callouts and PROM device records
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000024810	864	io_xswitch_widget_init	symtab	9f8f2fbb02d9		out:1	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000002529c	252	io_init_pebrick	symtab	89e2889c059f		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000253f0	216	scsi_ctlr_nums_add	symtab	1fc756071abd		out:1	named-only	docs/ioconfig.md#who-sets-it-in-the-kernel	Who sets it in the kernel
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000025794	452	sn00_rrb_alloc	symtab	127ad818b402		in	named-only	docs/panics.md#sn00_rrb_alloc	`sn00_rrb_alloc`
@@ -130070,7 +130070,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000035694	108	recover_error_init	symtab	68588a2a53b1		out:1	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000035700	108	klerror_global_check	symtab	950d2793f31c		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003576c	416	klerror_check_recoverable	symtab	5f709983ab8a		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003590c	24	sn0_skip_dump	symtab	82f770bec25c		in	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003590c	24	sn0_skip_dump	symtab	82f770bec25c		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000035924	448	sn0_error_dump	symtab	a492dae0b8be		in	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000035ae4	44	sn0_error_state	symtab	773fedc6e283		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000035b10	1360	dobuserre	symtab	0875a7c6867c		out:1	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
@@ -130121,14 +130121,14 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003979c	96	install_cpuintr	symtab	c1606d37c95b		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000039848	176	install_dbgintr	symtab	78451379f002		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003993c	176	install_tlbintr	symtab	4701504b9984		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000399ec	264	protected_broadcast	symtab	6763796cd7a0		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000399ec	264	protected_broadcast	symtab	6763796cd7a0		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000039af4	80	chkdebug	symtab	9f18032e378f		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000039b44	104	install_gfxintr	symtab	94ea8b0968c6		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000039bac	108	hub_migrintr_init	symtab	1346c16ff288		in	understood	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000039c18	236	debug_stop_all_cpus	symtab	f4e7fd059e3e		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000039c18	236	debug_stop_all_cpus	symtab	f4e7fd059e3e		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000039d04	292	intr_reserve_hardwired	symtab	5576d27a22e4		in	understood	docs/interrupts.md#routines	Routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000039ea0	120	intr_clear_all	symtab	402f37b4a64c		in	understood	docs/interrupts.md#routines	Routines
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003a0d8	608	intr_dumpvec	symtab	b666cd1bfa0c		in	named-only	docs/version-diffs-gp-slots.tsv	
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003a0d8	608	intr_dumpvec	symtab	b666cd1bfa0c		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003a338	256	enable_ithreads	symtab	899074cd1185		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003a550	56	tfi_save	symtab	23e6f8986331		out:1	named-only	docs/ip27-kernel-io.md#cache-error-handling	Cache error handling
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003a588	56	tfi_restore	symtab	0a54feea6840		out:1	named-only	docs/ip27-kernel-io.md#cache-error-handling	Cache error handling
@@ -130238,7 +130238,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003caec	108	hub_slotbits_to_slot	symtab	5ee4c564bffe		in	understood	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cb58	104	hub_slot_to_widget	symtab	924abc26452f		in	understood	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cbc0	36	hub_slot_to_crossbow	symtab	11261d777a5d		in	understood	docs/klconfig.md#node-and-processor-lookups	Node and processor lookups
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cbe4	40	router_slotbits_to_slot	symtab	e3ae1dd4443d		in	named-only	docs/version-diffs-gp-slots.tsv	
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cbe4	40	router_slotbits_to_slot	symtab	e3ae1dd4443d		in	named-only	docs/version-diffs.md#what-the-moved-gp-slots-name	What the moved gp slots name
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cc0c	40	meta_router_slotbits_to_slot	symtab	73c94a5ff325		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cc9c	156	get_slotname	symtab	2d4c894930a7		out:1	named-only	docs/hwgraph.md#routines	Routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003cd38	44	get_node_slotid	symtab	5a776160aeb4		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -130510,7 +130510,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000004abf0	276	intrgroup_unjoin	symtab	b4f5f19ec980		in	named-only	docs/panics.md#intrgroup_unjoin	`intrgroup_unjoin`
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000004ad04	232	intrgroup_free	symtab	d5d6e0267e90		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000004adec	128	groupintr	symtab	ae40a720c20e		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000004ae6c	228	sendgroupintr	symtab	5919cd84a5a9		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000004ae6c	228	sendgroupintr	symtab	5919cd84a5a9		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000004af50	36	get_nvreg	symtab	909afee9be7e		out:1	named-only	docs/klconfig.md#memory-sizing	Memory sizing
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000004af74	128	set_nvreg	symtab	802468ae74c4		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000004aff4	164	get_nvram_buf	symtab	1ed8c67ce1f7		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -131962,7 +131962,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000c13a8	448	dk_alloc_ioreq	symtab	c2f36e5b76fe		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000c1568	144	dk_callback_frontend	symtab	dd4cea979694		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000c1a54	376	dksc_partition_to_canonical_special	symtab	e931a7b5f150		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000c1f4c	588	dk_add_hw_disk_alias	symtab	1a6ebf819a6a		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000c1f4c	588	dk_add_hw_disk_alias	symtab	1a6ebf819a6a		out:1	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000c2198	552	dk_remove_hw_disk_alias	symtab	4bb16a5fd04d		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000c23c0	320	dk_alias_make	symtab	9f3c20a0c05d		out:1	named-only	docs/ioconfig.md#who-sets-it-in-the-kernel	Who sets it in the kernel
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000c2500	144	dk_namespace_remove	symtab	87bc1728cf34		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -134279,7 +134279,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001d026c	356	sgi_symtab	symtab	aa51a791e23b		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001d03d0	188	st_findaddr	symtab	0c928c82689f		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001d048c	188	st_findname	symtab	870f938434d1		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001d0548	692	mload_init	symtab	f87d8ca21398		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001d0548	692	mload_init	symtab	f87d8ca21398		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001d2d78	540	mload_driver_load	symtab	830fcbc0ab61		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001d39d4	52	cdhold	symtab	8283e23cc744		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001d3a08	44	cdrele	symtab	a0d17fe7b5fa		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -134756,7 +134756,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001fcda4	3020	icmn_err_tag	symtab	fbeabef76420		out:1	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001fd970	48	icmn_err	symtab	83cc5f55fba8		out:1	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001fd9a0	48	vsprintf	symtab	c462c44db0d0		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001fd9d0	56	sprintf	symtab	a81388654ab8		out:1	named-only	docs/hwgraph.md#path-names	Path names
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001fd9d0	56	sprintf	symtab	a81388654ab8		out:1	named-only	docs/hwgraph-paths.md#hardware-graph-path-and-edge-names-in-the-6530-kernels	Hardware-graph path and edge names in the 6.5.30 kernels
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001fda08	48	lo_vsprintf	symtab	c462c44db0d0		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001fda38	56	lo_sprintf	symtab	aa7cd023ee5a		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001fda70	76	printf	symtab	6e6de8e56754		out:1	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
@@ -138493,7 +138493,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000003c2a20	8	xlvd_queue_failover	symtab	87506497337c		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000003c2a28	8	xlv_configchange_notification	symtab	78aa5094d5ec		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000003c2a30	8	sesmgr_init	symtab	78aa5094d5ec		out:1	undocumented		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000003c2a38	8	sgi_sesmgr	symtab	6bc8e674fbf7		out:1	undocumented		
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000003c2a38	8	sgi_sesmgr	symtab	6bc8e674fbf7		out:1	named-only	docs/version-diffs.md#system-calls	System calls
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000003c2a40	8	sesmgr_confignote	symtab	78aa5094d5ec		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000003c2a48	8	sesmgr_lreceive	symtab	78aa5094d5ec		out:1	undocumented		
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000003c2a50	8	sesmgr_get_label	symtab	78aa5094d5ec		out:1	undocumented		
@@ -143200,7 +143200,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020013528	56	cpu_isvalid	symtab	6c546974cfe7		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020013808	548	init_all_devices	symtab	fb41b14df377		out:1	named-only	docs/hwgraph-paths.md#names-by-kind	Names by kind
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020013a2c	28	sendintr	symtab	0aa68a818cd4		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020013a48	140	debug_stop_all_cpus	symtab	4f653de98bb8		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020013a48	140	debug_stop_all_cpus	symtab	4f653de98bb8		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020013b4c	28	pokesoftclk	symtab	eb8a783994aa		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020013b68	48	ip30_intr_maint	symtab	9a51d44f99c0		in	understood	docs/ip30-kernel-functions.md#heart-interrupt-glue-board-revision-and-cache-stubs	Heart interrupt glue, board revision and cache stubs
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020013b98	696	intr	symtab	e84e92452245		in	understood	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
@@ -144889,7 +144889,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200928d0	448	dk_alloc_ioreq	symtab	3a15e475fd1e		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020092a90	144	dk_callback_frontend	symtab	1d751fb4fdea		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020092f7c	376	dksc_partition_to_canonical_special	symtab	fcf7577750c9		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020093474	588	dk_add_hw_disk_alias	symtab	9adaf7a18a1f		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020093474	588	dk_add_hw_disk_alias	symtab	9adaf7a18a1f		out:1	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200936c0	552	dk_remove_hw_disk_alias	symtab	00ae8f854014		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200938e8	320	dk_alias_make	symtab	eac5dea4b33d		out:1	named-only	docs/ioconfig.md#who-sets-it-in-the-kernel	Who sets it in the kernel
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020093a28	144	dk_namespace_remove	symtab	86ad8a876fd6		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -147214,7 +147214,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020194454	356	sgi_symtab	symtab	48afc91fc42f		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201945b8	188	st_findaddr	symtab	9a3ccc47763c		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020194674	188	st_findname	symtab	444e53e9d66f		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020194730	692	mload_init	symtab	22dbe26f80f0		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020194730	692	mload_init	symtab	22dbe26f80f0		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020196f60	540	mload_driver_load	symtab	48735014c18f		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020197bbc	52	cdhold	symtab	b19129dee5b8		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020197bf0	44	cdrele	symtab	b134ce6cbf66		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -147736,7 +147736,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c6cd0	2844	icmn_err_tag	symtab	39fd55a556cf		out:1	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c77ec	48	icmn_err	symtab	5e6fd72c65c0		out:1	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c781c	48	vsprintf	symtab	49f131491d19		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c784c	56	sprintf	symtab	4960bdb667d5		out:1	named-only	docs/hwgraph.md#path-names	Path names
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c784c	56	sprintf	symtab	4960bdb667d5		out:1	named-only	docs/hwgraph-paths.md#hardware-graph-path-and-edge-names-in-the-6530-kernels	Hardware-graph path and edge names in the 6.5.30 kernels
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c7884	48	lo_vsprintf	symtab	49f131491d19		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c78b4	56	lo_sprintf	symtab	bd6d897b7b84		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201c78ec	76	printf	symtab	56c97eb7f58d		out:1	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
@@ -151578,7 +151578,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000203a9760	8	xlvd_queue_failover	symtab	87506497337c		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000203a9768	8	xlv_configchange_notification	symtab	78aa5094d5ec		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000203a9770	8	sesmgr_init	symtab	78aa5094d5ec		out:1	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000203a9778	8	sgi_sesmgr	symtab	6bc8e674fbf7		out:1	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000203a9778	8	sgi_sesmgr	symtab	6bc8e674fbf7		out:1	named-only	docs/version-diffs.md#system-calls	System calls
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000203a9780	8	sesmgr_confignote	symtab	78aa5094d5ec		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000203a9788	8	sesmgr_lreceive	symtab	78aa5094d5ec		out:1	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000203a9790	8	sesmgr_get_label	symtab	78aa5094d5ec		out:1	undocumented		
@@ -157308,7 +157308,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004b7d0	376	iograph_early_init	symtab	418fca791909		out:1	named-only	docs/klconfig.md#early-platform-setup	Early platform setup
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004b948	264	setnoderun	symtab	9631ccf8f44c		out:1	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004ba50	28	restorenoderun	symtab	3ea63f49a1c9		out:1	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004bb70	1940	io_xswitch_widget_init	symtab	980a4ff42377		out:1	named-only	docs/hwgraph.md#hub-device-callouts-and-prom-device-records	Hub device callouts and PROM device records
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004bb70	1940	io_xswitch_widget_init	symtab	980a4ff42377		out:1	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004c934	304	io_init_pebrick	symtab	2992a770f1fc		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004cabc	644	scsi_ctlr_nums_add	symtab	82ff37744c7e		out:1	named-only	docs/ioconfig.md#who-sets-it-in-the-kernel	Who sets it in the kernel
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000004d068	452	sn00_rrb_alloc	symtab	28408874576f		in	named-only	docs/panics.md#sn00_rrb_alloc	`sn00_rrb_alloc`
@@ -157504,7 +157504,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005b17c	416	hubii_eint_handler	symtab	035869811e19		in	understood	docs/ip35-hub-errors.md#network-interface-error-interrupts	Network interface error interrupts
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005b31c	104	ii_llp_error_monitor	symtab	f2f1a43c6750		out:1	named-only	docs/ip35-hub-errors.md#dma-maps-error-counters-and-the-crosstalk-provider	DMA maps, error counters and the crosstalk provider
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005b384	300	ni_llp_error_monitor	symtab	83af41c12bae		out:1	named-only	docs/ip35-hub-errors.md#dma-maps-error-counters-and-the-crosstalk-provider	DMA maps, error counters and the crosstalk provider
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005b4b0	64	cleanup_remote_pi	symtab	eef94cdb465e		out:1	named-only	docs/ip35-hub-errors.md#network-interface-error-interrupts	Network interface error interrupts
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005b4b0	64	cleanup_remote_pi	symtab	eef94cdb465e		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005b4f0	116	hub_error_count_update	symtab	b632c8dab4cb		in	understood	docs/ip35-hub-errors.md#dma-maps-error-counters-and-the-crosstalk-provider	DMA maps, error counters and the crosstalk provider
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005b564	172	hub_error_count_enable	symtab	14e964c96382		in	understood	docs/ip35-hub-errors.md#network-interface-error-interrupts	Network interface error interrupts
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005b610	84	hub_error_count_disable	symtab	ebf6a6810c41		in	understood	docs/ip35-hub-errors.md#dma-maps-error-counters-and-the-crosstalk-provider	DMA maps, error counters and the crosstalk provider
@@ -157520,7 +157520,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005bbe0	108	recover_error_init	symtab	09defcfc0312		out:1	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005bc4c	108	klerror_global_check	symtab	4bae95d3822d		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005bcb8	416	klerror_check_recoverable	symtab	750df3df1ec5		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005be58	24	sn0_skip_dump	symtab	d69e6432cc53		in	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005be58	24	sn0_skip_dump	symtab	d69e6432cc53		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005c0ac	456	sn0_error_dump	symtab	fb181fdde8b0		in	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005c274	44	sn0_error_state	symtab	8ca3ca2c692a		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000005c2a0	1352	dobuserre	symtab	f74a66399f60		out:1	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
@@ -157571,13 +157571,13 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000609a0	100	install_cpuintr	symtab	3ad7396b020e		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000060a54	180	install_dbgintr	symtab	f00aa2f78117		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000060b50	180	install_tlbintr	symtab	e4faef8b5ef7		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000060c04	304	protected_broadcast	symtab	6c3c430a48ce		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000060c04	304	protected_broadcast	symtab	6c3c430a48ce		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000060d34	84	chkdebug	symtab	097c248f22b9		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000060d88	108	install_gfxintr	symtab	af05443f1459		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000060df4	272	debug_stop_all_cpus	symtab	fecfa43de37d		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000060df4	272	debug_stop_all_cpus	symtab	fecfa43de37d		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000060f04	348	intr_reserve_hardwired	symtab	8dcbf4f06a8f		in	understood	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000610d8	316	intr_clear_all	symtab	42539550c151		in	understood	docs/interrupts.md#ip35-differences	IP35 differences
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000613d4	844	intr_dumpvec	symtab	6276535819de		in	named-only	docs/version-diffs-gp-slots.tsv	
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000613d4	844	intr_dumpvec	symtab	6276535819de		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000061720	332	enable_ithreads	symtab	75d760fab9c4		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000061980	56	tfi_save	symtab	23e6f8986331		out:1	named-only	docs/ip27-kernel-io.md#cache-error-handling	Cache error handling
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000619b8	56	tfi_restore	symtab	0a54feea6840		out:1	named-only	docs/ip27-kernel-io.md#cache-error-handling	Cache error handling
@@ -157895,7 +157895,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006cd50	276	intrgroup_unjoin	symtab	a134af40e3d7		in	named-only	docs/panics.md#intrgroup_unjoin	`intrgroup_unjoin`
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006ce64	232	intrgroup_free	symtab	acf2087812da		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006cf4c	128	groupintr	symtab	26cc4af07878		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006cfcc	264	sendgroupintr	symtab	829009101c18		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006cfcc	264	sendgroupintr	symtab	829009101c18		out:1	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006d0e0	12	VEC_breakpoint	symtab	e6b415c84db7		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006d0e8	4	kernelbp	symtab	cd09e81bee54		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006d0ec	120	debug	symtab	0214ad8e6f28		out:1	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
@@ -159261,7 +159261,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000d4910	32	l1_cons_tx_notif	symtab	8c69cf4a796a		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000d4930	32	l1_cons_rx_notif	symtab	e2f2859ae55a		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000d4950	44	sc_data_ready	symtab	a3e6d0c13097		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000d497c	320	sc_open	symtab	b324c68fe98e		out:1	named-only	docs/panics.md#elsc_ody_expander_set	`elsc_ody_expander_set`
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000d497c	320	sc_open	symtab	b324c68fe98e		out:1	named-only	docs/klconfig.md#the-ip35-node-class-nibble	The IP35 node class nibble
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000d4abc	200	sc_close	symtab	4daa1aec8416		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000d4b84	648	sc_construct_msg	symtab	2f21e9efeb32		out:1	named-only	docs/panics.md#elsc_ody_expander_set	`elsc_ody_expander_set`
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000d4e0c	508	sc_interpret_resp	symtab	ef5e68884662		out:1	named-only	docs/panics.md#elsc_ody_expander_get	`elsc_ody_expander_get`
@@ -159618,7 +159618,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000010d2f0	448	dk_alloc_ioreq	symtab	56e511fc466f		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000010d4b0	144	dk_callback_frontend	symtab	fc9bb7197fc2		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000010d99c	376	dksc_partition_to_canonical_special	symtab	ed03bf2c2685		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000010de94	588	dk_add_hw_disk_alias	symtab	2b6af5217172		out:1	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000010de94	588	dk_add_hw_disk_alias	symtab	2b6af5217172		out:1	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000010e0e0	552	dk_remove_hw_disk_alias	symtab	96a6ba430a9e		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000010e308	320	dk_alias_make	symtab	1db85e8df254		out:1	named-only	docs/ioconfig.md#who-sets-it-in-the-kernel	Who sets it in the kernel
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000010e448	144	dk_namespace_remove	symtab	6c4c88cb3c46		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -162376,7 +162376,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000027fb9c	356	sgi_symtab	symtab	ec1e72143b37		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000027fd00	188	st_findaddr	symtab	09c75f5d00c4		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000027fdbc	188	st_findname	symtab	6fa0c8bc2bd3		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000027fe78	692	mload_init	symtab	58ba1837ea65		out:1	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000027fe78	692	mload_init	symtab	58ba1837ea65		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002826a8	540	mload_driver_load	symtab	f342f01e8d21		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000283304	52	cdhold	symtab	ec77995f144d		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000283338	44	cdrele	symtab	4df7cac4aa8c		out:1	named-only	docs/version-diffs-queue.tsv	
@@ -162853,7 +162853,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002ad218	3028	icmn_err_tag	symtab	11b69e365691		out:1	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002addec	48	icmn_err	symtab	e8831d3dc4af		out:1	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002ade1c	48	vsprintf	symtab	2d89536b583a		out:1	named-only	docs/version-diffs-queue.tsv	
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002ade4c	56	sprintf	symtab	f53b00d62d02		out:1	named-only	docs/hwgraph.md#path-names	Path names
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002ade4c	56	sprintf	symtab	f53b00d62d02		out:1	named-only	docs/hwgraph-paths.md#hardware-graph-path-and-edge-names-in-the-6530-kernels	Hardware-graph path and edge names in the 6.5.30 kernels
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002ade84	48	lo_vsprintf	symtab	2d89536b583a		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002adeb4	56	lo_sprintf	symtab	22e4b8c97fd5		out:1	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002adeec	76	printf	symtab	4373b7f516e1		out:1	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
@@ -166708,7 +166708,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000496ba8	8	xlvd_queue_failover	symtab	87506497337c		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000496bb0	8	xlv_configchange_notification	symtab	78aa5094d5ec		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000496bb8	8	sesmgr_init	symtab	78aa5094d5ec		out:1	undocumented		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000496bc0	8	sgi_sesmgr	symtab	6bc8e674fbf7		out:1	undocumented		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000496bc0	8	sgi_sesmgr	symtab	6bc8e674fbf7		out:1	named-only	docs/version-diffs.md#system-calls	System calls
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000496bc8	8	sesmgr_confignote	symtab	78aa5094d5ec		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000496bd0	8	sesmgr_lreceive	symtab	78aa5094d5ec		out:1	undocumented		
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000496bd8	8	sesmgr_get_label	symtab	78aa5094d5ec		out:1	undocumented		
@@ -169214,7 +169214,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/dksc.o	shared-kernel	n64	.text	0x5140	540	get_hw_scsi_info	dwarf+symtab	f906e9ab1a83		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/dksc.o	shared-kernel	n64	.text	0x535c	236	dk_disk_stat_info_add	dwarf+symtab	d1b797ac6121		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/dksc.o	shared-kernel	n64	.text	0x5448	120	dk_disk_stat_info_remove	dwarf+symtab	1fe398bbcd5b		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/dksc.o	shared-kernel	n64	.text	0x54c0	588	dk_add_hw_disk_alias	dwarf+symtab	e6727cd26185		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP27boot/dksc.o	shared-kernel	n64	.text	0x54c0	588	dk_add_hw_disk_alias	dwarf+symtab	e6727cd26185		out:3	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.30/usr/cpu/sysgen/IP27boot/dksc.o	shared-kernel	n64	.text	0x570c	552	dk_remove_hw_disk_alias	dwarf+symtab	679f279e7725		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/dksc.o	shared-kernel	n64	.text	0x5934	320	dk_alias_make	dwarf+symtab	eb180bb77c35		out:3	named-only	docs/ioconfig.md#who-sets-it-in-the-kernel	Who sets it in the kernel
 6.5.30/usr/cpu/sysgen/IP27boot/dksc.o	shared-kernel	n64	.text	0x5a74	144	dk_namespace_remove	dwarf+symtab	10f46fc615a4		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -172890,7 +172890,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0xb56c	48	io_init_done	dwarf	fad4ce17ee91		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0xb59c	144	early_probe_for_widget	dwarf	03b3a7e7e6a3		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0xb62c	100	xwidget_inventory_add	dwarf	c30700b87e37		out:2	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0xb690	864	io_xswitch_widget_init	dwarf+symtab	ac59858a3ffa		out:2	named-only	docs/hwgraph.md#hub-device-callouts-and-prom-device-records	Hub device callouts and PROM device records
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0xb690	864	io_xswitch_widget_init	dwarf+symtab	ac59858a3ffa		out:2	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0xb9f0	152	io_init_xswitch_widgets	dwarf	31bd7c9001ba		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0xba88	564	io_link_xswitch_widgets	dwarf	a3c62d3f584f		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0xbcbc	284	io_link_direct_widget	dwarf	14bf269bb9a7		out:2	undocumented		
@@ -173170,7 +173170,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1c514	108	recover_error_init	dwarf+symtab	0dd34a5330f3		out:2	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1c580	108	klerror_global_check	dwarf+symtab	13972b29b371		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1c5ec	416	klerror_check_recoverable	dwarf+symtab	5c5db296d55d		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1c78c	24	sn0_skip_dump	dwarf+symtab	afb930e68e83		in	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1c78c	24	sn0_skip_dump	dwarf+symtab	afb930e68e83		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1c7a4	448	sn0_error_dump	dwarf+symtab	680e06abe951		in	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1c964	44	sn0_error_state	dwarf+symtab	df62e8cbd278		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1c990	1360	dobuserre	dwarf+symtab	370653aac9ff		out:2	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
@@ -173237,16 +173237,16 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x206c8	176	install_dbgintr	dwarf+symtab	8349dbcda648		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20778	68	tlbintr	dwarf	e0c0c63b87f1		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x207bc	176	install_tlbintr	dwarf+symtab	f0973873e6c4		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2086c	264	protected_broadcast	dwarf+symtab	91641c4471bb		out:2	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2086c	264	protected_broadcast	dwarf+symtab	91641c4471bb		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20974	80	chkdebug	dwarf+symtab	14553b0d82ec		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x209c4	104	install_gfxintr	dwarf+symtab	b46b8249de5a		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20a2c	108	hub_migrintr_init	dwarf+symtab	b2d92f247684		in	located	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20a98	236	debug_stop_all_cpus	dwarf+symtab	91f1209595c3		out:2	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20a98	236	debug_stop_all_cpus	dwarf+symtab	91f1209595c3		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20b84	292	intr_reserve_hardwired	dwarf+symtab	061649ecc96e		in	located	docs/interrupts.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20ca8	120	intr_clear_bits	dwarf	b1ded536c68c		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20d20	120	intr_clear_all	dwarf+symtab	796b1ca978c7		in	located	docs/interrupts.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20d98	448	dump_vector	dwarf	0140d918f2a1		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20f58	608	intr_dumpvec	dwarf+symtab	ea71ee88b419		in	named-only	docs/version-diffs-gp-slots.tsv	
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20f58	608	intr_dumpvec	dwarf+symtab	ea71ee88b419		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x211b8	256	enable_ithreads	dwarf+symtab	4c78965b45b1		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x212b8	52	intpend0_intrd	dwarf	99ec815db0c3		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x212ec	124	intpend0_intrd_start	dwarf	fd9efc637d93		out:2	named-only	docs/version-diffs-queue.tsv	
@@ -173364,7 +173364,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2396c	108	hub_slotbits_to_slot	dwarf+symtab	8dd2529f3e47		in	located	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x239d8	104	hub_slot_to_widget	dwarf+symtab	e2de5b2e66e3		in	located	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23a40	36	hub_slot_to_crossbow	dwarf+symtab	11261d777a5d		in	understood	docs/klconfig.md#node-and-processor-lookups	Node and processor lookups
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23a64	40	router_slotbits_to_slot	dwarf+symtab	436e1316ed03		in	named-only	docs/version-diffs-gp-slots.tsv	
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23a64	40	router_slotbits_to_slot	dwarf+symtab	436e1316ed03		in	named-only	docs/version-diffs.md#what-the-moved-gp-slots-name	What the moved gp slots name
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23a8c	40	meta_router_slotbits_to_slot	dwarf+symtab	df7aea102d8a		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23ab4	104	get_slotclass	dwarf	5fbba4934a1d		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x23b1c	156	get_slotname	dwarf+symtab	82d64ca9ab44		out:2	named-only	docs/hwgraph.md#routines	Routines
@@ -173664,7 +173664,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x31a70	276	intrgroup_unjoin	dwarf+symtab	200d48595118		in	named-only	docs/panics.md#intrgroup_unjoin	`intrgroup_unjoin`
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x31b84	232	intrgroup_free	dwarf+symtab	a490d539cbab		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x31c6c	128	groupintr	dwarf+symtab	bfffcd8ecddb		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x31cec	228	sendgroupintr	dwarf+symtab	134b969a9091		out:2	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x31cec	228	sendgroupintr	dwarf+symtab	134b969a9091		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x31dd0	36	get_nvreg	dwarf+symtab	de8bba12aebb		out:2	named-only	docs/klconfig.md#memory-sizing	Memory sizing
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x31df4	128	set_nvreg	dwarf+symtab	9f31dda1929f		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x31e74	164	get_nvram_buf	dwarf+symtab	589876a18339		out:2	named-only	docs/version-diffs-queue.tsv	
@@ -178883,7 +178883,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(mload.o)	shared-kernel	n64	.text	0x154	356	sgi_symtab	dwarf+symtab	a0098a3294a4		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(mload.o)	shared-kernel	n64	.text	0x2b8	188	st_findaddr	dwarf+symtab	d2717ace3a97		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(mload.o)	shared-kernel	n64	.text	0x374	188	st_findname	dwarf+symtab	ade91b55a084		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(mload.o)	shared-kernel	n64	.text	0x430	692	mload_init	dwarf+symtab	8b6fd4906ca0		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(mload.o)	shared-kernel	n64	.text	0x430	692	mload_init	dwarf+symtab	8b6fd4906ca0		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(mload.o)	shared-kernel	n64	.text	0x6e4	400	mload	dwarf+symtab	7f30bb5e5502		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(mload.o)	shared-kernel	n64	.text	0x874	1192	munload	dwarf+symtab	0b5a2c5b176c		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(mload.o)	shared-kernel	n64	.text	0xd1c	564	mregister	dwarf+symtab	8e291f02174c		out:3	undocumented		
@@ -179228,7 +179228,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(printf.o)	shared-kernel	n64	.text	0x1d0	3020	icmn_err_tag	dwarf+symtab	e1b4c0aa4783		out:3	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(printf.o)	shared-kernel	n64	.text	0xd9c	48	icmn_err	dwarf+symtab	afca0c5e346e		out:3	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(printf.o)	shared-kernel	n64	.text	0xdcc	48	vsprintf	dwarf+symtab	c3d9a5b49428		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(printf.o)	shared-kernel	n64	.text	0xdfc	56	sprintf	dwarf+symtab	0034dc9ff69d		out:3	named-only	docs/hwgraph.md#path-names	Path names
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(printf.o)	shared-kernel	n64	.text	0xdfc	56	sprintf	dwarf+symtab	0034dc9ff69d		out:3	named-only	docs/hwgraph-paths.md#hardware-graph-path-and-edge-names-in-the-6530-kernels	Hardware-graph path and edge names in the 6.5.30 kernels
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(printf.o)	shared-kernel	n64	.text	0xe34	48	lo_vsprintf	dwarf+symtab	c3d9a5b49428		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(printf.o)	shared-kernel	n64	.text	0xe64	56	lo_sprintf	dwarf+symtab	0034dc9ff69d		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(printf.o)	shared-kernel	n64	.text	0xe9c	76	printf	dwarf+symtab	0eb7e5d0bb6d		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
@@ -182381,7 +182381,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/sem.o	shared-kernel	n64	.text	0x2d34	20	vsem_islocal	dwarf+symtab	eb946c265dbd		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/sem.o	shared-kernel	n64	.text	0x2d48	28	seminit	dwarf+symtab	a86de4a9d7a4		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n64	.text	0x0	8	sesmgr_init	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n64	.text	0x8	8	sgi_sesmgr	dwarf+symtab	6bc8e674fbf7		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n64	.text	0x8	8	sgi_sesmgr	dwarf+symtab	6bc8e674fbf7		out:3	named-only	docs/version-diffs.md#system-calls	System calls
 6.5.30/usr/cpu/sysgen/IP27boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n64	.text	0x10	8	sesmgr_confignote	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n64	.text	0x18	8	sesmgr_lreceive	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n64	.text	0x20	8	sesmgr_get_label	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
@@ -189209,7 +189209,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/dksc.o	shared-kernel	n64	.text	0x5140	540	get_hw_scsi_info	dwarf+symtab	f906e9ab1a83		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP30boot/dksc.o	shared-kernel	n64	.text	0x535c	236	dk_disk_stat_info_add	dwarf+symtab	d1b797ac6121		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP30boot/dksc.o	shared-kernel	n64	.text	0x5448	120	dk_disk_stat_info_remove	dwarf+symtab	1fe398bbcd5b		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/dksc.o	shared-kernel	n64	.text	0x54c0	588	dk_add_hw_disk_alias	dwarf+symtab	e6727cd26185		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP30boot/dksc.o	shared-kernel	n64	.text	0x54c0	588	dk_add_hw_disk_alias	dwarf+symtab	e6727cd26185		out:3	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.30/usr/cpu/sysgen/IP30boot/dksc.o	shared-kernel	n64	.text	0x570c	552	dk_remove_hw_disk_alias	dwarf+symtab	679f279e7725		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP30boot/dksc.o	shared-kernel	n64	.text	0x5934	320	dk_alias_make	dwarf+symtab	eb180bb77c35		out:3	named-only	docs/ioconfig.md#who-sets-it-in-the-kernel	Who sets it in the kernel
 6.5.30/usr/cpu/sysgen/IP30boot/dksc.o	shared-kernel	n64	.text	0x5a74	144	dk_namespace_remove	dwarf+symtab	10f46fc615a4		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -192435,7 +192435,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x3534	340	ip30_early_piotrans_addr	dwarf	cdebabf88b45		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x3688	548	init_all_devices	dwarf+symtab	bc27230d4631		out:2	named-only	docs/hwgraph-paths.md#names-by-kind	Names by kind
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x38ac	28	sendintr	dwarf+symtab	0aa68a818cd4		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
-6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x38c8	140	debug_stop_all_cpus	dwarf+symtab	09b9c330cac9		out:2	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x38c8	140	debug_stop_all_cpus	dwarf+symtab	09b9c330cac9		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x3954	120	tsfastick_maint	dwarf	0b9156534829		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x39cc	28	pokesoftclk	dwarf+symtab	7c97d765735d		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x39e8	48	ip30_intr_maint	dwarf+symtab	c78cb27a3af0		in	located	docs/ip30-kernel-functions.md#heart-interrupt-glue-board-revision-and-cache-stubs	Heart interrupt glue, board revision and cache stubs
@@ -197398,7 +197398,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(mload.o)	shared-kernel	n64	.text	0x154	356	sgi_symtab	dwarf+symtab	a0098a3294a4		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(mload.o)	shared-kernel	n64	.text	0x2b8	188	st_findaddr	dwarf+symtab	d2717ace3a97		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(mload.o)	shared-kernel	n64	.text	0x374	188	st_findname	dwarf+symtab	ade91b55a084		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(mload.o)	shared-kernel	n64	.text	0x430	692	mload_init	dwarf+symtab	8b6fd4906ca0		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(mload.o)	shared-kernel	n64	.text	0x430	692	mload_init	dwarf+symtab	8b6fd4906ca0		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(mload.o)	shared-kernel	n64	.text	0x6e4	400	mload	dwarf+symtab	7f30bb5e5502		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(mload.o)	shared-kernel	n64	.text	0x874	1192	munload	dwarf+symtab	0b5a2c5b176c		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(mload.o)	shared-kernel	n64	.text	0xd1c	564	mregister	dwarf+symtab	8e291f02174c		out:3	undocumented		
@@ -197712,7 +197712,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(printf.o)	shared-kernel	n64	.text	0x1d0	2844	icmn_err_tag	dwarf+symtab	e1c7fde689d7		out:3	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(printf.o)	shared-kernel	n64	.text	0xcec	48	icmn_err	dwarf+symtab	afca0c5e346e		out:3	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(printf.o)	shared-kernel	n64	.text	0xd1c	48	vsprintf	dwarf+symtab	c3d9a5b49428		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(printf.o)	shared-kernel	n64	.text	0xd4c	56	sprintf	dwarf+symtab	0034dc9ff69d		out:3	named-only	docs/hwgraph.md#path-names	Path names
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(printf.o)	shared-kernel	n64	.text	0xd4c	56	sprintf	dwarf+symtab	0034dc9ff69d		out:3	named-only	docs/hwgraph-paths.md#hardware-graph-path-and-edge-names-in-the-6530-kernels	Hardware-graph path and edge names in the 6.5.30 kernels
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(printf.o)	shared-kernel	n64	.text	0xd84	48	lo_vsprintf	dwarf+symtab	c3d9a5b49428		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(printf.o)	shared-kernel	n64	.text	0xdb4	56	lo_sprintf	dwarf+symtab	0034dc9ff69d		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(printf.o)	shared-kernel	n64	.text	0xdec	76	printf	dwarf+symtab	0eb7e5d0bb6d		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
@@ -206675,7 +206675,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/dksc.o	shared-kernel	n32	.text	0x4fa8	540	get_hw_scsi_info	dwarf+funcnames+symtab	274872c8ebc8		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/dksc.o	shared-kernel	n32	.text	0x51c4	228	dk_disk_stat_info_add	dwarf+funcnames+symtab	4edea2af59c7		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/dksc.o	shared-kernel	n32	.text	0x52a8	128	dk_disk_stat_info_remove	dwarf+funcnames+symtab	ed11237e0334		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/dksc.o	shared-kernel	n32	.text	0x5328	592	dk_add_hw_disk_alias	dwarf+symtab	05454aea5815		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP32boot/dksc.o	shared-kernel	n32	.text	0x5328	592	dk_add_hw_disk_alias	dwarf+symtab	05454aea5815		out:3	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.30/usr/cpu/sysgen/IP32boot/dksc.o	shared-kernel	n32	.text	0x5578	556	dk_remove_hw_disk_alias	dwarf+symtab	2fdc96d2d4e9		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/dksc.o	shared-kernel	n32	.text	0x57a4	324	dk_alias_make	dwarf+symtab	6e08192b8c51		out:3	named-only	docs/ioconfig.md#who-sets-it-in-the-kernel	Who sets it in the kernel
 6.5.30/usr/cpu/sysgen/IP32boot/dksc.o	shared-kernel	n32	.text	0x58e8	144	dk_namespace_remove	dwarf+symtab	612afcaff594		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -210163,7 +210163,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x10eac	52	set_leds	symtab	1cb005a19113		out:2	named-only	docs/klconfig.md#the-ip35-node-class-nibble	The IP35 node class nibble
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x10ee0	12	get_except_norm	symtab	75b443875f64		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x10eec	68	cpu_isvalid	symtab	46708260f754		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x10f30	8	debug_stop_all_cpus	symtab	78aa5094d5ec		out:2	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x10f30	8	debug_stop_all_cpus	symtab	78aa5094d5ec		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x10f38	8	pmem_getfirstclick	symtab	87506497337c		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x10f40	8	node_getfirstfree	symtab	87506497337c		out:2	located	docs/klconfig.md#memory-sizing	Memory sizing
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x10f48	44	node_getmaxclick	symtab	17acff0d5a03		out:2	located	docs/klconfig.md#memory-sizing	Memory sizing
@@ -214639,7 +214639,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(mload.o)	shared-kernel	n32	.text	0x154	312	sgi_symtab	dwarf+symtab	9a283c86c32a		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(mload.o)	shared-kernel	n32	.text	0x28c	176	st_findaddr	dwarf+symtab	ab210c7c2e29		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(mload.o)	shared-kernel	n32	.text	0x33c	180	st_findname	dwarf+symtab	5ca4a9820775		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(mload.o)	shared-kernel	n32	.text	0x3f0	708	mload_init	dwarf+symtab	9c6bcddb6cee		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(mload.o)	shared-kernel	n32	.text	0x3f0	708	mload_init	dwarf+symtab	9c6bcddb6cee		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(mload.o)	shared-kernel	n32	.text	0x6b4	416	mload	dwarf+funcnames+symtab	06d668202923		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(mload.o)	shared-kernel	n32	.text	0x854	1160	munload	dwarf+funcnames+symtab	48f89f7a3283		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(mload.o)	shared-kernel	n32	.text	0xcdc	560	mregister	dwarf+funcnames+symtab	7d62b973a01c		out:3	undocumented		
@@ -214984,7 +214984,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(printf.o)	shared-kernel	n32	.text	0x1d8	2816	icmn_err_tag	dwarf+symtab	21ecbea42d26		out:3	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(printf.o)	shared-kernel	n32	.text	0xcd8	48	icmn_err	dwarf+symtab	e882b5e3fed9		out:3	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(printf.o)	shared-kernel	n32	.text	0xd08	48	vsprintf	dwarf+symtab	3c880a7fb282		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(printf.o)	shared-kernel	n32	.text	0xd38	56	sprintf	dwarf+symtab	70f6e15162a9		out:3	named-only	docs/hwgraph.md#path-names	Path names
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(printf.o)	shared-kernel	n32	.text	0xd38	56	sprintf	dwarf+symtab	70f6e15162a9		out:3	named-only	docs/hwgraph-paths.md#hardware-graph-path-and-edge-names-in-the-6530-kernels	Hardware-graph path and edge names in the 6.5.30 kernels
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(printf.o)	shared-kernel	n32	.text	0xd70	48	lo_vsprintf	dwarf+symtab	3c880a7fb282		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(printf.o)	shared-kernel	n32	.text	0xda0	56	lo_sprintf	dwarf+symtab	70f6e15162a9		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(printf.o)	shared-kernel	n32	.text	0xdd8	76	printf	dwarf+symtab	f01d8a4172b2		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
@@ -217753,7 +217753,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/sem.o	shared-kernel	n32	.text	0x2a98	24	vsem_islocal	dwarf+symtab	90928b199f42		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/sem.o	shared-kernel	n32	.text	0x2ab0	28	seminit	dwarf+symtab	34d7a2e33b85		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n32	.text	0x0	8	sesmgr_init	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n32	.text	0x8	8	sgi_sesmgr	dwarf+symtab	6bc8e674fbf7		out:3	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n32	.text	0x8	8	sgi_sesmgr	dwarf+symtab	6bc8e674fbf7		out:3	named-only	docs/version-diffs.md#system-calls	System calls
 6.5.30/usr/cpu/sysgen/IP32boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n32	.text	0x10	8	sesmgr_confignote	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n32	.text	0x18	8	sesmgr_lreceive	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/sesmgrstubs.a(sesmgrstubs.o)	shared-kernel	n32	.text	0x20	8	sesmgr_get_label	dwarf+symtab	78aa5094d5ec		out:3	undocumented		
@@ -223693,7 +223693,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/dksc.o	shared-kernel	n64	.text	0x5140	540	get_hw_scsi_info	dwarf+symtab	f906e9ab1a83		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/dksc.o	shared-kernel	n64	.text	0x535c	236	dk_disk_stat_info_add	dwarf+symtab	d1b797ac6121		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/dksc.o	shared-kernel	n64	.text	0x5448	120	dk_disk_stat_info_remove	dwarf+symtab	1fe398bbcd5b		out:3	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/dksc.o	shared-kernel	n64	.text	0x54c0	588	dk_add_hw_disk_alias	dwarf+symtab	e6727cd26185		out:3	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP35boot/dksc.o	shared-kernel	n64	.text	0x54c0	588	dk_add_hw_disk_alias	dwarf+symtab	e6727cd26185		out:3	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.30/usr/cpu/sysgen/IP35boot/dksc.o	shared-kernel	n64	.text	0x570c	552	dk_remove_hw_disk_alias	dwarf+symtab	679f279e7725		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/dksc.o	shared-kernel	n64	.text	0x5934	320	dk_alias_make	dwarf+symtab	eb180bb77c35		out:3	named-only	docs/ioconfig.md#who-sets-it-in-the-kernel	Who sets it in the kernel
 6.5.30/usr/cpu/sysgen/IP35boot/dksc.o	shared-kernel	n64	.text	0x5a74	144	dk_namespace_remove	dwarf+symtab	10f46fc615a4		out:3	named-only	docs/version-diffs-queue.tsv	
@@ -228038,7 +228038,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xb8ec	48	io_init_done	dwarf	6505d9ecfc05		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xb91c	148	early_probe_for_widget	dwarf	b39685af91e4		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xb9b0	64	xwidget_inventory_add	dwarf	a8f89c74b4cc		out:2	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xb9f0	1940	io_xswitch_widget_init	dwarf+symtab	04dadeb4ad1c		out:2	named-only	docs/hwgraph.md#hub-device-callouts-and-prom-device-records	Hub device callouts and PROM device records
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xb9f0	1940	io_xswitch_widget_init	dwarf+symtab	04dadeb4ad1c		out:2	named-only	docs/hwgraph-paths.md#not-established	Not established
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xc184	168	io_init_xswitch_widgets	dwarf	78a9d87e086d		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xc22c	640	io_link_xswitch_widgets	dwarf	fb4ca85792ee		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xc4ac	776	do_io_init_node	dwarf	d63f14c339b7		out:2	named-only	docs/version-diffs-queue.tsv	
@@ -228267,7 +228267,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1affc	416	hubii_eint_handler	dwarf+symtab	c0672a01d2c7		in	located	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1b19c	104	ii_llp_error_monitor	dwarf+symtab	ba461350b9b4		out:2	named-only	docs/ip35-hub-errors.md#dma-maps-error-counters-and-the-crosstalk-provider	DMA maps, error counters and the crosstalk provider
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1b204	300	ni_llp_error_monitor	dwarf+symtab	d6a9b4250310		out:2	named-only	docs/ip35-hub-errors.md#dma-maps-error-counters-and-the-crosstalk-provider	DMA maps, error counters and the crosstalk provider
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1b330	64	cleanup_remote_pi	dwarf+symtab	a071b143366f		out:2	named-only	docs/ip35-hub-errors.md#network-interface-error-interrupts	Network interface error interrupts
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1b330	64	cleanup_remote_pi	dwarf+symtab	a071b143366f		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1b370	116	hub_error_count_update	dwarf+symtab	1d39dbd12d82		in	located	docs/ip35-hub-errors.md#dma-maps-error-counters-and-the-crosstalk-provider	DMA maps, error counters and the crosstalk provider
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1b3e4	172	hub_error_count_enable	dwarf+symtab	05ac7d8dfbc6		in	located	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1b490	84	hub_error_count_disable	dwarf+symtab	0c39fe1fb17b		in	located	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
@@ -228283,7 +228283,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1ba60	108	recover_error_init	dwarf+symtab	adc2e0dad53a		out:2	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1bacc	108	klerror_global_check	dwarf+symtab	692fded6df1d		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1bb38	416	klerror_check_recoverable	dwarf+symtab	a4a3fa4c2047		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1bcd8	24	sn0_skip_dump	dwarf+symtab	d8a8f504dc63		in	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1bcd8	24	sn0_skip_dump	dwarf+symtab	d8a8f504dc63		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1bcf0	572	stop_all_cpus	dwarf	f9f32bbbb4eb		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1bf2c	456	sn0_error_dump	dwarf+symtab	90e90e26d7c0		in	named-only	docs/ip27-kernel-io.md#interrupt-allocation-and-hub-error-handling	Interrupt allocation and hub error handling
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x1c0f4	44	sn0_error_state	dwarf+symtab	658a88db3dd8		in	named-only	docs/version-diffs-gp-slots.tsv	
@@ -228351,15 +228351,15 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x208d4	180	install_dbgintr	dwarf+symtab	b68039279b74		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20988	72	tlbintr	dwarf	654dab63afe3		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x209d0	180	install_tlbintr	dwarf+symtab	38667997fd1b		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20a84	304	protected_broadcast	dwarf+symtab	d378b42f237a		out:2	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20a84	304	protected_broadcast	dwarf+symtab	d378b42f237a		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20bb4	84	chkdebug	dwarf+symtab	cb70855fb2fa		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20c08	108	install_gfxintr	dwarf+symtab	b364e8960641		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20c74	272	debug_stop_all_cpus	dwarf+symtab	22143b3ce548		out:2	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20c74	272	debug_stop_all_cpus	dwarf+symtab	22143b3ce548		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20d84	348	intr_reserve_hardwired	dwarf+symtab	575f20e6ecf8		in	located	docs/interrupts.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20ee0	120	intr_clear_bits	dwarf	10af38853fbc		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20f58	316	intr_clear_all	dwarf+symtab	ec815101f401		in	located	docs/interrupts.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x21094	448	dump_vector	dwarf	d53f425b4909		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x21254	844	intr_dumpvec	dwarf+symtab	a46e7fa8ad56		in	named-only	docs/version-diffs-gp-slots.tsv	
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x21254	844	intr_dumpvec	dwarf+symtab	a46e7fa8ad56		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x215a0	332	enable_ithreads	dwarf+symtab	cc04cc26b353		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x216ec	52	intpend0_intrd	dwarf	99ec815db0c3		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x21720	124	intpend0_intrd_start	dwarf	fbd9a60adde5		out:2	named-only	docs/version-diffs-queue.tsv	
@@ -228695,7 +228695,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2cbd0	276	intrgroup_unjoin	dwarf+symtab	dfed1f44ce7a		in	named-only	docs/panics.md#intrgroup_unjoin	`intrgroup_unjoin`
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2cce4	232	intrgroup_free	dwarf+symtab	1f58918615f6		in	named-only	docs/version-diffs-gp-slots.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2cdcc	128	groupintr	dwarf+symtab	e944a9b26ea6		out:2	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2ce4c	264	sendgroupintr	dwarf+symtab	9468630c995a		out:2	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2ce4c	264	sendgroupintr	dwarf+symtab	9468630c995a		out:2	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2cf60	12	VEC_breakpoint	dwarf+symtab	3614e4802762		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2cf68	4	kernelbp	symtab	cd09e81bee54		out:2	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2cf6c	120	debug	dwarf+symtab	920ba04ec3dd		out:2	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
@@ -230263,7 +230263,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/l1.o	shared-kernel	n64	.text	0x28b8	32	l1_cons_tx_notif	dwarf+symtab	45cd5bbdea27		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/l1.o	shared-kernel	n64	.text	0x28d8	32	l1_cons_rx_notif	dwarf+symtab	45cd5bbdea27		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/l1.o	shared-kernel	n64	.text	0x28f8	44	sc_data_ready	dwarf+symtab	cf0f20e3352b		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP35boot/l1.o	shared-kernel	n64	.text	0x2924	320	sc_open	dwarf+symtab	e70cddf91d18		out:3	named-only	docs/panics.md#elsc_ody_expander_set	`elsc_ody_expander_set`
+6.5.30/usr/cpu/sysgen/IP35boot/l1.o	shared-kernel	n64	.text	0x2924	320	sc_open	dwarf+symtab	e70cddf91d18		out:3	named-only	docs/klconfig.md#the-ip35-node-class-nibble	The IP35 node class nibble
 6.5.30/usr/cpu/sysgen/IP35boot/l1.o	shared-kernel	n64	.text	0x2a64	200	sc_close	dwarf+symtab	719b4ebe5d0f		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/l1.o	shared-kernel	n64	.text	0x2b2c	648	sc_construct_msg	dwarf+symtab	e5b9748bd92f		out:3	named-only	docs/panics.md#elsc_ody_expander_set	`elsc_ody_expander_set`
 6.5.30/usr/cpu/sysgen/IP35boot/l1.o	shared-kernel	n64	.text	0x2db4	508	sc_interpret_resp	dwarf+symtab	f85b0b392dd5		out:3	named-only	docs/panics.md#elsc_ody_expander_get	`elsc_ody_expander_get`
@@ -233911,7 +233911,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(mload.o)	shared-kernel	n64	.text	0x154	356	sgi_symtab	dwarf+symtab	a0098a3294a4		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(mload.o)	shared-kernel	n64	.text	0x2b8	188	st_findaddr	dwarf+symtab	d2717ace3a97		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(mload.o)	shared-kernel	n64	.text	0x374	188	st_findname	dwarf+symtab	ade91b55a084		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(mload.o)	shared-kernel	n64	.text	0x430	692	mload_init	dwarf+symtab	8b6fd4906ca0		out:3	named-only	docs/syssgi.md#memory-and-translation	Memory and translation
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(mload.o)	shared-kernel	n64	.text	0x430	692	mload_init	dwarf+symtab	8b6fd4906ca0		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(mload.o)	shared-kernel	n64	.text	0x6e4	400	mload	dwarf+symtab	7f30bb5e5502		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(mload.o)	shared-kernel	n64	.text	0x874	1192	munload	dwarf+symtab	0b5a2c5b176c		out:3	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(mload.o)	shared-kernel	n64	.text	0xd1c	564	mregister	dwarf+symtab	8e291f02174c		out:3	undocumented		
@@ -234243,7 +234243,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(printf.o)	shared-kernel	n64	.text	0x1d0	3028	icmn_err_tag	dwarf+symtab	d3d7bf1c0b1b		out:3	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(printf.o)	shared-kernel	n64	.text	0xda4	48	icmn_err	dwarf+symtab	afca0c5e346e		out:3	named-only	docs/panics.md#panic-and-assert-sites	Panic and assert sites
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(printf.o)	shared-kernel	n64	.text	0xdd4	48	vsprintf	dwarf+symtab	c3d9a5b49428		out:3	named-only	docs/version-diffs-queue.tsv	
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(printf.o)	shared-kernel	n64	.text	0xe04	56	sprintf	dwarf+symtab	0034dc9ff69d		out:3	named-only	docs/hwgraph.md#path-names	Path names
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(printf.o)	shared-kernel	n64	.text	0xe04	56	sprintf	dwarf+symtab	0034dc9ff69d		out:3	named-only	docs/hwgraph-paths.md#hardware-graph-path-and-edge-names-in-the-6530-kernels	Hardware-graph path and edge names in the 6.5.30 kernels
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(printf.o)	shared-kernel	n64	.text	0xe3c	48	lo_vsprintf	dwarf+symtab	c3d9a5b49428		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(printf.o)	shared-kernel	n64	.text	0xe6c	56	lo_sprintf	dwarf+symtab	0034dc9ff69d		out:3	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(printf.o)	shared-kernel	n64	.text	0xea4	76	printf	dwarf+symtab	0eb7e5d0bb6d		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
