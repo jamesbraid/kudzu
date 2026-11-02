@@ -610,3 +610,88 @@ and afterwards calls it with argument 1 and restores the level with `splx`. The 
   Method +128 of the port table. `a0` is the port record, `a1` the mode, 0 or 1. It takes the byte at +32 of the record's +112 table (7 for port 0, 6 for
   port 1) and stores `a1` in the register word at window +64 + 4 * that byte, then returns 0; for any other `a1` it stores nothing and returns 1. That
   this word is a pin that selects the line standard for the port is inferred from the published Linux driver's use of the same pins.
+
+## PCI configuration access and driver registration (Bridge)
+
+A PCI driver's attach routine reaches its device's configuration registers, and registers itself to be called, through the routines below (objects
+`pciio.o` and `pcibr.o` of release 6.5.30). The Bridge register base is the doubleword at +8 of the Bridge soft record. The address routines
+`pcireg_type0_cfg_addr`, `pcireg_type1_cfg_addr` and `pcireg_type1_cntr_set` take either that soft record or a register base. A register base is told by
+`(a0 & 0x9200000000000000) == 0x9200000000000000`; it is then identified by the widget identification word at base +4, whose bits 12 to 27 are the part
+number and bits 1 to 11 the manufacturer: the accepted pairs are part 0xc002 with manufacturer 54 and parts 0xd002, 0xd102, 0xd112, 0xe000 and 0xe010 with
+manufacturer 36. Which chip each part number is, beyond 0xc002 (Bridge) and 0xd002 (XBridge) from [ip27-kernel-io.md](ip27-kernel-io.md), is not
+established. Otherwise the halfword at soft record +114 is a Bridge kind, 0 to 3 (-1 and zero `a0` are errors).
+
+- `pciio_driver_register` (`6.5.30/unix.IP27`, address 0xc000000000093748, 116 bytes, 48-byte frame): **established.**
+  Registers a PCI driver by vendor and device number. `a0` is the vendor, `a1` the device, `a2` the driver's name prefix string and `a3` its flags. When
+  the global table handle at the `gp`-28664 slot is zero it first calls `pciio_init()` (no arguments). It then calls
+  `cdl_add_driver(handle, a0, a1, a2, a3, 0xc0000000000937e0)`, the last argument being the address of a callback routine of this object, and returns that
+  result. It touches no device register. The QLogic and IOC3 drivers call it from their start-up routines (`ioc3_init` above).
+
+- `pciio_intr_alloc` (`6.5.30/unix.IP27`, address 0xc000000000092da8, 104 bytes, 48-byte frame): **established.**
+  Allocates an interrupt for a PCI device. `a0` is the device vertex, `a1` a device descriptor, `a2` the interrupt line the driver asks for and `a3` the
+  owner vertex. It calls `pciio_info_get(a0)`; when the words at +8 and +12 of the result differ (the device sits behind a PCI bridge chip) it replaces
+  `a2` with `pciio_ppb_intr_map(info, a2)`. It returns `pcibr_intr_alloc(a0, a1, line, a3)`. No device register is touched.
+
+- `pciio_config_get` (`6.5.30/unix.IP27`, address 0xc0000000000931ac, 184 bytes, 64-byte frame): **established.**
+  Reads 1 to 8 bytes of configuration space. `a0` is the device vertex, `a1` the register (the low byte is the offset; see `pcibr_config_addr` for the upper
+  bits), `a2` the byte count. It splits the read into pieces that never cross a 4-byte boundary (each is the smaller of the bytes left and 4 minus the
+  offset's low two bits), calls `pcibr_config_get(a0, offset, piece)` for each, ORs each result in shifted left by the bits already read (a 64-bit
+  shift), and returns the 64-bit value. A count of zero returns 0.
+
+- `pciio_config_set` (`6.5.30/unix.IP27`, address 0xc00000000009331c, 152 bytes, 64-byte frame): **established.**
+  Writes 1 to 8 bytes of configuration space with the same splitting. `a0` is the vertex, `a1` the register, `a2` the count, `a3` the value. For each piece it
+  calls `pcibr_config_set(a0, offset, piece, value)`, then shifts the value right by the piece's bits (64-bit) and advances. It returns nothing.
+
+- `pcibr_config_get` (`6.5.30/unix.IP27`, address 0xc00000000007c5c0, 56 bytes, 32-byte frame): **established.**
+  Reads up to 4 bytes inside one word. It obtains the window address with `pcibr_config_addr(a0, a1)`, then returns `do_pcibr_config_get(address, a1 & 0xff, a2)`.
+
+- `pcibr_config_set` (`6.5.30/unix.IP27`, address 0xc00000000007c6a4, 64 bytes, 32-byte frame): **established.**
+  The write counterpart: `pcibr_config_addr(a0, a1)`, then `do_pcibr_config_set(address, a1 & 0xff, a2, a3)`. It returns that result.
+
+- `pcibr_config_addr` (`6.5.30/unix.IP27`, address 0xc00000000007c4cc, 244 bytes, 48-byte frame): **established.**
+  Works out the configuration window address of the device's function (register 0). `a0` is the device vertex, `a1` the register word. It calls
+  `pciio_info_get(a0)` and `pcibr_info_get(a0)` and `pciio_info_type1_get(info)`. When the device is behind a PCI-to-PCI bridge (type 1 nonzero) it takes
+  the bus from bits 16 to 23 of `a1`, the slot from bits 11 to 15 and the function from bits 8 to 10, and calls `pcibr_func_config_addr(register base, bus,
+  slot, function, 0)`, where the register base is the doubleword at +8 of the record that the per-device record's +40 points to. Otherwise, when the device is not the host device (`pciio_info_hostdev_get(info) != a0`) it uses the bytes at info +16, +17 and +18
+  as bus, slot and function (function 0xff becomes 0). For the host device it takes the slot from the byte at the Bridge's per-device record +540 (0xff
+  becomes the slot field of `a1`) and the function from the byte at +18 (0xff becomes the function field of `a1`), with bus 0. In all cases it returns the
+  address from `pcibr_func_config_addr` and writes nothing itself.
+
+- `pcibr_func_config_addr` (`6.5.30/unix.IP27`, address 0xc00000000007c2ec, 132 bytes, 32-byte frame): **established.**
+  `a0` is the Bridge register base (or soft record), `a1` the bus, `a2` the slot, `a3` the function, `a4` the register offset. For a bus above 0 (the
+  test is `blez`) it first calls `pcireg_type1_cntr_set(a0, (bus << 16) | (slot << 11))`, then returns `pcireg_type1_cfg_addr(a0, function, offset)`.
+  For bus 0 (or less) it returns `pcireg_type0_cfg_addr(a0, slot, function, offset)`.
+
+- `pcibr_slot_config_addr` (`6.5.30/unix.IP27`, address 0xc00000000007c370, 44 bytes, 16-byte frame): **established.**
+  `a0` is the base, `a1` the slot, `a2` the offset. It returns `pcibr_func_config_addr(a0, 0, slot, 0, offset)`: bus 0 and function 0.
+
+- `pcireg_type0_cfg_addr` (`6.5.30/unix.IP27`, address 0xc000000000088480, 688 bytes, 48-byte frame): **established.**
+  Builds the address of a configuration register of a device on the Bridge's own bus. `a0` is the soft record or base, `a1` the slot, `a2` the function, `a3`
+  the offset. Part 0xc002, part 0xd002, and Bridge kinds 0 and 1 use one layout; parts 0xd102 and 0xd112 and kind 2 a second; parts 0xe000 and 0xe010 and kind 3
+  a third. Layout one asserts `slot >= 0 && slot <= 7` (`assfail`, line 2933) and returns base + (slot << 12) + (function << 8) + (offset rounded down to a
+  multiple of 4; a negative offset is first biased by 3) + 0x20000. The second and third use (slot + 1) & 0xff in place of the slot and assert it is in 1 to
+  4 (`slot >= 1 && slot <= 4`; line 2928 for the second, 2920 for the third); the rest of the sum is the same. A zero `a0`, an unlisted part number or manufacturer,
+  or kind -1 reaches `panic("pcireg_type0_cfg_addr(): unknown bridgetype")`; a kind above 3 returns 0. It reads the widget identification word (base +4) when it was
+  given a base. No device register is written.
+
+- `pcireg_type1_cfg_addr` (`6.5.30/unix.IP27`, address 0xc000000000088730, 468 bytes, 16-byte frame): **established.**
+  The same dispatch for a device behind a PCI bridge chip. `a0` is the soft record or base, `a1` the function, `a2` the offset. Every accepted base or kind
+  returns base + (function << 8) + (offset rounded down to a multiple of 4, a negative offset biased by 3 first) + 0x28000. A zero `a0`, an unlisted
+  part number or manufacturer, or kind -1 reaches `panic("pcireg_type1_cfg_addr(): unknown bridgetype")`; a kind above 3 returns 0.
+
+- `pcireg_type1_cntr_set` (`6.5.30/unix.IP27`, address 0xc00000000008318c, 344 bytes, 16-byte frame): **established.**
+  Stores the bus and slot of the next type-1 configuration cycle in the Bridge. `a0` is the soft record or base, `a1` the value. Parts 0xd102, 0xd112, 0xe000,
+  0xe010 and Bridge kinds 2 and 3 get a doubleword store at base +200; parts 0xc002 and 0xd002 and kinds 0 and 1 get a word store at base +204. A zero `a0`,
+  an unlisted pair, or kind -1 calls `panic("pcireg_type1_cfg_set(): unknown bridgetype")`; a kind above 3 stores nothing. It sets no return value.
+
+- `do_pcibr_config_get` (`6.5.30/unix.IP27`, address 0xc00000000007c658, 76 bytes, no frame): **established.**
+  `a0` is the window address of the function, `a1` the register offset, `a2` the size. It loads the whole word at a0 + (offset >> 2) * 4, shifts it right by
+  8 * (offset & 3) when that is nonzero, ANDs it with (1 << (8 * size)) - 1 when the size is under 4, and returns the 32-bit result zero-extended. The
+  word is used as loaded; unlike the narrow stores in `do_pcibr_config_set`, no byte-lane swap is applied to the load.
+
+- `do_pcibr_config_set` (`6.5.30/unix.IP27`, address 0xc00000000007c6e4, 312 bytes, no frame): **established.**
+  `a0` is the window address, `a1` the offset, `a2` the size (1 to 4; any other value stores nothing), `a3` the value. Narrow stores swap the byte lane
+  inside the word: size 1 is a byte store at a0 + (offset ^ 3). Size 2 with an even offset is a halfword store at a0 + 2 * ((offset >> 1) ^ 1); with an odd offset
+  it is a byte at (offset ^ 3) and the value shifted right by 8 at ((offset + 1) ^ 3). Size 3 with an even offset is a halfword at the same halfword address and
+  the value shifted right by 16 as a byte at ((offset + 2) ^ 3); with an odd offset it is a byte at (offset ^ 3) and the value shifted right by 8 as a
+  halfword at a0 + 2 * ((((offset + 1) >> 1)) ^ 1). Size 4 is one word store of the value at a0 + (offset >> 2) * 4, unswapped. No return value is set.
