@@ -6625,7 +6625,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/io.a(ioerror_handling.o)	kernel-platform-drivers	shared-kernel	object	n64	17076	1c9d80db37e2b81b		18	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/io.a(hwcopy.o)	kernel-platform-drivers	shared-kernel	object	n64	4404	4f853ebb024d72f3		2	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/io6.o	kernel-platform-drivers	shared-kernel	object	n64	6776	db2d77d5fa31ce4c		2	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/ioc3.o	kernel-platform-drivers	shared-kernel	object	n64	27688	5e69438504a0ae29		27	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/ioc3.o	kernel-platform-drivers	shared-kernel	object	n64	27688	5e69438504a0ae29		27	symtab	0	0	named-only	docs/ip35-ioc3.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.30/usr/cpu/sysgen/IP35boot/ioc3_pckm.o	kernel-other-objects	shared-kernel	object	n64	37480	307a39f751ae13a4		36	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ioc3ei.o	kernel-other-objects	shared-kernel	object	n64	21168	bdfefd9773253391		19	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ioc4.o	kernel-other-objects	shared-kernel	object	n64	23976	e15e32c04c326024		21	symtab	0	0	undocumented		
