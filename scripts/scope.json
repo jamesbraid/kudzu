@@ -137,6 +137,18 @@
         "*/usr/cpu/sysgen/IP*boot"
       ],
       "reason": "Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons."
+    },
+    {
+      "group": "userland-base",
+      "role": "userland",
+      "scope": "out",
+      "paths": [
+        "6.5.30/sbin/*",
+        "6.5.30/usr/etc/*",
+        "6.5.30/usr/sbin/*",
+        "6.5.30/usr/cluster/bin/*"
+      ],
+      "reason": "Base user-space daemons and commands of the installed 6.5.30 system: hardware inventory and configuration, the controller and power-management tools, NFS, RPC and CacheFS services, the cluster daemons and the XFS repair tools. Listed so the inventory counts them; their functions are out of scope for now, not excluded."
     }
   ],
   "structure_prefixes": [

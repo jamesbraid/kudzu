@@ -27,7 +27,9 @@
     ]
   },
   "prepare": [],
-  "exclude": [],
+  "exclude": [
+    "6.5.30/usr/sbin/l2cmd"
+  ],
   "windows": [],
   "bases": [],
   "accessors": [],
@@ -134,6 +136,16 @@
       "role": "shared-kernel",
       "paths": [
         "*/usr/cpu/sysgen/IP*boot"
+      ]
+    },
+    {
+      "group": "userland-base",
+      "role": "userland",
+      "paths": [
+        "6.5.30/sbin/*",
+        "6.5.30/usr/etc/*",
+        "6.5.30/usr/sbin/*",
+        "6.5.30/usr/cluster/bin/*"
       ]
     }
   ],
@@ -2502,6 +2514,52 @@
         "6.5.30/usr/cpu/sysgen/IP35boot/zero.o"
       ],
       "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        ".+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.30/sbin/hinv",
+        "6.5.30/sbin/ioconfig",
+        "6.5.30/usr/etc/automount",
+        "6.5.30/usr/etc/cfsadmin",
+        "6.5.30/usr/etc/cfsstat",
+        "6.5.30/usr/etc/eventmond",
+        "6.5.30/usr/etc/exportfs",
+        "6.5.30/usr/etc/mediad",
+        "6.5.30/usr/etc/mmscd",
+        "6.5.30/usr/etc/nfsd",
+        "6.5.30/usr/etc/nfsdctl",
+        "6.5.30/usr/etc/rpc.bootparamd",
+        "6.5.30/usr/etc/rpc.espd",
+        "6.5.30/usr/etc/rpc.lockd",
+        "6.5.30/usr/etc/rpc.mountd",
+        "6.5.30/usr/etc/rpc.passwd",
+        "6.5.30/usr/etc/rpc.rexd",
+        "6.5.30/usr/etc/rpc.rquotad",
+        "6.5.30/usr/etc/rpc.rstatd",
+        "6.5.30/usr/etc/rpc.rusersd",
+        "6.5.30/usr/etc/rpc.rwalld",
+        "6.5.30/usr/etc/rpc.sprayd",
+        "6.5.30/usr/etc/rpc.statd",
+        "6.5.30/usr/etc/rpc.ypupdated",
+        "6.5.30/usr/sbin/flashmmsc",
+        "6.5.30/usr/sbin/l1cmd",
+        "6.5.30/usr/sbin/l2cmd",
+        "6.5.30/usr/sbin/numastatd",
+        "6.5.30/usr/sbin/sysmon",
+        "6.5.30/usr/sbin/xfs_db",
+        "6.5.30/usr/sbin/xfs_repair",
+        "6.5.30/usr/cluster/bin/cmon_ctrl",
+        "6.5.30/usr/cluster/bin/cmond",
+        "6.5.30/usr/cluster/bin/cms_failconf",
+        "6.5.30/usr/cluster/bin/cms_status",
+        "6.5.30/usr/cluster/bin/crsd",
+        "6.5.30/usr/cluster/bin/ha_cmsd",
+        "6.5.30/usr/cluster/bin/ha_gcd"
+      ],
+      "reason": "userland-base: Base user-space daemons and commands of the installed 6.5.30 system: hardware inventory and configuration, the controller and power-management tools, NFS, RPC and CacheFS services, the cluster daemons and the XFS repair tools. Listed so the inventory counts them; their functions are out of scope for now, not excluded.",
       "patterns": [
         ".+"
       ]
