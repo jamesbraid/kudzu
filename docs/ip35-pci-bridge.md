@@ -858,3 +858,197 @@ Routines of the PCI bridge driver (`pcibr`) and the crosstalk bridge attach code
   It calls `hwgraph_fastinfo_get(a0)` (nop delay slot) and adds 320 to the result with `daddiu` at 0xc000000000099bd0, so the value is an address, not a load; a null soft state would give 320. The only caller found is `xbow_ioctl` (call at 0xc00000000009855c). The frame is 16 bytes and no instruction is branch-likely. Established.
 - `xbow_get_perf_counters` (`6.5.30/unix.IP35`, occupies 32 bytes at address 0xc0000000000999d0): returns the address of the performance-counter record inside a crossbar's soft state.
   It calls `hwgraph_fastinfo_get(a0)` and adds 64 to the result (`daddiu v0,v0,64` at 0xc0000000000999e4), returning an address rather than loading anything. The only caller found is `xbow_ioctl` (call at 0xc0000000000984d4). The frame is 16 bytes and no instruction is branch-likely. Established.
+
+
+## Bridge register accessors in the 6.5.22 IP35 pcibr object
+
+The routines below are in `6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, a relocatable object, so their calls and global references appear as relocations (the facts name the target) and every message string is at an offset from the object's `.rodata`. They are the `pcireg_*` register accessors that the rest of the driver calls; each takes the Bridge as its first argument `a0` and works out which register layout to use. The layouts are called kind 0 to 3 here. `a0` zero is an error. A value whose top bits match 0x9200000000000000 is taken as the register window itself and is identified from the word at window +4: bits 12 to 27 are a part number and bits 1 to 11 a manufacturer, and part 0xc002 with manufacturer 54 is kind 0, part 0xd002 with manufacturer 36 is kind 1, parts 0xd102 and 0xd112 with manufacturer 36 are kind 2, and parts 0xe000 and 0xe010 with manufacturer 36 are kind 3. Any other value is the soft record: the halfword at +114 is the kind and the doubleword at +8 is the window. Kind -1, or an unlisted part, calls `panic` with a message that names the accessor and says "unknown bridgetype"; a kind above 3 makes the routine return 0 (or return without storing). Which chip each kind is, beyond kind 0 as part 0xc002 and kind 1 as part 0xd002, is not established here. Each failed index assertion calls `assfail`, whose first argument is the condition text and whose third is the source line number (given here in decimal); the code reaches the register access after that call. Register roles follow the accessor names; what the code establishes is each offset, width, mask, check and message.
+
+- `pcireg_int_ate_get` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 620 bytes at address 0x1915c, 32-byte frame): reads one entry of the Bridge's internal address-translation table and returns it as a doubleword.
+  `a0` is the Bridge and `a1` the entry index.
+  The entry is the doubleword at window + 8 x index + 0x10000 for every kind; what differs is how many entries the index may reach.
+  Kinds 3, 2 and 1 assert `(ate_index >= 0) && (ate_index <= 1024)` (source lines 3069, 3073 and 3077 respectively), and kind 0 asserts `(ate_index >= 0) && (ate_index <= 128)` (line 3081).
+  A zero `a0`, an unlisted part or kind -1 calls `panic` with "pcireg_int_ate_get(): unknown bridgetype"; a kind above 3 returns 0.
+  The window is only read at +4 (identification) and at the entry.
+  **Established.**
+- `pcireg_int_ate_set` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 620 bytes at address 0x193c8, 32-byte frame): writes one entry of the Bridge's internal address-translation table.
+  `a0` is the Bridge, `a1` the index and `a2` the 64-bit value, stored as a doubleword at window + 8 x index + 0x10000, after the same per-kind limit as the getter: kind 3 line 3100, kind 2 line 3104 and kind 1 line 3108 with the limit 1024, kind 0 line 3112 with the limit 128 (the condition texts are the same as `pcireg_int_ate_get`'s).
+  It is a single store.
+  Zero `a0`, an unlisted part or kind -1 panics with "pcireg_int_ate_set(): unknown bridgetype"; a kind above 3 stores nothing and returns.
+  **Established.**
+- `pcireg_int_ate_addr` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 596 bytes at address 0x19634, 32-byte frame): returns the address, not the contents, of an internal translation-table entry, so a caller can read or write it itself.
+  The result is window + 8 x `a1` + 0x10000 for each kind; nothing is loaded from the window beyond the identification word at +4.
+  The index is asserted first, with lines 3131 (kind 3), 3135 (kind 2) and 3139 (kind 1) for the limit 1024 and line 3143 (kind 0) for the limit 128, all four checks being `>= 0` and `<=` the limit.
+  Zero `a0`, an unlisted part or kind -1 panics with "pcireg_int_ate_addr(): unknown bridgetype"; a kind above 3 returns 0.
+  **Established.**
+- `pcireg_ext_ate_get` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 460 bytes at address 0x18bf8, 32-byte frame): reads one entry of the external (SSRAM) address-translation table, and only kind 0 has one.
+  For kind 0 (the part 0xc002 Bridge), after asserting `(ate_index >= 0) && (ate_index <= 0x10000)` (line 2997) it returns the doubleword at window + 8 x `a1` + 0x80000.
+  Kinds 1, 2 and 3 call `panic` with "pcireg_ext_ate_get(): not a BRIDGE ASIC", which is also the fate of the window parts 0xd002, 0xd102, 0xd112, 0xe000 and 0xe010; zero `a0`, an unlisted part or kind -1 panics with "pcireg_ext_ate_get(): unknown bridgetype", and a kind above 3 returns 0.
+  **Established.**
+- `pcireg_ext_ate_set` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 460 bytes at address 0x18dc4, 32-byte frame): writes one external translation-table entry, for the kind 0 Bridge only.
+  `a1` is the entry index and `a2` the doubleword to store. It asserts the index with `(ate_index >= 0) && (ate_index <= 0x10000)` (line 3021) and then stores `a2` at window + 8 x `a1` + 0x80000.
+  Kinds 1, 2 and 3 panic with "pcireg_ext_ate_set(): not a BRIDGE ASIC" and zero `a0`, an unlisted part or kind -1 with "pcireg_ext_ate_set(): unknown bridgetype". A kind above 3 returns without storing.
+  **Established.**
+- `pcireg_ext_ate_addr` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 460 bytes at address 0x18f90, 32-byte frame): gives the address of an external translation-table entry, for kind 0 only: window + 8 x `a1` + 0x80000, after the assertion `(ate_index >= 0) && (ate_index <= 0x10000)` at line 3045.
+  Every other kind and the window parts of those kinds panic with "pcireg_ext_ate_addr(): not a BRIDGE ASIC"; zero `a0`, an unlisted part or kind -1 panics with "pcireg_ext_ate_addr(): unknown bridgetype"; a kind above 3 returns 0.
+  Nothing but the identification word at window +4 is read.
+  **Established.**
+- `pcireg_wrb_flush_get` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 596 bytes at address 0x17188, 32-byte frame): reads the write-response-buffer flush register of one device and insists that it reads as zero.
+  `a1` is the device number.
+  Kinds 3 and 2 take the doubleword at window + 8 x device + 0x240 after asserting `(device >= 0) && (device <= 3)` (lines 2506 and 2510); kinds 0 and 1 take the word at window + 8 x device + 0x244 (zero-extended) after asserting `(device >= 0) && (device <= 7)` (line 2515).
+  For every kind it then asserts `ret == 0` (line 2523) when the value is not zero, and returns the value it read.
+  Zero `a0`, an unlisted part or kind -1 panics with "pcireg_wrb_flush_get(): unknown bridgetype"; a kind above 3 returns 0.
+  **Established.**
+- `pcireg_rrb_get` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 528 bytes at address 0x173dc, 32-byte frame): reads one of the two read-response-buffer registers (even or odd).
+  `a1` is 0 or 1, asserted first as `(even_odd >= 0) && (even_odd <= 1)` (line 2540), even for a bad kind.
+  Kinds 3 and 2 return the doubleword at window + 8 x `a1` + 0x280; kinds 0 and 1 return the word at window + 8 x `a1` + 0x284 zero-extended.
+  Kind -1 (or zero `a0` or an unlisted part, which are given kind -1) panics with "pcireg_rrb_get(): unknown bridgetype"; a kind above 3 returns 0.
+  **Established.**
+- `pcireg_rrb_set` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 520 bytes at address 0x175ec, 48-byte frame): writes the even (`a1` = 0) or odd (`a1` = 1) read-response-buffer register with `a2`.
+  The index assertion `(even_odd >= 0) && (even_odd <= 1)` is line 2567 and runs before the kind is looked at.
+  Kinds 3 and 2 store `a2` as a doubleword at window + 8 x `a1` + 0x280; kinds 0 and 1 store its low word at window + 8 x `a1` + 0x284.
+  Kind -1, zero `a0` or an unlisted part panics with "pcireg_rrb_set(): unknown bridgetype"; a kind above 3 stores nothing.
+  **Established.**
+- `pcireg_rrb_bit_clr` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 408 bytes at address 0x17984, 16-byte frame): clears chosen bits of a read-response-buffer register and has no index assertion, unlike its get and set companions.
+  `a1` is the register (even or odd) and `a2` the bits to clear.
+  Kinds 3 and 2 load the doubleword at window + 8 x `a1` + 0x280 and store it back ANDed with the complement of `a2`; kinds 0 and 1 do the same with the word at window + 8 x `a1` + 0x284 and the low word of the complement.
+  A zero `a0`, an unlisted part or kind -1 panics with "pcireg_rrb_bit_clr(): unknown bridgetype"; a kind above 3 returns.
+  The sequence is one load and one store, with no lock.
+  **Established.**
+- `pcireg_device_get` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 544 bytes at address 0x168dc, 32-byte frame): returns the current contents of one device register.
+  `a1` is the device number.
+  Kind 3 asserts `(device >= 0) && (device <= 3)` (line 2392) and returns the doubleword at window + 8 x device + 0x200; kind 2 does the same with line 2396; kinds 0 and 1 assert `(device >= 0) && (device <= 7)` (line 2401) and return the word at window + 8 x device + 0x204, zero-extended.
+  Zero `a0`, an unlisted part or kind -1 calls `panic` with "pcireg_device_get(): unknown bridgetype"; a kind above 3 returns 0.
+  **Established.**
+- `pcireg_device_set` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 540 bytes at address 0x16afc, 32-byte frame): overwrites one device register with `a2`.
+  Kind 3 (line 2420) and kind 2 (line 2424) assert the device number `a1` is in 0 to 3 and store `a2` as a doubleword at window + 8 x `a1` + 0x200; kinds 0 and 1 assert 0 to 7 (line 2429) and store the low word of `a2` at window + 8 x `a1` + 0x204.
+  The store is plain, with no merge of old bits.
+  Zero `a0`, an unlisted part or kind -1 panics with "pcireg_device_set(): unknown bridgetype"; a kind above 3 stores nothing.
+  **Established.**
+- `pcireg_device_bit_set` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 564 bytes at address 0x16d18, 32-byte frame): turns on chosen bits of one device register.
+  `a1` is the device and `a2` the bits.
+  The register is loaded, ORed with `a2` and stored back: as a doubleword at window + 8 x `a1` + 0x200 for kinds 3 (assertion line 2447) and 2 (line 2451) with the device limit 3, and as a word at window + 8 x `a1` + 0x204 for kinds 0 and 1 (line 2456) with the limit 7.
+  Zero `a0`, an unlisted part or kind -1 panics with "pcireg_device_bit_set(): unknown bridgetype"; a kind above 3 returns having done nothing.
+  **Established.**
+- `pcireg_device_bit_clr` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 572 bytes at address 0x16f4c, 32-byte frame): the clearing twin of `pcireg_device_bit_set`: the device register `a1` is loaded, ANDed with the complement of `a2` and stored back.
+  Kinds 3 and 2 use the doubleword at window + 8 x `a1` + 0x200, with the 0 to 3 device assertion at lines 2474 and 2478; kinds 0 and 1 use the word at window + 8 x `a1` + 0x204 and assert 0 to 7 at line 2483.
+  Zero `a0`, an unlisted part or kind -1 panics with "pcireg_device_bit_clr(): unknown bridgetype"; a kind above 3 does nothing.
+  **Established.**
+- `pcireg_intr_addr_get` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 528 bytes at address 0x150d8, 32-byte frame): returns the whole interrupt-address register of interrupt line `a1`.
+  The index assertion `(int_n >= 0) && (int_n <= 7)` (line 2028) is made before the kind is tested.
+  Kinds 3 and 2 return the doubleword at window + 8 x `a1` + 0x130; kinds 0 and 1 return the word at window + 8 x `a1` + 0x134, zero-extended.
+  Kind -1 (also given by zero `a0` or an unlisted part) panics with "pcireg_intr_addr_get(): unknown bridgetype"; a kind above 3 returns 0.
+  **Established.**
+- `pcireg_intr_addr_addr` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 524 bytes at address 0x154f4, 32-byte frame): returns the address of the interrupt-address register of line `a1` instead of its contents: window + 8 x `a1` + 0x130 for kinds 3 and 2, and window + 8 x `a1` + 0x134 for kinds 0 and 1.
+  The assertion `(int_n >= 0) && (int_n <= 7)` (line 2082) comes first.
+  Kind -1, zero `a0` or an unlisted part panics with "pcireg_intr_addr_addr(): unknown bridgetype"; a kind above 3 returns 0.
+  Nothing at that address is read or written.
+  **Established.**
+- `pcireg_intr_addr_set` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 524 bytes at address 0x152e8, 48-byte frame): replaces the interrupt-address register of line `a1` with `a2`.
+  After the assertion `(int_n >= 0) && (int_n <= 7)` (line 2055), kinds 3 and 2 store `a2` as a doubleword at window + 8 x `a1` + 0x130 and kinds 0 and 1 store its low word at window + 8 x `a1` + 0x134, in each case without keeping any old bits.
+  Kind -1, zero `a0` or an unlisted part panics with "pcireg_intr_addr_set(): unknown bridgetype"; a kind above 3 stores nothing.
+  **Established.**
+- `pcireg_intr_addr_vect_get` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 516 bytes at address 0x15700, 32-byte frame): returns the interrupt vector number held in the interrupt-address register of line `a1`.
+  After the `(int_n >= 0) && (int_n <= 7)` assertion (line 2113), kinds 3 and 2 return bits 48 to 55 of the doubleword at window + 8 x `a1` + 0x130 (a shift right by 48 and a mask of 0xff), and kinds 0 and 1 return the low byte of the word at window + 8 x `a1` + 0x134.
+  Kind -1, zero `a0` or an unlisted part panics with "pcireg_intr_addr_vect_get(): unknown bridgetype"; a kind above 3 returns 0.
+  **Established.**
+- `pcireg_intr_addr_vect_set` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 572 bytes at address 0x15904, 48-byte frame): puts a vector number into one interrupt-address register and leaves its other fields alone.
+  `a1` is the interrupt line and `a2` the vector number, of which the low 8 bits are used. After the `(int_n >= 0) && (int_n <= 7)` assertion (line 2139), kinds 3 and 2 clear bits 48 to 55 of the doubleword at window + 8 x `a1` + 0x130 with the mask 0xff00ffffffffffff (the literal at offset 176 of the object's `.lit8`) and store it, then load it again, OR in `(a2 & 0xff) << 48` and store it a second time; kinds 0 and 1 do the same with the word at +0x134, clearing its low byte (mask 0xffffff00) and then ORing in `a2 & 0xff`.
+  Its panic for kind -1 (or zero `a0` or an unlisted part) prints the text "pcireg_intr_addr_vect_get(): unknown bridgetype", the getter's message, not one of its own; a kind above 3 stores nothing.
+  **Established.**
+- `pcireg_intr_addr_addr_get` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 560 bytes at address 0x15b40, 32-byte frame): assembles the address part of the interrupt-address register of line `a1` into one value.
+  After the `(int_n >= 0) && (int_n <= 7)` assertion (line 2171), kinds 3 and 2 return the low 48 bits of the doubleword at window + 8 x `a1` + 0x130.
+  Kinds 0 and 1 build the result from three words: the word at window +60 (zero-extended) is the low half, and the high half is the low 6 bits of the word at window +52 ORed with bits 8 to 17 of the word at window + 8 x `a1` + 0x134 moved down by 2, so bits 6 to 15 of the high half.
+  Kind -1, zero `a0` or an unlisted part panics with "pcireg_intr_addr_addr_get(): unknown bridgetype"; a kind above 3 returns 0.
+  **Established.**
+- `pcireg_intr_addr_addr_set` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 588 bytes at address 0x15d70, 48-byte frame): writes the address field of one interrupt-address register.
+  `a1` is the interrupt line and `a2` the new address. After the `(int_n >= 0) && (int_n <= 7)` assertion (line 2202), kinds 3 and 2 clear the low 48 bits of the doubleword at window + 8 x `a1` + 0x130 (mask 0xffff000000000000) and store it, then load it, OR in `a2 & 0xffffffffffff` and store it again.
+  Kinds 0 and 1 clear bits 8 to 17 of the word at +0x134 (mask 0xfffffffffffc00ff, the literal at offset 184 of the object's `.lit8`) and store, then OR in `(a2 >> 30) & 0x3ff00` and store again; the words at window +52 and +60 that the getter reads are not written.
+  Kind -1, zero `a0` or an unlisted part panics with the text "pcireg_intr_addr_addr_get(): unknown bridgetype", the getter's message; a kind above 3 stores nothing.
+  **Established.**
+- `pcireg_force_always_set` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 552 bytes at address 0x16288, 32-byte frame): writes 1 to the force-always register of interrupt line `a1`.
+  The assertion `(int_n >= 0) && (int_n <= 7)` (line 2297) comes first.
+  Kinds 3 and 2 store the doubleword 1 at window + 8 x `a1` + 0x180 and kind 1 stores the word 1 at window + 8 x `a1` + 0x184.
+  Kind 0 has no such register: it panics with "pcireg_force_always_set(): undefined register", and so does the window part 0xc002.
+  Kind -1, zero `a0` or an unlisted part panics with "pcireg_force_always_set(): unknown bridgetype"; a kind above 3 does nothing.
+  **Established.**
+- `pcireg_force_always_addr_get` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 524 bytes at address 0x164b0, 32-byte frame): returns the address of the force-always register of interrupt line `a1`.
+  After the `(int_n >= 0) && (int_n <= 7)` assertion (line 2325), kinds 3 and 2 give window + 8 x `a1` + 0x180 and kind 1 gives window + 8 x `a1` + 0x184; no register is read.
+  Kind 0 panics with "pcireg_force_always_addr_get(): undefined register", kind -1 (or zero `a0`, or an unlisted part) with "pcireg_force_always_addr_get(): unknown bridgetype", and a kind above 3 returns 0.
+  **Established.**
+- `pcireg_force_intr_set` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 544 bytes at address 0x166bc, 32-byte frame): writes 1 to the force-interrupt register of line `a1`, which makes the Bridge present that interrupt.
+  After the `(int_n >= 0) && (int_n <= 7)` assertion (line 2358), kinds 3 and 2 store the doubleword 1 at window + 8 x `a1` + 0x1c0 and kind 1 stores the word 1 at window + 8 x `a1` + 0x1c4.
+  Kind 0 panics with "pcireg_force_intr_set(): undefined register"; kind -1, zero `a0` or an unlisted part panics with "pcireg_force_intr_set(): unknown bridgetype"; a kind above 3 does nothing.
+  The body shows only the store of 1; the register's role as an interrupt force is a reading of its purpose.
+  **Inferred.**
+- `pcireg_intr_dst_addr_set` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 420 bytes at address 0x10880, 16-byte frame): sets the destination address of the Bridge's interrupt messages from `a1`.
+  Kinds 3 and 2 clear the low 48 bits of the doubleword at window +56 (mask 0xffff000000000000), store it, load it, OR in `a1 & 0xffffffffffff` and store it again.
+  Kinds 0 and 1 clear the low 16 bits of the word at window +52 and store, OR in `(a1 >> 32) & 0xffff` and store again, then write the low word of `a1` to window +60.
+  There is no index and no assertion.
+  Zero `a0`, an unlisted part or kind -1 panics with "pcireg_intr_dst_addr_set(): unknown bridgetype"; a kind above 3 returns.
+  **Established.**
+- `pcireg_intr_dst_target_id_set` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 412 bytes at address 0x10564, 16-byte frame): sets the 4-bit target widget number of the Bridge's interrupt messages from the low 4 bits of `a1`.
+  Kinds 0 and 1 (and the parts 0xc002 and 0xd002) clear bits 16 to 19 of the word at window +52 (an AND with the complement of 0xf0000, built with `lui` and `nor`), store it, then load it again, OR in `(a1 & 0xf) << 16` and store a second time.
+  Kinds 2 and 3 do the same to the doubleword at window +56, with the mask 0xfff0ffffffffffff (the literal at offset 168 of the object's `.lit8`) and the field in bits 48 to 51.
+  Zero `a0`, an unlisted part or kind -1 panics with "pcireg_intr_dst_target_id_set():unknown bridgetype" (no space before "unknown", as the string reads); a kind above 3 returns.
+  **Established.**
+- `pcireg_dirmap_diroff_set` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 496 bytes at address 0x11d20, 16-byte frame): sets the direct-map offset field of the Bridge's direct-mapping register from `a1`.
+  Kinds 0 and 1 clear the low 17 bits of the word at window +132 and store, then OR in `a1 & 0x1ffff` and store.
+  Kind 2 does the same to the doubleword at window +128.
+  Kind 3 first clears bits 20 to 25 of that doubleword (an AND with the complement of 0x3f00000) and stores, then ORs in `(a1 << 3) & 0x3f00000`, that is `(a1 & 0x7e0000) << 3`, and stores, and only then repeats the kind 2 pair for the low 17 bits, so it writes four times in all.
+  Zero `a0`, an unlisted part or kind -1 panics with "pcireg_dirmap_diroff_set(): unknown bridgetype"; a kind above 3 returns.
+  **Established.**
+- `pcireg_dirmap_wid_set` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 412 bytes at address 0x11b84, 16-byte frame): sets the widget-number field of the direct-mapping register from the low 4 bits of `a1`, which land in bits 20 to 23.
+  Kinds 2 and 3 clear those bits of the doubleword at window +128 (mask 0xffffffffff0fffff), store, OR in `(a1 & 0xf) << 20` and store; kinds 0 and 1 do the same with the word at window +132, the clearing done by an AND with the complement of 0xf00000 (`lui` and `nor`).
+  Zero `a0`, an unlisted part or kind -1 panics with "pcireg_dirmap_wid_set(): unknown bridgetype"; a kind above 3 returns.
+  **Established.**
+- `pcireg_ssram_size_set` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 496 bytes at address 0xf98c, 48-byte frame): sets the size field of the external-SSRAM setting, which only kind 0 (part 0xc002) has.
+  It calls `splhi` on entry and `splx` with that level on the way out of the normal paths.
+  Kind 0 asserts `(size >= 0) && (size <= 3)` (line 344), clears bits 17 and 18 of the word at window +36 (an AND with the complement of 0x60000) and stores it, then ORs in `a1 << 17` and stores again, and finally loads the word once more into a register it does not use afterwards (a read-back of the store).
+  Kinds 1, 2 and 3 and every window part other than 0xc002 panic with "pcireg_ssram_size_set(): undefined register"; zero `a0`, an unlisted part or kind -1 panics with "pcireg_ssram_size_set(): unknown bridgetype"; a kind above 3 restores the level and returns.
+  **Established.**
+- `pcireg_control_bit_set` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 412 bytes at address 0xf7f0, 32-byte frame): ORs `a1` into the Bridge's control register with interrupts held off.
+  It calls `splhi` first, then, for kinds 0 and 1, ORs the low word of `a1` into the word at window +36, and for kinds 2 and 3 ORs `a1` into the doubleword at window +32; each is a load, a store and then a second load of the same register whose value is not used before the exit.
+  It ends by calling `splx` with the saved level and returns what that call returns.
+  Zero `a0`, an unlisted part or kind -1 panics with "pcireg_control_bit_set(): unknown bridgetype" (after the `splhi`); a kind above 3 skips the update and still calls `splx`.
+  **Established.**
+- `pcireg_control_bit_clr` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 428 bytes at address 0xf644, 32-byte frame): clears the bits of `a1` in the Bridge's control register with interrupts held off.
+  After `splhi`, kinds 0 and 1 AND the word at window +36 with the complement of the low word of `a1`, and kinds 2 and 3 AND the doubleword at window +32 with the complement of `a1`; each is a load, a store and a second load of the register that is not used (a read-back); then `splx` is called with the saved level and its result is returned.
+  Zero `a0`, an unlisted part or kind -1 panics with "pcireg_control_bit_clr(): unknown bridgetype"; a kind above 3 skips the update and still calls `splx`.
+  **Established.**
+- `pcireg_llp_cfg_set` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 412 bytes at address 0x10d00, 32-byte frame): writes the link-layer protocol configuration register with interrupts held off.
+  `a1` is the value; the routine calls `splhi` before the access and `splx` with the saved level after it.
+  Kinds 0 and 1 store the low word of `a1` at window +76; kind 2 stores the doubleword at window +72; in both cases the register is loaded again right after the store and the value is not used (a read-back).
+  Kind 3 (and the window parts 0xe000 and 0xe010) have no such register and panic with "pcireg_llp_cfg_set(): undefined register"; zero `a0`, an unlisted part or kind -1 panics with "pcireg_llp_cfg_set(): unknown bridgetype"; a kind above 3 stores nothing.
+  The store replaces the register; it is not a read-modify-write.
+  **Established.**
+- `pcireg_type0_cfg_addr` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 688 bytes at address 0x18774, 48-byte frame): returns the address of a configuration register of a device on the Bridge's own bus.
+  `a1` is the slot, `a2` the function and `a3` the byte offset; the offset is rounded down to a multiple of four (a negative offset is biased by 3 first).
+  Kinds 0 and 1 assert `((int)slot >= 0) && ((int)slot <= 7)` (line 2933) and return window + slot x 0x1000 + function x 0x100 + the rounded offset + 0x20000.
+  Kinds 2 and 3 use (slot + 1) & 0xff in place of the slot and assert it is in 1 to 4 (`((int)slot >= 1) && ((int)slot <= 4)`, line 2928 for kind 2 and 2920 for kind 3).
+  Zero `a0`, an unlisted part or kind -1 panics with "pcireg_type0_cfg_addr(): unknown bridgetype"; a kind above 3 returns 0.
+  Nothing but the identification word at window +4 is read.
+  **Established.**
+- `pcireg_type1_cfg_addr` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 468 bytes at address 0x18a24, 16-byte frame): returns the address of a configuration register of a device behind another PCI bridge.
+  `a1` is the function and `a2` the byte offset, rounded down to a multiple of four with a negative offset biased by 3 first.
+  Every kind, 0 to 3, returns window + function x 0x100 + the rounded offset + 0x28000, with no assertion.
+  Zero `a0`, an unlisted part or kind -1 panics with "pcireg_type1_cfg_addr(): unknown bridgetype"; a kind above 3 returns 0.
+  **Established.**
+- `pcibr_error_intr_handler` (`6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, occupies 1460 bytes at address 0x9b8c, 128-byte frame): the interrupt handler of the Bridge's error interrupt.
+  `a0` is the Bridge soft record.
+  It first walks the list headed by the global `pcibr_list` (each node: next pointer at +0, soft record at +8) and panics with "pcibr_error_intr_handler: (0x%lx) is not a pcibr_soft!" if `a0` is not on it.
+  It then calls `hubii_check_widget_disabled` with bits 33 to 39 of the window doubleword at soft +8 and the byte at soft +40; a non-zero answer re-arms the handler with `timeout` (the function pointer is this routine's own address, taken from a pool word), adds one to the word at soft +2104 and returns.
+  Otherwise it reads the status with `pcireg_intr_status_get`, logs it through `pcibr_debug` (mask 0x100, the word at soft +0, the text "pcibr_error_intr_handler: int_status=0x%lx\n"), and returns at once unless some bit from 8 up is set.
+  If the status has any bit of 0x4400008800 it calls the local routine at 0x9a24 (it has no symbol in this object) with `a0` and 2 in a3.
+  E is the status with bit 31 cleared (mask 0xffffffff7fffffff, the `.lit8` literal at offset 112).
+  For each bit n from 8 to 63 set in E the loop adds one to the first word of a 12-byte record at soft + 2180 + 12 x n, compares the second word (the tick of the last report) and third (the count then) with the kernel tick counter `lbolt`, and logs through `cmn_err` using the per-bit message pointer at the table in `.data` (+0x790 + 8 x n): on a Bridge whose bus number (soft +72) is zero, bit 18 with a rate above the highest seen so far (a word in `.sbss`) and more than 99 events logs "%s: %s, Excessive error interrupts : %d/tick" at level 4; any bit whose rate exceeds 100 per tick over more than 100 ticks logs "%s: %s, Error rate %d/tick" at level 5; with a zero tick difference only bit 18 with more than 9999 events is acted on, by refreshing the record; and on kind 2 (soft +114 equal to 2) with bit 40 clear in E, bit `soft +120 & 0xf` of the mask 2 set and a total above 10000, it logs "%s Disabling error interrupt type %s.
+  Error count %d" at level 5 and remembers the bit.
+  Remembered bits are cleared from the interrupt enable (`pcireg_intr_enable_bit_clr`) between `mutex_spinlock` and `mutex_io_spinunlock` on the lock at soft +140.
+  When status bit 24 is set, `pcireg_bus_err_get` masked with 0xffffffffffc00000 is 0xc00000 and `pcireg_cmdword_err_get` masked with 0xf07f00 is 0x402000, bit 24 is dropped from E. The global `bridge_errors_to_dump` is then ANDed with 0xffffffbbffff77ff when the global `pcibr_pioerr_dump` is zero and otherwise ORed with 0x4400008800, and stored back.
+  If E meets it, the handler logs "BRIDGE ERR_STATUS 0x%lx\n" at level 6 and calls `pcibr_error_dump`.
+  On kind 2 with the revision selector `1 << (soft +120 & 0xf)` meeting the mask 6 and E meeting 0x300000, it dumps and then calls `machine_error_dump` and `panic("PCI Bridge Error interrupt killed the system")`; the same `machine_error_dump` and `panic` follow when E meets the fatal mask 0x22133fc06000 (the `.lit8` literal at offset 128).
+  Otherwise it acknowledges the interrupt: on kinds 0 and 1 `pcireg_intr_reset_set(a0, pcibr_errintr_group(status))`, on the others `pcireg_intr_reset_set(a0, status | 0x40)`, and on kind 2 with bit 40 of E and bit 1 of the revision selector it also calls `pcireg_arbitration_bit_set(a0, 0xf00000)`.
+  It ends with `test_and_set_long` on the address soft +2120, with the value 0, and returns that call's result.
+  The routine uses the revision selector only as a bit mask.
+  **Inferred.**
+
