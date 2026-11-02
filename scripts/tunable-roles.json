@@ -2,7 +2,7 @@
   "_comment": "Hand-written roles for kernel tunables in docs/inventory/tunable-summary.tsv. Each entry gives a grade (established: the read sites were read in the disassembly and the statements about them are mechanical; inferred: the meaning of the value is reasoned from the code around it), a role in plain words, and a citation naming the 6.5.30 kernel and the routine and address of the sites. A row counts as understood only with all three. Keys are tunable names. Sites that the symbolic pass did not find are stated as absent, not as unused. A role applies to the kernels in its kernels list (IP27 only where the IP35 and IP30 sites are listed but not traced); other kernels stay located.",
   "numa_migr_default_mode": {
     "grade": "established",
-    "role": "Default page-migration mode, a small integer. In IP27 migr_control_init loads it at 0xc0000000014ca8b4 and compares it with 0, 1, 3, 2 and 4 in turn (beq chain); each value runs one arm that updates a flag byte in a per-node record, and any other value falls to a cmn_err call at 0xc000000000282194 with the first argument set to 4 in the branch delay slot. mem_tick_init_node reads the low byte of the word (symbol+3, lbu at 0xc00000000027a744) and branches on zero. IP35 has one word load in migr_control_init (0xc00000000032e068) that is not traced further. IP30 has no read site.",
+    "role": "Default page-migration mode, a small integer. In IP27 migr_control_init loads it at 0xc0000000002815dc (the word at 0xc0000000014ca8b4) and compares it with 0, 1, 3, 2 and 4 in turn (beq chain); each value runs one arm that updates a flag byte in a per-node record, and any other value falls to a cmn_err call at 0xc000000000282194 with the first argument set to 4 in the branch delay slot. mem_tick_init_node reads the low byte of the word (symbol+3, lbu at 0xc00000000027a744) and branches on zero. IP35 has one word load in migr_control_init (0xc00000000032e068) that is not traced further. IP30 has no read site.",
     "citation": "6.5.30 unix.IP27 migr_control_init (0xc000000000281558; compare chain 0xc000000000281608 region, default arm 0xc000000000282194) and mem_tick_init_node (0xc00000000027a424; lbu at 0xc00000000027a744); unix.IP35 migr_control_init (0xc00000000032dfe8; load 0xc00000000032e068)",
     "kernels": [
       "IP27"
@@ -34,7 +34,7 @@
   },
   "numa_migr_min_maxradius": {
     "grade": "inferred",
-    "role": "Minimum maximum radius for a migration target, read as a 32-bit word. In IP27 migr_control_init it is compared at 0xc000000000281628 with register v0 (set earlier, not traced): when v0 is less than the value, the byte at offset 0 of the record reached through the table pointer at +8 gets bits 0x30, otherwise bit 0x20. A second load at 0xc0000000002817bc stores the low byte of the value at offset 4 of that record. IP35 has one load in migr_control_init (0xc00000000032e0bc) that is not traced.",
+    "role": "Minimum maximum radius for a migration target, read as a 32-bit word. In IP27 migr_control_init, in the arm for default mode 4, the code calls physmem_maxradius (0xc000000000281610) and at 0xc000000000281628 compares its result in v0 with this word (slt): when v0 is less than the value, the byte at offset 0 of the record reached through the table pointer at +8 gets bits 0x30, otherwise bit 0x20. A second load at 0xc0000000002817bc stores the low byte of the value at offset 4 of that record. IP35 has one load in migr_control_init (0xc00000000032e0bc) that is not traced.",
     "citation": "6.5.30 unix.IP27 migr_control_init (loads 0xc000000000281628 and 0xc0000000002817bc); unix.IP35 migr_control_init (load 0xc00000000032e0bc)",
     "kernels": [
       "IP27"
@@ -106,7 +106,7 @@
   },
   "r10k_progress_diff": {
     "grade": "inferred",
-    "role": "Threshold, an 8-byte value, for the R10000 progress check. tick_actions loads it at 0xc000000000046364 and branches back to 0xc00000000004631c when the 64-bit difference computed just before it (dsubu at 0xc000000000046360, against the value in s5) is less than the threshold (sltu). The unit of the difference is not identified. No read site in IP35 or IP30.",
+    "role": "Threshold, an 8-byte value, for the R10000 progress check. tick_actions loads it at 0xc000000000046364 and branches back to 0xc00000000004631c when the 64-bit difference computed just before it (dsubu at 0xc000000000046360) is less than the threshold (sltu). The difference is the doubleword read through the pointer in s4 (0xc000000000046354) minus the doubleword at offset 1464 of the record in s5 (0xc00000000004634c; the path is skipped when that word is zero or the first value is smaller). The unit of the difference is not identified. No read site in IP35 or IP30.",
     "citation": "6.5.30 unix.IP27 tick_actions (0xc0000000000461e0; load 0xc000000000046364, branch target 0xc00000000004631c)",
     "kernels": [
       "IP27"
@@ -114,7 +114,7 @@
   },
   "r10k_bpmode": {
     "grade": "established",
-    "role": "R10000 mode selector, a small integer. mlreset loads it at 0xc000000000026154 and branches on zero (to 0xc0000000000261fc), on 1 (to 0xc00000000002620c) and on 2 (a later beq), so the value selects one of several arms. A second load at 0xc00000000002649c sits on a path that calls printf with a message string. The arms beyond the first three and the message are not traced. No read site in IP35 or IP30.",
+    "role": "R10000 mode selector, a small integer. mlreset loads it at 0xc000000000026154 and branches on zero (to 0xc0000000000261fc), on 1 (to 0xc00000000002620c) and on 2 (a later beq), so the value selects one of several arms. The four values 0, 1, 2 and 3 call branch_prediction_on, branch_prediction_fwd_not_taken, branch_prediction_off and branch_prediction_taken (arms at 0xc0000000000261fc, 0xc00000000002620c, 0xc00000000002621c, 0xc00000000002622c), each returning to 0xc000000000026184. Any other value falls to a branch on s0 at 0xc00000000002617c that goes to a printf call at 0xc0000000000264a0 when s0 is zero (a1 still holds the value); the printf message is not traced. The second load, at 0xc00000000002649c, is in the delay slot of the jump back to the compare chain (0xc000000000026158) after intrgroup_init on the path that starts at 0xc00000000002623c; it feeds the same chain and is not a printf path. No read site in IP35 or IP30.",
     "citation": "6.5.30 unix.IP27 mlreset (0xc0000000000260e0; loads 0xc000000000026154, 0xc00000000002649c)",
     "kernels": [
       "IP27"
@@ -122,7 +122,7 @@
   },
   "dbe_recovery": {
     "grade": "established",
-    "role": "Boolean that enables recovery after a double-bit memory error. Read in IP27 at pas_vfault (0xc000000000250b60, branch to 0xc000000000250d14 when nonzero, and further sites in the same routine), _pagefree_size (0xc0000000001aee74, skip when zero), and scache_pool_add (0xc0000000001cce28, skip when zero). The paths behind the branches are not traced. The IP35 build has the same reads, in pas_vfault, _pagefree_size and scache_pool_add.",
+    "role": "Boolean that enables recovery after a double-bit memory error. Read in IP27 at pas_vfault (0xc000000000250b60, branch to 0xc000000000250d14 when nonzero, and further sites in the same routine), _pagefree_size (0xc0000000001aee74, branch to 0xc0000000001af100 when zero), and scache_pool_add (0xc0000000001cce28; when zero the routine goes straight to its setup at 0xc0000000001cce5c, when nonzero it also tests a flag bit of the word at offset 16 of its argument and returns early if the bit is set). The paths behind the branches are not traced. The IP35 build has the same reads, in pas_vfault, _pagefree_size and scache_pool_add.",
     "citation": "6.5.30 unix.IP27 pas_vfault (0xc00000000024ef9c; load 0xc000000000250b60), _pagefree_size (0xc0000000001aede0; load 0xc0000000001aee74), scache_pool_add (0xc0000000001cce28; load 0xc0000000001cce28); unix.IP35 pas_vfault (0xc0000000002fedfc; load 0xc0000000002ff64c)",
     "kernels": [
       "IP27"
@@ -130,7 +130,7 @@
   },
   "l2_sbe_check": {
     "grade": "established",
-    "role": "Mask for the secondary-cache single-bit error check. Only the low byte is tested: counter_intr reads it at 0xc0000000000457fc, masks with 0xff and calls l2_sbe_intr only when the byte is nonzero; l2_sbe_init reads it at 0xc000000000055464 and tests the same low byte at 0xc00000000005547c before its setup. l2_sbe_sched and sched read it at further sites. The default 0x000c keeps the low byte nonzero. The meaning of the other bits is not traced.",
+    "role": "Mask for the secondary-cache single-bit error check. Only the low byte is tested: counter_intr reads it at 0xc0000000000457fc, masks with 0xff and calls l2_sbe_intr only when the byte is nonzero; l2_sbe_init reads it at 0xc000000000055464 and tests the same low byte at 0xc00000000005547c before its setup. counter_intr also tests bit 0 at 0xc000000000045818 (andi 1, loop back when set). l2_sbe_sched tests bit 0x100 at 0xc000000000055864 (andi) and calls cmn_err when it is set on the path described under l2_sbe_reset_sec. sched reads it at two more sites. The default 0x000c keeps the low byte nonzero. The remaining bits, and the reads in sched, are not traced.",
     "citation": "6.5.30 unix.IP27 counter_intr (0xc0000000000457a0; load 0xc0000000000457fc), l2_sbe_init (0xc000000000055440; load 0xc000000000055464), l2_sbe_sched (0xc000000000055840), sched (0xc00000000026834c); unix.IP35 counter_intr (0xc000000000067478), l2_sbe_init (0xc00000000007b114)",
     "kernels": [
       "IP27"
@@ -138,8 +138,8 @@
   },
   "l2_sbe_reset_sec": {
     "grade": "inferred",
-    "role": "Interval in seconds for the secondary-cache single-bit error reset, read as a word. l2_sbe_sched loads it at three sites (0xc000000000055844, 0xc000000000055894, 0xc00000000005590c) and uses the value as an operand; the arithmetic that consumes it is not traced, so the unit is taken from the name. IP35 has three sites in l2_sbe_sched (0xc00000000007b518 region).",
-    "citation": "6.5.30 unix.IP27 l2_sbe_sched (0xc000000000055840; loads 0xc000000000055844, 0xc000000000055894, 0xc00000000005590c); unix.IP35 l2_sbe_sched (0xc00000000007b518)",
+    "role": "Count threshold for the secondary-cache single-bit error reset, read as a word; the unit is not established (the 6.5.22 default is 60, and the name says seconds). l2_sbe_sched loads it at three sites. At 0xc000000000055844 it is compared for equality (0xc00000000005586c) with a call counter at gp-32332 that the routine increments on each call while a flag word at gp-32328 is nonzero; on equality the flag is cleared and, when bit 0x100 of l2_sbe_check is set, a cmn_err call at 0xc000000000055930 follows. At 0xc000000000055894 and 0xc00000000005590c it is the reload for a loop over the processors: for each valid entry it compares the value with the doubleword at offset 1024 of the entry (bne at 0xc0000000000558c8), increments that doubleword, and on equality calls l2_sbe_start_perfcnt for the current processor or cpuaction for another one. How often l2_sbe_sched runs is not traced.",
+    "citation": "6.5.30 unix.IP27 l2_sbe_sched (0xc000000000055840; loads 0xc000000000055844, 0xc000000000055894, 0xc00000000005590c; compares 0xc00000000005586c and 0xc0000000000558c8); unix.IP35 l2_sbe_sched (0xc00000000007b518)",
     "kernels": [
       "IP27"
     ]
@@ -154,7 +154,7 @@
   },
   "sbe_maxout": {
     "grade": "established",
-    "role": "Single-bit error limit, read as a word and compared for equality with the same count word that sbe_max_per_page uses in memerror_sbe_intr (beq at 0xc00000000004a590 branches to 0xc00000000004a7cc on equality). One of its two IP27 reads is dead: at 0xc00000000004a744 the word is loaded into a5 and the next instruction (dsrl a5) overwrites it, so that read does not use the value. IP35 has two reads in memerror_sbe_intr (0xc00000000006c354 and 0xc00000000006c498) that are not traced.",
+    "role": "Single-bit error limit, read as a word and compared for equality with the same count word that sbe_max_per_page uses in memerror_sbe_intr (beq at 0xc00000000004a590 branches to 0xc00000000004a7cc on equality). The second IP27 read, at 0xc00000000004a744, is in the delay slot of the bne at 0xc00000000004a740 and loads into a1. When the count differs from sbe_max_per_page the branch is taken and the code at 0xc00000000004a81c compares a1 with the count (beq to 0xc00000000004a7d0), so the read is used; on the fall-through path the next instruction (dsrl a1 at 0xc00000000004a748) overwrites it, so it is unused only there. IP35 has two reads in memerror_sbe_intr (0xc00000000006c354 and 0xc00000000006c498) that are not traced.",
     "citation": "6.5.30 unix.IP27 memerror_sbe_intr (0xc000000000049e74; loads 0xc00000000004a58c, 0xc00000000004a744); unix.IP35 memerror_sbe_intr (0xc00000000006bce8)",
     "kernels": [
       "IP27"

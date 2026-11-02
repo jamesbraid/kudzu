@@ -53,8 +53,9 @@ in the table; where they disagree, the entry gives the reading and says why.
 ### `syssgi` 7 (SETLED)
 
 - Selector 7 on IP27 (case code at 0xc0000000002331a8 in `6.5.30/unix.IP27`): the case code calls `cap_able` at 0xc0000000002331ac and
-  branches to 0xc000000000233834 when its result is zero (0xc0000000002331b4). That branch's delay slot
-  sets 1 in a3, and the common exit copies a3 into v0 (0xc000000000231864). So the return is 1 on that
+  branches to 0xc000000000233834 when its result is zero (0xc0000000002331b4). The code at that target
+  jumps to the common exit and sets 1 in a3 in its delay slot (0xc000000000233838; the branch at 0xc0000000002331b4 has a nop
+  there), and the common exit copies a3 into v0 (0xc000000000231864). So the return is 1 on that
   path, and the table row has `from` 0xc000000000231850 with the branch as its condition. The other
   path calls `sys_setled` and returns 0. Established.
 - Selector 7 on IP35 (case code at 0xc0000000002e1da0 in `6.5.30/unix.IP35`): the same check. The branch at 0xc0000000002e1db4 goes to
@@ -90,6 +91,10 @@ in the table; where they disagree, the entry gives the reading and says why.
     through to 0xc00000000026d7f8).
   - 0 otherwise (0xc00000000026d804).
   Established. The table's four rows for this routine match.
-- `numa_stats_get` (`6.5.30/unix.IP35`, 0xc00000000031c3c0, 192 bytes): the table rows give the same four values (2, 22, 14, 14)
-  on the same conditions, and returns 0, 2, 14 or 22 on those paths. The routine was not read by hand for
-  this entry. Inferred.
+- `numa_stats_get` (`6.5.30/unix.IP35`, 0xc00000000031c3c0, 192 bytes): the same six paths as IP27, read in the disassembly:
+  22 when the path argument is zero (branch at 0xc00000000031c3c8 to 0xc00000000031c3f8); 2 when the path lookup
+  (call at 0xc00000000031c3e0) returns nonzero (0xc00000000031c3e8 falls through to the `li v0,2` at 0xc00000000031c3f4);
+  22 when the sign-extended 16-bit node returned by the `master_node_get` call (0xc00000000031c408) is -1 (branch at 0xc00000000031c42c); 14 when the buffer pointer is
+  zero (0xc00000000031c434 falls through to 0xc00000000031c440); 14 when `copyout` (call at 0xc00000000031c460) returns
+  nonzero (0xc00000000031c468 falls through to 0xc00000000031c474); 0 otherwise (0xc00000000031c47c). The table's four rows
+  for this routine match. Established.
