@@ -27,4 +27,4 @@ section	.shstrtab	type SHT_STRTAB	6	6.5.22/unix.IP27	in	undocumented
 section	.srdata	type SHT_PROGBITS	6	6.5.22/unix.IP27	in	documented
 section	.strtab	type SHT_STRTAB	6	6.5.22/unix.IP27	in	undocumented
 section	.symtab	type SHT_SYMTAB	6	6.5.22/unix.IP27	in	undocumented
-section	.text	type SHT_PROGBITS	6	6.5.22/unix.IP27	in	undocumented
+section	.text	type SHT_PROGBITS	6	6.5.22/unix.IP27	in	documented

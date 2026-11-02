@@ -2569,13 +2569,13 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.22/unix.IP35	compare	117	0xc0000000002a81c0			out	undocumented
 6.5.22/unix.IP35	compare	118	0xc0000000002a7e8c		yes	out	undocumented
 6.5.22/unix.IP35	compare	119	0xc0000000002a7e8c		yes	out	undocumented
-6.5.22/unix.IP35	compare	122	0xc0000000002a840c	0xc0000000002acbc4	yes	out	undocumented
+6.5.22/unix.IP35	compare	122	0xc0000000002a840c	0xc0000000002acbc4	yes	out	documented
 6.5.22/unix.IP35	compare	123	0xc0000000002a86dc			out	undocumented
-6.5.22/unix.IP35	compare	124	0xc0000000002a840c	0xc0000000002acbc4	yes	out	undocumented
+6.5.22/unix.IP35	compare	124	0xc0000000002a840c	0xc0000000002acbc4	yes	out	documented
 6.5.22/unix.IP35	compare	125	0xc0000000002a9198			out	undocumented
-6.5.22/unix.IP35	compare	126	0xc0000000002a840c	0xc0000000002acbc4	yes	out	undocumented
+6.5.22/unix.IP35	compare	126	0xc0000000002a840c	0xc0000000002acbc4	yes	out	documented
 6.5.22/unix.IP35	compare	127	0xc0000000002a80e8			out	undocumented
-6.5.22/unix.IP35	compare	128	0xc0000000002a840c	0xc0000000002acbc4	yes	out	undocumented
+6.5.22/unix.IP35	compare	128	0xc0000000002a840c	0xc0000000002acbc4	yes	out	documented
 6.5.22/unix.IP35	compare	129	0xc0000000002a9184			out	undocumented
 6.5.22/unix.IP35	compare	130	0xc0000000002a9ea4	splprof		out	documented
 6.5.22/unix.IP35	compare	131	0xc0000000002a8a1c			out	undocumented
@@ -2591,7 +2591,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.22/unix.IP35	compare	141	0xc0000000002a78c0		yes	out	undocumented
 6.5.22/unix.IP35	compare	142	0xc0000000002a7e60	xfs_itable		out	undocumented
 6.5.22/unix.IP35	compare	143	0xc0000000002a7e58			out	undocumented
-6.5.22/unix.IP35	compare	144	0xc0000000002a840c	0xc0000000002acbc4	yes	out	undocumented
+6.5.22/unix.IP35	compare	144	0xc0000000002a840c	0xc0000000002acbc4	yes	out	documented
 6.5.22/unix.IP35	compare	145	0xc0000000002a8404			out	undocumented
 6.5.22/unix.IP35	compare	146	0xc0000000002aa12c	path_to_handle		out	undocumented
 6.5.22/unix.IP35	compare	147	0xc0000000002a858c			out	undocumented

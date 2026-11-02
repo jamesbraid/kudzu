@@ -208,7 +208,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP27	sysent	1206	206	afs_syscall	6	00000000000000	0x0	out	undocumented
 6.5.22/unix.IP27	sysent	1207	207	ngetdents	4	00000000000000	0x0	out	undocumented
 6.5.22/unix.IP27	sysent	1208	208	ngetdents64	4	00000000000000	0x0	out	undocumented
-6.5.22/unix.IP27	sysent	1209	209	sgi_sesmgr	8	08000000000000	0x0	out	undocumented
+6.5.22/unix.IP27	sysent	1209	209	sgi_sesmgr	8	08000000000000	0x0	out	documented
 6.5.22/unix.IP27	sysent	1210	210	pidsprocsp	6	04000000000000	0x0	out	documented
 6.5.22/unix.IP27	sysent	1211	211	rexec	4	00000000000000	0xc0000000014ca7a4	out	undocumented
 6.5.22/unix.IP27	sysent	1212	212	timer_create	3	00000000000000	0x0	out	undocumented
@@ -445,7 +445,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP27	irix5_64_sysent	1206	206	afs_syscall	6	00000000000000	0x0	out	undocumented
 6.5.22/unix.IP27	irix5_64_sysent	1207	207	ngetdents	4	00000000000000	0x0	out	undocumented
 6.5.22/unix.IP27	irix5_64_sysent	1208	208	ngetdents64	4	00000000000000	0x0	out	undocumented
-6.5.22/unix.IP27	irix5_64_sysent	1209	209	sgi_sesmgr	8	00000000000000	0x0	out	undocumented
+6.5.22/unix.IP27	irix5_64_sysent	1209	209	sgi_sesmgr	8	00000000000000	0x0	out	documented
 6.5.22/unix.IP27	irix5_64_sysent	1210	210	pidsprocsp	6	04000000000000	0x0	out	documented
 6.5.22/unix.IP27	irix5_64_sysent	1211	211	rexec	4	00000000000000	0xc0000000014ca7a4	out	undocumented
 6.5.22/unix.IP27	irix5_64_sysent	1212	212	timer_create	3	00000000000000	0x0	out	undocumented
@@ -682,7 +682,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP30	sysent	1206	206	afs_syscall	6	00000000000000	0x0	out	undocumented
 6.5.22/unix.IP30	sysent	1207	207	ngetdents	4	00000000000000	0x0	out	undocumented
 6.5.22/unix.IP30	sysent	1208	208	ngetdents64	4	00000000000000	0x0	out	undocumented
-6.5.22/unix.IP30	sysent	1209	209	sgi_sesmgr	8	08000000000000	0x0	out	undocumented
+6.5.22/unix.IP30	sysent	1209	209	sgi_sesmgr	8	08000000000000	0x0	out	documented
 6.5.22/unix.IP30	sysent	1210	210	pidsprocsp	6	04000000000000	0x0	out	documented
 6.5.22/unix.IP30	sysent	1211	211	rexec	4	00000000000000	0xa8000000203dbc7c	out	undocumented
 6.5.22/unix.IP30	sysent	1212	212	timer_create	3	00000000000000	0x0	out	undocumented
@@ -919,7 +919,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP30	irix5_64_sysent	1206	206	afs_syscall	6	00000000000000	0x0	out	undocumented
 6.5.22/unix.IP30	irix5_64_sysent	1207	207	ngetdents	4	00000000000000	0x0	out	undocumented
 6.5.22/unix.IP30	irix5_64_sysent	1208	208	ngetdents64	4	00000000000000	0x0	out	undocumented
-6.5.22/unix.IP30	irix5_64_sysent	1209	209	sgi_sesmgr	8	00000000000000	0x0	out	undocumented
+6.5.22/unix.IP30	irix5_64_sysent	1209	209	sgi_sesmgr	8	00000000000000	0x0	out	documented
 6.5.22/unix.IP30	irix5_64_sysent	1210	210	pidsprocsp	6	04000000000000	0x0	out	documented
 6.5.22/unix.IP30	irix5_64_sysent	1211	211	rexec	4	00000000000000	0xa8000000203dbc7c	out	undocumented
 6.5.22/unix.IP30	irix5_64_sysent	1212	212	timer_create	3	00000000000000	0x0	out	undocumented
@@ -1156,7 +1156,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP35	sysent	1206	206	afs_syscall	6	00000000000000	0x0	out	undocumented
 6.5.22/unix.IP35	sysent	1207	207	ngetdents	4	00000000000000	0x0	out	undocumented
 6.5.22/unix.IP35	sysent	1208	208	ngetdents64	4	00000000000000	0x0	out	undocumented
-6.5.22/unix.IP35	sysent	1209	209	sgi_sesmgr	8	08000000000000	0x0	out	undocumented
+6.5.22/unix.IP35	sysent	1209	209	sgi_sesmgr	8	08000000000000	0x0	out	documented
 6.5.22/unix.IP35	sysent	1210	210	pidsprocsp	6	04000000000000	0x0	out	documented
 6.5.22/unix.IP35	sysent	1211	211	rexec	4	00000000000000	0xc000000001593b24	out	undocumented
 6.5.22/unix.IP35	sysent	1212	212	timer_create	3	00000000000000	0x0	out	undocumented
@@ -1393,7 +1393,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP35	irix5_64_sysent	1206	206	afs_syscall	6	00000000000000	0x0	out	undocumented
 6.5.22/unix.IP35	irix5_64_sysent	1207	207	ngetdents	4	00000000000000	0x0	out	undocumented
 6.5.22/unix.IP35	irix5_64_sysent	1208	208	ngetdents64	4	00000000000000	0x0	out	undocumented
-6.5.22/unix.IP35	irix5_64_sysent	1209	209	sgi_sesmgr	8	00000000000000	0x0	out	undocumented
+6.5.22/unix.IP35	irix5_64_sysent	1209	209	sgi_sesmgr	8	00000000000000	0x0	out	documented
 6.5.22/unix.IP35	irix5_64_sysent	1210	210	pidsprocsp	6	04000000000000	0x0	out	documented
 6.5.22/unix.IP35	irix5_64_sysent	1211	211	rexec	4	00000000000000	0xc000000001593b24	out	undocumented
 6.5.22/unix.IP35	irix5_64_sysent	1212	212	timer_create	3	00000000000000	0x0	out	undocumented
@@ -1630,7 +1630,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP27	sysent	1206	206	afs_syscall	6	00000000000000	0x0	out	undocumented
 6.5.30/unix.IP27	sysent	1207	207	ngetdents	4	00000000000000	0x0	out	undocumented
 6.5.30/unix.IP27	sysent	1208	208	ngetdents64	4	00000000000000	0x0	out	undocumented
-6.5.30/unix.IP27	sysent	1209	209	sgi_sesmgr	8	08000000000000	0x0	out	undocumented
+6.5.30/unix.IP27	sysent	1209	209	sgi_sesmgr	8	08000000000000	0x0	out	documented
 6.5.30/unix.IP27	sysent	1210	210	pidsprocsp	6	04000000000000	0x0	out	documented
 6.5.30/unix.IP27	sysent	1211	211	rexec	4	00000000000000	0xc0000000014cba54	out	undocumented
 6.5.30/unix.IP27	sysent	1212	212	timer_create	3	00000000000000	0x0	out	undocumented
@@ -1867,7 +1867,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP27	irix5_64_sysent	1206	206	afs_syscall	6	00000000000000	0x0	out	undocumented
 6.5.30/unix.IP27	irix5_64_sysent	1207	207	ngetdents	4	00000000000000	0x0	out	undocumented
 6.5.30/unix.IP27	irix5_64_sysent	1208	208	ngetdents64	4	00000000000000	0x0	out	undocumented
-6.5.30/unix.IP27	irix5_64_sysent	1209	209	sgi_sesmgr	8	00000000000000	0x0	out	undocumented
+6.5.30/unix.IP27	irix5_64_sysent	1209	209	sgi_sesmgr	8	00000000000000	0x0	out	documented
 6.5.30/unix.IP27	irix5_64_sysent	1210	210	pidsprocsp	6	04000000000000	0x0	out	documented
 6.5.30/unix.IP27	irix5_64_sysent	1211	211	rexec	4	00000000000000	0xc0000000014cba54	out	undocumented
 6.5.30/unix.IP27	irix5_64_sysent	1212	212	timer_create	3	00000000000000	0x0	out	undocumented
@@ -2104,7 +2104,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP30	sysent	1206	206	afs_syscall	6	00000000000000	0x0	out	undocumented
 6.5.30/unix.IP30	sysent	1207	207	ngetdents	4	00000000000000	0x0	out	undocumented
 6.5.30/unix.IP30	sysent	1208	208	ngetdents64	4	00000000000000	0x0	out	undocumented
-6.5.30/unix.IP30	sysent	1209	209	sgi_sesmgr	8	08000000000000	0x0	out	undocumented
+6.5.30/unix.IP30	sysent	1209	209	sgi_sesmgr	8	08000000000000	0x0	out	documented
 6.5.30/unix.IP30	sysent	1210	210	pidsprocsp	6	04000000000000	0x0	out	documented
 6.5.30/unix.IP30	sysent	1211	211	rexec	4	00000000000000	0xa8000000204a8104	out	undocumented
 6.5.30/unix.IP30	sysent	1212	212	timer_create	3	00000000000000	0x0	out	undocumented
@@ -2341,7 +2341,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP30	irix5_64_sysent	1206	206	afs_syscall	6	00000000000000	0x0	out	undocumented
 6.5.30/unix.IP30	irix5_64_sysent	1207	207	ngetdents	4	00000000000000	0x0	out	undocumented
 6.5.30/unix.IP30	irix5_64_sysent	1208	208	ngetdents64	4	00000000000000	0x0	out	undocumented
-6.5.30/unix.IP30	irix5_64_sysent	1209	209	sgi_sesmgr	8	00000000000000	0x0	out	undocumented
+6.5.30/unix.IP30	irix5_64_sysent	1209	209	sgi_sesmgr	8	00000000000000	0x0	out	documented
 6.5.30/unix.IP30	irix5_64_sysent	1210	210	pidsprocsp	6	04000000000000	0x0	out	documented
 6.5.30/unix.IP30	irix5_64_sysent	1211	211	rexec	4	00000000000000	0xa8000000204a8104	out	undocumented
 6.5.30/unix.IP30	irix5_64_sysent	1212	212	timer_create	3	00000000000000	0x0	out	undocumented
@@ -2578,7 +2578,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP35	sysent	1206	206	afs_syscall	6	00000000000000	0x0	out	undocumented
 6.5.30/unix.IP35	sysent	1207	207	ngetdents	4	00000000000000	0x0	out	undocumented
 6.5.30/unix.IP35	sysent	1208	208	ngetdents64	4	00000000000000	0x0	out	undocumented
-6.5.30/unix.IP35	sysent	1209	209	sgi_sesmgr	8	08000000000000	0x0	out	undocumented
+6.5.30/unix.IP35	sysent	1209	209	sgi_sesmgr	8	08000000000000	0x0	out	documented
 6.5.30/unix.IP35	sysent	1210	210	pidsprocsp	6	04000000000000	0x0	out	documented
 6.5.30/unix.IP35	sysent	1211	211	rexec	4	00000000000000	0xc00000000163d454	out	undocumented
 6.5.30/unix.IP35	sysent	1212	212	timer_create	3	00000000000000	0x0	out	undocumented
@@ -2815,7 +2815,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP35	irix5_64_sysent	1206	206	afs_syscall	6	00000000000000	0x0	out	undocumented
 6.5.30/unix.IP35	irix5_64_sysent	1207	207	ngetdents	4	00000000000000	0x0	out	undocumented
 6.5.30/unix.IP35	irix5_64_sysent	1208	208	ngetdents64	4	00000000000000	0x0	out	undocumented
-6.5.30/unix.IP35	irix5_64_sysent	1209	209	sgi_sesmgr	8	00000000000000	0x0	out	undocumented
+6.5.30/unix.IP35	irix5_64_sysent	1209	209	sgi_sesmgr	8	00000000000000	0x0	out	documented
 6.5.30/unix.IP35	irix5_64_sysent	1210	210	pidsprocsp	6	04000000000000	0x0	out	documented
 6.5.30/unix.IP35	irix5_64_sysent	1211	211	rexec	4	00000000000000	0xc00000000163d454	out	undocumented
 6.5.30/unix.IP35	irix5_64_sysent	1212	212	timer_create	3	00000000000000	0x0	out	undocumented
