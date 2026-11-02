@@ -1338,6 +1338,11 @@ a0 is the map record and a1 the offset. The result is the doubleword at record +
 - `heart_device_powerup` (`6.5.30/unix.IP30`, occupies 8 bytes at address 0xa800000020040384): power-up hook for a widget; it does nothing and returns 0 (`or v0,zero,zero` in the delay slot of the `jr`). `heart_device_shutdown` (0xa80000002004038c) and `heart_device_inquiry` (0xa800000020040394) have the same two-instruction body. **Established.**
 - `heart_device_shutdown` (`6.5.30/unix.IP30`, occupies 8 bytes at address 0xa80000002004038c): shutdown hook for a widget; it does nothing and returns 0, the same body as `heart_device_powerup`. **Established.**
 - `heart_device_inquiry` (`6.5.30/unix.IP30`, occupies 8 bytes at address 0xa800000020040394): inquiry hook for a widget; it does nothing and returns 0, the same body as `heart_device_powerup`. **Established.**
+- `xbow_mlreset` (`6.5.30/unix.IP30`, occupies 8 bytes at address 0xa80000002003b5f4): the crossbar's reset hook; it does nothing. The body is `jr ra` and a nop in its delay slot, so no register is read or written and v0 is unchanged. **Established.**
+- `xbow_close` (`6.5.30/unix.IP30`, occupies 8 bytes at address 0xa80000002003b99c): close entry of the crossbar device; it does nothing and returns 0 (`or v0,zero,zero` in the delay slot of the `jr`). No argument is read. **Established.**
+- `xbow_unmap` (`6.5.30/unix.IP30`, occupies 8 bytes at address 0xa80000002003b9e8): unmap entry of the crossbar device; it does nothing and returns 0 (`or v0,zero,zero` in the delay slot of the `jr`). No argument is read. **Established.**
+- `xtalk_piomap_done` (`6.5.30/unix.IP30`, occupies 28 bytes at address 0xa80000002003a7b4): the crosstalk entry point for finishing with a programmed-I/O map; it calls `heart_piomap_done` (0xa80000002003f3b8) and nothing else.
+The delay slot of the call at 0xa80000002003a7bc is a nop, so the arguments pass through unchanged and the result is returned. There is no conditional branch and no branch-likely instruction. **Established.**
 
 ## IOC3 bring-up, Xbridge and crossbar registration, and Bridge helpers
 
