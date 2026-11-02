@@ -82,9 +82,11 @@ def elf_facts(path):
     if dyn.returncode == 0 and not failed(dyn):
         names = set()
         for line in dyn.stdout.splitlines():
+            # An optional import carries an extra [OPTIONAL] flag word before the section index, so the
+            # index and name are taken from the end of the line, not from fixed columns.
             parts = line.split()
-            if len(parts) >= 8 and parts[6] == 'UND' and parts[7]:
-                names.add(parts[7].split('@')[0])
+            if len(parts) >= 8 and parts[-2] == 'UND' and re.match(r'\d+:$', parts[0]):
+                names.add(parts[-1].split('@')[0])
         dyn_undefined = str(len(names))
     else:
         dyn_undefined = 'unreadable'
