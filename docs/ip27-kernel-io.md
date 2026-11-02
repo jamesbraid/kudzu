@@ -1576,3 +1576,53 @@ Turns an offset in a Bridge programmed-I/O map into an address by delegating to 
 The routine loads three doublewords from the map: +40 (`a4`), +16 (`a3`) and +48 (`a0`). It forms `a1` + (the doubleword at +40) - (the doubleword at +16), the subtraction being in the delay slot of the
 call, and calls `xtalk_piomap_addr` (0xc00000000006be30) with `a0` = the doubleword at map +48 and `a1` = that sum. The caller's `a3` and `a4` are overwritten, with the doubleword at map +16 and the one at +40, before the call; `a2`, `a5` and the later arguments reach the callee untouched. The result of the call is
 the routine's result. `pciio_piomap_addr` stores that result in the doubleword at map +32. No branch-likely instruction.
+
+## PCI bridge address and flush helpers, IOC3 sub-device and console hooks, system controller password
+
+- `pcibr_ate_addr` (`6.5.30/unix.IP27`, address 0xc000000000075910, 64 bytes, 16-byte frame): **established.**
+Returns the address of one Bridge address-translation entry. `a0` is the Bridge soft record and `a1` the entry index. The halfword at record +112 (`lh`) is compared with `a1` as signed numbers (`slt`):
+when `a1` is below it the routine calls `pcireg_int_ate_addr` (0xc000000000089340), otherwise `pcireg_ext_ate_addr` (0xc000000000088c9c). Both calls get `a0` and `a1` untouched, and their result is the routine's result.
+The `beq` at 0xc00000000007591c selects the second routine and has `sd ra` in its delay slot. That the halfword is the number of internal entries is inferred from the two callee names. No branch-likely instruction.
+- `pcibr_unmap` (`6.5.30/unix.IP27`, address 0xc0000000000714b8, 120 bytes, 32-byte frame): **established.**
+Clears bit 31 of a Bridge's control register when that bit is set and a flag halfword in its soft record is zero, and always returns 0. It calls `hwgraph_connectpt_get` (0xc0000000002968cc) on `a0` (result in `s7`), then
+`hwgraph_fastinfo_get` (0xc000000000296098) on that, which gives the soft record in `s0`, then releases the connection-point vertex with `hwgraph_vertex_unref` (0xc000000000294e08). When the halfword at record +114 is nonzero it
+returns 0 at once. Otherwise it calls `pcireg_control_get` (0xc00000000007f060) with the record and tests the result against 0x80000000 (`dli 0x8000`, `dsll` 16): when that bit is clear it returns 0,
+and when set it calls `pcireg_control_bit_clr` (0xc00000000007f350) with the record and the same mask in `a1`, discarding the result, and returns 0. The delay slot of the unref call loads `a0` for it. No branch-likely instruction.
+- `pcibr_wrb_flush` (`6.5.30/unix.IP27`, address 0xc000000000076b00, 60 bytes, 16-byte frame): **established.**
+Reads the Bridge's write-buffer flush register for a device's slot and returns 0. `a0` goes unchanged to `pciio_hostinfo_get` (0xc0000000000934d4), whose result is kept; the byte at hostinfo +540 (`lbu`, in the
+delay slot of the next call) goes to `s8`. `pciio_info_mfast_get` (0xc0000000000935dc) is called on the hostinfo, and the routine calls `pcireg_wrb_flush_get` (0xc000000000086e94) with `a0` = the doubleword at
+the result's +8 (loaded in the call's delay slot) and `a1` = the byte from +540. It drops that call's result and returns 0 (`move v0,zero` at 0xc000000000076b24). `pcibr_write_gather_flush`, which does the same read, passes
+the whole record from the mfast call to its flush helper; this routine passes the doubleword at +8 of it. No branch-likely instruction.
+- `pcibr_enable_mst_timeout` (`6.5.30/unix.IP27`, address 0xc00000000007e87c, 36 bytes, 16-byte frame): **established.**
+Re-enables the Bridge's master-timeout interrupt bits and returns whether the enable word changed. `a0` goes to `hwgraph_fastinfo_get` (0xc000000000296098), and the doubleword at +8 of the result (loaded in the delay slot of the next call)
+is passed to the static routine at 0xc00000000007e8f4, described next, whose result is returned. No branch-likely instruction.
+- `sub_c00000000007e8f4` (`6.5.30/unix.IP27` `0xc00000000007e8f4`, 84 bytes, 32-byte frame) is unsymbolled (the symbol table folds it under `pcibr_piomap_probe`). **Established.** It keeps `a0` in `s0`, calls
+`pcireg_intr_enable_get` (0xc00000000008373c) and saves the result in `s8`, calls `pcireg_intr_enable_bit_set` (0xc000000000083b78) with `a0` and the mask 0x400000800 (gp-23352 slot, loaded in the delay slot), calls
+`pcireg_intr_enable_get` again, and returns 1 when the two values differ and 0 when they are equal. No branch-likely instruction.
+- `pcibr_dma_enabled` (`6.5.30/unix.IP27`, address 0xc000000000074e60, 44 bytes, 16-byte frame): **established.**
+Says whether a PCI device may do DMA by asking the crosstalk layer about the device's widget. `a0` goes unchanged to `pciio_hostinfo_get` (0xc0000000000934d4), whose result goes to `pciio_info_mfast_get`
+(0xc0000000000935dc). The routine then calls `xtalk_dma_enabled` (0xc00000000006c2c0) with `a0` = the word at +0 of the mfast result (`lw`, in the delay slot) and returns that call's result. No branch-likely instruction.
+- `ioc3_subdev_enables` (`6.5.30/unix.IP27`, address 0xc00000000009621c, 44 bytes, 16-byte frame): **established.**
+Replaces an IOC3's whole sub-device enable mask. `a0` is the IOC3 vertex and `a1` the new mask (saved at sp+8). It calls the unsymbolled routine at 0xc000000000096118 (described next) with `a0` and 1, set in the delay slot.
+When that returns 0 this routine ends with 0 in `v0` and stores nothing. Otherwise it stores the saved `a1` as a whole doubleword (`sd`) at the returned pointer and returns with `v0` still the pointer. The store is not a `lld`/`scd` loop. No branch-likely instruction.
+- `sub_c000000000096118` (`6.5.30/unix.IP27` `0xc000000000096118`, 188 bytes, 48-byte frame) is unsymbolled and finds an IOC3's sub-device mask doubleword. **Established.** It runs `hwgraph_traverse` (0xc00000000029579c) on the vertex `a0` with the
+string ".host" (0xc0000000003c78b8, gp-17208 slot plus 456), leaving the vertex it finds in the stack slot at sp+36 that held `a0`. It reads the label "_subdevs" (0xc0000000003c7c08, same slot plus 1304) of that vertex with `hwgraph_info_get_LBL`
+(0xc000000000295310). When the label is missing and `a1` is nonzero, it allocates 8 bytes with `kmem_zalloc` (0xc00000000017e344), stores 255 in them, adds them as the label with `hwgraph_info_add_LBL` (0xc00000000029526c), reads the label back,
+and frees its own block with `kmem_free` (0xc00000000017e3b0, size 8) when the label now holds a different pointer. It returns the pointer it read last, or 0 when there is none. No branch-likely instruction.
+- `ioc3_console_vhdl_get` (`6.5.30/unix.IP27`, address 0xc000000000096100, 24 bytes, no frame): **established.**
+Returns the first word of the console IOC3's soft record, or -1 when there is none. It loads the doubleword at the global at 0xc0000000014d2c88 (gp+2840); when that is zero it returns -1 (set in the delay slot of the branch at 0xc000000000096104).
+Otherwise it returns the word at +0 of that record (`lw`, sign-extended). `ioc3_attach` stores the soft record in the global at 0xc0000000000953a0 only when both of its `hub_check_pci_equiv` calls say yes, and stores a word at record +0 with the `sw` at 0xc000000000095350.
+`ioc3_is_console` compares a vertex's fast-info pointer with the same global. That the word at +0 is a vertex handle is inferred from the routine's use as the console's handle. No branch-likely instruction.
+- `ioc3_sio_mlreset` (`6.5.30/unix.IP27`, address 0xc000000000175dd4, 44 bytes, 32-byte frame): **established.**
+Hands two routine addresses to the serial console layer. It builds a two-doubleword block on the stack: sp+0 receives the code address 0xc0000000001791cc (the pool word at 0xc0000000014cf718, gp-10840) and sp+8 receives 0xc000000000179078
+(the pool word at 0xc0000000014cf720, gp-10832, stored in the delay slot of the call). It calls `sio_console_register` (0xc0000000000a204c) with `a0` = sp+0 and returns what that call leaves in `v0`. Both addresses fall inside the range of
+the symbol `ioc3_serial_kill`; their bodies were not read, so what the console layer uses them for is not stated here. No branch-likely instruction.
+- `elsc_password_set` (`6.5.30/unix.IP27`, address 0xc000000000099bb0, 132 bytes, 32-byte frame): **established.**
+Writes the four-character system controller password into its non-volatile memory. `a0` is the controller handle (saved at sp+8) and `a1` a string pointer (`s0`). It calls `elsc_nvram_magic` (0xc000000000099404) with `a0`; a negative result
+is returned as it is. Otherwise it fills a four-byte buffer at sp+0: it copies bytes of the string while they are nonzero, up to four, and for each position after the string's terminator stores 0x20 (a space; `a6` = 32, stored by the `sb` at 0xc000000000099c30), so a
+short password is padded with spaces and a long one is cut to four characters. It then calls `elsc_nvram_write` (0xc000000000098b68) with `a0`, offset 1793 (0x701), the buffer and a length of 4, and returns that call's result.
+No branch-likely instruction.
+- `elsc_password_get` (`6.5.30/unix.IP27`, address 0xc000000000099c34, 76 bytes, 32-byte frame): **established.**
+Reads the four-character system controller password. `a0` is the controller handle (saved at sp+0) and `a1` the destination buffer (saved at sp+8). It calls `elsc_nvram_magic` (0xc000000000099404) with `a0`; a negative result is returned as it is.
+Otherwise it calls `elsc_nvram_read` (0xc000000000098c64) with `a0`, offset 1793 (0x701), `a1` as the destination and a length of 4, and returns that call's result. A zero byte is stored at buffer +4 (`sb zero,4(at)`, in the delay slot of the read call, so
+before the read runs), so the buffer must hold five bytes. No branch-likely instruction.
