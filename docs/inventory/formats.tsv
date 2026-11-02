@@ -6,7 +6,7 @@ section	.MIPS.content.sdata	type SHT_MIPS_CONTENT	6	6.5.22/unix.IP27	in	undocume
 section	.MIPS.content.srdata	type SHT_MIPS_CONTENT	6	6.5.22/unix.IP27	in	undocumented
 section	.MIPS.content.text	type SHT_MIPS_CONTENT	6	6.5.22/unix.IP27	in	undocumented
 section	.MIPS.events.text	type SHT_MIPS_EVENTS	6	6.5.22/unix.IP27	in	undocumented
-section	.MIPS.options	type SHT_MIPS_OPTIONS	6	6.5.22/unix.IP27	in	undocumented
+section	.MIPS.options	type SHT_MIPS_OPTIONS	6	6.5.22/unix.IP27	in	documented
 section	.bss	type SHT_NOBITS	6	6.5.22/unix.IP27	in	documented
 section	.comment	type SHT_PROGBITS	6	6.5.22/unix.IP27	in	undocumented
 section	.data	type SHT_PROGBITS	6	6.5.22/unix.IP27	in	documented

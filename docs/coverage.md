@@ -57,7 +57,7 @@ Rows in scope are the ones the finish line counts; rows out of scope are listed 
 | [structs](inventory/structs.tsv) | 343 | 5037 | 277 | 66 |
 | [panics](inventory/panics.tsv) | 698 | 6289 | 698 | 0 |
 | [selectors](inventory/selectors.tsv) | 18 | 5499 | 18 | 0 |
-| [formats](inventory/formats.tsv) | 29 | 0 | 8 | 21 |
+| [formats](inventory/formats.tsv) | 29 | 0 | 9 | 20 |
 
 | Binary group | Scope | Binaries | Functions in | Functions out |
 |---|---|---:|---:|---:|
