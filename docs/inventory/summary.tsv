@@ -1,16 +1,16 @@
 table	rows	out_of_scope	understood	understood_with_open	understood_distinct	templated	located	named_only	undocumented	no_software_dependency	pct_understood	pct_located_or_better	pct_mentioned	pct_done	unresolved_sites	truncated	audited_real_pct	audited_sample	audited_date	computes	reused	multi_unit	shared_address	input
 binaries	7280	0	0	0	0	0	0	22	7258	0	0.0	0.0	0.3	0.0							0			
-functions	18897	223619	907	74	598	26	2346	11259	4385	0	4.8	17.2	76.8	4.8			100.0	6	2026-11-02		0	0	21	
-functions (distinct names)	2784	22114	369	19	368	2	3	1508	904	0	13.3	13.4	67.5	13.3							0			
+functions	18897	223619	1010	74	623	26	2375	11211	4301	0	5.3	17.9	77.2	5.3			100.0	6	2026-11-02		0	0	21	
+functions (distinct names)	2784	22114	394	19	393	2	3	1498	889	0	14.2	14.3	68.1	14.2							0			
 mmio	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0	0						0			
 tokens	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 ioctls	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 ucode	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0						0	0			
 spec-registers	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 input root manifest	2488																							61cae8770d903646aedce8415a07b11d1460ec2e39b264c8f65d493ff936b335
-functions in 6.5.22/unix.IP27	1109	12549	19	0	19	2	288	621	181	0	1.7	27.7	83.7	1.7							0	0	0	
-functions in 6.5.22/unix.IP30	885	11329	15	0	15	2	189	482	199	0	1.7	23.1	77.5	1.7							0	0	5	
-functions in 6.5.22/unix.IP35	1067	13444	17	0	17	2	278	601	171	0	1.6	27.6	84.0	1.6							0	0	0	
+functions in 6.5.22/unix.IP27	1109	12549	22	0	22	2	289	620	178	0	2.0	28.0	83.9	2.0							0	0	0	
+functions in 6.5.22/unix.IP30	885	11329	33	0	33	2	196	472	184	0	3.7	25.9	79.2	3.7							0	0	5	
+functions in 6.5.22/unix.IP35	1067	13444	20	0	20	2	279	600	168	0	1.9	28.0	84.3	1.9							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP22boot/acl.a(acl.o)	0	16	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP22boot/acl_hwg.o	0	3	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP22boot/acl_nfs3.o	0	2	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -1610,7 +1610,7 @@ functions in 6.5.22/usr/cpu/sysgen/IP27boot/vmeuli.o	0	2	0	0	0	0	0	0	0	0	0.0	0.0
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/vmidbg.a(vmidbg.o)	0	27	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/wacom.o	0	95	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/xbmon.o	0	18	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.22/usr/cpu/sysgen/IP27boot/xbow.o	33	0	3	0	3	0	17	9	4	0	9.1	60.6	87.9	9.1							0	0	0	
+functions in 6.5.22/usr/cpu/sysgen/IP27boot/xbow.o	33	0	6	0	6	0	17	9	1	0	18.2	69.7	97.0	18.2							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/xbridge.o	2	0	0	0	0	0	2	0	0	0	0.0	100.0	100.0	0.0							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/xconn.o	9	0	0	0	0	0	0	9	0	0	0.0	0.0	100.0	0.0							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/xfs.a(xfs_alloc.o)	0	24	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -1694,7 +1694,7 @@ functions in 6.5.22/usr/cpu/sysgen/IP27boot/xpc.o	0	44	0	0	0	0	0	0	0	0	0.0	0.0	0
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/xpcstubs.a(xpcstubs.o)	0	16	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/xpmemstubs.a(xpmemstubs.o)	0	6	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/xswitch.o	13	0	0	0	0	0	0	11	2	0	0.0	0.0	84.6	0.0							0	0	0	
-functions in 6.5.22/usr/cpu/sysgen/IP27boot/xtalk.o	71	0	0	0	0	1	22	43	6	0	0.0	31.0	91.5	0.0							0	0	0	
+functions in 6.5.22/usr/cpu/sysgen/IP27boot/xtalk.o	71	0	0	0	0	1	23	42	6	0	0.0	32.4	91.5	0.0							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/xtimer.a(xtimer.o)	0	8	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/xvm.a(xvm.o)	0	15	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP27boot/xvm.a(xvm_bag_util.o)	0	3	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -1851,7 +1851,7 @@ functions in 6.5.22/usr/cpu/sysgen/IP30boot/gentty.o	0	8	0	0	0	0	0	0	0	0	0.0	0.0
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/gfx.o	0	62	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/gfxs.a(gfx_flow.o)	0	22	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/gfxs.a(gfx.o)	0	62	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	55	0	0	0	0	0	6	21	28	0	0.0	10.9	49.1	0.0							0	0	0	
+functions in 6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	55	0	4	0	4	0	12	16	23	0	7.3	29.1	58.2	7.3							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/gioio.o	53	0	0	0	0	0	0	36	17	0	0.0	0.0	67.9	0.0							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/graph.a(graph.o)	26	0	0	0	0	0	0	22	4	0	0.0	0.0	84.6	0.0							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	76	0	0	0	0	0	0	68	8	0	0.0	0.0	89.5	0.0							0	0	0	
@@ -1876,7 +1876,7 @@ functions in 6.5.22/usr/cpu/sysgen/IP30boot/hardlocks.a(chardlocks.o)	0	19	0	0	0
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/hardlocks.a(llsclocks.o)	0	22	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/hardlocks_statistics.a(chardlocks.o)	0	19	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/hardlocks_statistics.a(llsclocks.o)	0	22	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	67	0	4	0	4	0	34	13	16	0	6.0	56.7	76.1	6.0							0	0	0	
+functions in 6.5.22/usr/cpu/sysgen/IP30boot/heart.o	67	0	15	0	15	0	34	9	9	0	22.4	73.1	86.6	22.4							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/hitachi.o	0	9	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/hwgfs.a(hwgvnops.o)	21	0	0	0	0	0	0	0	21	0	0.0	0.0	0.0	0.0							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/idbg.o	165	130	0	0	0	0	0	138	27	0	0.0	0.0	83.6	0.0							0	0	0	
@@ -2351,7 +2351,7 @@ functions in 6.5.22/usr/cpu/sysgen/IP30boot/usync.o	0	9	0	0	0	0	0	0	0	0	0.0	0.0	
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/vmidbg.a(vmidbg.o)	0	24	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/wacom.o	0	95	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/xbmon.o	0	18	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.22/usr/cpu/sysgen/IP30boot/xbow.o	30	0	3	0	3	0	16	7	4	0	10.0	63.3	86.7	10.0							0	0	0	
+functions in 6.5.22/usr/cpu/sysgen/IP30boot/xbow.o	30	0	6	0	6	0	16	7	1	0	20.0	73.3	96.7	20.0							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/xbridge.o	2	0	0	0	0	0	2	0	0	0	0.0	100.0	100.0	0.0							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/xconn.o	9	0	0	0	0	0	0	9	0	0	0.0	0.0	100.0	0.0							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/xfs.a(xfs_alloc.o)	0	24	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -2392,7 +2392,7 @@ functions in 6.5.22/usr/cpu/sysgen/IP30boot/xlv_plex.a(plex_xlvd.o)	0	18	0	0	0	0
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/xlvidbg.o	0	19	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/xpcstubs.a(xpcstubs.o)	0	16	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/xswitch.o	13	0	0	0	0	0	0	11	2	0	0.0	0.0	84.6	0.0							0	0	0	
-functions in 6.5.22/usr/cpu/sysgen/IP30boot/xtalk.o	71	0	0	0	0	1	22	43	6	0	0.0	31.0	91.5	0.0							0	0	0	
+functions in 6.5.22/usr/cpu/sysgen/IP30boot/xtalk.o	71	0	0	0	0	1	23	42	6	0	0.0	32.4	91.5	0.0							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/xtimer.a(xtimer.o)	0	8	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/xvm.a(xvm.o)	0	15	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP30boot/xvm.a(xvm_bag_util.o)	0	3	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -3789,7 +3789,7 @@ functions in 6.5.22/usr/cpu/sysgen/IP35boot/vmeuli.o	0	2	0	0	0	0	0	0	0	0	0.0	0.0
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/vmidbg.a(vmidbg.o)	0	27	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/wacom.o	0	95	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xbmon.o	0	18	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.22/usr/cpu/sysgen/IP35boot/xbow.o	30	0	3	0	3	0	16	7	4	0	10.0	63.3	86.7	10.0							0	0	0	
+functions in 6.5.22/usr/cpu/sysgen/IP35boot/xbow.o	30	0	6	0	6	0	16	7	1	0	20.0	73.3	96.7	20.0							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xbridge.o	2	0	0	0	0	0	2	0	0	0	0.0	100.0	100.0	0.0							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xconn.o	9	0	0	0	0	0	0	9	0	0	0.0	0.0	100.0	0.0							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xfs.a(xfs_alloc.o)	0	24	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -3836,7 +3836,7 @@ functions in 6.5.22/usr/cpu/sysgen/IP35boot/xpc.o	0	44	0	0	0	0	0	0	0	0	0.0	0.0	0
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xpcstubs.a(xpcstubs.o)	0	16	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xpmem.o	0	75	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xswitch.o	13	0	0	0	0	0	0	11	2	0	0.0	0.0	84.6	0.0							0	0	0	
-functions in 6.5.22/usr/cpu/sysgen/IP35boot/xtalk.o	71	0	0	0	0	1	22	43	6	0	0.0	31.0	91.5	0.0							0	0	0	
+functions in 6.5.22/usr/cpu/sysgen/IP35boot/xtalk.o	71	0	0	0	0	1	23	42	6	0	0.0	32.4	91.5	0.0							0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xtimer.a(xtimer.o)	0	8	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm.o)	0	15	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_bag_util.o)	0	3	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -3871,9 +3871,9 @@ functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_irix_memmgmt.o)	0	1	0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_irix_root.o)	0	2	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_snapshot.o)	0	60	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvmidbg.o	0	39	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.30/unix.IP27	1113	12371	225	11	224	2	82	621	185	0	20.2	27.6	83.4	20.2							0	0	0	
-functions in 6.5.30/unix.IP30	890	12197	176	6	176	2	28	482	204	0	19.8	22.9	77.1	19.8							0	0	5	
-functions in 6.5.30/unix.IP35	1074	14056	187	57	187	2	108	601	178	0	17.4	27.5	83.4	17.4							0	0	0	
+functions in 6.5.30/unix.IP27	1113	12371	228	11	227	2	83	620	182	0	20.5	27.9	83.6	20.5							0	0	0	
+functions in 6.5.30/unix.IP30	890	12197	201	6	201	2	28	472	189	0	22.6	25.7	78.8	22.6							0	0	5	
+functions in 6.5.30/unix.IP35	1074	14056	190	57	190	2	109	600	175	0	17.7	27.8	83.7	17.7							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP22boot/isdnchan.o	0	75	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/acl.a(acl.o)	0	16	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/acl_hwg.o	0	3	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -4702,7 +4702,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP27boot/vmeuli.o	0	2	0	0	0	0	0	0	0	0	0.0	0.0
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/vmidbg.a(vmidbg.o)	0	27	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/wacom.o	0	95	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/xbmon.o	0	18	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.30/usr/cpu/sysgen/IP27boot/xbow.o	33	0	3	0	3	0	17	9	4	0	9.1	60.6	87.9	9.1							0	0	0	
+functions in 6.5.30/usr/cpu/sysgen/IP27boot/xbow.o	33	0	6	0	6	0	17	9	1	0	18.2	69.7	97.0	18.2							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/xbridge.o	2	0	0	0	0	0	2	0	0	0	0.0	100.0	100.0	0.0							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/xconn.o	9	0	0	0	0	0	0	9	0	0	0.0	0.0	100.0	0.0							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_alloc.o)	0	24	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -4789,7 +4789,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP27boot/xpc.o	0	44	0	0	0	0	0	0	0	0	0.0	0.0	0
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/xpcstubs.a(xpcstubs.o)	0	16	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/xpmemstubs.a(xpmemstubs.o)	0	6	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/xswitch.o	13	0	0	0	0	0	0	11	2	0	0.0	0.0	84.6	0.0							0	0	0	
-functions in 6.5.30/usr/cpu/sysgen/IP27boot/xtalk.o	71	0	0	0	0	1	22	43	6	0	0.0	31.0	91.5	0.0							0	0	0	
+functions in 6.5.30/usr/cpu/sysgen/IP27boot/xtalk.o	71	0	0	0	0	1	23	42	6	0	0.0	32.4	91.5	0.0							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/xtimer.a(xtimer.o)	0	8	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/xvm.a(xvm.o)	0	24	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/xvm.a(xvm_bag_util.o)	0	3	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -4955,7 +4955,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP30boot/gentty.o	0	8	0	0	0	0	0	0	0	0	0.0	0.0
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/gfx.o	0	62	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/gfxs.a(gfx_flow.o)	0	22	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/gfxs.a(gfx.o)	0	62	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	55	0	0	0	0	0	6	21	28	0	0.0	10.9	49.1	0.0							0	0	0	
+functions in 6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	55	0	4	0	4	0	12	16	23	0	7.3	29.1	58.2	7.3							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/gioio.o	53	0	0	0	0	0	0	36	17	0	0.0	0.0	67.9	0.0							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/graph.a(graph.o)	26	0	0	0	0	0	0	22	4	0	0.0	0.0	84.6	0.0							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	76	0	0	0	0	0	0	68	8	0	0.0	0.0	89.5	0.0							0	0	0	
@@ -4982,7 +4982,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP30boot/hardlocks.a(chardlocks.o)	0	19	0	0	0
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/hardlocks.a(llsclocks.o)	0	22	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/hardlocks_statistics.a(chardlocks.o)	0	19	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/hardlocks_statistics.a(llsclocks.o)	0	22	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	67	0	4	0	4	0	34	13	16	0	6.0	56.7	76.1	6.0							0	0	0	
+functions in 6.5.30/usr/cpu/sysgen/IP30boot/heart.o	67	0	15	0	15	0	34	9	9	0	22.4	73.1	86.6	22.4							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/hitachi.o	0	9	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/hwgfs.a(hwgvnops.o)	21	0	0	0	0	0	0	0	21	0	0.0	0.0	0.0	0.0							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/idbg.o	166	132	0	0	0	0	0	138	28	0	0.0	0.0	83.1	0.0							0	0	0	
@@ -5463,7 +5463,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP30boot/usync.o	0	9	0	0	0	0	0	0	0	0	0.0	0.0	
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/vmidbg.a(vmidbg.o)	0	24	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/wacom.o	0	95	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/xbmon.o	0	18	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.30/usr/cpu/sysgen/IP30boot/xbow.o	30	0	3	0	3	0	16	7	4	0	10.0	63.3	86.7	10.0							0	0	0	
+functions in 6.5.30/usr/cpu/sysgen/IP30boot/xbow.o	30	0	6	0	6	0	16	7	1	0	20.0	73.3	96.7	20.0							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/xbridge.o	2	0	0	0	0	0	2	0	0	0	0.0	100.0	100.0	0.0							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/xconn.o	9	0	0	0	0	0	0	9	0	0	0.0	0.0	100.0	0.0							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/xfs.a(xfs_alloc.o)	0	24	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -5507,7 +5507,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP30boot/xlv_plex.a(plex_xlvd.o)	0	18	0	0	0	0
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/xlvidbg.o	0	19	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/xpcstubs.a(xpcstubs.o)	0	16	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/xswitch.o	13	0	0	0	0	0	0	11	2	0	0.0	0.0	84.6	0.0							0	0	0	
-functions in 6.5.30/usr/cpu/sysgen/IP30boot/xtalk.o	71	0	0	0	0	1	22	43	6	0	0.0	31.0	91.5	0.0							0	0	0	
+functions in 6.5.30/usr/cpu/sysgen/IP30boot/xtalk.o	71	0	0	0	0	1	23	42	6	0	0.0	32.4	91.5	0.0							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/xtimer.a(xtimer.o)	0	8	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/xvm.a(xvm.o)	0	24	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/xvm.a(xvm_bag_util.o)	0	3	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -7093,7 +7093,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP35boot/vmeuli.o	0	2	0	0	0	0	0	0	0	0	0.0	0.0
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/vmidbg.a(vmidbg.o)	0	27	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/wacom.o	0	95	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/xbmon.o	0	18	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
-functions in 6.5.30/usr/cpu/sysgen/IP35boot/xbow.o	30	0	3	0	3	0	16	7	4	0	10.0	63.3	86.7	10.0							0	0	0	
+functions in 6.5.30/usr/cpu/sysgen/IP35boot/xbow.o	30	0	6	0	6	0	16	7	1	0	20.0	73.3	96.7	20.0							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/xbridge.o	2	0	0	0	0	0	2	0	0	0	0.0	100.0	100.0	0.0							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/xconn.o	9	0	0	0	0	0	0	9	0	0	0.0	0.0	100.0	0.0							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/xfs.a(xfs_alloc.o)	0	24	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
@@ -7142,7 +7142,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP35boot/xpc.o	0	44	0	0	0	0	0	0	0	0	0.0	0.0	0
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/xpcstubs.a(xpcstubs.o)	0	16	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/xpmem.o	0	75	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/xswitch.o	13	0	0	0	0	0	0	11	2	0	0.0	0.0	84.6	0.0							0	0	0	
-functions in 6.5.30/usr/cpu/sysgen/IP35boot/xtalk.o	71	0	0	0	0	1	22	43	6	0	0.0	31.0	91.5	0.0							0	0	0	
+functions in 6.5.30/usr/cpu/sysgen/IP35boot/xtalk.o	71	0	0	0	0	1	23	42	6	0	0.0	32.4	91.5	0.0							0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/xtimer.a(xtimer.o)	0	8	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/xvm.a(xvm.o)	0	24	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/xvm.a(xvm_bag_util.o)	0	3	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0			
