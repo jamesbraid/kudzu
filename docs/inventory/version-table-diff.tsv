@@ -1,0 +1,260 @@
+kind	kernel	table	key	value_6.5.22	value_6.5.30	detail	grade
+syscall-handler-body	unix.IP27	irix5_64_sysent	1040	0xc0000000002312b0	0xc0000000002317e0	size; size 12104 -> 12720	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1045	0xc0000000001de140	0xc0000000001e1eb4	immediate; size 324 -> 324	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1055	0xc000000000248cf0	0xc000000000249a14	code; size 680 -> 680	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1056	0xc00000000023e0a8	0xc00000000023e908	size; size 5076 -> 5124	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1057	0xc0000000002480c4	0xc00000000024899c	size; size 428 -> 460	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1062	0xc0000000001f57b8	0xc0000000001f9a18	size; size 2824 -> 2872	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1063	0xc000000000201a54	0xc00000000020666c	immediate; size 460 -> 460	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1088	0xc0000000001c0714	0xc0000000001c0c2c	immediate; size 328 -> 328	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1120	0xc000000000339eec	0xc00000000005c050	size; size 520 -> 28	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1122	0xc0000000003398e4	0xc00000000005c06c	size; size 1120 -> 28	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1130	0xc000000000249114	0xc000000000249e38	size; size 3632 -> 3672	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1139	0xc0000000001de284	0xc0000000001e1ff8	immediate; size 344 -> 344	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1166	0xc0000000001bef00	0xc0000000001bf41c	immediate; size 428 -> 428	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1168	0xc0000000001c0200	0xc0000000001c0718	immediate; size 276 -> 276	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1169	0xc0000000001c0140	0xc0000000001c0658	immediate; size 192 -> 192	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1191	0xc0000000001f6bc4	0xc0000000001fae54	immediate; size 228 -> 228	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1192	0xc0000000001f6ca8	0xc0000000001faf38	size; size 172 -> 176	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1193	0xc0000000001f6f04	0xc0000000001fb198	immediate; size 228 -> 228	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1194	0xc0000000001f6fe8	0xc0000000001fb27c	immediate; size 196 -> 196	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1195	0xc0000000001f720c	0xc0000000001fb4a0	immediate; size 216 -> 216	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1196	0xc0000000001f72e4	0xc0000000001fb578	immediate; size 180 -> 180	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1197	0xc0000000001f746c	0xc0000000001fb700	immediate; size 224 -> 224	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1198	0xc0000000001f754c	0xc0000000001fb7e0	immediate; size 168 -> 168	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1199	0xc0000000001f7740	0xc0000000001fb9d4	immediate; size 224 -> 224	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1200	0xc0000000001f7820	0xc0000000001fbab4	immediate; size 168 -> 168	class-only
+syscall-handler-body	unix.IP27	irix5_64_sysent	1226	0xc00000000021527c	0xc00000000021b148	immediate; size 624 -> 624	class-only
+syscall-handler-body	unix.IP27	sysent	1040	0xc0000000002312b0	0xc0000000002317e0	size; size 12104 -> 12720	class-only
+syscall-handler-body	unix.IP27	sysent	1045	0xc0000000001de140	0xc0000000001e1eb4	immediate; size 324 -> 324	class-only
+syscall-handler-body	unix.IP27	sysent	1055	0xc000000000248cf0	0xc000000000249a14	code; size 680 -> 680	class-only
+syscall-handler-body	unix.IP27	sysent	1056	0xc00000000023e0a8	0xc00000000023e908	size; size 5076 -> 5124	class-only
+syscall-handler-body	unix.IP27	sysent	1057	0xc0000000002480c4	0xc00000000024899c	size; size 428 -> 460	class-only
+syscall-handler-body	unix.IP27	sysent	1062	0xc0000000001f57b8	0xc0000000001f9a18	size; size 2824 -> 2872	class-only
+syscall-handler-body	unix.IP27	sysent	1063	0xc000000000201a54	0xc00000000020666c	immediate; size 460 -> 460	class-only
+syscall-handler-body	unix.IP27	sysent	1088	0xc0000000001c0714	0xc0000000001c0c2c	immediate; size 328 -> 328	class-only
+syscall-handler-body	unix.IP27	sysent	1119	0xc000000000328810	0xc000000000328bdc	size; size 576 -> 648	class-only
+syscall-handler-body	unix.IP27	sysent	1120	0xc000000000339eec	0xc00000000005c050	size; size 520 -> 28	class-only
+syscall-handler-body	unix.IP27	sysent	1122	0xc0000000003398e4	0xc00000000005c06c	size; size 1120 -> 28	class-only
+syscall-handler-body	unix.IP27	sysent	1130	0xc000000000249114	0xc000000000249e38	size; size 3632 -> 3672	class-only
+syscall-handler-body	unix.IP27	sysent	1139	0xc0000000001de284	0xc0000000001e1ff8	immediate; size 344 -> 344	class-only
+syscall-handler-body	unix.IP27	sysent	1166	0xc0000000001bef00	0xc0000000001bf41c	immediate; size 428 -> 428	class-only
+syscall-handler-body	unix.IP27	sysent	1168	0xc0000000001c0200	0xc0000000001c0718	immediate; size 276 -> 276	class-only
+syscall-handler-body	unix.IP27	sysent	1169	0xc0000000001c0140	0xc0000000001c0658	immediate; size 192 -> 192	class-only
+syscall-handler-body	unix.IP27	sysent	1191	0xc0000000001f6bc4	0xc0000000001fae54	immediate; size 228 -> 228	class-only
+syscall-handler-body	unix.IP27	sysent	1192	0xc0000000001f6ca8	0xc0000000001faf38	size; size 172 -> 176	class-only
+syscall-handler-body	unix.IP27	sysent	1193	0xc0000000001f6f04	0xc0000000001fb198	immediate; size 228 -> 228	class-only
+syscall-handler-body	unix.IP27	sysent	1194	0xc0000000001f6fe8	0xc0000000001fb27c	immediate; size 196 -> 196	class-only
+syscall-handler-body	unix.IP27	sysent	1195	0xc0000000001f720c	0xc0000000001fb4a0	immediate; size 216 -> 216	class-only
+syscall-handler-body	unix.IP27	sysent	1196	0xc0000000001f72e4	0xc0000000001fb578	immediate; size 180 -> 180	class-only
+syscall-handler-body	unix.IP27	sysent	1197	0xc0000000001f746c	0xc0000000001fb700	immediate; size 224 -> 224	class-only
+syscall-handler-body	unix.IP27	sysent	1198	0xc0000000001f754c	0xc0000000001fb7e0	immediate; size 168 -> 168	class-only
+syscall-handler-body	unix.IP27	sysent	1199	0xc0000000001f7740	0xc0000000001fb9d4	immediate; size 224 -> 224	class-only
+syscall-handler-body	unix.IP27	sysent	1200	0xc0000000001f7820	0xc0000000001fbab4	immediate; size 168 -> 168	class-only
+syscall-handler-body	unix.IP27	sysent	1226	0xc00000000021527c	0xc00000000021b148	immediate; size 624 -> 624	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1026	0xa800000020166254	0xa8000000201829ac	code; size 716 -> 716	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1040	0xa8000000201cf9c4	0xa8000000201eb9a8	size; size 11376 -> 11992	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1045	0xa8000000201843e4	0xa8000000201a5aa0	immediate; size 324 -> 324	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1055	0xa8000000201e6a48	0xa800000020203170	code; size 680 -> 680	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1056	0xa800000020200e4c	0xa80000002021de60	size; size 4288 -> 4336	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1057	0xa8000000201e5e1c	0xa8000000202020f8	size; size 428 -> 460	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1062	0xa80000002019aed8	0xa8000000201bad1c	size; size 2824 -> 2872	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1063	0xa8000000201a2be4	0xa8000000201c32e0	immediate; size 460 -> 460	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1088	0xa800000020168b44	0xa80000002018529c	immediate; size 328 -> 328	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1120	0xa8000000202c3934	0xa8000000202eef20	code; size 520 -> 520	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1122	0xa8000000202c332c	0xa8000000202ee8e0	size; size 1120 -> 1188	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1130	0xa8000000201e6e6c	0xa800000020203594	size; size 3600 -> 3640	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1139	0xa800000020184528	0xa8000000201a5be4	immediate; size 344 -> 344	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1166	0xa800000020167330	0xa800000020183a88	immediate; size 428 -> 428	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1168	0xa800000020168630	0xa800000020184d88	immediate; size 276 -> 276	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1169	0xa800000020168570	0xa800000020184cc8	immediate; size 192 -> 192	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1191	0xa80000002019c2e4	0xa8000000201bc158	immediate; size 228 -> 228	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1192	0xa80000002019c3c8	0xa8000000201bc23c	size; size 172 -> 176	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1193	0xa80000002019c624	0xa8000000201bc49c	immediate; size 228 -> 228	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1194	0xa80000002019c708	0xa8000000201bc580	immediate; size 196 -> 196	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1195	0xa80000002019c92c	0xa8000000201bc7a4	immediate; size 216 -> 216	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1196	0xa80000002019ca04	0xa8000000201bc87c	immediate; size 180 -> 180	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1197	0xa80000002019cb8c	0xa8000000201bca04	immediate; size 224 -> 224	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1198	0xa80000002019cc6c	0xa8000000201bcae4	immediate; size 168 -> 168	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1199	0xa80000002019ce60	0xa8000000201bccd8	immediate; size 224 -> 224	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1200	0xa80000002019cf40	0xa8000000201bcdb8	immediate; size 168 -> 168	class-only
+syscall-handler-body	unix.IP30	irix5_64_sysent	1226	0xa8000000201b8cb8	0xa8000000201d9868	immediate; size 624 -> 624	class-only
+syscall-handler-body	unix.IP30	sysent	1026	0xa800000020166254	0xa8000000201829ac	code; size 716 -> 716	class-only
+syscall-handler-body	unix.IP30	sysent	1040	0xa8000000201cf9c4	0xa8000000201eb9a8	size; size 11376 -> 11992	class-only
+syscall-handler-body	unix.IP30	sysent	1045	0xa8000000201843e4	0xa8000000201a5aa0	immediate; size 324 -> 324	class-only
+syscall-handler-body	unix.IP30	sysent	1055	0xa8000000201e6a48	0xa800000020203170	code; size 680 -> 680	class-only
+syscall-handler-body	unix.IP30	sysent	1056	0xa800000020200e4c	0xa80000002021de60	size; size 4288 -> 4336	class-only
+syscall-handler-body	unix.IP30	sysent	1057	0xa8000000201e5e1c	0xa8000000202020f8	size; size 428 -> 460	class-only
+syscall-handler-body	unix.IP30	sysent	1062	0xa80000002019aed8	0xa8000000201bad1c	size; size 2824 -> 2872	class-only
+syscall-handler-body	unix.IP30	sysent	1063	0xa8000000201a2be4	0xa8000000201c32e0	immediate; size 460 -> 460	class-only
+syscall-handler-body	unix.IP30	sysent	1088	0xa800000020168b44	0xa80000002018529c	immediate; size 328 -> 328	class-only
+syscall-handler-body	unix.IP30	sysent	1119	0xa8000000202b2258	0xa8000000202d795c	size; size 576 -> 648	class-only
+syscall-handler-body	unix.IP30	sysent	1120	0xa8000000202c3934	0xa8000000202eef20	code; size 520 -> 520	class-only
+syscall-handler-body	unix.IP30	sysent	1122	0xa8000000202c332c	0xa8000000202ee8e0	size; size 1120 -> 1188	class-only
+syscall-handler-body	unix.IP30	sysent	1130	0xa8000000201e6e6c	0xa800000020203594	size; size 3600 -> 3640	class-only
+syscall-handler-body	unix.IP30	sysent	1139	0xa800000020184528	0xa8000000201a5be4	immediate; size 344 -> 344	class-only
+syscall-handler-body	unix.IP30	sysent	1166	0xa800000020167330	0xa800000020183a88	immediate; size 428 -> 428	class-only
+syscall-handler-body	unix.IP30	sysent	1168	0xa800000020168630	0xa800000020184d88	immediate; size 276 -> 276	class-only
+syscall-handler-body	unix.IP30	sysent	1169	0xa800000020168570	0xa800000020184cc8	immediate; size 192 -> 192	class-only
+syscall-handler-body	unix.IP30	sysent	1191	0xa80000002019c2e4	0xa8000000201bc158	immediate; size 228 -> 228	class-only
+syscall-handler-body	unix.IP30	sysent	1192	0xa80000002019c3c8	0xa8000000201bc23c	size; size 172 -> 176	class-only
+syscall-handler-body	unix.IP30	sysent	1193	0xa80000002019c624	0xa8000000201bc49c	immediate; size 228 -> 228	class-only
+syscall-handler-body	unix.IP30	sysent	1194	0xa80000002019c708	0xa8000000201bc580	immediate; size 196 -> 196	class-only
+syscall-handler-body	unix.IP30	sysent	1195	0xa80000002019c92c	0xa8000000201bc7a4	immediate; size 216 -> 216	class-only
+syscall-handler-body	unix.IP30	sysent	1196	0xa80000002019ca04	0xa8000000201bc87c	immediate; size 180 -> 180	class-only
+syscall-handler-body	unix.IP30	sysent	1197	0xa80000002019cb8c	0xa8000000201bca04	immediate; size 224 -> 224	class-only
+syscall-handler-body	unix.IP30	sysent	1198	0xa80000002019cc6c	0xa8000000201bcae4	immediate; size 168 -> 168	class-only
+syscall-handler-body	unix.IP30	sysent	1199	0xa80000002019ce60	0xa8000000201bccd8	immediate; size 224 -> 224	class-only
+syscall-handler-body	unix.IP30	sysent	1200	0xa80000002019cf40	0xa8000000201bcdb8	immediate; size 168 -> 168	class-only
+syscall-handler-body	unix.IP30	sysent	1226	0xa8000000201b8cb8	0xa8000000201d9868	immediate; size 624 -> 624	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1040	0xc0000000002a7524	0xc0000000002e0310	size; size 16016 -> 16704	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1045	0xc000000000254840	0xc000000000291c74	immediate; size 324 -> 324	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1055	0xc0000000002bff94	0xc0000000002f95bc	code; size 680 -> 680	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1056	0xc0000000002b5444	0xc0000000002ee5a4	size; size 5152 -> 5200	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1057	0xc0000000002bf368	0xc0000000002f8544	size; size 428 -> 460	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1062	0xc00000000026c640	0xc0000000002a9e8c	size; size 2824 -> 2872	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1063	0xc000000000278624	0xc0000000002b6838	immediate; size 460 -> 460	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1088	0xc00000000023655c	0xc0000000002705f4	immediate; size 328 -> 328	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1120	0xc0000000003ad6e8	0xc0000000003f3750	code; size 520 -> 520	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1122	0xc0000000003ad0e0	0xc0000000003f3110	size; size 1120 -> 1188	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1130	0xc0000000002c03b8	0xc0000000002f99e0	size; size 3600 -> 3640	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1139	0xc000000000254984	0xc000000000291db8	immediate; size 344 -> 344	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1166	0xc000000000234d48	0xc00000000026ede4	immediate; size 428 -> 428	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1168	0xc000000000236048	0xc0000000002700e0	immediate; size 276 -> 276	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1169	0xc000000000235f88	0xc000000000270020	immediate; size 192 -> 192	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1191	0xc00000000026da4c	0xc0000000002ab2c8	immediate; size 228 -> 228	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1192	0xc00000000026db30	0xc0000000002ab3ac	size; size 172 -> 176	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1193	0xc00000000026dd8c	0xc0000000002ab60c	immediate; size 228 -> 228	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1194	0xc00000000026de70	0xc0000000002ab6f0	immediate; size 196 -> 196	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1195	0xc00000000026e094	0xc0000000002ab914	immediate; size 216 -> 216	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1196	0xc00000000026e16c	0xc0000000002ab9ec	immediate; size 180 -> 180	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1197	0xc00000000026e2f4	0xc0000000002abb74	immediate; size 224 -> 224	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1198	0xc00000000026e3d4	0xc0000000002abc54	immediate; size 168 -> 168	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1199	0xc00000000026e5c8	0xc0000000002abe48	immediate; size 224 -> 224	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1200	0xc00000000026e6a8	0xc0000000002abf28	immediate; size 168 -> 168	class-only
+syscall-handler-body	unix.IP35	irix5_64_sysent	1226	0xc00000000028bf60	0xc0000000002ca5ac	immediate; size 624 -> 624	class-only
+syscall-handler-body	unix.IP35	sysent	1040	0xc0000000002a7524	0xc0000000002e0310	size; size 16016 -> 16704	class-only
+syscall-handler-body	unix.IP35	sysent	1045	0xc000000000254840	0xc000000000291c74	immediate; size 324 -> 324	class-only
+syscall-handler-body	unix.IP35	sysent	1055	0xc0000000002bff94	0xc0000000002f95bc	code; size 680 -> 680	class-only
+syscall-handler-body	unix.IP35	sysent	1056	0xc0000000002b5444	0xc0000000002ee5a4	size; size 5152 -> 5200	class-only
+syscall-handler-body	unix.IP35	sysent	1057	0xc0000000002bf368	0xc0000000002f8544	size; size 428 -> 460	class-only
+syscall-handler-body	unix.IP35	sysent	1062	0xc00000000026c640	0xc0000000002a9e8c	size; size 2824 -> 2872	class-only
+syscall-handler-body	unix.IP35	sysent	1063	0xc000000000278624	0xc0000000002b6838	immediate; size 460 -> 460	class-only
+syscall-handler-body	unix.IP35	sysent	1088	0xc00000000023655c	0xc0000000002705f4	immediate; size 328 -> 328	class-only
+syscall-handler-body	unix.IP35	sysent	1119	0xc00000000039c00c	0xc0000000003dc18c	size; size 576 -> 648	class-only
+syscall-handler-body	unix.IP35	sysent	1120	0xc0000000003ad6e8	0xc0000000003f3750	code; size 520 -> 520	class-only
+syscall-handler-body	unix.IP35	sysent	1122	0xc0000000003ad0e0	0xc0000000003f3110	size; size 1120 -> 1188	class-only
+syscall-handler-body	unix.IP35	sysent	1130	0xc0000000002c03b8	0xc0000000002f99e0	size; size 3600 -> 3640	class-only
+syscall-handler-body	unix.IP35	sysent	1139	0xc000000000254984	0xc000000000291db8	immediate; size 344 -> 344	class-only
+syscall-handler-body	unix.IP35	sysent	1166	0xc000000000234d48	0xc00000000026ede4	immediate; size 428 -> 428	class-only
+syscall-handler-body	unix.IP35	sysent	1168	0xc000000000236048	0xc0000000002700e0	immediate; size 276 -> 276	class-only
+syscall-handler-body	unix.IP35	sysent	1169	0xc000000000235f88	0xc000000000270020	immediate; size 192 -> 192	class-only
+syscall-handler-body	unix.IP35	sysent	1191	0xc00000000026da4c	0xc0000000002ab2c8	immediate; size 228 -> 228	class-only
+syscall-handler-body	unix.IP35	sysent	1192	0xc00000000026db30	0xc0000000002ab3ac	size; size 172 -> 176	class-only
+syscall-handler-body	unix.IP35	sysent	1193	0xc00000000026dd8c	0xc0000000002ab60c	immediate; size 228 -> 228	class-only
+syscall-handler-body	unix.IP35	sysent	1194	0xc00000000026de70	0xc0000000002ab6f0	immediate; size 196 -> 196	class-only
+syscall-handler-body	unix.IP35	sysent	1195	0xc00000000026e094	0xc0000000002ab914	immediate; size 216 -> 216	class-only
+syscall-handler-body	unix.IP35	sysent	1196	0xc00000000026e16c	0xc0000000002ab9ec	immediate; size 180 -> 180	class-only
+syscall-handler-body	unix.IP35	sysent	1197	0xc00000000026e2f4	0xc0000000002abb74	immediate; size 224 -> 224	class-only
+syscall-handler-body	unix.IP35	sysent	1198	0xc00000000026e3d4	0xc0000000002abc54	immediate; size 168 -> 168	class-only
+syscall-handler-body	unix.IP35	sysent	1199	0xc00000000026e5c8	0xc0000000002abe48	immediate; size 224 -> 224	class-only
+syscall-handler-body	unix.IP35	sysent	1200	0xc00000000026e6a8	0xc0000000002abf28	immediate; size 168 -> 168	class-only
+syscall-handler-body	unix.IP35	sysent	1226	0xc00000000028bf60	0xc0000000002ca5ac	immediate; size 624 -> 624	class-only
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1239		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1240		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1241		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1242		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1243		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1244		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1245		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1246		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1247		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1248		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1249		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1250		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1251		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1252		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1253		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1254		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1255		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1256		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1257		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1258		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1259		0xc000000000231848	shared fill; first call none	established
+selector-added	unix.IP27	jumptable 0xc0000000003e9f08	1260		0xc000000000231894	own target; first call none	established
+selector-first-call	unix.IP27	jumptable 0xc0000000003e9f08	66	copyin_xlate	none	none: the block branches before a call	heuristic
+selector-fill	unix.IP27	jumptable 0xc0000000003e9f08	193	own target	shared		established
+selector-fill	unix.IP27	jumptable 0xc0000000003e9f08	250	shared	own target		established
+selector-first-call	unix.IP27	jumptable 0xc0000000003e9f08	250	none	copyin	none: the block branches before a call	heuristic
+selector-fill	unix.IP27	jumptable 0xc0000000003e9f08	365	shared	own target		established
+selector-first-call	unix.IP27	jumptable 0xc0000000003e9f08	365	none	cap_able	none: the block branches before a call	heuristic
+selector-fill	unix.IP27	jumptable 0xc0000000003e9f08	366	shared	own target		established
+selector-first-call	unix.IP27	jumptable 0xc0000000003e9f08	366	none	cap_able	none: the block branches before a call	heuristic
+selector-first-call	unix.IP27	jumptable 0xc0000000003e9f08	1062	cap_able	nfs_generic_cmd		heuristic
+selector-fill	unix.IP27	jumptable 0xc0000000003e9f08	1064	shared	own target		established
+selector-first-call	unix.IP27	jumptable 0xc0000000003e9f08	1064	none	cap_able	none: the block branches before a call	heuristic
+selector-fill	unix.IP27	jumptable 0xc0000000003e9f08	1065	shared	own target		established
+selector-first-call	unix.IP27	jumptable 0xc0000000003e9f08	1065	none	cap_able	none: the block branches before a call	heuristic
+selector-fill	unix.IP27	jumptable 0xc0000000003e9f08	1066	shared	own target		established
+selector-first-call	unix.IP27	jumptable 0xc0000000003e9f08	1066	none	cap_able	none: the block branches before a call	heuristic
+selector-added	unix.IP30	jumptable 0xa8000000203d7b10	1251		0xa8000000201eba10	shared fill; first call none	established
+selector-added	unix.IP30	jumptable 0xa8000000203d7b10	1252		0xa8000000201eba10	shared fill; first call none	established
+selector-added	unix.IP30	jumptable 0xa8000000203d7b10	1253		0xa8000000201eba10	shared fill; first call none	established
+selector-added	unix.IP30	jumptable 0xa8000000203d7b10	1254		0xa8000000201eba10	shared fill; first call none	established
+selector-added	unix.IP30	jumptable 0xa8000000203d7b10	1255		0xa8000000201eba10	shared fill; first call none	established
+selector-added	unix.IP30	jumptable 0xa8000000203d7b10	1256		0xa8000000201eba10	shared fill; first call none	established
+selector-added	unix.IP30	jumptable 0xa8000000203d7b10	1257		0xa8000000201eba10	shared fill; first call none	established
+selector-added	unix.IP30	jumptable 0xa8000000203d7b10	1258		0xa8000000201eba10	shared fill; first call none	established
+selector-added	unix.IP30	jumptable 0xa8000000203d7b10	1259		0xa8000000201eba10	shared fill; first call none	established
+selector-added	unix.IP30	jumptable 0xa8000000203d7b10	1260		0xa8000000201eba5c	own target; first call none	established
+selector-first-call	unix.IP30	jumptable 0xa8000000203d7b10	66	copyin_xlate	none	none: the block branches before a call	heuristic
+selector-fill	unix.IP30	jumptable 0xa8000000203d7b10	193	own target	shared		established
+selector-fill	unix.IP30	jumptable 0xa8000000203d7b10	250	shared	own target		established
+selector-first-call	unix.IP30	jumptable 0xa8000000203d7b10	250	none	copyin	none: the block branches before a call	heuristic
+selector-fill	unix.IP30	jumptable 0xa8000000203d7b10	365	shared	own target		established
+selector-first-call	unix.IP30	jumptable 0xa8000000203d7b10	365	none	cap_able	none: the block branches before a call	heuristic
+selector-fill	unix.IP30	jumptable 0xa8000000203d7b10	366	shared	own target		established
+selector-first-call	unix.IP30	jumptable 0xa8000000203d7b10	366	none	cap_able	none: the block branches before a call	heuristic
+selector-first-call	unix.IP30	jumptable 0xa8000000203d7b10	1062	cap_able	nfs_generic_cmd		heuristic
+selector-fill	unix.IP30	jumptable 0xa8000000203d7b10	1064	shared	own target		established
+selector-first-call	unix.IP30	jumptable 0xa8000000203d7b10	1064	none	cap_able	none: the block branches before a call	heuristic
+selector-fill	unix.IP30	jumptable 0xa8000000203d7b10	1065	shared	own target		established
+selector-first-call	unix.IP30	jumptable 0xa8000000203d7b10	1065	none	cap_able	none: the block branches before a call	heuristic
+selector-fill	unix.IP30	jumptable 0xa8000000203d7b10	1066	shared	own target		established
+selector-first-call	unix.IP30	jumptable 0xa8000000203d7b10	1066	none	cap_able	none: the block branches before a call	heuristic
+selector-added	unix.IP35	compare	23		0xc0000000002e0598	shared fill; first call none	heuristic
+selector-added	unix.IP35	compare	199		0xc0000000002e0c14	own target; first call none	heuristic
+selector-added	unix.IP35	compare	250		0xc0000000002e2884	own target; first call copyin	heuristic
+selector-added	unix.IP35	compare	365		0xc0000000002e2268	own target; first call cap_able	heuristic
+selector-added	unix.IP35	compare	366		0xc0000000002e1af0	own target; first call cap_able	heuristic
+selector-added	unix.IP35	compare	1064		0xc0000000002e2a7c	own target; first call cap_able	heuristic
+selector-added	unix.IP35	compare	1065		0xc0000000002e13d8	own target; first call none	heuristic
+selector-added	unix.IP35	compare	1066		0xc0000000002e234c	own target; first call cap_able	heuristic
+selector-added	unix.IP35	compare	1260		0xc0000000002e229c	own target; first call none	heuristic
+selector-fill	unix.IP35	compare	30	own target	shared	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	31	own target	shared	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	118	shared	own target	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	119	shared	own target	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	122	shared	own target	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	123	own target	shared	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	124	shared	own target	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	125	own target	shared	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	126	shared	own target	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	127	own target	shared	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	128	shared	own target	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	142	own target	shared	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	143	own target	shared	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	144	shared	own target	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	145	own target	shared	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	154	shared	own target	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	155	own target	shared	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	156	shared	own target	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	157	own target	shared	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	167	own target	shared	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	183	own target	shared	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	184	shared	own target	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	185	own target	shared	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	192	own target	shared	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	350	own target	shared	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	351	shared	own target	compare tree: the address can be a test block ahead of a shared body	heuristic
+selector-fill	unix.IP35	compare	352	own target	shared	compare tree: the address can be a test block ahead of a shared body	heuristic
