@@ -1895,7 +1895,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/gfx.o	kernel-other-objects	shared-kernel	object	n64	53808	5e362ea6abc44199		62	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/gfxs.a(gfx_flow.o)	kernel-other-objects	shared-kernel	object	n64	16516	7b01f0c0dc44b486		22	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/gfxs.a(gfx.o)	kernel-other-objects	shared-kernel	object	n64	53812	2b6726418c85826b		62	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	kernel-platform-drivers	shared-kernel	object	n64	43560	3173544aae587259		55	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	kernel-platform-drivers	shared-kernel	object	n64	43560	3173544aae587259		55	symtab	0	0	named-only	docs/ip30-kernel-functions.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.22/usr/cpu/sysgen/IP30boot/gioio.o	kernel-platform-drivers	shared-kernel	object	n64	24720	4b82dee218b2bae3		53	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/graph.a(graph.o)	kernel-platform-drivers	shared-kernel	object	n64	32996	59aed1d84037fb22		26	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	kernel-platform-drivers	shared-kernel	object	n64	51892	cf5d94404de56353		76	symtab	0	0	undocumented		
@@ -5038,7 +5038,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP30boot/gfx.o	kernel-other-objects	shared-kernel	object	n64	53712	73041c9bcd3351fc		62	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/gfxs.a(gfx_flow.o)	kernel-other-objects	shared-kernel	object	n64	16516	c637564e7dc7a6d8		22	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/gfxs.a(gfx.o)	kernel-other-objects	shared-kernel	object	n64	53716	2a9821583c887b17		62	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	kernel-platform-drivers	shared-kernel	object	n64	43560	b120a72d0b021296		55	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	kernel-platform-drivers	shared-kernel	object	n64	43560	b120a72d0b021296		55	symtab	0	0	named-only	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP30boot/gioio.o	kernel-platform-drivers	shared-kernel	object	n64	24600	687b22c7c5c0036d		53	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/graph.a(graph.o)	kernel-platform-drivers	shared-kernel	object	n64	32900	eadf855ab501aa87		26	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/graph.a(hwgraph.o)	kernel-platform-drivers	shared-kernel	object	n64	51892	d3e36d27ef17abf3		76	symtab	0	0	undocumented		

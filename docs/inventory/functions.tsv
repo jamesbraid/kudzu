@@ -5689,7 +5689,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000071cf4	2592	xbridge_attach	symtab	666b82eac181		in	located	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000072714	32	pciiox_init	symtab	bb3175dc49b5		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000072c28	176	pcibr_release_device	symtab	5ca60971cd3a		in	located	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000072cf4	52	pcibr_open	symtab	5db5a976b199		in	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000072cf4	52	pcibr_open	symtab	5db5a976b199		in	located	docs/ip30-kernel-functions.md#ioc3-bring-up-xbridge-and-crossbar-registration-and-bridge-helpers	IOC3 bring-up, Xbridge and crossbar registration, and Bridge helpers
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000072d28	8	pcibr_close	symtab	87506497337c		in	understood	docs/ip35-pci-bridge.md#interrupt-connections	Interrupt connections
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000072d30	204	pcibr_map	symtab	bd7677786cad		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000072dfc	120	pcibr_unmap	symtab	2f42949f9b2f		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
@@ -14795,7 +14795,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP30	shared-kernel	n64		0x0		giobr_dma_for_xtalk	dwarf			in	named-only	docs/panics.md#sub_0xa800000020041144	`sub_0xa800000020041144`
 6.5.22/unix.IP30	shared-kernel	n64		0x0		giobr_dmard_error	dwarf			in	named-only	docs/panics.md#sub_0xa80000002004191c	`sub_0xa80000002004191c`
 6.5.22/unix.IP30	shared-kernel	n64		0x0		giobr_dmawr_error	dwarf			in	undocumented		
-6.5.22/unix.IP30	shared-kernel	n64		0x0		giobr_errintr_group	dwarf			in	undocumented		
+6.5.22/unix.IP30	shared-kernel	n64		0x0		giobr_errintr_group	dwarf			in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/unix.IP30	shared-kernel	n64		0x0		giobr_error_cleanup	dwarf			in	undocumented		
 6.5.22/unix.IP30	shared-kernel	n64		0x0		giobr_error_handler	dwarf			in	undocumented		
 6.5.22/unix.IP30	shared-kernel	n64		0x0		giobr_error_intr_handler	dwarf			in	undocumented		
@@ -18531,7 +18531,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020037e18	2496	xbridge_attach	symtab	bd759780c5bc		in	located	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200387d8	32	pciiox_init	symtab	5904d4cc2c41		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020038cec	176	pcibr_release_device	symtab	c5916d029966		in	located	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
-6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020038db8	52	pcibr_open	symtab	eedbab3d09b1		in	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020038db8	52	pcibr_open	symtab	eedbab3d09b1		in	located	docs/ip30-kernel-functions.md#ioc3-bring-up-xbridge-and-crossbar-registration-and-bridge-helpers	IOC3 bring-up, Xbridge and crossbar registration, and Bridge helpers
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020038dec	8	pcibr_close	symtab	87506497337c		in	understood	docs/ip35-pci-bridge.md#interrupt-connections	Interrupt connections
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020038df4	204	pcibr_map	symtab	9f742baf86b4		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020038ec0	120	pcibr_unmap	symtab	b9322f215d17		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
@@ -32024,7 +32024,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000009eaa8	3484	xbridge_attach	symtab	7996e4d54c29		in	located	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000009f844	32	pciiox_init	symtab	885ed645ff97		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000009fd58	176	pcibr_release_device	symtab	643fda8ffaad		in	located	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000009fe24	52	pcibr_open	symtab	04ecc1441bde		in	named-only	docs/version-diffs-queue.tsv	
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000009fe24	52	pcibr_open	symtab	04ecc1441bde		in	located	docs/ip30-kernel-functions.md#ioc3-bring-up-xbridge-and-crossbar-registration-and-bridge-helpers	IOC3 bring-up, Xbridge and crossbar registration, and Bridge helpers
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000009fe58	8	pcibr_close	symtab	87506497337c		in	understood	docs/ip35-pci-bridge.md#interrupt-connections	Interrupt connections
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000009fe60	204	pcibr_map	symtab	f8da84a8171a		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000009ff2c	120	pcibr_unmap	symtab	62f6f354a103		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
@@ -68936,7 +68936,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x0	1188	pcibr_try_set_device	dwarf	f19be39b8ded		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x4a4	176	pcibr_release_device	dwarf+symtab	73215fb2e87f		in	located	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x554	28	pcibr_device_write_gather_flush	dwarf	a86de4a9d7a4		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x570	52	pcibr_open	dwarf+symtab	35d319e54c3b		in	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x570	52	pcibr_open	dwarf+symtab	35d319e54c3b		in	located	docs/ip30-kernel-functions.md#ioc3-bring-up-xbridge-and-crossbar-registration-and-bridge-helpers	IOC3 bring-up, Xbridge and crossbar registration, and Bridge helpers
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x5a4	8	pcibr_close	dwarf+symtab	87506497337c		in	understood	docs/ip35-pci-bridge.md#interrupt-connections	Interrupt connections
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x5ac	204	pcibr_map	dwarf+symtab	b9f594672535		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x678	120	pcibr_unmap	dwarf+symtab	37682d43ef18		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
@@ -77941,7 +77941,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0x11e0	148	giobr_setwidint	dwarf+symtab	d3a5acb29b17		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0x1274	52	print_bridge_errcmd	dwarf+symtab	6f827cc51506		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0x12a8	444	giobr_error_dump	dwarf+symtab	efd2858ebced		in	named-only	docs/panics.md#giobr_error_dump	`giobr_error_dump`
-6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0x1464	132	giobr_errintr_group	dwarf+symtab	ecd63d84c398		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0x1464	132	giobr_errintr_group	dwarf+symtab	ecd63d84c398		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0x14e8	124	giobr_error_intr_handler	dwarf+symtab	d9626aa07c6a		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0x1564	20	giobr_error_cleanup	dwarf+symtab	5b637b9a4498		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0x1578	8	giobr_device_disable	dwarf+symtab	78aa5094d5ec		in	named-only	docs/panics.md#sub_0xa80000002004191c	`sub_0xa80000002004191c`
@@ -86326,7 +86326,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x0	1188	pcibr_try_set_device	dwarf	f19be39b8ded		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x4a4	176	pcibr_release_device	dwarf+symtab	73215fb2e87f		in	located	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x554	28	pcibr_device_write_gather_flush	dwarf	a86de4a9d7a4		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x570	52	pcibr_open	dwarf+symtab	35d319e54c3b		in	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x570	52	pcibr_open	dwarf+symtab	35d319e54c3b		in	located	docs/ip30-kernel-functions.md#ioc3-bring-up-xbridge-and-crossbar-registration-and-bridge-helpers	IOC3 bring-up, Xbridge and crossbar registration, and Bridge helpers
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x5a4	8	pcibr_close	dwarf+symtab	87506497337c		in	understood	docs/ip35-pci-bridge.md#interrupt-connections	Interrupt connections
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x5ac	204	pcibr_map	dwarf+symtab	b9f594672535		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x678	120	pcibr_unmap	dwarf+symtab	37682d43ef18		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
@@ -118786,7 +118786,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x0	1188	pcibr_try_set_device	dwarf	359ecbd2f483		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x4a4	176	pcibr_release_device	dwarf+symtab	b37b0f9951ec		in	located	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x554	28	pcibr_device_write_gather_flush	dwarf	a86de4a9d7a4		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x570	52	pcibr_open	dwarf+symtab	35d319e54c3b		in	named-only	docs/version-diffs-queue.tsv	
+6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x570	52	pcibr_open	dwarf+symtab	35d319e54c3b		in	located	docs/ip30-kernel-functions.md#ioc3-bring-up-xbridge-and-crossbar-registration-and-bridge-helpers	IOC3 bring-up, Xbridge and crossbar registration, and Bridge helpers
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x5a4	8	pcibr_close	dwarf+symtab	87506497337c		in	understood	docs/ip35-pci-bridge.md#interrupt-connections	Interrupt connections
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x5ac	204	pcibr_map	dwarf+symtab	b9f594672535		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x678	120	pcibr_unmap	dwarf+symtab	37682d43ef18		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
@@ -131129,7 +131129,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000703ac	2592	xbridge_attach	symtab	8a0a9a94c2bf		in	understood	docs/ip27-kernel-io.md#bridge-attach	Bridge attach
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000070dcc	32	pciiox_init	symtab	d758318c4cf2		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000712e4	176	pcibr_release_device	symtab	b69c4c63f9c9		in	understood	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000713b0	52	pcibr_open	symtab	5562a4a4159c		in	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000713b0	52	pcibr_open	symtab	5562a4a4159c		in	located	docs/ip30-kernel-functions.md#ioc3-bring-up-xbridge-and-crossbar-registration-and-bridge-helpers	IOC3 bring-up, Xbridge and crossbar registration, and Bridge helpers
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000713e4	8	pcibr_close	symtab	87506497337c		in	understood	docs/ip35-pci-bridge.md#interrupt-connections	Interrupt connections
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000713ec	204	pcibr_map	symtab	59f13e6e7ce9		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000714b8	120	pcibr_unmap	symtab	1d2c5b901ceb		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
@@ -140202,7 +140202,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64		0x0		giobr_dma_for_xtalk	dwarf			in	named-only	docs/panics.md#sub_0xa800000020041144	`sub_0xa800000020041144`
 6.5.30/unix.IP30	shared-kernel	n64		0x0		giobr_dmard_error	dwarf			in	named-only	docs/panics.md#sub_0xa80000002004191c	`sub_0xa80000002004191c`
 6.5.30/unix.IP30	shared-kernel	n64		0x0		giobr_dmawr_error	dwarf			in	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64		0x0		giobr_errintr_group	dwarf			in	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64		0x0		giobr_errintr_group	dwarf			in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP30	shared-kernel	n64		0x0		giobr_error_cleanup	dwarf			in	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64		0x0		giobr_error_handler	dwarf			in	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64		0x0		giobr_error_intr_handler	dwarf			in	undocumented		
@@ -144117,7 +144117,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020042104	2496	xbridge_attach	symtab	2a3e050597b7		in	understood	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020042ac4	32	pciiox_init	symtab	1956994af984		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020042fe4	176	pcibr_release_device	symtab	f06e3a413842		in	understood	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200430b0	52	pcibr_open	symtab	f3ba3e562f07		in	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200430b0	52	pcibr_open	symtab	f3ba3e562f07		in	understood	docs/ip30-kernel-functions.md#ioc3-bring-up-xbridge-and-crossbar-registration-and-bridge-helpers	IOC3 bring-up, Xbridge and crossbar registration, and Bridge helpers
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200430e4	8	pcibr_close	symtab	87506497337c		in	understood	docs/ip35-pci-bridge.md#interrupt-connections	Interrupt connections
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200430ec	204	pcibr_map	symtab	df558ebd7bc7		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200431b8	120	pcibr_unmap	symtab	617bdca04d38		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
@@ -158575,7 +158575,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009c8ac	3484	xbridge_attach	symtab	dd85eca36fa2		in	understood	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009d648	32	pciiox_init	symtab	47dc8ede71b2		in	understood	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009db64	176	pcibr_release_device	symtab	a6c308be89ba		in	understood	docs/ip35-pci-bridge.md#slot-probing	Slot probing
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009dc30	52	pcibr_open	symtab	efeb0055b5df		in	named-only	docs/version-diffs-queue.tsv	
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009dc30	52	pcibr_open	symtab	efeb0055b5df		in	located	docs/ip30-kernel-functions.md#ioc3-bring-up-xbridge-and-crossbar-registration-and-bridge-helpers	IOC3 bring-up, Xbridge and crossbar registration, and Bridge helpers
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009dc64	8	pcibr_close	symtab	87506497337c		in	understood	docs/ip35-pci-bridge.md#interrupt-connections	Interrupt connections
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009dc6c	204	pcibr_map	symtab	bbec31af1295		in	understood	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000009dd38	120	pcibr_unmap	symtab	2db936a3c263		in	understood	docs/ip35-pci-bridge.md#error-interrupt-slot-attach-and-mappings	Error interrupt, slot attach and mappings
@@ -180280,7 +180280,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x0	1188	pcibr_try_set_device	dwarf	f19be39b8ded		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x4a4	176	pcibr_release_device	dwarf+symtab	73215fb2e87f		in	located	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x554	28	pcibr_device_write_gather_flush	dwarf	a86de4a9d7a4		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x570	52	pcibr_open	dwarf+symtab	35d319e54c3b		in	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x570	52	pcibr_open	dwarf+symtab	35d319e54c3b		in	located	docs/ip30-kernel-functions.md#ioc3-bring-up-xbridge-and-crossbar-registration-and-bridge-helpers	IOC3 bring-up, Xbridge and crossbar registration, and Bridge helpers
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x5a4	8	pcibr_close	dwarf+symtab	87506497337c		in	understood	docs/ip35-pci-bridge.md#interrupt-connections	Interrupt connections
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x5ac	204	pcibr_map	dwarf+symtab	b9f594672535		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	shared-kernel	n64	.text	0x678	120	pcibr_unmap	dwarf+symtab	37682d43ef18		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
@@ -190149,7 +190149,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0x11e0	148	giobr_setwidint	dwarf+symtab	d3a5acb29b17		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0x1274	52	print_bridge_errcmd	dwarf+symtab	6f827cc51506		in	named-only	docs/ip27-kernel-io.md#pci-bridge-error-reporting	PCI bridge error reporting
 6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0x12a8	444	giobr_error_dump	dwarf+symtab	efd2858ebced		in	named-only	docs/panics.md#giobr_error_dump	`giobr_error_dump`
-6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0x1464	132	giobr_errintr_group	dwarf+symtab	ecd63d84c398		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0x1464	132	giobr_errintr_group	dwarf+symtab	ecd63d84c398		in	understood	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0x14e8	124	giobr_error_intr_handler	dwarf+symtab	d9626aa07c6a		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0x1564	20	giobr_error_cleanup	dwarf+symtab	5b637b9a4498		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	shared-kernel	n64	.text	0x1578	8	giobr_device_disable	dwarf+symtab	78aa5094d5ec		in	named-only	docs/panics.md#sub_0xa80000002004191c	`sub_0xa80000002004191c`
@@ -198633,7 +198633,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x0	1188	pcibr_try_set_device	dwarf	f19be39b8ded		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x4a4	176	pcibr_release_device	dwarf+symtab	73215fb2e87f		in	located	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x554	28	pcibr_device_write_gather_flush	dwarf	a86de4a9d7a4		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x570	52	pcibr_open	dwarf+symtab	35d319e54c3b		in	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x570	52	pcibr_open	dwarf+symtab	35d319e54c3b		in	located	docs/ip30-kernel-functions.md#ioc3-bring-up-xbridge-and-crossbar-registration-and-bridge-helpers	IOC3 bring-up, Xbridge and crossbar registration, and Bridge helpers
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x5a4	8	pcibr_close	dwarf+symtab	87506497337c		in	understood	docs/ip35-pci-bridge.md#interrupt-connections	Interrupt connections
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x5ac	204	pcibr_map	dwarf+symtab	b9f594672535		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o	shared-kernel	n64	.text	0x678	120	pcibr_unmap	dwarf+symtab	37682d43ef18		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
@@ -235251,7 +235251,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x0	1188	pcibr_try_set_device	dwarf	359ecbd2f483		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x4a4	176	pcibr_release_device	dwarf+symtab	b37b0f9951ec		in	located	docs/ip27-kernel-io.md#pci-bridge-pio-maps-and-device-settings	PCI bridge PIO maps and device settings
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x554	28	pcibr_device_write_gather_flush	dwarf	a86de4a9d7a4		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x570	52	pcibr_open	dwarf+symtab	35d319e54c3b		in	named-only	docs/version-diffs-queue.tsv	
+6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x570	52	pcibr_open	dwarf+symtab	35d319e54c3b		in	located	docs/ip30-kernel-functions.md#ioc3-bring-up-xbridge-and-crossbar-registration-and-bridge-helpers	IOC3 bring-up, Xbridge and crossbar registration, and Bridge helpers
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x5a4	8	pcibr_close	dwarf+symtab	87506497337c		in	understood	docs/ip35-pci-bridge.md#interrupt-connections	Interrupt connections
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x5ac	204	pcibr_map	dwarf+symtab	b9f594672535		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	shared-kernel	n64	.text	0x678	120	pcibr_unmap	dwarf+symtab	37682d43ef18		in	located	docs/ip30-kernel-functions.md#heart-bridge-gio-bridge-and-cache-error-routines	Heart, Bridge, GIO bridge and cache-error routines
