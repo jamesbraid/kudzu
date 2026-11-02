@@ -1,0 +1,1804 @@
+tunable	module	class	defaults	kernel	symbol_address	symbol_size	loads	stores	addresses	routines	routine_names	status	grade	role	citation
+autofs_logging	autofs	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+ip6_enable	bsd	static	0	IP27	0xc0000000014caa48	4	5	1	0	6	disable_ipv6;domaininit;in6_init;ksvc_init_nbp;nfs_svc;udp_usrreq	located			
+auto_tunnel_enable	bsd	static	0	IP27	0xc0000000014caa44	4	0	1	0	1	disable_ipv6	located			
+nsit	bsd	static	1	IP27	0xc0000000014caa40	4	0	0	0	0	-	no-site			
+tcp_hashtablesz	bsd	static	0	IP27	0xc0000000014caa3c	4	3	1	0	2	tcp_init;tcp_reass	located			
+udp_hashtablesz	bsd	static	0	IP27	0xc0000000014caa38	4	1	1	0	1	udp_init	located			
+netthread_float	bsd	static	0	IP27	0xc0000000014caa2c	4	2	0	0	1	netproc_init	located			
+config_tunnel_enable	bsd	static	0	IP27	0xc0000000014caa24	4	1	2	0	2	disable_ipv6;in_init	located			
+ngif	bsd	static	4	IP27	0xc0000000014caa20	4	1	0	0	1	in_init	located			
+icmp_dropredirects	bsd	run	0	IP27	0xc0000000014caa1c	4	1	0	0	1	icmp_input	located			
+icmp_respond_to_address_mask	bsd	run	1	IP27	0xc0000000014caa18	4	1	0	0	1	icmp_input	located			
+icmp_respond_to_timestamp	bsd	run	1	IP27	0xc0000000014caa14	4	1	0	0	1	icmp_input	located			
+ipfilterd_inactive_behavior	bsd	run	1	IP27	0xc0000000014caa10	4	0	0	0	0	-	no-site			
+ipforwarding	bsd	run	0|1	IP27	0xc0000000014caa0c	4	1	1	0	1	rtioctl	located			
+ip6forwarding	bsd	run	0	IP27	0xc0000000014caa08	4	2	2	0	3	disable_ipv6;if_attach;rtioctl	located			
+ip6forwsrcrt	bsd	run	0	IP27	0xc0000000014caa04	4	0	0	0	0	-	no-site			
+ip6_maxfragpackets	bsd	run	1024	IP27	0xc0000000014caa00	4	0	0	0	0	-	no-site			
+ip6_maxheaders	bsd	run	64	IP27	0xc0000000014ca9fc	4	0	0	0	0	-	no-site			
+ipsendredirects	bsd	run	0|1	IP27	0xc0000000014ca9f8	4	1	1	0	1	rtioctl	located			
+ipdirected_broadcast	bsd	run	0	IP27	0xc0000000014ca9f4	4	2	0	0	2	ip_acceptit_bcast_match;ip_acceptit_broadcast	located			
+ip_nolgpg_brkup	bsd	run	0	IP27	0xc0000000014ca9f0	4	1	0	0	1	pas_pattach	located			
+allow_brdaddr_srcaddr	bsd	run	0	IP27	0xc0000000014ca9ec	4	0	0	0	0	-	no-site			
+ip_allow_frag_bcast	bsd	run	0	IP27	0xc0000000014ca9e8	4	1	0	0	1	ip_output	located			
+ipv4_strict_reassembly	bsd	run	0	IP27	0xc0000000014ca9e4	4	0	0	0	0	-	no-site			
+ipv4_frag_timeout	bsd	run	30	IP27	0xc0000000014ca9e0	4	1	0	0	1	ip_reass	located			
+subnetsarelocal	bsd	run	1	IP27	0xc0000000014ca9dc	4	1	0	0	1	in_localaddr	located			
+tcpiss_md5	bsd	run	0	IP27	0xc0000000014ca9d8	4	0	0	0	0	-	no-site			
+tcpiss_md5_secret_lo	bsd	run	0	IP27	0xc0000000014ca9d0	8	1	0	0	1	iss_hash	located			
+tcpiss_md5_secret_hi	bsd	run	0	IP27	0xc0000000014ca9c8	8	1	0	0	1	iss_hash	located			
+mbmaxpages	bsd	static	0	IP27	0xc0000000014ca9c0	4	0	0	0	0	-	no-site			
+mbretain	bsd	static	20	IP27	0xc0000000014ca9bc	4	2	0	0	1	mbinit	located			
+ps_enabled	bsd	static	1	IP27	0xc0000000014ca9b8	4	0	0	0	0	-	no-site			
+ps_rsvp_bandwidth	bsd	static	50	IP27	0xc0000000014ca9b4	4	3	0	0	2	ps_init;ps_reinit	located			
+ps_num_batch_pkts	bsd	static	0	IP27	0xc0000000014ca9b0	4	0	0	0	0	-	no-site			
+tcp_ttl	bsd	run	60	IP27	0xc0000000014ca9ac	4	5	0	0	3	ip_ctloutput;tcp_newtcpcb;tcp_respond	located			
+tcp_keepidle	bsd	run	7200	IP27	0xc0000000014ca9a8	4	3	0	0	1	tcp_timers	located			
+tcp_keepintvl	bsd	run	75	IP27	0xc0000000014ca9a4	4	3	0	0	2	tcp_slowtimo;tcp_timers	located			
+tcp_maxpersistidle	bsd	run	7200	IP27	0xc0000000014ca9a0	4	1	0	0	1	tcp_timers	located			
+tcp_mtudisc	bsd	run	1	IP27	0xc0000000014ca99c	4	3	0	0	3	tcp_msgsize;tcp_mss;tcp_output	located			
+tcp_mss_min	bsd	run	32	IP27	0xc0000000014ca998	4	2	0	0	1	tcp_mss	located			
+tcp_2msl	bsd	run	60	IP27	0xc0000000014ca994	4	0	0	0	0	-	no-site			
+tcprexmtthresh	bsd	run	3	IP27	0xc0000000014ca990	4	0	0	0	0	-	no-site			
+tcp_sack	bsd	run	1	IP27	0xc0000000014ca98c	4	3	0	0	2	tcp_dooptions;tcp_output	located			
+tcp_keepstyle	bsd	run	0	IP27	0xc0000000014ca988	4	4	0	0	2	tcp_respond;tcp_slowtimo	located			
+tcp_sendspace	bsd	run	61440	IP27	0xc0000000014ca984	4	3	0	0	2	tcp_attach;tcp_mss	located			
+tcp_recvspace	bsd	run	61440	IP27	0xc0000000014ca980	4	2	0	0	2	tcp_attach;tcp_mss	located			
+tcp_gofast	bsd	run	0	IP27	0xc0000000014ca97c	4	1	0	0	1	tcp_newtcpcb	located			
+tcp_stretch_ack_interval	bsd	run	8	IP27	0xc0000000014ca978	4	1	0	0	1	tcp_newtcpcb	located			
+tcp_agak_hysteresis_hi	bsd	run	1000	IP27	0xc0000000014ca974	4	1	0	0	1	tcp_fasttimo	located			
+tcp_timestamps	bsd	run	1	IP27	0xc0000000014ca970	4	1	0	0	1	tcp_output	located			
+tcp_zaptw_secs	bsd	run	2	IP27	0xc0000000014ca96c	4	1	0	0	1	tcp_slowtimo	located			
+tcp_pcb_cache	bsd	run	0	IP27	0xc0000000014ca968	4	3	0	0	2	tcp_close;tcp_newtcpcb	located			
+tcp_rfc2414	bsd	run	1	IP27	0xc0000000014ca964	4	2	0	0	1	tcp_ss_start	located			
+tcp_last_ack_cnt	bsd	run	0	IP27	0xc0000000014ca960	4	2	0	0	2	tcp_timers;tcp_usrclosed	located			
+tcp_drop_SYN_with_extra_flags	bsd	run	0	IP27	0xc0000000014ca95c	4	1	0	0	1	tcp_input	located			
+udp_ttl	bsd	run	60	IP27	0xc0000000014ca93c	4	3	0	0	2	ip_ctloutput;udp_usrreq	located			
+udp_sendspace	bsd	run	61440	IP27	0xc0000000014ca938	4	1	0	0	1	udp_usrreq	located			
+udp_recvgrams	bsd	run	2	IP27	0xc0000000014ca934	4	1	0	0	1	udp_usrreq	located			
+arpreq_alias	bsd	run	0	IP27	0xc0000000014ca930	4	1	0	0	1	arprequest	located			
+vfe_ldtmr	bsd	run	144	IP27	0xc0000000014ca92c	4	0	0	0	0	-	no-site			
+log_snoop_or_drain	bsd	run	0	IP27	0xc0000000014ca928	4	4	0	0	2	rawclose;rawopen	located			
+udp_so_no_check	bsd	run	0	IP27	0xc0000000014ca924	4	1	0	0	1	socreate	located			
+lomtu	bsd	run	0	IP27	0xc0000000014ca920	4	2	2	0	2	loattach;loioctl	located			
+cachefs_readahead	cachefs	run	1	IP27	-	-	0	0	0	0	-	no-symbol			
+cachefs_max_threads	cachefs	run	5	IP27	-	-	0	0	0	0	-	no-symbol			
+fileheader_cache_size	cachefs	run	512	IP27	-	-	0	0	0	0	-	no-symbol			
+replacement_timeout	cachefs	run	600	IP27	-	-	0	0	0	0	-	no-symbol			
+mesg_delay_time	cell	static	0	IP27	-	-	0	0	0	0	-	no-symbol			
+mtcp_reserve_size	cell	static	61440	IP27	-	-	0	0	0	0	-	no-symbol			
+mtcp_nodelay	cell	static	1	IP27	-	-	0	0	0	0	-	no-symbol			
+mtcp_hb_period	cell	static	500	IP27	-	-	0	0	0	0	-	no-symbol			
+mtcp_hb_watchdog	cell	static	0	IP27	-	-	0	0	0	0	-	no-symbol			
+cxfs_shutdown_time	cell	static	50	IP27	-	-	0	0	0	0	-	no-symbol			
+cxfs_speculative_token	cell	static	1	IP27	-	-	0	0	0	0	-	no-symbol			
+mtcp_mesg_validate	cell	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+cms_reset_timeout	cell	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+cms_reset_timeout_action	cell	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+cms_fence_timeout	cell	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+cms_fence_timeout_action	cell	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+cms_reset_error_override	cell	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+cxfs_relocation_ok	cxfs	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+cxfsd_min	cxfs	run	16	IP27	-	-	0	0	0	0	-	no-symbol			
+cxfsd_max	cxfs	run	16	IP27	-	-	0	0	0	0	-	no-symbol			
+cxfs_dcvn_timeout	cxfs	run	60	IP27	-	-	0	0	0	0	-	no-symbol			
+slice_size	disp	static	0	IP27	0xc0000000014ca8cc	4	2	1	0	2	_disp_sanity;p0init	located			
+memaff_sched	disp	static	1	IP27	0xc0000000014ca8c8	4	1	0	0	1	kt_endtslice	located			
+gang_sched_off	disp	static	1	IP27	0xc0000000014ca8c4	4	8	0	0	4	allocshaddr;attachshaddr;detachshaddr;schedctl	located			
+rtcpus	disp	static	0	IP27	0xc0000000014ca8c0	4	4	0	0	3	rt_add_gq;rt_remove_q;rt_setpri	located			
+runq_waittime	disp	run	8	IP27	0xc0000000014ca8bc	4	0	0	0	0	-	no-site			
+nonpreempts	disp	run	32	IP27	0xc0000000014ca8b8	4	3	0	0	1	user_resched	located			
+dms_always_use_lomem	dms	static	0	IP27	0xc0000000014ca744	4	0	0	0	0	-	no-site			
+efs_inline	efs	run	0	IP27	0xc0000000014ca768	4	0	0	0	0	-	no-site			
+fo_maximum_paths	failover	static	32	IP27	0xc0000000014ca760	4	1	0	0	1	fo_init	located			
+gfxlockablemem	gfx	static	20	IP27	0xc0000000014ca75c	4	0	0	0	0	-	no-site			
+gfxlockablemem_gt64	gfx	static	50	IP27	0xc0000000014ca758	4	0	0	0	0	-	no-site			
+gfxdmasleepthreshold	gfx	static	0	IP27	0xc0000000014ca754	4	0	0	0	0	-	no-site			
+gfxupdatedmousehandling	gfx	static	1	IP27	0xc0000000014ca750	4	0	0	0	0	-	no-site			
+min_volume_bandwidth	grio2	run	65536	IP27	-	-	0	0	0	0	-	no-symbol			
+token_bucket_size	grio2	run	2000	IP27	-	-	0	0	0	0	-	no-symbol			
+scheduler_rate	grio2	run	20	IP27	-	-	0	0	0	0	-	no-symbol			
+ec_ipg_delay	if_ec2	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+ec_xpg_delay	if_ec2	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+ec_16coll_retry	if_ec2	run	2	IP27	-	-	0	0	0	0	-	no-symbol			
+ec_rcv_desc	if_ec2	run	30	IP27	-	-	0	0	0	0	-	no-symbol			
+ec_rcv_promisc	if_ec2	run	63	IP27	-	-	0	0	0	0	-	no-symbol			
+mtr_max_rx_slots	if_ptr	run	16	IP27	-	-	0	0	0	0	-	no-symbol			
+mtr_max_tx_slots	if_ptr	run	16	IP27	-	-	0	0	0	0	-	no-symbol			
+mtr_bc_mask	if_ptr	run	0x8000	IP27	-	-	0	0	0	0	-	no-symbol			
+mtr_mtu	if_ptr	run	4472	IP27	-	-	0	0	0	0	-	no-symbol			
+mtr_batype	if_ptr	run	2	IP27	-	-	0	0	0	0	-	no-symbol			
+mtr_participant_claim_token	if_ptr	run	1	IP27	-	-	0	0	0	0	-	no-symbol			
+mtr_arb_enabled	if_ptr	run	1	IP27	-	-	0	0	0	0	-	no-symbol			
+mtr_s16Mb	if_ptr	run	1	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_cpu_cur	jlimits	static	0x7fffffffffffffff	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_cpu_max	jlimits	static	0x7fffffffffffffff	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_data_cur	jlimits	static	0x7fffffffffffffff	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_data_max	jlimits	static	0x7fffffffffffffff	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_vmem_cur	jlimits	static	0x7fffffffffffffff	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_vmem_max	jlimits	static	0x7fffffffffffffff	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_rss_cur	jlimits	static	0x7fffffffffffffff	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_rss_max	jlimits	static	0x7fffffffffffffff	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_nofile_cur	jlimits	static	0x7fffffffffffffff	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_nofile_max	jlimits	static	0x7fffffffffffffff	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_pthread_cur	jlimits	static	0x7fffffffffffffff	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_pthread_max	jlimits	static	0x7fffffffffffffff	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_numproc_cur	jlimits	static	0x7fffffffffffffff	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_numproc_max	jlimits	static	0x7fffffffffffffff	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_pmem_cur	jlimits	static	0x7fffffffffffffff	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_pmem_max	jlimits	static	0x7fffffffffffffff	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_cpu_ign	jlimits	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_data_ign	jlimits	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_vmem_ign	jlimits	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_rss_ign	jlimits	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_nofile_ign	jlimits	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_pthread_ign	jlimits	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_numproc_ign	jlimits	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+jlimit_pmem_ign	jlimits	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+kdsp_pro_audio_subcode	kdsp	static	2	IP27	0xc0000000014ca740	4	0	0	0	0	-	no-site			
+nosuidshells	kernel	static	1	IP27	0xc0000000014cb034	4	1	0	0	1	intpexec	located			
+restricted_chown	kernel	static	0	IP27	0xc0000000014cb030	4	4	0	0	4	fs_pathconf;nm_setattr;udf_setattr;xfs_setattr	located			
+posix_tty_default	kernel	static	0	IP27	0xc0000000014cb02c	4	3	0	0	2	st_rsrv;stty_ld_init	located			
+use_old_serialnum	kernel	static	0	IP27	0xc0000000014cb028	4	0	0	0	0	-	no-site			
+reboot_on_panic	kernel	static	-1	IP27	0xc0000000014cb024	4	3	2	0	1	prom_reboot	located			
+restrict_fastprof	kernel	static	0	IP27	0xc0000000014cb020	4	1	0	0	1	sprofil	located			
+reset_limits_on_exec	kernel	static	1	IP27	0xc0000000014cb01c	4	2	0	0	1	gexec_complete	located			
+ip26_allow_ucmem	kernel	static	0	IP27	0xc0000000014cb018	4	0	0	0	0	-	no-site			
+add_kthread_stack	kernel	static	0	IP27	0xc0000000014cb014	4	1	0	0	1	kthread_init	located			
+xpg4_sticky_dir	kernel	static	1	IP27	0xc0000000014cb010	4	2	0	0	2	udf_stickytest;xfs_stickytest	located			
+mload_auto_rtsyms	kernel	static	1	IP27	0xc0000000014cb00c	4	2	0	0	2	st_findaddr;st_findname	located			
+disable_ip25_check	kernel	static	0	IP27	0xc0000000014cb008	4	0	0	0	0	-	no-site			
+prod_assertion_level	kernel	static	0	IP27	0xc0000000014cb004	4	1	0	0	1	alloc_cpupda	located			
+disable_r10k_log	kernel	static	0	IP27	0xc0000000014cb000	4	0	0	0	0	-	no-site			
+r10k_halt_1st_cache_err	kernel	static	0	IP27	0xc0000000014caffc	4	0	0	0	0	-	no-site			
+r10k_cache_debug	kernel	static	0	IP27	0xc0000000014caff8	4	0	0	0	0	-	no-site			
+perfcnt_arch_swtch_sig	kernel	static	0	IP27	0xc0000000014caff4	4	0	0	0	0	-	no-site			
+perfcnt_arch_swtch_msg	kernel	static	0	IP27	0xc0000000014caff0	4	1	0	0	1	r1nk_perf_check_architecture	located			
+spec_udma_war_on	kernel	static	1	IP27	0xc0000000014cafe8	4	0	0	0	0	-	no-site			
+warbits_override	kernel	static	-1	IP27	0xc0000000014cafe4	4	1	0	0	1	mlreset	located			
+enable_pci_BIST	kernel	static	0	IP27	0xc0000000014cafe0	4	0	0	0	0	-	no-site			
+ip32_pci_enable_prefetch	kernel	static	0	IP27	0xc0000000014cafdc	4	0	0	0	0	-	no-site			
+ip32_pci_flush_prefetch	kernel	static	1	IP27	0xc0000000014cafd8	4	0	0	0	0	-	no-site			
+ignore_sysctlr_intr	kernel	static	0	IP27	0xc0000000014cafd4	4	1	0	0	1	sysctlr_init	located			
+powerfail_cleanio	kernel	static	0	IP27	0xc0000000014cafd0	4	0	0	0	0	-	no-site			
+intr_revive_delay	kernel	static	300	IP27	0xc0000000014cafcc	4	0	0	0	0	-	no-site			
+powerfail_routerwar	kernel	static	1	IP27	0xc0000000014cafc8	4	1	0	0	1	sysctlr_power_off	located			
+xbox_sysctlr_poll_interval	kernel	static	60	IP27	0xc0000000014cafc4	4	0	0	0	0	-	no-site			
+clean_shutdown_time	kernel	static	120	IP27	0xc0000000014cafc0	4	0	0	0	0	-	no-site			
+ignore_xsc	kernel	static	0	IP27	0xc0000000014cafbc	4	1	0	0	1	xbox_sysctlr_init	located			
+snerrste_pages_per_cube	kernel	static	1	IP27	0xc0000000014cafb8	4	0	0	0	0	-	no-site			
+xpc_override	kernel	static	0	IP27	0xc0000000014cafb4	4	0	0	0	0	-	no-site			
+origin_use_hardware_bzero	kernel	static	0	IP27	0xc0000000014cafb0	4	2	0	0	2	page_zero;page_zero_nofault	located			
+cpulimit_gracetime	kernel	static	0	IP27	0xc0000000014cafac	4	4	0	0	1	clock	located			
+ignore_isolated_cpu_warning	kernel	static	0	IP27	0xc0000000014cafa8	4	0	0	0	0	-	no-site			
+r10k_gfx_write_war_on	kernel	static	0	IP27	0xc0000000014cafa4	4	1	0	0	1	quicken_uthread	located			
+allow_chroot_with_open_dirs	kernel	static	1	IP27	0xc0000000014cafa0	4	1	0	0	1	chroot	located			
+limit_pinfo_access	kernel	static	0444	IP27	0xc0000000014caf9c	4	6	1	0	2	prbuild;prioctl	located			
+tty_auto_strhold	kernel	run	0	IP27	0xc0000000014caf98	4	1	0	0	1	st_rsrv	located			
+async_udma_copy	kernel	run	1	IP27	0xc0000000014caf94	4	1	0	0	1	fast_userdma	located			
+ensure_no_rawio_conflicts	kernel	run	1	IP27	0xc0000000014caf90	4	1	0	0	1	pas_pattach	located			
+dbe_recovery	kernel	run	1	IP27	0xc0000000014caf8c	4	6	0	0	3	_pagefree_size;pas_vfault;scache_pool_add	located			
+ip32_nvram_env_commit	kernel	run	1	IP27	0xc0000000014caf88	4	0	0	0	0	-	no-site			
+enable_upanic	kernel	run	0	IP27	0xc0000000014caf84	4	2	0	0	1	syssgi	located			
+disable_uspollsema_chk	kernel	run	0	IP27	0xc0000000014caf80	4	1	0	0	1	usioctl	located			
+nodeslimitfrac	kernel	run	50	IP27	0xc0000000014caf74	4	1	0	0	1	chunk_pshake	located			
+chunk_nodeshogfrac	kernel	run	20	IP27	0xc0000000014caf70	4	1	0	0	1	chunk_pshake	located			
+nodeminfree	kernel	run	2000000	IP27	0xc0000000014caf68	8	0	0	0	0	-	no-site			
+maxfailcount	kernel	run	10	IP27	0xc0000000014caf60	4	1	0	0	1	cpuset_memalloc_ok	located			
+io4ia_userdma_war	kernel	static	1	IP27	0xc0000000014caf5c	4	0	0	0	0	-	no-site			
+ignore_conveyor_override	kernel	static	0	IP27	0xc0000000014caf58	4	1	0	0	1	hub_setup_prb	located			
+force_fire_and_forget	kernel	static	1	IP27	0xc0000000014caf54	4	1	0	0	1	hub_setup_prb	located			
+io4ia_war_enable	kernel	static	0	IP27	0xc0000000014caf50	4	0	0	0	0	-	no-site			
+tigon2_war_enable	kernel	static	1	IP27	0xc0000000014caf4c	4	1	0	0	1	setupbadmem	located			
+bpush_war_enable	kernel	static	1	IP27	0xc0000000014caf48	4	1	0	0	1	bte_bpush_war	located			
+bpush_source1	kernel	static	0x26	IP27	0xc0000000014caf44	4	1	0	0	1	bte_bpush_war	located			
+bpush_source2	kernel	static	0	IP27	0xc0000000014caf40	4	2	0	0	1	bte_bpush_war	located			
+bpush_source3	kernel	static	0	IP27	0xc0000000014caf3c	4	1	0	0	1	bte_bpush_war	located			
+bpush_source4	kernel	static	0	IP27	0xc0000000014caf38	4	2	0	0	1	bte_bpush_war	located			
+r4k_div_patch	kernel	run	0	IP27	0xc0000000014caf34	4	0	0	0	0	-	no-site			
+corepluspid	kernel	run	0	IP27	0xc0000000014caf30	4	0	0	0	0	-	no-site			
+panic_on_sbe	kernel	run	0	IP27	0xc0000000014caf2c	4	4	0	0	1	memerror_sbe_intr	located			
+sbe_log_errors	kernel	run	0	IP27	0xc0000000014caf28	4	0	0	0	0	-	no-site			
+sbe_mem_verbose	kernel	run	0	IP27	0xc0000000014caf24	4	1	0	0	1	page_discard_enqueue	located			
+sbe_mfr_override	kernel	run	0	IP27	0xc0000000014caf20	4	0	0	0	0	-	no-site			
+sbe_report_cons	kernel	run	0	IP27	0xc0000000014caf1c	4	0	0	0	0	-	no-site			
+sbe_maxout	kernel	run	600	IP27	0xc0000000014caf18	4	2	0	0	1	memerror_sbe_intr	located			
+sbe_max_per_page	kernel	run	60	IP27	0xc0000000014caf14	4	2	0	0	1	memerror_sbe_intr	located			
+ecc_recover_enable	kernel	run	60	IP27	0xc0000000014caf10	4	0	0	0	0	-	no-site			
+module_unld_delay	kernel	run	5	IP27	0xc0000000014caf0c	4	2	0	0	2	fmrele;mlqdetach	located			
+dump_level	kernel	run	4	IP27	0xc0000000014caf08	4	0	0	0	0	-	no-site			
+dump_hub_info	kernel	run	2	IP27	0xc0000000014caf04	4	2	0	0	1	dump_hub_data	located			
+disable_asyncdump	kernel	run	0	IP27	0xc0000000014caf00	4	0	0	0	0	-	no-site			
+heartbeat_enable	kernel	run	0	IP27	0xc0000000014caefc	4	3	2	0	1	sysctlr_keepalive	located			
+craylnk_bypass_disable	kernel	run	0	IP27	0xc0000000014caef8	4	2	0	0	2	router_acquire_info;router_init	located			
+disable_sbe_polling	kernel	run	0	IP27	0xc0000000014caef4	4	4	0	0	1	tick_actions	located			
+rpparm_maxburst_val	kernel	run	0x24	IP27	0xc0000000014caef0	4	1	0	0	1	router_port_init	located			
+mmap_async_write	kernel	run	0	IP27	0xc0000000014caeec	4	1	0	0	1	pas_pattach	located			
+r10k_intervene	kernel	run	1	IP27	0xc0000000014caee8	4	4	1	0	3	allowboot;cont_nmi_dump;tick_actions	located			
+r10k_progress_nmi	kernel	run	0	IP27	0xc0000000014caee4	4	6	0	0	2	cont_nmi_dump;tick_actions	located			
+r10k_check_count	kernel	run	30000	IP27	0xc0000000014caee0	4	2	0	0	2	alloc_cpupda;tick_actions	located			
+r10k_progress_diff	kernel	run	200000000	IP27	0xc0000000014caed8	8	1	0	0	1	tick_actions	located			
+ip32_pio_predelay	kernel	run	5	IP27	0xc0000000014caed4	4	0	0	0	0	-	no-site			
+ip32_pio_postdelay	kernel	run	5	IP27	0xc0000000014caed0	4	0	0	0	0	-	no-site			
+crime_rev	kernel	run	0	IP27	0xc0000000014caecc	4	0	0	0	0	-	no-site			
+cpu_prid	kernel	run	0	IP27	0xc0000000014caec8	4	0	0	0	0	-	no-site			
+max_shared_reg_refcnt	kernel	run	4	IP27	0xc0000000014caec4	4	1	0	0	1	dupreg	located			
+peer_peer_dma	kernel	run	0	IP27	0xc0000000014caec0	4	0	0	0	0	-	no-site			
+counter_intr_panic	kernel	run	0	IP27	0xc0000000014caebc	4	1	0	0	1	counter_intr	located			
+hub_intr_wakeup_cnt	kernel	run	1	IP27	0xc0000000014caeb4	4	0	0	0	0	-	no-site			
+evdev_intr_wakeup_cnt	kernel	run	1	IP27	0xc0000000014caeb0	4	0	0	0	0	-	no-site			
+pci_user_dma_max_pages	kernel	run	128	IP27	0xc0000000014caeac	4	0	0	0	0	-	no-site			
+fpcsr_fs_bit	kernel	run	1	IP27	0xc0000000014caea8	4	2	0	0	2	pcb_fpc_csr_initstate;setregs	located			
+mrlock_starve_threshold	kernel	run	3	IP27	0xc0000000014caea4	4	4	0	0	4	mraccessf;mrspinaccess;mrspinupdate;mrupdatef	located			
+mrlock_behavior	kernel	run	3	IP27	0xc0000000014caea0	4	2	0	0	1	mrlock_init	located			
+coremask	kernel	run	0	IP27	0xc0000000014cae9c	4	0	0	0	0	-	no-site			
+usb_discovery_verbose	kernel	run	0	IP27	0xc0000000014cae98	4	0	0	0	0	-	no-site			
+pcmouse_mode	kernel	run	0	IP27	0xc0000000014cae94	4	0	0	0	0	-	no-site			
+nomem_report_cons	kernel	run	0	IP27	0xc0000000014cae90	4	1	0	0	1	nomemmsg	located			
+pcibr_prefetch_enable_rev	kernel	run	3	IP27	0xc0000000014cae8c	4	1	0	0	1	xbridge_attach	located			
+pcibr_wg_enable_rev	kernel	run	4	IP27	0xc0000000014cae88	4	1	0	0	1	xbridge_attach	located			
+bridge_rev_b_data_check_disable	kernel	run	0	IP27	0xc0000000014cae84	4	1	0	0	1	pcibr_error_intr_handler	located			
+full_fru_analysis	kernel	run	1	IP27	0xc0000000014cae80	4	1	0	0	1	kf_io_analyze	located			
+fru_disable_confidence	kernel	run	90	IP27	0xc0000000014cae7c	4	3	0	0	3	kf_bridge_analysis_print;kf_cpu_analysis_print;kf_memory_analysis_print	located			
+disable_bte	kernel	run	0	IP27	0xc0000000014cae78	4	8	1	0	7	bte_avail;bte_copy;bte_disable;bte_pbcopy;bte_pbzero;bte_poison_range;bte_unaligned_copy	located			
+disable_bte_pbcopy	kernel	run	64	IP27	0xc0000000014cae74	4	1	0	0	1	bte_pbcopy	located			
+disable_bte_pbzero	kernel	run	64	IP27	0xc0000000014cae70	4	1	0	0	1	bte_pbzero	located			
+disable_bte_poison_range	kernel	run	0	IP27	0xc0000000014cae6c	4	1	0	0	1	bte_poison_range	located			
+iio_icmr_precise	kernel	run	1	IP27	0xc0000000014cae68	4	0	0	0	0	-	no-site			
+iio_icmr_c_cnt	kernel	run	6	IP27	0xc0000000014cae64	4	0	0	0	0	-	no-site			
+iio_bte_crb_count	kernel	run	2	IP27	0xc0000000014cae60	4	0	0	0	0	-	no-site			
+iio_ictp	kernel	run	0x800	IP27	0xc0000000014cae5c	4	0	0	0	0	-	no-site			
+iio_icto	kernel	run	0xff	IP27	0xc0000000014cae58	4	0	0	0	0	-	no-site			
+la_trigger_nasid1	kernel	run	-1	IP27	0xc0000000014cae54	4	0	0	0	0	-	no-site			
+la_trigger_nasid2	kernel	run	-1	IP27	0xc0000000014cae50	4	0	0	0	0	-	no-site			
+la_trigger_val	kernel	run	0xdeadbeefbeefcafe	IP27	0xc0000000014cae48	8	0	0	0	0	-	no-site			
+r4k_corrupt_scache_data	kernel	static	0	IP27	0xc0000000014cae3c	4	0	0	0	0	-	no-site			
+l2_sbe_check	kernel	static	0x000c	IP27	0xc0000000014cae38	4	10	0	0	4	counter_intr;l2_sbe_init;l2_sbe_sched;sched	located			
+l2_sbe_reset_sec	kernel	static	60	IP27	0xc0000000014cae34	4	3	0	0	1	l2_sbe_sched	located			
+engr_dvt_flag	kernel	static	0	IP27	0xc0000000014cae30	4	1	0	0	1	main	located			
+engr_dvt_sleep	kernel	static	300	IP27	0xc0000000014cae2c	4	0	0	0	0	-	no-site			
+engr_dvt_l2_scan_enable	kernel	static	0	IP27	0xc0000000014cae28	4	0	0	0	0	-	no-site			
+engr_dvt_memchck_enable	kernel	static	0	IP27	0xc0000000014cae24	4	0	0	0	0	-	no-site			
+utrace_bufsize	kernel	static	0	IP27	0xc0000000014cae20	4	7	1	0	4	syscall;tstamp_update_mask;tstamp_user_delete;utrace_init	located			
+kmem_do_poison	kernel	run	1	IP27	0xc0000000014cae1c	4	2	0	0	1	kmem_poison	located			
+kmem_make_zones_private_min	kernel	run	0	IP27	0xc0000000014cae18	4	0	0	0	0	-	no-site			
+kmem_make_zones_private_max	kernel	run	0	IP27	0xc0000000014cae14	4	0	0	0	0	-	no-site			
+kmem_split_zone	kernel	run	0	IP27	0xc0000000014cae10	4	0	0	0	0	-	no-site			
+utrace_mask	kernel	run	0xfff3f	IP27	0xc0000000014cae08	8	3	1	0	3	_utrace_sanity;syscall;tstamp_update_mask	located			
+power_button_changed_to_crash_dump	kernel	run	0	IP27	0xc0000000014cae00	4	0	0	0	0	-	no-site			
+process_core_cpu_logging	kernel	run	0	IP27	0xc0000000014cadfc	4	3	0	0	1	trap	located			
+r12k_bdiag	kernel	run	0	IP27	0xc0000000014cadf8	4	0	0	0	0	-	no-site			
+ncargs	kernel	run	20480	IP27	0xc0000000014cadf4	4	2	2	0	2	_limits_sanity;sysconf	located			
+shlbmax	kernel	run	8	IP27	0xc0000000014cadf0	4	0	0	0	0	-	no-site			
+maxwatchpoints	kernel	run	100	IP27	0xc0000000014cadec	4	1	0	0	1	addwatch	located			
+nprofile	kernel	run	100	IP27	0xc0000000014cade8	4	2	0	0	2	evc_profil;sprofil	located			
+maxsymlinks	kernel	run	30	IP27	0xc0000000014cade4	4	1	0	0	1	lookuppn	located			
+maxup	kernel	run	0	IP27	0xc0000000014cade0	4	4	1	0	4	_numproc_sanity;prctl;procnew;sysconf	located			
+maxup_enforce_penalty	kernel	run	0	IP27	0xc0000000014caddc	4	1	1	0	1	procnew	located			
+idbgmaxfuncs	kernel	run	1200	IP27	0xc0000000014cadd8	4	0	0	0	0	-	no-site			
+rlimit_cpu_cur	kernel	static	0x7fffffffffffffff	IP27	0xc0000000014cadd0	8	1	0	0	1	p0init	located			
+rlimit_cpu_max	kernel	static	0x7fffffffffffffff	IP27	0xc0000000014cadc8	8	1	0	0	1	p0init	located			
+rlimit_fsize_cur	kernel	static	0x7fffffffffffffff	IP27	0xc0000000014cadc0	8	1	0	0	1	p0init	located			
+rlimit_fsize_max	kernel	static	0x7fffffffffffffff	IP27	0xc0000000014cadb8	8	1	0	0	1	p0init	located			
+rlimit_data_cur	kernel	static	0	IP27	0xc0000000014cadb0	8	2	1	0	2	_resource_sanity;as_p0init	located			
+rlimit_data_max	kernel	static	0	IP27	0xc0000000014cada8	8	2	1	0	2	_resource_sanity;p0init	located			
+rlimit_stack_cur	kernel	static	0x04000000	IP27	0xc0000000014cada0	8	1	0	0	1	as_p0init	located			
+rlimit_stack_max	kernel	static	0x20000000	IP27	0xc0000000014cad98	8	1	0	0	1	p0init	located			
+rlimit_core_cur	kernel	static	0x7fffffffffffffff	IP27	0xc0000000014cad90	8	1	0	0	1	p0init	located			
+rlimit_core_max	kernel	static	0x7fffffffffffffff	IP27	0xc0000000014cad88	8	1	0	0	1	p0init	located			
+rlimit_vmem_cur	kernel	static	0	IP27	0xc0000000014cad80	8	2	1	0	2	_resource_sanity;as_p0init	located			
+rlimit_vmem_max	kernel	static	0	IP27	0xc0000000014cad78	8	2	1	0	2	_resource_sanity;p0init	located			
+rlimit_rss_cur	kernel	static	0	IP27	0xc0000000014cad70	8	2	2	0	1	as_p0init	located			
+rlimit_rss_max	kernel	static	0	IP27	0xc0000000014cad68	8	2	1	0	2	as_p0init;p0init	located			
+rlimit_nofile_cur	kernel	static	200	IP27	0xc0000000014cad60	8	1	0	0	1	p0init	located			
+rlimit_nofile_max	kernel	static	2500	IP27	0xc0000000014cad58	8	1	0	0	1	p0init	located			
+rlimit_pthread_cur	kernel	static	0x400	IP27	0xc0000000014cad50	8	1	0	0	1	p0init	located			
+rlimit_pthread_max	kernel	static	0x400	IP27	0xc0000000014cad48	8	1	0	0	1	p0init	located			
+nproc	kernel	static	0	IP27	0xc0000000014cad38	4	4	1	0	4	_numproc_sanity;as_init;procnew;vn_init	located			
+ndquot	kernel	static	0	IP27	0xc0000000014cad34	4	1	1	0	1	_numproc_sanity	located			
+ncallout	kernel	static	0	IP27	0xc0000000014cad30	4	2	1	0	2	_numproc_sanity;calloutinit_cpu	located			
+ncsize	kernel	static	0	IP27	0xc0000000014cad2c	4	12	1	0	7	_numproc_sanity;dnlc_init;dnlc_v2name;dnlc_vname;idbg_ncache;vn_init;xfs_init	located			
+ngroups_max	kernel	static	16	IP27	0xc0000000014cad28	4	7	0	0	5	crcmp;crgetsize;krpc_init;setgroups;sysconf	located			
+nclrus	kernel	static	0	IP27	0xc0000000014cad24	4	1	0	0	1	dnlc_init	located			
+nlog	kernel	static	0	IP27	0xc0000000014cad20	4	2	1	0	2	_numproc_sanity;loginit	located			
+nstrpush	kernel	static	8	IP27	0xc0000000014cad1c	4	3	0	0	3	strdrv_push;strioctl;stropen	located			
+nstrintr	kernel	static	1024	IP27	0xc0000000014cad18	4	3	0	0	1	str_mp_init	located			
+strmsgsz	kernel	static	0x8000	IP27	0xc0000000014cad14	4	5	0	0	4	strdoioctl;strioctl;strputmsg;strwrite	located			
+strctlsz	kernel	static	1024	IP27	0xc0000000014cad10	4	3	0	0	2	strioctl;strputmsg	located			
+strpmonmax	kernel	static	4	IP27	0xc0000000014cad0c	4	1	0	0	1	str_privmon_alloc	located			
+strholdtime	kernel	run	50	IP27	0xc0000000014cad08	4	4	0	0	2	_queuerun;strwrite	located			
+nactions	kernel	static	0	IP27	0xc0000000014cad04	4	2	1	0	1	action_prealloc	located			
+maxsigq	kernel	run	128	IP27	0xc0000000014cad00	4	2	0	0	2	pproc_sendsig;sysconf	located			
+fasthz	kernel	static	1000	IP27	0xc0000000014cacfc	4	5	1	0	5	_timer_sanity;fasthzto;inittodr;timein;timer_settime	located			
+itimer_on_clkcpu	kernel	static	0	IP27	0xc0000000014cacf8	4	4	0	0	2	dosetitimer;realitexpire	located			
+timetrim	kernel	static	0	IP27	0xc0000000014cacf4	4	2	1	0	3	gettimetrim;nanotime_syscall;settimetrim	located			
+maxpmem	kernel	static	0	IP27	0xc0000000014cacf0	4	0	0	0	0	-	no-site			
+syssegsz	kernel	static	0	IP27	0xc0000000014cacec	4	17	1	0	14	_memsize_sanity;cache_operation;cpuset_mem_init;ddv_mappages;kmiss;ktlbfix;kvswapin;kvswappable;kvtophys;kvtophyspg;kvtophyspnum;sn0_poq_war;sysreg_earlyinit;tlbmiss	located			
+maxdmasz	kernel	static	1025|257	IP27	0xc0000000014cace8	4	3	1	0	3	_memsize_sanity;xfs_init;xfs_lockdown_iopages	located			
+maxpglst	kernel	static	0	IP27	0xc0000000014cace4	4	4	0	0	2	sema_init;tune_sanity	located			
+scache_pool_size	kernel	static	32	IP27	0xc0000000014cace0	4	0	0	0	0	-	no-site			
+gpgslo	kernel	run	0	IP27	0xc0000000014cacdc	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+gpgshi	kernel	run	0	IP27	0xc0000000014cacd8	4	1	3	0	2	_paging_sanity;tune_sanity	located			
+gpgsmsk	kernel	run	2	IP27	0xc0000000014cacd4	4	1	1	0	2	_paging_sanity;tune_sanity	located			
+maxsc	kernel	run	0	IP27	0xc0000000014cacd0	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+maxfc	kernel	run	0	IP27	0xc0000000014caccc	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+maxdc	kernel	run	0	IP27	0xc0000000014cacc8	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+bdflushr	kernel	run	5	IP27	0xc0000000014cacc4	4	1	1	0	2	_paging_sanity;tune_sanity	located			
+bdflush_interval	kernel	run	100	IP27	0xc0000000014cacc0	4	5	0	0	3	bdflush_wake_proc;bdflushinit;syssgi	located			
+vfs_syncr	kernel	run	30	IP27	0xc0000000014cacbc	4	0	0	0	0	-	no-site			
+minarmem	kernel	run	0	IP27	0xc0000000014cacb8	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+minasmem	kernel	run	0	IP27	0xc0000000014cacb4	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+maxlkmem	kernel	run	2000	IP27	0xc0000000014cacb0	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+tlbdrop	kernel	run	100	IP27	0xc0000000014cacac	4	1	0	0	1	_paging_sanity	located			
+rsshogfrac	kernel	run	75	IP27	0xc0000000014caca8	4	1	1	0	2	_paging_sanity;tune_sanity	located			
+rsshogslop	kernel	run	20	IP27	0xc0000000014caca4	4	1	0	0	1	_paging_sanity	located			
+dwcluster	kernel	run	64	IP27	0xc0000000014caca0	4	1	1	0	2	_paging_sanity;tune_sanity	located			
+autoup	kernel	run	10	IP27	0xc0000000014cac9c	4	1	0	0	1	_paging_sanity	located			
+min_file_pages	kernel	run	0	IP27	0xc0000000014cac98	4	10	2	0	7	activate_bufs;chunk_pshake;chunkfree;chunkhold;cinit;free_buffer_mem;mem_adjust	located			
+min_free_pages	kernel	run	0	IP27	0xc0000000014cac94	4	7	2	0	6	activate_bufs;chunk_pshake;chunkfree;chunkhold;cinit;mem_adjust	located			
+min_bufmem	kernel	run	0	IP27	0xc0000000014cac90	4	5	1	0	4	binit;chunk_pshake;free_buffer_mem;mem_adjust	located			
+shaked_interval	kernel	run	1	IP27	0xc0000000014cac8c	4	0	0	0	0	-	no-site			
+zone_accum_limit	kernel	run	30	IP27	0xc0000000014cac88	4	0	0	0	0	-	no-site			
+cwcluster	kernel	run	64	IP27	0xc0000000014cac84	4	2	0	0	1	chunkcommit	located			
+enable_devzero_opt	kernel	run	1	IP27	0xc0000000014cac7c	4	1	0	0	1	pas_addmmapdevice	located			
+max_heap_mapping_size_hint	kernel	run	0x7fffffff	IP27	0xc0000000014cac78	4	2	0	0	2	pas_addexec;pas_break	located			
+enable_kaio_fast_path	kernel	run	1	IP27	0xc0000000014cac74	4	0	0	0	0	-	no-site			
+buf_relse_age	kernel	run	0	IP27	0xc0000000014cac70	4	1	0	0	1	xfs_vop_readbuf_core	located			
+nfs_buf_commit_age	kernel	run	0	IP27	0xc0000000014cac6c	4	0	0	0	0	-	no-site			
+buf_clback	kernel	run	0	IP27	0xc0000000014cac68	4	1	0	0	1	clusterwrite	located			
+buf_throttle_on	kernel	run	0	IP27	0xc0000000014cac64	4	3	0	0	3	buf_throttle_active;buf_throttle_pending;dchunkpush_aged	located			
+buf_throttle_threshold	kernel	run	70	IP27	0xc0000000014cac60	4	1	0	0	1	buf_throttle_active	located			
+buf_throttle_off_threshold	kernel	run	60	IP27	0xc0000000014cac5c	4	1	0	0	1	buf_throttle_active	located			
+buf_throttle_pending_threshold	kernel	run	60	IP27	0xc0000000014cac58	4	1	0	0	1	buf_throttle_pending	located			
+buf_throttle_sleep_base_prd	kernel	run	50000000	IP27	0xc0000000014cac54	4	0	0	0	0	-	no-site			
+buf_throttle_sleep_recalc_prd	kernel	run	25	IP27	0xc0000000014cac50	4	0	0	0	0	-	no-site			
+nbuf	kernel	static	0	IP27	0xc0000000014cac4c	4	9	1	0	8	_bufcache_sanity;chunk_vflush;chunk_vshake;chunkfree;chunkhold;cinit;free_buffer_mem;getbuf_stats	located			
+nbufavoiddev	kernel	static	16	IP27	0xc0000000014cac48	4	4	0	0	4	binit;buf_avoid_add;buf_avoid_delete;buf_avoid_search	located			
+bdevsw_extra	kernel	static	21	IP27	0xc0000000014cac3c	4	0	0	0	0	-	no-site			
+cdevsw_extra	kernel	static	23	IP27	0xc0000000014cac38	4	0	0	0	0	-	no-site			
+fmodsw_extra	kernel	static	20	IP27	0xc0000000014cac34	4	0	0	0	0	-	no-site			
+vfssw_extra	kernel	static	5	IP27	0xc0000000014cac30	4	0	0	0	0	-	no-site			
+do_procacct	kernel	static	1	IP27	0xc0000000014cac2c	4	1	0	0	1	pproc_exit	located			
+do_extpacct	kernel	static	0	IP27	0xc0000000014cac28	4	2	0	0	2	extacct;pproc_exit	located			
+do_sessacct	kernel	static	0	IP27	0xc0000000014cac24	4	4	0	0	2	extacct;pproc_exit	located			
+do_csaacct	kernel	static	0	IP27	0xc0000000014cac20	4	12	1	0	9	acctctl;clock;exit;pproc_exit;prctl;reattachpreg;shadowacct;vattachreg;vgrowreg	located			
+sessaf	kernel	static	1	IP27	0xc0000000014cac1c	4	1	0	0	1	ppag_init	located			
+spilen	kernel	static	64	IP27	0xc0000000014cac18	4	1	0	0	1	ppag_init	located			
+dfltprid	kernel	static	0	IP27	0xc0000000014cac10	8	3	0	0	3	ppagg_create;xcstat;xfs_mkdir	located			
+dflt_paggid	kernel	static	0	IP27	0xc0000000014cac08	8	1	0	0	1	vpag_init	located			
+min_local_paggid	kernel	static	1	IP27	0xc0000000014cac00	8	5	0	0	5	vpag_create;vpag_init;vpag_set_paggid;vpag_setidctr;vpag_setidincr	located			
+max_local_paggid	kernel	static	65535	IP27	0xc0000000014cabf8	8	4	0	0	4	vpag_create;vpag_set_paggid;vpag_setidctr;vpag_setidincr	located			
+incr_paggid	kernel	static	1	IP27	0xc0000000014cabf0	8	1	0	0	1	vpag_init	located			
+asmachid	kernel	static	0	IP27	0xc0000000014cabec	4	2	0	0	2	vpag_init;vpag_setmachid	located			
+asarrayid	kernel	static	0xffff	IP27	0xc0000000014cabe8	4	2	0	0	2	vpag_init;vpag_setarrayid	located			
+miser_rss_account	kernel	static	1	IP27	0xc0000000014cabe4	4	0	0	0	0	-	no-site			
+histmax	kernel	static	0	IP27	0xc0000000014cabe0	4	3	1	0	1	rslog_size	located			
+conbuf_maxsz	kernel	static	16384	IP27	0xc0000000014cabdc	4	0	0	0	0	-	no-site			
+putbuf_maxsz	kernel	static	16384	IP27	0xc0000000014cabd8	4	0	0	0	0	-	no-site			
+errbuf_maxsz	kernel	static	16384	IP27	0xc0000000014cabd4	4	0	0	0	0	-	no-site			
+conbuf_cpusz	kernel	static	2048	IP27	0xc0000000014cabd0	4	0	0	0	0	-	no-site			
+putbuf_cpusz	kernel	static	2048	IP27	0xc0000000014cabcc	4	0	0	0	0	-	no-site			
+errbuf_cpusz	kernel	static	2048	IP27	0xc0000000014cabc8	4	0	0	0	0	-	no-site			
+dumplo	kernel	static	0	IP27	0xc0000000014cabc4	4	0	1	0	1	sd_init	located			
+hub_core_arb_ctrl	kernel	static	0xfe	IP27	0xc0000000014cabc0	4	1	0	0	1	per_hub_init	located			
+hub_2_4_iio_icmr_c_cnt	kernel	static	4	IP27	0xc0000000014cabbc	4	1	0	0	1	per_hub_init	located			
+hub_2_4_iio_icmr_p_cnt	kernel	static	0	IP27	0xc0000000014cabb8	4	1	0	0	1	per_hub_init	located			
+hub_2_4_iio_bte_crb_cnt	kernel	static	2	IP27	0xc0000000014cabb4	4	1	0	0	1	per_hub_init	located			
+nlpages_64k	kernel	static	0	IP27	0xc0000000014cabb0	4	1	0	0	1	dba_getconfig	located			
+nlpages_256k	kernel	static	0	IP27	0xc0000000014cabac	4	1	0	0	1	dba_getconfig	located			
+nlpages_1m	kernel	static	0	IP27	0xc0000000014caba8	4	1	0	0	1	dba_getconfig	located			
+nlpages_4m	kernel	static	0	IP27	0xc0000000014caba4	4	1	0	0	1	dba_getconfig	located			
+nlpages_16m	kernel	static	0	IP27	0xc0000000014caba0	4	1	0	0	1	dba_getconfig	located			
+large_pages_enable	kernel	static	1|0	IP27	0xc0000000014cab9c	4	2	0	0	2	lpage_init_watermarks;main	located			
+percent_totalmem_16k_pages	kernel	run	0	IP27	0xc0000000014cab98	4	0	1	0	1	_lpage_watermarks_sanity	located			
+percent_totalmem_64k_pages	kernel	run	20	IP27	0xc0000000014cab94	4	2	0	0	2	_lpage_watermarks_sanity;collect_lpg_stats	located			
+percent_totalmem_256k_pages	kernel	run	0	IP27	0xc0000000014cab90	4	2	0	0	2	_lpage_watermarks_sanity;collect_lpg_stats	located			
+percent_totalmem_1m_pages	kernel	run	0	IP27	0xc0000000014cab8c	4	2	0	0	2	_lpage_watermarks_sanity;collect_lpg_stats	located			
+percent_totalmem_4m_pages	kernel	run	0	IP27	0xc0000000014cab88	4	2	0	0	2	_lpage_watermarks_sanity;collect_lpg_stats	located			
+percent_totalmem_16m_pages	kernel	run	0	IP27	0xc0000000014cab84	4	2	0	0	2	_lpage_watermarks_sanity;collect_lpg_stats	located			
+coalesced_run_period	kernel	run	300	IP27	0xc0000000014cab80	4	2	0	0	2	_lpage_watermarks_sanity;lpage_init	located			
+coalesced_precoalesce	kernel	run	0	IP27	0xc0000000014cab7c	4	1	0	0	1	coalesced	located			
+nvme32_dma	kernel	static	64	IP27	0xc0000000014cab78	4	0	0	0	0	-	no-site			
+shmmax	kernel	static	0	IP27	0xc0000000014cab70	8	2	1	0	2	_shm_sanity;pshm_alloc	located			
+shmmin	kernel	static	1	IP27	0xc0000000014cab68	8	1	0	0	1	pshm_alloc	located			
+shmmni	kernel	static	0	IP27	0xc0000000014cab64	4	8	1	0	5	_numproc_sanity;pproc_ckpt_shmget;vshm_allocid;vshm_freeid_local;vshm_init	located			
+sshmseg	kernel	static	2000	IP27	0xc0000000014cab60	4	1	0	0	1	pshm_attach	located			
+hwgraph_num_dev	kernel	static	262144	IP27	0xc0000000014cab5c	4	2	0	0	2	hwgraph_init;hwgraph_vertex_create	located			
+xxl_hwgraph_num_dev	kernel	static	262144	IP27	0xc0000000014cab58	4	0	0	0	0	-	no-site			
+graph_vertex_per_group	kernel	static	128	IP27	0xc0000000014cab54	4	9	1	0	4	_io_sanity;graph_create;graph_summary_get;graph_vertex_get_next	located			
+io_init_node_threads	kernel	static	0	IP27	0xc0000000014cab50	4	2	1	0	2	_io_sanity;init_all_devices	located			
+io_init_async	kernel	static	1	IP27	0xc0000000014cab4c	4	0	1	0	1	_io_sanity	located			
+pciba_broken_le_be_compat	kernel	static	0	IP27	0xc0000000014cab48	4	0	0	0	0	-	no-site			
+pcibr_pioerr_dump	kernel	static	1	IP27	0xc0000000014cab44	4	1	0	0	1	pcibr_error_intr_handler	located			
+pciio_multimaster_override	kernel	static	0	IP27	0xc0000000014cab40	4	0	0	0	0	-	no-site			
+console_pri	kernel	static	255	IP27	0xc0000000014cab3c	4	1	0	0	1	main	located			
+du_conpoll_pri	kernel	static	255	IP27	0xc0000000014cab38	4	1	0	0	1	start_du_conpoll_thread	located			
+hb_pri	kernel	static	255	IP27	0xc0000000014cab34	4	0	0	0	0	-	no-site			
+mtcp_discovery_pri	kernel	static	255	IP27	0xc0000000014cab30	4	0	0	0	0	-	no-site			
+cmsd_pri	kernel	static	109	IP27	0xc0000000014cab2c	4	0	0	0	0	-	no-site			
+msc_shutdown_pri	kernel	static	109	IP27	0xc0000000014cab28	4	0	0	0	0	-	no-site			
+msc_heartbeat_pri	kernel	static	109	IP27	0xc0000000014cab24	4	1	0	0	1	sysctlr_init	located			
+reaper_pri	kernel	static	100	IP27	0xc0000000014cab20	4	1	0	0	1	kthread_reap_init	located			
+netthread_pri	kernel	static	98	IP27	0xc0000000014cab1c	4	3	0	0	3	mbinit;netisr_init;sockd_init	located			
+klogthrd_pri	kernel	static	98	IP27	0xc0000000014cab18	4	0	0	0	0	-	no-site			
+batchd_pri	kernel	static	98	IP27	0xc0000000014cab14	4	1	0	0	1	miser_set_quantum	located			
+pdflush_pri	kernel	static	98	IP27	0xc0000000014cab10	4	1	0	0	1	bdflushinit	located			
+rmonqd_pri	kernel	static	98	IP27	0xc0000000014cab0c	4	2	0	0	2	initmonitor;strinit_giveback	located			
+vhand_pri	kernel	static	98	IP27	0xc0000000014cab08	4	1	0	0	1	pager_init	located			
+shaked_pri	kernel	static	98	IP27	0xc0000000014cab04	4	1	0	0	1	pager_init	located			
+exim_pri	kernel	static	96	IP27	0xc0000000014cab00	4	0	0	0	0	-	no-site			
+bpsqueue_pri	kernel	static	94	IP27	0xc0000000014caafc	4	0	0	0	0	-	no-site			
+xlvd_pri	kernel	static	94	IP27	0xc0000000014caaf8	4	0	0	0	0	-	no-site			
+vfs_sync_pri	kernel	static	92	IP27	0xc0000000014caaf4	4	1	0	0	1	bdflushinit	located			
+bdflush_pri	kernel	static	92	IP27	0xc0000000014caaf0	4	1	0	0	1	bdflushinit	located			
+xfsd_pri	kernel	static	92	IP27	0xc0000000014caaec	4	3	0	0	1	xfs_start_daemons	located			
+onesec_pri	kernel	static	90	IP27	0xc0000000014caae8	4	1	0	0	1	init_second	located			
+unmountd_pri	kernel	static	90	IP27	0xc0000000014caae4	4	1	0	0	1	main	located			
+async_call_pri	kernel	static	90	IP27	0xc0000000014caae0	4	1	0	0	1	main	located			
+sched_pri	kernel	static	90	IP27	0xc0000000014caadc	4	1	0	0	1	main	located			
+coalesced_pri	kernel	static	90	IP27	0xc0000000014caad8	4	1	0	0	1	main	located			
+tiled_pri	kernel	static	90	IP27	0xc0000000014caad4	4	0	0	0	0	-	no-site			
+recovery_pri	kernel	static	90	IP27	0xc0000000014caad0	4	0	0	0	0	-	no-site			
+mtcp_pri	kernel	static	90	IP27	0xc0000000014caacc	4	0	0	0	0	-	no-site			
+tpisockd_pri	kernel	static	90	IP27	0xc0000000014caac8	4	0	0	0	0	-	no-site			
+io_init_pri	kernel	static	90	IP27	0xc0000000014caac4	4	1	0	0	1	init_all_devices	located			
+partition_pri	kernel	static	90	IP27	0xc0000000014caac0	4	0	0	0	0	-	no-site			
+cdl_attach_pri	kernel	static	90	IP27	0xc0000000014caabc	4	0	0	0	0	-	no-site			
+munldd_pri	kernel	static	90	IP27	0xc0000000014caab8	4	1	0	0	1	mload_init	located			
+dpipe_pri	kernel	static	90	IP27	0xc0000000014caab4	4	0	0	0	0	-	no-site			
+xbox_poll_pri	kernel	static	90	IP27	0xc0000000014caab0	4	0	0	0	0	-	no-site			
+cl_async_pri	kernel	static	90	IP27	0xc0000000014caaac	4	0	0	0	0	-	no-site			
+randthread_pri	kernel	static	98	IP27	0xc0000000014caaa8	4	2	0	0	2	randisr_init;randstart	located			
+audio_intr_pri	kernel	static	235	IP27	0xc0000000014caaa0	4	2	0	0	2	device_driver_sysgen_thread_pri_get;start_kdsp_timeout_thread	located			
+tserialio_intr_pri	kernel	static	235	IP27	0xc0000000014caa9c	4	2	0	0	2	device_driver_sysgen_thread_pri_get;start_tsio_timeout_thread	located			
+video_intr_pri	kernel	static	230	IP27	0xc0000000014caa98	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+graphics_intr_pri	kernel	static	225	IP27	0xc0000000014caa94	4	2	0	0	2	device_driver_sysgen_thread_pri_get;mgras_attach	located			
+external_intr_pri	kernel	static	220	IP27	0xc0000000014caa90	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+serial_intr_pri	kernel	static	215	IP27	0xc0000000014caa8c	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+parallel_intr_pri	kernel	static	215	IP27	0xc0000000014caa88	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+network_intr_pri	kernel	static	210	IP27	0xc0000000014caa84	4	2	0	0	2	arp_rtrequest;device_driver_sysgen_thread_pri_get	located			
+scsi_intr_pri	kernel	static	205	IP27	0xc0000000014caa80	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+disk_intr_pri	kernel	static	205	IP27	0xc0000000014caa7c	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+tape_intr_pri	kernel	static	205	IP27	0xc0000000014caa78	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+default_intr_pri	kernel	static	200	IP27	0xc0000000014caa74	4	5	0	0	4	device_driver_sysgen_thread_pri_get;enable_ithreads;ioc3_intr_connect;pcibr_intr_alloc	located			
+default_timeout_pri	kernel	static	1	IP27	0xc0000000014caa70	4	3	0	0	2	callout_get_pri;midi_timercallback	located			
+mrlock_num_mria	kernel	static	64	IP27	0xc0000000014caa6c	4	1	0	0	1	sema_init	located			
+ckpt_enabled	kernel	run	1	IP27	0xc0000000014caa68	4	16	0	0	11	as_allocshmmo;copen;intpexec;ioctl;pas_addexec;pas_addload;pas_addmmap;pas_addmmapdevice;raff_convert;sigreturn;vn_free	located			
+cpuset_nobind	kernel	static	0	IP27	0xc0000000014caa64	4	2	0	0	1	sysmp	located			
+r10k_bpmode	kernel	static	0	IP27	0xc0000000014caa5c	4	2	0	0	1	mlreset	located			
+enable_poq_war	kernel	static	0	IP27	0xc0000000014caa58	4	1	0	0	1	per_hub_init	located			
+md_rq_depth	kernel	static	5	IP27	0xc0000000014caa54	4	0	0	0	0	-	no-site			
+randthread_float	kernel	static	0	IP27	0xc0000000014caa50	4	2	0	0	1	randproc_init	located			
+lockd_grace_period	lockd	run	45	IP27	0xc0000000014cc0f4	4	0	0	0	0	-	no-site			
+lock_share_requests	lockd	run	0	IP27	0xc0000000014cc0f8	4	0	0	0	0	-	no-site			
+nlm_granted_timeout	lockd	run	1	IP27	0xc0000000014cc0fc	4	0	0	0	0	-	no-site			
+nlm_maxdupreqs	lockd	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+nlm_callback_retry	lockd	run	3	IP27	-	-	0	0	0	0	-	no-symbol			
+max_lockd_procs	lockd	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+msgmax	msg		0x4000	IP27	0xc0000000014ca8e8	4	1	0	0	1	msginit	located			
+msgmnb	msg		0x8000	IP27	0xc0000000014ca8e4	4	1	0	0	1	msginit	located			
+msgmni	msg		50	IP27	0xc0000000014ca8e0	4	1	0	0	1	msginit	located			
+msgssz	msg		8	IP27	0xc0000000014ca8dc	4	1	0	0	1	msginit	located			
+msgtql	msg		40	IP27	0xc0000000014ca8d8	4	1	0	0	1	msginit	located			
+msgseg	msg		1536	IP27	0xc0000000014ca8d4	4	2	0	0	1	msginit	located			
+pmqomax	msg		128	IP27	0xc0000000014ca8d0	4	1	0	0	1	sysconf	located			
+sm_timeout	nfs	run	5	IP27	0xc0000000014ca794	4	0	0	0	0	-	no-site			
+GraceWaitTime	nfs	run	5	IP27	0xc0000000014ca790	4	0	0	0	0	-	no-site			
+max_nfs_clients	nfs	static	32	IP27	0xc0000000014ca78c	4	4	1	0	3	chtables_init;clget;nfs_wakeup	located			
+max_nsd_clients	nfs	static	32	IP27	0xc0000000014ca788	4	5	1	0	4	chtables_init;nclfree;nclget;nfs_wakeup	located			
+max_xnfs_clients	nfs	static	32	IP27	0xc0000000014ca784	4	5	1	0	4	chtables_init;nfs_wakeup;xclfree;xclget	located			
+nfstcp_shutdown_wait	nfs	static	500	IP27	0xc0000000014ca7b4	4	1	0	0	1	kspt_shutdown_sockets	located			
+nfs_close_sock	nfs	static	0	IP27	0xc0000000014ca780	4	0	0	0	0	-	no-site			
+nfs3_default_xfer	nfs3	static	32768	IP27	-	-	0	0	0	0	-	no-symbol			
+nfs3_max_threads	nfs3	static	4	IP27	-	-	0	0	0	0	-	no-symbol			
+nfs3_rah	nfs3	static	2	IP27	-	-	0	0	0	0	-	no-symbol			
+nfs3_commit_prd	nfs3	static	50	IP27	-	-	0	0	0	0	-	no-symbol			
+nfs3_posix_atime_on_read	nfs3	static	0	IP27	-	-	0	0	0	0	-	no-symbol			
+nfs3_unst_wtmark	nfs3	static	75	IP27	-	-	0	0	0	0	-	no-symbol			
+nfs3_unst_crit_wtmark	nfs3	static	67	IP27	-	-	0	0	0	0	-	no-symbol			
+nfs3_unst_low_wtmark	nfs3	static	60	IP27	-	-	0	0	0	0	-	no-symbol			
+nfs3_unst_enforce_wtmark	nfs3	static	40	IP27	-	-	0	0	0	0	-	no-symbol			
+nfs3_abio_write_hiwat	nfs3	static	0	IP27	-	-	0	0	0	0	-	no-symbol			
+nfs3_abio_write_lowat	nfs3	static	0	IP27	-	-	0	0	0	0	-	no-symbol			
+nfs3_abio_write_quota	nfs3	run	2	IP27	-	-	0	0	0	0	-	no-symbol			
+nfs3_abio_read_quota	nfs3	run	2	IP27	-	-	0	0	0	0	-	no-symbol			
+nfs3_max_jukebox	nfs3	run	360	IP27	-	-	0	0	0	0	-	no-symbol			
+numa_migr_default_mode	numa		2	IP27	0xc0000000014ca8b4	4	2	0	0	2	mem_tick_init_node;migr_control_init	located			
+numa_migr_default_threshold	numa		50	IP27	0xc0000000014ca8b0	4	1	0	0	1	migr_control_init	located			
+numa_migr_threshold_reference	numa		0	IP27	0xc0000000014ca8ac	4	1	0	0	1	migr_control_init	located			
+numa_migr_vehicle	numa		1	IP27	0xc0000000014ca8a8	4	1	1	0	2	migr_control_init;migr_pagemove	located			
+numa_migr_min_maxradius	numa		2	IP27	0xc0000000014ca8a4	4	2	0	0	1	migr_control_init	located			
+numa_migr_auto_migr_mech	numa		0	IP27	0xc0000000014ca8a0	4	2	0	0	1	migr_control_init	located			
+numa_migr_user_migr_mech	numa		0	IP27	0xc0000000014ca89c	4	2	0	0	1	migr_control_init	located			
+numa_migr_coaldmigr_mech	numa		0	IP27	0xc0000000014ca898	4	2	0	0	1	migr_control_init	located			
+numa_refcnt_default_mode	numa		0	IP27	0xc0000000014ca894	4	1	0	0	1	migr_control_init	located			
+numa_refcnt_overflow_threshold	numa		50	IP27	0xc0000000014ca890	4	1	0	0	1	migr_control_init	located			
+numa_migr_min_distance	numa		1	IP27	0xc0000000014ca88c	4	1	0	0	1	migr_control_init	located			
+numa_migr_memory_low_enabled	numa		1	IP27	0xc0000000014ca888	4	1	0	0	1	migr_control_init	located			
+numa_migr_memory_low_threshold	numa		20	IP27	0xc0000000014ca884	4	1	0	0	1	migr_control_init	located			
+numa_migr_freeze_enabled	numa		0	IP27	0xc0000000014ca880	4	1	0	0	1	migr_control_init	located			
+numa_migr_freeze_threshold	numa		20	IP27	0xc0000000014ca87c	4	1	0	0	1	migr_control_init	located			
+numa_migr_melt_enabled	numa		0	IP27	0xc0000000014ca878	4	1	0	0	1	migr_control_init	located			
+numa_migr_melt_threshold	numa		90	IP27	0xc0000000014ca874	4	1	0	0	1	migr_control_init	located			
+numa_migr_bounce_control_interval	numa		0	IP27	0xc0000000014ca870	4	1	0	0	1	migr_control_init	located			
+numa_migr_dampening_enabled	numa		0	IP27	0xc0000000014ca86c	4	1	0	0	1	migr_control_init	located			
+numa_migr_dampening_factor	numa		90	IP27	0xc0000000014ca868	4	1	0	0	1	migr_control_init	located			
+mem_tick_enabled	numa		1	IP27	0xc0000000014ca864	4	2	0	0	2	mem_tick_init_node;mem_tick_reactivate_node	located			
+mem_tick_base_period	numa		1	IP27	0xc0000000014ca860	4	2	0	0	1	alloc_cpupda	located			
+numa_migr_unpegging_control_enabled	numa		1	IP27	0xc0000000014ca85c	4	1	0	0	1	migr_control_init	located			
+numa_migr_unpegging_control_interval	numa		0	IP27	0xc0000000014ca858	4	1	0	0	1	migr_control_init	located			
+numa_migr_unpegging_control_threshold	numa		90	IP27	0xc0000000014ca854	4	1	0	0	1	migr_control_init	located			
+numa_migr_traffic_control_enabled	numa		0	IP27	0xc0000000014ca850	4	1	0	0	1	migr_control_init	located			
+numa_migr_traffic_control_interval	numa		400	IP27	0xc0000000014ca84c	4	2	0	0	1	migr_control_init	located			
+numa_migr_traffic_control_threshold	numa		80	IP27	0xc0000000014ca848	4	1	0	0	1	migr_control_init	located			
+numa_kernel_replication_ratio	numa		1	IP27	0xc0000000014ca844	4	1	0	0	1	setup_replication_mask	located			
+numa_paging_node_freemem_low_threshold	numa		40	IP27	0xc0000000014ca840	4	2	0	0	1	_pagealloc_size_node	located			
+numa_zone_radius	numa		1	IP27	0xc0000000014ca83c	4	0	0	0	0	-	no-site			
+numa_migr_enqonfail_enabled	numa		0	IP27	0xc0000000014ca838	4	2	0	0	1	migr_control_init	located			
+memoryd_enabled	numa		0	IP27	0xc0000000014ca834	4	1	0	0	1	migr_control_init	located			
+numa_migr_queue_maxlen	numa		70	IP27	0xc0000000014ca830	4	2	0	0	1	migr_control_init	located			
+numa_migr_queue_control_enabled	numa		0	IP27	0xc0000000014ca82c	4	5	0	0	1	migr_control_init	located			
+numa_migr_queue_control_interval	numa		500	IP27	0xc0000000014ca828	4	2	0	0	1	migr_control_init	located			
+numa_migr_queue_control_mlimit	numa		70	IP27	0xc0000000014ca824	4	1	0	0	1	migr_control_init	located			
+numa_migr_queue_traffic_trigger_enabled	numa		0	IP27	0xc0000000014ca820	4	1	0	0	1	migr_control_init	located			
+numa_migr_queue_traffic_trigger_threshold	numa		80	IP27	0xc0000000014ca81c	4	1	0	0	1	migr_control_init	located			
+numa_migr_queue_capacity_trigger_enabled	numa		0	IP27	0xc0000000014ca818	4	1	0	0	1	migr_control_init	located			
+numa_migr_queue_capacity_trigger_threshold	numa		60	IP27	0xc0000000014ca814	4	1	0	0	1	migr_control_init	located			
+numa_migr_queue_time_trigger_enabled	numa		0	IP27	0xc0000000014ca810	4	1	0	0	1	migr_control_init	located			
+numa_migr_queue_time_trigger_interval	numa		1	IP27	0xc0000000014ca80c	4	1	0	0	1	migr_control_init	located			
+numa_migr_queue_control_max_page_age	numa		8	IP27	0xc0000000014ca808	4	1	0	0	1	migr_control_init	located			
+portmap_timeout	oncrpc		5	IP27	0xc0000000014ca7c4	4	2	0	0	2	pmap_kgetport;rpcb_kgetaddr	located			
+first_retry	oncrpc		1	IP27	0xc0000000014ca7c0	4	0	0	0	0	-	no-site			
+normal_retry	oncrpc		1	IP27	0xc0000000014ca7bc	4	0	0	0	0	-	no-site			
+ksvc_min_threads	oncrpc	run	0	IP27	0xc0000000014ca7b0	4	3	0	0	1	ksvc_manager	located			
+ksvc_max_threads	oncrpc	run	1024	IP27	0xc0000000014ca7ac	4	3	0	0	1	ksvc_manager	located			
+ksvc_queue_max_threads	oncrpc	run	32	IP27	0xc0000000014ca7a8	4	1	0	0	1	ksvc_manager	located			
+ksvc_queue_timeout	oncrpc	run	5	IP27	0xc0000000014ca7a4	4	0	0	0	0	-	no-site			
+ksvc_pool_timeout	oncrpc	run	60	IP27	0xc0000000014ca7a0	4	0	0	0	0	-	no-site			
+ksvc_max_manages	oncrpc	run	0	IP27	0xc0000000014ca79c	4	0	0	0	0	-	no-site			
+oplocks_enabled	oplock		1	IP27	0xc0000000014ca7fc	4	1	0	0	1	oplock_fcntl	located			
+oplock_timeout	oplock		30	IP27	0xc0000000014ca7f8	4	0	0	0	0	-	no-site			
+svr3pipe	pipefs	run	1	IP27	0xc0000000014ca764	4	1	0	0	1	pipe	located			
+psema_max_cnt	psema		8192	IP27	0xc0000000014ca900	4	1	0	0	1	psemainit	located			
+semmni	sem		300	IP27	0xc0000000014ca8fc	4	4	0	0	3	vsem_allocid;vsem_freeid_local;vsem_init	located			
+semmsl	sem		100	IP27	0xc0000000014ca8f8	4	1	0	0	1	psem_alloc	located			
+semopm	sem		100	IP27	0xc0000000014ca8f4	4	0	0	0	0	-	no-site			
+semvmx	sem		32767	IP27	0xc0000000014ca8f0	4	8	0	0	4	psem_exit;psem_op;psem_setall;psem_setval	located			
+semaem	sem		16384	IP27	0xc0000000014ca8ec	4	0	0	0	0	-	no-site			
+nfs_portmon	snfs	run	0	IP27	-	-	0	0	0	0	-	no-symbol			
+nfs_access_check	snfs	run	1	IP27	-	-	0	0	0	0	-	no-symbol			
+nfsauth_cachesz	snfs	run	512	IP27	-	-	0	0	0	0	-	no-symbol			
+nfsauth_refresh	snfs	run	1800	IP27	-	-	0	0	0	0	-	no-symbol			
+nfsauth_timeout	snfs	run	10	IP27	-	-	0	0	0	0	-	no-symbol			
+svc_maxdupreqs	svckudp		0	IP27	0xc0000000014ca7b8	4	3	1	0	2	ksvc_dupdone;ksvc_init	located			
+unpst_sendspace	uds		0x20000	IP27	0xc0000000014ca778	4	1	0	0	1	unp_attach	located			
+unpst_recvspace	uds		0x20000	IP27	0xc0000000014ca774	4	1	0	0	1	unp_attach	located			
+unpdg_sendspace	uds		0x2000	IP27	0xc0000000014ca770	4	1	0	0	1	unp_attach	located			
+unpdg_recvspace	uds		0x4000	IP27	0xc0000000014ca76c	4	1	0	0	1	unp_attach	located			
+usync_max_objs	usync		8192	IP27	0xc0000000014ca904	4	1	0	0	1	usyncinit	located			
+xfs_nfs_io_units	xfs	static	10	IP27	0xc0000000014ca7f4	4	1	0	0	1	xfs_write_file	located			
+xfs_refcache_percent	xfs	static	100	IP27	0xc0000000014ca7f0	4	1	0	0	1	xfs_init	located			
+xfs_dcount	xfs	static	0	IP27	0xc0000000014ca7ec	4	1	1	0	1	xfs_start_daemons	located			
+xfs_max_bmap_len	xfs	static	1024	IP27	0xc0000000014ca7e8	4	2	1	0	2	xfs_init;xfs_iomap_read	located			
+xfs_panic_mask	xfs	run	0	IP27	0xc0000000014ca7e0	8	1	0	0	1	xfs_cmn_err	located			
+xfs_dcontention	xfs	run	1	IP27	0xc0000000014ca7dc	4	2	0	0	1	xfsd_core	located			
+xfs_error_level	xfs	run	3	IP27	0xc0000000014ca7d8	4	2	0	0	2	_xfs_force_shutdown;xfs_error_report	located			
+xlv_lowmem_slots	xlv	static	15	IP27	-	-	0	0	0	0	-	no-symbol			
+xlv_low_mem_threshold	xlv	static	10	IP27	-	-	0	0	0	0	-	no-symbol			
+xlv_low_mem_scale	xlv	static	50	IP27	-	-	0	0	0	0	-	no-symbol			
+xlv_low_mem_max_size	xlv	static	4194304	IP27	-	-	0	0	0	0	-	no-symbol			
+xlv_topmem_slots	xlv	static	5	IP27	-	-	0	0	0	0	-	no-symbol			
+xlv_top_mem_threshold	xlv	static	10	IP27	-	-	0	0	0	0	-	no-symbol			
+xlv_top_mem_scale	xlv	static	50	IP27	-	-	0	0	0	0	-	no-symbol			
+xlv_top_mem_max_size	xlv	static	4194304	IP27	-	-	0	0	0	0	-	no-symbol			
+xvm_distribution_size	xvm	static	2097152	IP27	-	-	0	0	0	0	-	no-symbol			
+xvm_multicast_pri	xvm	run	90	IP27	-	-	0	0	0	0	-	no-symbol			
+xvm_drl_pri	xvm	run	90	IP27	-	-	0	0	0	0	-	no-symbol			
+xvm_revive_pri	xvm	run	90	IP27	-	-	0	0	0	0	-	no-symbol			
+xvm_max_revive_threads	xvm	run	0|4	IP27	-	-	0	0	0	0	-	no-symbol			
+xvm_max_revive_rsc	xvm	run	5	IP27	-	-	0	0	0	0	-	no-symbol			
+xvm_revive_win_factor	xvm	run	2	IP27	-	-	0	0	0	0	-	no-symbol			
+xvm_maxfs_revive	xvm	run	1	IP27	-	-	0	0	0	0	-	no-symbol			
+autofs_logging	autofs	run	0	IP30	0xa8000000204a6dfc	4	1	0	0	1	do_mount	located			
+ip6_enable	bsd	static	0	IP30	0xa8000000204a70b0	4	5	1	0	6	disable_ipv6;domaininit;in6_init;ksvc_init_nbp;nfs_svc;udp_usrreq	located			
+auto_tunnel_enable	bsd	static	0	IP30	0xa8000000204a70ac	4	0	1	0	1	disable_ipv6	located			
+nsit	bsd	static	1	IP30	0xa8000000204a70a8	4	0	0	0	0	-	no-site			
+tcp_hashtablesz	bsd	static	0	IP30	0xa8000000204a70a4	4	3	1	0	2	tcp_init;tcp_reass	located			
+udp_hashtablesz	bsd	static	0	IP30	0xa8000000204a70a0	4	1	1	0	1	udp_init	located			
+netthread_float	bsd	static	0	IP30	0xa8000000204a7094	4	2	0	0	1	netproc_init	located			
+config_tunnel_enable	bsd	static	0	IP30	0xa8000000204a708c	4	1	2	0	2	disable_ipv6;in_init	located			
+ngif	bsd	static	4	IP30	0xa8000000204a7088	4	1	0	0	1	in_init	located			
+icmp_dropredirects	bsd	run	0	IP30	0xa8000000204a7084	4	1	0	0	1	icmp_input	located			
+icmp_respond_to_address_mask	bsd	run	1	IP30	0xa8000000204a7080	4	1	0	0	1	icmp_input	located			
+icmp_respond_to_timestamp	bsd	run	1	IP30	0xa8000000204a707c	4	1	0	0	1	icmp_input	located			
+ipfilterd_inactive_behavior	bsd	run	1	IP30	0xa8000000204a7078	4	0	0	0	0	-	no-site			
+ipforwarding	bsd	run	0|1	IP30	0xa8000000204a7074	4	1	1	0	1	rtioctl	located			
+ip6forwarding	bsd	run	0	IP30	0xa8000000204a7070	4	2	2	0	3	disable_ipv6;if_attach;rtioctl	located			
+ip6forwsrcrt	bsd	run	0	IP30	0xa8000000204a706c	4	0	0	0	0	-	no-site			
+ip6_maxfragpackets	bsd	run	1024	IP30	0xa8000000204a7068	4	0	0	0	0	-	no-site			
+ip6_maxheaders	bsd	run	64	IP30	0xa8000000204a7064	4	0	0	0	0	-	no-site			
+ipsendredirects	bsd	run	0|1	IP30	0xa8000000204a7060	4	1	1	0	1	rtioctl	located			
+ipdirected_broadcast	bsd	run	0	IP30	0xa8000000204a705c	4	2	0	0	2	ip_acceptit_bcast_match;ip_acceptit_broadcast	located			
+ip_nolgpg_brkup	bsd	run	0	IP30	0xa8000000204a7058	4	1	0	0	1	pas_pattach	located			
+allow_brdaddr_srcaddr	bsd	run	0	IP30	0xa8000000204a7054	4	0	0	0	0	-	no-site			
+ip_allow_frag_bcast	bsd	run	0	IP30	0xa8000000204a7050	4	1	0	0	1	ip_output	located			
+ipv4_strict_reassembly	bsd	run	0	IP30	0xa8000000204a704c	4	0	0	0	0	-	no-site			
+ipv4_frag_timeout	bsd	run	30	IP30	0xa8000000204a7048	4	1	0	0	1	ip_reass	located			
+subnetsarelocal	bsd	run	1	IP30	0xa8000000204a7044	4	1	0	0	1	in_localaddr	located			
+tcpiss_md5	bsd	run	0	IP30	0xa8000000204a7040	4	0	0	0	0	-	no-site			
+tcpiss_md5_secret_lo	bsd	run	0	IP30	0xa8000000204a7038	8	1	0	0	1	iss_hash	located			
+tcpiss_md5_secret_hi	bsd	run	0	IP30	0xa8000000204a7030	8	1	0	0	1	iss_hash	located			
+mbmaxpages	bsd	static	0	IP30	0xa8000000204a7028	4	0	0	0	0	-	no-site			
+mbretain	bsd	static	20	IP30	0xa8000000204a7024	4	2	0	0	1	mbinit	located			
+ps_enabled	bsd	static	1	IP30	0xa8000000204a7020	4	0	0	0	0	-	no-site			
+ps_rsvp_bandwidth	bsd	static	50	IP30	0xa8000000204a701c	4	3	0	0	2	ps_init;ps_reinit	located			
+ps_num_batch_pkts	bsd	static	0	IP30	0xa8000000204a7018	4	0	0	0	0	-	no-site			
+tcp_ttl	bsd	run	60	IP30	0xa8000000204a7014	4	5	0	0	3	ip_ctloutput;tcp_newtcpcb;tcp_respond	located			
+tcp_keepidle	bsd	run	7200	IP30	0xa8000000204a7010	4	3	0	0	1	tcp_timers	located			
+tcp_keepintvl	bsd	run	75	IP30	0xa8000000204a700c	4	3	0	0	2	tcp_slowtimo;tcp_timers	located			
+tcp_maxpersistidle	bsd	run	7200	IP30	0xa8000000204a7008	4	1	0	0	1	tcp_timers	located			
+tcp_mtudisc	bsd	run	1	IP30	0xa8000000204a7004	4	3	0	0	3	tcp_msgsize;tcp_mss;tcp_output	located			
+tcp_mss_min	bsd	run	32	IP30	0xa8000000204a7000	4	2	0	0	1	tcp_mss	located			
+tcp_2msl	bsd	run	60	IP30	0xa8000000204a6ffc	4	0	0	0	0	-	no-site			
+tcprexmtthresh	bsd	run	3	IP30	0xa8000000204a6ff8	4	0	0	0	0	-	no-site			
+tcp_sack	bsd	run	1	IP30	0xa8000000204a6ff4	4	3	0	0	2	tcp_dooptions;tcp_output	located			
+tcp_keepstyle	bsd	run	0	IP30	0xa8000000204a6ff0	4	4	0	0	2	tcp_respond;tcp_slowtimo	located			
+tcp_sendspace	bsd	run	61440	IP30	0xa8000000204a6fec	4	3	0	0	2	tcp_attach;tcp_mss	located			
+tcp_recvspace	bsd	run	61440	IP30	0xa8000000204a6fe8	4	2	0	0	2	tcp_attach;tcp_mss	located			
+tcp_gofast	bsd	run	0	IP30	0xa8000000204a6fe4	4	1	0	0	1	tcp_newtcpcb	located			
+tcp_stretch_ack_interval	bsd	run	8	IP30	0xa8000000204a6fe0	4	1	0	0	1	tcp_newtcpcb	located			
+tcp_agak_hysteresis_hi	bsd	run	1000	IP30	0xa8000000204a6fdc	4	1	0	0	1	tcp_fasttimo	located			
+tcp_timestamps	bsd	run	1	IP30	0xa8000000204a6fd8	4	1	0	0	1	tcp_output	located			
+tcp_zaptw_secs	bsd	run	2	IP30	0xa8000000204a6fd4	4	1	0	0	1	tcp_slowtimo	located			
+tcp_pcb_cache	bsd	run	0	IP30	0xa8000000204a6fd0	4	3	0	0	2	tcp_close;tcp_newtcpcb	located			
+tcp_rfc2414	bsd	run	1	IP30	0xa8000000204a6fcc	4	2	0	0	1	tcp_ss_start	located			
+tcp_last_ack_cnt	bsd	run	0	IP30	0xa8000000204a6fc8	4	2	0	0	2	tcp_timers;tcp_usrclosed	located			
+tcp_drop_SYN_with_extra_flags	bsd	run	0	IP30	0xa8000000204a6fc4	4	1	0	0	1	tcp_input	located			
+udp_ttl	bsd	run	60	IP30	0xa8000000204a6fa4	4	3	0	0	2	ip_ctloutput;udp_usrreq	located			
+udp_sendspace	bsd	run	61440	IP30	0xa8000000204a6fa0	4	1	0	0	1	udp_usrreq	located			
+udp_recvgrams	bsd	run	2	IP30	0xa8000000204a6f9c	4	1	0	0	1	udp_usrreq	located			
+arpreq_alias	bsd	run	0	IP30	0xa8000000204a6f98	4	1	0	0	1	arprequest	located			
+vfe_ldtmr	bsd	run	144	IP30	0xa8000000204a6f94	4	0	0	0	0	-	no-site			
+log_snoop_or_drain	bsd	run	0	IP30	0xa8000000204a6f90	4	4	0	0	2	rawclose;rawopen	located			
+udp_so_no_check	bsd	run	0	IP30	0xa8000000204a6f8c	4	1	0	0	1	socreate	located			
+lomtu	bsd	run	0	IP30	0xa8000000204a6f88	4	2	2	0	2	loattach;loioctl	located			
+cachefs_readahead	cachefs	run	1	IP30	-	-	0	0	0	0	-	no-symbol			
+cachefs_max_threads	cachefs	run	5	IP30	-	-	0	0	0	0	-	no-symbol			
+fileheader_cache_size	cachefs	run	512	IP30	-	-	0	0	0	0	-	no-symbol			
+replacement_timeout	cachefs	run	600	IP30	-	-	0	0	0	0	-	no-symbol			
+mesg_delay_time	cell	static	0	IP30	-	-	0	0	0	0	-	no-symbol			
+mtcp_reserve_size	cell	static	61440	IP30	-	-	0	0	0	0	-	no-symbol			
+mtcp_nodelay	cell	static	1	IP30	-	-	0	0	0	0	-	no-symbol			
+mtcp_hb_period	cell	static	500	IP30	-	-	0	0	0	0	-	no-symbol			
+mtcp_hb_watchdog	cell	static	0	IP30	-	-	0	0	0	0	-	no-symbol			
+cxfs_shutdown_time	cell	static	50	IP30	-	-	0	0	0	0	-	no-symbol			
+cxfs_speculative_token	cell	static	1	IP30	-	-	0	0	0	0	-	no-symbol			
+mtcp_mesg_validate	cell	run	0	IP30	-	-	0	0	0	0	-	no-symbol			
+cms_reset_timeout	cell	run	0	IP30	-	-	0	0	0	0	-	no-symbol			
+cms_reset_timeout_action	cell	run	0	IP30	-	-	0	0	0	0	-	no-symbol			
+cms_fence_timeout	cell	run	0	IP30	-	-	0	0	0	0	-	no-symbol			
+cms_fence_timeout_action	cell	run	0	IP30	-	-	0	0	0	0	-	no-symbol			
+cms_reset_error_override	cell	run	0	IP30	-	-	0	0	0	0	-	no-symbol			
+cxfs_relocation_ok	cxfs	run	0	IP30	-	-	0	0	0	0	-	no-symbol			
+cxfsd_min	cxfs	run	16	IP30	-	-	0	0	0	0	-	no-symbol			
+cxfsd_max	cxfs	run	16	IP30	-	-	0	0	0	0	-	no-symbol			
+cxfs_dcvn_timeout	cxfs	run	60	IP30	-	-	0	0	0	0	-	no-symbol			
+slice_size	disp	static	0	IP30	0xa8000000204a6f34	4	2	1	0	2	_disp_sanity;p0init	located			
+memaff_sched	disp	static	1	IP30	0xa8000000204a6f30	4	0	0	0	0	-	no-site			
+gang_sched_off	disp	static	1	IP30	0xa8000000204a6f2c	4	8	0	0	4	allocshaddr;attachshaddr;detachshaddr;schedctl	located			
+rtcpus	disp	static	0	IP30	0xa8000000204a6f28	4	5	0	0	4	putrunq;rt_add_gq;rt_remove_q;rt_setpri	located			
+runq_waittime	disp	run	8	IP30	0xa8000000204a6f24	4	0	0	0	0	-	no-site			
+nonpreempts	disp	run	32	IP30	0xa8000000204a6f20	4	3	0	0	1	user_resched	located			
+dms_always_use_lomem	dms	static	0	IP30	0xa8000000204a6d1c	4	1	0	0	1	dms_pool_create	located			
+efs_inline	efs	run	0	IP30	0xa8000000204a6d4c	4	0	0	0	0	-	no-site			
+fo_maximum_paths	failover	static	32	IP30	0xa8000000204a6d44	4	1	0	0	1	fo_init	located			
+gfxlockablemem	gfx	static	20	IP30	0xa8000000204a6d40	4	0	0	0	0	-	no-site			
+gfxlockablemem_gt64	gfx	static	50	IP30	0xa8000000204a6d3c	4	1	1	0	1	mm_init_freespace	located			
+gfxdmasleepthreshold	gfx	static	0	IP30	0xa8000000204a6d38	4	0	0	0	0	-	no-site			
+gfxupdatedmousehandling	gfx	static	1	IP30	0xa8000000204a6d34	4	0	0	0	0	-	no-site			
+min_volume_bandwidth	grio2	run	65536	IP30	-	-	0	0	0	0	-	no-symbol			
+token_bucket_size	grio2	run	2000	IP30	-	-	0	0	0	0	-	no-symbol			
+scheduler_rate	grio2	run	20	IP30	-	-	0	0	0	0	-	no-symbol			
+ec_ipg_delay	if_ec2	run	0	IP30	-	-	0	0	0	0	-	no-symbol			
+ec_xpg_delay	if_ec2	run	0	IP30	-	-	0	0	0	0	-	no-symbol			
+ec_16coll_retry	if_ec2	run	2	IP30	-	-	0	0	0	0	-	no-symbol			
+ec_rcv_desc	if_ec2	run	30	IP30	-	-	0	0	0	0	-	no-symbol			
+ec_rcv_promisc	if_ec2	run	63	IP30	-	-	0	0	0	0	-	no-symbol			
+mtr_max_rx_slots	if_ptr	run	16	IP30	-	-	0	0	0	0	-	no-symbol			
+mtr_max_tx_slots	if_ptr	run	16	IP30	-	-	0	0	0	0	-	no-symbol			
+mtr_bc_mask	if_ptr	run	0x8000	IP30	-	-	0	0	0	0	-	no-symbol			
+mtr_mtu	if_ptr	run	4472	IP30	-	-	0	0	0	0	-	no-symbol			
+mtr_batype	if_ptr	run	2	IP30	-	-	0	0	0	0	-	no-symbol			
+mtr_participant_claim_token	if_ptr	run	1	IP30	-	-	0	0	0	0	-	no-symbol			
+mtr_arb_enabled	if_ptr	run	1	IP30	-	-	0	0	0	0	-	no-symbol			
+mtr_s16Mb	if_ptr	run	1	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_cpu_cur	jlimits	static	0x7fffffffffffffff	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_cpu_max	jlimits	static	0x7fffffffffffffff	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_data_cur	jlimits	static	0x7fffffffffffffff	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_data_max	jlimits	static	0x7fffffffffffffff	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_vmem_cur	jlimits	static	0x7fffffffffffffff	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_vmem_max	jlimits	static	0x7fffffffffffffff	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_rss_cur	jlimits	static	0x7fffffffffffffff	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_rss_max	jlimits	static	0x7fffffffffffffff	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_nofile_cur	jlimits	static	0x7fffffffffffffff	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_nofile_max	jlimits	static	0x7fffffffffffffff	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_pthread_cur	jlimits	static	0x7fffffffffffffff	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_pthread_max	jlimits	static	0x7fffffffffffffff	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_numproc_cur	jlimits	static	0x7fffffffffffffff	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_numproc_max	jlimits	static	0x7fffffffffffffff	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_pmem_cur	jlimits	static	0x7fffffffffffffff	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_pmem_max	jlimits	static	0x7fffffffffffffff	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_cpu_ign	jlimits	run	0	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_data_ign	jlimits	run	0	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_vmem_ign	jlimits	run	0	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_rss_ign	jlimits	run	0	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_nofile_ign	jlimits	run	0	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_pthread_ign	jlimits	run	0	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_numproc_ign	jlimits	run	0	IP30	-	-	0	0	0	0	-	no-symbol			
+jlimit_pmem_ign	jlimits	run	0	IP30	-	-	0	0	0	0	-	no-symbol			
+kdsp_pro_audio_subcode	kdsp	static	2	IP30	0xa8000000204a6d18	4	0	0	0	0	-	no-site			
+nosuidshells	kernel	static	1	IP30	0xa8000000204a769c	4	1	0	0	1	intpexec	located			
+restricted_chown	kernel	static	0	IP30	0xa8000000204a7698	4	4	0	0	4	fs_pathconf;nm_setattr;udf_setattr;xfs_setattr	located			
+posix_tty_default	kernel	static	0	IP30	0xa8000000204a7694	4	3	0	0	2	st_rsrv;stty_ld_init	located			
+use_old_serialnum	kernel	static	0	IP30	0xa8000000204a7690	4	0	0	0	0	-	no-site			
+reboot_on_panic	kernel	static	-1	IP30	0xa8000000204a768c	4	4	3	0	2	mlreset;prom_reboot	located			
+restrict_fastprof	kernel	static	0	IP30	0xa8000000204a7688	4	1	0	0	1	sprofil	located			
+reset_limits_on_exec	kernel	static	1	IP30	0xa8000000204a7684	4	2	0	0	1	gexec_complete	located			
+ip26_allow_ucmem	kernel	static	0	IP30	0xa8000000204a7680	4	0	0	0	0	-	no-site			
+add_kthread_stack	kernel	static	0	IP30	0xa8000000204a767c	4	1	0	0	1	kthread_init	located			
+xpg4_sticky_dir	kernel	static	1	IP30	0xa8000000204a7678	4	2	0	0	2	udf_stickytest;xfs_stickytest	located			
+mload_auto_rtsyms	kernel	static	1	IP30	0xa8000000204a7674	4	2	0	0	2	st_findaddr;st_findname	located			
+disable_ip25_check	kernel	static	0	IP30	0xa8000000204a7670	4	0	0	0	0	-	no-site			
+prod_assertion_level	kernel	static	0	IP30	0xa8000000204a766c	4	1	0	0	1	alloc_cpupda	located			
+disable_r10k_log	kernel	static	0	IP30	0xa8000000204a7668	4	0	0	0	0	-	no-site			
+r10k_halt_1st_cache_err	kernel	static	0	IP30	0xa8000000204a7664	4	0	0	0	0	-	no-site			
+r10k_cache_debug	kernel	static	0	IP30	0xa8000000204a7660	4	0	0	0	0	-	no-site			
+perfcnt_arch_swtch_sig	kernel	static	0	IP30	0xa8000000204a765c	4	0	0	0	0	-	no-site			
+perfcnt_arch_swtch_msg	kernel	static	0	IP30	0xa8000000204a7658	4	1	0	0	1	r1nk_perf_check_architecture	located			
+spec_udma_war_on	kernel	static	1	IP30	0xa8000000204a7650	4	0	0	0	0	-	no-site			
+warbits_override	kernel	static	-1	IP30	0xa8000000204a764c	4	0	0	0	0	-	no-site			
+enable_pci_BIST	kernel	static	0	IP30	0xa8000000204a7648	4	0	0	0	0	-	no-site			
+ip32_pci_enable_prefetch	kernel	static	0	IP30	0xa8000000204a7644	4	0	0	0	0	-	no-site			
+ip32_pci_flush_prefetch	kernel	static	1	IP30	0xa8000000204a7640	4	0	0	0	0	-	no-site			
+ignore_sysctlr_intr	kernel	static	0	IP30	0xa8000000204a763c	4	0	0	0	0	-	no-site			
+powerfail_cleanio	kernel	static	0	IP30	0xa8000000204a7638	4	0	0	0	0	-	no-site			
+intr_revive_delay	kernel	static	300	IP30	0xa8000000204a7634	4	0	0	0	0	-	no-site			
+powerfail_routerwar	kernel	static	1	IP30	0xa8000000204a7630	4	0	0	0	0	-	no-site			
+xbox_sysctlr_poll_interval	kernel	static	60	IP30	0xa8000000204a762c	4	0	0	0	0	-	no-site			
+clean_shutdown_time	kernel	static	120	IP30	0xa8000000204a7628	4	0	0	0	0	-	no-site			
+ignore_xsc	kernel	static	0	IP30	0xa8000000204a7624	4	0	0	0	0	-	no-site			
+snerrste_pages_per_cube	kernel	static	1	IP30	0xa8000000204a7620	4	0	0	0	0	-	no-site			
+xpc_override	kernel	static	0	IP30	0xa8000000204a761c	4	0	0	0	0	-	no-site			
+origin_use_hardware_bzero	kernel	static	0	IP30	0xa8000000204a7618	4	0	0	0	0	-	no-site			
+cpulimit_gracetime	kernel	static	0	IP30	0xa8000000204a7614	4	4	0	0	1	clock	located			
+ignore_isolated_cpu_warning	kernel	static	0	IP30	0xa8000000204a7610	4	0	0	0	0	-	no-site			
+r10k_gfx_write_war_on	kernel	static	0	IP30	0xa8000000204a760c	4	0	0	0	0	-	no-site			
+allow_chroot_with_open_dirs	kernel	static	1	IP30	0xa8000000204a7608	4	1	0	0	1	chroot	located			
+limit_pinfo_access	kernel	static	0444	IP30	0xa8000000204a7604	4	6	1	0	2	prbuild;prioctl	located			
+tty_auto_strhold	kernel	run	0	IP30	0xa8000000204a7600	4	1	0	0	1	st_rsrv	located			
+async_udma_copy	kernel	run	1	IP30	0xa8000000204a75fc	4	1	0	0	1	fast_userdma	located			
+ensure_no_rawio_conflicts	kernel	run	1	IP30	0xa8000000204a75f8	4	2	0	0	1	pas_pattach	located			
+dbe_recovery	kernel	run	1	IP30	0xa8000000204a75f4	4	0	0	0	0	-	no-site			
+ip32_nvram_env_commit	kernel	run	1	IP30	0xa8000000204a75f0	4	0	0	0	0	-	no-site			
+enable_upanic	kernel	run	0	IP30	0xa8000000204a75ec	4	2	0	0	1	syssgi	located			
+disable_uspollsema_chk	kernel	run	0	IP30	0xa8000000204a75e8	4	1	0	0	1	usioctl	located			
+nodeslimitfrac	kernel	run	50	IP30	0xa8000000204a75dc	4	0	0	0	0	-	no-site			
+chunk_nodeshogfrac	kernel	run	20	IP30	0xa8000000204a75d8	4	0	0	0	0	-	no-site			
+nodeminfree	kernel	run	2000000	IP30	0xa8000000204a75d0	8	0	0	0	0	-	no-site			
+maxfailcount	kernel	run	10	IP30	0xa8000000204a75c8	4	0	0	0	0	-	no-site			
+io4ia_userdma_war	kernel	static	1	IP30	0xa8000000204a75c4	4	0	0	0	0	-	no-site			
+ignore_conveyor_override	kernel	static	0	IP30	0xa8000000204a75c0	4	0	0	0	0	-	no-site			
+force_fire_and_forget	kernel	static	1	IP30	0xa8000000204a75bc	4	0	0	0	0	-	no-site			
+io4ia_war_enable	kernel	static	0	IP30	0xa8000000204a75b8	4	0	0	0	0	-	no-site			
+tigon2_war_enable	kernel	static	1	IP30	0xa8000000204a75b4	4	2	0	0	1	setupbadmem	located			
+bpush_war_enable	kernel	static	1	IP30	0xa8000000204a75b0	4	0	0	0	0	-	no-site			
+bpush_source1	kernel	static	0x26	IP30	0xa8000000204a75ac	4	0	0	0	0	-	no-site			
+bpush_source2	kernel	static	0	IP30	0xa8000000204a75a8	4	0	0	0	0	-	no-site			
+bpush_source3	kernel	static	0	IP30	0xa8000000204a75a4	4	0	0	0	0	-	no-site			
+bpush_source4	kernel	static	0	IP30	0xa8000000204a75a0	4	0	0	0	0	-	no-site			
+r4k_div_patch	kernel	run	0	IP30	0xa8000000204a759c	4	0	0	0	0	-	no-site			
+corepluspid	kernel	run	0	IP30	0xa8000000204a7598	4	0	0	0	0	-	no-site			
+panic_on_sbe	kernel	run	0	IP30	0xa8000000204a7594	4	0	0	0	0	-	no-site			
+sbe_log_errors	kernel	run	0	IP30	0xa8000000204a7590	4	0	0	0	0	-	no-site			
+sbe_mem_verbose	kernel	run	0	IP30	0xa8000000204a758c	4	0	0	0	0	-	no-site			
+sbe_mfr_override	kernel	run	0	IP30	0xa8000000204a7588	4	0	0	0	0	-	no-site			
+sbe_report_cons	kernel	run	0	IP30	0xa8000000204a7584	4	0	0	0	0	-	no-site			
+sbe_maxout	kernel	run	600	IP30	0xa8000000204a7580	4	0	0	0	0	-	no-site			
+sbe_max_per_page	kernel	run	60	IP30	0xa8000000204a757c	4	0	0	0	0	-	no-site			
+ecc_recover_enable	kernel	run	60	IP30	0xa8000000204a7578	4	0	0	0	0	-	no-site			
+module_unld_delay	kernel	run	5	IP30	0xa8000000204a7574	4	2	0	0	2	fmrele;mlqdetach	located			
+dump_level	kernel	run	4	IP30	0xa8000000204a7570	4	0	0	0	0	-	no-site			
+dump_hub_info	kernel	run	2	IP30	0xa8000000204a756c	4	0	0	0	0	-	no-site			
+disable_asyncdump	kernel	run	0	IP30	0xa8000000204a7568	4	0	0	0	0	-	no-site			
+heartbeat_enable	kernel	run	0	IP30	0xa8000000204a7564	4	0	0	0	0	-	no-site			
+craylnk_bypass_disable	kernel	run	0	IP30	0xa8000000204a7560	4	0	0	0	0	-	no-site			
+disable_sbe_polling	kernel	run	0	IP30	0xa8000000204a755c	4	0	0	0	0	-	no-site			
+rpparm_maxburst_val	kernel	run	0x24	IP30	0xa8000000204a7558	4	0	0	0	0	-	no-site			
+mmap_async_write	kernel	run	0	IP30	0xa8000000204a7554	4	1	0	0	1	pas_pattach	located			
+r10k_intervene	kernel	run	1	IP30	0xa8000000204a7550	4	0	0	0	0	-	no-site			
+r10k_progress_nmi	kernel	run	0	IP30	0xa8000000204a754c	4	0	0	0	0	-	no-site			
+r10k_check_count	kernel	run	30000	IP30	0xa8000000204a7548	4	0	0	0	0	-	no-site			
+r10k_progress_diff	kernel	run	200000000	IP30	0xa8000000204a7540	8	0	0	0	0	-	no-site			
+ip32_pio_predelay	kernel	run	5	IP30	0xa8000000204a753c	4	0	0	0	0	-	no-site			
+ip32_pio_postdelay	kernel	run	5	IP30	0xa8000000204a7538	4	0	0	0	0	-	no-site			
+crime_rev	kernel	run	0	IP30	0xa8000000204a7534	4	0	0	0	0	-	no-site			
+cpu_prid	kernel	run	0	IP30	0xa8000000204a7530	4	0	0	0	0	-	no-site			
+max_shared_reg_refcnt	kernel	run	4	IP30	0xa8000000204a752c	4	1	0	0	1	dupreg	located			
+peer_peer_dma	kernel	run	0	IP30	0xa8000000204a7528	4	0	0	0	0	-	no-site			
+counter_intr_panic	kernel	run	0	IP30	0xa8000000204a7524	4	1	0	0	1	counter_intr	located			
+hub_intr_wakeup_cnt	kernel	run	1	IP30	0xa8000000204a751c	4	0	0	0	0	-	no-site			
+evdev_intr_wakeup_cnt	kernel	run	1	IP30	0xa8000000204a7518	4	0	0	0	0	-	no-site			
+pci_user_dma_max_pages	kernel	run	128	IP30	0xa8000000204a7514	4	0	0	0	0	-	no-site			
+fpcsr_fs_bit	kernel	run	1	IP30	0xa8000000204a7510	4	2	0	0	2	pcb_fpc_csr_initstate;setregs	located			
+mrlock_starve_threshold	kernel	run	3	IP30	0xa8000000204a750c	4	4	0	0	4	mraccessf;mrspinaccess;mrspinupdate;mrupdatef	located			
+mrlock_behavior	kernel	run	3	IP30	0xa8000000204a7508	4	2	0	0	1	mrlock_init	located			
+coremask	kernel	run	0	IP30	0xa8000000204a7504	4	0	0	0	0	-	no-site			
+usb_discovery_verbose	kernel	run	0	IP30	0xa8000000204a7500	4	0	0	0	0	-	no-site			
+pcmouse_mode	kernel	run	0	IP30	0xa8000000204a74fc	4	0	0	0	0	-	no-site			
+nomem_report_cons	kernel	run	0	IP30	0xa8000000204a74f8	4	1	0	0	1	nomemmsg	located			
+pcibr_prefetch_enable_rev	kernel	run	3	IP30	0xa8000000204a74f4	4	1	0	0	1	xbridge_attach	located			
+pcibr_wg_enable_rev	kernel	run	4	IP30	0xa8000000204a74f0	4	1	0	0	1	xbridge_attach	located			
+bridge_rev_b_data_check_disable	kernel	run	0	IP30	0xa8000000204a74ec	4	0	0	0	0	-	no-site			
+full_fru_analysis	kernel	run	1	IP30	0xa8000000204a74e8	4	0	0	0	0	-	no-site			
+fru_disable_confidence	kernel	run	90	IP30	0xa8000000204a74e4	4	0	0	0	0	-	no-site			
+disable_bte	kernel	run	0	IP30	0xa8000000204a74e0	4	0	0	0	0	-	no-site			
+disable_bte_pbcopy	kernel	run	64	IP30	0xa8000000204a74dc	4	0	0	0	0	-	no-site			
+disable_bte_pbzero	kernel	run	64	IP30	0xa8000000204a74d8	4	0	0	0	0	-	no-site			
+disable_bte_poison_range	kernel	run	0	IP30	0xa8000000204a74d4	4	0	0	0	0	-	no-site			
+iio_icmr_precise	kernel	run	1	IP30	0xa8000000204a74d0	4	0	0	0	0	-	no-site			
+iio_icmr_c_cnt	kernel	run	6	IP30	0xa8000000204a74cc	4	0	0	0	0	-	no-site			
+iio_bte_crb_count	kernel	run	2	IP30	0xa8000000204a74c8	4	0	0	0	0	-	no-site			
+iio_ictp	kernel	run	0x800	IP30	0xa8000000204a74c4	4	0	0	0	0	-	no-site			
+iio_icto	kernel	run	0xff	IP30	0xa8000000204a74c0	4	0	0	0	0	-	no-site			
+la_trigger_nasid1	kernel	run	-1	IP30	0xa8000000204a74bc	4	0	0	0	0	-	no-site			
+la_trigger_nasid2	kernel	run	-1	IP30	0xa8000000204a74b8	4	0	0	0	0	-	no-site			
+la_trigger_val	kernel	run	0xdeadbeefbeefcafe	IP30	0xa8000000204a74b0	8	0	0	0	0	-	no-site			
+r4k_corrupt_scache_data	kernel	static	0	IP30	0xa8000000204a74a4	4	0	0	0	0	-	no-site			
+l2_sbe_check	kernel	static	0x000c	IP30	0xa8000000204a74a0	4	0	0	0	0	-	no-site			
+l2_sbe_reset_sec	kernel	static	60	IP30	0xa8000000204a749c	4	0	0	0	0	-	no-site			
+engr_dvt_flag	kernel	static	0	IP30	0xa8000000204a7498	4	0	0	0	0	-	no-site			
+engr_dvt_sleep	kernel	static	300	IP30	0xa8000000204a7494	4	0	0	0	0	-	no-site			
+engr_dvt_l2_scan_enable	kernel	static	0	IP30	0xa8000000204a7490	4	0	0	0	0	-	no-site			
+engr_dvt_memchck_enable	kernel	static	0	IP30	0xa8000000204a748c	4	0	0	0	0	-	no-site			
+utrace_bufsize	kernel	static	0	IP30	0xa8000000204a7488	4	7	1	0	4	syscall;tstamp_update_mask;tstamp_user_delete;utrace_init	located			
+kmem_do_poison	kernel	run	1	IP30	0xa8000000204a7484	4	2	0	0	1	kmem_poison	located			
+kmem_make_zones_private_min	kernel	run	0	IP30	0xa8000000204a7480	4	0	0	0	0	-	no-site			
+kmem_make_zones_private_max	kernel	run	0	IP30	0xa8000000204a747c	4	0	0	0	0	-	no-site			
+kmem_split_zone	kernel	run	0	IP30	0xa8000000204a7478	4	0	0	0	0	-	no-site			
+utrace_mask	kernel	run	0xfff3f	IP30	0xa8000000204a7470	8	3	1	0	3	_utrace_sanity;syscall;tstamp_update_mask	located			
+power_button_changed_to_crash_dump	kernel	run	0	IP30	0xa8000000204a7468	4	0	0	0	0	-	no-site			
+process_core_cpu_logging	kernel	run	0	IP30	0xa8000000204a7464	4	3	0	0	1	trap	located			
+r12k_bdiag	kernel	run	0	IP30	0xa8000000204a7460	4	0	0	0	0	-	no-site			
+ncargs	kernel	run	20480	IP30	0xa8000000204a745c	4	2	2	0	2	_limits_sanity;sysconf	located			
+shlbmax	kernel	run	8	IP30	0xa8000000204a7458	4	0	0	0	0	-	no-site			
+maxwatchpoints	kernel	run	100	IP30	0xa8000000204a7454	4	1	0	0	1	addwatch	located			
+nprofile	kernel	run	100	IP30	0xa8000000204a7450	4	2	0	0	2	evc_profil;sprofil	located			
+maxsymlinks	kernel	run	30	IP30	0xa8000000204a744c	4	1	0	0	1	lookuppn	located			
+maxup	kernel	run	0	IP30	0xa8000000204a7448	4	4	1	0	4	_numproc_sanity;prctl;procnew;sysconf	located			
+maxup_enforce_penalty	kernel	run	0	IP30	0xa8000000204a7444	4	1	1	0	1	procnew	located			
+idbgmaxfuncs	kernel	run	1200	IP30	0xa8000000204a7440	4	0	0	0	0	-	no-site			
+rlimit_cpu_cur	kernel	static	0x7fffffffffffffff	IP30	0xa8000000204a7438	8	1	0	0	1	p0init	located			
+rlimit_cpu_max	kernel	static	0x7fffffffffffffff	IP30	0xa8000000204a7430	8	1	0	0	1	p0init	located			
+rlimit_fsize_cur	kernel	static	0x7fffffffffffffff	IP30	0xa8000000204a7428	8	1	0	0	1	p0init	located			
+rlimit_fsize_max	kernel	static	0x7fffffffffffffff	IP30	0xa8000000204a7420	8	2	0	0	2	p0init;rfs_write	located			
+rlimit_data_cur	kernel	static	0	IP30	0xa8000000204a7418	8	2	1	0	2	_resource_sanity;as_p0init	located			
+rlimit_data_max	kernel	static	0	IP30	0xa8000000204a7410	8	2	1	0	2	_resource_sanity;p0init	located			
+rlimit_stack_cur	kernel	static	0x04000000	IP30	0xa8000000204a7408	8	1	0	0	1	as_p0init	located			
+rlimit_stack_max	kernel	static	0x20000000	IP30	0xa8000000204a7400	8	1	0	0	1	p0init	located			
+rlimit_core_cur	kernel	static	0x7fffffffffffffff	IP30	0xa8000000204a73f8	8	1	0	0	1	p0init	located			
+rlimit_core_max	kernel	static	0x7fffffffffffffff	IP30	0xa8000000204a73f0	8	1	0	0	1	p0init	located			
+rlimit_vmem_cur	kernel	static	0	IP30	0xa8000000204a73e8	8	2	1	0	2	_resource_sanity;as_p0init	located			
+rlimit_vmem_max	kernel	static	0	IP30	0xa8000000204a73e0	8	2	1	0	2	_resource_sanity;p0init	located			
+rlimit_rss_cur	kernel	static	0	IP30	0xa8000000204a73d8	8	2	2	0	1	as_p0init	located			
+rlimit_rss_max	kernel	static	0	IP30	0xa8000000204a73d0	8	2	1	0	2	as_p0init;p0init	located			
+rlimit_nofile_cur	kernel	static	200	IP30	0xa8000000204a73c8	8	1	0	0	1	p0init	located			
+rlimit_nofile_max	kernel	static	2500	IP30	0xa8000000204a73c0	8	1	0	0	1	p0init	located			
+rlimit_pthread_cur	kernel	static	0x400	IP30	0xa8000000204a73b8	8	1	0	0	1	p0init	located			
+rlimit_pthread_max	kernel	static	0x400	IP30	0xa8000000204a73b0	8	1	0	0	1	p0init	located			
+nproc	kernel	static	0	IP30	0xa8000000204a73a0	4	5	1	0	5	_numproc_sanity;as_init;procnew;start_lockd;vn_init	located			
+ndquot	kernel	static	0	IP30	0xa8000000204a739c	4	1	1	0	1	_numproc_sanity	located			
+ncallout	kernel	static	0	IP30	0xa8000000204a7398	4	2	1	0	2	_numproc_sanity;calloutinit_cpu	located			
+ncsize	kernel	static	0	IP30	0xa8000000204a7394	4	12	1	0	7	_numproc_sanity;dnlc_init;dnlc_v2name;dnlc_vname;idbg_ncache;vn_init;xfs_init	located			
+ngroups_max	kernel	static	16	IP30	0xa8000000204a7390	4	9	0	0	6	checkauth;crcmp;crgetsize;krpc_init;setgroups;sysconf	located			
+nclrus	kernel	static	0	IP30	0xa8000000204a738c	4	1	0	0	1	dnlc_init	located			
+nlog	kernel	static	0	IP30	0xa8000000204a7388	4	2	1	0	2	_numproc_sanity;loginit	located			
+nstrpush	kernel	static	8	IP30	0xa8000000204a7384	4	3	0	0	3	strdrv_push;strioctl;stropen	located			
+nstrintr	kernel	static	1024	IP30	0xa8000000204a7380	4	3	0	0	1	str_mp_init	located			
+strmsgsz	kernel	static	0x8000	IP30	0xa8000000204a737c	4	5	0	0	4	strdoioctl;strioctl;strputmsg;strwrite	located			
+strctlsz	kernel	static	1024	IP30	0xa8000000204a7378	4	3	0	0	2	strioctl;strputmsg	located			
+strpmonmax	kernel	static	4	IP30	0xa8000000204a7374	4	1	0	0	1	str_privmon_alloc	located			
+strholdtime	kernel	run	50	IP30	0xa8000000204a7370	4	4	0	0	2	_queuerun;strwrite	located			
+nactions	kernel	static	0	IP30	0xa8000000204a736c	4	2	1	0	1	action_prealloc	located			
+maxsigq	kernel	run	128	IP30	0xa8000000204a7368	4	2	0	0	2	pproc_sendsig;sysconf	located			
+fasthz	kernel	static	1000	IP30	0xa8000000204a7364	4	7	8	0	7	_timer_sanity;fasthzto;inittodr;query_fasttimer;startkgclock;timein;timer_settime	located			
+itimer_on_clkcpu	kernel	static	0	IP30	0xa8000000204a7360	4	4	0	0	2	dosetitimer;realitexpire	located			
+timetrim	kernel	static	0	IP30	0xa8000000204a735c	4	2	1	0	3	gettimetrim;nanotime_syscall;settimetrim	located			
+maxpmem	kernel	static	0	IP30	0xa8000000204a7358	4	0	0	0	0	-	no-site			
+syssegsz	kernel	static	0	IP30	0xa8000000204a7354	4	15	1	0	12	_memsize_sanity;cache_operation;ddv_mappages;kmiss;ktlbfix;kvswapin;kvswappable;kvtophys;kvtophyspg;kvtophyspnum;sysreg_earlyinit;tlbmiss	located			
+maxdmasz	kernel	static	1025|257	IP30	0xa8000000204a7350	4	3	1	0	3	_memsize_sanity;xfs_init;xfs_lockdown_iopages	located			
+maxpglst	kernel	static	0	IP30	0xa8000000204a734c	4	4	0	0	2	sema_init;tune_sanity	located			
+scache_pool_size	kernel	static	32	IP30	0xa8000000204a7348	4	0	0	0	0	-	no-site			
+gpgslo	kernel	run	0	IP30	0xa8000000204a7344	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+gpgshi	kernel	run	0	IP30	0xa8000000204a7340	4	1	3	0	2	_paging_sanity;tune_sanity	located			
+gpgsmsk	kernel	run	2	IP30	0xa8000000204a733c	4	1	1	0	2	_paging_sanity;tune_sanity	located			
+maxsc	kernel	run	0	IP30	0xa8000000204a7338	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+maxfc	kernel	run	0	IP30	0xa8000000204a7334	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+maxdc	kernel	run	0	IP30	0xa8000000204a7330	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+bdflushr	kernel	run	5	IP30	0xa8000000204a732c	4	1	1	0	2	_paging_sanity;tune_sanity	located			
+bdflush_interval	kernel	run	100	IP30	0xa8000000204a7328	4	5	0	0	3	bdflush_wake_proc;bdflushinit;syssgi	located			
+vfs_syncr	kernel	run	30	IP30	0xa8000000204a7324	4	0	0	0	0	-	no-site			
+minarmem	kernel	run	0	IP30	0xa8000000204a7320	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+minasmem	kernel	run	0	IP30	0xa8000000204a731c	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+maxlkmem	kernel	run	2000	IP30	0xa8000000204a7318	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+tlbdrop	kernel	run	100	IP30	0xa8000000204a7314	4	1	0	0	1	_paging_sanity	located			
+rsshogfrac	kernel	run	75	IP30	0xa8000000204a7310	4	1	1	0	2	_paging_sanity;tune_sanity	located			
+rsshogslop	kernel	run	20	IP30	0xa8000000204a730c	4	1	0	0	1	_paging_sanity	located			
+dwcluster	kernel	run	64	IP30	0xa8000000204a7308	4	1	1	0	2	_paging_sanity;tune_sanity	located			
+autoup	kernel	run	10	IP30	0xa8000000204a7304	4	1	0	0	1	_paging_sanity	located			
+min_file_pages	kernel	run	0	IP30	0xa8000000204a7300	4	10	2	0	7	activate_bufs;chunk_pshake;chunkfree;chunkhold;cinit;free_buffer_mem;mem_adjust	located			
+min_free_pages	kernel	run	0	IP30	0xa8000000204a72fc	4	7	2	0	6	activate_bufs;chunk_pshake;chunkfree;chunkhold;cinit;mem_adjust	located			
+min_bufmem	kernel	run	0	IP30	0xa8000000204a72f8	4	5	1	0	4	binit;chunk_pshake;free_buffer_mem;mem_adjust	located			
+shaked_interval	kernel	run	1	IP30	0xa8000000204a72f4	4	0	0	0	0	-	no-site			
+zone_accum_limit	kernel	run	30	IP30	0xa8000000204a72f0	4	0	0	0	0	-	no-site			
+cwcluster	kernel	run	64	IP30	0xa8000000204a72ec	4	2	0	0	1	chunkcommit	located			
+enable_devzero_opt	kernel	run	1	IP30	0xa8000000204a72e4	4	1	0	0	1	pas_addmmapdevice	located			
+max_heap_mapping_size_hint	kernel	run	0x7fffffff	IP30	0xa8000000204a72e0	4	2	0	0	2	pas_addexec;pas_break	located			
+enable_kaio_fast_path	kernel	run	1	IP30	0xa8000000204a72dc	4	0	0	0	0	-	no-site			
+buf_relse_age	kernel	run	0	IP30	0xa8000000204a72d8	4	1	0	0	1	xfs_vop_readbuf_core	located			
+nfs_buf_commit_age	kernel	run	0	IP30	0xa8000000204a72d4	4	0	0	0	0	-	no-site			
+buf_clback	kernel	run	0	IP30	0xa8000000204a72d0	4	1	0	0	1	clusterwrite	located			
+buf_throttle_on	kernel	run	0	IP30	0xa8000000204a72cc	4	3	0	0	3	buf_throttle_active;buf_throttle_pending;dchunkpush_aged	located			
+buf_throttle_threshold	kernel	run	70	IP30	0xa8000000204a72c8	4	1	0	0	1	buf_throttle_active	located			
+buf_throttle_off_threshold	kernel	run	60	IP30	0xa8000000204a72c4	4	1	0	0	1	buf_throttle_active	located			
+buf_throttle_pending_threshold	kernel	run	60	IP30	0xa8000000204a72c0	4	1	0	0	1	buf_throttle_pending	located			
+buf_throttle_sleep_base_prd	kernel	run	50000000	IP30	0xa8000000204a72bc	4	0	0	0	0	-	no-site			
+buf_throttle_sleep_recalc_prd	kernel	run	25	IP30	0xa8000000204a72b8	4	0	0	0	0	-	no-site			
+nbuf	kernel	static	0	IP30	0xa8000000204a72b4	4	15	1	0	11	_bufcache_sanity;chunk_vflush;chunk_vshake;chunkfree;chunkhold;cinit;free_buffer_mem;getbuf_stats;idbg_nfs_async_cfg;nfs3_init;nfs3_write_throttle_wakeup	located			
+nbufavoiddev	kernel	static	16	IP30	0xa8000000204a72b0	4	4	0	0	4	binit;buf_avoid_add;buf_avoid_delete;buf_avoid_search	located			
+bdevsw_extra	kernel	static	21	IP30	0xa8000000204a72a4	4	0	0	0	0	-	no-site			
+cdevsw_extra	kernel	static	23	IP30	0xa8000000204a72a0	4	0	0	0	0	-	no-site			
+fmodsw_extra	kernel	static	20	IP30	0xa8000000204a729c	4	0	0	0	0	-	no-site			
+vfssw_extra	kernel	static	5	IP30	0xa8000000204a7298	4	0	0	0	0	-	no-site			
+do_procacct	kernel	static	1	IP30	0xa8000000204a7294	4	1	0	0	1	pproc_exit	located			
+do_extpacct	kernel	static	0	IP30	0xa8000000204a7290	4	2	0	0	2	extacct;pproc_exit	located			
+do_sessacct	kernel	static	0	IP30	0xa8000000204a728c	4	4	0	0	2	extacct;pproc_exit	located			
+do_csaacct	kernel	static	0	IP30	0xa8000000204a7288	4	12	1	0	9	acctctl;clock;exit;pproc_exit;prctl;reattachpreg;shadowacct;vattachreg;vgrowreg	located			
+sessaf	kernel	static	1	IP30	0xa8000000204a7284	4	1	0	0	1	ppag_init	located			
+spilen	kernel	static	64	IP30	0xa8000000204a7280	4	1	0	0	1	ppag_init	located			
+dfltprid	kernel	static	0	IP30	0xa8000000204a7278	8	3	0	0	3	ppagg_create;xcstat;xfs_mkdir	located			
+dflt_paggid	kernel	static	0	IP30	0xa8000000204a7270	8	1	0	0	1	vpag_init	located			
+min_local_paggid	kernel	static	1	IP30	0xa8000000204a7268	8	5	0	0	5	vpag_create;vpag_init;vpag_set_paggid;vpag_setidctr;vpag_setidincr	located			
+max_local_paggid	kernel	static	65535	IP30	0xa8000000204a7260	8	4	0	0	4	vpag_create;vpag_set_paggid;vpag_setidctr;vpag_setidincr	located			
+incr_paggid	kernel	static	1	IP30	0xa8000000204a7258	8	1	0	0	1	vpag_init	located			
+asmachid	kernel	static	0	IP30	0xa8000000204a7254	4	2	0	0	2	vpag_init;vpag_setmachid	located			
+asarrayid	kernel	static	0xffff	IP30	0xa8000000204a7250	4	2	0	0	2	vpag_init;vpag_setarrayid	located			
+miser_rss_account	kernel	static	1	IP30	0xa8000000204a724c	4	0	0	0	0	-	no-site			
+histmax	kernel	static	0	IP30	0xa8000000204a7248	4	3	1	0	1	rslog_size	located			
+conbuf_maxsz	kernel	static	16384	IP30	0xa8000000204a7244	4	0	0	0	0	-	no-site			
+putbuf_maxsz	kernel	static	16384	IP30	0xa8000000204a7240	4	0	0	0	0	-	no-site			
+errbuf_maxsz	kernel	static	16384	IP30	0xa8000000204a723c	4	0	0	0	0	-	no-site			
+conbuf_cpusz	kernel	static	2048	IP30	0xa8000000204a7238	4	0	0	0	0	-	no-site			
+putbuf_cpusz	kernel	static	2048	IP30	0xa8000000204a7234	4	0	0	0	0	-	no-site			
+errbuf_cpusz	kernel	static	2048	IP30	0xa8000000204a7230	4	0	0	0	0	-	no-site			
+dumplo	kernel	static	0	IP30	0xa8000000204a722c	4	0	1	0	1	sd_init	located			
+hub_core_arb_ctrl	kernel	static	0xfe	IP30	0xa8000000204a7228	4	0	0	0	0	-	no-site			
+hub_2_4_iio_icmr_c_cnt	kernel	static	4	IP30	0xa8000000204a7224	4	0	0	0	0	-	no-site			
+hub_2_4_iio_icmr_p_cnt	kernel	static	0	IP30	0xa8000000204a7220	4	0	0	0	0	-	no-site			
+hub_2_4_iio_bte_crb_cnt	kernel	static	2	IP30	0xa8000000204a721c	4	0	0	0	0	-	no-site			
+nlpages_64k	kernel	static	0	IP30	0xa8000000204a7218	4	0	0	0	0	-	no-site			
+nlpages_256k	kernel	static	0	IP30	0xa8000000204a7214	4	0	0	0	0	-	no-site			
+nlpages_1m	kernel	static	0	IP30	0xa8000000204a7210	4	0	0	0	0	-	no-site			
+nlpages_4m	kernel	static	0	IP30	0xa8000000204a720c	4	0	0	0	0	-	no-site			
+nlpages_16m	kernel	static	0	IP30	0xa8000000204a7208	4	0	0	0	0	-	no-site			
+large_pages_enable	kernel	static	1|0	IP30	0xa8000000204a7204	4	2	0	0	2	lpage_init_watermarks;main	located			
+percent_totalmem_16k_pages	kernel	run	0	IP30	0xa8000000204a7200	4	0	1	0	1	_lpage_watermarks_sanity	located			
+percent_totalmem_64k_pages	kernel	run	20	IP30	0xa8000000204a71fc	4	2	0	0	2	_lpage_watermarks_sanity;collect_lpg_stats	located			
+percent_totalmem_256k_pages	kernel	run	0	IP30	0xa8000000204a71f8	4	2	0	0	2	_lpage_watermarks_sanity;collect_lpg_stats	located			
+percent_totalmem_1m_pages	kernel	run	0	IP30	0xa8000000204a71f4	4	2	0	0	2	_lpage_watermarks_sanity;collect_lpg_stats	located			
+percent_totalmem_4m_pages	kernel	run	0	IP30	0xa8000000204a71f0	4	2	0	0	2	_lpage_watermarks_sanity;collect_lpg_stats	located			
+percent_totalmem_16m_pages	kernel	run	0	IP30	0xa8000000204a71ec	4	2	0	0	2	_lpage_watermarks_sanity;collect_lpg_stats	located			
+coalesced_run_period	kernel	run	300	IP30	0xa8000000204a71e8	4	2	0	0	2	_lpage_watermarks_sanity;lpage_init	located			
+coalesced_precoalesce	kernel	run	0	IP30	0xa8000000204a71e4	4	1	0	0	1	coalesced	located			
+nvme32_dma	kernel	static	64	IP30	0xa8000000204a71e0	4	0	0	0	0	-	no-site			
+shmmax	kernel	static	0	IP30	0xa8000000204a71d8	8	2	1	0	2	_shm_sanity;pshm_alloc	located			
+shmmin	kernel	static	1	IP30	0xa8000000204a71d0	8	1	0	0	1	pshm_alloc	located			
+shmmni	kernel	static	0	IP30	0xa8000000204a71cc	4	8	1	0	5	_numproc_sanity;pproc_ckpt_shmget;vshm_allocid;vshm_freeid_local;vshm_init	located			
+sshmseg	kernel	static	2000	IP30	0xa8000000204a71c8	4	1	0	0	1	pshm_attach	located			
+hwgraph_num_dev	kernel	static	262144	IP30	0xa8000000204a71c4	4	2	0	0	2	hwgraph_init;hwgraph_vertex_create	located			
+xxl_hwgraph_num_dev	kernel	static	262144	IP30	0xa8000000204a71c0	4	0	0	0	0	-	no-site			
+graph_vertex_per_group	kernel	static	128	IP30	0xa8000000204a71bc	4	9	1	0	4	_io_sanity;graph_create;graph_summary_get;graph_vertex_get_next	located			
+io_init_node_threads	kernel	static	0	IP30	0xa8000000204a71b8	4	1	1	0	1	_io_sanity	located			
+io_init_async	kernel	static	1	IP30	0xa8000000204a71b4	4	0	1	0	1	_io_sanity	located			
+pciba_broken_le_be_compat	kernel	static	0	IP30	0xa8000000204a71b0	4	0	0	0	0	-	no-site			
+pcibr_pioerr_dump	kernel	static	1	IP30	0xa8000000204a71ac	4	1	0	0	1	pcibr_error_intr_handler	located			
+pciio_multimaster_override	kernel	static	0	IP30	0xa8000000204a71a8	4	0	0	0	0	-	no-site			
+console_pri	kernel	static	255	IP30	0xa8000000204a71a4	4	0	0	0	0	-	no-site			
+du_conpoll_pri	kernel	static	255	IP30	0xa8000000204a71a0	4	1	0	0	1	start_du_conpoll_thread	located			
+hb_pri	kernel	static	255	IP30	0xa8000000204a719c	4	0	0	0	0	-	no-site			
+mtcp_discovery_pri	kernel	static	255	IP30	0xa8000000204a7198	4	0	0	0	0	-	no-site			
+cmsd_pri	kernel	static	109	IP30	0xa8000000204a7194	4	0	0	0	0	-	no-site			
+msc_shutdown_pri	kernel	static	109	IP30	0xa8000000204a7190	4	0	0	0	0	-	no-site			
+msc_heartbeat_pri	kernel	static	109	IP30	0xa8000000204a718c	4	0	0	0	0	-	no-site			
+reaper_pri	kernel	static	100	IP30	0xa8000000204a7188	4	1	0	0	1	kthread_reap_init	located			
+netthread_pri	kernel	static	98	IP30	0xa8000000204a7184	4	3	0	0	3	mbinit;netisr_init;sockd_init	located			
+klogthrd_pri	kernel	static	98	IP30	0xa8000000204a7180	4	0	0	0	0	-	no-site			
+batchd_pri	kernel	static	98	IP30	0xa8000000204a717c	4	1	0	0	1	miser_set_quantum	located			
+pdflush_pri	kernel	static	98	IP30	0xa8000000204a7178	4	1	0	0	1	bdflushinit	located			
+rmonqd_pri	kernel	static	98	IP30	0xa8000000204a7174	4	2	0	0	2	initmonitor;strinit_giveback	located			
+vhand_pri	kernel	static	98	IP30	0xa8000000204a7170	4	1	0	0	1	pager_init	located			
+shaked_pri	kernel	static	98	IP30	0xa8000000204a716c	4	1	0	0	1	pager_init	located			
+exim_pri	kernel	static	96	IP30	0xa8000000204a7168	4	0	0	0	0	-	no-site			
+bpsqueue_pri	kernel	static	94	IP30	0xa8000000204a7164	4	0	0	0	0	-	no-site			
+xlvd_pri	kernel	static	94	IP30	0xa8000000204a7160	4	0	0	0	0	-	no-site			
+vfs_sync_pri	kernel	static	92	IP30	0xa8000000204a715c	4	1	0	0	1	bdflushinit	located			
+bdflush_pri	kernel	static	92	IP30	0xa8000000204a7158	4	1	0	0	1	bdflushinit	located			
+xfsd_pri	kernel	static	92	IP30	0xa8000000204a7154	4	3	0	0	1	xfs_start_daemons	located			
+onesec_pri	kernel	static	90	IP30	0xa8000000204a7150	4	1	0	0	1	init_second	located			
+unmountd_pri	kernel	static	90	IP30	0xa8000000204a714c	4	1	0	0	1	main	located			
+async_call_pri	kernel	static	90	IP30	0xa8000000204a7148	4	1	0	0	1	main	located			
+sched_pri	kernel	static	90	IP30	0xa8000000204a7144	4	1	0	0	1	main	located			
+coalesced_pri	kernel	static	90	IP30	0xa8000000204a7140	4	1	0	0	1	main	located			
+tiled_pri	kernel	static	90	IP30	0xa8000000204a713c	4	0	0	0	0	-	no-site			
+recovery_pri	kernel	static	90	IP30	0xa8000000204a7138	4	0	0	0	0	-	no-site			
+mtcp_pri	kernel	static	90	IP30	0xa8000000204a7134	4	0	0	0	0	-	no-site			
+tpisockd_pri	kernel	static	90	IP30	0xa8000000204a7130	4	0	0	0	0	-	no-site			
+io_init_pri	kernel	static	90	IP30	0xa8000000204a712c	4	0	0	0	0	-	no-site			
+partition_pri	kernel	static	90	IP30	0xa8000000204a7128	4	0	0	0	0	-	no-site			
+cdl_attach_pri	kernel	static	90	IP30	0xa8000000204a7124	4	0	0	0	0	-	no-site			
+munldd_pri	kernel	static	90	IP30	0xa8000000204a7120	4	1	0	0	1	mload_init	located			
+dpipe_pri	kernel	static	90	IP30	0xa8000000204a711c	4	0	0	0	0	-	no-site			
+xbox_poll_pri	kernel	static	90	IP30	0xa8000000204a7118	4	0	0	0	0	-	no-site			
+cl_async_pri	kernel	static	90	IP30	0xa8000000204a7114	4	0	0	0	0	-	no-site			
+randthread_pri	kernel	static	98	IP30	0xa8000000204a7110	4	2	0	0	2	randisr_init;randstart	located			
+audio_intr_pri	kernel	static	235	IP30	0xa8000000204a7108	4	2	0	0	2	device_driver_sysgen_thread_pri_get;start_kdsp_timeout_thread	located			
+tserialio_intr_pri	kernel	static	235	IP30	0xa8000000204a7104	4	2	0	0	2	device_driver_sysgen_thread_pri_get;start_tsio_timeout_thread	located			
+video_intr_pri	kernel	static	230	IP30	0xa8000000204a7100	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+graphics_intr_pri	kernel	static	225	IP30	0xa8000000204a70fc	4	3	0	0	3	device_driver_sysgen_thread_pri_get;do_heart_intr_alloc;heart_ithread_setup	located			
+external_intr_pri	kernel	static	220	IP30	0xa8000000204a70f8	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+serial_intr_pri	kernel	static	215	IP30	0xa8000000204a70f4	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+parallel_intr_pri	kernel	static	215	IP30	0xa8000000204a70f0	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+network_intr_pri	kernel	static	210	IP30	0xa8000000204a70ec	4	2	0	0	2	arp_rtrequest;device_driver_sysgen_thread_pri_get	located			
+scsi_intr_pri	kernel	static	205	IP30	0xa8000000204a70e8	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+disk_intr_pri	kernel	static	205	IP30	0xa8000000204a70e4	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+tape_intr_pri	kernel	static	205	IP30	0xa8000000204a70e0	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+default_intr_pri	kernel	static	200	IP30	0xa8000000204a70dc	4	8	0	0	6	device_driver_sysgen_thread_pri_get;do_heart_intr_alloc;enable_ithreads;fire_attach;ioc3_intr_connect;pcibr_intr_alloc	located			
+default_timeout_pri	kernel	static	1	IP30	0xa8000000204a70d8	4	3	0	0	2	callout_get_pri;midi_timercallback	located			
+mrlock_num_mria	kernel	static	64	IP30	0xa8000000204a70d4	4	1	0	0	1	sema_init	located			
+ckpt_enabled	kernel	run	1	IP30	0xa8000000204a70d0	4	15	0	0	10	as_allocshmmo;copen;intpexec;ioctl;pas_addexec;pas_addload;pas_addmmap;pas_addmmapdevice;sigreturn;vn_free	located			
+cpuset_nobind	kernel	static	0	IP30	0xa8000000204a70cc	4	2	0	0	1	sysmp	located			
+r10k_bpmode	kernel	static	0	IP30	0xa8000000204a70c4	4	0	0	0	0	-	no-site			
+enable_poq_war	kernel	static	0	IP30	0xa8000000204a70c0	4	0	0	0	0	-	no-site			
+md_rq_depth	kernel	static	5	IP30	0xa8000000204a70bc	4	0	0	0	0	-	no-site			
+randthread_float	kernel	static	0	IP30	0xa8000000204a70b8	4	2	0	0	1	randproc_init	located			
+lockd_grace_period	lockd	run	45	IP30	0xa8000000204a6da4	4	2	1	0	2	lockd_sys;start_lockd	located			
+lock_share_requests	lockd	run	0	IP30	0xa8000000204a6da0	4	4	2	0	4	destroy_client_shares;lockd_sys;nlm_share_options;proc_nlm_share	located			
+nlm_granted_timeout	lockd	run	1	IP30	0xa8000000204a6d9c	4	0	0	0	0	-	no-site			
+nlm_maxdupreqs	lockd	run	0	IP30	0xa8000000204a6d98	4	2	0	0	1	nlm_dup_flush	located			
+nlm_callback_retry	lockd	run	3	IP30	0xa8000000204a6d94	4	0	0	0	0	-	no-site			
+max_lockd_procs	lockd	run	0	IP30	0xa8000000204a6d90	4	3	1	0	3	proc_nlm4_lock;proc_nlm_lock;start_lockd	located			
+msgmax	msg		0x4000	IP30	0xa8000000204a6f50	4	1	0	0	1	msginit	located			
+msgmnb	msg		0x8000	IP30	0xa8000000204a6f4c	4	1	0	0	1	msginit	located			
+msgmni	msg		50	IP30	0xa8000000204a6f48	4	1	0	0	1	msginit	located			
+msgssz	msg		8	IP30	0xa8000000204a6f44	4	1	0	0	1	msginit	located			
+msgtql	msg		40	IP30	0xa8000000204a6f40	4	1	0	0	1	msginit	located			
+msgseg	msg		1536	IP30	0xa8000000204a6f3c	4	2	0	0	1	msginit	located			
+pmqomax	msg		128	IP30	0xa8000000204a6f38	4	1	0	0	1	sysconf	located			
+sm_timeout	nfs	run	5	IP30	0xa8000000204a6df8	4	1	0	0	1	cancel_mon	located			
+GraceWaitTime	nfs	run	5	IP30	0xa8000000204a6df4	4	1	0	0	1	nlm_async_call	located			
+max_nfs_clients	nfs	static	32	IP30	0xa8000000204a6df0	4	4	1	0	3	chtables_init;clget;nfs_wakeup	located			
+max_nsd_clients	nfs	static	32	IP30	0xa8000000204a6dec	4	5	1	0	4	chtables_init;nclfree;nclget;nfs_wakeup	located			
+max_xnfs_clients	nfs	static	32	IP30	0xa8000000204a6de8	4	5	1	0	4	chtables_init;nfs_wakeup;xclfree;xclget	located			
+nfstcp_shutdown_wait	nfs	static	500	IP30	0xa8000000204a6e1c	4	1	0	0	1	kspt_shutdown_sockets	located			
+nfs_close_sock	nfs	static	0	IP30	0xa8000000204a6de4	4	0	0	0	0	-	no-site			
+nfs3_default_xfer	nfs3	static	32768	IP30	0xa8000000204a6ddc	4	0	0	0	0	-	no-site			
+nfs3_max_threads	nfs3	static	4	IP30	0xa8000000204a6dd8	4	0	0	0	0	-	no-site			
+nfs3_rah	nfs3	static	2	IP30	0xa8000000204a6dd4	4	1	0	0	1	__nfs3_get_readahead	located			
+nfs3_commit_prd	nfs3	static	50	IP30	0xa8000000204a6dd0	4	0	0	0	0	-	no-site			
+nfs3_posix_atime_on_read	nfs3	static	0	IP30	0xa8000000204a6dcc	4	0	0	0	0	-	no-site			
+nfs3_unst_wtmark	nfs3	static	75	IP30	0xa8000000204a6dc8	4	1	0	0	1	idbg_nfs_async_cfg	located			
+nfs3_unst_crit_wtmark	nfs3	static	67	IP30	0xa8000000204a6dc4	4	0	0	0	0	-	no-site			
+nfs3_unst_low_wtmark	nfs3	static	60	IP30	0xa8000000204a6dc0	4	3	0	0	2	idbg_nfs_async_cfg;nfs3_write_throttle_wakeup	located			
+nfs3_unst_enforce_wtmark	nfs3	static	40	IP30	0xa8000000204a6dbc	4	2	0	0	2	idbg_nfs_async_cfg;nfs3_init	located			
+nfs3_abio_write_hiwat	nfs3	static	0	IP30	0xa8000000204a6db8	4	2	1	0	2	idbg_nfs_async_cfg;nfs3_init	located			
+nfs3_abio_write_lowat	nfs3	static	0	IP30	0xa8000000204a6db4	4	3	2	0	3	idbg_nfs_async_cfg;nfs3_init;nfs3_write_throttle_wakeup	located			
+nfs3_abio_write_quota	nfs3	run	2	IP30	0xa8000000204a6db0	4	0	0	0	0	-	no-site			
+nfs3_abio_read_quota	nfs3	run	2	IP30	0xa8000000204a6dac	4	0	0	0	0	-	no-site			
+nfs3_max_jukebox	nfs3	run	360	IP30	-	-	0	0	0	0	-	no-symbol			
+numa_migr_default_mode	numa		2	IP30	0xa8000000204a6f1c	4	0	0	0	0	-	no-site			
+numa_migr_default_threshold	numa		50	IP30	0xa8000000204a6f18	4	0	0	0	0	-	no-site			
+numa_migr_threshold_reference	numa		0	IP30	0xa8000000204a6f14	4	0	0	0	0	-	no-site			
+numa_migr_vehicle	numa		1	IP30	0xa8000000204a6f10	4	0	0	0	0	-	no-site			
+numa_migr_min_maxradius	numa		2	IP30	0xa8000000204a6f0c	4	0	0	0	0	-	no-site			
+numa_migr_auto_migr_mech	numa		0	IP30	0xa8000000204a6f08	4	0	0	0	0	-	no-site			
+numa_migr_user_migr_mech	numa		0	IP30	0xa8000000204a6f04	4	0	0	0	0	-	no-site			
+numa_migr_coaldmigr_mech	numa		0	IP30	0xa8000000204a6f00	4	0	0	0	0	-	no-site			
+numa_refcnt_default_mode	numa		0	IP30	0xa8000000204a6efc	4	0	0	0	0	-	no-site			
+numa_refcnt_overflow_threshold	numa		50	IP30	0xa8000000204a6ef8	4	0	0	0	0	-	no-site			
+numa_migr_min_distance	numa		1	IP30	0xa8000000204a6ef4	4	0	0	0	0	-	no-site			
+numa_migr_memory_low_enabled	numa		1	IP30	0xa8000000204a6ef0	4	0	0	0	0	-	no-site			
+numa_migr_memory_low_threshold	numa		20	IP30	0xa8000000204a6eec	4	0	0	0	0	-	no-site			
+numa_migr_freeze_enabled	numa		0	IP30	0xa8000000204a6ee8	4	0	0	0	0	-	no-site			
+numa_migr_freeze_threshold	numa		20	IP30	0xa8000000204a6ee4	4	0	0	0	0	-	no-site			
+numa_migr_melt_enabled	numa		0	IP30	0xa8000000204a6ee0	4	0	0	0	0	-	no-site			
+numa_migr_melt_threshold	numa		90	IP30	0xa8000000204a6edc	4	0	0	0	0	-	no-site			
+numa_migr_bounce_control_interval	numa		0	IP30	0xa8000000204a6ed8	4	0	0	0	0	-	no-site			
+numa_migr_dampening_enabled	numa		0	IP30	0xa8000000204a6ed4	4	0	0	0	0	-	no-site			
+numa_migr_dampening_factor	numa		90	IP30	0xa8000000204a6ed0	4	0	0	0	0	-	no-site			
+mem_tick_enabled	numa		1	IP30	0xa8000000204a6ecc	4	0	0	0	0	-	no-site			
+mem_tick_base_period	numa		1	IP30	0xa8000000204a6ec8	4	0	0	0	0	-	no-site			
+numa_migr_unpegging_control_enabled	numa		1	IP30	0xa8000000204a6ec4	4	0	0	0	0	-	no-site			
+numa_migr_unpegging_control_interval	numa		0	IP30	0xa8000000204a6ec0	4	0	0	0	0	-	no-site			
+numa_migr_unpegging_control_threshold	numa		90	IP30	0xa8000000204a6ebc	4	0	0	0	0	-	no-site			
+numa_migr_traffic_control_enabled	numa		0	IP30	0xa8000000204a6eb8	4	0	0	0	0	-	no-site			
+numa_migr_traffic_control_interval	numa		400	IP30	0xa8000000204a6eb4	4	0	0	0	0	-	no-site			
+numa_migr_traffic_control_threshold	numa		80	IP30	0xa8000000204a6eb0	4	0	0	0	0	-	no-site			
+numa_kernel_replication_ratio	numa		1	IP30	0xa8000000204a6eac	4	0	0	0	0	-	no-site			
+numa_paging_node_freemem_low_threshold	numa		40	IP30	0xa8000000204a6ea8	4	0	0	0	0	-	no-site			
+numa_zone_radius	numa		1	IP30	0xa8000000204a6ea4	4	0	0	0	0	-	no-site			
+numa_migr_enqonfail_enabled	numa		0	IP30	0xa8000000204a6ea0	4	0	0	0	0	-	no-site			
+memoryd_enabled	numa		0	IP30	0xa8000000204a6e9c	4	0	0	0	0	-	no-site			
+numa_migr_queue_maxlen	numa		70	IP30	0xa8000000204a6e98	4	0	0	0	0	-	no-site			
+numa_migr_queue_control_enabled	numa		0	IP30	0xa8000000204a6e94	4	0	0	0	0	-	no-site			
+numa_migr_queue_control_interval	numa		500	IP30	0xa8000000204a6e90	4	0	0	0	0	-	no-site			
+numa_migr_queue_control_mlimit	numa		70	IP30	0xa8000000204a6e8c	4	0	0	0	0	-	no-site			
+numa_migr_queue_traffic_trigger_enabled	numa		0	IP30	0xa8000000204a6e88	4	0	0	0	0	-	no-site			
+numa_migr_queue_traffic_trigger_threshold	numa		80	IP30	0xa8000000204a6e84	4	0	0	0	0	-	no-site			
+numa_migr_queue_capacity_trigger_enabled	numa		0	IP30	0xa8000000204a6e80	4	0	0	0	0	-	no-site			
+numa_migr_queue_capacity_trigger_threshold	numa		60	IP30	0xa8000000204a6e7c	4	0	0	0	0	-	no-site			
+numa_migr_queue_time_trigger_enabled	numa		0	IP30	0xa8000000204a6e78	4	0	0	0	0	-	no-site			
+numa_migr_queue_time_trigger_interval	numa		1	IP30	0xa8000000204a6e74	4	0	0	0	0	-	no-site			
+numa_migr_queue_control_max_page_age	numa		8	IP30	0xa8000000204a6e70	4	0	0	0	0	-	no-site			
+portmap_timeout	oncrpc		5	IP30	0xa8000000204a6e2c	4	2	0	0	2	pmap_kgetport;rpcb_kgetaddr	located			
+first_retry	oncrpc		1	IP30	0xa8000000204a6e28	4	1	0	0	1	nlm_rpc_call	located			
+normal_retry	oncrpc		1	IP30	0xa8000000204a6e24	4	1	0	0	1	nlm_rpc_call	located			
+ksvc_min_threads	oncrpc	run	0	IP30	0xa8000000204a6e18	4	3	0	0	1	ksvc_manager	located			
+ksvc_max_threads	oncrpc	run	1024	IP30	0xa8000000204a6e14	4	3	0	0	1	ksvc_manager	located			
+ksvc_queue_max_threads	oncrpc	run	32	IP30	0xa8000000204a6e10	4	1	0	0	1	ksvc_manager	located			
+ksvc_queue_timeout	oncrpc	run	5	IP30	0xa8000000204a6e0c	4	0	0	0	0	-	no-site			
+ksvc_pool_timeout	oncrpc	run	60	IP30	0xa8000000204a6e08	4	0	0	0	0	-	no-site			
+ksvc_max_manages	oncrpc	run	0	IP30	0xa8000000204a6e04	4	0	0	0	0	-	no-site			
+oplocks_enabled	oplock		1	IP30	0xa8000000204a6e64	4	1	0	0	1	oplock_fcntl	located			
+oplock_timeout	oplock		30	IP30	0xa8000000204a6e60	4	0	0	0	0	-	no-site			
+svr3pipe	pipefs	run	1	IP30	0xa8000000204a6d48	4	1	0	0	1	pipe	located			
+psema_max_cnt	psema		8192	IP30	0xa8000000204a6f68	4	1	0	0	1	psemainit	located			
+semmni	sem		300	IP30	0xa8000000204a6f64	4	4	0	0	3	vsem_allocid;vsem_freeid_local;vsem_init	located			
+semmsl	sem		100	IP30	0xa8000000204a6f60	4	1	0	0	1	psem_alloc	located			
+semopm	sem		100	IP30	0xa8000000204a6f5c	4	0	0	0	0	-	no-site			
+semvmx	sem		32767	IP30	0xa8000000204a6f58	4	8	0	0	4	psem_exit;psem_op;psem_setall;psem_setval	located			
+semaem	sem		16384	IP30	0xa8000000204a6f54	4	0	0	0	0	-	no-site			
+nfs_portmon	snfs	run	0	IP30	0xa8000000204a6d88	4	1	0	0	1	checkauth	located			
+nfs_access_check	snfs	run	1	IP30	0xa8000000204a6d84	4	1	0	0	1	checkauth	located			
+nfsauth_cachesz	snfs	run	512	IP30	0xa8000000204a6d80	4	0	0	0	0	-	no-site			
+nfsauth_refresh	snfs	run	1800	IP30	0xa8000000204a6d7c	4	2	0	0	2	nfsauth_access;nfsauth_prime_cache	located			
+nfsauth_timeout	snfs	run	10	IP30	0xa8000000204a6d74	4	1	0	0	1	nfsauth_access	located			
+svc_maxdupreqs	svckudp		0	IP30	0xa8000000204a6e20	4	3	1	0	2	ksvc_dupdone;ksvc_init	located			
+unpst_sendspace	uds		0x20000	IP30	0xa8000000204a6d5c	4	1	0	0	1	unp_attach	located			
+unpst_recvspace	uds		0x20000	IP30	0xa8000000204a6d58	4	1	0	0	1	unp_attach	located			
+unpdg_sendspace	uds		0x2000	IP30	0xa8000000204a6d54	4	1	0	0	1	unp_attach	located			
+unpdg_recvspace	uds		0x4000	IP30	0xa8000000204a6d50	4	1	0	0	1	unp_attach	located			
+usync_max_objs	usync		8192	IP30	0xa8000000204a6f6c	4	1	0	0	1	usyncinit	located			
+xfs_nfs_io_units	xfs	static	10	IP30	0xa8000000204a6e5c	4	1	0	0	1	xfs_write_file	located			
+xfs_refcache_percent	xfs	static	100	IP30	0xa8000000204a6e58	4	1	0	0	1	xfs_init	located			
+xfs_dcount	xfs	static	0	IP30	0xa8000000204a6e54	4	1	1	0	1	xfs_start_daemons	located			
+xfs_max_bmap_len	xfs	static	1024	IP30	0xa8000000204a6e50	4	2	1	0	2	xfs_init;xfs_iomap_read	located			
+xfs_panic_mask	xfs	run	0	IP30	0xa8000000204a6e48	8	1	0	0	1	xfs_cmn_err	located			
+xfs_dcontention	xfs	run	1	IP30	0xa8000000204a6e44	4	2	0	0	1	xfsd_core	located			
+xfs_error_level	xfs	run	3	IP30	0xa8000000204a6e40	4	2	0	0	2	_xfs_force_shutdown;xfs_error_report	located			
+xlv_lowmem_slots	xlv	static	15	IP30	-	-	0	0	0	0	-	no-symbol			
+xlv_low_mem_threshold	xlv	static	10	IP30	-	-	0	0	0	0	-	no-symbol			
+xlv_low_mem_scale	xlv	static	50	IP30	-	-	0	0	0	0	-	no-symbol			
+xlv_low_mem_max_size	xlv	static	4194304	IP30	-	-	0	0	0	0	-	no-symbol			
+xlv_topmem_slots	xlv	static	5	IP30	-	-	0	0	0	0	-	no-symbol			
+xlv_top_mem_threshold	xlv	static	10	IP30	-	-	0	0	0	0	-	no-symbol			
+xlv_top_mem_scale	xlv	static	50	IP30	-	-	0	0	0	0	-	no-symbol			
+xlv_top_mem_max_size	xlv	static	4194304	IP30	-	-	0	0	0	0	-	no-symbol			
+xvm_distribution_size	xvm	static	2097152	IP30	-	-	0	0	0	0	-	no-symbol			
+xvm_multicast_pri	xvm	run	90	IP30	-	-	0	0	0	0	-	no-symbol			
+xvm_drl_pri	xvm	run	90	IP30	-	-	0	0	0	0	-	no-symbol			
+xvm_revive_pri	xvm	run	90	IP30	-	-	0	0	0	0	-	no-symbol			
+xvm_max_revive_threads	xvm	run	0|4	IP30	-	-	0	0	0	0	-	no-symbol			
+xvm_max_revive_rsc	xvm	run	5	IP30	-	-	0	0	0	0	-	no-symbol			
+xvm_revive_win_factor	xvm	run	2	IP30	-	-	0	0	0	0	-	no-symbol			
+xvm_maxfs_revive	xvm	run	1	IP30	-	-	0	0	0	0	-	no-symbol			
+autofs_logging	autofs	run	0	IP35	0xc00000000163bed8	4	1	0	0	1	do_mount	located			
+ip6_enable	bsd	static	0	IP35	0xc00000000163c190	4	5	1	0	6	disable_ipv6;domaininit;in6_init;ksvc_init_nbp;nfs_svc;udp_usrreq	located			
+auto_tunnel_enable	bsd	static	0	IP35	0xc00000000163c18c	4	0	1	0	1	disable_ipv6	located			
+nsit	bsd	static	1	IP35	0xc00000000163c188	4	0	0	0	0	-	no-site			
+tcp_hashtablesz	bsd	static	0	IP35	0xc00000000163c184	4	3	1	0	2	tcp_init;tcp_reass	located			
+udp_hashtablesz	bsd	static	0	IP35	0xc00000000163c180	4	1	1	0	1	udp_init	located			
+netthread_float	bsd	static	0	IP35	0xc00000000163c174	4	2	0	0	1	netproc_init	located			
+config_tunnel_enable	bsd	static	0	IP35	0xc00000000163c16c	4	1	2	0	2	disable_ipv6;in_init	located			
+ngif	bsd	static	4	IP35	0xc00000000163c168	4	1	0	0	1	in_init	located			
+icmp_dropredirects	bsd	run	0	IP35	0xc00000000163c164	4	1	0	0	1	icmp_input	located			
+icmp_respond_to_address_mask	bsd	run	1	IP35	0xc00000000163c160	4	1	0	0	1	icmp_input	located			
+icmp_respond_to_timestamp	bsd	run	1	IP35	0xc00000000163c15c	4	1	0	0	1	icmp_input	located			
+ipfilterd_inactive_behavior	bsd	run	1	IP35	0xc00000000163c158	4	0	0	0	0	-	no-site			
+ipforwarding	bsd	run	0|1	IP35	0xc00000000163c154	4	1	1	0	1	rtioctl	located			
+ip6forwarding	bsd	run	0	IP35	0xc00000000163c150	4	2	2	0	3	disable_ipv6;if_attach;rtioctl	located			
+ip6forwsrcrt	bsd	run	0	IP35	0xc00000000163c14c	4	0	0	0	0	-	no-site			
+ip6_maxfragpackets	bsd	run	1024	IP35	0xc00000000163c148	4	0	0	0	0	-	no-site			
+ip6_maxheaders	bsd	run	64	IP35	0xc00000000163c144	4	0	0	0	0	-	no-site			
+ipsendredirects	bsd	run	0|1	IP35	0xc00000000163c140	4	1	1	0	1	rtioctl	located			
+ipdirected_broadcast	bsd	run	0	IP35	0xc00000000163c13c	4	2	0	0	2	ip_acceptit_bcast_match;ip_acceptit_broadcast	located			
+ip_nolgpg_brkup	bsd	run	0	IP35	0xc00000000163c138	4	1	0	0	1	pas_pattach	located			
+allow_brdaddr_srcaddr	bsd	run	0	IP35	0xc00000000163c134	4	0	0	0	0	-	no-site			
+ip_allow_frag_bcast	bsd	run	0	IP35	0xc00000000163c130	4	1	0	0	1	ip_output	located			
+ipv4_strict_reassembly	bsd	run	0	IP35	0xc00000000163c12c	4	0	0	0	0	-	no-site			
+ipv4_frag_timeout	bsd	run	30	IP35	0xc00000000163c128	4	1	0	0	1	ip_reass	located			
+subnetsarelocal	bsd	run	1	IP35	0xc00000000163c124	4	1	0	0	1	in_localaddr	located			
+tcpiss_md5	bsd	run	0	IP35	0xc00000000163c120	4	0	0	0	0	-	no-site			
+tcpiss_md5_secret_lo	bsd	run	0	IP35	0xc00000000163c118	8	1	0	0	1	iss_hash	located			
+tcpiss_md5_secret_hi	bsd	run	0	IP35	0xc00000000163c110	8	1	0	0	1	iss_hash	located			
+mbmaxpages	bsd	static	0	IP35	0xc00000000163c108	4	0	0	0	0	-	no-site			
+mbretain	bsd	static	20	IP35	0xc00000000163c104	4	2	0	0	1	mbinit	located			
+ps_enabled	bsd	static	1	IP35	0xc00000000163c100	4	0	0	0	0	-	no-site			
+ps_rsvp_bandwidth	bsd	static	50	IP35	0xc00000000163c0fc	4	3	0	0	2	ps_init;ps_reinit	located			
+ps_num_batch_pkts	bsd	static	0	IP35	0xc00000000163c0f8	4	0	0	0	0	-	no-site			
+tcp_ttl	bsd	run	60	IP35	0xc00000000163c0f4	4	5	0	0	3	ip_ctloutput;tcp_newtcpcb;tcp_respond	located			
+tcp_keepidle	bsd	run	7200	IP35	0xc00000000163c0f0	4	3	0	0	1	tcp_timers	located			
+tcp_keepintvl	bsd	run	75	IP35	0xc00000000163c0ec	4	3	0	0	2	tcp_slowtimo;tcp_timers	located			
+tcp_maxpersistidle	bsd	run	7200	IP35	0xc00000000163c0e8	4	1	0	0	1	tcp_timers	located			
+tcp_mtudisc	bsd	run	1	IP35	0xc00000000163c0e4	4	3	0	0	3	tcp_msgsize;tcp_mss;tcp_output	located			
+tcp_mss_min	bsd	run	32	IP35	0xc00000000163c0e0	4	2	0	0	1	tcp_mss	located			
+tcp_2msl	bsd	run	60	IP35	0xc00000000163c0dc	4	0	0	0	0	-	no-site			
+tcprexmtthresh	bsd	run	3	IP35	0xc00000000163c0d8	4	0	0	0	0	-	no-site			
+tcp_sack	bsd	run	1	IP35	0xc00000000163c0d4	4	3	0	0	2	tcp_dooptions;tcp_output	located			
+tcp_keepstyle	bsd	run	0	IP35	0xc00000000163c0d0	4	4	0	0	2	tcp_respond;tcp_slowtimo	located			
+tcp_sendspace	bsd	run	61440	IP35	0xc00000000163c0cc	4	3	0	0	2	tcp_attach;tcp_mss	located			
+tcp_recvspace	bsd	run	61440	IP35	0xc00000000163c0c8	4	2	0	0	2	tcp_attach;tcp_mss	located			
+tcp_gofast	bsd	run	0	IP35	0xc00000000163c0c4	4	1	0	0	1	tcp_newtcpcb	located			
+tcp_stretch_ack_interval	bsd	run	8	IP35	0xc00000000163c0c0	4	1	0	0	1	tcp_newtcpcb	located			
+tcp_agak_hysteresis_hi	bsd	run	1000	IP35	0xc00000000163c0bc	4	1	0	0	1	tcp_fasttimo	located			
+tcp_timestamps	bsd	run	1	IP35	0xc00000000163c0b8	4	1	0	0	1	tcp_output	located			
+tcp_zaptw_secs	bsd	run	2	IP35	0xc00000000163c0b4	4	1	0	0	1	tcp_slowtimo	located			
+tcp_pcb_cache	bsd	run	0	IP35	0xc00000000163c0b0	4	3	0	0	2	tcp_close;tcp_newtcpcb	located			
+tcp_rfc2414	bsd	run	1	IP35	0xc00000000163c0ac	4	2	0	0	1	tcp_ss_start	located			
+tcp_last_ack_cnt	bsd	run	0	IP35	0xc00000000163c0a8	4	2	0	0	2	tcp_timers;tcp_usrclosed	located			
+tcp_drop_SYN_with_extra_flags	bsd	run	0	IP35	0xc00000000163c0a4	4	1	0	0	1	tcp_input	located			
+udp_ttl	bsd	run	60	IP35	0xc00000000163c084	4	3	0	0	2	ip_ctloutput;udp_usrreq	located			
+udp_sendspace	bsd	run	61440	IP35	0xc00000000163c080	4	1	0	0	1	udp_usrreq	located			
+udp_recvgrams	bsd	run	2	IP35	0xc00000000163c07c	4	1	0	0	1	udp_usrreq	located			
+arpreq_alias	bsd	run	0	IP35	0xc00000000163c078	4	1	0	0	1	arprequest	located			
+vfe_ldtmr	bsd	run	144	IP35	0xc00000000163c074	4	0	0	0	0	-	no-site			
+log_snoop_or_drain	bsd	run	0	IP35	0xc00000000163c070	4	4	0	0	2	rawclose;rawopen	located			
+udp_so_no_check	bsd	run	0	IP35	0xc00000000163c06c	4	1	0	0	1	socreate	located			
+lomtu	bsd	run	0	IP35	0xc00000000163c068	4	2	2	0	2	loattach;loioctl	located			
+cachefs_readahead	cachefs	run	1	IP35	-	-	0	0	0	0	-	no-symbol			
+cachefs_max_threads	cachefs	run	5	IP35	-	-	0	0	0	0	-	no-symbol			
+fileheader_cache_size	cachefs	run	512	IP35	-	-	0	0	0	0	-	no-symbol			
+replacement_timeout	cachefs	run	600	IP35	-	-	0	0	0	0	-	no-symbol			
+mesg_delay_time	cell	static	0	IP35	-	-	0	0	0	0	-	no-symbol			
+mtcp_reserve_size	cell	static	61440	IP35	-	-	0	0	0	0	-	no-symbol			
+mtcp_nodelay	cell	static	1	IP35	-	-	0	0	0	0	-	no-symbol			
+mtcp_hb_period	cell	static	500	IP35	-	-	0	0	0	0	-	no-symbol			
+mtcp_hb_watchdog	cell	static	0	IP35	-	-	0	0	0	0	-	no-symbol			
+cxfs_shutdown_time	cell	static	50	IP35	-	-	0	0	0	0	-	no-symbol			
+cxfs_speculative_token	cell	static	1	IP35	-	-	0	0	0	0	-	no-symbol			
+mtcp_mesg_validate	cell	run	0	IP35	-	-	0	0	0	0	-	no-symbol			
+cms_reset_timeout	cell	run	0	IP35	-	-	0	0	0	0	-	no-symbol			
+cms_reset_timeout_action	cell	run	0	IP35	-	-	0	0	0	0	-	no-symbol			
+cms_fence_timeout	cell	run	0	IP35	-	-	0	0	0	0	-	no-symbol			
+cms_fence_timeout_action	cell	run	0	IP35	-	-	0	0	0	0	-	no-symbol			
+cms_reset_error_override	cell	run	0	IP35	-	-	0	0	0	0	-	no-symbol			
+cxfs_relocation_ok	cxfs	run	0	IP35	-	-	0	0	0	0	-	no-symbol			
+cxfsd_min	cxfs	run	16	IP35	-	-	0	0	0	0	-	no-symbol			
+cxfsd_max	cxfs	run	16	IP35	-	-	0	0	0	0	-	no-symbol			
+cxfs_dcvn_timeout	cxfs	run	60	IP35	-	-	0	0	0	0	-	no-symbol			
+slice_size	disp	static	0	IP35	0xc00000000163c014	4	2	1	0	2	_disp_sanity;p0init	located			
+memaff_sched	disp	static	1	IP35	0xc00000000163c010	4	1	0	0	1	kt_endtslice	located			
+gang_sched_off	disp	static	1	IP35	0xc00000000163c00c	4	8	0	0	4	allocshaddr;attachshaddr;detachshaddr;schedctl	located			
+rtcpus	disp	static	0	IP35	0xc00000000163c008	4	4	0	0	3	rt_add_gq;rt_remove_q;rt_setpri	located			
+runq_waittime	disp	run	8	IP35	0xc00000000163c004	4	0	0	0	0	-	no-site			
+nonpreempts	disp	run	32	IP35	0xc00000000163c000	4	3	0	0	1	user_resched	located			
+dms_always_use_lomem	dms	static	0	IP35	0xc00000000163be04	4	0	0	0	0	-	no-site			
+efs_inline	efs	run	0	IP35	0xc00000000163be28	4	0	0	0	0	-	no-site			
+fo_maximum_paths	failover	static	32	IP35	0xc00000000163be20	4	1	0	0	1	fo_init	located			
+gfxlockablemem	gfx	static	20	IP35	0xc00000000163be1c	4	0	0	0	0	-	no-site			
+gfxlockablemem_gt64	gfx	static	50	IP35	0xc00000000163be18	4	0	0	0	0	-	no-site			
+gfxdmasleepthreshold	gfx	static	0	IP35	0xc00000000163be14	4	0	0	0	0	-	no-site			
+gfxupdatedmousehandling	gfx	static	1	IP35	0xc00000000163be10	4	0	0	0	0	-	no-site			
+min_volume_bandwidth	grio2	run	65536	IP35	-	-	0	0	0	0	-	no-symbol			
+token_bucket_size	grio2	run	2000	IP35	-	-	0	0	0	0	-	no-symbol			
+scheduler_rate	grio2	run	20	IP35	-	-	0	0	0	0	-	no-symbol			
+ec_ipg_delay	if_ec2	run	0	IP35	-	-	0	0	0	0	-	no-symbol			
+ec_xpg_delay	if_ec2	run	0	IP35	-	-	0	0	0	0	-	no-symbol			
+ec_16coll_retry	if_ec2	run	2	IP35	-	-	0	0	0	0	-	no-symbol			
+ec_rcv_desc	if_ec2	run	30	IP35	-	-	0	0	0	0	-	no-symbol			
+ec_rcv_promisc	if_ec2	run	63	IP35	-	-	0	0	0	0	-	no-symbol			
+mtr_max_rx_slots	if_ptr	run	16	IP35	-	-	0	0	0	0	-	no-symbol			
+mtr_max_tx_slots	if_ptr	run	16	IP35	-	-	0	0	0	0	-	no-symbol			
+mtr_bc_mask	if_ptr	run	0x8000	IP35	-	-	0	0	0	0	-	no-symbol			
+mtr_mtu	if_ptr	run	4472	IP35	-	-	0	0	0	0	-	no-symbol			
+mtr_batype	if_ptr	run	2	IP35	-	-	0	0	0	0	-	no-symbol			
+mtr_participant_claim_token	if_ptr	run	1	IP35	-	-	0	0	0	0	-	no-symbol			
+mtr_arb_enabled	if_ptr	run	1	IP35	-	-	0	0	0	0	-	no-symbol			
+mtr_s16Mb	if_ptr	run	1	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_cpu_cur	jlimits	static	0x7fffffffffffffff	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_cpu_max	jlimits	static	0x7fffffffffffffff	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_data_cur	jlimits	static	0x7fffffffffffffff	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_data_max	jlimits	static	0x7fffffffffffffff	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_vmem_cur	jlimits	static	0x7fffffffffffffff	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_vmem_max	jlimits	static	0x7fffffffffffffff	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_rss_cur	jlimits	static	0x7fffffffffffffff	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_rss_max	jlimits	static	0x7fffffffffffffff	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_nofile_cur	jlimits	static	0x7fffffffffffffff	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_nofile_max	jlimits	static	0x7fffffffffffffff	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_pthread_cur	jlimits	static	0x7fffffffffffffff	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_pthread_max	jlimits	static	0x7fffffffffffffff	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_numproc_cur	jlimits	static	0x7fffffffffffffff	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_numproc_max	jlimits	static	0x7fffffffffffffff	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_pmem_cur	jlimits	static	0x7fffffffffffffff	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_pmem_max	jlimits	static	0x7fffffffffffffff	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_cpu_ign	jlimits	run	0	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_data_ign	jlimits	run	0	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_vmem_ign	jlimits	run	0	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_rss_ign	jlimits	run	0	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_nofile_ign	jlimits	run	0	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_pthread_ign	jlimits	run	0	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_numproc_ign	jlimits	run	0	IP35	-	-	0	0	0	0	-	no-symbol			
+jlimit_pmem_ign	jlimits	run	0	IP35	-	-	0	0	0	0	-	no-symbol			
+kdsp_pro_audio_subcode	kdsp	static	2	IP35	0xc00000000163be00	4	0	0	0	0	-	no-site			
+nosuidshells	kernel	static	1	IP35	0xc00000000163c77c	4	1	0	0	1	intpexec	located			
+restricted_chown	kernel	static	0	IP35	0xc00000000163c778	4	4	0	0	4	fs_pathconf;nm_setattr;udf_setattr;xfs_setattr	located			
+posix_tty_default	kernel	static	0	IP35	0xc00000000163c774	4	3	0	0	2	st_rsrv;stty_ld_init	located			
+use_old_serialnum	kernel	static	0	IP35	0xc00000000163c770	4	0	0	0	0	-	no-site			
+reboot_on_panic	kernel	static	-1	IP35	0xc00000000163c76c	4	3	2	0	1	prom_reboot	located			
+restrict_fastprof	kernel	static	0	IP35	0xc00000000163c768	4	1	0	0	1	sprofil	located			
+reset_limits_on_exec	kernel	static	1	IP35	0xc00000000163c764	4	2	0	0	1	gexec_complete	located			
+ip26_allow_ucmem	kernel	static	0	IP35	0xc00000000163c760	4	0	0	0	0	-	no-site			
+add_kthread_stack	kernel	static	0	IP35	0xc00000000163c75c	4	1	0	0	1	kthread_init	located			
+xpg4_sticky_dir	kernel	static	1	IP35	0xc00000000163c758	4	2	0	0	2	udf_stickytest;xfs_stickytest	located			
+mload_auto_rtsyms	kernel	static	1	IP35	0xc00000000163c754	4	2	0	0	2	st_findaddr;st_findname	located			
+disable_ip25_check	kernel	static	0	IP35	0xc00000000163c750	4	0	0	0	0	-	no-site			
+prod_assertion_level	kernel	static	0	IP35	0xc00000000163c74c	4	1	0	0	1	alloc_cpupda	located			
+disable_r10k_log	kernel	static	0	IP35	0xc00000000163c748	4	0	0	0	0	-	no-site			
+r10k_halt_1st_cache_err	kernel	static	0	IP35	0xc00000000163c744	4	0	0	0	0	-	no-site			
+r10k_cache_debug	kernel	static	0	IP35	0xc00000000163c740	4	0	0	0	0	-	no-site			
+perfcnt_arch_swtch_sig	kernel	static	0	IP35	0xc00000000163c73c	4	0	0	0	0	-	no-site			
+perfcnt_arch_swtch_msg	kernel	static	0	IP35	0xc00000000163c738	4	1	0	0	1	r1nk_perf_check_architecture	located			
+spec_udma_war_on	kernel	static	1	IP35	0xc00000000163c730	4	0	0	0	0	-	no-site			
+warbits_override	kernel	static	-1	IP35	0xc00000000163c72c	4	0	0	0	0	-	no-site			
+enable_pci_BIST	kernel	static	0	IP35	0xc00000000163c728	4	0	0	0	0	-	no-site			
+ip32_pci_enable_prefetch	kernel	static	0	IP35	0xc00000000163c724	4	0	0	0	0	-	no-site			
+ip32_pci_flush_prefetch	kernel	static	1	IP35	0xc00000000163c720	4	0	0	0	0	-	no-site			
+ignore_sysctlr_intr	kernel	static	0	IP35	0xc00000000163c71c	4	0	0	0	0	-	no-site			
+powerfail_cleanio	kernel	static	0	IP35	0xc00000000163c718	4	0	0	0	0	-	no-site			
+intr_revive_delay	kernel	static	300	IP35	0xc00000000163c714	4	0	0	0	0	-	no-site			
+powerfail_routerwar	kernel	static	1	IP35	0xc00000000163c710	4	0	0	0	0	-	no-site			
+xbox_sysctlr_poll_interval	kernel	static	60	IP35	0xc00000000163c70c	4	0	0	0	0	-	no-site			
+clean_shutdown_time	kernel	static	120	IP35	0xc00000000163c708	4	0	0	0	0	-	no-site			
+ignore_xsc	kernel	static	0	IP35	0xc00000000163c704	4	0	0	0	0	-	no-site			
+snerrste_pages_per_cube	kernel	static	1	IP35	0xc00000000163c700	4	0	0	0	0	-	no-site			
+xpc_override	kernel	static	0	IP35	0xc00000000163c6fc	4	0	0	0	0	-	no-site			
+origin_use_hardware_bzero	kernel	static	0	IP35	0xc00000000163c6f8	4	2	0	0	2	page_zero;page_zero_nofault	located			
+cpulimit_gracetime	kernel	static	0	IP35	0xc00000000163c6f4	4	4	0	0	1	clock	located			
+ignore_isolated_cpu_warning	kernel	static	0	IP35	0xc00000000163c6f0	4	0	0	0	0	-	no-site			
+r10k_gfx_write_war_on	kernel	static	0	IP35	0xc00000000163c6ec	4	1	0	0	1	quicken_uthread	located			
+allow_chroot_with_open_dirs	kernel	static	1	IP35	0xc00000000163c6e8	4	1	0	0	1	chroot	located			
+limit_pinfo_access	kernel	static	0444	IP35	0xc00000000163c6e4	4	6	1	0	2	prbuild;prioctl	located			
+tty_auto_strhold	kernel	run	0	IP35	0xc00000000163c6e0	4	1	0	0	1	st_rsrv	located			
+async_udma_copy	kernel	run	1	IP35	0xc00000000163c6dc	4	1	0	0	1	fast_userdma	located			
+ensure_no_rawio_conflicts	kernel	run	1	IP35	0xc00000000163c6d8	4	1	0	0	1	pas_pattach	located			
+dbe_recovery	kernel	run	1	IP35	0xc00000000163c6d4	4	6	0	0	3	_pagefree_size;pas_vfault;scache_pool_add	located			
+ip32_nvram_env_commit	kernel	run	1	IP35	0xc00000000163c6d0	4	0	0	0	0	-	no-site			
+enable_upanic	kernel	run	0	IP35	0xc00000000163c6cc	4	2	0	0	1	syssgi	located			
+disable_uspollsema_chk	kernel	run	0	IP35	0xc00000000163c6c8	4	1	0	0	1	usioctl	located			
+nodeslimitfrac	kernel	run	50	IP35	0xc00000000163c6bc	4	1	0	0	1	chunk_pshake	located			
+chunk_nodeshogfrac	kernel	run	20	IP35	0xc00000000163c6b8	4	1	0	0	1	chunk_pshake	located			
+nodeminfree	kernel	run	2000000	IP35	0xc00000000163c6b0	8	0	0	0	0	-	no-site			
+maxfailcount	kernel	run	10	IP35	0xc00000000163c6a8	4	1	0	0	1	cpuset_memalloc_ok	located			
+io4ia_userdma_war	kernel	static	1	IP35	0xc00000000163c6a4	4	0	0	0	0	-	no-site			
+ignore_conveyor_override	kernel	static	0	IP35	0xc00000000163c6a0	4	1	0	0	1	hub_setup_prb	located			
+force_fire_and_forget	kernel	static	1	IP35	0xc00000000163c69c	4	2	0	0	2	hub_setup_prb;io_xswitch_widget_init	located			
+io4ia_war_enable	kernel	static	0	IP35	0xc00000000163c698	4	0	0	0	0	-	no-site			
+tigon2_war_enable	kernel	static	1	IP35	0xc00000000163c694	4	1	0	0	1	setupbadmem	located			
+bpush_war_enable	kernel	static	1	IP35	0xc00000000163c690	4	0	0	0	0	-	no-site			
+bpush_source1	kernel	static	0x26	IP35	0xc00000000163c68c	4	0	0	0	0	-	no-site			
+bpush_source2	kernel	static	0	IP35	0xc00000000163c688	4	0	0	0	0	-	no-site			
+bpush_source3	kernel	static	0	IP35	0xc00000000163c684	4	0	0	0	0	-	no-site			
+bpush_source4	kernel	static	0	IP35	0xc00000000163c680	4	0	0	0	0	-	no-site			
+r4k_div_patch	kernel	run	0	IP35	0xc00000000163c67c	4	0	0	0	0	-	no-site			
+corepluspid	kernel	run	0	IP35	0xc00000000163c678	4	0	0	0	0	-	no-site			
+panic_on_sbe	kernel	run	0	IP35	0xc00000000163c674	4	4	0	0	1	memerror_sbe_intr	located			
+sbe_log_errors	kernel	run	0	IP35	0xc00000000163c670	4	0	0	0	0	-	no-site			
+sbe_mem_verbose	kernel	run	0	IP35	0xc00000000163c66c	4	1	0	0	1	page_discard_enqueue	located			
+sbe_mfr_override	kernel	run	0	IP35	0xc00000000163c668	4	0	0	0	0	-	no-site			
+sbe_report_cons	kernel	run	0	IP35	0xc00000000163c664	4	0	0	0	0	-	no-site			
+sbe_maxout	kernel	run	600	IP35	0xc00000000163c660	4	2	0	0	1	memerror_sbe_intr	located			
+sbe_max_per_page	kernel	run	60	IP35	0xc00000000163c65c	4	2	0	0	1	memerror_sbe_intr	located			
+ecc_recover_enable	kernel	run	60	IP35	0xc00000000163c658	4	0	0	0	0	-	no-site			
+module_unld_delay	kernel	run	5	IP35	0xc00000000163c654	4	2	0	0	2	fmrele;mlqdetach	located			
+dump_level	kernel	run	4	IP35	0xc00000000163c650	4	0	0	0	0	-	no-site			
+dump_hub_info	kernel	run	2	IP35	0xc00000000163c64c	4	2	0	0	1	dump_hub_data	located			
+disable_asyncdump	kernel	run	0	IP35	0xc00000000163c648	4	0	0	0	0	-	no-site			
+heartbeat_enable	kernel	run	0	IP35	0xc00000000163c644	4	0	0	0	0	-	no-site			
+craylnk_bypass_disable	kernel	run	0	IP35	0xc00000000163c640	4	1	0	0	1	router_init	located			
+disable_sbe_polling	kernel	run	0	IP35	0xc00000000163c63c	4	5	0	0	2	tick_actions;wards_tick	located			
+rpparm_maxburst_val	kernel	run	0x24	IP35	0xc00000000163c638	4	0	0	0	0	-	no-site			
+mmap_async_write	kernel	run	0	IP35	0xc00000000163c634	4	1	0	0	1	pas_pattach	located			
+r10k_intervene	kernel	run	1	IP35	0xc00000000163c630	4	0	0	0	0	-	no-site			
+r10k_progress_nmi	kernel	run	0	IP35	0xc00000000163c62c	4	0	0	0	0	-	no-site			
+r10k_check_count	kernel	run	30000	IP35	0xc00000000163c628	4	0	0	0	0	-	no-site			
+r10k_progress_diff	kernel	run	200000000	IP35	0xc00000000163c620	8	0	0	0	0	-	no-site			
+ip32_pio_predelay	kernel	run	5	IP35	0xc00000000163c61c	4	0	0	0	0	-	no-site			
+ip32_pio_postdelay	kernel	run	5	IP35	0xc00000000163c618	4	0	0	0	0	-	no-site			
+crime_rev	kernel	run	0	IP35	0xc00000000163c614	4	0	0	0	0	-	no-site			
+cpu_prid	kernel	run	0	IP35	0xc00000000163c610	4	0	0	0	0	-	no-site			
+max_shared_reg_refcnt	kernel	run	4	IP35	0xc00000000163c60c	4	1	0	0	1	dupreg	located			
+peer_peer_dma	kernel	run	0	IP35	0xc00000000163c608	4	0	0	0	0	-	no-site			
+counter_intr_panic	kernel	run	0	IP35	0xc00000000163c604	4	1	0	0	1	counter_intr	located			
+hub_intr_wakeup_cnt	kernel	run	1	IP35	0xc00000000163c5fc	4	0	0	0	0	-	no-site			
+evdev_intr_wakeup_cnt	kernel	run	1	IP35	0xc00000000163c5f8	4	0	0	0	0	-	no-site			
+pci_user_dma_max_pages	kernel	run	128	IP35	0xc00000000163c5f4	4	0	0	0	0	-	no-site			
+fpcsr_fs_bit	kernel	run	1	IP35	0xc00000000163c5f0	4	2	0	0	2	pcb_fpc_csr_initstate;setregs	located			
+mrlock_starve_threshold	kernel	run	3	IP35	0xc00000000163c5ec	4	4	0	0	4	mraccessf;mrspinaccess;mrspinupdate;mrupdatef	located			
+mrlock_behavior	kernel	run	3	IP35	0xc00000000163c5e8	4	2	0	0	1	mrlock_init	located			
+coremask	kernel	run	0	IP35	0xc00000000163c5e4	4	0	0	0	0	-	no-site			
+usb_discovery_verbose	kernel	run	0	IP35	0xc00000000163c5e0	4	5	0	0	4	usb_attach;usb_bus_scan;usb_device_init;usb_port_connect_event	located			
+pcmouse_mode	kernel	run	0	IP35	0xc00000000163c5dc	4	0	0	0	0	-	no-site			
+nomem_report_cons	kernel	run	0	IP35	0xc00000000163c5d8	4	1	0	0	1	nomemmsg	located			
+pcibr_prefetch_enable_rev	kernel	run	3	IP35	0xc00000000163c5d4	4	1	0	0	1	xbridge_attach	located			
+pcibr_wg_enable_rev	kernel	run	4	IP35	0xc00000000163c5d0	4	1	0	0	1	xbridge_attach	located			
+bridge_rev_b_data_check_disable	kernel	run	0	IP35	0xc00000000163c5cc	4	0	0	0	0	-	no-site			
+full_fru_analysis	kernel	run	1	IP35	0xc00000000163c5c8	4	0	0	0	0	-	no-site			
+fru_disable_confidence	kernel	run	90	IP35	0xc00000000163c5c4	4	0	0	0	0	-	no-site			
+disable_bte	kernel	run	0	IP35	0xc00000000163c5c0	4	8	1	0	7	bte_avail;bte_copy;bte_disable;bte_pbcopy;bte_pbzero;bte_poison_range;bte_unaligned_copy	located			
+disable_bte_pbcopy	kernel	run	64	IP35	0xc00000000163c5bc	4	1	0	0	1	bte_pbcopy	located			
+disable_bte_pbzero	kernel	run	64	IP35	0xc00000000163c5b8	4	1	0	0	1	bte_pbzero	located			
+disable_bte_poison_range	kernel	run	0	IP35	0xc00000000163c5b4	4	1	0	0	1	bte_poison_range	located			
+iio_icmr_precise	kernel	run	1	IP35	0xc00000000163c5b0	4	0	0	0	0	-	no-site			
+iio_icmr_c_cnt	kernel	run	6	IP35	0xc00000000163c5ac	4	0	0	0	0	-	no-site			
+iio_bte_crb_count	kernel	run	2	IP35	0xc00000000163c5a8	4	0	0	0	0	-	no-site			
+iio_ictp	kernel	run	0x800	IP35	0xc00000000163c5a4	4	0	0	0	0	-	no-site			
+iio_icto	kernel	run	0xff	IP35	0xc00000000163c5a0	4	0	0	0	0	-	no-site			
+la_trigger_nasid1	kernel	run	-1	IP35	0xc00000000163c59c	4	0	0	0	0	-	no-site			
+la_trigger_nasid2	kernel	run	-1	IP35	0xc00000000163c598	4	0	0	0	0	-	no-site			
+la_trigger_val	kernel	run	0xdeadbeefbeefcafe	IP35	0xc00000000163c590	8	0	0	0	0	-	no-site			
+r4k_corrupt_scache_data	kernel	static	0	IP35	0xc00000000163c584	4	0	0	0	0	-	no-site			
+l2_sbe_check	kernel	static	0x000c	IP35	0xc00000000163c580	4	10	0	0	4	counter_intr;l2_sbe_init;l2_sbe_sched;sched	located			
+l2_sbe_reset_sec	kernel	static	60	IP35	0xc00000000163c57c	4	3	0	0	1	l2_sbe_sched	located			
+engr_dvt_flag	kernel	static	0	IP35	0xc00000000163c578	4	1	0	0	1	main	located			
+engr_dvt_sleep	kernel	static	300	IP35	0xc00000000163c574	4	0	0	0	0	-	no-site			
+engr_dvt_l2_scan_enable	kernel	static	0	IP35	0xc00000000163c570	4	0	0	0	0	-	no-site			
+engr_dvt_memchck_enable	kernel	static	0	IP35	0xc00000000163c56c	4	0	0	0	0	-	no-site			
+utrace_bufsize	kernel	static	0	IP35	0xc00000000163c568	4	7	1	0	4	syscall;tstamp_update_mask;tstamp_user_delete;utrace_init	located			
+kmem_do_poison	kernel	run	1	IP35	0xc00000000163c564	4	2	0	0	1	kmem_poison	located			
+kmem_make_zones_private_min	kernel	run	0	IP35	0xc00000000163c560	4	0	0	0	0	-	no-site			
+kmem_make_zones_private_max	kernel	run	0	IP35	0xc00000000163c55c	4	0	0	0	0	-	no-site			
+kmem_split_zone	kernel	run	0	IP35	0xc00000000163c558	4	0	0	0	0	-	no-site			
+utrace_mask	kernel	run	0xfff3f	IP35	0xc00000000163c550	8	3	1	0	3	_utrace_sanity;syscall;tstamp_update_mask	located			
+power_button_changed_to_crash_dump	kernel	run	0	IP35	0xc00000000163c548	4	0	0	0	0	-	no-site			
+process_core_cpu_logging	kernel	run	0	IP35	0xc00000000163c544	4	3	0	0	1	trap	located			
+r12k_bdiag	kernel	run	0	IP35	0xc00000000163c540	4	0	0	0	0	-	no-site			
+ncargs	kernel	run	20480	IP35	0xc00000000163c53c	4	2	2	0	2	_limits_sanity;sysconf	located			
+shlbmax	kernel	run	8	IP35	0xc00000000163c538	4	0	0	0	0	-	no-site			
+maxwatchpoints	kernel	run	100	IP35	0xc00000000163c534	4	1	0	0	1	addwatch	located			
+nprofile	kernel	run	100	IP35	0xc00000000163c530	4	2	0	0	2	evc_profil;sprofil	located			
+maxsymlinks	kernel	run	30	IP35	0xc00000000163c52c	4	1	0	0	1	lookuppn	located			
+maxup	kernel	run	0	IP35	0xc00000000163c528	4	4	1	0	4	_numproc_sanity;prctl;procnew;sysconf	located			
+maxup_enforce_penalty	kernel	run	0	IP35	0xc00000000163c524	4	1	1	0	1	procnew	located			
+idbgmaxfuncs	kernel	run	1200	IP35	0xc00000000163c520	4	0	0	0	0	-	no-site			
+rlimit_cpu_cur	kernel	static	0x7fffffffffffffff	IP35	0xc00000000163c518	8	1	0	0	1	p0init	located			
+rlimit_cpu_max	kernel	static	0x7fffffffffffffff	IP35	0xc00000000163c510	8	1	0	0	1	p0init	located			
+rlimit_fsize_cur	kernel	static	0x7fffffffffffffff	IP35	0xc00000000163c508	8	1	0	0	1	p0init	located			
+rlimit_fsize_max	kernel	static	0x7fffffffffffffff	IP35	0xc00000000163c500	8	2	0	0	2	p0init;rfs_write	located			
+rlimit_data_cur	kernel	static	0	IP35	0xc00000000163c4f8	8	2	1	0	2	_resource_sanity;as_p0init	located			
+rlimit_data_max	kernel	static	0	IP35	0xc00000000163c4f0	8	2	1	0	2	_resource_sanity;p0init	located			
+rlimit_stack_cur	kernel	static	0x04000000	IP35	0xc00000000163c4e8	8	1	0	0	1	as_p0init	located			
+rlimit_stack_max	kernel	static	0x20000000	IP35	0xc00000000163c4e0	8	1	0	0	1	p0init	located			
+rlimit_core_cur	kernel	static	0x7fffffffffffffff	IP35	0xc00000000163c4d8	8	1	0	0	1	p0init	located			
+rlimit_core_max	kernel	static	0x7fffffffffffffff	IP35	0xc00000000163c4d0	8	1	0	0	1	p0init	located			
+rlimit_vmem_cur	kernel	static	0	IP35	0xc00000000163c4c8	8	2	1	0	2	_resource_sanity;as_p0init	located			
+rlimit_vmem_max	kernel	static	0	IP35	0xc00000000163c4c0	8	2	1	0	2	_resource_sanity;p0init	located			
+rlimit_rss_cur	kernel	static	0	IP35	0xc00000000163c4b8	8	2	2	0	1	as_p0init	located			
+rlimit_rss_max	kernel	static	0	IP35	0xc00000000163c4b0	8	2	1	0	2	as_p0init;p0init	located			
+rlimit_nofile_cur	kernel	static	200	IP35	0xc00000000163c4a8	8	1	0	0	1	p0init	located			
+rlimit_nofile_max	kernel	static	2500	IP35	0xc00000000163c4a0	8	1	0	0	1	p0init	located			
+rlimit_pthread_cur	kernel	static	0x400	IP35	0xc00000000163c498	8	1	0	0	1	p0init	located			
+rlimit_pthread_max	kernel	static	0x400	IP35	0xc00000000163c490	8	1	0	0	1	p0init	located			
+nproc	kernel	static	0	IP35	0xc00000000163c480	4	5	1	0	5	_numproc_sanity;as_init;procnew;start_lockd;vn_init	located			
+ndquot	kernel	static	0	IP35	0xc00000000163c47c	4	1	1	0	1	_numproc_sanity	located			
+ncallout	kernel	static	0	IP35	0xc00000000163c478	4	2	1	0	2	_numproc_sanity;calloutinit_cpu	located			
+ncsize	kernel	static	0	IP35	0xc00000000163c474	4	12	1	0	7	_numproc_sanity;dnlc_init;dnlc_v2name;dnlc_vname;idbg_ncache;vn_init;xfs_init	located			
+ngroups_max	kernel	static	16	IP35	0xc00000000163c470	4	9	0	0	6	checkauth;crcmp;crgetsize;krpc_init;setgroups;sysconf	located			
+nclrus	kernel	static	0	IP35	0xc00000000163c46c	4	1	0	0	1	dnlc_init	located			
+nlog	kernel	static	0	IP35	0xc00000000163c468	4	2	1	0	2	_numproc_sanity;loginit	located			
+nstrpush	kernel	static	8	IP35	0xc00000000163c464	4	3	0	0	3	strdrv_push;strioctl;stropen	located			
+nstrintr	kernel	static	1024	IP35	0xc00000000163c460	4	3	0	0	1	str_mp_init	located			
+strmsgsz	kernel	static	0x8000	IP35	0xc00000000163c45c	4	5	0	0	4	strdoioctl;strioctl;strputmsg;strwrite	located			
+strctlsz	kernel	static	1024	IP35	0xc00000000163c458	4	3	0	0	2	strioctl;strputmsg	located			
+strpmonmax	kernel	static	4	IP35	0xc00000000163c454	4	1	0	0	1	str_privmon_alloc	located			
+strholdtime	kernel	run	50	IP35	0xc00000000163c450	4	4	0	0	2	_queuerun;strwrite	located			
+nactions	kernel	static	0	IP35	0xc00000000163c44c	4	2	1	0	1	action_prealloc	located			
+maxsigq	kernel	run	128	IP35	0xc00000000163c448	4	2	0	0	2	pproc_sendsig;sysconf	located			
+fasthz	kernel	static	1000	IP35	0xc00000000163c444	4	5	1	0	5	_timer_sanity;fasthzto;inittodr;timein;timer_settime	located			
+itimer_on_clkcpu	kernel	static	0	IP35	0xc00000000163c440	4	4	0	0	2	dosetitimer;realitexpire	located			
+timetrim	kernel	static	0	IP35	0xc00000000163c43c	4	2	1	0	3	gettimetrim;nanotime_syscall;settimetrim	located			
+maxpmem	kernel	static	0	IP35	0xc00000000163c438	4	0	0	0	0	-	no-site			
+syssegsz	kernel	static	0	IP35	0xc00000000163c434	4	15	1	0	13	_memsize_sanity;cache_operation;cpuset_mem_init;ddv_mappages;kmiss;ktlbfix;kvswapin;kvswappable;kvtophys;kvtophyspg;kvtophyspnum;sysreg_earlyinit;tlbmiss	located			
+maxdmasz	kernel	static	1025|257	IP35	0xc00000000163c430	4	3	1	0	3	_memsize_sanity;xfs_init;xfs_lockdown_iopages	located			
+maxpglst	kernel	static	0	IP35	0xc00000000163c42c	4	4	0	0	2	sema_init;tune_sanity	located			
+scache_pool_size	kernel	static	32	IP35	0xc00000000163c428	4	0	0	0	0	-	no-site			
+gpgslo	kernel	run	0	IP35	0xc00000000163c424	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+gpgshi	kernel	run	0	IP35	0xc00000000163c420	4	1	3	0	2	_paging_sanity;tune_sanity	located			
+gpgsmsk	kernel	run	2	IP35	0xc00000000163c41c	4	1	1	0	2	_paging_sanity;tune_sanity	located			
+maxsc	kernel	run	0	IP35	0xc00000000163c418	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+maxfc	kernel	run	0	IP35	0xc00000000163c414	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+maxdc	kernel	run	0	IP35	0xc00000000163c410	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+bdflushr	kernel	run	5	IP35	0xc00000000163c40c	4	1	1	0	2	_paging_sanity;tune_sanity	located			
+bdflush_interval	kernel	run	100	IP35	0xc00000000163c408	4	5	0	0	3	bdflush_wake_proc;bdflushinit;syssgi	located			
+vfs_syncr	kernel	run	30	IP35	0xc00000000163c404	4	0	0	0	0	-	no-site			
+minarmem	kernel	run	0	IP35	0xc00000000163c400	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+minasmem	kernel	run	0	IP35	0xc00000000163c3fc	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+maxlkmem	kernel	run	2000	IP35	0xc00000000163c3f8	4	1	2	0	2	_paging_sanity;tune_sanity	located			
+tlbdrop	kernel	run	100	IP35	0xc00000000163c3f4	4	1	0	0	1	_paging_sanity	located			
+rsshogfrac	kernel	run	75	IP35	0xc00000000163c3f0	4	1	1	0	2	_paging_sanity;tune_sanity	located			
+rsshogslop	kernel	run	20	IP35	0xc00000000163c3ec	4	1	0	0	1	_paging_sanity	located			
+dwcluster	kernel	run	64	IP35	0xc00000000163c3e8	4	1	1	0	2	_paging_sanity;tune_sanity	located			
+autoup	kernel	run	10	IP35	0xc00000000163c3e4	4	1	0	0	1	_paging_sanity	located			
+min_file_pages	kernel	run	0	IP35	0xc00000000163c3e0	4	9	2	0	7	activate_bufs;chunk_pshake;chunkfree;chunkhold;cinit;free_buffer_mem;mem_adjust	located			
+min_free_pages	kernel	run	0	IP35	0xc00000000163c3dc	4	7	2	0	6	activate_bufs;chunk_pshake;chunkfree;chunkhold;cinit;mem_adjust	located			
+min_bufmem	kernel	run	0	IP35	0xc00000000163c3d8	4	4	1	0	4	binit;chunk_pshake;free_buffer_mem;mem_adjust	located			
+shaked_interval	kernel	run	1	IP35	0xc00000000163c3d4	4	0	0	0	0	-	no-site			
+zone_accum_limit	kernel	run	30	IP35	0xc00000000163c3d0	4	0	0	0	0	-	no-site			
+cwcluster	kernel	run	64	IP35	0xc00000000163c3cc	4	2	0	0	1	chunkcommit	located			
+enable_devzero_opt	kernel	run	1	IP35	0xc00000000163c3c4	4	1	0	0	1	pas_addmmapdevice	located			
+max_heap_mapping_size_hint	kernel	run	0x7fffffff	IP35	0xc00000000163c3c0	4	2	0	0	2	pas_addexec;pas_break	located			
+enable_kaio_fast_path	kernel	run	1	IP35	0xc00000000163c3bc	4	0	0	0	0	-	no-site			
+buf_relse_age	kernel	run	0	IP35	0xc00000000163c3b8	4	1	0	0	1	xfs_vop_readbuf_core	located			
+nfs_buf_commit_age	kernel	run	0	IP35	0xc00000000163c3b4	4	0	0	0	0	-	no-site			
+buf_clback	kernel	run	0	IP35	0xc00000000163c3b0	4	1	0	0	1	clusterwrite	located			
+buf_throttle_on	kernel	run	0	IP35	0xc00000000163c3ac	4	3	0	0	3	buf_throttle_active;buf_throttle_pending;dchunkpush_aged	located			
+buf_throttle_threshold	kernel	run	70	IP35	0xc00000000163c3a8	4	1	0	0	1	buf_throttle_active	located			
+buf_throttle_off_threshold	kernel	run	60	IP35	0xc00000000163c3a4	4	1	0	0	1	buf_throttle_active	located			
+buf_throttle_pending_threshold	kernel	run	60	IP35	0xc00000000163c3a0	4	1	0	0	1	buf_throttle_pending	located			
+buf_throttle_sleep_base_prd	kernel	run	50000000	IP35	0xc00000000163c39c	4	0	0	0	0	-	no-site			
+buf_throttle_sleep_recalc_prd	kernel	run	25	IP35	0xc00000000163c398	4	0	0	0	0	-	no-site			
+nbuf	kernel	static	0	IP35	0xc00000000163c394	4	15	1	0	11	_bufcache_sanity;chunk_vflush;chunk_vshake;chunkfree;chunkhold;cinit;free_buffer_mem;getbuf_stats;idbg_nfs_async_cfg;nfs3_init;nfs3_write_throttle_wakeup	located			
+nbufavoiddev	kernel	static	16	IP35	0xc00000000163c390	4	4	0	0	4	binit;buf_avoid_add;buf_avoid_delete;buf_avoid_search	located			
+bdevsw_extra	kernel	static	21	IP35	0xc00000000163c384	4	0	0	0	0	-	no-site			
+cdevsw_extra	kernel	static	23	IP35	0xc00000000163c380	4	0	0	0	0	-	no-site			
+fmodsw_extra	kernel	static	20	IP35	0xc00000000163c37c	4	0	0	0	0	-	no-site			
+vfssw_extra	kernel	static	5	IP35	0xc00000000163c378	4	0	0	0	0	-	no-site			
+do_procacct	kernel	static	1	IP35	0xc00000000163c374	4	1	0	0	1	pproc_exit	located			
+do_extpacct	kernel	static	0	IP35	0xc00000000163c370	4	2	0	0	2	extacct;pproc_exit	located			
+do_sessacct	kernel	static	0	IP35	0xc00000000163c36c	4	4	0	0	2	extacct;pproc_exit	located			
+do_csaacct	kernel	static	0	IP35	0xc00000000163c368	4	12	1	0	9	acctctl;clock;exit;pproc_exit;prctl;reattachpreg;shadowacct;vattachreg;vgrowreg	located			
+sessaf	kernel	static	1	IP35	0xc00000000163c364	4	1	0	0	1	ppag_init	located			
+spilen	kernel	static	64	IP35	0xc00000000163c360	4	1	0	0	1	ppag_init	located			
+dfltprid	kernel	static	0	IP35	0xc00000000163c358	8	3	0	0	3	ppagg_create;xcstat;xfs_mkdir	located			
+dflt_paggid	kernel	static	0	IP35	0xc00000000163c350	8	1	0	0	1	vpag_init	located			
+min_local_paggid	kernel	static	1	IP35	0xc00000000163c348	8	5	0	0	5	vpag_create;vpag_init;vpag_set_paggid;vpag_setidctr;vpag_setidincr	located			
+max_local_paggid	kernel	static	65535	IP35	0xc00000000163c340	8	4	0	0	4	vpag_create;vpag_set_paggid;vpag_setidctr;vpag_setidincr	located			
+incr_paggid	kernel	static	1	IP35	0xc00000000163c338	8	1	0	0	1	vpag_init	located			
+asmachid	kernel	static	0	IP35	0xc00000000163c334	4	2	0	0	2	vpag_init;vpag_setmachid	located			
+asarrayid	kernel	static	0xffff	IP35	0xc00000000163c330	4	2	0	0	2	vpag_init;vpag_setarrayid	located			
+miser_rss_account	kernel	static	1	IP35	0xc00000000163c32c	4	0	0	0	0	-	no-site			
+histmax	kernel	static	0	IP35	0xc00000000163c328	4	3	1	0	1	rslog_size	located			
+conbuf_maxsz	kernel	static	16384	IP35	0xc00000000163c324	4	0	0	0	0	-	no-site			
+putbuf_maxsz	kernel	static	16384	IP35	0xc00000000163c320	4	0	0	0	0	-	no-site			
+errbuf_maxsz	kernel	static	16384	IP35	0xc00000000163c31c	4	0	0	0	0	-	no-site			
+conbuf_cpusz	kernel	static	2048	IP35	0xc00000000163c318	4	0	0	0	0	-	no-site			
+putbuf_cpusz	kernel	static	2048	IP35	0xc00000000163c314	4	0	0	0	0	-	no-site			
+errbuf_cpusz	kernel	static	2048	IP35	0xc00000000163c310	4	0	0	0	0	-	no-site			
+dumplo	kernel	static	0	IP35	0xc00000000163c30c	4	0	1	0	1	sd_init	located			
+hub_core_arb_ctrl	kernel	static	0xfe	IP35	0xc00000000163c308	4	0	0	0	0	-	no-site			
+hub_2_4_iio_icmr_c_cnt	kernel	static	4	IP35	0xc00000000163c304	4	0	0	0	0	-	no-site			
+hub_2_4_iio_icmr_p_cnt	kernel	static	0	IP35	0xc00000000163c300	4	0	0	0	0	-	no-site			
+hub_2_4_iio_bte_crb_cnt	kernel	static	2	IP35	0xc00000000163c2fc	4	0	0	0	0	-	no-site			
+nlpages_64k	kernel	static	0	IP35	0xc00000000163c2f8	4	1	0	0	1	dba_getconfig	located			
+nlpages_256k	kernel	static	0	IP35	0xc00000000163c2f4	4	1	0	0	1	dba_getconfig	located			
+nlpages_1m	kernel	static	0	IP35	0xc00000000163c2f0	4	1	0	0	1	dba_getconfig	located			
+nlpages_4m	kernel	static	0	IP35	0xc00000000163c2ec	4	1	0	0	1	dba_getconfig	located			
+nlpages_16m	kernel	static	0	IP35	0xc00000000163c2e8	4	1	0	0	1	dba_getconfig	located			
+large_pages_enable	kernel	static	1|0	IP35	0xc00000000163c2e4	4	2	0	0	2	lpage_init_watermarks;main	located			
+percent_totalmem_16k_pages	kernel	run	0	IP35	0xc00000000163c2e0	4	0	1	0	1	_lpage_watermarks_sanity	located			
+percent_totalmem_64k_pages	kernel	run	20	IP35	0xc00000000163c2dc	4	2	0	0	2	_lpage_watermarks_sanity;collect_lpg_stats	located			
+percent_totalmem_256k_pages	kernel	run	0	IP35	0xc00000000163c2d8	4	2	0	0	2	_lpage_watermarks_sanity;collect_lpg_stats	located			
+percent_totalmem_1m_pages	kernel	run	0	IP35	0xc00000000163c2d4	4	2	0	0	2	_lpage_watermarks_sanity;collect_lpg_stats	located			
+percent_totalmem_4m_pages	kernel	run	0	IP35	0xc00000000163c2d0	4	2	0	0	2	_lpage_watermarks_sanity;collect_lpg_stats	located			
+percent_totalmem_16m_pages	kernel	run	0	IP35	0xc00000000163c2cc	4	2	0	0	2	_lpage_watermarks_sanity;collect_lpg_stats	located			
+coalesced_run_period	kernel	run	300	IP35	0xc00000000163c2c8	4	2	0	0	2	_lpage_watermarks_sanity;lpage_init	located			
+coalesced_precoalesce	kernel	run	0	IP35	0xc00000000163c2c4	4	1	0	0	1	coalesced	located			
+nvme32_dma	kernel	static	64	IP35	0xc00000000163c2c0	4	0	0	0	0	-	no-site			
+shmmax	kernel	static	0	IP35	0xc00000000163c2b8	8	2	1	0	2	_shm_sanity;pshm_alloc	located			
+shmmin	kernel	static	1	IP35	0xc00000000163c2b0	8	1	0	0	1	pshm_alloc	located			
+shmmni	kernel	static	0	IP35	0xc00000000163c2ac	4	8	1	0	5	_numproc_sanity;pproc_ckpt_shmget;vshm_allocid;vshm_freeid_local;vshm_init	located			
+sshmseg	kernel	static	2000	IP35	0xc00000000163c2a8	4	1	0	0	1	pshm_attach	located			
+hwgraph_num_dev	kernel	static	262144	IP35	0xc00000000163c2a4	4	0	0	0	0	-	no-site			
+xxl_hwgraph_num_dev	kernel	static	262144	IP35	0xc00000000163c2a0	4	2	0	0	2	hwgraph_init;hwgraph_vertex_create	located			
+graph_vertex_per_group	kernel	static	128	IP35	0xc00000000163c29c	4	9	1	0	4	_io_sanity;graph_create;graph_summary_get;graph_vertex_get_next	located			
+io_init_node_threads	kernel	static	0	IP35	0xc00000000163c298	4	2	1	0	2	_io_sanity;init_all_devices	located			
+io_init_async	kernel	static	1	IP35	0xc00000000163c294	4	0	1	0	1	_io_sanity	located			
+pciba_broken_le_be_compat	kernel	static	0	IP35	0xc00000000163c290	4	0	0	0	0	-	no-site			
+pcibr_pioerr_dump	kernel	static	1	IP35	0xc00000000163c28c	4	1	0	0	1	pcibr_error_intr_handler	located			
+pciio_multimaster_override	kernel	static	0	IP35	0xc00000000163c288	4	0	0	0	0	-	no-site			
+console_pri	kernel	static	255	IP35	0xc00000000163c284	4	1	0	0	1	main	located			
+du_conpoll_pri	kernel	static	255	IP35	0xc00000000163c280	4	1	0	0	1	start_du_conpoll_thread	located			
+hb_pri	kernel	static	255	IP35	0xc00000000163c27c	4	0	0	0	0	-	no-site			
+mtcp_discovery_pri	kernel	static	255	IP35	0xc00000000163c278	4	0	0	0	0	-	no-site			
+cmsd_pri	kernel	static	109	IP35	0xc00000000163c274	4	0	0	0	0	-	no-site			
+msc_shutdown_pri	kernel	static	109	IP35	0xc00000000163c270	4	1	0	0	1	sc_listen	located			
+msc_heartbeat_pri	kernel	static	109	IP35	0xc00000000163c26c	4	0	0	0	0	-	no-site			
+reaper_pri	kernel	static	100	IP35	0xc00000000163c268	4	1	0	0	1	kthread_reap_init	located			
+netthread_pri	kernel	static	98	IP35	0xc00000000163c264	4	3	0	0	3	mbinit;netisr_init;sockd_init	located			
+klogthrd_pri	kernel	static	98	IP35	0xc00000000163c260	4	0	0	0	0	-	no-site			
+batchd_pri	kernel	static	98	IP35	0xc00000000163c25c	4	1	0	0	1	miser_set_quantum	located			
+pdflush_pri	kernel	static	98	IP35	0xc00000000163c258	4	1	0	0	1	bdflushinit	located			
+rmonqd_pri	kernel	static	98	IP35	0xc00000000163c254	4	2	0	0	2	initmonitor;strinit_giveback	located			
+vhand_pri	kernel	static	98	IP35	0xc00000000163c250	4	1	0	0	1	pager_init	located			
+shaked_pri	kernel	static	98	IP35	0xc00000000163c24c	4	1	0	0	1	pager_init	located			
+exim_pri	kernel	static	96	IP35	0xc00000000163c248	4	0	0	0	0	-	no-site			
+bpsqueue_pri	kernel	static	94	IP35	0xc00000000163c244	4	0	0	0	0	-	no-site			
+xlvd_pri	kernel	static	94	IP35	0xc00000000163c240	4	0	0	0	0	-	no-site			
+vfs_sync_pri	kernel	static	92	IP35	0xc00000000163c23c	4	1	0	0	1	bdflushinit	located			
+bdflush_pri	kernel	static	92	IP35	0xc00000000163c238	4	1	0	0	1	bdflushinit	located			
+xfsd_pri	kernel	static	92	IP35	0xc00000000163c234	4	3	0	0	1	xfs_start_daemons	located			
+onesec_pri	kernel	static	90	IP35	0xc00000000163c230	4	1	0	0	1	init_second	located			
+unmountd_pri	kernel	static	90	IP35	0xc00000000163c22c	4	1	0	0	1	main	located			
+async_call_pri	kernel	static	90	IP35	0xc00000000163c228	4	1	0	0	1	main	located			
+sched_pri	kernel	static	90	IP35	0xc00000000163c224	4	1	0	0	1	main	located			
+coalesced_pri	kernel	static	90	IP35	0xc00000000163c220	4	1	0	0	1	main	located			
+tiled_pri	kernel	static	90	IP35	0xc00000000163c21c	4	0	0	0	0	-	no-site			
+recovery_pri	kernel	static	90	IP35	0xc00000000163c218	4	0	0	0	0	-	no-site			
+mtcp_pri	kernel	static	90	IP35	0xc00000000163c214	4	0	0	0	0	-	no-site			
+tpisockd_pri	kernel	static	90	IP35	0xc00000000163c210	4	0	0	0	0	-	no-site			
+io_init_pri	kernel	static	90	IP35	0xc00000000163c20c	4	1	0	0	1	init_all_devices	located			
+partition_pri	kernel	static	90	IP35	0xc00000000163c208	4	0	0	0	0	-	no-site			
+cdl_attach_pri	kernel	static	90	IP35	0xc00000000163c204	4	0	0	0	0	-	no-site			
+munldd_pri	kernel	static	90	IP35	0xc00000000163c200	4	1	0	0	1	mload_init	located			
+dpipe_pri	kernel	static	90	IP35	0xc00000000163c1fc	4	0	0	0	0	-	no-site			
+xbox_poll_pri	kernel	static	90	IP35	0xc00000000163c1f8	4	0	0	0	0	-	no-site			
+cl_async_pri	kernel	static	90	IP35	0xc00000000163c1f4	4	0	0	0	0	-	no-site			
+randthread_pri	kernel	static	98	IP35	0xc00000000163c1f0	4	2	0	0	2	randisr_init;randstart	located			
+audio_intr_pri	kernel	static	235	IP35	0xc00000000163c1e8	4	2	0	0	2	device_driver_sysgen_thread_pri_get;start_kdsp_timeout_thread	located			
+tserialio_intr_pri	kernel	static	235	IP35	0xc00000000163c1e4	4	2	0	0	2	device_driver_sysgen_thread_pri_get;start_tsio_timeout_thread	located			
+video_intr_pri	kernel	static	230	IP35	0xc00000000163c1e0	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+graphics_intr_pri	kernel	static	225	IP35	0xc00000000163c1dc	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+external_intr_pri	kernel	static	220	IP35	0xc00000000163c1d8	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+serial_intr_pri	kernel	static	215	IP35	0xc00000000163c1d4	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+parallel_intr_pri	kernel	static	215	IP35	0xc00000000163c1d0	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+network_intr_pri	kernel	static	210	IP35	0xc00000000163c1cc	4	2	0	0	2	arp_rtrequest;device_driver_sysgen_thread_pri_get	located			
+scsi_intr_pri	kernel	static	205	IP35	0xc00000000163c1c8	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+disk_intr_pri	kernel	static	205	IP35	0xc00000000163c1c4	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+tape_intr_pri	kernel	static	205	IP35	0xc00000000163c1c0	4	1	0	0	1	device_driver_sysgen_thread_pri_get	located			
+default_intr_pri	kernel	static	200	IP35	0xc00000000163c1bc	4	7	0	0	6	device_driver_sysgen_thread_pri_get;enable_ithreads;fire_attach;ioc3_intr_connect;ioc4_intr_connect;pcibr_intr_alloc	located			
+default_timeout_pri	kernel	static	1	IP35	0xc00000000163c1b8	4	3	0	0	2	callout_get_pri;midi_timercallback	located			
+mrlock_num_mria	kernel	static	64	IP35	0xc00000000163c1b4	4	1	0	0	1	sema_init	located			
+ckpt_enabled	kernel	run	1	IP35	0xc00000000163c1b0	4	16	0	0	11	as_allocshmmo;copen;intpexec;ioctl;pas_addexec;pas_addload;pas_addmmap;pas_addmmapdevice;raff_convert;sigreturn;vn_free	located			
+cpuset_nobind	kernel	static	0	IP35	0xc00000000163c1ac	4	2	0	0	1	sysmp	located			
+r10k_bpmode	kernel	static	0	IP35	0xc00000000163c1a4	4	0	0	0	0	-	no-site			
+enable_poq_war	kernel	static	0	IP35	0xc00000000163c1a0	4	0	0	0	0	-	no-site			
+md_rq_depth	kernel	static	5	IP35	0xc00000000163c19c	4	0	0	0	0	-	no-site			
+randthread_float	kernel	static	0	IP35	0xc00000000163c198	4	2	0	0	1	randproc_init	located			
+lockd_grace_period	lockd	run	45	IP35	0xc00000000163be80	4	2	1	0	2	lockd_sys;start_lockd	located			
+lock_share_requests	lockd	run	0	IP35	0xc00000000163be7c	4	4	2	0	4	destroy_client_shares;lockd_sys;nlm_share_options;proc_nlm_share	located			
+nlm_granted_timeout	lockd	run	1	IP35	0xc00000000163be78	4	0	0	0	0	-	no-site			
+nlm_maxdupreqs	lockd	run	0	IP35	0xc00000000163be74	4	2	0	0	1	nlm_dup_flush	located			
+nlm_callback_retry	lockd	run	3	IP35	0xc00000000163be70	4	0	0	0	0	-	no-site			
+max_lockd_procs	lockd	run	0	IP35	0xc00000000163be6c	4	3	1	0	3	proc_nlm4_lock;proc_nlm_lock;start_lockd	located			
+msgmax	msg		0x4000	IP35	0xc00000000163c030	4	1	0	0	1	msginit	located			
+msgmnb	msg		0x8000	IP35	0xc00000000163c02c	4	1	0	0	1	msginit	located			
+msgmni	msg		50	IP35	0xc00000000163c028	4	1	0	0	1	msginit	located			
+msgssz	msg		8	IP35	0xc00000000163c024	4	1	0	0	1	msginit	located			
+msgtql	msg		40	IP35	0xc00000000163c020	4	1	0	0	1	msginit	located			
+msgseg	msg		1536	IP35	0xc00000000163c01c	4	2	0	0	1	msginit	located			
+pmqomax	msg		128	IP35	0xc00000000163c018	4	1	0	0	1	sysconf	located			
+sm_timeout	nfs	run	5	IP35	0xc00000000163bed4	4	1	0	0	1	cancel_mon	located			
+GraceWaitTime	nfs	run	5	IP35	0xc00000000163bed0	4	1	0	0	1	nlm_async_call	located			
+max_nfs_clients	nfs	static	32	IP35	0xc00000000163becc	4	4	1	0	3	chtables_init;clget;nfs_wakeup	located			
+max_nsd_clients	nfs	static	32	IP35	0xc00000000163bec8	4	5	1	0	4	chtables_init;nclfree;nclget;nfs_wakeup	located			
+max_xnfs_clients	nfs	static	32	IP35	0xc00000000163bec4	4	5	1	0	4	chtables_init;nfs_wakeup;xclfree;xclget	located			
+nfstcp_shutdown_wait	nfs	static	500	IP35	0xc00000000163bef8	4	1	0	0	1	kspt_shutdown_sockets	located			
+nfs_close_sock	nfs	static	0	IP35	0xc00000000163bec0	4	0	0	0	0	-	no-site			
+nfs3_default_xfer	nfs3	static	32768	IP35	0xc00000000163beb8	4	0	0	0	0	-	no-site			
+nfs3_max_threads	nfs3	static	4	IP35	0xc00000000163beb4	4	0	0	0	0	-	no-site			
+nfs3_rah	nfs3	static	2	IP35	0xc00000000163beb0	4	1	0	0	1	__nfs3_get_readahead	located			
+nfs3_commit_prd	nfs3	static	50	IP35	0xc00000000163beac	4	0	0	0	0	-	no-site			
+nfs3_posix_atime_on_read	nfs3	static	0	IP35	0xc00000000163bea8	4	0	0	0	0	-	no-site			
+nfs3_unst_wtmark	nfs3	static	75	IP35	0xc00000000163bea4	4	1	0	0	1	idbg_nfs_async_cfg	located			
+nfs3_unst_crit_wtmark	nfs3	static	67	IP35	0xc00000000163bea0	4	0	0	0	0	-	no-site			
+nfs3_unst_low_wtmark	nfs3	static	60	IP35	0xc00000000163be9c	4	3	0	0	2	idbg_nfs_async_cfg;nfs3_write_throttle_wakeup	located			
+nfs3_unst_enforce_wtmark	nfs3	static	40	IP35	0xc00000000163be98	4	2	0	0	2	idbg_nfs_async_cfg;nfs3_init	located			
+nfs3_abio_write_hiwat	nfs3	static	0	IP35	0xc00000000163be94	4	2	1	0	2	idbg_nfs_async_cfg;nfs3_init	located			
+nfs3_abio_write_lowat	nfs3	static	0	IP35	0xc00000000163be90	4	3	2	0	3	idbg_nfs_async_cfg;nfs3_init;nfs3_write_throttle_wakeup	located			
+nfs3_abio_write_quota	nfs3	run	2	IP35	0xc00000000163be8c	4	0	0	0	0	-	no-site			
+nfs3_abio_read_quota	nfs3	run	2	IP35	0xc00000000163be88	4	0	0	0	0	-	no-site			
+nfs3_max_jukebox	nfs3	run	360	IP35	-	-	0	0	0	0	-	no-symbol			
+numa_migr_default_mode	numa		2	IP35	0xc00000000163bffc	4	1	0	0	1	migr_control_init	located			
+numa_migr_default_threshold	numa		50	IP35	0xc00000000163bff8	4	0	0	0	0	-	no-site			
+numa_migr_threshold_reference	numa		0	IP35	0xc00000000163bff4	4	0	0	0	0	-	no-site			
+numa_migr_vehicle	numa		1	IP35	0xc00000000163bff0	4	1	1	0	2	migr_control_init;migr_pagemove	located			
+numa_migr_min_maxradius	numa		2	IP35	0xc00000000163bfec	4	1	0	0	1	migr_control_init	located			
+numa_migr_auto_migr_mech	numa		0	IP35	0xc00000000163bfe8	4	0	0	0	0	-	no-site			
+numa_migr_user_migr_mech	numa		0	IP35	0xc00000000163bfe4	4	0	0	0	0	-	no-site			
+numa_migr_coaldmigr_mech	numa		0	IP35	0xc00000000163bfe0	4	0	0	0	0	-	no-site			
+numa_refcnt_default_mode	numa		0	IP35	0xc00000000163bfdc	4	0	0	0	0	-	no-site			
+numa_refcnt_overflow_threshold	numa		50	IP35	0xc00000000163bfd8	4	0	0	0	0	-	no-site			
+numa_migr_min_distance	numa		1	IP35	0xc00000000163bfd4	4	0	0	0	0	-	no-site			
+numa_migr_memory_low_enabled	numa		1	IP35	0xc00000000163bfd0	4	0	0	0	0	-	no-site			
+numa_migr_memory_low_threshold	numa		20	IP35	0xc00000000163bfcc	4	0	0	0	0	-	no-site			
+numa_migr_freeze_enabled	numa		0	IP35	0xc00000000163bfc8	4	0	0	0	0	-	no-site			
+numa_migr_freeze_threshold	numa		20	IP35	0xc00000000163bfc4	4	0	0	0	0	-	no-site			
+numa_migr_melt_enabled	numa		0	IP35	0xc00000000163bfc0	4	0	0	0	0	-	no-site			
+numa_migr_melt_threshold	numa		90	IP35	0xc00000000163bfbc	4	0	0	0	0	-	no-site			
+numa_migr_bounce_control_interval	numa		0	IP35	0xc00000000163bfb8	4	0	0	0	0	-	no-site			
+numa_migr_dampening_enabled	numa		0	IP35	0xc00000000163bfb4	4	0	0	0	0	-	no-site			
+numa_migr_dampening_factor	numa		90	IP35	0xc00000000163bfb0	4	0	0	0	0	-	no-site			
+mem_tick_enabled	numa		1	IP35	0xc00000000163bfac	4	0	0	0	0	-	no-site			
+mem_tick_base_period	numa		1	IP35	0xc00000000163bfa8	4	0	0	0	0	-	no-site			
+numa_migr_unpegging_control_enabled	numa		1	IP35	0xc00000000163bfa4	4	0	0	0	0	-	no-site			
+numa_migr_unpegging_control_interval	numa		0	IP35	0xc00000000163bfa0	4	0	0	0	0	-	no-site			
+numa_migr_unpegging_control_threshold	numa		90	IP35	0xc00000000163bf9c	4	0	0	0	0	-	no-site			
+numa_migr_traffic_control_enabled	numa		0	IP35	0xc00000000163bf98	4	0	0	0	0	-	no-site			
+numa_migr_traffic_control_interval	numa		400	IP35	0xc00000000163bf94	4	0	0	0	0	-	no-site			
+numa_migr_traffic_control_threshold	numa		80	IP35	0xc00000000163bf90	4	0	0	0	0	-	no-site			
+numa_kernel_replication_ratio	numa		1	IP35	0xc00000000163bf8c	4	1	0	0	1	setup_replication_mask	located			
+numa_paging_node_freemem_low_threshold	numa		40	IP35	0xc00000000163bf88	4	2	0	0	1	_pagealloc_size_node	located			
+numa_zone_radius	numa		1	IP35	0xc00000000163bf84	4	0	0	0	0	-	no-site			
+numa_migr_enqonfail_enabled	numa		0	IP35	0xc00000000163bf80	4	0	0	0	0	-	no-site			
+memoryd_enabled	numa		0	IP35	0xc00000000163bf7c	4	0	0	0	0	-	no-site			
+numa_migr_queue_maxlen	numa		70	IP35	0xc00000000163bf78	4	0	0	0	0	-	no-site			
+numa_migr_queue_control_enabled	numa		0	IP35	0xc00000000163bf74	4	0	0	0	0	-	no-site			
+numa_migr_queue_control_interval	numa		500	IP35	0xc00000000163bf70	4	0	0	0	0	-	no-site			
+numa_migr_queue_control_mlimit	numa		70	IP35	0xc00000000163bf6c	4	0	0	0	0	-	no-site			
+numa_migr_queue_traffic_trigger_enabled	numa		0	IP35	0xc00000000163bf68	4	0	0	0	0	-	no-site			
+numa_migr_queue_traffic_trigger_threshold	numa		80	IP35	0xc00000000163bf64	4	0	0	0	0	-	no-site			
+numa_migr_queue_capacity_trigger_enabled	numa		0	IP35	0xc00000000163bf60	4	0	0	0	0	-	no-site			
+numa_migr_queue_capacity_trigger_threshold	numa		60	IP35	0xc00000000163bf5c	4	0	0	0	0	-	no-site			
+numa_migr_queue_time_trigger_enabled	numa		0	IP35	0xc00000000163bf58	4	0	0	0	0	-	no-site			
+numa_migr_queue_time_trigger_interval	numa		1	IP35	0xc00000000163bf54	4	0	0	0	0	-	no-site			
+numa_migr_queue_control_max_page_age	numa		8	IP35	0xc00000000163bf50	4	0	0	0	0	-	no-site			
+portmap_timeout	oncrpc		5	IP35	0xc00000000163bf08	4	2	0	0	2	pmap_kgetport;rpcb_kgetaddr	located			
+first_retry	oncrpc		1	IP35	0xc00000000163bf04	4	1	0	0	1	nlm_rpc_call	located			
+normal_retry	oncrpc		1	IP35	0xc00000000163bf00	4	1	0	0	1	nlm_rpc_call	located			
+ksvc_min_threads	oncrpc	run	0	IP35	0xc00000000163bef4	4	3	0	0	1	ksvc_manager	located			
+ksvc_max_threads	oncrpc	run	1024	IP35	0xc00000000163bef0	4	3	0	0	1	ksvc_manager	located			
+ksvc_queue_max_threads	oncrpc	run	32	IP35	0xc00000000163beec	4	1	0	0	1	ksvc_manager	located			
+ksvc_queue_timeout	oncrpc	run	5	IP35	0xc00000000163bee8	4	0	0	0	0	-	no-site			
+ksvc_pool_timeout	oncrpc	run	60	IP35	0xc00000000163bee4	4	0	0	0	0	-	no-site			
+ksvc_max_manages	oncrpc	run	0	IP35	0xc00000000163bee0	4	0	0	0	0	-	no-site			
+oplocks_enabled	oplock		1	IP35	0xc00000000163bf44	4	1	0	0	1	oplock_fcntl	located			
+oplock_timeout	oplock		30	IP35	0xc00000000163bf40	4	0	0	0	0	-	no-site			
+svr3pipe	pipefs	run	1	IP35	0xc00000000163be24	4	1	0	0	1	pipe	located			
+psema_max_cnt	psema		8192	IP35	0xc00000000163c048	4	1	0	0	1	psemainit	located			
+semmni	sem		300	IP35	0xc00000000163c044	4	4	0	0	3	vsem_allocid;vsem_freeid_local;vsem_init	located			
+semmsl	sem		100	IP35	0xc00000000163c040	4	1	0	0	1	psem_alloc	located			
+semopm	sem		100	IP35	0xc00000000163c03c	4	0	0	0	0	-	no-site			
+semvmx	sem		32767	IP35	0xc00000000163c038	4	8	0	0	4	psem_exit;psem_op;psem_setall;psem_setval	located			
+semaem	sem		16384	IP35	0xc00000000163c034	4	0	0	0	0	-	no-site			
+nfs_portmon	snfs	run	0	IP35	0xc00000000163be64	4	1	0	0	1	checkauth	located			
+nfs_access_check	snfs	run	1	IP35	0xc00000000163be60	4	1	0	0	1	checkauth	located			
+nfsauth_cachesz	snfs	run	512	IP35	0xc00000000163be5c	4	0	0	0	0	-	no-site			
+nfsauth_refresh	snfs	run	1800	IP35	0xc00000000163be58	4	2	0	0	2	nfsauth_access;nfsauth_prime_cache	located			
+nfsauth_timeout	snfs	run	10	IP35	0xc00000000163be50	4	1	0	0	1	nfsauth_access	located			
+svc_maxdupreqs	svckudp		0	IP35	0xc00000000163befc	4	3	1	0	2	ksvc_dupdone;ksvc_init	located			
+unpst_sendspace	uds		0x20000	IP35	0xc00000000163be38	4	1	0	0	1	unp_attach	located			
+unpst_recvspace	uds		0x20000	IP35	0xc00000000163be34	4	1	0	0	1	unp_attach	located			
+unpdg_sendspace	uds		0x2000	IP35	0xc00000000163be30	4	1	0	0	1	unp_attach	located			
+unpdg_recvspace	uds		0x4000	IP35	0xc00000000163be2c	4	1	0	0	1	unp_attach	located			
+usync_max_objs	usync		8192	IP35	0xc00000000163c04c	4	1	0	0	1	usyncinit	located			
+xfs_nfs_io_units	xfs	static	10	IP35	0xc00000000163bf3c	4	1	0	0	1	xfs_write_file	located			
+xfs_refcache_percent	xfs	static	100	IP35	0xc00000000163bf38	4	1	0	0	1	xfs_init	located			
+xfs_dcount	xfs	static	0	IP35	0xc00000000163bf34	4	1	1	0	1	xfs_start_daemons	located			
+xfs_max_bmap_len	xfs	static	1024	IP35	0xc00000000163bf30	4	2	1	0	2	xfs_init;xfs_iomap_read	located			
+xfs_panic_mask	xfs	run	0	IP35	0xc00000000163bf28	8	1	0	0	1	xfs_cmn_err	located			
+xfs_dcontention	xfs	run	1	IP35	0xc00000000163bf20	4	2	0	0	1	xfsd_core	located			
+xfs_error_level	xfs	run	3	IP35	0xc00000000163bf1c	4	2	0	0	2	_xfs_force_shutdown;xfs_error_report	located			
+xlv_lowmem_slots	xlv	static	15	IP35	-	-	0	0	0	0	-	no-symbol			
+xlv_low_mem_threshold	xlv	static	10	IP35	-	-	0	0	0	0	-	no-symbol			
+xlv_low_mem_scale	xlv	static	50	IP35	-	-	0	0	0	0	-	no-symbol			
+xlv_low_mem_max_size	xlv	static	4194304	IP35	-	-	0	0	0	0	-	no-symbol			
+xlv_topmem_slots	xlv	static	5	IP35	-	-	0	0	0	0	-	no-symbol			
+xlv_top_mem_threshold	xlv	static	10	IP35	-	-	0	0	0	0	-	no-symbol			
+xlv_top_mem_scale	xlv	static	50	IP35	-	-	0	0	0	0	-	no-symbol			
+xlv_top_mem_max_size	xlv	static	4194304	IP35	-	-	0	0	0	0	-	no-symbol			
+xvm_distribution_size	xvm	static	2097152	IP35	-	-	0	0	0	0	-	no-symbol			
+xvm_multicast_pri	xvm	run	90	IP35	-	-	0	0	0	0	-	no-symbol			
+xvm_drl_pri	xvm	run	90	IP35	-	-	0	0	0	0	-	no-symbol			
+xvm_revive_pri	xvm	run	90	IP35	-	-	0	0	0	0	-	no-symbol			
+xvm_max_revive_threads	xvm	run	0|4	IP35	-	-	0	0	0	0	-	no-symbol			
+xvm_max_revive_rsc	xvm	run	5	IP35	-	-	0	0	0	0	-	no-symbol			
+xvm_revive_win_factor	xvm	run	2	IP35	-	-	0	0	0	0	-	no-symbol			
+xvm_maxfs_revive	xvm	run	1	IP35	-	-	0	0	0	0	-	no-symbol			

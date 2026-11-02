@@ -1,0 +1,3 @@
+{
+  "_comment": "Hand-written roles for kernel tunables in docs/inventory/tunable-summary.tsv. Each entry gives a grade (established: the read sites were read in the disassembly and the statements about them are mechanical; inferred: the meaning of the value is reasoned from the code around it), a role in plain words, and a citation naming the 6.5.30 kernel and the routine and address of the sites. A row counts as understood only with all three. Keys are tunable names. Sites that the symbolic pass did not find are stated as absent, not as unused. A role applies to the kernels in its kernels list (IP27 only where the IP35 and IP30 sites are listed but not traced); other kernels stay located."
+}

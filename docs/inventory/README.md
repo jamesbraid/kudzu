@@ -34,4 +34,8 @@ For these tables `status` is `documented` when the name appears in backticks in 
 
 `errnos.tsv` has one row per nonzero constant, callee-propagated value or unresolved value that a 6.5.30 system call handler or `syssgi` case returns, and per such value of the first-level callee whose return it passes on. It needs `syscalls.tsv` and `selectors.tsv` from `scripts/os_tables.py`. Its columns, the grades and the known limits are in [errnos.md](../errnos.md). Run `tools/re-run python3 scripts/errno_table.py` (about four minutes for the three kernels).
 
+## Tables from scripts/tunable_sites.py
+
+`tunable-summary.tsv` (one row per tunable and kernel) and `tunable-sites.tsv` (one row per read or store of a tunable's data symbol) map each `mtune` name in `sysgen-tunables.tsv` to its data symbol in the linked 6.5.30 kernels `unix.IP27`, `unix.IP30` and `unix.IP35`. Run `tools/re-run python3 scripts/tunable_sites.py` (about ten minutes for the three kernels); `--roles-only` re-applies `scripts/tunable-roles.json` to the last scan without rescanning. A site is an access whose resolved absolute address lies in the symbol, found by the symbolic pass of `scripts/facts.py`. Roles are in [sysgen.md](../sysgen.md#tunable-read-sites); a row is `understood` only for the kernels its role lists.
+
 The numbering of `syscalls.tsv` and `selectors.tsv` is compared with public lists in [syscall-selector-crosscheck.md](../syscall-selector-crosscheck.md).

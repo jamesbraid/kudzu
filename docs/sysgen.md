@@ -44,9 +44,15 @@ Until these are settled, a `configured` value is a statement about the configura
 
 A driver row is `understood` only with a grade (`established` or `inferred`), a role in plain words, and a citation naming the release, the master file and the symbols checked. Roles are in [scripts/sysgen-roles.json](../scripts/sysgen-roles.json). `established` means the flags, prefix, dependencies and symbol counts were read from the shipped files and the kernel image; `inferred` means the role is taken from the module name and the symbols, without reading the code. The other 440 driver rows are `located`: they carry their source line and mechanical fields, and no role yet. Tunable rows are `located` throughout; no tunable has a role written.
 
+## Tunable read sites
+
+[inventory/tunable-summary.tsv](inventory/tunable-summary.tsv) and [inventory/tunable-sites.tsv](inventory/tunable-sites.tsv) map each tunable to its data symbol in the linked 6.5.30 kernels and list every routine that loads or stores it. The tunable names come from the 6.5.22 tables above, and the sites are read from the 6.5.30 kernels. The method is in `scripts/tunable_sites.py`: the symbolic pass of `scripts/facts.py` resolves each access to an absolute address, so a site is an access the pass resolved, not every use of the variable.
+
+Roles are written for the hardware-related tunables whose IP27 sites were read in the disassembly (the R10000 check, the memory-error counters, the NUMA migration selectors) and live in `scripts/tunable-roles.json`. Each role names the kernels whose sites it covers. The symbolic pass finds no read of the NUMA migration tunables in the IP30 kernel. The IP35 sites named in the roles are listed but not yet traced; those rows stay `located`.
+
 ## Not done
 
 - The 6.5.30 tables (see Release).
 - Roles for the 440 remaining driver modules.
-- Roles and effects for the 613 tunable lines, and a note on what the systune command does with each bound.
+- Roles and effects for the remaining tunable lines (about 580 symbol-kernel rows are `no-site` or `located`), and a note on what the systune command does with each bound.
 - Settling the configuration-model disagreements above, for example by reading how the `noncell` alternative and the `cell` modules are selected.
