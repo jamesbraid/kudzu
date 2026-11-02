@@ -123,7 +123,7 @@
     "type": "daemon",
     "status": "located",
     "grade": "inferred",
-    "interfaces": "the mount table /etc/mtab; a temporary mount point under /tmp; mount, umount, nfsmount and nfsunmount; pingmount and callrpc to test servers; xdr_exports and xdr_attrstat for replies; ioctl; svc_register for its own service.",
+    "interfaces": "the mount table /etc/mtab; the mount directory /tmp_mnt named in its strings; mount, umount, nfsmount and nfsunmount; pingmount and callrpc to test servers; xdr_exports and xdr_attrstat for replies; ioctl; svc_register for its own service.",
     "role": "Automounter. It mounts NFS exports on first access under its mount points and unmounts them after an idle timeout. Its strings name the timeout, the no-mount list and the already-mounted case.",
     "citation": "6.5.30 usr/etc/automount: the timeout, no-mount-list and already-mounted messages, do_mount, do_unmount and pingmount names, dynamic imports callrpc, ioctl, svc_register"
   },
@@ -232,7 +232,7 @@
     "type": "daemon",
     "status": "located",
     "grade": "inferred",
-    "interfaces": "the temporary directory a per-request temporary directory named from the template /var/tmp_rex/rexdXXXXXX; two temporary mount-table files in /etc with random suffixes; /etc/mtab; the login records /etc/utmp and /etc/wtmp; mount, with an 'RPC create error' message on a failed mount.",
+    "interfaces": "a per-request temporary directory named from the template /var/tmp_rex/rexdXXXXXX; two temporary mount-table files in /etc with random suffixes; /etc/mtab; the login records /etc/utmp and /etc/wtmp; mount, with an 'RPC create error' message on a failed mount.",
     "role": "Remote execution RPC server. It runs commands that remote clients submit, in a temporary work directory, and mounts the file systems those commands need, recording the session in the login records.",
     "citation": "6.5.30 usr/etc/rpc.rexd: a per-request temporary directory named from the template /var/tmp_rex/rexdXXXXXX, two temporary mount-table files in /etc with random suffixes, /etc/utmp and /etc/wtmp strings, 'not responding: RPC create error' message"
   },
