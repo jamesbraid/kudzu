@@ -342,7 +342,7 @@ These entries are located facts only. The record names a signature but no role, 
 - `_idbg_addfunc` (`6.5.30/usr/cpu/sysgen/IP35boot/idbg.o` `0x9e8`, 1584 bytes, external).
   Returns `int`; Parameters `char *name, func (pointer to a subroutine type)`. Record 0x1f766 of unit 1. Role unknown.
 - `idbg_findfunc` (`6.5.30/usr/cpu/sysgen/IP35boot/idbg.o` `0x1018`, 780 bytes, external).
-  Returns `int`; Parameters `char *name, func (pointer to a subroutine type)`. Record 0x1f817 of unit 1. Role unknown.
+  Returns `int`; Parameters `char *name, func (pointer to a pointer to a subroutine type)`. Record 0x1f817 of unit 1. Role unknown.
 - `_idbg_delfunc` (`6.5.30/usr/cpu/sysgen/IP35boot/idbg.o` `0x1324`, 432 bytes, external).
   No return type in the record; Parameters `func (pointer to a subroutine type)`. Record 0x1f8bb of unit 1. Role unknown.
 - `_idbg_copytab` (`6.5.30/usr/cpu/sysgen/IP35boot/idbg.o` `0x14d4`, 792 bytes, external).
@@ -933,7 +933,7 @@ These entries are located facts only. The record names a signature but no role, 
 - `_idbg_addfunc` (`6.5.30/usr/cpu/sysgen/IP27boot/idbg.o` `0x9e8`, 1584 bytes, external).
   Returns `int`; Parameters `char *name, func (pointer to a subroutine type)`. Record 0x1faf3 of unit 1. Role unknown.
 - `idbg_findfunc` (`6.5.30/usr/cpu/sysgen/IP27boot/idbg.o` `0x1018`, 780 bytes, external).
-  Returns `int`; Parameters `char *name, func (pointer to a subroutine type)`. Record 0x1fba4 of unit 1. Role unknown.
+  Returns `int`; Parameters `char *name, func (pointer to a pointer to a subroutine type)`. Record 0x1fba4 of unit 1. Role unknown.
 - `_idbg_delfunc` (`6.5.30/usr/cpu/sysgen/IP27boot/idbg.o` `0x1324`, 432 bytes, external).
   No return type in the record; Parameters `func (pointer to a subroutine type)`. Record 0x1fc48 of unit 1. Role unknown.
 - `_idbg_copytab` (`6.5.30/usr/cpu/sysgen/IP27boot/idbg.o` `0x14d4`, 792 bytes, external).
@@ -1524,7 +1524,7 @@ These entries are located facts only. The record names a signature but no role, 
 - `_idbg_addfunc` (`6.5.30/usr/cpu/sysgen/IP30boot/idbg.o` `0x9e8`, 1584 bytes, external).
   Returns `int`; Parameters `char *name, func (pointer to a subroutine type)`. Record 0x1ce5d of unit 1. Role unknown.
 - `idbg_findfunc` (`6.5.30/usr/cpu/sysgen/IP30boot/idbg.o` `0x1018`, 780 bytes, external).
-  Returns `int`; Parameters `char *name, func (pointer to a subroutine type)`. Record 0x1cf0e of unit 1. Role unknown.
+  Returns `int`; Parameters `char *name, func (pointer to a pointer to a subroutine type)`. Record 0x1cf0e of unit 1. Role unknown.
 - `_idbg_delfunc` (`6.5.30/usr/cpu/sysgen/IP30boot/idbg.o` `0x1324`, 432 bytes, external).
   No return type in the record; Parameters `func (pointer to a subroutine type)`. Record 0x1cfb2 of unit 1. Role unknown.
 - `_idbg_copytab` (`6.5.30/usr/cpu/sysgen/IP30boot/idbg.o` `0x14d4`, 792 bytes, external).
@@ -2109,7 +2109,7 @@ These entries are located facts only. The record names a signature but no role, 
 - `_idbg_addfunc` (`6.5.30/usr/cpu/sysgen/IP32boot/idbg.o` `0x7c4`, 872 bytes, external).
   Returns `int`; Parameters `char *name, func (pointer to a subroutine type)`. Record 0x16dd2 of unit 1. Role unknown.
 - `idbg_findfunc` (`6.5.30/usr/cpu/sysgen/IP32boot/idbg.o` `0xb2c`, 452 bytes, external).
-  Returns `int`; Parameters `char *name, func (pointer to a subroutine type)`. Record 0x16e55 of unit 1. Role unknown.
+  Returns `int`; Parameters `char *name, func (pointer to a pointer to a subroutine type)`. Record 0x16e55 of unit 1. Role unknown.
 - `_idbg_delfunc` (`6.5.30/usr/cpu/sysgen/IP32boot/idbg.o` `0xcf0`, 252 bytes, external).
   No return type in the record; Parameters `func (pointer to a subroutine type)`. Record 0x16ed1 of unit 1. Role unknown.
 - `_idbg_copytab` (`6.5.30/usr/cpu/sysgen/IP32boot/idbg.o` `0xdec`, 644 bytes, external).
