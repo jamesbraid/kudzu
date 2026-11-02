@@ -4,7 +4,7 @@ Questions the binaries have not yet answered. Each entry names the routes alread
 
 ## Triage (2026-11-01)
 
-Eight entries: 4 software-now, 3 missing-input, 1 hardware-only.
+Six entries: 2 software-now, 3 missing-input, 1 hardware-only.
 
 Route classes:
 
@@ -19,16 +19,14 @@ Premises corrected in place, with the check that corrected them:
 
 Software-now, in order:
 
-1. The gp slots read by the hardware-facing layout routines of the 6.5.22 and 6.5.30 kernels: resolve each slot to its variable in both kernels (see the 6.5.22 comparison section).
-2. The panic messages: extend `scripts/panic_sites.py` to the 529 sites marked not resolved.
-3. The `sysmp` and `syssgi` selector tables: run the extractor on the other selector functions. These are out of the current scope rules, so they come last.
-4. The CD-ROM class table in the media daemon's device module: read the routines at `0x01cf2c88`, `0x01cf31d8` and `0x01cf32f8` to the end ([scsi-cdrom-inquiry.md](scsi-cdrom-inquiry.md)).
+1. The panic messages: extend `scripts/panic_sites.py` to the 529 sites marked not resolved.
+2. The `sysmp` and `syssgi` selector tables: run the extractor on the other selector functions. These are out of the current scope rules, so they come last.
 
 Missing input:
 
 - The IP32 linked kernel (row 1): no IP32 configuration is held for either release.
 - The user-space `ioconfig` program and an `/etc/ioconfig.conf` file: neither is held for either release; the kernel side is in [ioconfig.md](ioconfig.md). Next route: extract `ioconfig` from the installation media named in [IRIX_FILES.md](../IRIX_FILES.md), then read how it assigns numbers and which control request sets the controller number from user space.
-- The Octane2, Origin 350, Tezro and Fuel base-I/O PROMs, the IP22 PROM and an installed 6.5.22 `mediad` with its device module: none held ([scsi-cdrom-inquiry.md](scsi-cdrom-inquiry.md)).
+- The Octane2, Origin 350, Tezro and Fuel base-I/O PROMs, the IP22 PROM and an installed 6.5.22 `mediad` with its device module: none held ([scsi-cdrom-inquiry.md](scsi-cdrom-inquiry.md)). The CD-ROM device module (`dev_cdrom.so`) is not in `root/` for 6.5.30 either, so the routines at `0x01cf2c88`, `0x01cf31d8` and `0x01cf32f8` cannot be read to the end until it is extracted (checked 2026-11-01: no `dev_cdrom.so` or `mediad` file under `root/`).
 
 Hardware-only:
 
@@ -41,13 +39,6 @@ Hardware-only:
 | The IP32 linked kernel (`unix.IP32`): none held, and no IP32 configuration is held for either release. | missing-input | [IRIX_FILES.md](../IRIX_FILES.md) | The IP32 object archives are present and inventoried (230 entries in the 6.5.30 IP32 boot directory). `root/6.5.30` has no `var/`. `root/6.5.22/var/` has `sysgen.IP27`, `sysgen.IP30` and `sysgen.IP35` only. | Extract the IP32 configuration (`master.d`, `system`, `mtune`) from the installation media named in IRIX_FILES.md if they carry it, then link. Otherwise locate an installed O2 system disk. IP32 has no kernel row in `scripts/scope.json`. |
 | `sysmp` and other selector tables are not generated; `syssgi` selectors that never narrow to a single value (shared error paths and ranges) are not listed. | software-now | `docs/inventory/selectors.tsv` | `scripts/syssgi_selectors.py` on `syssgi`; compared with public lists in [syscall-selector-crosscheck.md](syscall-selector-crosscheck.md). Checked 2026-11-01: `sysmp` and `syssgi` are named-only, out-of-scope rows in the 6.5.22 `os.a` objects of all five platforms. | Run the extractor on the other selector functions, starting with `sysmp` in the 6.5.30 and 6.5.22 `os.a` objects. Explain the selectors that differ from the public lists. |
 | Panic and assert message strings: 529 of the 890 call sites in [panics.md](panics.md) are `not resolved`. | software-now | `scripts/os_tables.py`, `scripts/panic_sites.py` | `scripts/panic_sites.py` resolves the format register at each call to a string in the file-backed data, which gives the 361 resolved sites. The 529 unresolved sites are the ones the scan cannot follow: two paths join before the call, or the pointer is loaded at run time (the Grades paragraph of panics.md). Checked 2026-11-01 by counting the table rows. | Extend the scan to follow the two-path joins and the loaded pointers, then recount. Add the 6.5.22 kernels to the table once row 1 lands. |
-
-## 6.5.22 comparison
-
-| Question | Class | Owner | Routes tried | Next route |
-|---|---|---|---|---|
-| Whether the gp slots that the hardware-facing layout routines read name the same variables in 6.5.22 as in 6.5.30. The routines differ only in gp offsets (106 hardware-facing rows, for example `nasid_to_compact_nodeid`, `cnode_exists` and `hub_slot_to_widget`) or in gp offsets and jump targets (1,080 rows); see [version-diffs-queue.tsv](version-diffs-queue.tsv). | software-now | [version-diffs.md](version-diffs.md) | The bytes match apart from those fields, so the routines are classed as layout. The gp offset differs, which fits a moved data layout, but no slot was resolved to its variable in either kernel. | For each such row, resolve gp plus the offset to the data symbol in each kernel (the `_gp` symbol gives the base in each kernel) and compare the two names. |
-
 
 ## Hardware graph
 

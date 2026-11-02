@@ -135,6 +135,25 @@ A linked-kernel row is labelled established when the whole body has no calls, ad
 
 553 routines that the pages understand on 6.5.30 have a 6.5.22 copy whose bytes differ. 499 of them are hardware-facing. Each has `understood_6.5.30` set to `yes` in the queue, so the 6.5.22 side can be read against the 6.5.30 entry.
 
+## What the moved gp slots name
+
+The 1,186 hardware-facing routines whose class is layout and whose differences include gp offsets (106 with gp offsets alone, 1,080 with gp offsets and jump targets) were checked slot by slot with `scripts/gp_slots.py`; the result is [version-diffs-gp-slots.tsv](version-diffs-gp-slots.tsv), one row per differing gp-relative operand of each routine (2,396 rows in 1,182 routines).
+
+Method. Both copies of a routine have the same instruction sequence, so the instructions are paired by position. At each pair whose gp offset differs, gp plus the offset is resolved in each kernel (gp from the kernel's `.MIPS.options` record): a symbol at that address is a variable; a pointer-sized word in a literal or data section is a pool word, named by the symbol or the string it points to; any other word is a constant, compared by value (four-byte accesses compare the word). A pool word that points to a routine or table with no symbol is compared by its first 32 bytes with call targets, gp offsets and pointers masked.
+
+Result (**established** for what the method can see):
+
+| Verdict | Rows |
+|---|---:|
+| the slot names the same symbol, string or value in both kernels | 2,372 |
+| the slot is an unnamed static in both kernels (no symbol in either; the first 32 bytes of a pointed-to routine or table are equal in 160 of the 2,372 above) | 21 |
+| the slot differs | 3 |
+
+- Every moved gp slot of the 106 gp-only routines, including the examples `cnode_exists`, `nasid_to_compact_nodeid` and `hub_slot_to_widget`, names the same thing in 6.5.22 as in 6.5.30 on each platform (the compact-node table, the slot-bits table, the register address constants). The offsets moved because the data around them moved.
+- The 21 unnamed rows are the same few statics seen from several routines: the ioc3 console record pointer (`ioc3_attach`, `ioc3_handle_intr`, `ioc3_console_vhdl_get`, `ioc3_is_console`), the PROM-information list head (`prominfo_add`, `prominfo_del`, `prominfo_nodeget`), the ioc3 serial record (IP30 `ioc3_serial_attach`) and a table read by `idbg_dnlc`. For the first, `ioc3_attach` stores the pointer at the same position in the routine in both releases of the IP27 and IP35 kernels (a doubleword store 0x178 bytes into the routine; the IP30 pair was not checked). That the other unnamed slots are the same static is **inferred** from the same routine reading the same position, not read per slot.
+- The 3 differing rows are one slot, in `ioc3_intr_connect` on each platform. The pool word holds the address of a routine with no symbol, and the two releases' routines differ at the start (the 6.5.30 one saves with a 32-byte frame, the 6.5.22 one with a 16-byte frame). The handler registered through this routine has different code in the two releases. **Inferred** from the first 32 bytes only; the handlers were not read.
+- Four routines of the 1,186 have no differing gp-relative load or store: `ecc_exception` on the three platforms and `intrnorm_rsasave` on IP27 build the kernel's own gp with a `lui`, `daddiu` and `dsll` chain (the chain's immediates are what differ) and then call `tfi_save`; no slot is read.
+
 ## Reading order
 
 [version-diffs-queue.tsv](version-diffs-queue.tsv) lists every changed routine, with its class and its scope. Rows are ordered as follows:
@@ -143,7 +162,7 @@ A linked-kernel row is labelled established when the whole body has no calls, ad
 2. within each group, by class: code, size, immediate, layout, and object bytes (relocatable objects);
 3. within a class, understood on 6.5.30 first, then by object and name.
 
-The hardware-facing code and size rows are the first to read. The layout rows of the linked kernels differ only in jump targets and gp offsets, so the question they raise is whether the gp slots name the same data; that is recorded in [open-questions.md](open-questions.md).
+The hardware-facing code and size rows are the first to read. The layout rows of the linked kernels differ only in jump targets and gp offsets, so the question they raise is whether the gp slots name the same data; [What the moved gp slots name](#what-the-moved-gp-slots-name) answers it.
 
 ## Limits
 
