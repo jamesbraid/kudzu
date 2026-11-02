@@ -246,11 +246,11 @@ Routines of the IOC3 PCI I/O controller code in the IRIX 6.5.30 IP35 kernel (`6.
   string at 0xc00000000049d258 (pool word at gp-19704 plus 472), and returns 0 if that call returns nonzero. If it
   succeeds it calls `hwgraph_fastinfo_get` on the vertex found and returns 1 when the result equals the global and 0
   when it does not (`xor` then `sltiu` against 1). The frame is 16 bytes. Established.
-- `ioc3_is_io7` (`6.5.30/unix.IP35`, address 0xc0000000000c5dd8, 64 bytes, 16-byte frame): returns the flag byte that `ioc3_attach`
+- `ioc3_is_io7` (`6.5.30/unix.IP35`, occupies 64 bytes at address 0xc0000000000c5dd8): returns the flag byte that `ioc3_attach`
   keeps in an IOC3's soft state. It calls `hwgraph_traverse(a0, "ioc3", &sp+0)` (the string at 0xc00000000049d258, pool word at
   gp-19704 plus 472) and returns 0 when that returns nonzero. Otherwise it calls `hwgraph_fastinfo_get` on the vertex
   found and returns the byte at +2885 of the soft state (`lbu`), the flag `ioc3_attach` sets to 1 for the vertex name
-  containing "Ibrick/xtalk/15/pci/4". What the flag stands for beyond that is the kernel's own naming. Established.
+  containing "Ibrick/xtalk/15/pci/4". The frame is 16 bytes. The branch after the traverse call (at 0xc0000000000c5df0) is a plain `beqz`, the other is an unconditional `b`, and no instruction is branch-likely. What the flag stands for beyond that is the kernel's own naming. Established.
 - `ioc3_mlreset` (`6.5.30/unix.IP35`, address 0xc0000000000c4ef4, 116 bytes, 16-byte frame): records the console
   IOC3's configuration and register windows and, unless the chip reports one of two other identifiers, registers the
   IOC3 serial port as a console device. `a1` is stored in the kernel variable `console_mem` (0xc00000000163c938) and
@@ -280,14 +280,15 @@ Routines of the IOC3 PCI I/O controller code in the IRIX 6.5.30 IP35 kernel (`6.
   `mutex_spinunlock` for the record lock with the level `mutex_spinlock` returned. All three paths end by calling
   `ioc3_write_ireg` with the soft state from +48, the word at +16 and operation 0, and the routine returns nothing. What
   the kernel treats these external interrupts as: unknown here. Established.
-- `ioc3_init` (`6.5.30/unix.IP35`, address 0xc0000000000c51e8, 88 bytes, 16-byte frame): registers the IOC3 driver
+- `ioc3_init` (`6.5.30/unix.IP35`, occupies 88 bytes at address 0xc0000000000c51e8): registers the IOC3 driver
   with the PCI layer and three part-number prefixes with the NIC code. It calls `pciio_driver_register(4265, 3, S + 48,
   1)`: 4265 is 0x10a9, the vendor, and 3 the device that `ioc3_serial_attach` also tests; S is the pool word at gp-19704
   (0xc00000000049d080, the string "030-1155-") and S + 48 is the string "ioc3_" at 0xc00000000049d0b0. It then calls
   `nic_vmc_add` three times, each with a string and a routine address: S and 0xc0000000000c5240 (pool word at
   gp-19696), S + 16 ("030-1657-") and 0xc0000000000c525c (pool word at gp-19688), and S + 32 ("030-1664-") with the
   same 0xc0000000000c525c. `ioc3_attach` tests the NIC string of its guest against the last two prefixes. The return
-  value is whatever the last `nic_vmc_add` leaves in `v0`. What the two routines do is not read here. Established.
+  value is whatever the last `nic_vmc_add` leaves in `v0`. The frame is 16 bytes, there is no branch of any kind and no
+  instruction is branch-likely. What the two routines do is not read here. Established.
 - `ioc3_pckm_mlreset` (`6.5.30/unix.IP35`, address 0xc0000000000cb808, 76 bytes, 64-byte frame): registers six routine
   addresses for the console keyboard with the console layer. It loads six pool words and stores them in a block on the
   stack, in the order issued: the word at gp-19448, 0xc0000000000cb854, at sp+0; gp-19440, 0xc0000000000cd074, at
