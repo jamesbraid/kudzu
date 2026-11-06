@@ -2699,12 +2699,12 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.22/usr/cpu/sysgen/IP32boot/kernel.o`.
   Range: 0x83b8-0x84f4 (316 bytes).
   It occupies 316 bytes.
-  The `lw` at 0x83f0 loads 4 bytes from table(sym(.rodata)+5360) +0x0.
+  The `lw` at 0x83f0 loads 4 bytes from table(sym(.rodata)+2680) +0x0.
   The `lw` at 0x84d8 loads 4 bytes from abs 0xffffffffffffa2b0.
   The `jal` at 0x83c0 calls get_cpu_irr with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x8458 calls is_specified with a0=sym(arg_bump_leds), a1=?, a2=[sym(four_set_pcaches)], a3=?, a4=-0x1.
   The `jal` at 0x846c calls is_enabled with a0=sym(arg_bump_leds), a1=[sym(reboot_on_panic)], a2=?, a3=?.
-  The `jal` at 0x848c calls kopt_find with a0=sym(.rodata)+5328, a1=[sym(reboot_on_panic)], a2=-0x1, a3=?.
+  The `jal` at 0x848c calls kopt_find with a0=sym(.rodata)+2664, a1=[sym(reboot_on_panic)], a2=-0x1, a3=?.
   The `jal` at 0x8498 calls atoi with a0=ret(kopt_find), a1=?, a2=?, a3=?.
   The `beq` branch at 0x83e8 targets 0x8414, is taken when a1(?) >= 0x20 (unsigned), and falls through when a1(?) < 0x20 (unsigned).
   The `beq` branch at 0x8420 targets 0x84d4, is taken when a1(=[sym(is_r4600_flag)]) == 0, and falls through when a1(=[sym(is_r4600_flag)]) != 0.
@@ -2727,7 +2727,7 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.22/usr/cpu/sysgen/IP32boot/kernel.o`.
   Range: 0x9f18-0x9f4c (52 bytes).
   It occupies 52 bytes.
-  The `jal` at 0x9f2c calls cmn_err with a0=0x4, a1=sym(.rodata)+5968, a2=a1 at entry (arg1), a3=a3 at entry (arg3).
+  The `jal` at 0x9f2c calls cmn_err with a0=0x4, a1=sym(.rodata)+2984, a2=a1 at entry (arg1), a3=a3 at entry (arg3).
   The return at 0x9f44 has v0 = ret(cmn_err).
 - `crime_intr` in `6.5.22/usr/cpu/sysgen/IP32boot/kernel.o` at 0xa2c4 (n32).
   Evidence grade: inferred.
@@ -2736,25 +2736,25 @@ These entries record instruction facts rendered from the routines below. They de
   It occupies 684 bytes.
   2 such `ld` accesses load 8 bytes from a0 (arg0 at entry) +0x138, including `ld` at 0xa2f0, `ld` at 0xa4c8.
   2 such `ld` accesses load 8 bytes from abs 0xffffffffb4000010, including `ld` at 0xa2fc, `ld` at 0xa324.
-  The `sw` at 0xa35c stores 4 bytes to (sp-208 + ([sym(.data)+2876]:2 << 0x2)) +0x0.
-  The `lh` at 0xa368 loads 2 bytes from sym(.data) +0xb0c.
-  The `sw` at 0xa38c stores 4 bytes to (sp-208 + ([sym(.data)+2828]:2 << 0x2)) +0x0.
-  The `lh` at 0xa398 loads 2 bytes from sym(.data) +0xb3c.
-  3 such `lw` accesses load 4 bytes from table(sym(.data)+2816) +0x98, including `lw` at 0xa3c8, `lw` at 0xa444, `lw` at 0xa4f4.
-  5 such `ld` accesses load 8 bytes from table(sym(.data)+2816) +0xa0, including `ld` at 0xa3d0, `ld` at 0xa46c, `ld` at 0xa4c4.
+  The `sw` at 0xa35c stores 4 bytes to (sp-208 + ([sym(.data)+1468]:2 << 0x2)) +0x0.
+  The `lh` at 0xa368 loads 2 bytes from sym(.data) +0x58c.
+  The `sw` at 0xa38c stores 4 bytes to (sp-208 + ([sym(.data)+1420]:2 << 0x2)) +0x0.
+  The `lh` at 0xa398 loads 2 bytes from sym(.data) +0x5bc.
+  3 such `lw` accesses load 4 bytes from table(sym(.data)+1408) +0x98, including `lw` at 0xa3c8, `lw` at 0xa444, `lw` at 0xa4f4.
+  5 such `ld` accesses load 8 bytes from table(sym(.data)+1408) +0xa0, including `ld` at 0xa3d0, `ld` at 0xa46c, `ld` at 0xa4c4.
   3 such `ld` accesses load 8 bytes from ?, including `ld` at 0xa3f0, `ld` at 0xa478, `ld` at 0xa510.
   3 such `sd` accesses store 8 bytes to ?, including `sd` at 0xa404, `sd` at 0xa48c, `sd` at 0xa524.
   The `lw` at 0xa424 loads 4 bytes from ?.
-  2 such `lh` accesses load 2 bytes from table(sym(.data)+2816) +0x9e, including `lh` at 0xa440, `lh` at 0xa4b4.
-  The `lw` at 0xa44c loads 4 bytes from table(sym(.data)+2816) +0xa8.
-  The `lw` at 0xa4a0 loads 4 bytes from table(sym(.data)+2816) +0x90.
-  The `lw` at 0xa4b0 loads 4 bytes from table(sym(.data)+2816) +0x94.
+  2 such `lh` accesses load 2 bytes from table(sym(.data)+1408) +0x9e, including `lh` at 0xa440, `lh` at 0xa4b4.
+  The `lw` at 0xa44c loads 4 bytes from table(sym(.data)+1408) +0xa8.
+  The `lw` at 0xa4a0 loads 4 bytes from table(sym(.data)+1408) +0x90.
+  The `lw` at 0xa4b0 loads 4 bytes from table(sym(.data)+1408) +0x94.
   2 such `sd` accesses store 8 bytes to a0 (arg0 at entry) +0x138, including `sd` at 0xa4d4, `sd` at 0xa538.
-  The `jal` at 0xa3c0 calls splint with a0=[table(sym(.data)+2816)+152], a1=?, a2=?, a3=?.
-  The `jal` at 0xa408 calls vsema with a0=table(sym(.data)+2816)+172, a1=?, a2=?, a3=?.
+  The `jal` at 0xa3c0 calls splint with a0=[table(sym(.data)+1408)+152], a1=?, a2=?, a3=?.
+  The `jal` at 0xa408 calls vsema with a0=table(sym(.data)+1408)+172, a1=?, a2=?, a3=?.
   The `jal` at 0xa410 calls splx with a0=ret(splint), a1=?, a2=?, a3=?.
-  The `jal` at 0xa498 calls splint with a0=[table(sym(.data)+2816)+152], a1=?, a2=?, a3=?.
-  The `jalr` at 0xa4ac calls (unknown callee) with a0=a0 at entry (arg0), a1=[table(sym(.data)+2816)+148], a2=?, a3=?.
+  The `jal` at 0xa498 calls splint with a0=[table(sym(.data)+1408)+152], a1=?, a2=?, a3=?.
+  The `jalr` at 0xa4ac calls (unknown callee) with a0=a0 at entry (arg0), a1=[table(sym(.data)+1408)+148], a2=?, a3=?.
   The `jal` at 0xa4e4 calls splx with a0=ret(splint), a1=?, a2=?, a3=?.
   The `beq` branch at 0xa314 targets 0xa564 and is always taken.
   The `beq` branch at 0xa330 targets 0xa530, is taken when a6(?) == 0, and falls through when a6(?) != 0.
@@ -2770,11 +2770,11 @@ These entries record instruction facts rendered from the routines below. They de
   The `bne` branch at 0xa400 targets 0xa3ec, is taken when a6(?) < a3(?) (signed), and falls through when a6(?) >= a3(?) (signed).
   The `beq` branch at 0xa41c targets 0xa31c, is taken when s7(?) == 0, and falls through when s7(?) != 0.
   The `beq` branch at 0xa430 targets 0xa418, is taken when v1(?) == s6(=-0x1), and falls through when v1(?) != s6(=-0x1).
-  The `beq` branch at 0xa45c targets 0xa490, is taken when (a1(=[table(sym(.data)+2816)+158]:2) & 0x4) == 0, and falls through when (a1(=[table(sym(.data)+2816)+158]:2) & 0x4) != 0.
+  The `beq` branch at 0xa45c targets 0xa490, is taken when (a1(=[table(sym(.data)+1408)+158]:2) & 0x4) == 0, and falls through when (a1(=[table(sym(.data)+1408)+158]:2) & 0x4) != 0.
   The `blez` branch at 0xa464 targets 0xa490, is taken when a3(?) <= 0 (signed), and falls through when a3(?) > 0 (signed).
   The `bne` branch at 0xa488 targets 0xa474, is taken when a5(?) < a3(?) (signed), and falls through when a5(?) >= a3(?) (signed).
   The `bne` branch at 0xa490 targets 0xa3c0, is taken when a6(?) != 0, and falls through when a6(?) == 0.
-  The `beq` branch at 0xa4bc targets 0xa4f4, is taken when (t1(=[table(sym(.data)+2816)+158]:2) & 0x4) == 0, and falls through when (t1(=[table(sym(.data)+2816)+158]:2) & 0x4) != 0.
+  The `beq` branch at 0xa4bc targets 0xa4f4, is taken when (t1(=[table(sym(.data)+1408)+158]:2) & 0x4) == 0, and falls through when (t1(=[table(sym(.data)+1408)+158]:2) & 0x4) != 0.
   The `beq` branch at 0xa4ec targets 0xa41c and is always taken.
   The `blez` branch at 0xa500 targets 0xa4e4, is taken when a3(?) <= 0 (signed), and falls through when a3(?) > 0 (signed).
   The `bne` branch at 0xa520 targets 0xa50c, is taken when a5(?) < a3(?) (signed), and falls through when a5(?) >= a3(?) (signed).
@@ -2786,15 +2786,15 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.22/usr/cpu/sysgen/IP32boot/kernel.o`.
   Range: 0xdde4-0xde58 (116 bytes).
   It occupies 116 bytes.
-  The `ld` at 0xde10 loads 8 bytes from table(sym(.bss)+6144) +0x68.
-  The `lw` at 0xde14 loads 4 bytes from table(sym(.bss)+6144) +0x7c.
+  The `ld` at 0xde10 loads 8 bytes from table(sym(ecc_info)) +0x68.
+  The `lw` at 0xde14 loads 4 bytes from table(sym(ecc_info)) +0x7c.
   2 such `sd` accesses store 8 bytes to a2 (arg2 at entry) +0x8, including `sd` at 0xde20, `sd` at 0xde54.
-  The `lw` at 0xde24 loads 4 bytes from table(sym(.bss)+6144) +0x80.
-  The `sw` at 0xde28 stores 4 bytes to table(sym(.bss)+6144) +0x84.
-  The `sw` at 0xde2c stores 4 bytes to table(sym(.bss)+6144) +0x88.
+  The `lw` at 0xde24 loads 4 bytes from table(sym(ecc_info)) +0x80.
+  The `sw` at 0xde28 stores 4 bytes to table(sym(ecc_info)) +0x84.
+  The `sw` at 0xde2c stores 4 bytes to table(sym(ecc_info)) +0x88.
   The `ld` at 0xde34 loads 8 bytes from abs 0xffffffffb4000260.
-  The `sw` at 0xde40 stores 4 bytes to table(sym(.bss)+6144) +0x8c.
-  The `lw` at 0xde44 loads 4 bytes from table(sym(.bss)+6144) +0x78.
+  The `sw` at 0xde40 stores 4 bytes to table(sym(ecc_info)) +0x8c.
+  The `lw` at 0xde44 loads 4 bytes from table(sym(ecc_info)) +0x78.
   The `bgez` branch at 0xde0c targets 0xde44, is taken when v0(=([sym(r4000_config)] << 0x2e)) >= 0 (signed), and falls through when v0(=([sym(r4000_config)] << 0x2e)) < 0 (signed).
   The `beq` branch at 0xde50 targets 0xde24 and is always taken.
   The return at 0xde3c has v0 = 0x1.
@@ -5519,12 +5519,12 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.30/usr/cpu/sysgen/IP32boot/kernel.o`.
   Range: 0x83c8-0x8504 (316 bytes).
   It occupies 316 bytes.
-  The `lw` at 0x8400 loads 4 bytes from table(sym(.rodata)+5360) +0x0.
+  The `lw` at 0x8400 loads 4 bytes from table(sym(.rodata)+2680) +0x0.
   The `lw` at 0x84e8 loads 4 bytes from abs 0xffffffffffffa2b0.
   The `jal` at 0x83d0 calls get_cpu_irr with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x8468 calls is_specified with a0=sym(arg_bump_leds), a1=?, a2=[sym(four_set_pcaches)], a3=?, a4=-0x1.
   The `jal` at 0x847c calls is_enabled with a0=sym(arg_bump_leds), a1=[sym(reboot_on_panic)], a2=?, a3=?.
-  The `jal` at 0x849c calls kopt_find with a0=sym(.rodata)+5328, a1=[sym(reboot_on_panic)], a2=-0x1, a3=?.
+  The `jal` at 0x849c calls kopt_find with a0=sym(.rodata)+2664, a1=[sym(reboot_on_panic)], a2=-0x1, a3=?.
   The `jal` at 0x84a8 calls atoi with a0=ret(kopt_find), a1=?, a2=?, a3=?.
   The `beq` branch at 0x83f8 targets 0x8424, is taken when a1(?) >= 0x20 (unsigned), and falls through when a1(?) < 0x20 (unsigned).
   The `beq` branch at 0x8430 targets 0x84e4, is taken when a1(=[sym(is_r4600_flag)]) == 0, and falls through when a1(=[sym(is_r4600_flag)]) != 0.
@@ -5547,7 +5547,7 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.30/usr/cpu/sysgen/IP32boot/kernel.o`.
   Range: 0x9f20-0x9f54 (52 bytes).
   It occupies 52 bytes.
-  The `jal` at 0x9f34 calls cmn_err with a0=0x4, a1=sym(.rodata)+5968, a2=a1 at entry (arg1), a3=a3 at entry (arg3).
+  The `jal` at 0x9f34 calls cmn_err with a0=0x4, a1=sym(.rodata)+2984, a2=a1 at entry (arg1), a3=a3 at entry (arg3).
   The return at 0x9f4c has v0 = ret(cmn_err).
 - `crime_intr` in `6.5.30/usr/cpu/sysgen/IP32boot/kernel.o` at 0xa2cc (n32).
   Evidence grade: inferred.
@@ -5556,25 +5556,25 @@ These entries record instruction facts rendered from the routines below. They de
   It occupies 684 bytes.
   2 such `ld` accesses load 8 bytes from a0 (arg0 at entry) +0x138, including `ld` at 0xa2f8, `ld` at 0xa4d0.
   2 such `ld` accesses load 8 bytes from abs 0xffffffffb4000010, including `ld` at 0xa304, `ld` at 0xa32c.
-  The `sw` at 0xa364 stores 4 bytes to (sp-208 + ([sym(.data)+2876]:2 << 0x2)) +0x0.
-  The `lh` at 0xa370 loads 2 bytes from sym(.data) +0xb0c.
-  The `sw` at 0xa394 stores 4 bytes to (sp-208 + ([sym(.data)+2828]:2 << 0x2)) +0x0.
-  The `lh` at 0xa3a0 loads 2 bytes from sym(.data) +0xb3c.
-  3 such `lw` accesses load 4 bytes from table(sym(.data)+2816) +0x98, including `lw` at 0xa3d0, `lw` at 0xa44c, `lw` at 0xa4fc.
-  5 such `ld` accesses load 8 bytes from table(sym(.data)+2816) +0xa0, including `ld` at 0xa3d8, `ld` at 0xa474, `ld` at 0xa4cc.
+  The `sw` at 0xa364 stores 4 bytes to (sp-208 + ([sym(.data)+1468]:2 << 0x2)) +0x0.
+  The `lh` at 0xa370 loads 2 bytes from sym(.data) +0x58c.
+  The `sw` at 0xa394 stores 4 bytes to (sp-208 + ([sym(.data)+1420]:2 << 0x2)) +0x0.
+  The `lh` at 0xa3a0 loads 2 bytes from sym(.data) +0x5bc.
+  3 such `lw` accesses load 4 bytes from table(sym(.data)+1408) +0x98, including `lw` at 0xa3d0, `lw` at 0xa44c, `lw` at 0xa4fc.
+  5 such `ld` accesses load 8 bytes from table(sym(.data)+1408) +0xa0, including `ld` at 0xa3d8, `ld` at 0xa474, `ld` at 0xa4cc.
   3 such `ld` accesses load 8 bytes from ?, including `ld` at 0xa3f8, `ld` at 0xa480, `ld` at 0xa518.
   3 such `sd` accesses store 8 bytes to ?, including `sd` at 0xa40c, `sd` at 0xa494, `sd` at 0xa52c.
   The `lw` at 0xa42c loads 4 bytes from ?.
-  2 such `lh` accesses load 2 bytes from table(sym(.data)+2816) +0x9e, including `lh` at 0xa448, `lh` at 0xa4bc.
-  The `lw` at 0xa454 loads 4 bytes from table(sym(.data)+2816) +0xa8.
-  The `lw` at 0xa4a8 loads 4 bytes from table(sym(.data)+2816) +0x90.
-  The `lw` at 0xa4b8 loads 4 bytes from table(sym(.data)+2816) +0x94.
+  2 such `lh` accesses load 2 bytes from table(sym(.data)+1408) +0x9e, including `lh` at 0xa448, `lh` at 0xa4bc.
+  The `lw` at 0xa454 loads 4 bytes from table(sym(.data)+1408) +0xa8.
+  The `lw` at 0xa4a8 loads 4 bytes from table(sym(.data)+1408) +0x90.
+  The `lw` at 0xa4b8 loads 4 bytes from table(sym(.data)+1408) +0x94.
   2 such `sd` accesses store 8 bytes to a0 (arg0 at entry) +0x138, including `sd` at 0xa4dc, `sd` at 0xa540.
-  The `jal` at 0xa3c8 calls splint with a0=[table(sym(.data)+2816)+152], a1=?, a2=?, a3=?.
-  The `jal` at 0xa410 calls vsema with a0=table(sym(.data)+2816)+172, a1=?, a2=?, a3=?.
+  The `jal` at 0xa3c8 calls splint with a0=[table(sym(.data)+1408)+152], a1=?, a2=?, a3=?.
+  The `jal` at 0xa410 calls vsema with a0=table(sym(.data)+1408)+172, a1=?, a2=?, a3=?.
   The `jal` at 0xa418 calls splx with a0=ret(splint), a1=?, a2=?, a3=?.
-  The `jal` at 0xa4a0 calls splint with a0=[table(sym(.data)+2816)+152], a1=?, a2=?, a3=?.
-  The `jalr` at 0xa4b4 calls (unknown callee) with a0=a0 at entry (arg0), a1=[table(sym(.data)+2816)+148], a2=?, a3=?.
+  The `jal` at 0xa4a0 calls splint with a0=[table(sym(.data)+1408)+152], a1=?, a2=?, a3=?.
+  The `jalr` at 0xa4b4 calls (unknown callee) with a0=a0 at entry (arg0), a1=[table(sym(.data)+1408)+148], a2=?, a3=?.
   The `jal` at 0xa4ec calls splx with a0=ret(splint), a1=?, a2=?, a3=?.
   The `beq` branch at 0xa31c targets 0xa56c and is always taken.
   The `beq` branch at 0xa338 targets 0xa538, is taken when a6(?) == 0, and falls through when a6(?) != 0.
@@ -5590,11 +5590,11 @@ These entries record instruction facts rendered from the routines below. They de
   The `bne` branch at 0xa408 targets 0xa3f4, is taken when a6(?) < a3(?) (signed), and falls through when a6(?) >= a3(?) (signed).
   The `beq` branch at 0xa424 targets 0xa324, is taken when s7(?) == 0, and falls through when s7(?) != 0.
   The `beq` branch at 0xa438 targets 0xa420, is taken when v1(?) == s6(=-0x1), and falls through when v1(?) != s6(=-0x1).
-  The `beq` branch at 0xa464 targets 0xa498, is taken when (a1(=[table(sym(.data)+2816)+158]:2) & 0x4) == 0, and falls through when (a1(=[table(sym(.data)+2816)+158]:2) & 0x4) != 0.
+  The `beq` branch at 0xa464 targets 0xa498, is taken when (a1(=[table(sym(.data)+1408)+158]:2) & 0x4) == 0, and falls through when (a1(=[table(sym(.data)+1408)+158]:2) & 0x4) != 0.
   The `blez` branch at 0xa46c targets 0xa498, is taken when a3(?) <= 0 (signed), and falls through when a3(?) > 0 (signed).
   The `bne` branch at 0xa490 targets 0xa47c, is taken when a5(?) < a3(?) (signed), and falls through when a5(?) >= a3(?) (signed).
   The `bne` branch at 0xa498 targets 0xa3c8, is taken when a6(?) != 0, and falls through when a6(?) == 0.
-  The `beq` branch at 0xa4c4 targets 0xa4fc, is taken when (t1(=[table(sym(.data)+2816)+158]:2) & 0x4) == 0, and falls through when (t1(=[table(sym(.data)+2816)+158]:2) & 0x4) != 0.
+  The `beq` branch at 0xa4c4 targets 0xa4fc, is taken when (t1(=[table(sym(.data)+1408)+158]:2) & 0x4) == 0, and falls through when (t1(=[table(sym(.data)+1408)+158]:2) & 0x4) != 0.
   The `beq` branch at 0xa4f4 targets 0xa424 and is always taken.
   The `blez` branch at 0xa508 targets 0xa4ec, is taken when a3(?) <= 0 (signed), and falls through when a3(?) > 0 (signed).
   The `bne` branch at 0xa528 targets 0xa514, is taken when a5(?) < a3(?) (signed), and falls through when a5(?) >= a3(?) (signed).
@@ -5606,15 +5606,15 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.30/usr/cpu/sysgen/IP32boot/kernel.o`.
   Range: 0xddec-0xde60 (116 bytes).
   It occupies 116 bytes.
-  The `ld` at 0xde18 loads 8 bytes from table(sym(.bss)+6144) +0x68.
-  The `lw` at 0xde1c loads 4 bytes from table(sym(.bss)+6144) +0x7c.
+  The `ld` at 0xde18 loads 8 bytes from table(sym(ecc_info)) +0x68.
+  The `lw` at 0xde1c loads 4 bytes from table(sym(ecc_info)) +0x7c.
   2 such `sd` accesses store 8 bytes to a2 (arg2 at entry) +0x8, including `sd` at 0xde28, `sd` at 0xde5c.
-  The `lw` at 0xde2c loads 4 bytes from table(sym(.bss)+6144) +0x80.
-  The `sw` at 0xde30 stores 4 bytes to table(sym(.bss)+6144) +0x84.
-  The `sw` at 0xde34 stores 4 bytes to table(sym(.bss)+6144) +0x88.
+  The `lw` at 0xde2c loads 4 bytes from table(sym(ecc_info)) +0x80.
+  The `sw` at 0xde30 stores 4 bytes to table(sym(ecc_info)) +0x84.
+  The `sw` at 0xde34 stores 4 bytes to table(sym(ecc_info)) +0x88.
   The `ld` at 0xde3c loads 8 bytes from abs 0xffffffffb4000260.
-  The `sw` at 0xde48 stores 4 bytes to table(sym(.bss)+6144) +0x8c.
-  The `lw` at 0xde4c loads 4 bytes from table(sym(.bss)+6144) +0x78.
+  The `sw` at 0xde48 stores 4 bytes to table(sym(ecc_info)) +0x8c.
+  The `lw` at 0xde4c loads 4 bytes from table(sym(ecc_info)) +0x78.
   The `bgez` branch at 0xde14 targets 0xde4c, is taken when v0(=([sym(r4000_config)] << 0x2e)) >= 0 (signed), and falls through when v0(=([sym(r4000_config)] << 0x2e)) < 0 (signed).
   The `beq` branch at 0xde58 targets 0xde2c and is always taken.
   The return at 0xde44 has v0 = 0x1.
