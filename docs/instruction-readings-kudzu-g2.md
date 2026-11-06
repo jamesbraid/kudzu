@@ -156,7 +156,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc00000000017ad40 loads 4 bytes from a0 (arg0 at entry) +0x88.
   The `jal` at 0xc00000000017aaa0 calls set_baud_ti [0xc000000000179e7c] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jalr` at 0xc00000000017abd8 calls (unknown callee) with a0=0x1, a1=[[0xa800000000001020]:8], a2=[[0xa800000000001020]:8+80]:8, a3=[0xc0000000014d1dd4], a7=0x40000000.
-  The `jal` at 0xc00000000017abe0 calls splx [0xc00000000003b0e4] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc00000000017abe0 calls splx [0xc00000000003b0e4] with a0=[0xc0000000014d1dd4], a1=?, a2=?, a3=?.
   The `jalr` at 0xc00000000017ace4 calls (unknown callee) with a0=0x1, a1=0xfffffffffeeddead, a2=[[0xa800000000001020]:8+80]:8, a3=a1 at entry (arg1).
   The `jal` at 0xc00000000017acec calls splx [0xc00000000003b0e4] with a0=[0xc0000000014d1dd4], a1=?, a2=?, a3=?.
   The `jal` at 0xc00000000017ad3c calls ioc3_rx_timeout [0xc00000000017c0dc] with a0=a0 at entry (arg0), a1=[a0+136], a2=?, a3=a1 at entry (arg1), a6=0xa.
@@ -184,7 +184,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc00000000017abb0 targets 0xc00000000017abec, is taken when v0(=[0xa800000000001020]:8) == 0, and falls through when v0(=[0xa800000000001020]:8) != 0.
   The `bne` branch at 0xc00000000017abbc targets 0xc00000000017abec, is taken when a1(=[[0xa800000000001020]:8]) != a2(=0xfffffffffeeddead), and falls through when a1(=[[0xa800000000001020]:8]) == a2(=0xfffffffffeeddead).
   The `beq` branch at 0xc00000000017abc8 targets 0xc00000000017abec, is taken when a2(=[[0xa800000000001020]:8+80]:8) == 0, and falls through when a2(=[[0xa800000000001020]:8+80]:8) != 0.
-  The `beq` branch at 0xc00000000017abec targets 0xc00000000017ad9c, is taken when a0(?) == 0, and falls through when a0(?) != 0.
+  The `beq` branch at 0xc00000000017abec targets 0xc00000000017ad9c, is taken when a0(=one of 0x0, 0x1) == 0, and falls through when a0(=one of 0x0, 0x1) != 0.
   The `beq` branch at 0xc00000000017ac08 targets 0xc00000000017ac20, is taken when v1(=a4) == 0, and falls through when v1(=a4) != 0.
   The `beq` branch at 0xc00000000017ac18 targets 0xc00000000017ad8c, is taken when a0(=a5) == 0, and falls through when a0(=a5) != 0.
   The `beq` branch at 0xc00000000017ac24 targets 0xc00000000017ac30, is taken when a1(=a3) == 0, and falls through when a1(=a3) != 0.
@@ -278,7 +278,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `lbu` at 0xc00000000017b418 loads 1 byte from [a0+72]:8 +0x3.
   2 such `sb` accesses store 1 byte to [a0+72]:8 +0x3, including `sb` at 0xc00000000017b420, `sb` at 0xc00000000017b524.
   The `jalr` at 0xc00000000017b3f0 calls (unknown callee) with a0=0x1, a1=a1 at entry (arg1), a2=[[0xa800000000001020]:8], a3=0xfffffffffeeddead, a4=[[0xa800000000001020]:8+80]:8, a5=[0xc0000000014d1dd4], a6=0x10000000, a7=[0xc0000000014d1dd8]:8.
-  The `jal` at 0xc00000000017b3f8 calls splx [0xc00000000003b0e4] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc00000000017b3f8 calls splx [0xc00000000003b0e4] with a0=[0xc0000000014d1dd4], a1=?, a2=?, a3=?.
   The `jalr` at 0xc00000000017b4cc calls (unknown callee) with a0=0x1, a1=?, a2=?, a3=?, a4=[[0xa800000000001020]:8+80]:8.
   The `jal` at 0xc00000000017b4d4 calls splx [0xc00000000003b0e4] with a0=[0xc0000000014d1dd4], a1=?, a2=?, a3=?.
   The `jal` at 0xc00000000017b530 calls spl7 [0xc00000000003b0ac] with a0=[a0+72]:8, a1=a1 at entry (arg1), a2=?, a3=?, a4=[a0+148], a6=0x10000000.
@@ -392,13 +392,14 @@ These entries record instruction facts rendered from the routines below. They de
   4 such `lw` accesses load 4 bytes from a0 (arg0 at entry) +0x78, including `lw` at 0xc00000000017ba70, `lw` at 0xc00000000017bae8, `lw` at 0xc00000000017bb8c.
   The `ld` at 0xc00000000017ba74 loads 8 bytes from a0 (arg0 at entry) +0x60.
   4 such `sw` accesses store 4 bytes to a0 (arg0 at entry) +0x78, including `sw` at 0xc00000000017ba84, `sw` at 0xc00000000017bd34, `sw` at 0xc00000000017bd8c.
-  7 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc00000000017baa8, `lw` at 0xc00000000017bb68, `lw` at 0xc00000000017bce0.
+  6 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc00000000017baa8, `lw` at 0xc00000000017bb68, `lw` at 0xc00000000017bce0.
   7 such `lbu` accesses load 1 byte from ?, including `lbu` at 0xc00000000017bac4, `lbu` at 0xc00000000017bb2c, `lbu` at 0xc00000000017bc20.
   5 such `lw` accesses load 4 bytes from a0 (arg0 at entry) +0x8c, including `lw` at 0xc00000000017bad8, `lw` at 0xc00000000017bb50, `lw` at 0xc00000000017bc30.
   5 such `ld` accesses load 8 bytes from a0 (arg0 at entry) +0x8, including `ld` at 0xc00000000017bb10, `ld` at 0xc00000000017bc04, `ld` at 0xc00000000017bc40.
   4 such `ld` accesses load 8 bytes from [a0+8]:8 +0x10, including `ld` at 0xc00000000017bb1c, `ld` at 0xc00000000017bc10, `ld` at 0xc00000000017bc4c.
   4 such `sb` accesses store 1 byte to ?, including `sb` at 0xc00000000017bb38, `sb` at 0xc00000000017bcb0, `sb` at 0xc00000000017bcc4.
   2 such `sw` accesses store 4 bytes to a0 (arg0 at entry) +0x9c, including `sw` at 0xc00000000017bb98, `sw` at 0xc00000000017be98.
+  The `lw` at 0xc00000000017bd40 loads 4 bytes from [a0+112]:8 +0x10.
   The `ld` at 0xc00000000017bea8 loads 8 bytes from [a0+8]:8 +0x18.
   The `jalr` at 0xc00000000017b8cc calls (unknown callee) with a0=0x1, a1=?, a2=[[0xa800000000001020]:8+80]:8, a3=?, a5=[a0+64]:8, a7=[0xc0000000014d1dd8]:8.
   The `jal` at 0xc00000000017b8d4 calls splx [0xc00000000003b0e4] with a0=[0xc0000000014d1dd4], a1=?, a2=?, a3=?.
@@ -410,7 +411,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jalr` at 0xc00000000017bc18 calls (unknown callee) with a0=a0 at entry (arg0), a1=0x2, a2=[a0+140], a3=?, a7=[[a0+8]:8+16]:8.
   The `jalr` at 0xc00000000017bc54 calls (unknown callee) with a0=a0 at entry (arg0), a1=0x4, a2=?, a3=?.
   The `jalr` at 0xc00000000017bc90 calls (unknown callee) with a0=a0 at entry (arg0), a1=0x1, a2=?, a3=?.
-  The `jal` at 0xc00000000017bd3c calls enable_intrs [0xc00000000017983c] with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
+  The `jal` at 0xc00000000017bd3c calls enable_intrs [0xc00000000017983c] with a0=a0 at entry (arg0), a1=[[a0+112]:8+16], a2=?, a3=?.
   The `jal` at 0xc00000000017bdd8 calls spl7 [0xc00000000003b0ac] with a0=?, a1=[0xc0000000014d1dd8]:8, a2=[0xa800000000001000]:8, a3=[[0xa800000000001020]:8], a4=0xfffffffffeeddead, a5=[a0+64]:8, a6=[[0xa800000000001020]:8+80]:8.
   The `jalr` at 0xc00000000017bdec calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?, a6=[[0xa800000000001020]:8+80]:8.
   The `jal` at 0xc00000000017be04 calls spl7 [0xc00000000003b0ac] with a0=?, a1=0xffffffffefffffff, a2=[0xa800000000001000]:8, a3=[[0xa800000000001020]:8], a4=0xfffffffffeeddead, a5=[a0+64]:8, a6=[[0xa800000000001020]:8+80]:8.
@@ -537,7 +538,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xc00000000017c4f8 loads 8 bytes from a0 (arg0 at entry) +0x40.
   The `lw` at 0xc00000000017c50c loads 4 bytes from [a0+64]:8 +0x18.
   The `jalr` at 0xc00000000017c54c calls (unknown callee) with a0=0x1, a1=?, a2=?, a3=[[0xa800000000001020]:8+80]:8, a4=[[a0+64]:8+24], a5=0xa800000000001020, a6=[0xa800000000001000]:8, a7=[[0xa800000000001020]:8].
-  The `jal` at 0xc00000000017c554 calls splx [0xc00000000003b0e4] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc00000000017c554 calls splx [0xc00000000003b0e4] with a0=[0xc0000000014d1dd4], a1=?, a2=?, a3=?.
   The `jal` at 0xc00000000017c574 calls spl7 [0xc00000000003b0ac] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=[0xc0000000014d1dd8]:8, a4=0x53435241, a5=[[0xa800000000001020]:8], a6=0xfffffffffeeddead, a7=[[0xa800000000001020]:8+80]:8.
   The `jalr` at 0xc00000000017c58c calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?.
   The `bne` branch at 0xc00000000017c4c0 targets 0xc00000000017c4f8, is taken when a0 != a3(=[0xc0000000014d1dd8]:8), and falls through when a0 == a3(=[0xc0000000014d1dd8]:8).
@@ -564,7 +565,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xc00000000017c5fc loads 8 bytes from a0 (arg0 at entry) +0x40.
   The `lw` at 0xc00000000017c610 loads 4 bytes from [a0+64]:8 +0x18.
   The `jalr` at 0xc00000000017c650 calls (unknown callee) with a0=0x1, a1=?, a2=?, a3=[[0xa800000000001020]:8+80]:8, a4=[[a0+64]:8+24], a5=0xa800000000001020, a6=[0xa800000000001000]:8, a7=[[0xa800000000001020]:8].
-  The `jal` at 0xc00000000017c658 calls splx [0xc00000000003b0e4] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc00000000017c658 calls splx [0xc00000000003b0e4] with a0=[0xc0000000014d1dd4], a1=?, a2=?, a3=?.
   The `jal` at 0xc00000000017c678 calls spl7 [0xc00000000003b0ac] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=[0xc0000000014d1dd8]:8, a4=0x53435241, a5=[[0xa800000000001020]:8], a6=0xfffffffffeeddead, a7=[[0xa800000000001020]:8+80]:8.
   The `jalr` at 0xc00000000017c690 calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?.
   The `bne` branch at 0xc00000000017c5c4 targets 0xc00000000017c5fc, is taken when a0 != a3(=[0xc0000000014d1dd8]:8), and falls through when a0 == a3(=[0xc0000000014d1dd8]:8).
@@ -624,7 +625,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `sw` at 0xc00000000017c8e8 stores 4 bytes to a0 (arg0 at entry) +0x9c.
   The `sw` at 0xc00000000017c8ec stores 4 bytes to [a0+64]:8 +0x10.
   The `jalr` at 0xc00000000017c8b4 calls (unknown callee) with a0=0x1, a1=[a0+64]:8, a2=[[0xa800000000001020]:8], a3=[[0xa800000000001020]:8+80]:8, a4=[0xc0000000014d1dd4], a5=0xa800000000001020, a6=[0xc0000000014d1dd8]:8.
-  The `jal` at 0xc00000000017c8bc calls splx [0xc00000000003b0e4] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc00000000017c8bc calls splx [0xc00000000003b0e4] with a0=[0xc0000000014d1dd4], a1=?, a2=?, a3=?.
   The `jal` at 0xc00000000017c8fc calls spl7 [0xc00000000003b0ac] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=?, a4=[0xa800000000001000]:8, a5=0x53435241, a6=[[0xa800000000001020]:8], a7=0xfffffffffeeddead.
   The `jalr` at 0xc00000000017c914 calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?, a7=[[0xa800000000001020]:8+80]:8.
   The `bne` branch at 0xc00000000017c82c targets 0xc00000000017c85c, is taken when at(=[0xc0000000014d1dd8]:8) != a0, and falls through when at(=[0xc0000000014d1dd8]:8) == a0.
@@ -653,7 +654,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xc00000000017c998 loads 8 bytes from a0 (arg0 at entry) +0x40.
   The `sw` at 0xc00000000017c9a0 stores 4 bytes to [a0+64]:8 +0x0.
   The `jalr` at 0xc00000000017c9f0 calls (unknown callee) with a0=0x1, a1=[[0xa800000000001020]:8+80]:8, a2=[0xc0000000014d1dd8]:8, a3=[[0xa800000000001020]:8], a4=0xfffffffffeeddead, a5=[0xc0000000014d1dd4].
-  The `jal` at 0xc00000000017c9f8 calls splx [0xc00000000003b0e4] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc00000000017c9f8 calls splx [0xc00000000003b0e4] with a0=[0xc0000000014d1dd4], a1=?, a2=?, a3=?.
   The `jal` at 0xc00000000017ca20 calls spl7 [0xc00000000003b0ac] with a0=0x53435241, a1=[[0xa800000000001020]:8], a2=0xfffffffffeeddead, a3=[[0xa800000000001020]:8+80]:8, a4=0xa800000000001020.
   The `jalr` at 0xc00000000017ca38 calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?, a6=[[0xa800000000001020]:8+80]:8.
   The `beq` branch at 0xc00000000017c940 targets 0xc00000000017ca14, is taken when a2 == 0, and falls through when a2 != 0.
@@ -761,7 +762,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `sd` at 0xc0000000001ae6f8 stores 8 bytes to ([[0xc000000001539850]:8+1544]:8 + (((a0 << 0x4) + a0) << 0x3)) +0x80.
   The `jal` at 0xc0000000001ae3d4 calls is_specified [0xc0000000001aa634] with a0=0xc0000000014d219b, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xc0000000001ae438 calls setupbadmem [0xc000000000029864] with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=?.
-  The `jal` at 0xc0000000001ae658 calls bset [0xc0000000002685c4] with a0=entry(0xc0000000015270a0), a1=?, a2=?, a3=?.
+  The `jal` at 0xc0000000001ae658 calls bset [0xc0000000002685c4] with a0=entry(0xc0000000015270a0), a1=?, a2=?, a3=ret(is_specified).
   The `jal` at 0xc0000000001ae66c calls bset [0xc0000000002685c4] with a0=entry(0xc000000001516d68), a1=?, a2=?, a3=?.
   The `beql` branch at 0xc0000000001ae4d4 targets 0xc0000000001ae4c4, is taken when t9(?) == 0, and falls through when t9(?) != 0; its branch-likely delay slot `nop` at 0xc0000000001ae4d8 runs only when taken and is annulled on fall-through.
   The `bne` branch at 0xc0000000001ae538 targets 0xc0000000001ae5b0, is taken when t8(=[([[0xc000000001539850]:8+1544]:8 + (((a0 << 0x4) + a0) << 0x3))+120]:8) != 0, and falls through when t8(=[([[0xc000000001539850]:8+1544]:8 + (((a0 << 0x4) + a0) << 0x3))+120]:8) == 0.
@@ -771,7 +772,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `bne` branch at 0xc0000000001ae688 targets 0xc0000000001ae694, is taken when a1(=[([[0xc000000001539850]:8+1544]:8 + (((a0 << 0x4) + a0) << 0x3))+72]:8) != s0(?), and falls through when a1(=[([[0xc000000001539850]:8+1544]:8 + (((a0 << 0x4) + a0) << 0x3))+72]:8) == s0(?).
   The `bltz` branch at 0xc0000000001ae694 targets 0xc0000000001ae6ec, is taken when a0(?) < 0 (signed), and falls through when a0(?) >= 0 (signed).
   The `beq` branch at 0xc0000000001ae6a0 targets 0xc0000000001ae6c8, is taken when v0(=0xffff) == a2(?), and falls through when v0(=0xffff) != a2(?).
-  The `bne` branch at 0xc0000000001ae6a8 targets 0xc0000000001ae5e4, is taken when a3(?) != 0, and falls through when a3(?) == 0.
+  The `bne` branch at 0xc0000000001ae6a8 targets 0xc0000000001ae5e4, is taken when a3(=ret(is_specified)) != 0, and falls through when a3(=ret(is_specified)) == 0.
   The `beq` branch at 0xc0000000001ae6c0 targets 0xc0000000001ae5f8 and is always taken.
   The `bne` branch at 0xc0000000001ae6d8 targets 0xc0000000001ae6e4, is taken when a5(=[([[0xc000000001539850]:8+1544]:8 + (((a0 << 0x4) + a0) << 0x3))+72]:8) != s0(?), and falls through when a5(=[([[0xc000000001539850]:8+1544]:8 + (((a0 << 0x4) + a0) << 0x3))+72]:8) == s0(?).
   The `bgez` branch at 0xc0000000001ae6e4 targets 0xc0000000001ae69c, is taken when a0(?) >= 0 (signed), and falls through when a0(?) < 0 (signed).
@@ -1252,19 +1253,20 @@ These entries record instruction facts rendered from the routines below. They de
   4 such `lw` accesses load 4 bytes from a0 (arg0 at entry) +0x78, including `lw` at 0xa80000002012b944, `lw` at 0xa80000002012b9b8, `lw` at 0xa80000002012ba58.
   The `ld` at 0xa80000002012b948 loads 8 bytes from a0 (arg0 at entry) +0x60.
   4 such `sw` accesses store 4 bytes to a0 (arg0 at entry) +0x78, including `sw` at 0xa80000002012b95c, `sw` at 0xa80000002012bbdc, `sw` at 0xa80000002012bc3c.
-  7 such `lw` accesses load 4 bytes from ?, including `lw` at 0xa80000002012b978, `lw` at 0xa80000002012ba38, `lw` at 0xa80000002012bbac.
+  6 such `lw` accesses load 4 bytes from ?, including `lw` at 0xa80000002012b978, `lw` at 0xa80000002012ba38, `lw` at 0xa80000002012bbac.
   7 such `lbu` accesses load 1 byte from ?, including `lbu` at 0xa80000002012b994, `lbu` at 0xa80000002012b9fc, `lbu` at 0xa80000002012baec.
   5 such `lw` accesses load 4 bytes from a0 (arg0 at entry) +0x8c, including `lw` at 0xa80000002012b9a8, `lw` at 0xa80000002012ba20, `lw` at 0xa80000002012bafc.
   5 such `ld` accesses load 8 bytes from a0 (arg0 at entry) +0x8, including `ld` at 0xa80000002012b9e0, `ld` at 0xa80000002012bad0, `ld` at 0xa80000002012bb0c.
   4 such `ld` accesses load 8 bytes from [a0+8]:8 +0x10, including `ld` at 0xa80000002012b9ec, `ld` at 0xa80000002012badc, `ld` at 0xa80000002012bb18.
   4 such `sb` accesses store 1 byte to ?, including `sb` at 0xa80000002012ba08, `sb` at 0xa80000002012bb7c, `sb` at 0xa80000002012bb90.
   2 such `sw` accesses store 4 bytes to a0 (arg0 at entry) +0x9c, including `sw` at 0xa80000002012ba64, `sw` at 0xa80000002012bcc0.
+  The `lw` at 0xa80000002012bbe8 loads 4 bytes from [a0+112]:8 +0x10.
   The `ld` at 0xa80000002012bcd0 loads 8 bytes from [a0+8]:8 +0x18.
   The `jalr` at 0xa80000002012b9f4 calls (unknown callee) with a0=a0 at entry (arg0), a1=0x8, a2=[a0+140], a3=?.
   The `jalr` at 0xa80000002012bae4 calls (unknown callee) with a0=a0 at entry (arg0), a1=0x2, a2=[a0+140], a3=?, a7=[[a0+8]:8+16]:8.
   The `jalr` at 0xa80000002012bb20 calls (unknown callee) with a0=a0 at entry (arg0), a1=0x4, a2=?, a3=?.
   The `jalr` at 0xa80000002012bb5c calls (unknown callee) with a0=a0 at entry (arg0), a1=0x1, a2=?, a3=?.
-  The `jal` at 0xa80000002012bbe4 calls enable_intrs [0xa80000002012a4d0] with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
+  The `jal` at 0xa80000002012bbe4 calls enable_intrs [0xa80000002012a4d0] with a0=a0 at entry (arg0), a1=[[a0+112]:8+16], a2=?, a3=?.
   The `jalr` at 0xa80000002012bcd8 calls (unknown callee) with a0=a0 at entry (arg0), a1=0x0, a2=[a0+140], a3=?.
   The `bne` branch at 0xa80000002012b8ac targets 0xa80000002012b944, is taken when s5(?) != s1(=[a0+156]), and falls through when s5(?) == s1(=[a0+156]).
   The `bgez` branch at 0xa80000002012b8c0 targets 0xa80000002012bc40, is taken when v1(=([a0+148] << 0x23)) >= 0 (signed), and falls through when v1(=([a0+148] << 0x23)) < 0 (signed).
@@ -1836,7 +1838,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc0000000001d10f0 calls usb_clear_hub_feature [0xc0000000001d08c8] with a0=a0 at entry (arg0), a1=0x1, a2=0x0, a3=?.
   The `jal` at 0xc0000000001d1120 calls usb_hub_overcurrent_event [0xc0000000001d11c0] with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000001d1130 calls usb_hub_path [0xc0000000001d1c5c] with a0=a0 at entry (arg0), a1=[0xc0000000015015f4], a2=0x625f0000, a3=?.
-  The `jal` at 0xc0000000001d1144 calls usb_dbg [0xc0000000001d1c9c] with a0=0xc00000000046bb50, a1=ret(usb_hub_path), a2=?, a3=?.
+  The `jal` at 0xc0000000001d1144 calls usb_dbg [0xc0000000001d1c9c] with a0=0xc00000000046bb50, a1=ret(usb_hub_path), a2=ret(usb_get_hub_status), a3=?.
   The `jal` at 0xc0000000001d115c calls usb_dbg [0xc0000000001d1c9c] with a0=0xc00000000046bb98, a1=?, a2=0x625f0000, a3=?.
   The `jal` at 0xc0000000001d116c calls usb_clear_hub_feature [0xc0000000001d08c8] with a0=a0 at entry (arg0), a1=0x0, a2=0x0, a3=?.
   The `jal` at 0xc0000000001d1198 calls usb_dbg [0xc0000000001d1c9c] with a0=0xc00000000046bbb8, a1=ret(usb_clear_hub_feature), a2=[0xc0000000015015f4], a3=?.
@@ -1877,7 +1879,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc0000000001ecda4 loads 4 bytes from a0 (arg0 at entry) +0x88.
   The `jal` at 0xc0000000001ecb08 calls set_baud_ti [0xc0000000001ebe88] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jalr` at 0xc0000000001ecc40 calls (unknown callee) with a0=0x1, a1=[[0xa800000000001020]:8], a2=[[0xa800000000001020]:8+128]:8, a3=[0xc00000000159b68c], a7=0x40000000.
-  The `jal` at 0xc0000000001ecc48 calls splx [0xc0000000000628b4] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc0000000001ecc48 calls splx [0xc0000000000628b4] with a0=[0xc00000000159b68c], a1=?, a2=?, a3=?.
   The `jalr` at 0xc0000000001ecd48 calls (unknown callee) with a0=0x1, a1=0xfffffffffeeddead, a2=[[0xa800000000001020]:8+128]:8, a3=a1 at entry (arg1).
   The `jal` at 0xc0000000001ecd50 calls splx [0xc0000000000628b4] with a0=[0xc00000000159b68c], a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000001ecda0 calls ioc3_rx_timeout [0xc0000000001ee13c] with a0=a0 at entry (arg0), a1=[a0+136], a2=?, a3=a1 at entry (arg1), a6=0xa.
@@ -1905,7 +1907,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc0000000001ecc18 targets 0xc0000000001ecc54, is taken when v0(=[0xa800000000001020]:8) == 0, and falls through when v0(=[0xa800000000001020]:8) != 0.
   The `bne` branch at 0xc0000000001ecc24 targets 0xc0000000001ecc54, is taken when a1(=[[0xa800000000001020]:8]) != a2(=0xfffffffffeeddead), and falls through when a1(=[[0xa800000000001020]:8]) == a2(=0xfffffffffeeddead).
   The `beq` branch at 0xc0000000001ecc30 targets 0xc0000000001ecc54, is taken when a2(=[[0xa800000000001020]:8+128]:8) == 0, and falls through when a2(=[[0xa800000000001020]:8+128]:8) != 0.
-  The `beq` branch at 0xc0000000001ecc54 targets 0xc0000000001ece00, is taken when a0(?) == 0, and falls through when a0(?) != 0.
+  The `beq` branch at 0xc0000000001ecc54 targets 0xc0000000001ece00, is taken when a0(=one of 0x0, 0x1) == 0, and falls through when a0(=one of 0x0, 0x1) != 0.
   The `beq` branch at 0xc0000000001ecc70 targets 0xc0000000001ecc88, is taken when v1(=a4) == 0, and falls through when v1(=a4) != 0.
   The `beq` branch at 0xc0000000001ecc80 targets 0xc0000000001ecdf0, is taken when a0(=a5) == 0, and falls through when a0(=a5) != 0.
   The `beq` branch at 0xc0000000001ecc8c targets 0xc0000000001ecc98, is taken when a1(=a3) == 0, and falls through when a1(=a3) != 0.
@@ -1999,7 +2001,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `lbu` at 0xc0000000001ed478 loads 1 byte from [a0+72]:8 +0x3.
   2 such `sb` accesses store 1 byte to [a0+72]:8 +0x3, including `sb` at 0xc0000000001ed480, `sb` at 0xc0000000001ed588.
   The `jalr` at 0xc0000000001ed450 calls (unknown callee) with a0=0x1, a1=a1 at entry (arg1), a2=[[0xa800000000001020]:8], a3=0xfffffffffeeddead, a4=[[0xa800000000001020]:8+128]:8, a5=[0xc00000000159b68c], a6=0x10000000, a7=[0xc00000000159b690]:8.
-  The `jal` at 0xc0000000001ed458 calls splx [0xc0000000000628b4] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc0000000001ed458 calls splx [0xc0000000000628b4] with a0=[0xc00000000159b68c], a1=?, a2=?, a3=?.
   The `jalr` at 0xc0000000001ed530 calls (unknown callee) with a0=0x1, a1=?, a2=?, a3=?, a4=[[0xa800000000001020]:8+128]:8.
   The `jal` at 0xc0000000001ed538 calls splx [0xc0000000000628b4] with a0=[0xc00000000159b68c], a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000001ed594 calls spl7 [0xc00000000006287c] with a0=[a0+72]:8, a1=a1 at entry (arg1), a2=?, a3=?, a4=[a0+148], a6=0x10000000.
@@ -2113,13 +2115,14 @@ These entries record instruction facts rendered from the routines below. They de
   4 such `lw` accesses load 4 bytes from a0 (arg0 at entry) +0x78, including `lw` at 0xc0000000001edad0, `lw` at 0xc0000000001edb48, `lw` at 0xc0000000001edbec.
   The `ld` at 0xc0000000001edad4 loads 8 bytes from a0 (arg0 at entry) +0x60.
   4 such `sw` accesses store 4 bytes to a0 (arg0 at entry) +0x78, including `sw` at 0xc0000000001edae4, `sw` at 0xc0000000001edd94, `sw` at 0xc0000000001eddec.
-  7 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc0000000001edb08, `lw` at 0xc0000000001edbc8, `lw` at 0xc0000000001edd40.
+  6 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc0000000001edb08, `lw` at 0xc0000000001edbc8, `lw` at 0xc0000000001edd40.
   7 such `lbu` accesses load 1 byte from ?, including `lbu` at 0xc0000000001edb24, `lbu` at 0xc0000000001edb8c, `lbu` at 0xc0000000001edc80.
   5 such `lw` accesses load 4 bytes from a0 (arg0 at entry) +0x8c, including `lw` at 0xc0000000001edb38, `lw` at 0xc0000000001edbb0, `lw` at 0xc0000000001edc90.
   5 such `ld` accesses load 8 bytes from a0 (arg0 at entry) +0x8, including `ld` at 0xc0000000001edb70, `ld` at 0xc0000000001edc64, `ld` at 0xc0000000001edca0.
   4 such `ld` accesses load 8 bytes from [a0+8]:8 +0x10, including `ld` at 0xc0000000001edb7c, `ld` at 0xc0000000001edc70, `ld` at 0xc0000000001edcac.
   4 such `sb` accesses store 1 byte to ?, including `sb` at 0xc0000000001edb98, `sb` at 0xc0000000001edd10, `sb` at 0xc0000000001edd24.
   2 such `sw` accesses store 4 bytes to a0 (arg0 at entry) +0x9c, including `sw` at 0xc0000000001edbf8, `sw` at 0xc0000000001edef8.
+  The `lw` at 0xc0000000001edda0 loads 4 bytes from [a0+112]:8 +0x10.
   The `ld` at 0xc0000000001edf08 loads 8 bytes from [a0+8]:8 +0x18.
   The `jalr` at 0xc0000000001ed92c calls (unknown callee) with a0=0x1, a1=?, a2=[[0xa800000000001020]:8+128]:8, a3=?, a5=[a0+64]:8, a7=[0xc00000000159b690]:8.
   The `jal` at 0xc0000000001ed934 calls splx [0xc0000000000628b4] with a0=[0xc00000000159b68c], a1=?, a2=?, a3=?.
@@ -2131,7 +2134,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jalr` at 0xc0000000001edc78 calls (unknown callee) with a0=a0 at entry (arg0), a1=0x2, a2=[a0+140], a3=?, a7=[[a0+8]:8+16]:8.
   The `jalr` at 0xc0000000001edcb4 calls (unknown callee) with a0=a0 at entry (arg0), a1=0x4, a2=?, a3=?.
   The `jalr` at 0xc0000000001edcf0 calls (unknown callee) with a0=a0 at entry (arg0), a1=0x1, a2=?, a3=?.
-  The `jal` at 0xc0000000001edd9c calls enable_intrs [0xc0000000001eb848] with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
+  The `jal` at 0xc0000000001edd9c calls enable_intrs [0xc0000000001eb848] with a0=a0 at entry (arg0), a1=[[a0+112]:8+16], a2=?, a3=?.
   The `jal` at 0xc0000000001ede38 calls spl7 [0xc00000000006287c] with a0=?, a1=[0xc00000000159b690]:8, a2=[0xa800000000001000]:8, a3=[[0xa800000000001020]:8], a4=0xfffffffffeeddead, a5=[a0+64]:8, a6=[[0xa800000000001020]:8+128]:8.
   The `jalr` at 0xc0000000001ede4c calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?, a6=[[0xa800000000001020]:8+128]:8.
   The `jal` at 0xc0000000001ede64 calls spl7 [0xc00000000006287c] with a0=?, a1=0xffffffffefffffff, a2=[0xa800000000001000]:8, a3=[[0xa800000000001020]:8], a4=0xfffffffffeeddead, a5=[a0+64]:8, a6=[[0xa800000000001020]:8+128]:8.
@@ -2258,7 +2261,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xc0000000001ee558 loads 8 bytes from a0 (arg0 at entry) +0x40.
   The `lw` at 0xc0000000001ee56c loads 4 bytes from [a0+64]:8 +0x18.
   The `jalr` at 0xc0000000001ee5ac calls (unknown callee) with a0=0x1, a1=?, a2=?, a3=[[0xa800000000001020]:8+128]:8, a4=[[a0+64]:8+24], a5=0xa800000000001020, a6=[0xa800000000001000]:8, a7=[[0xa800000000001020]:8].
-  The `jal` at 0xc0000000001ee5b4 calls splx [0xc0000000000628b4] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc0000000001ee5b4 calls splx [0xc0000000000628b4] with a0=[0xc00000000159b68c], a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000001ee5d4 calls spl7 [0xc00000000006287c] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=[0xc00000000159b690]:8, a4=0x53435241, a5=[[0xa800000000001020]:8], a6=0xfffffffffeeddead, a7=[[0xa800000000001020]:8+128]:8.
   The `jalr` at 0xc0000000001ee5ec calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?.
   The `bne` branch at 0xc0000000001ee520 targets 0xc0000000001ee558, is taken when a0 != a3(=[0xc00000000159b690]:8), and falls through when a0 == a3(=[0xc00000000159b690]:8).
@@ -2285,7 +2288,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xc0000000001ee65c loads 8 bytes from a0 (arg0 at entry) +0x40.
   The `lw` at 0xc0000000001ee670 loads 4 bytes from [a0+64]:8 +0x18.
   The `jalr` at 0xc0000000001ee6b0 calls (unknown callee) with a0=0x1, a1=?, a2=?, a3=[[0xa800000000001020]:8+128]:8, a4=[[a0+64]:8+24], a5=0xa800000000001020, a6=[0xa800000000001000]:8, a7=[[0xa800000000001020]:8].
-  The `jal` at 0xc0000000001ee6b8 calls splx [0xc0000000000628b4] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc0000000001ee6b8 calls splx [0xc0000000000628b4] with a0=[0xc00000000159b68c], a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000001ee6d8 calls spl7 [0xc00000000006287c] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=[0xc00000000159b690]:8, a4=0x53435241, a5=[[0xa800000000001020]:8], a6=0xfffffffffeeddead, a7=[[0xa800000000001020]:8+128]:8.
   The `jalr` at 0xc0000000001ee6f0 calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?.
   The `bne` branch at 0xc0000000001ee624 targets 0xc0000000001ee65c, is taken when a0 != a3(=[0xc00000000159b690]:8), and falls through when a0 == a3(=[0xc00000000159b690]:8).
@@ -2345,7 +2348,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `sw` at 0xc0000000001ee948 stores 4 bytes to a0 (arg0 at entry) +0x9c.
   The `sw` at 0xc0000000001ee94c stores 4 bytes to [a0+64]:8 +0x10.
   The `jalr` at 0xc0000000001ee914 calls (unknown callee) with a0=0x1, a1=[a0+64]:8, a2=[[0xa800000000001020]:8], a3=[[0xa800000000001020]:8+128]:8, a4=[0xc00000000159b68c], a5=0xa800000000001020, a6=[0xc00000000159b690]:8.
-  The `jal` at 0xc0000000001ee91c calls splx [0xc0000000000628b4] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc0000000001ee91c calls splx [0xc0000000000628b4] with a0=[0xc00000000159b68c], a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000001ee95c calls spl7 [0xc00000000006287c] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=?, a4=[0xa800000000001000]:8, a5=0x53435241, a6=[[0xa800000000001020]:8], a7=0xfffffffffeeddead.
   The `jalr` at 0xc0000000001ee974 calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?, a7=[[0xa800000000001020]:8+128]:8.
   The `bne` branch at 0xc0000000001ee88c targets 0xc0000000001ee8bc, is taken when at(=[0xc00000000159b690]:8) != a0, and falls through when at(=[0xc00000000159b690]:8) == a0.
@@ -2374,7 +2377,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xc0000000001ee9f8 loads 8 bytes from a0 (arg0 at entry) +0x40.
   The `sw` at 0xc0000000001eea00 stores 4 bytes to [a0+64]:8 +0x0.
   The `jalr` at 0xc0000000001eea50 calls (unknown callee) with a0=0x1, a1=[[0xa800000000001020]:8+128]:8, a2=[0xc00000000159b690]:8, a3=[[0xa800000000001020]:8], a4=0xfffffffffeeddead, a5=[0xc00000000159b68c].
-  The `jal` at 0xc0000000001eea58 calls splx [0xc0000000000628b4] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc0000000001eea58 calls splx [0xc0000000000628b4] with a0=[0xc00000000159b68c], a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000001eea80 calls spl7 [0xc00000000006287c] with a0=0x53435241, a1=[[0xa800000000001020]:8], a2=0xfffffffffeeddead, a3=[[0xa800000000001020]:8+128]:8, a4=0xa800000000001020.
   The `jalr` at 0xc0000000001eea98 calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?, a6=[[0xa800000000001020]:8+128]:8.
   The `beq` branch at 0xc0000000001ee9a0 targets 0xc0000000001eea74, is taken when a2 == 0, and falls through when a2 != 0.
@@ -2482,7 +2485,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `sd` at 0xc000000000224490 stores 8 bytes to ([[0xc000000001606fa0]:8+1512]:8 + (((a0 << 0x4) + a0) << 0x3)) +0x80.
   The `jal` at 0xc00000000022416c calls is_specified [0xc000000000286070] with a0=0xc00000000159c1fb, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xc0000000002241d0 calls setupbadmem [0xc00000000004f7f4] with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=?.
-  The `jal` at 0xc0000000002243f0 calls bset [0xc0000000002df9d8] with a0=entry(0xc0000000015ffa58), a1=?, a2=?, a3=?.
+  The `jal` at 0xc0000000002243f0 calls bset [0xc0000000002df9d8] with a0=entry(0xc0000000015ffa58), a1=?, a2=?, a3=ret(is_specified).
   The `jal` at 0xc000000000224404 calls bset [0xc0000000002df9d8] with a0=entry(0xc0000000015fda58), a1=?, a2=?, a3=?.
   The `beql` branch at 0xc00000000022426c targets 0xc00000000022425c, is taken when t9(?) == 0, and falls through when t9(?) != 0; its branch-likely delay slot `nop` at 0xc000000000224270 runs only when taken and is annulled on fall-through.
   The `bne` branch at 0xc0000000002242d0 targets 0xc000000000224348, is taken when t8(=[([[0xc000000001606fa0]:8+1512]:8 + (((a0 << 0x4) + a0) << 0x3))+120]:8) != 0, and falls through when t8(=[([[0xc000000001606fa0]:8+1512]:8 + (((a0 << 0x4) + a0) << 0x3))+120]:8) == 0.
@@ -2492,7 +2495,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `bne` branch at 0xc000000000224420 targets 0xc00000000022442c, is taken when a1(=[([[0xc000000001606fa0]:8+1512]:8 + (((a0 << 0x4) + a0) << 0x3))+72]:8) != s0(?), and falls through when a1(=[([[0xc000000001606fa0]:8+1512]:8 + (((a0 << 0x4) + a0) << 0x3))+72]:8) == s0(?).
   The `bltz` branch at 0xc00000000022442c targets 0xc000000000224484, is taken when a0(?) < 0 (signed), and falls through when a0(?) >= 0 (signed).
   The `beq` branch at 0xc000000000224438 targets 0xc000000000224460, is taken when v0(=0xffff) == a2(?), and falls through when v0(=0xffff) != a2(?).
-  The `bne` branch at 0xc000000000224440 targets 0xc00000000022437c, is taken when a3(?) != 0, and falls through when a3(?) == 0.
+  The `bne` branch at 0xc000000000224440 targets 0xc00000000022437c, is taken when a3(=ret(is_specified)) != 0, and falls through when a3(=ret(is_specified)) == 0.
   The `beq` branch at 0xc000000000224458 targets 0xc000000000224390 and is always taken.
   The `bne` branch at 0xc000000000224470 targets 0xc00000000022447c, is taken when a5(=[([[0xc000000001606fa0]:8+1512]:8 + (((a0 << 0x4) + a0) << 0x3))+72]:8) != s0(?), and falls through when a5(=[([[0xc000000001606fa0]:8+1512]:8 + (((a0 << 0x4) + a0) << 0x3))+72]:8) == s0(?).
   The `bgez` branch at 0xc00000000022447c targets 0xc000000000224434, is taken when a0(?) >= 0 (signed), and falls through when a0(?) < 0 (signed).
@@ -2949,7 +2952,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc000000000177364 loads 4 bytes from a0 (arg0 at entry) +0x88.
   The `jal` at 0xc0000000001770c4 calls set_baud_ti [0xc0000000001764a0] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jalr` at 0xc0000000001771fc calls (unknown callee) with a0=0x1, a1=[[0xa800000000001020]:8], a2=[[0xa800000000001020]:8+80]:8, a3=[0xc0000000014d3554], a7=0x40000000.
-  The `jal` at 0xc000000000177204 calls splx [0xc00000000003b3f4] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc000000000177204 calls splx [0xc00000000003b3f4] with a0=[0xc0000000014d3554], a1=?, a2=?, a3=?.
   The `jalr` at 0xc000000000177308 calls (unknown callee) with a0=0x1, a1=0xfffffffffeeddead, a2=[[0xa800000000001020]:8+80]:8, a3=a1 at entry (arg1).
   The `jal` at 0xc000000000177310 calls splx [0xc00000000003b3f4] with a0=[0xc0000000014d3554], a1=?, a2=?, a3=?.
   The `jal` at 0xc000000000177360 calls ioc3_rx_timeout [0xc000000000178700] with a0=a0 at entry (arg0), a1=[a0+136], a2=?, a3=a1 at entry (arg1), a6=0xa.
@@ -2977,7 +2980,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc0000000001771d4 targets 0xc000000000177210, is taken when v0(=[0xa800000000001020]:8) == 0, and falls through when v0(=[0xa800000000001020]:8) != 0.
   The `bne` branch at 0xc0000000001771e0 targets 0xc000000000177210, is taken when a1(=[[0xa800000000001020]:8]) != a2(=0xfffffffffeeddead), and falls through when a1(=[[0xa800000000001020]:8]) == a2(=0xfffffffffeeddead).
   The `beq` branch at 0xc0000000001771ec targets 0xc000000000177210, is taken when a2(=[[0xa800000000001020]:8+80]:8) == 0, and falls through when a2(=[[0xa800000000001020]:8+80]:8) != 0.
-  The `beq` branch at 0xc000000000177210 targets 0xc0000000001773c0, is taken when a0(?) == 0, and falls through when a0(?) != 0.
+  The `beq` branch at 0xc000000000177210 targets 0xc0000000001773c0, is taken when a0(=one of 0x0, 0x1) == 0, and falls through when a0(=one of 0x0, 0x1) != 0.
   The `beq` branch at 0xc00000000017722c targets 0xc000000000177244, is taken when v1(=a4) == 0, and falls through when v1(=a4) != 0.
   The `beq` branch at 0xc00000000017723c targets 0xc0000000001773b0, is taken when a0(=a5) == 0, and falls through when a0(=a5) != 0.
   The `beq` branch at 0xc000000000177248 targets 0xc000000000177254, is taken when a1(=a3) == 0, and falls through when a1(=a3) != 0.
@@ -3071,7 +3074,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `lbu` at 0xc000000000177a3c loads 1 byte from [a0+72]:8 +0x3.
   2 such `sb` accesses store 1 byte to [a0+72]:8 +0x3, including `sb` at 0xc000000000177a44, `sb` at 0xc000000000177b48.
   The `jalr` at 0xc000000000177a14 calls (unknown callee) with a0=0x1, a1=a1 at entry (arg1), a2=[[0xa800000000001020]:8], a3=0xfffffffffeeddead, a4=[[0xa800000000001020]:8+80]:8, a5=[0xc0000000014d3554], a6=0x10000000, a7=[0xc0000000014d3558]:8.
-  The `jal` at 0xc000000000177a1c calls splx [0xc00000000003b3f4] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc000000000177a1c calls splx [0xc00000000003b3f4] with a0=[0xc0000000014d3554], a1=?, a2=?, a3=?.
   The `jalr` at 0xc000000000177af0 calls (unknown callee) with a0=0x1, a1=?, a2=?, a3=?, a4=[[0xa800000000001020]:8+80]:8.
   The `jal` at 0xc000000000177af8 calls splx [0xc00000000003b3f4] with a0=[0xc0000000014d3554], a1=?, a2=?, a3=?.
   The `jal` at 0xc000000000177b54 calls spl7 [0xc00000000003b3bc] with a0=[a0+72]:8, a1=a1 at entry (arg1), a2=?, a3=?, a4=[a0+148], a6=0x10000000.
@@ -3185,13 +3188,14 @@ These entries record instruction facts rendered from the routines below. They de
   4 such `lw` accesses load 4 bytes from a0 (arg0 at entry) +0x78, including `lw` at 0xc000000000178094, `lw` at 0xc00000000017810c, `lw` at 0xc0000000001781b0.
   The `ld` at 0xc000000000178098 loads 8 bytes from a0 (arg0 at entry) +0x60.
   4 such `sw` accesses store 4 bytes to a0 (arg0 at entry) +0x78, including `sw` at 0xc0000000001780a8, `sw` at 0xc000000000178358, `sw` at 0xc0000000001783b0.
-  7 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc0000000001780cc, `lw` at 0xc00000000017818c, `lw` at 0xc000000000178304.
+  6 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc0000000001780cc, `lw` at 0xc00000000017818c, `lw` at 0xc000000000178304.
   7 such `lbu` accesses load 1 byte from ?, including `lbu` at 0xc0000000001780e8, `lbu` at 0xc000000000178150, `lbu` at 0xc000000000178244.
   5 such `lw` accesses load 4 bytes from a0 (arg0 at entry) +0x8c, including `lw` at 0xc0000000001780fc, `lw` at 0xc000000000178174, `lw` at 0xc000000000178254.
   5 such `ld` accesses load 8 bytes from a0 (arg0 at entry) +0x8, including `ld` at 0xc000000000178134, `ld` at 0xc000000000178228, `ld` at 0xc000000000178264.
   4 such `ld` accesses load 8 bytes from [a0+8]:8 +0x10, including `ld` at 0xc000000000178140, `ld` at 0xc000000000178234, `ld` at 0xc000000000178270.
   4 such `sb` accesses store 1 byte to ?, including `sb` at 0xc00000000017815c, `sb` at 0xc0000000001782d4, `sb` at 0xc0000000001782e8.
   2 such `sw` accesses store 4 bytes to a0 (arg0 at entry) +0x9c, including `sw` at 0xc0000000001781bc, `sw` at 0xc0000000001784bc.
+  The `lw` at 0xc000000000178364 loads 4 bytes from [a0+112]:8 +0x10.
   The `ld` at 0xc0000000001784cc loads 8 bytes from [a0+8]:8 +0x18.
   The `jalr` at 0xc000000000177ef0 calls (unknown callee) with a0=0x1, a1=?, a2=[[0xa800000000001020]:8+80]:8, a3=?, a5=[a0+64]:8, a7=[0xc0000000014d3558]:8.
   The `jal` at 0xc000000000177ef8 calls splx [0xc00000000003b3f4] with a0=[0xc0000000014d3554], a1=?, a2=?, a3=?.
@@ -3203,7 +3207,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jalr` at 0xc00000000017823c calls (unknown callee) with a0=a0 at entry (arg0), a1=0x2, a2=[a0+140], a3=?, a7=[[a0+8]:8+16]:8.
   The `jalr` at 0xc000000000178278 calls (unknown callee) with a0=a0 at entry (arg0), a1=0x4, a2=?, a3=?.
   The `jalr` at 0xc0000000001782b4 calls (unknown callee) with a0=a0 at entry (arg0), a1=0x1, a2=?, a3=?.
-  The `jal` at 0xc000000000178360 calls enable_intrs [0xc000000000175e60] with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
+  The `jal` at 0xc000000000178360 calls enable_intrs [0xc000000000175e60] with a0=a0 at entry (arg0), a1=[[a0+112]:8+16], a2=?, a3=?.
   The `jal` at 0xc0000000001783fc calls spl7 [0xc00000000003b3bc] with a0=?, a1=[0xc0000000014d3558]:8, a2=[0xa800000000001000]:8, a3=[[0xa800000000001020]:8], a4=0xfffffffffeeddead, a5=[a0+64]:8, a6=[[0xa800000000001020]:8+80]:8.
   The `jalr` at 0xc000000000178410 calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?, a6=[[0xa800000000001020]:8+80]:8.
   The `jal` at 0xc000000000178428 calls spl7 [0xc00000000003b3bc] with a0=?, a1=0xffffffffefffffff, a2=[0xa800000000001000]:8, a3=[[0xa800000000001020]:8], a4=0xfffffffffeeddead, a5=[a0+64]:8, a6=[[0xa800000000001020]:8+80]:8.
@@ -3330,7 +3334,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xc000000000178b1c loads 8 bytes from a0 (arg0 at entry) +0x40.
   The `lw` at 0xc000000000178b30 loads 4 bytes from [a0+64]:8 +0x18.
   The `jalr` at 0xc000000000178b70 calls (unknown callee) with a0=0x1, a1=?, a2=?, a3=[[0xa800000000001020]:8+80]:8, a4=[[a0+64]:8+24], a5=0xa800000000001020, a6=[0xa800000000001000]:8, a7=[[0xa800000000001020]:8].
-  The `jal` at 0xc000000000178b78 calls splx [0xc00000000003b3f4] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc000000000178b78 calls splx [0xc00000000003b3f4] with a0=[0xc0000000014d3554], a1=?, a2=?, a3=?.
   The `jal` at 0xc000000000178b98 calls spl7 [0xc00000000003b3bc] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=[0xc0000000014d3558]:8, a4=0x53435241, a5=[[0xa800000000001020]:8], a6=0xfffffffffeeddead, a7=[[0xa800000000001020]:8+80]:8.
   The `jalr` at 0xc000000000178bb0 calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?.
   The `bne` branch at 0xc000000000178ae4 targets 0xc000000000178b1c, is taken when a0 != a3(=[0xc0000000014d3558]:8), and falls through when a0 == a3(=[0xc0000000014d3558]:8).
@@ -3357,7 +3361,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xc000000000178c20 loads 8 bytes from a0 (arg0 at entry) +0x40.
   The `lw` at 0xc000000000178c34 loads 4 bytes from [a0+64]:8 +0x18.
   The `jalr` at 0xc000000000178c74 calls (unknown callee) with a0=0x1, a1=?, a2=?, a3=[[0xa800000000001020]:8+80]:8, a4=[[a0+64]:8+24], a5=0xa800000000001020, a6=[0xa800000000001000]:8, a7=[[0xa800000000001020]:8].
-  The `jal` at 0xc000000000178c7c calls splx [0xc00000000003b3f4] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc000000000178c7c calls splx [0xc00000000003b3f4] with a0=[0xc0000000014d3554], a1=?, a2=?, a3=?.
   The `jal` at 0xc000000000178c9c calls spl7 [0xc00000000003b3bc] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=[0xc0000000014d3558]:8, a4=0x53435241, a5=[[0xa800000000001020]:8], a6=0xfffffffffeeddead, a7=[[0xa800000000001020]:8+80]:8.
   The `jalr` at 0xc000000000178cb4 calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?.
   The `bne` branch at 0xc000000000178be8 targets 0xc000000000178c20, is taken when a0 != a3(=[0xc0000000014d3558]:8), and falls through when a0 == a3(=[0xc0000000014d3558]:8).
@@ -3417,7 +3421,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `sw` at 0xc000000000178f0c stores 4 bytes to a0 (arg0 at entry) +0x9c.
   The `sw` at 0xc000000000178f10 stores 4 bytes to [a0+64]:8 +0x10.
   The `jalr` at 0xc000000000178ed8 calls (unknown callee) with a0=0x1, a1=[a0+64]:8, a2=[[0xa800000000001020]:8], a3=[[0xa800000000001020]:8+80]:8, a4=[0xc0000000014d3554], a5=0xa800000000001020, a6=[0xc0000000014d3558]:8.
-  The `jal` at 0xc000000000178ee0 calls splx [0xc00000000003b3f4] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc000000000178ee0 calls splx [0xc00000000003b3f4] with a0=[0xc0000000014d3554], a1=?, a2=?, a3=?.
   The `jal` at 0xc000000000178f20 calls spl7 [0xc00000000003b3bc] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=?, a4=[0xa800000000001000]:8, a5=0x53435241, a6=[[0xa800000000001020]:8], a7=0xfffffffffeeddead.
   The `jalr` at 0xc000000000178f38 calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?, a7=[[0xa800000000001020]:8+80]:8.
   The `bne` branch at 0xc000000000178e50 targets 0xc000000000178e80, is taken when at(=[0xc0000000014d3558]:8) != a0, and falls through when at(=[0xc0000000014d3558]:8) == a0.
@@ -3446,7 +3450,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xc000000000178fbc loads 8 bytes from a0 (arg0 at entry) +0x40.
   The `sw` at 0xc000000000178fc4 stores 4 bytes to [a0+64]:8 +0x0.
   The `jalr` at 0xc000000000179014 calls (unknown callee) with a0=0x1, a1=[[0xa800000000001020]:8+80]:8, a2=[0xc0000000014d3558]:8, a3=[[0xa800000000001020]:8], a4=0xfffffffffeeddead, a5=[0xc0000000014d3554].
-  The `jal` at 0xc00000000017901c calls splx [0xc00000000003b3f4] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc00000000017901c calls splx [0xc00000000003b3f4] with a0=[0xc0000000014d3554], a1=?, a2=?, a3=?.
   The `jal` at 0xc000000000179044 calls spl7 [0xc00000000003b3bc] with a0=0x53435241, a1=[[0xa800000000001020]:8], a2=0xfffffffffeeddead, a3=[[0xa800000000001020]:8+80]:8, a4=0xa800000000001020.
   The `jalr` at 0xc00000000017905c calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?, a6=[[0xa800000000001020]:8+80]:8.
   The `beq` branch at 0xc000000000178f64 targets 0xc000000000179038, is taken when a2 == 0, and falls through when a2 != 0.
@@ -3554,7 +3558,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `sd` at 0xc0000000001acef0 stores 8 bytes to ([[0xc00000000153abd0]:8+1544]:8 + (((a0 << 0x4) + a0) << 0x3)) +0x80.
   The `jal` at 0xc0000000001acbcc calls is_specified [0xc0000000001a8e2c] with a0=0xc0000000014d3923, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xc0000000001acc30 calls setupbadmem [0xc000000000029b18] with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=?.
-  The `jal` at 0xc0000000001ace50 calls bset [0xc0000000002697dc] with a0=entry(0xc000000001529408), a1=?, a2=?, a3=?.
+  The `jal` at 0xc0000000001ace50 calls bset [0xc0000000002697dc] with a0=entry(0xc000000001529408), a1=?, a2=?, a3=ret(is_specified).
   The `jal` at 0xc0000000001ace64 calls bset [0xc0000000002697dc] with a0=entry(0xc0000000015190d0), a1=?, a2=?, a3=?.
   The `beql` branch at 0xc0000000001acccc targets 0xc0000000001accbc, is taken when t9(?) == 0, and falls through when t9(?) != 0; its branch-likely delay slot `nop` at 0xc0000000001accd0 runs only when taken and is annulled on fall-through.
   The `bne` branch at 0xc0000000001acd30 targets 0xc0000000001acda8, is taken when t8(=[([[0xc00000000153abd0]:8+1544]:8 + (((a0 << 0x4) + a0) << 0x3))+120]:8) != 0, and falls through when t8(=[([[0xc00000000153abd0]:8+1544]:8 + (((a0 << 0x4) + a0) << 0x3))+120]:8) == 0.
@@ -3564,7 +3568,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `bne` branch at 0xc0000000001ace80 targets 0xc0000000001ace8c, is taken when a1(=[([[0xc00000000153abd0]:8+1544]:8 + (((a0 << 0x4) + a0) << 0x3))+72]:8) != s0(?), and falls through when a1(=[([[0xc00000000153abd0]:8+1544]:8 + (((a0 << 0x4) + a0) << 0x3))+72]:8) == s0(?).
   The `bltz` branch at 0xc0000000001ace8c targets 0xc0000000001acee4, is taken when a0(?) < 0 (signed), and falls through when a0(?) >= 0 (signed).
   The `beq` branch at 0xc0000000001ace98 targets 0xc0000000001acec0, is taken when v0(=0xffff) == a2(?), and falls through when v0(=0xffff) != a2(?).
-  The `bne` branch at 0xc0000000001acea0 targets 0xc0000000001acddc, is taken when a3(?) != 0, and falls through when a3(?) == 0.
+  The `bne` branch at 0xc0000000001acea0 targets 0xc0000000001acddc, is taken when a3(=ret(is_specified)) != 0, and falls through when a3(=ret(is_specified)) == 0.
   The `beq` branch at 0xc0000000001aceb8 targets 0xc0000000001acdf0 and is always taken.
   The `bne` branch at 0xc0000000001aced0 targets 0xc0000000001acedc, is taken when a5(=[([[0xc00000000153abd0]:8+1544]:8 + (((a0 << 0x4) + a0) << 0x3))+72]:8) != s0(?), and falls through when a5(=[([[0xc00000000153abd0]:8+1544]:8 + (((a0 << 0x4) + a0) << 0x3))+72]:8) == s0(?).
   The `bgez` branch at 0xc0000000001acedc targets 0xc0000000001ace94, is taken when a0(?) >= 0 (signed), and falls through when a0(?) < 0 (signed).
@@ -4055,19 +4059,20 @@ These entries record instruction facts rendered from the routines below. They de
   4 such `lw` accesses load 4 bytes from a0 (arg0 at entry) +0x78, including `lw` at 0xa800000020143824, `lw` at 0xa800000020143898, `lw` at 0xa800000020143938.
   The `ld` at 0xa800000020143828 loads 8 bytes from a0 (arg0 at entry) +0x60.
   4 such `sw` accesses store 4 bytes to a0 (arg0 at entry) +0x78, including `sw` at 0xa80000002014383c, `sw` at 0xa800000020143abc, `sw` at 0xa800000020143b1c.
-  7 such `lw` accesses load 4 bytes from ?, including `lw` at 0xa800000020143858, `lw` at 0xa800000020143918, `lw` at 0xa800000020143a8c.
+  6 such `lw` accesses load 4 bytes from ?, including `lw` at 0xa800000020143858, `lw` at 0xa800000020143918, `lw` at 0xa800000020143a8c.
   7 such `lbu` accesses load 1 byte from ?, including `lbu` at 0xa800000020143874, `lbu` at 0xa8000000201438dc, `lbu` at 0xa8000000201439cc.
   5 such `lw` accesses load 4 bytes from a0 (arg0 at entry) +0x8c, including `lw` at 0xa800000020143888, `lw` at 0xa800000020143900, `lw` at 0xa8000000201439dc.
   5 such `ld` accesses load 8 bytes from a0 (arg0 at entry) +0x8, including `ld` at 0xa8000000201438c0, `ld` at 0xa8000000201439b0, `ld` at 0xa8000000201439ec.
   4 such `ld` accesses load 8 bytes from [a0+8]:8 +0x10, including `ld` at 0xa8000000201438cc, `ld` at 0xa8000000201439bc, `ld` at 0xa8000000201439f8.
   4 such `sb` accesses store 1 byte to ?, including `sb` at 0xa8000000201438e8, `sb` at 0xa800000020143a5c, `sb` at 0xa800000020143a70.
   2 such `sw` accesses store 4 bytes to a0 (arg0 at entry) +0x9c, including `sw` at 0xa800000020143944, `sw` at 0xa800000020143ba0.
+  The `lw` at 0xa800000020143ac8 loads 4 bytes from [a0+112]:8 +0x10.
   The `ld` at 0xa800000020143bb0 loads 8 bytes from [a0+8]:8 +0x18.
   The `jalr` at 0xa8000000201438d4 calls (unknown callee) with a0=a0 at entry (arg0), a1=0x8, a2=[a0+140], a3=?.
   The `jalr` at 0xa8000000201439c4 calls (unknown callee) with a0=a0 at entry (arg0), a1=0x2, a2=[a0+140], a3=?, a7=[[a0+8]:8+16]:8.
   The `jalr` at 0xa800000020143a00 calls (unknown callee) with a0=a0 at entry (arg0), a1=0x4, a2=?, a3=?.
   The `jalr` at 0xa800000020143a3c calls (unknown callee) with a0=a0 at entry (arg0), a1=0x1, a2=?, a3=?.
-  The `jal` at 0xa800000020143ac4 calls enable_intrs [0xa8000000201423b0] with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
+  The `jal` at 0xa800000020143ac4 calls enable_intrs [0xa8000000201423b0] with a0=a0 at entry (arg0), a1=[[a0+112]:8+16], a2=?, a3=?.
   The `jalr` at 0xa800000020143bb8 calls (unknown callee) with a0=a0 at entry (arg0), a1=0x0, a2=[a0+140], a3=?.
   The `bne` branch at 0xa80000002014378c targets 0xa800000020143824, is taken when s5(?) != s1(=[a0+156]), and falls through when s5(?) == s1(=[a0+156]).
   The `bgez` branch at 0xa8000000201437a0 targets 0xa800000020143b20, is taken when v1(=([a0+148] << 0x23)) >= 0 (signed), and falls through when v1(=([a0+148] << 0x23)) < 0 (signed).
@@ -4653,7 +4658,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc000000000206188 calls usb_clear_hub_feature [0xc000000000205960] with a0=a0 at entry (arg0), a1=0x1, a2=0x0, a3=?.
   The `jal` at 0xc0000000002061b8 calls usb_hub_overcurrent_event [0xc000000000206258] with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000002061c8 calls usb_hub_path [0xc000000000206d44] with a0=a0 at entry (arg0), a1=[0xc00000000158db8c], a2=0x625f0000, a3=?.
-  The `jal` at 0xc0000000002061dc calls usb_dbg [0xc000000000206d84] with a0=0xc0000000004c2730, a1=ret(usb_hub_path), a2=?, a3=?.
+  The `jal` at 0xc0000000002061dc calls usb_dbg [0xc000000000206d84] with a0=0xc0000000004c2730, a1=ret(usb_hub_path), a2=ret(usb_get_hub_status), a3=?.
   The `jal` at 0xc0000000002061f4 calls usb_dbg [0xc000000000206d84] with a0=0xc0000000004c2778, a1=?, a2=0x625f0000, a3=?.
   The `jal` at 0xc000000000206204 calls usb_clear_hub_feature [0xc000000000205960] with a0=a0 at entry (arg0), a1=0x0, a2=0x0, a3=?.
   The `jal` at 0xc000000000206230 calls usb_dbg [0xc000000000206d84] with a0=0xc0000000004c2798, a1=ret(usb_clear_hub_feature), a2=[0xc00000000158db8c], a3=?.
@@ -4694,7 +4699,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc000000000221f24 loads 4 bytes from a0 (arg0 at entry) +0x88.
   The `jal` at 0xc000000000221c88 calls set_baud_ti [0xc000000000221008] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jalr` at 0xc000000000221dc0 calls (unknown callee) with a0=0x1, a1=[[0xa800000000001020]:8], a2=[[0xa800000000001020]:8+128]:8, a3=[0xc00000000164578c], a7=0x40000000.
-  The `jal` at 0xc000000000221dc8 calls splx [0xc000000000062054] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc000000000221dc8 calls splx [0xc000000000062054] with a0=[0xc00000000164578c], a1=?, a2=?, a3=?.
   The `jalr` at 0xc000000000221ec8 calls (unknown callee) with a0=0x1, a1=0xfffffffffeeddead, a2=[[0xa800000000001020]:8+128]:8, a3=a1 at entry (arg1).
   The `jal` at 0xc000000000221ed0 calls splx [0xc000000000062054] with a0=[0xc00000000164578c], a1=?, a2=?, a3=?.
   The `jal` at 0xc000000000221f20 calls ioc3_rx_timeout [0xc0000000002232bc] with a0=a0 at entry (arg0), a1=[a0+136], a2=?, a3=a1 at entry (arg1), a6=0xa.
@@ -4722,7 +4727,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc000000000221d98 targets 0xc000000000221dd4, is taken when v0(=[0xa800000000001020]:8) == 0, and falls through when v0(=[0xa800000000001020]:8) != 0.
   The `bne` branch at 0xc000000000221da4 targets 0xc000000000221dd4, is taken when a1(=[[0xa800000000001020]:8]) != a2(=0xfffffffffeeddead), and falls through when a1(=[[0xa800000000001020]:8]) == a2(=0xfffffffffeeddead).
   The `beq` branch at 0xc000000000221db0 targets 0xc000000000221dd4, is taken when a2(=[[0xa800000000001020]:8+128]:8) == 0, and falls through when a2(=[[0xa800000000001020]:8+128]:8) != 0.
-  The `beq` branch at 0xc000000000221dd4 targets 0xc000000000221f80, is taken when a0(?) == 0, and falls through when a0(?) != 0.
+  The `beq` branch at 0xc000000000221dd4 targets 0xc000000000221f80, is taken when a0(=one of 0x0, 0x1) == 0, and falls through when a0(=one of 0x0, 0x1) != 0.
   The `beq` branch at 0xc000000000221df0 targets 0xc000000000221e08, is taken when v1(=a4) == 0, and falls through when v1(=a4) != 0.
   The `beq` branch at 0xc000000000221e00 targets 0xc000000000221f70, is taken when a0(=a5) == 0, and falls through when a0(=a5) != 0.
   The `beq` branch at 0xc000000000221e0c targets 0xc000000000221e18, is taken when a1(=a3) == 0, and falls through when a1(=a3) != 0.
@@ -4816,7 +4821,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `lbu` at 0xc0000000002225f8 loads 1 byte from [a0+72]:8 +0x3.
   2 such `sb` accesses store 1 byte to [a0+72]:8 +0x3, including `sb` at 0xc000000000222600, `sb` at 0xc000000000222708.
   The `jalr` at 0xc0000000002225d0 calls (unknown callee) with a0=0x1, a1=a1 at entry (arg1), a2=[[0xa800000000001020]:8], a3=0xfffffffffeeddead, a4=[[0xa800000000001020]:8+128]:8, a5=[0xc00000000164578c], a6=0x10000000, a7=[0xc000000001645790]:8.
-  The `jal` at 0xc0000000002225d8 calls splx [0xc000000000062054] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc0000000002225d8 calls splx [0xc000000000062054] with a0=[0xc00000000164578c], a1=?, a2=?, a3=?.
   The `jalr` at 0xc0000000002226b0 calls (unknown callee) with a0=0x1, a1=?, a2=?, a3=?, a4=[[0xa800000000001020]:8+128]:8.
   The `jal` at 0xc0000000002226b8 calls splx [0xc000000000062054] with a0=[0xc00000000164578c], a1=?, a2=?, a3=?.
   The `jal` at 0xc000000000222714 calls spl7 [0xc00000000006201c] with a0=[a0+72]:8, a1=a1 at entry (arg1), a2=?, a3=?, a4=[a0+148], a6=0x10000000.
@@ -4930,13 +4935,14 @@ These entries record instruction facts rendered from the routines below. They de
   4 such `lw` accesses load 4 bytes from a0 (arg0 at entry) +0x78, including `lw` at 0xc000000000222c50, `lw` at 0xc000000000222cc8, `lw` at 0xc000000000222d6c.
   The `ld` at 0xc000000000222c54 loads 8 bytes from a0 (arg0 at entry) +0x60.
   4 such `sw` accesses store 4 bytes to a0 (arg0 at entry) +0x78, including `sw` at 0xc000000000222c64, `sw` at 0xc000000000222f14, `sw` at 0xc000000000222f6c.
-  7 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc000000000222c88, `lw` at 0xc000000000222d48, `lw` at 0xc000000000222ec0.
+  6 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc000000000222c88, `lw` at 0xc000000000222d48, `lw` at 0xc000000000222ec0.
   7 such `lbu` accesses load 1 byte from ?, including `lbu` at 0xc000000000222ca4, `lbu` at 0xc000000000222d0c, `lbu` at 0xc000000000222e00.
   5 such `lw` accesses load 4 bytes from a0 (arg0 at entry) +0x8c, including `lw` at 0xc000000000222cb8, `lw` at 0xc000000000222d30, `lw` at 0xc000000000222e10.
   5 such `ld` accesses load 8 bytes from a0 (arg0 at entry) +0x8, including `ld` at 0xc000000000222cf0, `ld` at 0xc000000000222de4, `ld` at 0xc000000000222e20.
   4 such `ld` accesses load 8 bytes from [a0+8]:8 +0x10, including `ld` at 0xc000000000222cfc, `ld` at 0xc000000000222df0, `ld` at 0xc000000000222e2c.
   4 such `sb` accesses store 1 byte to ?, including `sb` at 0xc000000000222d18, `sb` at 0xc000000000222e90, `sb` at 0xc000000000222ea4.
   2 such `sw` accesses store 4 bytes to a0 (arg0 at entry) +0x9c, including `sw` at 0xc000000000222d78, `sw` at 0xc000000000223078.
+  The `lw` at 0xc000000000222f20 loads 4 bytes from [a0+112]:8 +0x10.
   The `ld` at 0xc000000000223088 loads 8 bytes from [a0+8]:8 +0x18.
   The `jalr` at 0xc000000000222aac calls (unknown callee) with a0=0x1, a1=?, a2=[[0xa800000000001020]:8+128]:8, a3=?, a5=[a0+64]:8, a7=[0xc000000001645790]:8.
   The `jal` at 0xc000000000222ab4 calls splx [0xc000000000062054] with a0=[0xc00000000164578c], a1=?, a2=?, a3=?.
@@ -4948,7 +4954,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jalr` at 0xc000000000222df8 calls (unknown callee) with a0=a0 at entry (arg0), a1=0x2, a2=[a0+140], a3=?, a7=[[a0+8]:8+16]:8.
   The `jalr` at 0xc000000000222e34 calls (unknown callee) with a0=a0 at entry (arg0), a1=0x4, a2=?, a3=?.
   The `jalr` at 0xc000000000222e70 calls (unknown callee) with a0=a0 at entry (arg0), a1=0x1, a2=?, a3=?.
-  The `jal` at 0xc000000000222f1c calls enable_intrs [0xc0000000002209c8] with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
+  The `jal` at 0xc000000000222f1c calls enable_intrs [0xc0000000002209c8] with a0=a0 at entry (arg0), a1=[[a0+112]:8+16], a2=?, a3=?.
   The `jal` at 0xc000000000222fb8 calls spl7 [0xc00000000006201c] with a0=?, a1=[0xc000000001645790]:8, a2=[0xa800000000001000]:8, a3=[[0xa800000000001020]:8], a4=0xfffffffffeeddead, a5=[a0+64]:8, a6=[[0xa800000000001020]:8+128]:8.
   The `jalr` at 0xc000000000222fcc calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?, a6=[[0xa800000000001020]:8+128]:8.
   The `jal` at 0xc000000000222fe4 calls spl7 [0xc00000000006201c] with a0=?, a1=0xffffffffefffffff, a2=[0xa800000000001000]:8, a3=[[0xa800000000001020]:8], a4=0xfffffffffeeddead, a5=[a0+64]:8, a6=[[0xa800000000001020]:8+128]:8.
@@ -5075,7 +5081,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xc0000000002236d8 loads 8 bytes from a0 (arg0 at entry) +0x40.
   The `lw` at 0xc0000000002236ec loads 4 bytes from [a0+64]:8 +0x18.
   The `jalr` at 0xc00000000022372c calls (unknown callee) with a0=0x1, a1=?, a2=?, a3=[[0xa800000000001020]:8+128]:8, a4=[[a0+64]:8+24], a5=0xa800000000001020, a6=[0xa800000000001000]:8, a7=[[0xa800000000001020]:8].
-  The `jal` at 0xc000000000223734 calls splx [0xc000000000062054] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc000000000223734 calls splx [0xc000000000062054] with a0=[0xc00000000164578c], a1=?, a2=?, a3=?.
   The `jal` at 0xc000000000223754 calls spl7 [0xc00000000006201c] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=[0xc000000001645790]:8, a4=0x53435241, a5=[[0xa800000000001020]:8], a6=0xfffffffffeeddead, a7=[[0xa800000000001020]:8+128]:8.
   The `jalr` at 0xc00000000022376c calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?.
   The `bne` branch at 0xc0000000002236a0 targets 0xc0000000002236d8, is taken when a0 != a3(=[0xc000000001645790]:8), and falls through when a0 == a3(=[0xc000000001645790]:8).
@@ -5102,7 +5108,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xc0000000002237dc loads 8 bytes from a0 (arg0 at entry) +0x40.
   The `lw` at 0xc0000000002237f0 loads 4 bytes from [a0+64]:8 +0x18.
   The `jalr` at 0xc000000000223830 calls (unknown callee) with a0=0x1, a1=?, a2=?, a3=[[0xa800000000001020]:8+128]:8, a4=[[a0+64]:8+24], a5=0xa800000000001020, a6=[0xa800000000001000]:8, a7=[[0xa800000000001020]:8].
-  The `jal` at 0xc000000000223838 calls splx [0xc000000000062054] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc000000000223838 calls splx [0xc000000000062054] with a0=[0xc00000000164578c], a1=?, a2=?, a3=?.
   The `jal` at 0xc000000000223858 calls spl7 [0xc00000000006201c] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=[0xc000000001645790]:8, a4=0x53435241, a5=[[0xa800000000001020]:8], a6=0xfffffffffeeddead, a7=[[0xa800000000001020]:8+128]:8.
   The `jalr` at 0xc000000000223870 calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?.
   The `bne` branch at 0xc0000000002237a4 targets 0xc0000000002237dc, is taken when a0 != a3(=[0xc000000001645790]:8), and falls through when a0 == a3(=[0xc000000001645790]:8).
@@ -5162,7 +5168,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `sw` at 0xc000000000223ac8 stores 4 bytes to a0 (arg0 at entry) +0x9c.
   The `sw` at 0xc000000000223acc stores 4 bytes to [a0+64]:8 +0x10.
   The `jalr` at 0xc000000000223a94 calls (unknown callee) with a0=0x1, a1=[a0+64]:8, a2=[[0xa800000000001020]:8], a3=[[0xa800000000001020]:8+128]:8, a4=[0xc00000000164578c], a5=0xa800000000001020, a6=[0xc000000001645790]:8.
-  The `jal` at 0xc000000000223a9c calls splx [0xc000000000062054] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc000000000223a9c calls splx [0xc000000000062054] with a0=[0xc00000000164578c], a1=?, a2=?, a3=?.
   The `jal` at 0xc000000000223adc calls spl7 [0xc00000000006201c] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=?, a4=[0xa800000000001000]:8, a5=0x53435241, a6=[[0xa800000000001020]:8], a7=0xfffffffffeeddead.
   The `jalr` at 0xc000000000223af4 calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?, a7=[[0xa800000000001020]:8+128]:8.
   The `bne` branch at 0xc000000000223a0c targets 0xc000000000223a3c, is taken when at(=[0xc000000001645790]:8) != a0, and falls through when at(=[0xc000000001645790]:8) == a0.
@@ -5191,7 +5197,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xc000000000223b78 loads 8 bytes from a0 (arg0 at entry) +0x40.
   The `sw` at 0xc000000000223b80 stores 4 bytes to [a0+64]:8 +0x0.
   The `jalr` at 0xc000000000223bd0 calls (unknown callee) with a0=0x1, a1=[[0xa800000000001020]:8+128]:8, a2=[0xc000000001645790]:8, a3=[[0xa800000000001020]:8], a4=0xfffffffffeeddead, a5=[0xc00000000164578c].
-  The `jal` at 0xc000000000223bd8 calls splx [0xc000000000062054] with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0xc000000000223bd8 calls splx [0xc000000000062054] with a0=[0xc00000000164578c], a1=?, a2=?, a3=?.
   The `jal` at 0xc000000000223c00 calls spl7 [0xc00000000006201c] with a0=0x53435241, a1=[[0xa800000000001020]:8], a2=0xfffffffffeeddead, a3=[[0xa800000000001020]:8+128]:8, a4=0xa800000000001020.
   The `jalr` at 0xc000000000223c18 calls (unknown callee) with a0=0x0, a1=?, a2=?, a3=?, a6=[[0xa800000000001020]:8+128]:8.
   The `beq` branch at 0xc000000000223b20 targets 0xc000000000223bf4, is taken when a2 == 0, and falls through when a2 != 0.
@@ -5299,7 +5305,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `sd` at 0xc00000000025b5c4 stores 8 bytes to ([[0xc0000000016b2520]:8+1512]:8 + (((a0 << 0x4) + a0) << 0x3)) +0x80.
   The `jal` at 0xc00000000025b2a0 calls is_specified [0xc0000000002c4694] with a0=0xc0000000016462f3, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xc00000000025b304 calls setupbadmem [0xc00000000004eefc] with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=?.
-  The `jal` at 0xc00000000025b524 calls bset [0xc000000000319524] with a0=entry(0xc0000000016aefb8), a1=?, a2=?, a3=?.
+  The `jal` at 0xc00000000025b524 calls bset [0xc000000000319524] with a0=entry(0xc0000000016aefb8), a1=?, a2=?, a3=ret(is_specified).
   The `jal` at 0xc00000000025b538 calls bset [0xc000000000319524] with a0=entry(0xc0000000016acfb8), a1=?, a2=?, a3=?.
   The `beql` branch at 0xc00000000025b3a0 targets 0xc00000000025b390, is taken when t9(?) == 0, and falls through when t9(?) != 0; its branch-likely delay slot `nop` at 0xc00000000025b3a4 runs only when taken and is annulled on fall-through.
   The `bne` branch at 0xc00000000025b404 targets 0xc00000000025b47c, is taken when t8(=[([[0xc0000000016b2520]:8+1512]:8 + (((a0 << 0x4) + a0) << 0x3))+120]:8) != 0, and falls through when t8(=[([[0xc0000000016b2520]:8+1512]:8 + (((a0 << 0x4) + a0) << 0x3))+120]:8) == 0.
@@ -5309,7 +5315,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `bne` branch at 0xc00000000025b554 targets 0xc00000000025b560, is taken when a1(=[([[0xc0000000016b2520]:8+1512]:8 + (((a0 << 0x4) + a0) << 0x3))+72]:8) != s0(?), and falls through when a1(=[([[0xc0000000016b2520]:8+1512]:8 + (((a0 << 0x4) + a0) << 0x3))+72]:8) == s0(?).
   The `bltz` branch at 0xc00000000025b560 targets 0xc00000000025b5b8, is taken when a0(?) < 0 (signed), and falls through when a0(?) >= 0 (signed).
   The `beq` branch at 0xc00000000025b56c targets 0xc00000000025b594, is taken when v0(=0xffff) == a2(?), and falls through when v0(=0xffff) != a2(?).
-  The `bne` branch at 0xc00000000025b574 targets 0xc00000000025b4b0, is taken when a3(?) != 0, and falls through when a3(?) == 0.
+  The `bne` branch at 0xc00000000025b574 targets 0xc00000000025b4b0, is taken when a3(=ret(is_specified)) != 0, and falls through when a3(=ret(is_specified)) == 0.
   The `beq` branch at 0xc00000000025b58c targets 0xc00000000025b4c4 and is always taken.
   The `bne` branch at 0xc00000000025b5a4 targets 0xc00000000025b5b0, is taken when a5(=[([[0xc0000000016b2520]:8+1512]:8 + (((a0 << 0x4) + a0) << 0x3))+72]:8) != s0(?), and falls through when a5(=[([[0xc0000000016b2520]:8+1512]:8 + (((a0 << 0x4) + a0) << 0x3))+72]:8) == s0(?).
   The `bgez` branch at 0xc00000000025b5b0 targets 0xc00000000025b568, is taken when a0(?) >= 0 (signed), and falls through when a0(?) < 0 (signed).
