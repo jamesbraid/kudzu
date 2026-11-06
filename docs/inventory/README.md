@@ -12,6 +12,20 @@ Every file in this directory is generated. Do not edit by hand: change the docum
 
 `scripts/scope.json` states, for each binary group, whether its functions are in scope (`in`), in scope only when the function name starts with one of the listed prefixes (`narrow`) or out of scope for now (`out`). `scripts/gen-scope.py` turns it into the `binaries` and `scope` sections of `scripts/inventory-config.json`. Out-of-scope rows stay in the tables with `scope` = `out:N`; `summary.tsv` reports `out_of_scope` per table and per binary, and [scope.tsv](scope.tsv) reports the rule per group with its counts. An out-of-scope row is not excluded for good: it counts when the rule changes.
 
+## Function addresses
+
+A function's address comes from one source per name, and `address_source` in `binaries.tsv` lists the sources a binary used. The ELF symbol tables come first (`symtab`, then `dynsym`). `mdebug` supplies names they lack, and `dwarf` supplies names that neither has.
+
+DWARF can be out of date. If the library was relinked after its debug information was written, the code moved and DWARF's addresses are wrong (a `libGL.so` has `glXQueryVersion` at 0xd833278 in `.dynsym` and at 0xd80f0a0 in DWARF). The script treats a binary's DWARF as stale only when some name has DWARF addresses that share none with the addresses the symbol tables give that same name. A static function that is defined in several compilation units, where the symbol table keeps only one of them, does not show this: its DWARF addresses overlap the table's, and the file's other DWARF addresses stay in use.
+
+When DWARF is stale, its addresses are dropped and the label says so with a suffix such as `dynsym+dwarf (dwarf addresses stale, dropped except sections ...)`, whose last words, in full in `binaries.tsv`, name the exception below. The exception is a function that fills a section by itself, such as `_init` in `.init`. Relinking did not move those sections, so DWARF's address, which is the section start, is kept (hence `+dwarf` in the label). Without that exception the label reads `dynsym (dwarf addresses stale, dropped)`. A name left with no address after this is covered below.
+
+A name defined at several addresses in the chosen source takes the lowest and is rejected (see the sibling repositories' inventory README for the `rejected` column).
+
+## Rows with no address
+
+Some static functions have code in the binary, and a name in its debug information, but no source gives an address for them: the symbol tables omit them and DWARF is stale. The `functions.tsv` row for such a function has address 0x0 and `rejected` = `address-unknown` (none in this repository's current binaries). Nothing can credit such a row by address, and a reading round cannot render it, so it is not open work. `summary.tsv` and `coverage.md` leave these rows out of every status count and the denominator, as they do out-of-scope rows, and report them in the `address_unknown` column of `summary.tsv` and a line under the coverage table. Reading round target selection skips them. They become ordinary rows again when a source supplies an address.
+
 ## Tables from scripts/os_tables.py
 
 | Table | One row per | Notes |

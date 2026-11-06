@@ -1,7 +1,7 @@
 binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_sites	unresolved_sites	status	doc	section
-6.5.22/unix.IP27	kernel-image	shared-kernel	executable	n64	11237256	40e3f6246b58aa9b		13658	symtab (dwarf addresses stale, dropped)	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/unix.IP30	kernel-image	shared-kernel	executable	n64	9536856	e913b7022abb533f		12214	symtab (dwarf addresses stale, dropped)	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/unix.IP35	kernel-image	shared-kernel	executable	n64	12168592	87563dbc0cbc35c5		14511	symtab (dwarf addresses stale, dropped)	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
+6.5.22/unix.IP27	kernel-image	shared-kernel	executable	n64	11237256	40e3f6246b58aa9b		13658	symtab+dwarf	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
+6.5.22/unix.IP30	kernel-image	shared-kernel	executable	n64	9536856	e913b7022abb533f		12214	symtab+dwarf	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
+6.5.22/unix.IP35	kernel-image	shared-kernel	executable	n64	12168592	87563dbc0cbc35c5		14511	symtab+dwarf	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP22boot/acl.a(acl.o)	kernel-other-objects	shared-kernel	object	n32	14852	5593b2e23b5181e6		16	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/acl_hwg.o	kernel-other-objects	shared-kernel	object	n32	4112	b14653bd2b863e81	6.5.22/usr/cpu/sysgen/IP32boot/acl_hwg.o	3	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/acl_nfs3.o	kernel-other-objects	shared-kernel	object	n32	4976	4c5600bf144c6d1d	6.5.22/usr/cpu/sysgen/IP32boot/acl_nfs3.o	2	symtab	0	0	undocumented		
@@ -2684,7 +2684,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP32boot/kdsp.a(kdsp_di.o)	kernel-other-objects	shared-kernel	object	n32	130180	53c50505ee64e572		132	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/kdsp.a(kdsp_events.o)	kernel-other-objects	shared-kernel	object	n32	19428	59a7fbbc7014ebd7		25	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/kdsp.a(audutil.o)	kernel-other-objects	shared-kernel	object	n32	28628	f7520b7ecfdfab3c		94	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	kernel-platform-objects	shared-kernel	object	n32	503636	16d2788b48628899		811	symtab (dwarf addresses stale, dropped)	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
+6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	kernel-platform-objects	shared-kernel	object	n32	503636	16d2788b48628899		811	symtab+dwarf	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP32boot/keyboard.a(pckbd.o)	kernel-other-objects	shared-kernel	object	n32	13060	2b58765551aee6ec		14	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/kitchenstubs.a(kitchenstubs.o)	kernel-other-objects	shared-kernel	object	n32	4004	bab23645b738595b		5	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/klog.o	kernel-other-objects	shared-kernel	object	n32	8040	6b25424050630e18		7	symtab	0	0	undocumented		
@@ -3216,7 +3216,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/fcadp.a(fcadp.o)	kernel-other-objects	shared-kernel	object	n64	98740	188a93f711026d80		93	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/fcidbg.o	kernel-other-objects	shared-kernel	object	n64	1200	a34b59e45674b517	6.5.30/usr/cpu/sysgen/IP35boot/fcidbg.o	0	none	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/fd.a(fdops.o)	kernel-other-objects	shared-kernel	object	n64	19380	eb919d316bbb24f7		16	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/fglrx.o	kernel-other-objects	shared-kernel	object	n64	643888	d8050cc15200b8e0		378	symtab (dwarf addresses stale, dropped)	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/fglrx.o	kernel-other-objects	shared-kernel	object	n64	643888	d8050cc15200b8e0		378	symtab+dwarf	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/fifofs.a(fifosubr.o)	kernel-other-objects	shared-kernel	object	n64	19828	376c101ae674a151		17	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/fifofs.a(fifovnops.o)	kernel-other-objects	shared-kernel	object	n64	29780	e17eae460316f880		19	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/frsstubs.a(frsstubs.o)	kernel-other-objects	shared-kernel	object	n64	12852	da79252a7482e8d3		34	symtab	0	0	undocumented		
@@ -3944,9 +3944,9 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/xvmidbg.o	kernel-other-objects	shared-kernel	object	n64	108064	a47c444640f24c6b		39	symtab	0	0	undocumented		
 6.5.30/sbin/hinv	userland-base	userland	executable	n32	77064	4f430d6c4da73656		19	dynsym	0	0	named-only	docs/hwgraph-paths.md#hinv-strings	Hinv strings
 6.5.30/sbin/ioconfig	userland-base	userland	executable	n32	41768	cef4f7b1b16a0c3e		24	dynsym	0	0	named-only	docs/hwgraph-paths.md#ioconfig	ioconfig
-6.5.30/unix.IP27	kernel-image	shared-kernel	executable	n64	11101184	567474674eaa83d3		13484	symtab (dwarf addresses stale, dropped)	0	0	named-only	docs/errnos.md#syssgi-7-setled	`syssgi` 7 (SETLED)
-6.5.30/unix.IP30	kernel-image	shared-kernel	executable	n64	10716216	607a432f441d15f7		13087	symtab (dwarf addresses stale, dropped)	0	0	named-only	docs/driver-ioctls.md#driver-control-requests-ip30-kernel-dispatch	Driver control requests: IP30 kernel dispatch
-6.5.30/unix.IP35	kernel-image	shared-kernel	executable	n64	13104040	412a1aae553a3483		15130	symtab (dwarf addresses stale, dropped)	0	0	named-only	docs/errnos.md#syssgi-7-setled	`syssgi` 7 (SETLED)
+6.5.30/unix.IP27	kernel-image	shared-kernel	executable	n64	11101184	567474674eaa83d3		13484	symtab+dwarf	0	0	named-only	docs/errnos.md#syssgi-7-setled	`syssgi` 7 (SETLED)
+6.5.30/unix.IP30	kernel-image	shared-kernel	executable	n64	10716216	607a432f441d15f7		13087	symtab+dwarf	0	0	named-only	docs/driver-ioctls.md#driver-control-requests-ip30-kernel-dispatch	Driver control requests: IP30 kernel dispatch
+6.5.30/unix.IP35	kernel-image	shared-kernel	executable	n64	13104040	412a1aae553a3483		15130	symtab+dwarf	0	0	named-only	docs/errnos.md#syssgi-7-setled	`syssgi` 7 (SETLED)
 6.5.30/usr/cluster/bin/cmon_ctrl	userland-base	userland	executable	n32	30396	fb10cd802a5f35a8		11	dynsym+dwarf	0	0	named-only	docs/userland.md#6530usrclusterbincmon_ctrl	`6.5.30/usr/cluster/bin/cmon_ctrl`
 6.5.30/usr/cluster/bin/cmond	userland-base	userland	executable	n32	219644	64a4074332f415de		96	dynsym+dwarf	0	0	named-only	docs/userland.md#6530usrclusterbincmond	`6.5.30/usr/cluster/bin/cmond`
 6.5.30/usr/cluster/bin/cms_failconf	userland-base	userland	executable	n32	35164	84de8c8ad7046823		7	dynsym+dwarf	0	0	named-only	docs/userland.md#6530usrclusterbincms_failconf	`6.5.30/usr/cluster/bin/cms_failconf`
@@ -5911,7 +5911,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP32boot/kdsp.a(kdsp_di.o)	kernel-other-objects	shared-kernel	object	n32	130548	b7f46540878d12bc		132	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/kdsp.a(kdsp_events.o)	kernel-other-objects	shared-kernel	object	n32	19428	991fd9c9dbc04269		25	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/kdsp.a(audutil.o)	kernel-other-objects	shared-kernel	object	n32	28628	85c9b423177b5f3b		94	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	kernel-platform-objects	shared-kernel	object	n32	504132	ebf09eeae80f3726		811	symtab (dwarf addresses stale, dropped)	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
+6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	kernel-platform-objects	shared-kernel	object	n32	504132	ebf09eeae80f3726		811	symtab+dwarf	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP32boot/keyboard.a(pckbd.o)	kernel-other-objects	shared-kernel	object	n32	13060	082fbaca817b8bfb		14	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/kitchenstubs.a(kitchenstubs.o)	kernel-other-objects	shared-kernel	object	n32	4004	d020dd80795a372e		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/klog.o	kernel-other-objects	shared-kernel	object	n32	8040	ab0080f4a8d30417		7	symtab	0	0	undocumented		
