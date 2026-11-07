@@ -1,1 +1,177 @@
 window	offset	name	access	sites	binaries	functions	evidence	example	status	doc	section
+BEDROCK-BOOT	0x78		r8	4	4	nic_get_phase_bits	boot window	6.5.22/unix.IP35:nic_get_phase_bits	named-only	docs/nic.md#bus-access	Bus access
+BEDROCK-BOOT	0xa0		r4	8	6	cpuprom_detailed_inventory_info_add;prom_has_vga_support	boot window	6.5.22/unix.IP35:cpuprom_detailed_inventory_info_add	undocumented		
+BEDROCK-BOOT	0xa4		r4	8	6	cpuprom_detailed_inventory_info_add;prom_has_vga_support	boot window	6.5.22/unix.IP35:cpuprom_detailed_inventory_info_add	undocumented		
+BEDROCK-IO	0x400130		r8,w8	8	4	ii_llp_error_monitor	local alias	6.5.22/unix.IP35:ii_llp_error_monitor	undocumented		
+BEDROCK-IO	0x4001f8		w8	8	4	bte_init	local alias	6.5.22/unix.IP35:bte_init	named-only	docs/ip35-hub-errors.md#hub-error-handling-in-the-ip35-kernel	Hub error handling in the IP35 kernel
+BEDROCK-LB	0x600000		r8	24	4	bootstrap;get_nasid;is_fine_dirmode;start;stop_all_cpus	local alias	6.5.22/unix.IP35:bootstrap	undocumented		
+BEDROCK-LB	0x604020		r8	4	4	stop_all_cpus	local alias	6.5.22/unix.IP35:stop_all_cpus	undocumented		
+BEDROCK-LB	0x604028		r8	4	4	stop_all_cpus	local alias	6.5.22/unix.IP35:stop_all_cpus	undocumented		
+BEDROCK-LB	0x604200		r8	250	20	__nanotime;bte_init;counter_intr;doadjtime;dogetitimer;findcpufreq_cycles;+33 more	local alias	6.5.22/unix.IP35:__nanotime	undocumented		
+BEDROCK-MD	0x780000		r8	4	4	stop_all_cpus	local alias	6.5.22/unix.IP35:stop_all_cpus	undocumented		
+BEDROCK-MD	0x780008		r8	12	4	mdir_xlate_addr_mem;mdir_xlate_addr_pdir;mdir_xlate_addr_sdir	local alias	6.5.22/unix.IP35:mdir_xlate_addr_mem	named-only	docs/interrupts.md#routines	Routines
+BEDROCK-MD	0x7a0038		r8	4	4	doacvec	local alias	6.5.22/unix.IP35:doacvec	undocumented		
+BEDROCK-NI	0x680000		r8	6	6	net_link_up;part_discovery	local alias	6.5.22/unix.IP35:net_link_up	named-only	docs/ip35-halt-and-reset.md#link-errors-at-run-time	Link errors at run time
+BEDROCK-NI	0x680008		w8	8	4	ni_reset_port;restart	local alias	6.5.22/unix.IP35:ni_reset_port	named-only	docs/interrupts.md#routines	Routines
+BEDROCK-NI	0x680010		w8	8	4	ni_reset_port;restart	local alias	6.5.22/unix.IP35:ni_reset_port	named-only	docs/ip35-halt-and-reset.md#reboot-and-port-reset	Reboot and port reset
+BEDROCK-NI	0x680108		r8	4	4	check_ni_errors_nasid	local alias	6.5.22/unix.IP35:check_ni_errors_nasid	undocumented		
+BEDROCK-NI	0x680110		r8	4	4	check_ni_errors_nasid	local alias	6.5.22/unix.IP35:check_ni_errors_nasid	named-only	docs/ip35-hub-errors.md#hub-programmed-io-windows	Hub programmed-I/O windows
+BEDROCK-NI	0x680118		r8	4	4	check_ni_errors_nasid	local alias	6.5.22/unix.IP35:check_ni_errors_nasid	named-only	docs/ip35-hub-errors.md#hub-widget-shutdown	Hub widget shutdown
+BEDROCK-NI	0x680120		r8	4	4	ni_llp_error_monitor	local alias	6.5.22/unix.IP35:ni_llp_error_monitor	named-only	docs/ip35-halt-and-reset.md#link-errors-at-run-time	Link errors at run time
+BEDROCK-PI0	0x18		r8	4	4	handle_cac_buserr	local alias	6.5.22/unix.IP35:handle_cac_buserr	named-only	docs/ip35-halt-and-reset.md#what-decides-between-the-local-and-the-controller-form	What decides between the local and the controller form
+BEDROCK-PI0	0x20		r8	46	7	get_myid;get_slice;getcpuid;hubpi_eint_handler;klsave_spool_registers;save_cache_error;+3 more	local alias	6.5.22/unix.IP35:get_myid	named-only	docs/interrupts.md#ip35-differences	IP35 differences
+BEDROCK-PI0	0x28		r8	8	4	memory_iscalias;page_local_calias	local alias	6.5.22/unix.IP35:memory_iscalias	named-only	docs/ip35-hub-errors.md#hub-programmed-io-windows	Hub programmed-I/O windows
+BEDROCK-PI0	0x90		w8	34	8	cpuintr;dbgintr;gfx_flow_detach_me;intpend0;intpend1;intr_clear_bits;+2 more	local alias	6.5.22/unix.IP35:cpuintr	named-only	docs/interrupts.md#hub-interrupt-routing-as-the-kernel-programs-it	Hub interrupt routing as the kernel programs it
+BEDROCK-PI0	0x98		r8	42	8	cpuintr;dbgintr;gfx_flow_detach_me;intpend0;intpend1;intr_clear_bits;+2 more	local alias	6.5.22/unix.IP35:cpuintr	named-only	docs/interrupts.md#hub-interrupt-routing-as-the-kernel-programs-it	Hub interrupt routing as the kernel programs it
+BEDROCK-PI0	0xa0		r8	8	4	chkdebug;intpend1	local alias	6.5.22/unix.IP35:chkdebug	named-only	docs/interrupts.md#hub-interrupt-routing-as-the-kernel-programs-it	Hub interrupt routing as the kernel programs it
+BEDROCK-PI0	0x118		w8	8	4	prof_intr;startkgclock	local alias	6.5.22/unix.IP35:prof_intr	named-only	docs/ip35-hub-errors.md#hub-widget-shutdown	Hub widget shutdown
+BEDROCK-PI0	0x120		w8	4	4	acktmoclock	local alias	6.5.22/unix.IP35:acktmoclock	named-only	docs/ip35-hub-errors.md#hub-error-handling-in-the-ip35-kernel	Hub error handling in the IP35 kernel
+BEDROCK-PI0	0x128		w8	4	4	acktmoclock	local alias	6.5.22/unix.IP35:acktmoclock	named-only	docs/ip35-hub-errors.md#hub-widget-shutdown	Hub widget shutdown
+BEDROCK-PI0	0x130		w8	4	4	ackkgclock	local alias	6.5.22/unix.IP35:ackkgclock	undocumented		
+BEDROCK-PI0	0x138		w8	4	4	ackkgclock	local alias	6.5.22/unix.IP35:ackkgclock	named-only	docs/ip35-hub-errors.md#hub-error-handling-in-the-ip35-kernel	Hub error handling in the IP35 kernel
+BEDROCK-PI0	0x150		w8	8	4	slowkgclock;startkgclock	local alias	6.5.22/unix.IP35:slowkgclock	undocumented		
+BEDROCK-PI0	0x158		w8	8	4	slowkgclock;startkgclock	local alias	6.5.22/unix.IP35:slowkgclock	undocumented		
+BEDROCK-PI0	0x400		r8,w8	56	4	err_int_unblock_mask;handle_io_buserr;handle_uncac_buserr;hubpi_eint_handler	local alias	6.5.22/unix.IP35:err_int_unblock_mask	named-only	docs/ip35-hub-errors.md#hub-error-handling-in-the-ip35-kernel	Hub error handling in the IP35 kernel
+BEDROCK-PI0	0x408		w8	4	4	stop_all_cpus	local alias	6.5.22/unix.IP35:stop_all_cpus	named-only	docs/ip35-hub-errors.md#hub-error-handling-in-the-ip35-kernel	Hub error handling in the IP35 kernel
+BEDROCK-PI0	0x410		w8	4	4	stop_all_cpus	local alias	6.5.22/unix.IP35:stop_all_cpus	named-only	docs/ip35-hub-errors.md#hub-error-handling-in-the-ip35-kernel	Hub error handling in the IP35 kernel
+BEDROCK-PI0	0x4c8		r8,w8	8	4	hubpi_eint_handler	local alias	6.5.22/unix.IP35:hubpi_eint_handler	named-only	docs/ip35-hub-errors.md#hub-error-handling-in-the-ip35-kernel	Hub error handling in the IP35 kernel
+BEDROCK-PI0	0x4d0		r8,w8	8	4	hubpi_eint_handler	local alias	6.5.22/unix.IP35:hubpi_eint_handler	named-only	docs/ip35-hub-errors.md#hub-error-handling-in-the-ip35-kernel	Hub error handling in the IP35 kernel
+BEDROCK-PI0	0x30100		r8	702	72	_64bitlockdebug;_64bitunlockdebug;__nanotime;_mraccess;_mrupdate;bitlockdebug;+134 more	local alias	6.5.22/unix.IP35:__nanotime	named-only	docs/ip27-kernel-io.md#cache-error-handling	Cache error handling
+BEDROCK-SPECIAL	0x4000000		r8	116	21	cn_init;cpu_node_probe;ef_ioc3eaddr;fake_a_part_number;fake_a_product_name;gbrick_eeprom_read;+17 more	special local window	6.5.22/unix.IP35:cpu_node_probe	undocumented		
+BRIDGE	0x4		r4	78	16	pcireg_id_get;pcireg_intr_addr_addr_set;pcireg_intr_addr_vect_set;pcireg_nic_addr;pcireg_stat_get;xbridge_attach	caller argument;return of pcibr_bridge_ptr_get	6.5.22/unix.IP27:pcireg_id_get	named-only	docs/ip35-pci-bridge.md#crossbar-attach-and-links	Crossbar attach and links
+BRIDGE	0x8		r8	30	10	pcireg_id_get;pcireg_intr_addr_addr_set;pcireg_intr_addr_vect_set;pcireg_nic_addr;pcireg_stat_get	caller argument	6.5.22/unix.IP27:pcireg_id_get	named-only	docs/ip35-pcibr-registers.md#bridge-register-accessors-in-the-ip35-pcibr-object	Bridge register accessors in the IP35 pcibr object
+BRIDGE	0x72		r2	30	10	pcireg_id_get;pcireg_intr_addr_addr_set;pcireg_intr_addr_vect_set;pcireg_nic_addr;pcireg_stat_get	caller argument	6.5.22/unix.IP27:pcireg_id_get	undocumented		
+BRIDGE	0x84		w4	4	4	ip30_chips_mlreset	widget 15 window	6.5.22/unix.IP30:ip30_chips_mlreset	undocumented		
+BRIDGE	0x104		r4	4	4	cpu_waitforreset	widget 15 window	6.5.22/unix.IP30:cpu_waitforreset	undocumented		
+BRIDGE	0x284		w4	4	4	ip30_chips_mlreset	widget 15 window	6.5.22/unix.IP30:ip30_chips_mlreset	named-only	docs/ip35-pci-bridge.md#bridge-register-accessors-in-the-6522-ip35-pcibr-object	Bridge register accessors in the 6.5.22 IP35 pcibr object
+BRIDGE	0x28c		w4	4	4	ip30_chips_mlreset	widget 15 window	6.5.22/unix.IP30:ip30_chips_mlreset	undocumented		
+BRIDGE	0x18000		w8	4	4	pic_attach2	caller argument	6.5.22/unix.IP35:pic_attach2	undocumented		
+BRIDGE	0x18008		w8	4	4	pic_attach2	caller argument	6.5.22/unix.IP35:pic_attach2	undocumented		
+BRIDGE	0x18800		w8	4	4	pic_attach2	caller argument	6.5.22/unix.IP35:pic_attach2	undocumented		
+BRIDGE	0x18808		w8	4	4	pic_attach2	caller argument	6.5.22/unix.IP35:pic_attach2	undocumented		
+BRIDGE	0x19000		w8	4	4	pic_attach2	caller argument	6.5.22/unix.IP35:pic_attach2	undocumented		
+BRIDGE	0x19008		w8	4	4	pic_attach2	caller argument	6.5.22/unix.IP35:pic_attach2	undocumented		
+BRIDGE	0x600028		r4,w4	12	4	restore_ioc3_sio;slow_ioc3_sio	widget 15 window	6.5.22/unix.IP30:restore_ioc3_sio	undocumented		
+BRIDGE	0x60002c		w4	4	4	mlreset	widget 15 window	6.5.22/unix.IP30:mlreset	undocumented		
+BRIDGE	0x600034		w4	2	2	pckbd_bell	widget 15 window	6.5.22/unix.IP30:pckbd_bell	undocumented		
+BRIDGE	0x600038		w4	10	4	mlreset;silence_all_audio;stop_bell	widget 15 window	6.5.22/unix.IP30:mlreset	undocumented		
+BRIDGE	0x600040		w4	8	4	set_leds	widget 15 window	6.5.22/unix.IP30:set_leds	undocumented		
+BRIDGE	0x600044		w4	8	4	set_leds	widget 15 window	6.5.22/unix.IP30:set_leds	undocumented		
+BRIDGE	0x600048		r4	4	4	mlreset	widget 15 window	6.5.22/unix.IP30:mlreset	undocumented		
+BRIDGE	0x6a0000		w1	216	4	_clock_func;cpu_clearpower;cpu_soft_powerdown;ip30_get_an_nvram;ip30_set_an_nvram;nvchecksum;+2 more	widget 15 window	6.5.22/unix.IP30:_clock_func	undocumented		
+BRIDGE	0x6c0000		r1,w1	216	4	_clock_func;cpu_clearpower;cpu_soft_powerdown;ip30_get_an_nvram;ip30_set_an_nvram;nvchecksum;+2 more	widget 15 window	6.5.22/unix.IP30:_clock_func	undocumented		
+HEART-PIU	0x0		r8,w8	16	4	cpu_disable;dobuserr_common;mlreset	PIU register block	6.5.22/unix.IP30:cpu_disable	named-only	docs/ip35-pci-bridge.md#bridge-attach	Bridge attach
+HEART-PIU	0x18		r8,w8	12	4	dobuserr_common	PIU register block	6.5.22/unix.IP30:dobuserr_common	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
+HEART-PIU	0x40		r8,w8	39	7	MgrasGeneralInterrupt;Mgras_FC_Disable;gfx_flow_attach_me;gfx_flow_dealloc;gfx_flow_delayed_hiwater_intr_prehandler;gfx_flow_detach_me;+2 more	PIU register block	6.5.22/usr/cpu/sysgen/IP30boot/gfxs.a(gfx_flow.o):gfx_flow_attach_me	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+HEART-PIU	0x48		r8,w8	5	5	MgrasGeneralInterrupt;gfx_flow_pipe_head_init	PIU register block	6.5.22/usr/cpu/sysgen/IP30boot/gfxs.a(gfx_flow.o):gfx_flow_pipe_head_init	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
+HEART-PIU	0x50		r8	2	2	MgrasGeneralInterrupt	PIU register block	6.5.22/usr/cpu/sysgen/IP30boot/mgras.a(mgras.o):MgrasGeneralInterrupt	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
+HEART-PIU	0x58		r8	2	2	MgrasGeneralInterrupt	PIU register block	6.5.22/usr/cpu/sysgen/IP30boot/mgras.a(mgras.o):MgrasGeneralInterrupt	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
+HEART-PIU	0x60		r8	2	2	MgrasGeneralInterrupt	PIU register block	6.5.22/usr/cpu/sysgen/IP30boot/mgras.a(mgras.o):MgrasGeneralInterrupt	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+HEART-PIU	0x68		r8	2	2	MgrasGeneralInterrupt	PIU register block	6.5.22/usr/cpu/sysgen/IP30boot/mgras.a(mgras.o):MgrasGeneralInterrupt	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+HEART-PIU	0x70		r8	2	2	MgrasGeneralInterrupt	PIU register block	6.5.22/usr/cpu/sysgen/IP30boot/mgras.a(mgras.o):MgrasGeneralInterrupt	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
+HEART-PIU	0x78		r8	2	2	MgrasGeneralInterrupt	PIU register block	6.5.22/usr/cpu/sysgen/IP30boot/mgras.a(mgras.o):MgrasGeneralInterrupt	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+HEART-PIU	0x80		r8	60	22	MgrasGeneralInterrupt;cpu_exists;gfP_OdsySaveHwShadow;gf_OdsyAttach;gf_OdsyDestroyDDRN;gf_OdsyInitialize;+11 more	PIU register block	6.5.22/unix.IP30:cpu_exists	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+HEART-PIU	0x88		r8	4	4	dobuserr_common	PIU register block	6.5.22/unix.IP30:dobuserr_common	undocumented		
+HEART-PIU	0x90		r8	4	4	dobuserr_common	PIU register block	6.5.22/unix.IP30:dobuserr_common	named-only	docs/interrupts.md#hub-interrupt-routing-as-the-kernel-programs-it	Hub interrupt routing as the kernel programs it
+HEART-PIU	0x98		r8	8	4	dobuserr_common;ecc_handler	PIU register block	6.5.22/unix.IP30:dobuserr_common	named-only	docs/interrupts.md#hub-interrupt-routing-as-the-kernel-programs-it	Hub interrupt routing as the kernel programs it
+HEART-PIU	0xa0		r8	4	4	dobuserr_common	PIU register block	6.5.22/unix.IP30:dobuserr_common	named-only	docs/interrupts.md#hub-interrupt-routing-as-the-kernel-programs-it	Hub interrupt routing as the kernel programs it
+HEART-PIU	0xa8		r8	4	4	dobuserr_common	PIU register block	6.5.22/unix.IP30:dobuserr_common	named-only	docs/interrupts.md#hub-interrupt-routing-as-the-kernel-programs-it	Hub interrupt routing as the kernel programs it
+HEART-PIU	0x10000		w8	4	4	heart_mlreset	PIU register block	6.5.22/unix.IP30:heart_mlreset	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+HEART-PIU	0x10008		w8	4	4	heart_mlreset	PIU register block	6.5.22/unix.IP30:heart_mlreset	undocumented		
+HEART-PIU	0x10010		w8	4	4	heart_mlreset	PIU register block	6.5.22/unix.IP30:heart_mlreset	undocumented		
+HEART-PIU	0x10018		w8	4	4	heart_mlreset	PIU register block	6.5.22/unix.IP30:heart_mlreset	undocumented		
+HEART-PIU	0x10020		w8	20	4	debug_stop_all_cpus;dobuserr_common;heart_set_cpu_intr;sendintr	PIU register block	6.5.22/unix.IP30:debug_stop_all_cpus	undocumented		
+HEART-PIU	0x10028		w8	34	8	chkdebug;clear_cpu_intr;gfx_flow_alloc;gfx_flow_dealloc;heart_cpu_intr;heart_debug_intr;+2 more	PIU register block	6.5.22/unix.IP30:chkdebug	undocumented		
+HEART-PIU	0x10030		r8	10	8	MgrasGeneralInterrupt;chkdebug;dobuserr_common	PIU register block	6.5.22/unix.IP30:chkdebug	undocumented		
+HEART-PIU	0x10038		r8	10	6	MgrasGeneralInterrupt;heart_intr	PIU register block	6.5.22/unix.IP30:heart_intr	undocumented		
+HEART-PIU	0x10040		r8,w8	112	6	badaddr;badaddr_val;baerror;dobuserr_common;earlybadaddr;earlybaerror;+5 more	PIU register block	6.5.22/unix.IP30:badaddr	undocumented		
+HEART-PIU	0x20000		r8	480	50	_64bitlockdebug;_64bitunlockdebug;__nanotime;_mraccess;_mrupdate;_ticksper1024inst;+93 more	PIU register block	6.5.22/unix.IP30:__nanotime	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
+HEART-PIU	0x20004		r4	4	4	_get_timestamp	PIU register block	6.5.22/unix.IP30:_get_timestamp	undocumented		
+HEART-PIU	0x40008		w8	2	2	MgrasGeneralInterrupt	PIU register block	6.5.22/usr/cpu/sysgen/IP30boot/mgras.a(mgras.o):MgrasGeneralInterrupt	undocumented		
+HEART-PIU	0x50000		r8	88	4	VEC_dbe;VEC_ibe;_ecc_errorvec;badaddr;badaddr_val;baerror;+7 more	PIU register block	6.5.22/unix.IP30:VEC_dbe	undocumented		
+HEART-PIU	0x60000		r8	24	4	dobuserr_common	PIU register block	6.5.22/unix.IP30:dobuserr_common	undocumented		
+HEART-W8	0x100000		r8	68	4	VEC_dbe;VEC_ibe;badaddr;badaddr_val;baerror;earlybadaddr;+4 more	widget 8 block	6.5.22/unix.IP30:VEC_dbe	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
+HEART-W8	0x100004		r4	4	4	heart_rev	widget 8 block	6.5.22/unix.IP30:heart_rev	named-only	docs/interrupts.md#routines	Routines
+HEART-W8	0x100014		r4	4	4	dobuserr_common	widget 8 block	6.5.22/unix.IP30:dobuserr_common	undocumented		
+HEART-W8	0x10001c		r4	4	4	dobuserr_common	widget 8 block	6.5.22/unix.IP30:dobuserr_common	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+HEART-W8	0x10002c		r4,w4	16	6	giobr_attach;heart_startup	widget 8 block	6.5.22/unix.IP30:giobr_attach	undocumented		
+HEART-W8	0x100040		w8	28	4	badaddr;badaddr_val;baerror;earlybadaddr;earlybaerror;wbadaddr;+1 more	widget 8 block	6.5.22/unix.IP30:badaddr	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+HEART-W8	0x100044		r4,w4	12	6	dobuserr_common;heart_mlreset	widget 8 block	6.5.22/unix.IP30:dobuserr_common	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+HEART-W8	0x100060		r8,w8	72	6	badaddr;badaddr_val;baerror;dobuserr_common;earlybadaddr;earlybaerror;+3 more	widget 8 block	6.5.22/unix.IP30:badaddr	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+HEART-W8	0x100068		w8	8	4	heart_mlreset	widget 8 block	6.5.22/unix.IP30:heart_mlreset	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+HEART-W8	0x100070		r8	4	4	dobuserr_common	widget 8 block	6.5.22/unix.IP30:dobuserr_common	named-only	docs/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
+HEART-W8	0x100078		r8	4	4	dobuserr_common	widget 8 block	6.5.22/unix.IP30:dobuserr_common	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+HEART-W8	0x100090		r8	4	4	dobuserr_common	widget 8 block	6.5.22/unix.IP30:dobuserr_common	named-only	docs/interrupts.md#hub-interrupt-routing-as-the-kernel-programs-it	Hub interrupt routing as the kernel programs it
+HUB-II	0x400008		r8	4	4	save_hub_io_error	node register pointer argument	6.5.22/unix.IP27:save_hub_io_error	named-only	docs/interrupts.md#routines	Routines
+HUB-II	0x400130		r8,w8	8	4	ii_llp_error_monitor	local alias	6.5.22/unix.IP27:ii_llp_error_monitor	undocumented		
+HUB-II	0x400198		r8	4	4	save_hub_err_ext	node register pointer argument	6.5.22/unix.IP27:save_hub_err_ext	undocumented		
+HUB-II	0x4001f8		w8	8	4	bte_init	local alias	6.5.22/unix.IP27:bte_init	undocumented		
+HUB-II	0x400400		r8	4	4	save_hub_io_error	node register pointer argument	6.5.22/unix.IP27:save_hub_io_error	named-only	docs/ip27-driver-attach-interrupts.md#qlogic-scsi-controller	QLogic SCSI controller
+HUB-II	0x400408		r8	4	4	save_hub_err_ext	node register pointer argument	6.5.22/unix.IP27:save_hub_err_ext	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+HUB-II	0x400410		r8	4	4	save_hub_io_error	node register pointer argument	6.5.22/unix.IP27:save_hub_io_error	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+HUB-II	0x400428		r8	4	4	save_hub_err_ext	node register pointer argument	6.5.22/unix.IP27:save_hub_err_ext	undocumented		
+HUB-II	0x410000		r8	4	4	save_hub_io_error	node register pointer argument	6.5.22/unix.IP27:save_hub_io_error	named-only	docs/ip27-driver-attach-interrupts.md#ioc3-ethernet-ip27-ef-driver	IOC3 Ethernet (IP27 `ef` driver)
+HUB-II	0x410008		r8	4	4	save_hub_io_error	node register pointer argument	6.5.22/unix.IP27:save_hub_io_error	undocumented		
+HUB-II	0x410010		r8	4	4	save_hub_io_error	node register pointer argument	6.5.22/unix.IP27:save_hub_io_error	undocumented		
+HUB-II	0x420000		r8	4	4	save_hub_io_error	node register pointer argument	6.5.22/unix.IP27:save_hub_io_error	named-only	docs/ip27-driver-attach-interrupts.md#ioc3-ethernet-ip27-ef-driver	IOC3 Ethernet (IP27 `ef` driver)
+HUB-II	0x420008		r8	4	4	save_hub_io_error	node register pointer argument	6.5.22/unix.IP27:save_hub_io_error	undocumented		
+HUB-II	0x420010		r8	4	4	save_hub_io_error	node register pointer argument	6.5.22/unix.IP27:save_hub_io_error	undocumented		
+HUB-MD	0x200018		r8	12	4	mdir_xlate_addr_mem;mdir_xlate_addr_pdir;mdir_xlate_addr_sdir	local alias	6.5.22/unix.IP27:mdir_xlate_addr_mem	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
+HUB-MD	0x200050		r8	4	4	save_hub_md_error	node register pointer argument	6.5.22/unix.IP27:save_hub_md_error	named-only	docs/ip27-driver-attach-interrupts.md#ioc3-ethernet-ip27-ef-driver	IOC3 Ethernet (IP27 `ef` driver)
+HUB-MD	0x200060		r8	4	4	save_hub_md_error	node register pointer argument	6.5.22/unix.IP27:save_hub_md_error	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
+HUB-MD	0x200070		r8	4	4	save_hub_md_error	node register pointer argument	6.5.22/unix.IP27:save_hub_md_error	named-only	docs/page-migration.md#policy-interfaces	Policy interfaces
+HUB-MD	0x200080		r8	4	4	save_hub_md_error	node register pointer argument	6.5.22/unix.IP27:save_hub_md_error	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
+HUB-MD	0x220048		r8	4	4	get_my_slotid	local alias	6.5.22/unix.IP27:get_my_slotid	named-only	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
+HUB-MD	0x220050		w8	16	4	sn00_vmc	local alias	6.5.22/unix.IP27:sn00_vmc	undocumented		
+HUB-NI	0x600000		r8	36	6	bootstrap;check_ni_errors;get_nasid;gfx_flow_attach_me;gfx_flow_detach_me;is_fine_dirmode;+3 more	local alias	6.5.22/unix.IP27:bootstrap	named-only	docs/klconfig.md#node-numbering-at-boot	Node numbering at boot
+HUB-NI	0x600008		w8	20	4	force_system_shutdown;hubni_error_handler;llp_pfail_intr;ni_reset_port;restart	local alias	6.5.22/unix.IP27:force_system_shutdown	named-only	docs/interrupts.md#routines	Routines
+HUB-NI	0x600010		r8	12	4	check_ni_errors;hubni_error_handler	local alias	6.5.22/unix.IP27:check_ni_errors	named-only	docs/ip27-driver-attach-interrupts.md#qlogic-scsi-controller	QLogic SCSI controller
+HUB-NI	0x600110		r8,w8	8	4	llp_pfail_intr	local alias	6.5.22/unix.IP27:llp_pfail_intr	undocumented		
+HUB-NI	0x600300		r8	4	4	save_hub_ni_error	node register pointer argument	6.5.22/unix.IP27:save_hub_ni_error	named-only	docs/ip27-driver-attach-interrupts.md#qlogic-scsi-controller	QLogic SCSI controller
+HUB-NI	0x608008		r8	16	4	check_ni_errors;hubni_error_handler;ni_llp_error_monitor;save_hub_ni_error	local alias;node register pointer argument	6.5.22/unix.IP27:check_ni_errors	named-only	docs/ip27-driver-attach-interrupts.md#qlogic-scsi-controller	QLogic SCSI controller
+HUB-NI	0x608088		r8	40	4	check_ni_errors;hubni_error_handler;llp_pfail_intr;ni_llp_error_monitor	local alias	6.5.22/unix.IP27:check_ni_errors	undocumented		
+HUB-PI	0x18		r8	4	4	handle_cac_buserr	local alias	6.5.22/unix.IP27:handle_cac_buserr	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
+HUB-PI	0x20		r8	24	6	get_myid;get_slice;getcpuid;hub_error_status_war;klsave_spool_registers;save_cache_error	local alias	6.5.22/unix.IP27:get_myid	named-only	docs/interrupts.md#ip35-differences	IP35 differences
+HUB-PI	0x28		r8	8	4	memory_iscalias;page_local_calias	local alias	6.5.22/unix.IP27:memory_iscalias	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
+HUB-PI	0x40		r8	4	4	hub_error_init	local alias	6.5.22/unix.IP27:hub_error_init	named-only	docs/ip27-driver-attach-interrupts.md#qlogic-scsi-controller	QLogic SCSI controller
+HUB-PI	0x48		r8	8	4	hub_error_init	local alias	6.5.22/unix.IP27:hub_error_init	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers
+HUB-PI	0x50		r8	8	4	hub_error_init;save_hub_pi_error	local alias;node register pointer argument	6.5.22/unix.IP27:hub_error_init	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+HUB-PI	0x58		r8	8	4	hub_error_init;save_hub_pi_error	local alias;node register pointer argument	6.5.22/unix.IP27:hub_error_init	named-only	docs/ip27-driver-attach-interrupts.md#ioc3-interrupt-dispatch	IOC3 interrupt dispatch
+HUB-PI	0x90		w8	34	8	cpuintr;dbgintr;gfx_flow_detach_me;intpend0;intpend1;intr_clear_bits;+2 more	local alias	6.5.22/unix.IP27:cpuintr	named-only	docs/interrupts.md#hub-interrupt-routing-as-the-kernel-programs-it	Hub interrupt routing as the kernel programs it
+HUB-PI	0x98		r8	42	8	cpuintr;dbgintr;gfx_flow_detach_me;intpend0;intpend1;intr_clear_bits;+2 more	local alias	6.5.22/unix.IP27:cpuintr	named-only	docs/interrupts.md#hub-interrupt-routing-as-the-kernel-programs-it	Hub interrupt routing as the kernel programs it
+HUB-PI	0xa0		r8	16	4	check_ni_errors;chkdebug;intpend1	local alias	6.5.22/unix.IP27:check_ni_errors	named-only	docs/interrupts.md#hub-interrupt-routing-as-the-kernel-programs-it	Hub interrupt routing as the kernel programs it
+HUB-PI	0x118		w8	8	4	prof_intr;startkgclock	local alias	6.5.22/unix.IP27:prof_intr	undocumented		
+HUB-PI	0x120		w8	4	4	acktmoclock	local alias	6.5.22/unix.IP27:acktmoclock	undocumented		
+HUB-PI	0x128		w8	4	4	acktmoclock	local alias	6.5.22/unix.IP27:acktmoclock	undocumented		
+HUB-PI	0x130		w8	4	4	ackkgclock	local alias	6.5.22/unix.IP27:ackkgclock	undocumented		
+HUB-PI	0x138		w8	4	4	ackkgclock	local alias	6.5.22/unix.IP27:ackkgclock	undocumented		
+HUB-PI	0x150		w8	8	4	slowkgclock;startkgclock	local alias	6.5.22/unix.IP27:slowkgclock	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
+HUB-PI	0x158		w8	8	4	slowkgclock;startkgclock	local alias	6.5.22/unix.IP27:slowkgclock	named-only	docs/klconfig.md#early-platform-setup	Early platform setup
+HUB-PI	0x400		r8,w8	52	4	err_int_unblock_mask;handle_io_buserr;handle_uncac_buserr;hubpi_eint_handler;save_hub_pi_error	local alias;node register pointer argument	6.5.22/unix.IP27:err_int_unblock_mask	named-only	docs/ip27-driver-attach-interrupts.md#qlogic-scsi-controller	QLogic SCSI controller
+HUB-PI	0x408		r8,w8	16	4	hub_error_init	local alias	6.5.22/unix.IP27:hub_error_init	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+HUB-PI	0x410		r8,w8	16	4	hub_error_init	local alias	6.5.22/unix.IP27:hub_error_init	named-only	docs/ip27-kernel-io.md#node-driver-control-calls	Node driver control calls
+HUB-PI	0x418		r8	8	4	hub_error_init	local alias	6.5.22/unix.IP27:hub_error_init	undocumented		
+HUB-PI	0x420		r8,w8	16	4	hub_error_init	local alias	6.5.22/unix.IP27:hub_error_init	undocumented		
+HUB-PI	0x428		r8	8	4	hub_error_init	local alias	6.5.22/unix.IP27:hub_error_init	undocumented		
+HUB-PI	0x430		r8	12	4	hub_error_status_war;save_hub_pi_error	local alias;node register pointer argument	6.5.22/unix.IP27:hub_error_status_war	undocumented		
+HUB-PI	0x440		r8	4	4	save_hub_pi_error	node register pointer argument	6.5.22/unix.IP27:save_hub_pi_error	undocumented		
+HUB-PI	0x448		w8	4	4	hub_error_init	local alias	6.5.22/unix.IP27:hub_error_init	undocumented		
+HUB-PI	0x450		r8	12	4	hub_error_status_war;save_hub_pi_error	local alias;node register pointer argument	6.5.22/unix.IP27:hub_error_status_war	undocumented		
+HUB-PI	0x460		r8	4	4	save_hub_pi_error	node register pointer argument	6.5.22/unix.IP27:save_hub_pi_error	undocumented		
+HUB-PI	0x468		w8	4	4	hub_error_init	local alias	6.5.22/unix.IP27:hub_error_init	undocumented		
+HUB-PI	0x30100		r8	792	62	_64bitlockdebug;_64bitunlockdebug;__nanotime;_mraccess;_mrupdate;bitlockdebug;+129 more	local alias	6.5.22/unix.IP27:__nanotime	named-only	docs/ip27-kernel-io.md#cache-error-handling	Cache error handling
+IOC3	0x2c		w4	8	8	eiattach	return of ioc3_mem_ptr	6.5.22/unix.IP27:eiattach	named-only	docs/ip35-ioc3.md#keyboard-and-mouse-aliases	Keyboard and mouse aliases
+IOC3	0x34		w4	8	8	eiattach	return of ioc3_mem_ptr	6.5.22/unix.IP27:eiattach	named-only	docs/ip35-ioc3.md#ioc3-driver-routines-of-the-ip35-kernel	IOC3 driver routines of the IP35 kernel
+IOC3	0x38		w4	8	8	eiattach	return of ioc3_mem_ptr	6.5.22/unix.IP27:eiattach	undocumented		
+IOC3	0x9c		w4	12	12	pckm_attach	return of ioc3_mem_ptr	6.5.22/unix.IP27:pckm_attach	named-only	docs/nic.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
+IOC4	0xc		w4	4	4	ioc4_eiattach	return of ioc4_mem_ptr	6.5.22/unix.IP35:ioc4_eiattach	undocumented		
+IOC4	0x28		w4	4	4	ioc4_eiattach	return of ioc4_mem_ptr	6.5.22/unix.IP35:ioc4_eiattach	named-only	docs/ip35-ioc3.md#ioc3-driver-routines-of-the-ip35-kernel	IOC3 driver routines of the IP35 kernel
+IOC4	0x30		w4	8	4	ioc4_eiattach	return of ioc4_mem_ptr	6.5.22/unix.IP35:ioc4_eiattach	named-only	docs/ip35-ioc3.md#ioc3-driver-routines-of-the-ip35-kernel	IOC3 driver routines of the IP35 kernel
+IOC4	0x34		w4	4	4	ioc4_eiattach	return of ioc4_mem_ptr	6.5.22/unix.IP35:ioc4_eiattach	named-only	docs/ip35-ioc3.md#ioc3-driver-routines-of-the-ip35-kernel	IOC3 driver routines of the IP35 kernel
+IOC4	0x200		w4	4	4	ioc4_pckm_attach	return of ioc4_mem_ptr	6.5.22/unix.IP35:ioc4_pckm_attach	undocumented		
+XBOW	0x4		r4	22	9	heart_startup;ip30_early_piotrans_addr;odsyLowLevelReset;syssgi	widget 0 window	6.5.22/unix.IP30:heart_startup	named-only	docs/ip35-xtalk.md#crosstalk-layer-entry-points-of-the-ip35-kernel	Crosstalk layer entry points of the IP35 kernel
+XBOW	0x24		r4,w4	12	3	odsyLowLevelReset	widget 0 window	6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_init.o):odsyLowLevelReset	undocumented		
+XBOW	0x34		w4	12	12	xbow_intr_preset	Crossbow register pointer argument	6.5.22/unix.IP27:xbow_intr_preset	undocumented		
+XBOW	0x3c		w4	12	12	xbow_intr_preset	Crossbow register pointer argument	6.5.22/unix.IP27:xbow_intr_preset	undocumented		
+XBOW	0x7c		r4,w4	6	3	odsyLowLevelReset	widget 0 window	6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_init.o):odsyLowLevelReset	undocumented		
+XBOW	0xbc		r4,w4	6	3	odsyLowLevelReset	widget 0 window	6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_init.o):odsyLowLevelReset	undocumented		
