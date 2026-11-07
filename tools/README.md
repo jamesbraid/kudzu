@@ -4,7 +4,8 @@ Everything runs in a container built from `Containerfile`, so the host needs onl
 
     tools/setup-clone.sh --root /path/to/filled/root   # root/ link and the public-source submodules
     tools/re-run python3 scripts/inventory.py          # the first run builds the image
-    tools/re-run python3 scripts/os_tables.py --release 6.5.30
+    tools/re-run python3 scripts/os_tables.py          # both releases under root/; run it after inventory.py
+    tools/check-os-tables                              # the committed tables are what the two scripts generate
     tools/re-run python3 scripts/gen-scope.py --check
     tools/re-run python3 scripts/check_claims.py --status all
     scripts/check-leaks.sh

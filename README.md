@@ -14,6 +14,7 @@ The host needs Podman, git and python3. Everything else runs in a container; [to
 
     tools/re-run python3 scripts/inventory.py     # binaries, functions, ioctls, scope
     tools/re-run python3 scripts/os_tables.py     # system calls, structures, panic sites, formats
+    tools/check-os-tables                         # fail if the committed tables are stale
 
 The generated tables are in [docs/inventory/](docs/inventory/README.md). `git status --short docs` shows nothing after a run when your `root/` matches `scripts/inventory-root.sha256`.
 

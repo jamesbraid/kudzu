@@ -4,7 +4,8 @@ Every file in this directory is generated. Do not edit by hand: change the docum
 
     tools/re-run python3 scripts/gen-scope.py        # only after scripts/scope.json changes
     tools/re-run python3 scripts/inventory.py
-    tools/re-run python3 scripts/os_tables.py --release 6.5.30   # needs the functions table from inventory.py
+    tools/re-run python3 scripts/os_tables.py                    # needs the functions table from inventory.py; both releases
+    tools/check-os-tables                                         # fails when the committed tables are not what these produce
 
 `scripts/inventory.py` is shared with the sibling repositories. It writes `binaries.tsv`, `functions.tsv`, `ioctls.tsv` and `summary.tsv`, plus `mmio.tsv`, `tokens.tsv`, `ucode.tsv` and `spec-registers.tsv`, which are graphics-hardware tables that have no rows in this repository. The columns, the five statuses (`undocumented`, `named-only`, `located`, `understood`, `no-software-dependency`) and the rule that an entry must carry a label, a role and effect and a citation specific to its subject before a row counts as `understood` are the shared definition: they are the same as in the sibling repositories, whose inventory README holds the full column text. The reproducibility inputs are `scripts/inventory-root.sha256` (hash of every file read from `root/`) and `scripts/inventory-siblings.json` (empty here: no sibling workspace is compared).
 
