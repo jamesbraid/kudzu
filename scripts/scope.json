@@ -1,5 +1,5 @@
 {
-  "about": "In-scope rule for every binary group. scripts/gen-scope.py turns this file into the binaries and scope sections of scripts/inventory-config.json; docs/inventory/scope.tsv reports it. 'in' puts every function of the group in scope, 'narrow' only the functions whose names start with a prefix of narrow_prefixes, 'out' none. Out of scope means not yet: the inventory keeps listing the rows.",
+  "about": "In-scope rule for every binary group. scripts/gen-scope.py turns this file into the binaries and scope sections of scripts/inventory-config.json; docs/inventory/scope.tsv reports it. 'in' puts every function of the group in scope, 'narrow' only the functions whose names start with a prefix of narrow_prefixes, 'out' none. Out of scope means not yet: the inventory keeps listing the rows. 'keep' lists routines that sit in an out or narrow group but that the inventory scan finds reaching a register window: the run refuses to exclude them, so scripts/gen-scope.py gives each binary its glob names a rule that leaves them in scope.",
   "narrow_prefixes": [
     "kl(?:_|hwg|config|cfg|[A-Z])",
     "find_lboard",
@@ -194,5 +194,1707 @@
   "selector_scope": {
     "rule": "narrow",
     "reason": "A syssgi selector is in scope when the first routine its code calls matches narrow_prefixes, the rule of the kernel image. first_call is a heuristic (blank when the code branches before calling anything), so a blank selector is out of scope for now, not excluded."
-  }
+  },
+  "keep": [
+    {
+      "binary": "*/unix.IP27",
+      "names": ["pcireg_id_get", "pcireg_intr_addr_addr_set", "pcireg_intr_addr_vect_set", "pcireg_nic_addr", "pcireg_stat_get"],
+      "why": "accesses BRIDGE 0x4, BRIDGE 0x72, BRIDGE 0x8"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["save_hub_io_error"],
+      "why": "accesses HUB-II 0x400008, HUB-II 0x400400, HUB-II 0x400410, HUB-II 0x410000, HUB-II 0x410008, HUB-II 0x410010, HUB-II 0x420000, HUB-II 0x420008, HUB-II 0x420010; accesses the HUB register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["ii_llp_error_monitor"],
+      "why": "accesses HUB-II 0x400130"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["save_hub_err_ext"],
+      "why": "accesses HUB-II 0x400198, HUB-II 0x400408, HUB-II 0x400428; accesses the HUB register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["bte_init"],
+      "why": "accesses HUB-II 0x4001f8"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["mdir_xlate_addr_mem", "mdir_xlate_addr_pdir", "mdir_xlate_addr_sdir"],
+      "why": "accesses HUB-MD 0x200018"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["save_hub_md_error"],
+      "why": "accesses HUB-MD 0x200050, HUB-MD 0x200060, HUB-MD 0x200070, HUB-MD 0x200080"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["get_my_slotid"],
+      "why": "accesses HUB-MD 0x220048"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["bootstrap", "get_nasid", "gfx_flow_attach_me", "is_fine_dirmode", "start", "syssgi_pfshow"],
+      "why": "accesses HUB-NI 0x600000"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["check_ni_errors"],
+      "why": "accesses HUB-NI 0x600000, HUB-NI 0x600010, HUB-NI 0x608008, HUB-NI 0x608088, HUB-PI 0xa0"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["gfx_flow_detach_me"],
+      "why": "accesses HUB-NI 0x600000, HUB-PI 0x90, HUB-PI 0x98"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["force_system_shutdown", "ni_reset_port"],
+      "why": "accesses HUB-NI 0x600008"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["restart"],
+      "why": "accesses HUB-NI 0x600008; accesses the HUB register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["llp_pfail_intr"],
+      "why": "accesses HUB-NI 0x600008, HUB-NI 0x600110, HUB-NI 0x608088"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["save_hub_ni_error"],
+      "why": "accesses HUB-NI 0x600300, HUB-NI 0x608008"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["ni_llp_error_monitor"],
+      "why": "accesses HUB-NI 0x608008, HUB-NI 0x608088"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["acktmoclock"],
+      "why": "accesses HUB-PI 0x120, HUB-PI 0x128"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["ackkgclock"],
+      "why": "accesses HUB-PI 0x130, HUB-PI 0x138"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["slowkgclock"],
+      "why": "accesses HUB-PI 0x150, HUB-PI 0x158"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["handle_cac_buserr"],
+      "why": "accesses HUB-PI 0x18"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["get_myid", "get_slice", "getcpuid"],
+      "why": "accesses HUB-PI 0x20"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["page_local_calias"],
+      "why": "accesses HUB-PI 0x28"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["err_int_unblock_mask", "handle_io_buserr", "handle_uncac_buserr"],
+      "why": "accesses HUB-PI 0x400"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["save_hub_pi_error"],
+      "why": "accesses HUB-PI 0x400, HUB-PI 0x430, HUB-PI 0x440, HUB-PI 0x450, HUB-PI 0x460, HUB-PI 0x50, HUB-PI 0x58"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["cpuintr", "dbgintr", "intpend0", "tlbintr"],
+      "why": "accesses HUB-PI 0x90, HUB-PI 0x98"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["intpend1"],
+      "why": "accesses HUB-PI 0x90, HUB-PI 0x98, HUB-PI 0xa0"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["chkdebug"],
+      "why": "accesses HUB-PI 0xa0"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["eiattach"],
+      "why": "accesses IOC3 0x2c, IOC3 0x34, IOC3 0x38"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["pckm_attach"],
+      "why": "accesses IOC3 0x9c"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["__nanotime", "bte_copy", "bte_get_all_interfaces", "bte_wait_for_xfer_completion", "callout_time_to_hz", "capture_hub_stats", "capture_router_stats", "check_md_errors", "chktimeout_tick", "clear_hub_md_error", "clear_hub_pi_error", "counter_intr", "do_mprboot", "du_conpoll", "ef_intr", "eg_intr", "enter_panic_mode", "findcpufreq_cycles", "ftrc_event", "get_realtime_ticks", "gfx_flow_flush_my_wg", "init_hub_stats", "init_timebase", "klerror_check_recoverable", "klerror_global_check", "klsave_md_registers", "kona_tport_reset_adaptor", "ktimer_init", "ktimer_read", "ktimer_readticks", "ktimer_slptime", "ktimer_switch", "llp_pfail_barrier", "local_settime", "log_tstamp_event", "log_tstamp_vevent", "md_err_log_new", "nanotime", "nanotime_syscall", "random_write_internal", "real_dumpsys", "restore_cpu_err", "restore_hub_err", "rfscall", "rtc_read", "set_timer_intr", "strread", "sysctlr_keepalive", "tg_intr", "tick_maint", "timeout_get_queuehead", "tstoclock", "tvtoclock", "update_ust", "us_delay", "uuid_create", "xthread_periodic_timeout"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["prof_intr"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; accesses HUB-PI 0x118"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["startkgclock"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; accesses HUB-PI 0x118, HUB-PI 0x150, HUB-PI 0x158"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["klsave_spool_registers", "save_cache_error"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; accesses HUB-PI 0x20"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["migrate_timeouts", "tick_actions", "timein_body"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; accesses the HUB register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["bte_crb_error_handler", "bte_error_handler", "bte_stall_node", "cont_nmi_dump", "debug_stop_all_cpus", "do_powerfail_wars", "do_reset_wars", "dump_crb", "dump_hub_registers", "gfx_flow_init", "kf_hub_analyze", "llp_pfail_switch", "md_perf_start_count", "md_perf_update_count", "migr_intr_handler", "migr_intr_prologue_handler", "migr_refcnt_init", "move_buffer", "per_hub_init", "probe_common", "sendgroupintr"],
+      "why": "accesses the HUB register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["fcadpattach", "if_efattach", "if_tgattach", "rad1pciattach", "ssram_discovery", "universe_attach"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/unix.IP27",
+      "names": ["io6_vmc", "mio_vmc", "xiovme_vmc"],
+      "why": "accesses a crosstalk widget through a pointer a crosstalk mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["cpu_waitforreset"],
+      "why": "accesses BRIDGE 0x104"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["pcireg_id_get", "pcireg_nic_addr", "pcireg_stat_get"],
+      "why": "accesses BRIDGE 0x4, BRIDGE 0x72, BRIDGE 0x8"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["slow_ioc3_sio"],
+      "why": "accesses BRIDGE 0x600028"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["restore_ioc3_sio"],
+      "why": "accesses BRIDGE 0x600028, BRIDGE 0x6a0000, BRIDGE 0x6c0000"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["pckbd_bell"],
+      "why": "accesses BRIDGE 0x600034"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["silence_all_audio", "stop_bell"],
+      "why": "accesses BRIDGE 0x600038"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["set_leds"],
+      "why": "accesses BRIDGE 0x600040, BRIDGE 0x600044"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["_clock_func", "cpu_clearpower", "cpu_soft_powerdown", "nvchecksum", "set_autopoweron"],
+      "why": "accesses BRIDGE 0x6a0000, BRIDGE 0x6c0000"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["cpu_disable"],
+      "why": "accesses HEART-PIU 0x0"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["dobuserr_common"],
+      "why": "accesses HEART-PIU 0x0, HEART-PIU 0x10020, HEART-PIU 0x10030, HEART-PIU 0x10040, HEART-PIU 0x18, HEART-PIU 0x60000, HEART-PIU 0x88, HEART-PIU 0x90, HEART-PIU 0x98, HEART-PIU 0xa0, HEART-PIU 0xa8, HEART-W8 0x100014, HEART-W8 0x10001c, HEART-W8 0x100044, HEART-W8 0x100060, HEART-W8 0x100070, HEART-W8 0x100078, HEART-W8 0x100090"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["debug_stop_all_cpus", "sendintr"],
+      "why": "accesses HEART-PIU 0x10020"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["clear_cpu_intr", "gfx_flow_alloc"],
+      "why": "accesses HEART-PIU 0x10028"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["chkdebug"],
+      "why": "accesses HEART-PIU 0x10028, HEART-PIU 0x10030"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["gfx_flow_dealloc"],
+      "why": "accesses HEART-PIU 0x10028, HEART-PIU 0x40"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["wbadmemaddr"],
+      "why": "accesses HEART-PIU 0x10040"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["badaddr", "badaddr_val", "baerror", "earlybadaddr", "earlybaerror", "wbadaddr", "wbadaddr_val"],
+      "why": "accesses HEART-PIU 0x10040, HEART-PIU 0x50000, HEART-W8 0x100000, HEART-W8 0x100040, HEART-W8 0x100060"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["_get_timestamp"],
+      "why": "accesses HEART-PIU 0x20004"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["gfx_flow_attach_me", "gfx_flow_delayed_hiwater_intr_prehandler", "gfx_flow_detach_me", "gfx_flow_init"],
+      "why": "accesses HEART-PIU 0x40"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["gfx_flow_pipe_head_init"],
+      "why": "accesses HEART-PIU 0x40, HEART-PIU 0x48"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["_ecc_errorvec", "getcpuid", "nmi_dump"],
+      "why": "accesses HEART-PIU 0x50000"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["VEC_dbe", "VEC_ibe", "flushbus"],
+      "why": "accesses HEART-PIU 0x50000, HEART-W8 0x100000"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["cpu_exists", "gfP_OdsySaveHwShadow", "gf_OdsyAttach", "gf_OdsyDestroyDDRN", "gf_OdsyInitialize", "gf_OdsySchedSwapBuf", "gfx_flow_flush_my_wg", "odsyDMAOp", "odsyInitCfifo", "odsyReset", "odsyRestartContext"],
+      "why": "accesses HEART-PIU 0x80"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["pckm_attach"],
+      "why": "accesses IOC3 0x9c"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["odsyLowLevelReset"],
+      "why": "accesses XBOW 0x24, XBOW 0x4, XBOW 0x7c, XBOW 0xbc"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["syssgi"],
+      "why": "accesses XBOW 0x4"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["__nanotime", "_ticksper1024inst", "callout_time_to_hz", "chktimeout_tick", "counter_intr", "do_mprboot", "du_conpoll", "early_nic_access_mcr32", "ef_intr", "eg_intr", "enter_panic_mode", "find_pclk_freq", "ftrc_event", "get_realtime_ticks", "init_timebase", "ktimer_init", "ktimer_read", "ktimer_readticks", "ktimer_slptime", "ktimer_switch", "local_settime", "log_tstamp_event", "log_tstamp_vevent", "migrate_timeouts", "nanotime", "nanotime_syscall", "random_write_internal", "rfscall", "rtc_read", "set_timer_intr", "startrtclock", "strread", "tg_intr", "tick_maint", "timein_body", "timeout_get_queuehead", "tstoclock", "tvtoclock", "update_ust", "uuid_create", "xthread_periodic_timeout"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["fcadpattach", "if_efattach", "if_tgattach", "ssram_discovery"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/unix.IP30",
+      "names": ["io6_vmc", "mio_vmc", "odsy_attach", "srflash_attach", "srflash_flash_mem_check"],
+      "why": "accesses a crosstalk widget through a pointer a crosstalk mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["cn_init", "cpu_node_probe", "ef_ioc3eaddr", "fake_a_part_number", "fake_a_product_name", "gbrick_eeprom_read", "get_host_id", "get_kmod_sys_snum", "init_all_devices", "io_xswitch_widget_init", "main", "nonpeer_iobrick_eeprom_read", "rad_init", "scsi_ctlr_nums_add", "set_leds", "syssgi_hostident"],
+      "why": "reads the board-identification compatibility register (Bedrock special window offset 0x4000000)"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["scache_data_bit_location"],
+      "why": "reads the board-identification compatibility register (Bedrock special window offset 0x4000000); accesses BEDROCK-PI0 0x20"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["doadjtime", "dogetitimer", "init_fasthz_variables", "interval_tick_to_ts", "query_fasttimer", "rad_reset_ust", "rtc_resolution", "start_kdsp_timeout_thread", "start_tsio_timeout_thread", "startrtclock", "timer_settime", "timestamp_init", "ust_init"],
+      "why": "reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["bte_init"],
+      "why": "reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time; accesses BEDROCK-IO 0x4001f8"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["cpuprom_detailed_inventory_info_add"],
+      "why": "accesses BEDROCK-BOOT 0xa0, BEDROCK-BOOT 0xa4"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["ii_llp_error_monitor"],
+      "why": "accesses BEDROCK-IO 0x400130"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["bootstrap", "get_nasid", "is_fine_dirmode", "start"],
+      "why": "accesses BEDROCK-LB 0x600000"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["stop_all_cpus"],
+      "why": "accesses BEDROCK-LB 0x600000, BEDROCK-LB 0x604020, BEDROCK-LB 0x604028, BEDROCK-MD 0x780000, BEDROCK-PI0 0x20, BEDROCK-PI0 0x408, BEDROCK-PI0 0x410; accesses the BEDROCK register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["mdir_xlate_addr_mem", "mdir_xlate_addr_pdir", "mdir_xlate_addr_sdir"],
+      "why": "accesses BEDROCK-MD 0x780008"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["doacvec"],
+      "why": "accesses BEDROCK-MD 0x7a0038"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["ni_reset_port"],
+      "why": "accesses BEDROCK-NI 0x680008, BEDROCK-NI 0x680010"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["restart"],
+      "why": "accesses BEDROCK-NI 0x680008, BEDROCK-NI 0x680010; accesses the BEDROCK register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["check_ni_errors_nasid"],
+      "why": "accesses BEDROCK-NI 0x680108, BEDROCK-NI 0x680110, BEDROCK-NI 0x680118"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["ni_llp_error_monitor"],
+      "why": "accesses BEDROCK-NI 0x680120"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["acktmoclock"],
+      "why": "accesses BEDROCK-PI0 0x120, BEDROCK-PI0 0x128"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["ackkgclock"],
+      "why": "accesses BEDROCK-PI0 0x130, BEDROCK-PI0 0x138"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["slowkgclock"],
+      "why": "accesses BEDROCK-PI0 0x150, BEDROCK-PI0 0x158"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["handle_cac_buserr"],
+      "why": "accesses BEDROCK-PI0 0x18"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["get_myid", "get_slice", "getcpuid", "sc_set_system_state"],
+      "why": "accesses BEDROCK-PI0 0x20"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["page_local_calias"],
+      "why": "accesses BEDROCK-PI0 0x28"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["err_int_unblock_mask", "handle_io_buserr", "handle_uncac_buserr"],
+      "why": "accesses BEDROCK-PI0 0x400"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["cpuintr", "dbgintr", "gfx_flow_detach_me", "intpend0", "tlbintr"],
+      "why": "accesses BEDROCK-PI0 0x90, BEDROCK-PI0 0x98"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["intpend1"],
+      "why": "accesses BEDROCK-PI0 0x90, BEDROCK-PI0 0x98, BEDROCK-PI0 0xa0"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["chkdebug"],
+      "why": "accesses BEDROCK-PI0 0xa0"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["pic_attach2"],
+      "why": "accesses BRIDGE 0x18000, BRIDGE 0x18008, BRIDGE 0x18800, BRIDGE 0x18808, BRIDGE 0x19000, BRIDGE 0x19008; accesses the BRIDGE register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["pcireg_id_get", "pcireg_nic_addr", "pcireg_stat_get"],
+      "why": "accesses BRIDGE 0x4, BRIDGE 0x72, BRIDGE 0x8"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["eiattach"],
+      "why": "accesses IOC3 0x2c, IOC3 0x34, IOC3 0x38"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["pckm_attach"],
+      "why": "accesses IOC3 0x9c"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["ioc4_pckm_attach"],
+      "why": "accesses IOC4 0x200"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["ioc4_eiattach"],
+      "why": "accesses IOC4 0x28, IOC4 0x30, IOC4 0x34, IOC4 0xc"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["bte_copy", "bte_get_all_interfaces", "callout_time_to_hz", "capture_hub_stats", "capture_router_stats", "check_md_errors", "chktimeout_tick", "clear_hub_md_error", "clear_hub_pi_error", "do_mprboot", "du_conpoll", "ef_intr", "eg_intr", "enter_panic_mode", "ftrc_event", "get_realtime_ticks", "gfx_flow_flush_my_wg", "klerror_check_recoverable", "klerror_global_check", "klsave_md_registers", "kona_tport_reset_adaptor", "ktimer_init", "ktimer_read", "ktimer_readticks", "ktimer_slptime", "ktimer_switch", "local_settime", "log_tstamp_event", "log_tstamp_vevent", "md_err_log_new", "random_write_internal", "restore_cpu_err", "restore_hub_err", "rfscall", "rtc_read", "set_timer_intr", "strread", "tg_intr", "timeout_get_queuehead", "update_ust", "uuid_create", "xthread_periodic_timeout"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["__nanotime", "counter_intr", "findcpufreq_cycles", "generate_unique_id", "init_hub_stats", "init_timebase", "nanotime", "nanotime_syscall", "nonpeer_iobrick_uid_get", "random_eeprom_ch", "real_dumpsys", "rtr_uart_init", "rtr_uart_putc", "sc_recv_poll", "tick_maint", "tstoclock", "tvtoclock", "uart_init", "us_delay"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["prof_intr"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time; accesses BEDROCK-PI0 0x118"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["startkgclock"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time; accesses BEDROCK-PI0 0x118, BEDROCK-PI0 0x150, BEDROCK-PI0 0x158"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["migrate_timeouts"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time; accesses the BEDROCK register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["klsave_spool_registers", "save_cache_error"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; accesses BEDROCK-PI0 0x20"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["timein_body"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; accesses the BEDROCK register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["adjust_nmi_handler", "bte_crb_error_handler", "bte_error_handler", "cleanup_remote_pi", "cont_nmi_dump", "do_intr_block_bit", "dump_crb", "dump_error_spool", "dump_hub_registers", "gfx_flow_init", "md_perf_start_count", "md_perf_update_count", "move_buffer", "probe_common", "show_hub_pi_err"],
+      "why": "accesses the BEDROCK register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["if_efattach", "if_tgattach", "ioc4_attach", "ls_dofwdlboot", "print_xide_pciconfig", "ssram_discovery", "universe_attach", "xide_attach"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/unix.IP35",
+      "names": ["io6_vmc", "mio_vmc", "xiovme_vmc"],
+      "why": "accesses a crosstalk widget through a pointer a crosstalk mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/dhardlocks.a(dhardlocks.o)",
+      "names": ["_64bitlockdebug", "_64bitunlockdebug", "bitlockdebug", "bitunlockdebug", "spinlockdebug", "spinunlockdebug", "trybitlockdebug", "tryspinlockdebug"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/fcadp.a(fcadp.o)",
+      "names": ["fcadpattach"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/gfxs.a(gfx_flow.o)",
+      "names": ["gfx_flow_attach_me"],
+      "why": "accesses HUB-NI 0x600000"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/gfxs.a(gfx_flow.o)",
+      "names": ["gfx_flow_detach_me"],
+      "why": "accesses HUB-NI 0x600000, HUB-PI 0x90, HUB-PI 0x98"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/gfxs.a(gfx_flow.o)",
+      "names": ["gfx_flow_flush_my_wg"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/gfxs.a(gfx_flow.o)",
+      "names": ["gfx_flow_init"],
+      "why": "accesses the HUB register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/if_ef.o",
+      "names": ["ef_intr"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/if_ef.o",
+      "names": ["if_efattach", "ssram_discovery"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/if_eg.o",
+      "names": ["eg_intr"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/if_rns.o",
+      "names": ["if_rnsintr"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/if_rns.o",
+      "names": ["if_rnsattach"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/if_tg.o",
+      "names": ["ftrc_event", "tg_intr"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/if_tg.o",
+      "names": ["if_tgattach"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/ioc3_pckm.o",
+      "names": ["pckm_attach"],
+      "why": "accesses IOC3 0x9c"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/ioc3ei.o",
+      "names": ["eiattach"],
+      "why": "accesses IOC3 0x2c, IOC3 0x34, IOC3 0x38"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["save_hub_io_error"],
+      "why": "accesses HUB-II 0x400008, HUB-II 0x400400, HUB-II 0x400410, HUB-II 0x410000, HUB-II 0x410008, HUB-II 0x410010, HUB-II 0x420000, HUB-II 0x420008, HUB-II 0x420010; accesses the HUB register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["ii_llp_error_monitor"],
+      "why": "accesses HUB-II 0x400130"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["save_hub_err_ext"],
+      "why": "accesses HUB-II 0x400198, HUB-II 0x400408, HUB-II 0x400428; accesses the HUB register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["bte_init"],
+      "why": "accesses HUB-II 0x4001f8"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["mdir_xlate_addr_mem", "mdir_xlate_addr_pdir", "mdir_xlate_addr_sdir"],
+      "why": "accesses HUB-MD 0x200018"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["save_hub_md_error"],
+      "why": "accesses HUB-MD 0x200050, HUB-MD 0x200060, HUB-MD 0x200070, HUB-MD 0x200080"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["get_my_slotid"],
+      "why": "accesses HUB-MD 0x220048"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["bootstrap", "get_nasid", "is_fine_dirmode", "start", "syssgi_pfshow"],
+      "why": "accesses HUB-NI 0x600000"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["check_ni_errors"],
+      "why": "accesses HUB-NI 0x600000, HUB-NI 0x600010, HUB-NI 0x608008, HUB-NI 0x608088, HUB-PI 0xa0"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["force_system_shutdown", "ni_reset_port"],
+      "why": "accesses HUB-NI 0x600008"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["restart"],
+      "why": "accesses HUB-NI 0x600008; accesses the HUB register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["llp_pfail_intr"],
+      "why": "accesses HUB-NI 0x600008, HUB-NI 0x600110, HUB-NI 0x608088"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["save_hub_ni_error"],
+      "why": "accesses HUB-NI 0x600300, HUB-NI 0x608008"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["ni_llp_error_monitor"],
+      "why": "accesses HUB-NI 0x608008, HUB-NI 0x608088"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["acktmoclock"],
+      "why": "accesses HUB-PI 0x120, HUB-PI 0x128"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["ackkgclock"],
+      "why": "accesses HUB-PI 0x130, HUB-PI 0x138"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["slowkgclock"],
+      "why": "accesses HUB-PI 0x150, HUB-PI 0x158"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["handle_cac_buserr"],
+      "why": "accesses HUB-PI 0x18"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["get_slice", "getcpuid"],
+      "why": "accesses HUB-PI 0x20"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["page_local_calias"],
+      "why": "accesses HUB-PI 0x28"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["err_int_unblock_mask", "handle_io_buserr", "handle_uncac_buserr"],
+      "why": "accesses HUB-PI 0x400"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["save_hub_pi_error"],
+      "why": "accesses HUB-PI 0x400, HUB-PI 0x430, HUB-PI 0x440, HUB-PI 0x450, HUB-PI 0x460, HUB-PI 0x50, HUB-PI 0x58"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["cpuintr", "dbgintr", "intpend0", "tlbintr"],
+      "why": "accesses HUB-PI 0x90, HUB-PI 0x98"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["intpend1"],
+      "why": "accesses HUB-PI 0x90, HUB-PI 0x98, HUB-PI 0xa0"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["chkdebug"],
+      "why": "accesses HUB-PI 0xa0"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["__nanotime", "bte_copy", "bte_get_all_interfaces", "bte_wait_for_xfer_completion", "callout_time_to_hz", "capture_hub_stats", "capture_router_stats", "check_md_errors", "chktimeout_tick", "clear_hub_md_error", "clear_hub_pi_error", "counter_intr", "findcpufreq_cycles", "get_realtime_ticks", "init_hub_stats", "init_timebase", "klerror_check_recoverable", "klerror_global_check", "klsave_md_registers", "llp_pfail_barrier", "local_settime", "md_err_log_new", "nanotime", "nanotime_syscall", "restore_cpu_err", "restore_hub_err", "rtc_read", "set_timer_intr", "sysctlr_keepalive", "tick_maint", "timeout_get_queuehead", "tstoclock", "tvtoclock", "update_ust", "us_delay"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["prof_intr"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; accesses HUB-PI 0x118"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["startkgclock"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; accesses HUB-PI 0x118, HUB-PI 0x150, HUB-PI 0x158"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["klsave_spool_registers", "save_cache_error"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; accesses HUB-PI 0x20"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["migrate_timeouts", "tick_actions", "timein_body"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; accesses the HUB register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kernel.o",
+      "names": ["bte_crb_error_handler", "bte_error_handler", "bte_stall_node", "cont_nmi_dump", "debug_stop_all_cpus", "do_powerfail_wars", "do_reset_wars", "dump_crb", "llp_pfail_switch", "md_perf_start_count", "md_perf_update_count", "per_hub_init", "probe_common", "sendgroupintr"],
+      "why": "accesses the HUB register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/kona.a(kona_tport.o)",
+      "names": ["kona_tport_reset_adaptor"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/ksync_metered.a(mutex.o)",
+      "names": ["mutex_lock", "mutex_trylock", "mutex_wake_r"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/ksync_metered.a(sema.o)",
+      "names": ["_mraccess", "_mrupdate", "mrmeter_entry", "mrpromote_or_unlock", "mrtryupdate", "mrunlock", "rslog"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/ksync_statistics.a(mutex.o)",
+      "names": ["mutex_lock"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/ksync_statistics.a(sema.o)",
+      "names": ["mraccessf", "mrspinaccess", "mrspinupdate", "mrupdatef"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/mgras.a(mgras_init.o)",
+      "names": ["hub_set_fire_n_forget"],
+      "why": "accesses the HUB register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/mio.o",
+      "names": ["mio_vmc"],
+      "why": "accesses a crosstalk widget through a pointer a crosstalk mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/nfs.a(nfs_subr.o)",
+      "names": ["rfscall"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/os.a(pda.o)",
+      "names": ["enter_panic_mode"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/os.a(printf.o)",
+      "names": ["do_mprboot"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/os.a(timers.o)",
+      "names": ["ktimer_init", "ktimer_read", "ktimer_readticks", "ktimer_slptime", "ktimer_switch"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/os.a(tstamp.o)",
+      "names": ["log_tstamp_event", "log_tstamp_vevent"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/os.a(uuid.o)",
+      "names": ["uuid_create"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/os.a(vmdump.o)",
+      "names": ["real_dumpsys"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/os.a(vmdump.o)",
+      "names": ["dump_hub_registers", "move_buffer"],
+      "why": "accesses the HUB register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/os.a(xthread.o)",
+      "names": ["xthread_periodic_timeout"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/partition.o",
+      "names": ["part_interrupt"],
+      "why": "accesses HUB-PI 0x90, HUB-PI 0x98"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/partition.o",
+      "names": ["part_heartbeat", "part_init", "part_terminate"],
+      "why": "accesses the HUB register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/rad1pci.a(rad1drv.o)",
+      "names": ["rad1pciattach"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/rand.a(rand.o)",
+      "names": ["random_write_internal"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/sduart.a(serialio.o)",
+      "names": ["du_conpoll"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/stp.a(st_ec.o)",
+      "names": ["st_ec_trace", "st_ec_trace_alloc"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/stream.a(streamio.o)",
+      "names": ["strread"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/tpu.o",
+      "names": ["tpu_assign", "tpu_att_load", "tpu_close", "tpu_dmaError_intr", "tpu_ioctl_config", "tpu_ioctl_ext_test", "tpu_ioctl_get_fault", "tpu_ioctl_get_flag", "tpu_ioctl_get_gtrace", "tpu_ioctl_get_soft", "tpu_ioctl_get_trace", "tpu_ioctl_gstats", "tpu_ioctl_halt", "tpu_ioctl_inst", "tpu_ioctl_regs", "tpu_ioctl_resume", "tpu_ioctl_run", "tpu_ioctl_set_fault", "tpu_ioctl_set_flag", "tpu_ioctl_stat", "tpu_ioctl_stat_list", "tpu_ioctl_stats", "tpu_ldiBarrier_intr", "tpu_ldiCError_intr", "tpu_ldiError_intr", "tpu_map", "tpu_open", "tpu_timeout", "tpu_trace", "tpu_trace_alloc", "tpu_unmap"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/universe.o",
+      "names": ["universe_attach"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP27boot/xiovme.o",
+      "names": ["xiovme_vmc"],
+      "why": "accesses a crosstalk widget through a pointer a crosstalk mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/dhardlocks.a(dhardlocks.o)",
+      "names": ["_64bitlockdebug", "_64bitunlockdebug", "bitlockdebug", "bitunlockdebug", "spinlockdebug", "spinunlockdebug", "trybitlockdebug", "tryspinlockdebug"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/fcadp.a(fcadp.o)",
+      "names": ["fcadpattach"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/gfxs.a(gfx_flow.o)",
+      "names": ["gfx_flow_alloc"],
+      "why": "accesses HEART-PIU 0x10028"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/gfxs.a(gfx_flow.o)",
+      "names": ["gfx_flow_dealloc"],
+      "why": "accesses HEART-PIU 0x10028, HEART-PIU 0x40"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/gfxs.a(gfx_flow.o)",
+      "names": ["gfx_flow_attach_me", "gfx_flow_delayed_hiwater_intr_prehandler", "gfx_flow_detach_me", "gfx_flow_init"],
+      "why": "accesses HEART-PIU 0x40"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/gfxs.a(gfx_flow.o)",
+      "names": ["gfx_flow_pipe_head_init"],
+      "why": "accesses HEART-PIU 0x40, HEART-PIU 0x48"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/gfxs.a(gfx_flow.o)",
+      "names": ["gfx_flow_flush_my_wg"],
+      "why": "accesses HEART-PIU 0x80"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/if_ef.o",
+      "names": ["ef_intr"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/if_ef.o",
+      "names": ["if_efattach", "ssram_discovery"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/if_eg.o",
+      "names": ["eg_intr"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/if_rns.o",
+      "names": ["if_rnsintr"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/if_rns.o",
+      "names": ["if_rnsattach"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/if_tg.o",
+      "names": ["ftrc_event", "tg_intr"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/if_tg.o",
+      "names": ["if_tgattach"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/ioc3_pckm.o",
+      "names": ["pckm_attach"],
+      "why": "accesses IOC3 0x9c"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/kernel.o",
+      "names": ["cpu_waitforreset"],
+      "why": "accesses BRIDGE 0x104"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/kernel.o",
+      "names": ["slow_ioc3_sio"],
+      "why": "accesses BRIDGE 0x600028"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/kernel.o",
+      "names": ["restore_ioc3_sio"],
+      "why": "accesses BRIDGE 0x600028, BRIDGE 0x6a0000, BRIDGE 0x6c0000"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/kernel.o",
+      "names": ["silence_all_audio"],
+      "why": "accesses BRIDGE 0x600038"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/kernel.o",
+      "names": ["set_leds"],
+      "why": "accesses BRIDGE 0x600040, BRIDGE 0x600044"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/kernel.o",
+      "names": ["_clock_func", "cpu_clearpower", "cpu_soft_powerdown", "nvchecksum", "set_autopoweron"],
+      "why": "accesses BRIDGE 0x6a0000, BRIDGE 0x6c0000"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/kernel.o",
+      "names": ["cpu_disable"],
+      "why": "accesses HEART-PIU 0x0"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/kernel.o",
+      "names": ["dobuserr_common"],
+      "why": "accesses HEART-PIU 0x0, HEART-PIU 0x10020, HEART-PIU 0x10030, HEART-PIU 0x10040, HEART-PIU 0x18, HEART-PIU 0x60000, HEART-PIU 0x88, HEART-PIU 0x90, HEART-PIU 0x98, HEART-PIU 0xa0, HEART-PIU 0xa8, HEART-W8 0x100014, HEART-W8 0x10001c, HEART-W8 0x100044, HEART-W8 0x100060, HEART-W8 0x100070, HEART-W8 0x100078, HEART-W8 0x100090"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/kernel.o",
+      "names": ["debug_stop_all_cpus", "sendintr"],
+      "why": "accesses HEART-PIU 0x10020"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/kernel.o",
+      "names": ["wbadmemaddr"],
+      "why": "accesses HEART-PIU 0x10040"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/kernel.o",
+      "names": ["badaddr", "badaddr_val", "baerror", "earlybadaddr", "earlybaerror", "wbadaddr", "wbadaddr_val"],
+      "why": "accesses HEART-PIU 0x10040, HEART-PIU 0x50000, HEART-W8 0x100000, HEART-W8 0x100040, HEART-W8 0x100060"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/kernel.o",
+      "names": ["_get_timestamp"],
+      "why": "accesses HEART-PIU 0x20004"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/kernel.o",
+      "names": ["_ecc_errorvec", "getcpuid", "nmi_dump"],
+      "why": "accesses HEART-PIU 0x50000"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/kernel.o",
+      "names": ["VEC_dbe", "VEC_ibe", "flushbus"],
+      "why": "accesses HEART-PIU 0x50000, HEART-W8 0x100000"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/kernel.o",
+      "names": ["cpu_exists"],
+      "why": "accesses HEART-PIU 0x80"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/kernel.o",
+      "names": ["__nanotime", "_ticksper1024inst", "callout_time_to_hz", "chktimeout_tick", "counter_intr", "early_nic_access_mcr32", "find_pclk_freq", "get_realtime_ticks", "init_timebase", "local_settime", "migrate_timeouts", "nanotime", "nanotime_syscall", "rtc_read", "set_timer_intr", "startrtclock", "tick_maint", "timein_body", "timeout_get_queuehead", "tstoclock", "tvtoclock", "update_ust"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/ksync_metered.a(mutex.o)",
+      "names": ["mutex_lock", "mutex_trylock", "mutex_wake_r"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/ksync_metered.a(sema.o)",
+      "names": ["_mraccess", "_mrupdate", "mrmeter_entry", "mrpromote_or_unlock", "mrtryupdate", "mrunlock", "rslog"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/ksync_statistics.a(mutex.o)",
+      "names": ["mutex_lock"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/ksync_statistics.a(sema.o)",
+      "names": ["mraccessf", "mrspinaccess", "mrspinupdate", "mrupdatef"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/mgras.a(mgras.o)",
+      "names": ["MgrasGeneralInterrupt"],
+      "why": "accesses HEART-PIU 0x10030, HEART-PIU 0x10038, HEART-PIU 0x40, HEART-PIU 0x40008, HEART-PIU 0x48, HEART-PIU 0x50, HEART-PIU 0x58, HEART-PIU 0x60, HEART-PIU 0x68, HEART-PIU 0x70, HEART-PIU 0x78, HEART-PIU 0x80"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/mgras.a(mgras.o)",
+      "names": ["mgras_hq4_hiwater_intr"],
+      "why": "accesses HEART-PIU 0x80"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/mgras.a(mgras_init.o)",
+      "names": ["Mgras_FC_Disable"],
+      "why": "accesses HEART-PIU 0x40"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/mio.o",
+      "names": ["mio_vmc"],
+      "why": "accesses a crosstalk widget through a pointer a crosstalk mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/nfs.a(nfs_subr.o)",
+      "names": ["rfscall"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_attach.o)",
+      "names": ["gf_OdsyAttach"],
+      "why": "accesses HEART-PIU 0x80"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_ctxsw.o)",
+      "names": ["gfP_OdsySaveHwShadow", "odsyRestartContext"],
+      "why": "accesses HEART-PIU 0x80"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_ddrn.o)",
+      "names": ["gf_OdsyDestroyDDRN"],
+      "why": "accesses HEART-PIU 0x80"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_dma.o)",
+      "names": ["odsyDMAOp"],
+      "why": "accesses HEART-PIU 0x80"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_init.o)",
+      "names": ["gf_OdsyInitialize", "odsyInitCfifo", "odsyReset"],
+      "why": "accesses HEART-PIU 0x80"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_init.o)",
+      "names": ["odsyLowLevelReset"],
+      "why": "accesses XBOW 0x24, XBOW 0x4, XBOW 0x7c, XBOW 0xbc"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_init.o)",
+      "names": ["odsy_attach"],
+      "why": "accesses a crosstalk widget through a pointer a crosstalk mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_retrace.o)",
+      "names": ["gf_OdsySchedSwapBuf"],
+      "why": "accesses HEART-PIU 0x80"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/os.a(pda.o)",
+      "names": ["enter_panic_mode"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/os.a(printf.o)",
+      "names": ["do_mprboot"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/os.a(syssgi.o)",
+      "names": ["syssgi"],
+      "why": "accesses XBOW 0x4"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/os.a(timers.o)",
+      "names": ["ktimer_init", "ktimer_read", "ktimer_readticks", "ktimer_slptime", "ktimer_switch"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/os.a(tstamp.o)",
+      "names": ["log_tstamp_event", "log_tstamp_vevent"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/os.a(uuid.o)",
+      "names": ["uuid_create"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/os.a(xthread.o)",
+      "names": ["xthread_periodic_timeout"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/rand.a(rand.o)",
+      "names": ["random_write_internal"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/sduart.a(serialio.o)",
+      "names": ["du_conpoll"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/sflash.o",
+      "names": ["srflash_attach", "srflash_flash_mem_check"],
+      "why": "accesses a crosstalk widget through a pointer a crosstalk mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/stp.a(st_ec.o)",
+      "names": ["st_ec_trace", "st_ec_trace_alloc"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/stream.a(streamio.o)",
+      "names": ["strread"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP30boot/tpu.o",
+      "names": ["tpu_assign", "tpu_att_load", "tpu_close", "tpu_dmaError_intr", "tpu_ioctl_config", "tpu_ioctl_ext_test", "tpu_ioctl_get_fault", "tpu_ioctl_get_flag", "tpu_ioctl_get_gtrace", "tpu_ioctl_get_soft", "tpu_ioctl_get_trace", "tpu_ioctl_gstats", "tpu_ioctl_halt", "tpu_ioctl_inst", "tpu_ioctl_regs", "tpu_ioctl_resume", "tpu_ioctl_run", "tpu_ioctl_set_fault", "tpu_ioctl_set_flag", "tpu_ioctl_stat", "tpu_ioctl_stat_list", "tpu_ioctl_stats", "tpu_ldiBarrier_intr", "tpu_ldiCError_intr", "tpu_ldiError_intr", "tpu_map", "tpu_open", "tpu_timeout", "tpu_trace", "tpu_trace_alloc", "tpu_unmap"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/cn.o",
+      "names": ["cn_init"],
+      "why": "reads the board-identification compatibility register (Bedrock special window offset 0x4000000)"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/dhardlocks.a(dhardlocks.o)",
+      "names": ["_64bitlockdebug", "_64bitunlockdebug", "bitlockdebug", "bitunlockdebug", "spinlockdebug", "spinunlockdebug", "trybitlockdebug", "tryspinlockdebug"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/eeprom.o",
+      "names": ["fake_a_part_number", "fake_a_product_name", "gbrick_eeprom_read", "nonpeer_iobrick_eeprom_read"],
+      "why": "reads the board-identification compatibility register (Bedrock special window offset 0x4000000)"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/eeprom.o",
+      "names": ["generate_unique_id", "nonpeer_iobrick_uid_get", "random_eeprom_ch"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/fcadp.a(fcadp.o)",
+      "names": ["fcadpattach"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/gfxs.a(gfx_flow.o)",
+      "names": ["gfx_flow_detach_me"],
+      "why": "accesses BEDROCK-PI0 0x90, BEDROCK-PI0 0x98"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/gfxs.a(gfx_flow.o)",
+      "names": ["gfx_flow_flush_my_wg"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/gfxs.a(gfx_flow.o)",
+      "names": ["gfx_flow_init"],
+      "why": "accesses the BEDROCK register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/gfxs.a(klconfig.o)",
+      "names": ["prom_has_vga_support"],
+      "why": "accesses BEDROCK-BOOT 0xa0, BEDROCK-BOOT 0xa4"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/ide.o",
+      "names": ["print_xide_pciconfig", "xide_attach"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/if_ef.o",
+      "names": ["ef_ioc3eaddr"],
+      "why": "reads the board-identification compatibility register (Bedrock special window offset 0x4000000)"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/if_ef.o",
+      "names": ["ef_intr"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/if_ef.o",
+      "names": ["if_efattach", "ssram_discovery"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/if_eg.o",
+      "names": ["eg_intr"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/if_rns.o",
+      "names": ["if_rnsintr"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/if_rns.o",
+      "names": ["if_rnsattach"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/if_tg.o",
+      "names": ["ftrc_event", "tg_intr"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/if_tg.o",
+      "names": ["if_tgattach"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/ioc3_pckm.o",
+      "names": ["pckm_attach"],
+      "why": "accesses IOC3 0x9c"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/ioc3ei.o",
+      "names": ["eiattach"],
+      "why": "accesses IOC3 0x2c, IOC3 0x34, IOC3 0x38"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/ioc4.o",
+      "names": ["ioc4_attach"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/ioc4_ei.o",
+      "names": ["ioc4_eiattach"],
+      "why": "accesses IOC4 0x28, IOC4 0x30, IOC4 0x34, IOC4 0xc"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/ioc4_pckm.o",
+      "names": ["ioc4_pckm_attach"],
+      "why": "accesses IOC4 0x200"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kdsp.a(kdsp_di.o)",
+      "names": ["start_kdsp_timeout_thread"],
+      "why": "reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["cpu_node_probe", "get_kmod_sys_snum", "init_all_devices", "io_xswitch_widget_init", "scsi_ctlr_nums_add", "set_leds"],
+      "why": "reads the board-identification compatibility register (Bedrock special window offset 0x4000000)"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["scache_data_bit_location"],
+      "why": "reads the board-identification compatibility register (Bedrock special window offset 0x4000000); accesses BEDROCK-PI0 0x20"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["doadjtime", "init_fasthz_variables", "query_fasttimer", "rtc_resolution", "startrtclock", "timestamp_init", "ust_init"],
+      "why": "reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["bte_init"],
+      "why": "reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time; accesses BEDROCK-IO 0x4001f8"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["ii_llp_error_monitor"],
+      "why": "accesses BEDROCK-IO 0x400130"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["bootstrap", "get_nasid", "is_fine_dirmode", "start"],
+      "why": "accesses BEDROCK-LB 0x600000"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["stop_all_cpus"],
+      "why": "accesses BEDROCK-LB 0x600000, BEDROCK-LB 0x604020, BEDROCK-LB 0x604028, BEDROCK-MD 0x780000, BEDROCK-PI0 0x20, BEDROCK-PI0 0x408, BEDROCK-PI0 0x410; accesses the BEDROCK register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["mdir_xlate_addr_mem", "mdir_xlate_addr_pdir", "mdir_xlate_addr_sdir"],
+      "why": "accesses BEDROCK-MD 0x780008"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["ni_reset_port"],
+      "why": "accesses BEDROCK-NI 0x680008, BEDROCK-NI 0x680010"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["restart"],
+      "why": "accesses BEDROCK-NI 0x680008, BEDROCK-NI 0x680010; accesses the BEDROCK register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["check_ni_errors_nasid"],
+      "why": "accesses BEDROCK-NI 0x680108, BEDROCK-NI 0x680110, BEDROCK-NI 0x680118"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["ni_llp_error_monitor"],
+      "why": "accesses BEDROCK-NI 0x680120"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["acktmoclock"],
+      "why": "accesses BEDROCK-PI0 0x120, BEDROCK-PI0 0x128"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["ackkgclock"],
+      "why": "accesses BEDROCK-PI0 0x130, BEDROCK-PI0 0x138"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["slowkgclock"],
+      "why": "accesses BEDROCK-PI0 0x150, BEDROCK-PI0 0x158"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["handle_cac_buserr"],
+      "why": "accesses BEDROCK-PI0 0x18"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["get_slice", "getcpuid"],
+      "why": "accesses BEDROCK-PI0 0x20"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["page_local_calias"],
+      "why": "accesses BEDROCK-PI0 0x28"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["err_int_unblock_mask", "handle_io_buserr", "handle_uncac_buserr"],
+      "why": "accesses BEDROCK-PI0 0x400"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["cpuintr", "dbgintr", "intpend0", "tlbintr"],
+      "why": "accesses BEDROCK-PI0 0x90, BEDROCK-PI0 0x98"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["intpend1"],
+      "why": "accesses BEDROCK-PI0 0x90, BEDROCK-PI0 0x98, BEDROCK-PI0 0xa0"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["chkdebug"],
+      "why": "accesses BEDROCK-PI0 0xa0"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["bte_copy", "bte_get_all_interfaces", "callout_time_to_hz", "capture_hub_stats", "capture_router_stats", "check_md_errors", "chktimeout_tick", "clear_hub_md_error", "clear_hub_pi_error", "get_realtime_ticks", "klerror_check_recoverable", "klerror_global_check", "klsave_md_registers", "local_settime", "md_err_log_new", "restore_cpu_err", "restore_hub_err", "rtc_read", "set_timer_intr", "timeout_get_queuehead", "update_ust"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["__nanotime", "counter_intr", "findcpufreq_cycles", "init_hub_stats", "init_timebase", "nanotime", "nanotime_syscall", "tick_maint", "tstoclock", "tvtoclock", "us_delay"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["prof_intr"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time; accesses BEDROCK-PI0 0x118"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["startkgclock"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time; accesses BEDROCK-PI0 0x118, BEDROCK-PI0 0x150, BEDROCK-PI0 0x158"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["migrate_timeouts"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time; accesses the BEDROCK register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["klsave_spool_registers", "save_cache_error"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; accesses BEDROCK-PI0 0x20"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["timein_body"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; accesses the BEDROCK register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kernel.o",
+      "names": ["adjust_nmi_handler", "bte_crb_error_handler", "bte_error_handler", "cleanup_remote_pi", "cont_nmi_dump", "do_intr_block_bit", "dump_crb", "dump_error_spool", "md_perf_start_count", "md_perf_update_count", "probe_common", "show_hub_pi_err"],
+      "why": "accesses the BEDROCK register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/kona.a(kona_tport.o)",
+      "names": ["kona_tport_reset_adaptor"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/ksync_metered.a(mutex.o)",
+      "names": ["mutex_lock", "mutex_trylock", "mutex_wake_r"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/ksync_metered.a(sema.o)",
+      "names": ["_mraccess", "_mrupdate", "mrmeter_entry", "mrpromote_or_unlock", "mrtryupdate", "mrunlock", "rslog"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/ksync_statistics.a(mutex.o)",
+      "names": ["mutex_lock"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/ksync_statistics.a(sema.o)",
+      "names": ["mraccessf", "mrspinaccess", "mrspinupdate", "mrupdatef"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/l1.o",
+      "names": ["get_myid"],
+      "why": "accesses BEDROCK-PI0 0x20"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/l1.o",
+      "names": ["rtr_uart_init", "rtr_uart_putc", "sc_recv_poll", "uart_init"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/l1_command.o",
+      "names": ["sc_set_system_state"],
+      "why": "accesses BEDROCK-PI0 0x20"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/ls.o",
+      "names": ["ls_dofwdlboot"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/mio.o",
+      "names": ["mio_vmc"],
+      "why": "accesses a crosstalk widget through a pointer a crosstalk mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/nfs.a(nfs_subr.o)",
+      "names": ["rfscall"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_attach.o)",
+      "names": ["gf_OdsyAttach"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_ctxsw.o)",
+      "names": ["gfP_OdsySaveHwShadow", "odsyRestartContext"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_ddrn.o)",
+      "names": ["gf_OdsyDestroyDDRN"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_dma.o)",
+      "names": ["odsyDMAOp"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_flow.o)",
+      "names": ["odsyHiwaterInterrupt"],
+      "why": "accesses BEDROCK-PI0 0x90, BEDROCK-PI0 0x98"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_init.o)",
+      "names": ["odsy_fc_attach"],
+      "why": "reads the board-identification compatibility register (Bedrock special window offset 0x4000000)"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_init.o)",
+      "names": ["odsy_attach"],
+      "why": "reads the board-identification compatibility register (Bedrock special window offset 0x4000000); accesses a crosstalk widget through a pointer a crosstalk mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_init.o)",
+      "names": ["odsyInitCfifo"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_init.o)",
+      "names": ["gf_OdsyInitialize", "odsyReset"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; reads the board-identification compatibility register (Bedrock special window offset 0x4000000)"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_retrace.o)",
+      "names": ["gf_OdsySchedSwapBuf"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/os.a(main.o)",
+      "names": ["main"],
+      "why": "reads the board-identification compatibility register (Bedrock special window offset 0x4000000)"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/os.a(name.o)",
+      "names": ["get_host_id"],
+      "why": "reads the board-identification compatibility register (Bedrock special window offset 0x4000000)"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/os.a(pda.o)",
+      "names": ["doacvec"],
+      "why": "accesses BEDROCK-MD 0x7a0038"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/os.a(pda.o)",
+      "names": ["enter_panic_mode"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/os.a(printf.o)",
+      "names": ["do_mprboot"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/os.a(ptimers.o)",
+      "names": ["interval_tick_to_ts", "timer_settime"],
+      "why": "reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/os.a(syssgi.o)",
+      "names": ["syssgi_hostident"],
+      "why": "reads the board-identification compatibility register (Bedrock special window offset 0x4000000)"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/os.a(time.o)",
+      "names": ["dogetitimer"],
+      "why": "reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/os.a(timers.o)",
+      "names": ["ktimer_init", "ktimer_read", "ktimer_readticks", "ktimer_slptime", "ktimer_switch"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/os.a(tstamp.o)",
+      "names": ["log_tstamp_event", "log_tstamp_vevent"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/os.a(uuid.o)",
+      "names": ["uuid_create"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/os.a(vmdump.o)",
+      "names": ["real_dumpsys"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout; reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/os.a(vmdump.o)",
+      "names": ["dump_hub_registers", "move_buffer"],
+      "why": "accesses the BEDROCK register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/os.a(xthread.o)",
+      "names": ["xthread_periodic_timeout"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/partition.o",
+      "names": ["part_discovery"],
+      "why": "accesses BEDROCK-NI 0x680000"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/partition.o",
+      "names": ["part_add_regions", "part_export_page_perms", "part_heartbeat", "part_init_node", "part_interrupt", "part_pfdat_permit", "part_rm_regions", "part_terminate", "part_unexport_page_nocheck"],
+      "why": "accesses the BEDROCK register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/pic.o",
+      "names": ["pic_attach2"],
+      "why": "accesses BRIDGE 0x18000, BRIDGE 0x18008, BRIDGE 0x18800, BRIDGE 0x18808, BRIDGE 0x19000, BRIDGE 0x19008; accesses the BRIDGE register block of a node whose number or register is computed, so the scan cannot place the offset"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/rad_dd.o",
+      "names": ["rad_init"],
+      "why": "reads the board-identification compatibility register (Bedrock special window offset 0x4000000)"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/rad_dd.o",
+      "names": ["rad_reset_ust"],
+      "why": "reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/rand.a(rand.o)",
+      "names": ["random_write_internal"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/sduart.a(serialio.o)",
+      "names": ["du_conpoll"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/stp.a(st_ec.o)",
+      "names": ["st_ec_trace", "st_ec_trace_alloc"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/stream.a(streamio.o)",
+      "names": ["strread"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/tpu.o",
+      "names": ["tpu_assign", "tpu_att_load", "tpu_close", "tpu_dmaError_intr", "tpu_ioctl_config", "tpu_ioctl_ext_test", "tpu_ioctl_get_fault", "tpu_ioctl_get_flag", "tpu_ioctl_get_gtrace", "tpu_ioctl_get_soft", "tpu_ioctl_get_trace", "tpu_ioctl_gstats", "tpu_ioctl_halt", "tpu_ioctl_inst", "tpu_ioctl_regs", "tpu_ioctl_resume", "tpu_ioctl_run", "tpu_ioctl_set_fault", "tpu_ioctl_set_flag", "tpu_ioctl_stat", "tpu_ioctl_stat_list", "tpu_ioctl_stats", "tpu_ldiBarrier_intr", "tpu_ldiCError_intr", "tpu_ldiError_intr", "tpu_map", "tpu_open", "tpu_timeout", "tpu_trace", "tpu_trace_alloc", "tpu_unmap"],
+      "why": "reads the free-running real-time counter (Hub or Bedrock processor-interface offset 0x30100, HEART offset 0x20000) for a timestamp or a timeout"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/tserialio.o",
+      "names": ["start_tsio_timeout_thread"],
+      "why": "reads the clock-period register (Bedrock local block offset 0x604200) to turn counter ticks into time"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/universe.o",
+      "names": ["universe_attach"],
+      "why": "accesses a PCI device through a pointer a PCI mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "*/usr/cpu/sysgen/IP35boot/xiovme.o",
+      "names": ["xiovme_vmc"],
+      "why": "accesses a crosstalk widget through a pointer a crosstalk mapping routine returned, at an address the scan cannot place"
+    }
+  ]
 }

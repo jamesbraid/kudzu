@@ -1,0 +1,569 @@
+{
+  "about": "The hardware register windows the inventory scan looks for in the kernels, and how code reaches them. scripts/gen-hw-windows.py turns this file into the windows, bases and gp_literals sections of scripts/inventory-config.json. An address, a pointer source or a function pattern that a system chip's census already established comes from the chips workspace's scripts (tools/configs/<chip>.json) at the pinned commit, so the two workspaces cannot drift; this file only says which of those entries become which window here and adds the extents and documents that are this workspace's own. Windows are named by chip, not by product.",
+  "chips": {
+    "pin": "4694fd049578f3b1c97f0d80760946cc2e859e22",
+    "checkout": ".cache/siblings/chips"
+  },
+  "platforms": {
+    "IP27": [
+      "*IP27*"
+    ],
+    "IP30": [
+      "*IP30*"
+    ],
+    "IP35": [
+      "*IP35*"
+    ],
+    "all": [
+      "*IP27*",
+      "*IP30*",
+      "*IP35*"
+    ]
+  },
+  "gp_literals": [
+    {
+      "binaries": [
+        "*/unix.IP27",
+        "*/unix.IP30",
+        "*/unix.IP35"
+      ],
+      "sections": [
+        ".sdata",
+        ".lit8",
+        ".srdata"
+      ],
+      "why": "the linked kernels have no GOT: their address constants sit in the small-data sections and are loaded through gp (the section list is the one chips tools/configs/hub.json reads for ip27-unix)"
+    }
+  ],
+  "windows": [
+    {
+      "name": "HUB",
+      "size": "0x800000",
+      "physical": "0x1000000",
+      "regions": [
+        {
+          "name": "HUB-PI",
+          "lo": "0x0",
+          "hi": "0x200000"
+        },
+        {
+          "name": "HUB-MD",
+          "lo": "0x200000",
+          "hi": "0x400000"
+        },
+        {
+          "name": "HUB-II",
+          "lo": "0x400000",
+          "hi": "0x600000"
+        },
+        {
+          "name": "HUB-NI",
+          "lo": "0x600000",
+          "hi": "0x800000"
+        }
+      ],
+      "docs": [
+        "docs/interrupts.md",
+        "docs/page-migration.md",
+        "docs/ip27-kernel-io.md",
+        "docs/ip27-driver-attach-interrupts.md",
+        "docs/klconfig.md",
+        "docs/kernel-tracing-and-modules.md"
+      ]
+    },
+    {
+      "name": "BEDROCK",
+      "size": "0x800000",
+      "physical": "0x1000000",
+      "docs": [
+        "docs/interrupts.md",
+        "docs/page-migration.md",
+        "docs/ip35-hub-errors.md",
+        "docs/ip35-halt-and-reset.md",
+        "docs/ip35-cache-error.md",
+        "docs/ip35-router.md",
+        "docs/kernel-tracing-and-modules.md"
+      ],
+      "regions": [
+        {
+          "name": "BEDROCK-PI0",
+          "lo": "0x0",
+          "hi": "0x200000"
+        },
+        {
+          "name": "BEDROCK-PI1",
+          "lo": "0x200000",
+          "hi": "0x400000"
+        },
+        {
+          "name": "BEDROCK-IO",
+          "lo": "0x400000",
+          "hi": "0x600000"
+        },
+        {
+          "name": "BEDROCK-LB",
+          "lo": "0x600000",
+          "hi": "0x680000"
+        },
+        {
+          "name": "BEDROCK-NI",
+          "lo": "0x680000",
+          "hi": "0x700000"
+        },
+        {
+          "name": "BEDROCK-XB",
+          "lo": "0x700000",
+          "hi": "0x780000"
+        },
+        {
+          "name": "BEDROCK-MD",
+          "lo": "0x780000",
+          "hi": "0x800000"
+        }
+      ]
+    },
+    {
+      "name": "BEDROCK-SPECIAL",
+      "size": "0x8000000",
+      "physical": "0x30000000",
+      "regions": [
+        {
+          "name": "BEDROCK-L1UART",
+          "lo": "0x80",
+          "hi": "0xc0"
+        },
+        {
+          "name": "BEDROCK-LED",
+          "lo": "0xc0",
+          "hi": "0xe0"
+        }
+      ],
+      "docs": [
+        "docs/ip35-router.md",
+        "docs/ip35-halt-and-reset.md",
+        "docs/panics.md"
+      ]
+    },
+    {
+      "name": "BEDROCK-BOOT",
+      "size": "0x8000000",
+      "physical": "0x18000000",
+      "docs": [
+        "docs/ip35-xtalk.md",
+        "docs/nic.md"
+      ]
+    },
+    {
+      "name": "HEART",
+      "size": "0x200000",
+      "physical": "0xff00000",
+      "regions": [
+        {
+          "name": "HEART-PIU",
+          "lo": "0x0",
+          "hi": "0x80000"
+        },
+        {
+          "name": "HEART-W8",
+          "lo": "0x100000",
+          "hi": "0x101000"
+        }
+      ],
+      "docs": [
+        "docs/ip30-kernel-heart-routines.md",
+        "docs/ip30-kernel-functions.md",
+        "docs/ip30-kernel-support-routines.md",
+        "docs/interrupts.md",
+        "docs/panics.md"
+      ]
+    },
+    {
+      "name": "XBOW",
+      "size": "0x1000",
+      "physical": "0x10000000",
+      "docs": [
+        "docs/ip30-kernel-xbow-routines.md",
+        "docs/ip27-xconn.md",
+        "docs/ip35-xtalk.md"
+      ]
+    },
+    {
+      "name": "XIO-IP30",
+      "size": "0x10000000",
+      "physical": "0x10000000",
+      "regions": [
+        {
+          "name": "XIO-W0",
+          "lo": "0x0",
+          "hi": "0x1000000"
+        },
+        {
+          "name": "XIO-W1",
+          "lo": "0x1000000",
+          "hi": "0x2000000"
+        },
+        {
+          "name": "XIO-W2",
+          "lo": "0x2000000",
+          "hi": "0x3000000"
+        },
+        {
+          "name": "XIO-W3",
+          "lo": "0x3000000",
+          "hi": "0x4000000"
+        },
+        {
+          "name": "XIO-W4",
+          "lo": "0x4000000",
+          "hi": "0x5000000"
+        },
+        {
+          "name": "XIO-W5",
+          "lo": "0x5000000",
+          "hi": "0x6000000"
+        },
+        {
+          "name": "XIO-W6",
+          "lo": "0x6000000",
+          "hi": "0x7000000"
+        },
+        {
+          "name": "XIO-W7",
+          "lo": "0x7000000",
+          "hi": "0x8000000"
+        },
+        {
+          "name": "XIO-W8",
+          "lo": "0x8000000",
+          "hi": "0x9000000"
+        },
+        {
+          "name": "XIO-W9",
+          "lo": "0x9000000",
+          "hi": "0xa000000"
+        },
+        {
+          "name": "XIO-W10",
+          "lo": "0xa000000",
+          "hi": "0xb000000"
+        },
+        {
+          "name": "XIO-W11",
+          "lo": "0xb000000",
+          "hi": "0xc000000"
+        },
+        {
+          "name": "XIO-W12",
+          "lo": "0xc000000",
+          "hi": "0xd000000"
+        },
+        {
+          "name": "XIO-W13",
+          "lo": "0xd000000",
+          "hi": "0xe000000"
+        },
+        {
+          "name": "XIO-W14",
+          "lo": "0xe000000",
+          "hi": "0xf000000"
+        },
+        {
+          "name": "XIO-W15",
+          "lo": "0xf000000",
+          "hi": "0x10000000"
+        }
+      ],
+      "docs": [
+        "docs/ip30-kernel-heart-routines.md",
+        "docs/ip30-kernel-xbow-routines.md",
+        "docs/ip30-kernel-bridge-routines.md"
+      ]
+    },
+    {
+      "name": "BRIDGE",
+      "size": "0x1000000",
+      "physical": "0x1f000000",
+      "docs": [
+        "docs/ip30-kernel-bridge-routines.md",
+        "docs/ip27-kernel-bridge-routines.md",
+        "docs/ip35-pci-bridge.md",
+        "docs/ip35-pcibr-registers.md",
+        "docs/ip35-pciio.md"
+      ]
+    },
+    {
+      "name": "IOC3",
+      "size": "0x300000",
+      "docs": [
+        "docs/ip35-ioc3.md",
+        "docs/nic.md"
+      ]
+    },
+    {
+      "name": "IOC4",
+      "size": "0x300000",
+      "docs": [
+        "docs/ip35-ioc3.md"
+      ]
+    },
+    {
+      "name": "XTALK-PIO",
+      "size": "0x10000000",
+      "docs": [
+        "docs/ip35-xtalk.md",
+        "docs/ip27-xconn.md",
+        "docs/ip27-kernel-io.md"
+      ]
+    },
+    {
+      "name": "PCI-PIO",
+      "size": "0x10000000",
+      "docs": [
+        "docs/ip35-pciio.md",
+        "docs/ip35-pci-bridge.md"
+      ]
+    }
+  ],
+  "constants": [
+    {
+      "chip": "hub",
+      "name": "hub-local",
+      "window": "HUB",
+      "platform": "IP27",
+      "label": "local alias",
+      "why": "the calling processor's own Hub: uncached I/O alias of physical 0x01000000 (chips/hub/README.md, Addresses); kudzu docs/interrupts.md"
+    },
+    {
+      "chip": "hub",
+      "name": "hub-node",
+      "window": "HUB",
+      "platform": "IP27",
+      "computed": true,
+      "label": "node alias",
+      "why": "any node's Hub: 0x9200000001800000 plus the node number shifted left 32 (chips/hub/README.md, Addresses); kudzu docs/interrupts.md"
+    },
+    {
+      "chip": "hub",
+      "name": "hub-local-hi",
+      "window": "HUB",
+      "platform": "IP27",
+      "label": "bus-error alias",
+      "why": "a deliberate bus-error generator at physical 0x02400208 (chips/hub/README.md, Addresses)"
+    },
+    {
+      "chip": "bedrock",
+      "name": "local-block-window",
+      "window": "BEDROCK",
+      "platform": "IP35",
+      "lo": "0x9200000001000000",
+      "hi": "0x9200000001800000",
+      "label": "local alias",
+      "why": "the calling processor's own node controller: local register r at 0x9200000001000000 + r (docs/datasheets/ip35-address-map.md, Hub register space; chips/bedrock/README.md, Window and how it is reached); kudzu docs/interrupts.md"
+    },
+    {
+      "chip": "bedrock",
+      "name": "local-block-window",
+      "window": "BEDROCK",
+      "platform": "IP35",
+      "computed": true,
+      "lo": "0x9200000001800000",
+      "hi": "0x9200000002000000",
+      "label": "node alias",
+      "why": "remote register r of node n at 0x9200000001800000 + (n << 33) + r (docs/datasheets/ip35-address-map.md, Hub register space; kudzu docs/interrupts.md, IP35 interrupt section)"
+    },
+    {
+      "chip": "bedrock",
+      "name": "window-18",
+      "window": "BEDROCK-BOOT",
+      "platform": "IP35",
+      "lo": "0x9000000018000000",
+      "hi": "0x9000000019000000",
+      "label": "boot window",
+      "why": "the Hub special space boot window at special base + 0x18000000, 128 MB (docs/datasheets/ip35-address-map.md, Hub special space); hubspc.o and nic.o hold literals in its first 16 MB (chips/bedrock/README.md, Window and how it is reached)"
+    },
+    {
+      "chip": "heart",
+      "name": "piu",
+      "window": "HEART",
+      "platform": "IP30",
+      "label": "PIU register block",
+      "why": "HEART's register block at physical 0x0ff00000, reached through the 32-bit compatibility and the 64-bit uncached windows (chips/heart/README.md, Addresses)"
+    },
+    {
+      "chip": "heart",
+      "name": "widget-8",
+      "window": "HEART",
+      "platform": "IP30",
+      "label": "widget 8 block",
+      "why": "HEART's own XIO widget block at physical 0x18000000, reported 0x100000 above its widget offset (chips/heart/README.md, Addresses)"
+    },
+    {
+      "chip": "xbow",
+      "name": "xbow-window",
+      "window": "XBOW",
+      "platform": "IP30",
+      "image": "ip30-xbow-o",
+      "label": "widget 0 window",
+      "why": "Crossbow, widget 0 of the IP30 XIO fabric at physical 0x10000000 (chips/xbow/README.md; chips tools/configs/xbow.json)"
+    },
+    {
+      "chip": "xbow",
+      "name": "xbow-window",
+      "window": "XBOW",
+      "platform": "IP27",
+      "image": "ip27-kernel-o",
+      "label": "widget 0 window",
+      "why": "Crossbow register window held by the error-save routines of the IP27 kernel (chips/xbow/README.md; chips tools/configs/xbow.json)"
+    },
+    {
+      "chip": "xbow",
+      "name": "xbow-window",
+      "window": "XBOW",
+      "platform": "IP35",
+      "image": "ip35-kernel-o",
+      "label": "widget 0 window",
+      "why": "Crossbow register window held by the error-save routines of the IP35 kernel (chips/xbow/README.md; chips tools/configs/xbow.json)"
+    },
+    {
+      "chip": "bridge",
+      "name": "bridge",
+      "window": "BRIDGE",
+      "platform": "IP30",
+      "label": "widget 15 window",
+      "why": "Bridge, widget 15 of the IP30 XIO fabric at physical 0x1f000000 (chips/bridge/README.md, IP30 PROM)"
+    }
+  ],
+  "layout_constants": [
+    {
+      "window": "XIO-IP30",
+      "platform": "IP30",
+      "label": "widget space (64-bit uncached)",
+      "lo": "0x9000000010000000",
+      "hi": "0x9000000020000000",
+      "why": "widget n of the IP30 XIO fabric at 0x10000000 + n * 0x1000000, as heart_startup walks it (chips/heart/README.md, Addresses); the more specific windows above take their widgets first"
+    },
+    {
+      "window": "XIO-IP30",
+      "platform": "IP30",
+      "label": "widget space (32-bit compatibility)",
+      "lo": "0xffffffffb0000000",
+      "hi": "0xffffffffc0000000",
+      "why": "the 32-bit uncached compatibility image of the same widget space (chips/heart/README.md, Addresses: pointers 0xffffffffb7f00000 and 0xffffffffbf000000)"
+    },
+    {
+      "window": "BEDROCK-SPECIAL",
+      "platform": "IP35",
+      "label": "special remote window",
+      "computed": true,
+      "lo": "0x9000000030000000",
+      "hi": "0x9000000038000000",
+      "why": "node n's remote register window of the Hub special space, special base + 0x30000000 + (n << 33); the L1 UART registers sit at +0x80 + 8r and the per-processor LEDs at +0xc0 (docs/datasheets/ip35-address-map.md, Hub special space; chips/l1/README.md, Node-local UART)"
+    },
+    {
+      "window": "BEDROCK-SPECIAL",
+      "platform": "IP35",
+      "label": "special local window",
+      "lo": "0x9000000010000000",
+      "hi": "0x9000000018000000",
+      "why": "the local register window of the Hub special space, special base + 0x10000000 (docs/datasheets/ip35-address-map.md, Hub special space)"
+    },
+    {
+      "window": "BEDROCK-BOOT",
+      "platform": "IP35",
+      "label": "boot window",
+      "lo": "0x9000000019000000",
+      "hi": "0x9000000020000000",
+      "why": "the rest of the 128 MB boot window at special base + 0x18000000 (docs/datasheets/ip35-address-map.md, Hub special space)"
+    }
+  ],
+  "arguments": [
+    {
+      "chip": "hub",
+      "seed": 0,
+      "window": "HUB",
+      "platform": "IP27",
+      "label": "node register pointer argument",
+      "why": "the five save_hub_*_error routines take the Hub register base in the first argument (chips tools/configs/hub.json seeds)"
+    },
+    {
+      "chip": "xbow",
+      "seed": 0,
+      "window": "XBOW",
+      "platform": "all",
+      "label": "Crossbow register pointer argument",
+      "why": "Crossbow routines that take the register block in the first argument (chips tools/configs/xbow.json seeds)"
+    }
+  ],
+  "returns": [
+    {
+      "chip": "bridge",
+      "callee": "pcibr_bridge_ptr_get",
+      "window": "BRIDGE",
+      "platform": "all",
+      "label": "return of pcibr_bridge_ptr_get",
+      "why": "pcibr_bridge_ptr_get returns the Bridge, XBridge or PIC register block (chips/bridge/README.md, Attach; chips tools/configs/bridge.json seeds)"
+    },
+    {
+      "chip": "ioc3",
+      "callee": "ioc3_get_mem",
+      "window": "IOC3",
+      "platform": "all",
+      "label": "return of ioc3_get_mem",
+      "why": "ioc3_get_mem returns the IOC3 register window (chips tools/configs/ioc3.json seeds)"
+    },
+    {
+      "chip": "ioc3",
+      "callee": "ioc3_mem_ptr",
+      "window": "IOC3",
+      "platform": "all",
+      "label": "return of ioc3_mem_ptr",
+      "why": "ioc3_mem_ptr returns the IOC3 register window (chips tools/configs/ioc3.json seeds)"
+    },
+    {
+      "chip": "ioc4",
+      "callee": "ioc4_get_mem",
+      "window": "IOC4",
+      "platform": "IP35",
+      "label": "return of ioc4_get_mem",
+      "why": "ioc4_get_mem returns the IOC4 register window (chips tools/configs/ioc4.json seeds)"
+    },
+    {
+      "chip": "ioc4",
+      "callee": "ioc4_mem_ptr",
+      "window": "IOC4",
+      "platform": "IP35",
+      "label": "return of ioc4_mem_ptr",
+      "why": "ioc4_mem_ptr returns the IOC4 register window (chips tools/configs/ioc4.json seeds)"
+    },
+    {
+      "callees": [
+        "xtalk_piomap_addr",
+        "xtalk_pio_addr",
+        "xtalk_piotrans_addr",
+        "hub_piomap_addr",
+        "hub_piotrans_addr",
+        "heart_piomap_addr",
+        "heart_piotrans_addr"
+      ],
+      "offset": null,
+      "window": "XTALK-PIO",
+      "platform": "all",
+      "label": "crosstalk PIO mapping",
+      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (docs/ip35-xtalk.md; chips/xbow/README.md, Access sequences)"
+    },
+    {
+      "callees": [
+        "pciio_piomap_addr",
+        "pciio_pio_addr",
+        "pciio_piotrans_addr",
+        "pcibr_piomap_addr",
+        "pcibr_piotrans_addr"
+      ],
+      "offset": null,
+      "window": "PCI-PIO",
+      "platform": "all",
+      "label": "PCI PIO mapping",
+      "why": "a PCI PIO mapping routine returns a pointer into a device's configuration, memory or I/O space at the address its caller chose; accesses through the pointer are unresolved sites of this window (docs/ip35-pciio.md; chips/bridge/README.md, Windows above the registers)"
+    }
+  ]
+}

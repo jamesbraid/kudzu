@@ -30,8 +30,782 @@
   "exclude": [
     "6.5.30/usr/sbin/l2cmd"
   ],
-  "windows": [],
-  "bases": [],
+  "windows": [
+    {
+      "name": "HUB",
+      "size": "0x800000",
+      "physical": "0x1000000",
+      "regions": [
+        {
+          "name": "HUB-PI",
+          "lo": "0x0",
+          "hi": "0x200000"
+        },
+        {
+          "name": "HUB-MD",
+          "lo": "0x200000",
+          "hi": "0x400000"
+        },
+        {
+          "name": "HUB-II",
+          "lo": "0x400000",
+          "hi": "0x600000"
+        },
+        {
+          "name": "HUB-NI",
+          "lo": "0x600000",
+          "hi": "0x800000"
+        }
+      ],
+      "docs": [
+        "docs/interrupts.md",
+        "docs/page-migration.md",
+        "docs/ip27-kernel-io.md",
+        "docs/ip27-driver-attach-interrupts.md",
+        "docs/klconfig.md",
+        "docs/kernel-tracing-and-modules.md"
+      ]
+    },
+    {
+      "name": "BEDROCK",
+      "size": "0x800000",
+      "physical": "0x1000000",
+      "docs": [
+        "docs/interrupts.md",
+        "docs/page-migration.md",
+        "docs/ip35-hub-errors.md",
+        "docs/ip35-halt-and-reset.md",
+        "docs/ip35-cache-error.md",
+        "docs/ip35-router.md",
+        "docs/kernel-tracing-and-modules.md"
+      ],
+      "regions": [
+        {
+          "name": "BEDROCK-PI0",
+          "lo": "0x0",
+          "hi": "0x200000"
+        },
+        {
+          "name": "BEDROCK-PI1",
+          "lo": "0x200000",
+          "hi": "0x400000"
+        },
+        {
+          "name": "BEDROCK-IO",
+          "lo": "0x400000",
+          "hi": "0x600000"
+        },
+        {
+          "name": "BEDROCK-LB",
+          "lo": "0x600000",
+          "hi": "0x680000"
+        },
+        {
+          "name": "BEDROCK-NI",
+          "lo": "0x680000",
+          "hi": "0x700000"
+        },
+        {
+          "name": "BEDROCK-XB",
+          "lo": "0x700000",
+          "hi": "0x780000"
+        },
+        {
+          "name": "BEDROCK-MD",
+          "lo": "0x780000",
+          "hi": "0x800000"
+        }
+      ]
+    },
+    {
+      "name": "BEDROCK-SPECIAL",
+      "size": "0x8000000",
+      "physical": "0x30000000",
+      "regions": [
+        {
+          "name": "BEDROCK-L1UART",
+          "lo": "0x80",
+          "hi": "0xc0"
+        },
+        {
+          "name": "BEDROCK-LED",
+          "lo": "0xc0",
+          "hi": "0xe0"
+        }
+      ],
+      "docs": [
+        "docs/ip35-router.md",
+        "docs/ip35-halt-and-reset.md",
+        "docs/panics.md"
+      ]
+    },
+    {
+      "name": "BEDROCK-BOOT",
+      "size": "0x8000000",
+      "physical": "0x18000000",
+      "docs": [
+        "docs/ip35-xtalk.md",
+        "docs/nic.md"
+      ]
+    },
+    {
+      "name": "HEART",
+      "size": "0x200000",
+      "physical": "0xff00000",
+      "regions": [
+        {
+          "name": "HEART-PIU",
+          "lo": "0x0",
+          "hi": "0x80000"
+        },
+        {
+          "name": "HEART-W8",
+          "lo": "0x100000",
+          "hi": "0x101000"
+        }
+      ],
+      "docs": [
+        "docs/ip30-kernel-heart-routines.md",
+        "docs/ip30-kernel-functions.md",
+        "docs/ip30-kernel-support-routines.md",
+        "docs/interrupts.md",
+        "docs/panics.md"
+      ]
+    },
+    {
+      "name": "XBOW",
+      "size": "0x1000",
+      "physical": "0x10000000",
+      "docs": [
+        "docs/ip30-kernel-xbow-routines.md",
+        "docs/ip27-xconn.md",
+        "docs/ip35-xtalk.md"
+      ]
+    },
+    {
+      "name": "XIO-IP30",
+      "size": "0x10000000",
+      "physical": "0x10000000",
+      "regions": [
+        {
+          "name": "XIO-W0",
+          "lo": "0x0",
+          "hi": "0x1000000"
+        },
+        {
+          "name": "XIO-W1",
+          "lo": "0x1000000",
+          "hi": "0x2000000"
+        },
+        {
+          "name": "XIO-W2",
+          "lo": "0x2000000",
+          "hi": "0x3000000"
+        },
+        {
+          "name": "XIO-W3",
+          "lo": "0x3000000",
+          "hi": "0x4000000"
+        },
+        {
+          "name": "XIO-W4",
+          "lo": "0x4000000",
+          "hi": "0x5000000"
+        },
+        {
+          "name": "XIO-W5",
+          "lo": "0x5000000",
+          "hi": "0x6000000"
+        },
+        {
+          "name": "XIO-W6",
+          "lo": "0x6000000",
+          "hi": "0x7000000"
+        },
+        {
+          "name": "XIO-W7",
+          "lo": "0x7000000",
+          "hi": "0x8000000"
+        },
+        {
+          "name": "XIO-W8",
+          "lo": "0x8000000",
+          "hi": "0x9000000"
+        },
+        {
+          "name": "XIO-W9",
+          "lo": "0x9000000",
+          "hi": "0xa000000"
+        },
+        {
+          "name": "XIO-W10",
+          "lo": "0xa000000",
+          "hi": "0xb000000"
+        },
+        {
+          "name": "XIO-W11",
+          "lo": "0xb000000",
+          "hi": "0xc000000"
+        },
+        {
+          "name": "XIO-W12",
+          "lo": "0xc000000",
+          "hi": "0xd000000"
+        },
+        {
+          "name": "XIO-W13",
+          "lo": "0xd000000",
+          "hi": "0xe000000"
+        },
+        {
+          "name": "XIO-W14",
+          "lo": "0xe000000",
+          "hi": "0xf000000"
+        },
+        {
+          "name": "XIO-W15",
+          "lo": "0xf000000",
+          "hi": "0x10000000"
+        }
+      ],
+      "docs": [
+        "docs/ip30-kernel-heart-routines.md",
+        "docs/ip30-kernel-xbow-routines.md",
+        "docs/ip30-kernel-bridge-routines.md"
+      ]
+    },
+    {
+      "name": "BRIDGE",
+      "size": "0x1000000",
+      "physical": "0x1f000000",
+      "docs": [
+        "docs/ip30-kernel-bridge-routines.md",
+        "docs/ip27-kernel-bridge-routines.md",
+        "docs/ip35-pci-bridge.md",
+        "docs/ip35-pcibr-registers.md",
+        "docs/ip35-pciio.md"
+      ]
+    },
+    {
+      "name": "IOC3",
+      "size": "0x300000",
+      "docs": [
+        "docs/ip35-ioc3.md",
+        "docs/nic.md"
+      ]
+    },
+    {
+      "name": "IOC4",
+      "size": "0x300000",
+      "docs": [
+        "docs/ip35-ioc3.md"
+      ]
+    },
+    {
+      "name": "XTALK-PIO",
+      "size": "0x10000000",
+      "docs": [
+        "docs/ip35-xtalk.md",
+        "docs/ip27-xconn.md",
+        "docs/ip27-kernel-io.md"
+      ]
+    },
+    {
+      "name": "PCI-PIO",
+      "size": "0x10000000",
+      "docs": [
+        "docs/ip35-pciio.md",
+        "docs/ip35-pci-bridge.md"
+      ]
+    }
+  ],
+  "bases": [
+    {
+      "type": "constant",
+      "lo": "0x9200000001000000",
+      "hi": "0x9200000001800000",
+      "window": "HUB",
+      "translate": false,
+      "label": "local alias",
+      "why": "the calling processor's own Hub: uncached I/O alias of physical 0x01000000 (chips/hub/README.md, Addresses); kudzu docs/interrupts.md [chips 4694fd049578, tools/configs/hub.json]",
+      "binaries": [
+        "*IP27*"
+      ]
+    },
+    {
+      "type": "constant",
+      "lo": "0x9200000001800000",
+      "hi": "0x9200000002000000",
+      "window": "HUB",
+      "translate": false,
+      "computed": true,
+      "label": "node alias",
+      "why": "any node's Hub: 0x9200000001800000 plus the node number shifted left 32 (chips/hub/README.md, Addresses); kudzu docs/interrupts.md [chips 4694fd049578, tools/configs/hub.json]",
+      "binaries": [
+        "*IP27*"
+      ]
+    },
+    {
+      "type": "constant",
+      "lo": "0x9200000002000000",
+      "hi": "0x9200000003000000",
+      "window": "HUB",
+      "translate": false,
+      "label": "bus-error alias",
+      "why": "a deliberate bus-error generator at physical 0x02400208 (chips/hub/README.md, Addresses) [chips 4694fd049578, tools/configs/hub.json]",
+      "binaries": [
+        "*IP27*"
+      ]
+    },
+    {
+      "type": "constant",
+      "lo": "0x9200000001000000",
+      "hi": "0x9200000001800000",
+      "window": "BEDROCK",
+      "translate": false,
+      "label": "local alias",
+      "why": "the calling processor's own node controller: local register r at 0x9200000001000000 + r (docs/datasheets/ip35-address-map.md, Hub register space; chips/bedrock/README.md, Window and how it is reached); kudzu docs/interrupts.md [chips 4694fd049578, tools/configs/bedrock.json]",
+      "binaries": [
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "constant",
+      "lo": "0x9200000001800000",
+      "hi": "0x9200000002000000",
+      "window": "BEDROCK",
+      "translate": false,
+      "computed": true,
+      "label": "node alias",
+      "why": "remote register r of node n at 0x9200000001800000 + (n << 33) + r (docs/datasheets/ip35-address-map.md, Hub register space; kudzu docs/interrupts.md, IP35 interrupt section) [chips 4694fd049578, tools/configs/bedrock.json]",
+      "binaries": [
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "constant",
+      "lo": "0x9000000018000000",
+      "hi": "0x9000000019000000",
+      "window": "BEDROCK-BOOT",
+      "translate": false,
+      "label": "boot window",
+      "why": "the Hub special space boot window at special base + 0x18000000, 128 MB (docs/datasheets/ip35-address-map.md, Hub special space); hubspc.o and nic.o hold literals in its first 16 MB (chips/bedrock/README.md, Window and how it is reached) [chips 4694fd049578, tools/configs/bedrock.json]",
+      "binaries": [
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "constant",
+      "lo": "0x900000000ff00000",
+      "hi": "0x900000000ff80000",
+      "window": "HEART",
+      "translate": false,
+      "label": "PIU register block",
+      "why": "HEART's register block at physical 0x0ff00000, reached through the 32-bit compatibility and the 64-bit uncached windows (chips/heart/README.md, Addresses) [chips 4694fd049578, tools/configs/heart.json]",
+      "binaries": [
+        "*IP30*"
+      ]
+    },
+    {
+      "type": "constant",
+      "lo": "0xffffffffaff00000",
+      "hi": "0xffffffffaff80000",
+      "window": "HEART",
+      "translate": false,
+      "label": "PIU register block",
+      "why": "HEART's register block at physical 0x0ff00000, reached through the 32-bit compatibility and the 64-bit uncached windows (chips/heart/README.md, Addresses) [chips 4694fd049578, tools/configs/heart.json]",
+      "binaries": [
+        "*IP30*"
+      ]
+    },
+    {
+      "type": "constant",
+      "lo": "0x9000000017f00000",
+      "hi": "0x9000000018001000",
+      "window": "HEART",
+      "translate": false,
+      "label": "widget 8 block",
+      "why": "HEART's own XIO widget block at physical 0x18000000, reported 0x100000 above its widget offset (chips/heart/README.md, Addresses) [chips 4694fd049578, tools/configs/heart.json]",
+      "binaries": [
+        "*IP30*"
+      ]
+    },
+    {
+      "type": "constant",
+      "lo": "0xffffffffb7f00000",
+      "hi": "0xffffffffb8001000",
+      "window": "HEART",
+      "translate": false,
+      "label": "widget 8 block",
+      "why": "HEART's own XIO widget block at physical 0x18000000, reported 0x100000 above its widget offset (chips/heart/README.md, Addresses) [chips 4694fd049578, tools/configs/heart.json]",
+      "binaries": [
+        "*IP30*"
+      ]
+    },
+    {
+      "type": "constant",
+      "lo": "0x9000000010000000",
+      "hi": "0x9000000010001000",
+      "window": "XBOW",
+      "translate": false,
+      "label": "widget 0 window",
+      "why": "Crossbow, widget 0 of the IP30 XIO fabric at physical 0x10000000 (chips/xbow/README.md; chips tools/configs/xbow.json) [chips 4694fd049578, tools/configs/xbow.json]",
+      "binaries": [
+        "*IP30*"
+      ]
+    },
+    {
+      "type": "constant",
+      "lo": "0x92000000e0000000",
+      "hi": "0x92000000e0001000",
+      "window": "XBOW",
+      "translate": false,
+      "label": "widget 0 window",
+      "why": "Crossbow register window held by the error-save routines of the IP27 kernel (chips/xbow/README.md; chips tools/configs/xbow.json) [chips 4694fd049578, tools/configs/xbow.json]",
+      "binaries": [
+        "*IP27*"
+      ]
+    },
+    {
+      "type": "constant",
+      "lo": "0x92000000e0000000",
+      "hi": "0x92000000e0001000",
+      "window": "XBOW",
+      "translate": false,
+      "label": "widget 0 window",
+      "why": "Crossbow register window held by the error-save routines of the IP35 kernel (chips/xbow/README.md; chips tools/configs/xbow.json) [chips 4694fd049578, tools/configs/xbow.json]",
+      "binaries": [
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "constant",
+      "lo": "0x900000001f000000",
+      "hi": "0x9000000020000000",
+      "window": "BRIDGE",
+      "translate": false,
+      "label": "widget 15 window",
+      "why": "Bridge, widget 15 of the IP30 XIO fabric at physical 0x1f000000 (chips/bridge/README.md, IP30 PROM) [chips 4694fd049578, tools/configs/bridge.json]",
+      "binaries": [
+        "*IP30*"
+      ]
+    },
+    {
+      "type": "constant",
+      "lo": "0xffffffffbf000000",
+      "hi": "0xffffffffc0000000",
+      "window": "BRIDGE",
+      "translate": false,
+      "label": "widget 15 window",
+      "why": "Bridge, widget 15 of the IP30 XIO fabric at physical 0x1f000000 (chips/bridge/README.md, IP30 PROM) [chips 4694fd049578, tools/configs/bridge.json]",
+      "binaries": [
+        "*IP30*"
+      ]
+    },
+    {
+      "type": "constant",
+      "lo": "0x9000000010000000",
+      "hi": "0x9000000020000000",
+      "window": "XIO-IP30",
+      "translate": false,
+      "label": "widget space (64-bit uncached)",
+      "why": "widget n of the IP30 XIO fabric at 0x10000000 + n * 0x1000000, as heart_startup walks it (chips/heart/README.md, Addresses); the more specific windows above take their widgets first",
+      "binaries": [
+        "*IP30*"
+      ]
+    },
+    {
+      "type": "constant",
+      "lo": "0xffffffffb0000000",
+      "hi": "0xffffffffc0000000",
+      "window": "XIO-IP30",
+      "translate": false,
+      "label": "widget space (32-bit compatibility)",
+      "why": "the 32-bit uncached compatibility image of the same widget space (chips/heart/README.md, Addresses: pointers 0xffffffffb7f00000 and 0xffffffffbf000000)",
+      "binaries": [
+        "*IP30*"
+      ]
+    },
+    {
+      "type": "constant",
+      "lo": "0x9000000030000000",
+      "hi": "0x9000000038000000",
+      "window": "BEDROCK-SPECIAL",
+      "translate": false,
+      "label": "special remote window",
+      "why": "node n's remote register window of the Hub special space, special base + 0x30000000 + (n << 33); the L1 UART registers sit at +0x80 + 8r and the per-processor LEDs at +0xc0 (docs/datasheets/ip35-address-map.md, Hub special space; chips/l1/README.md, Node-local UART)",
+      "binaries": [
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "constant",
+      "lo": "0x9000000010000000",
+      "hi": "0x9000000018000000",
+      "window": "BEDROCK-SPECIAL",
+      "translate": false,
+      "label": "special local window",
+      "why": "the local register window of the Hub special space, special base + 0x10000000 (docs/datasheets/ip35-address-map.md, Hub special space)",
+      "binaries": [
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "constant",
+      "lo": "0x9000000019000000",
+      "hi": "0x9000000020000000",
+      "window": "BEDROCK-BOOT",
+      "translate": false,
+      "label": "boot window",
+      "why": "the rest of the 128 MB boot window at special base + 0x18000000 (docs/datasheets/ip35-address-map.md, Hub special space)",
+      "binaries": [
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "argument",
+      "function": "^save_hub_(pi|md|io|ni)_error$|^save_hub_err_ext$",
+      "reg": 4,
+      "window": "HUB",
+      "offset": 0,
+      "label": "node register pointer argument",
+      "why": "the five save_hub_*_error routines take the Hub register base in the first argument (chips tools/configs/hub.json seeds) [chips 4694fd049578, tools/configs/hub.json]",
+      "binaries": [
+        "*IP27*"
+      ]
+    },
+    {
+      "type": "argument",
+      "function": "^(xbow_link_alive|xbow_widget_present|xbow_intr_preset|idbg_xbowregs)$",
+      "reg": 4,
+      "window": "XBOW",
+      "offset": 0,
+      "label": "Crossbow register pointer argument",
+      "why": "Crossbow routines that take the register block in the first argument (chips tools/configs/xbow.json seeds) [chips 4694fd049578, tools/configs/xbow.json]",
+      "binaries": [
+        "*IP27*",
+        "*IP30*",
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "return",
+      "function": "pcibr_bridge_ptr_get",
+      "window": "BRIDGE",
+      "offset": 0,
+      "label": "return of pcibr_bridge_ptr_get",
+      "why": "pcibr_bridge_ptr_get returns the Bridge, XBridge or PIC register block (chips/bridge/README.md, Attach; chips tools/configs/bridge.json seeds) [chips 4694fd049578, tools/configs/bridge.json]",
+      "binaries": [
+        "*IP27*",
+        "*IP30*",
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "return",
+      "function": "ioc3_get_mem",
+      "window": "IOC3",
+      "offset": 0,
+      "label": "return of ioc3_get_mem",
+      "why": "ioc3_get_mem returns the IOC3 register window (chips tools/configs/ioc3.json seeds) [chips 4694fd049578, tools/configs/ioc3.json]",
+      "binaries": [
+        "*IP27*",
+        "*IP30*",
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "return",
+      "function": "ioc3_mem_ptr",
+      "window": "IOC3",
+      "offset": 0,
+      "label": "return of ioc3_mem_ptr",
+      "why": "ioc3_mem_ptr returns the IOC3 register window (chips tools/configs/ioc3.json seeds) [chips 4694fd049578, tools/configs/ioc3.json]",
+      "binaries": [
+        "*IP27*",
+        "*IP30*",
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "return",
+      "function": "ioc4_get_mem",
+      "window": "IOC4",
+      "offset": 0,
+      "label": "return of ioc4_get_mem",
+      "why": "ioc4_get_mem returns the IOC4 register window (chips tools/configs/ioc4.json seeds) [chips 4694fd049578, tools/configs/ioc4.json]",
+      "binaries": [
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "return",
+      "function": "ioc4_mem_ptr",
+      "window": "IOC4",
+      "offset": 0,
+      "label": "return of ioc4_mem_ptr",
+      "why": "ioc4_mem_ptr returns the IOC4 register window (chips tools/configs/ioc4.json seeds) [chips 4694fd049578, tools/configs/ioc4.json]",
+      "binaries": [
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "return",
+      "function": "xtalk_piomap_addr",
+      "window": "XTALK-PIO",
+      "offset": null,
+      "label": "crosstalk PIO mapping",
+      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (docs/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
+      "binaries": [
+        "*IP27*",
+        "*IP30*",
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "return",
+      "function": "xtalk_pio_addr",
+      "window": "XTALK-PIO",
+      "offset": null,
+      "label": "crosstalk PIO mapping",
+      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (docs/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
+      "binaries": [
+        "*IP27*",
+        "*IP30*",
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "return",
+      "function": "xtalk_piotrans_addr",
+      "window": "XTALK-PIO",
+      "offset": null,
+      "label": "crosstalk PIO mapping",
+      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (docs/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
+      "binaries": [
+        "*IP27*",
+        "*IP30*",
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "return",
+      "function": "hub_piomap_addr",
+      "window": "XTALK-PIO",
+      "offset": null,
+      "label": "crosstalk PIO mapping",
+      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (docs/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
+      "binaries": [
+        "*IP27*",
+        "*IP30*",
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "return",
+      "function": "hub_piotrans_addr",
+      "window": "XTALK-PIO",
+      "offset": null,
+      "label": "crosstalk PIO mapping",
+      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (docs/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
+      "binaries": [
+        "*IP27*",
+        "*IP30*",
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "return",
+      "function": "heart_piomap_addr",
+      "window": "XTALK-PIO",
+      "offset": null,
+      "label": "crosstalk PIO mapping",
+      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (docs/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
+      "binaries": [
+        "*IP27*",
+        "*IP30*",
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "return",
+      "function": "heart_piotrans_addr",
+      "window": "XTALK-PIO",
+      "offset": null,
+      "label": "crosstalk PIO mapping",
+      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (docs/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
+      "binaries": [
+        "*IP27*",
+        "*IP30*",
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "return",
+      "function": "pciio_piomap_addr",
+      "window": "PCI-PIO",
+      "offset": null,
+      "label": "PCI PIO mapping",
+      "why": "a PCI PIO mapping routine returns a pointer into a device's configuration, memory or I/O space at the address its caller chose; accesses through the pointer are unresolved sites of this window (docs/ip35-pciio.md; chips/bridge/README.md, Windows above the registers)",
+      "binaries": [
+        "*IP27*",
+        "*IP30*",
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "return",
+      "function": "pciio_pio_addr",
+      "window": "PCI-PIO",
+      "offset": null,
+      "label": "PCI PIO mapping",
+      "why": "a PCI PIO mapping routine returns a pointer into a device's configuration, memory or I/O space at the address its caller chose; accesses through the pointer are unresolved sites of this window (docs/ip35-pciio.md; chips/bridge/README.md, Windows above the registers)",
+      "binaries": [
+        "*IP27*",
+        "*IP30*",
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "return",
+      "function": "pciio_piotrans_addr",
+      "window": "PCI-PIO",
+      "offset": null,
+      "label": "PCI PIO mapping",
+      "why": "a PCI PIO mapping routine returns a pointer into a device's configuration, memory or I/O space at the address its caller chose; accesses through the pointer are unresolved sites of this window (docs/ip35-pciio.md; chips/bridge/README.md, Windows above the registers)",
+      "binaries": [
+        "*IP27*",
+        "*IP30*",
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "return",
+      "function": "pcibr_piomap_addr",
+      "window": "PCI-PIO",
+      "offset": null,
+      "label": "PCI PIO mapping",
+      "why": "a PCI PIO mapping routine returns a pointer into a device's configuration, memory or I/O space at the address its caller chose; accesses through the pointer are unresolved sites of this window (docs/ip35-pciio.md; chips/bridge/README.md, Windows above the registers)",
+      "binaries": [
+        "*IP27*",
+        "*IP30*",
+        "*IP35*"
+      ]
+    },
+    {
+      "type": "return",
+      "function": "pcibr_piotrans_addr",
+      "window": "PCI-PIO",
+      "offset": null,
+      "label": "PCI PIO mapping",
+      "why": "a PCI PIO mapping routine returns a pointer into a device's configuration, memory or I/O space at the address its caller chose; accesses through the pointer are unresolved sites of this window (docs/ip35-pciio.md; chips/bridge/README.md, Windows above the registers)",
+      "binaries": [
+        "*IP27*",
+        "*IP30*",
+        "*IP35*"
+      ]
+    }
+  ],
   "accessors": [],
   "tokens": {
     "value_width": 3,
@@ -152,29 +926,9 @@
   "scope": [
     {
       "binaries": [
-        "6.5.30/unix.IP27",
-        "6.5.30/unix.IP30",
-        "6.5.30/unix.IP35",
-        "6.5.22/unix.IP27",
-        "6.5.22/unix.IP30",
-        "6.5.22/unix.IP35"
-      ],
-      "reason": "kernel-image: The linked kernels. Only the hardware-facing and boot-critical subsystems are in scope for now: PROM interface and KLCONFIG, hardware graph, interrupts, NUMA and memory initialisation, node and router topology, the I/O attach framework, and the debug and panic entry points.",
-      "patterns": [
-        "(?!(?:kl(?:_|hwg|config|cfg|[A-Z])|find_lboard|get_lboard|lboard|board_|prom|arcs|ARCS|elsc|ip27|ip30|ip32|ip35|sn0|sn1|hub|router|net_|nic_|hwgraph|hwgfs|hwg_|graph_|labelcl|device_|dev_|inventory|intr|vector|ecc|mlreset|ml_|setup_|numa|nasid|cnode|compact_to|mld|mem_|memory|meminit|xbow|xtalk|xbridge|xswitch|xconn|xioba|pcibr|scsiha_ioctl|pciio|pciiox|bridge|heart|crime|mace|ioc3|gioio|giobr|fru|i2c|sio_i2c|idbg|panic|cmn_err|assfail)).+"
-      ]
-    },
-    {
-      "binaries": [
         "6.5.22/usr/cpu/sysgen/IP22boot/kernel.o",
-        "6.5.22/usr/cpu/sysgen/IP27boot/kernel.o",
-        "6.5.22/usr/cpu/sysgen/IP30boot/kernel.o",
         "6.5.22/usr/cpu/sysgen/IP32boot/kernel.o",
-        "6.5.22/usr/cpu/sysgen/IP35boot/kernel.o",
-        "6.5.30/usr/cpu/sysgen/IP27boot/kernel.o",
-        "6.5.30/usr/cpu/sysgen/IP30boot/kernel.o",
         "6.5.30/usr/cpu/sysgen/IP32boot/kernel.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/kernel.o",
         "6.5.22/usr/cpu/sysgen/IP22boot/idbg.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/idbg.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/idbg.o",
@@ -437,7 +1191,6 @@
         "6.5.22/usr/cpu/sysgen/IP27boot/cserialio.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/cxfsstubs.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/devpoll.o",
-        "6.5.22/usr/cpu/sysgen/IP27boot/dhardlocks.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/dial.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/dialbox.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/disp.a",
@@ -454,7 +1207,6 @@
         "6.5.22/usr/cpu/sysgen/IP27boot/efsstubs.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/failover.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/failoverstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP27boot/fcadp.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/fcal.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/fcidbg.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/fd.a",
@@ -464,7 +1216,6 @@
         "6.5.22/usr/cpu/sysgen/IP27boot/fsctl.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/gentty.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/gfx.o",
-        "6.5.22/usr/cpu/sysgen/IP27boot/gfxs.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/graphidbg.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/grio.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/grio2.a",
@@ -480,17 +1231,11 @@
         "6.5.22/usr/cpu/sysgen/IP27boot/idev.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/if_cl.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/if_clstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP27boot/if_ef.o",
-        "6.5.22/usr/cpu/sysgen/IP27boot/if_eg.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/if_ppp.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/if_ptr.o",
-        "6.5.22/usr/cpu/sysgen/IP27boot/if_rns.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/if_sl.o",
-        "6.5.22/usr/cpu/sysgen/IP27boot/if_tg.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/imon.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/imp.o",
-        "6.5.22/usr/cpu/sysgen/IP27boot/ioc3_pckm.o",
-        "6.5.22/usr/cpu/sysgen/IP27boot/ioc3ei.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/ip_mroute.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/ipc.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/ipfilter.o",
@@ -505,11 +1250,8 @@
         "6.5.22/usr/cpu/sysgen/IP27boot/klog.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/kmem.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/kmem_debug.a",
-        "6.5.22/usr/cpu/sysgen/IP27boot/kona.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/ksync.a",
-        "6.5.22/usr/cpu/sysgen/IP27boot/ksync_metered.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/ksync_named.a",
-        "6.5.22/usr/cpu/sysgen/IP27boot/ksync_statistics.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/ldterm.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/llc2.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/lockd.o",
@@ -521,14 +1263,11 @@
         "6.5.22/usr/cpu/sysgen/IP27boot/magellan.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/mem_alloc.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/menet.o",
-        "6.5.22/usr/cpu/sysgen/IP27boot/mgras.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/mgvstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP27boot/mio.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/mloadidbg.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/mouse.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/msg.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/namefs.a",
-        "6.5.22/usr/cpu/sysgen/IP27boot/nfs.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/nfs3.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/nfsidbg.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/nfsstubs.a",
@@ -543,8 +1282,6 @@
         "6.5.22/usr/cpu/sysgen/IP27boot/oncrpcidbg.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/oplock.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/oplockstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP27boot/os.a",
-        "6.5.22/usr/cpu/sysgen/IP27boot/partition.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/partitionstubs.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/pciba.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/pciiostubs.a",
@@ -566,9 +1303,7 @@
         "6.5.22/usr/cpu/sysgen/IP27boot/qlfcstubs.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/qlidbg.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/quotas.o",
-        "6.5.22/usr/cpu/sysgen/IP27boot/rad1pci.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/rad_dd.o",
-        "6.5.22/usr/cpu/sysgen/IP27boot/rand.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/rrm.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/sad.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/sat.a",
@@ -576,7 +1311,6 @@
         "6.5.22/usr/cpu/sysgen/IP27boot/sball.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/scsi.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/scsiha.o",
-        "6.5.22/usr/cpu/sysgen/IP27boot/sduart.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/sem.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/sesmgrstubs.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/sessionidbg.a",
@@ -591,10 +1325,8 @@
         "6.5.22/usr/cpu/sysgen/IP27boot/sockmod.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/spec_idbg.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/specfs.a",
-        "6.5.22/usr/cpu/sysgen/IP27boot/stp.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/stpidbg.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/stpstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP27boot/stream.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/stridbg.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/stty_ld.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/suser.a",
@@ -616,7 +1348,6 @@
         "6.5.22/usr/cpu/sysgen/IP27boot/tportpckbd.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/tpsc.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/tpscutil.o",
-        "6.5.22/usr/cpu/sysgen/IP27boot/tpu.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/tpuidbg.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/tpusim.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/ts.o",
@@ -630,7 +1361,6 @@
         "6.5.22/usr/cpu/sysgen/IP27boot/umfs.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/umfsstubs.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/uncintf.o",
-        "6.5.22/usr/cpu/sysgen/IP27boot/universe.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/usema.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/usrbus.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/usrpci.o",
@@ -652,7 +1382,6 @@
         "6.5.22/usr/cpu/sysgen/IP27boot/xfsrt.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/xfsrtstubs.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/xfsstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP27boot/xiovme.o",
         "6.5.22/usr/cpu/sysgen/IP27boot/xlv.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/xlv_plex.a",
         "6.5.22/usr/cpu/sysgen/IP27boot/xlvidbg.o",
@@ -696,7 +1425,6 @@
         "6.5.22/usr/cpu/sysgen/IP30boot/cserialio.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/cxfsstubs.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/devpoll.o",
-        "6.5.22/usr/cpu/sysgen/IP30boot/dhardlocks.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/dial.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/dialbox.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/disp.a",
@@ -713,7 +1441,6 @@
         "6.5.22/usr/cpu/sysgen/IP30boot/efsstubs.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/failover.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/failoverstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP30boot/fcadp.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/fcal.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/fcidbg.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/fd.a",
@@ -723,7 +1450,6 @@
         "6.5.22/usr/cpu/sysgen/IP30boot/fsctl.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/gentty.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/gfx.o",
-        "6.5.22/usr/cpu/sysgen/IP30boot/gfxs.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/graphidbg.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/grio.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/grio2.a",
@@ -737,16 +1463,11 @@
         "6.5.22/usr/cpu/sysgen/IP30boot/htport.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/idev.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/if_clstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP30boot/if_ef.o",
-        "6.5.22/usr/cpu/sysgen/IP30boot/if_eg.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/if_ppp.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/if_ptr.o",
-        "6.5.22/usr/cpu/sysgen/IP30boot/if_rns.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/if_sl.o",
-        "6.5.22/usr/cpu/sysgen/IP30boot/if_tg.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/imon.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/imp.o",
-        "6.5.22/usr/cpu/sysgen/IP30boot/ioc3_pckm.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/ip_mroute.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/ipc.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/ipfilter.o",
@@ -762,9 +1483,7 @@
         "6.5.22/usr/cpu/sysgen/IP30boot/kmem.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/kmem_debug.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/ksync.a",
-        "6.5.22/usr/cpu/sysgen/IP30boot/ksync_metered.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/ksync_named.a",
-        "6.5.22/usr/cpu/sysgen/IP30boot/ksync_statistics.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/ldterm.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/llc2.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/lockd.o",
@@ -775,14 +1494,11 @@
         "6.5.22/usr/cpu/sysgen/IP30boot/mad_dd.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/magellan.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/menet.o",
-        "6.5.22/usr/cpu/sysgen/IP30boot/mgras.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/mgvstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP30boot/mio.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/mloadidbg.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/mouse.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/msg.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/namefs.a",
-        "6.5.22/usr/cpu/sysgen/IP30boot/nfs.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/nfs3.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/nfsidbg.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/nfsstubs.a",
@@ -790,13 +1506,11 @@
         "6.5.22/usr/cpu/sysgen/IP30boot/nolocks.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/noncell.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/nsmidi.o",
-        "6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/odysseystubs.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/oncrpc.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/oncrpcidbg.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/oplock.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/oplockstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP30boot/os.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/partitionstubs.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/pciba.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/pciiostubs.a",
@@ -818,7 +1532,6 @@
         "6.5.22/usr/cpu/sysgen/IP30boot/qlidbg.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/quotas.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/rad_dd.o",
-        "6.5.22/usr/cpu/sysgen/IP30boot/rand.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/rrm.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/sad.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/sat.a",
@@ -826,11 +1539,9 @@
         "6.5.22/usr/cpu/sysgen/IP30boot/sball.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/scsi.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/scsiha.o",
-        "6.5.22/usr/cpu/sysgen/IP30boot/sduart.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/sem.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/sesmgrstubs.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/sessionidbg.a",
-        "6.5.22/usr/cpu/sysgen/IP30boot/sflash.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/sgi.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/shareIIstubs.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/sharena.o",
@@ -842,10 +1553,8 @@
         "6.5.22/usr/cpu/sysgen/IP30boot/sockmod.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/spec_idbg.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/specfs.a",
-        "6.5.22/usr/cpu/sysgen/IP30boot/stp.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/stpidbg.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/stpstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP30boot/stream.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/stridbg.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/stty_ld.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/suser.a",
@@ -867,7 +1576,6 @@
         "6.5.22/usr/cpu/sysgen/IP30boot/tportpckbd.a",
         "6.5.22/usr/cpu/sysgen/IP30boot/tpsc.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/tpscutil.o",
-        "6.5.22/usr/cpu/sysgen/IP30boot/tpu.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/tpuidbg.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/tpusim.o",
         "6.5.22/usr/cpu/sysgen/IP30boot/ts.o",
@@ -1149,7 +1857,6 @@
         "6.5.22/usr/cpu/sysgen/IP35boot/cl_part.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/clone.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/clshm.o",
-        "6.5.22/usr/cpu/sysgen/IP35boot/cn.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/compression.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/connld.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/cpr.a",
@@ -1162,7 +1869,6 @@
         "6.5.22/usr/cpu/sysgen/IP35boot/devicestubs.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/devpoll.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/dfsstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP35boot/dhardlocks.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/dial.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/dialbox.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/disp.a",
@@ -1176,12 +1882,10 @@
         "6.5.22/usr/cpu/sysgen/IP35boot/ds.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/eag.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/ecpplp.o",
-        "6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/efs.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/efsstubs.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/failover.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/failoverstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP35boot/fcadp.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/fcal.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/fcidbg.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/fd.a",
@@ -1193,7 +1897,6 @@
         "6.5.22/usr/cpu/sysgen/IP35boot/fsctl.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/gentty.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/gfx.o",
-        "6.5.22/usr/cpu/sysgen/IP35boot/gfxs.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/gfxstubs.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/gr2stubs.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/graphidbg.o",
@@ -1208,26 +1911,16 @@
         "6.5.22/usr/cpu/sysgen/IP35boot/hitachi.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/htport.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/idbgstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP35boot/ide.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/ide_idbg.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/idev.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/if_cl.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/if_cl_part.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/if_clstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP35boot/if_ef.o",
-        "6.5.22/usr/cpu/sysgen/IP35boot/if_eg.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/if_ppp.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/if_ptr.o",
-        "6.5.22/usr/cpu/sysgen/IP35boot/if_rns.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/if_sl.o",
-        "6.5.22/usr/cpu/sysgen/IP35boot/if_tg.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/imon.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/imp.o",
-        "6.5.22/usr/cpu/sysgen/IP35boot/ioc3_pckm.o",
-        "6.5.22/usr/cpu/sysgen/IP35boot/ioc3ei.o",
-        "6.5.22/usr/cpu/sysgen/IP35boot/ioc4.o",
-        "6.5.22/usr/cpu/sysgen/IP35boot/ioc4_ei.o",
-        "6.5.22/usr/cpu/sysgen/IP35boot/ioc4_pckm.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/ip_mroute.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/ipc.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/ipfilter.o",
@@ -1240,20 +1933,14 @@
         "6.5.22/usr/cpu/sysgen/IP35boot/jtagio.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/kaiostubs.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/kbd.o",
-        "6.5.22/usr/cpu/sysgen/IP35boot/kdsp.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/keyboard.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/kitchen_sync.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/klistiostubs.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/klog.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/kmem.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/kmem_debug.a",
-        "6.5.22/usr/cpu/sysgen/IP35boot/kona.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/ksync.a",
-        "6.5.22/usr/cpu/sysgen/IP35boot/ksync_metered.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/ksync_named.a",
-        "6.5.22/usr/cpu/sysgen/IP35boot/ksync_statistics.a",
-        "6.5.22/usr/cpu/sysgen/IP35boot/l1.o",
-        "6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/ldterm.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/llc2.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/lockd.o",
@@ -1268,12 +1955,10 @@
         "6.5.22/usr/cpu/sysgen/IP35boot/menet.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/mgrasstubs.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/mgvstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP35boot/mio.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/mloadidbg.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/mouse.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/msg.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/namefs.a",
-        "6.5.22/usr/cpu/sysgen/IP35boot/nfs.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/nfs3.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/nfsidbg.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/nfsstubs.a",
@@ -1284,7 +1969,6 @@
         "6.5.22/usr/cpu/sysgen/IP35boot/nsmidi.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/numa_idbg.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/numaidbgstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/odysseystubs.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/ohci.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/ohciidbg.o",
@@ -1292,14 +1976,10 @@
         "6.5.22/usr/cpu/sysgen/IP35boot/oncrpcidbg.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/oplock.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/oplockstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP35boot/os.a",
-        "6.5.22/usr/cpu/sysgen/IP35boot/partition.o",
-        "6.5.22/usr/cpu/sysgen/IP35boot/partition_part.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/partitionstubs.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/pciba.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/pciiostubs.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/pgrpidbg.a",
-        "6.5.22/usr/cpu/sysgen/IP35boot/pic.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/pipefs.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/pipefsstubs.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/pipemod.o",
@@ -1322,8 +2002,6 @@
         "6.5.22/usr/cpu/sysgen/IP35boot/qlidbg.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/quotas.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/quotasstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP35boot/rad_dd.o",
-        "6.5.22/usr/cpu/sysgen/IP35boot/rand.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/rrm.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/sad.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/sat.a",
@@ -1333,7 +2011,6 @@
         "6.5.22/usr/cpu/sysgen/IP35boot/sbp2idbg.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/scsi.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/scsiha.o",
-        "6.5.22/usr/cpu/sysgen/IP35boot/sduart.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/sem.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/sesmgrstubs.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/sessionidbg.a",
@@ -1349,10 +2026,8 @@
         "6.5.22/usr/cpu/sysgen/IP35boot/sockmod.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/spec_idbg.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/specfs.a",
-        "6.5.22/usr/cpu/sysgen/IP35boot/stp.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/stpidbg.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/stpstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP35boot/stream.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/stridbg.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/stty_ld.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/suser.a",
@@ -1377,12 +2052,10 @@
         "6.5.22/usr/cpu/sysgen/IP35boot/tportstubs.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/tpsc.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/tpscutil.o",
-        "6.5.22/usr/cpu/sysgen/IP35boot/tpu.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/tpuidbg.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/tpusim.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/ts.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/tsd.o",
-        "6.5.22/usr/cpu/sysgen/IP35boot/tserialio.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/tsutil.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/ude.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/udf.a",
@@ -1393,7 +2066,6 @@
         "6.5.22/usr/cpu/sysgen/IP35boot/umfsstubs.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/uncintf.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/uncstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP35boot/universe.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/usb.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/usb_comp.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/usb_pckm.o",
@@ -1427,7 +2099,6 @@
         "6.5.22/usr/cpu/sysgen/IP35boot/xfsrt.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/xfsrtstubs.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/xfsstubs.a",
-        "6.5.22/usr/cpu/sysgen/IP35boot/xiovme.o",
         "6.5.22/usr/cpu/sysgen/IP35boot/xlv.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/xlv_plex.a",
         "6.5.22/usr/cpu/sysgen/IP35boot/xlvidbg.o",
@@ -1478,7 +2149,6 @@
         "6.5.30/usr/cpu/sysgen/IP27boot/cserialio.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/cxfsstubs.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/devpoll.o",
-        "6.5.30/usr/cpu/sysgen/IP27boot/dhardlocks.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/dial.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/dialbox.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/disp.a",
@@ -1495,7 +2165,6 @@
         "6.5.30/usr/cpu/sysgen/IP27boot/efsstubs.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/failover.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/failoverstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP27boot/fcadp.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/fcal.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/fcidbg.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/fd.a",
@@ -1505,7 +2174,6 @@
         "6.5.30/usr/cpu/sysgen/IP27boot/fsctl.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/gentty.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/gfx.o",
-        "6.5.30/usr/cpu/sysgen/IP27boot/gfxs.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/graphidbg.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/grio.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/grio2.a",
@@ -1523,17 +2191,11 @@
         "6.5.30/usr/cpu/sysgen/IP27boot/idev.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/if_cl.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/if_clstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP27boot/if_ef.o",
-        "6.5.30/usr/cpu/sysgen/IP27boot/if_eg.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/if_ppp.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/if_ptr.o",
-        "6.5.30/usr/cpu/sysgen/IP27boot/if_rns.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/if_sl.o",
-        "6.5.30/usr/cpu/sysgen/IP27boot/if_tg.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/imon.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/imp.o",
-        "6.5.30/usr/cpu/sysgen/IP27boot/ioc3_pckm.o",
-        "6.5.30/usr/cpu/sysgen/IP27boot/ioc3ei.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/ip_mroute.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/ipc.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/ipfilter.o",
@@ -1548,11 +2210,8 @@
         "6.5.30/usr/cpu/sysgen/IP27boot/klog.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/kmem.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/kmem_debug.a",
-        "6.5.30/usr/cpu/sysgen/IP27boot/kona.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/ksync.a",
-        "6.5.30/usr/cpu/sysgen/IP27boot/ksync_metered.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/ksync_named.a",
-        "6.5.30/usr/cpu/sysgen/IP27boot/ksync_statistics.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/ldterm.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/llc2.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/lockd.o",
@@ -1564,14 +2223,11 @@
         "6.5.30/usr/cpu/sysgen/IP27boot/magellan.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/mem_alloc.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/menet.o",
-        "6.5.30/usr/cpu/sysgen/IP27boot/mgras.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/mgvstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP27boot/mio.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/mloadidbg.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/mouse.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/msg.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/namefs.a",
-        "6.5.30/usr/cpu/sysgen/IP27boot/nfs.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/nfs3.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/nfsidbg.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/nfsstubs.a",
@@ -1586,8 +2242,6 @@
         "6.5.30/usr/cpu/sysgen/IP27boot/oncrpcidbg.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/oplock.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/oplockstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP27boot/os.a",
-        "6.5.30/usr/cpu/sysgen/IP27boot/partition.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/partitionstubs.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/pciba.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/pciiostubs.a",
@@ -1609,9 +2263,7 @@
         "6.5.30/usr/cpu/sysgen/IP27boot/qlfcstubs.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/qlidbg.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/quotas.o",
-        "6.5.30/usr/cpu/sysgen/IP27boot/rad1pci.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/rad_dd.o",
-        "6.5.30/usr/cpu/sysgen/IP27boot/rand.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/rpcsec.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/rrm.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/sad.o",
@@ -1620,7 +2272,6 @@
         "6.5.30/usr/cpu/sysgen/IP27boot/sball.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/scsi.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/scsiha.o",
-        "6.5.30/usr/cpu/sysgen/IP27boot/sduart.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/sem.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/sesmgrstubs.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/sessionidbg.a",
@@ -1635,10 +2286,8 @@
         "6.5.30/usr/cpu/sysgen/IP27boot/sockmod.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/spec_idbg.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/specfs.a",
-        "6.5.30/usr/cpu/sysgen/IP27boot/stp.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/stpidbg.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/stpstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP27boot/stream.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/stridbg.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/stty_ld.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/suser.a",
@@ -1659,7 +2308,6 @@
         "6.5.30/usr/cpu/sysgen/IP27boot/tportpckbd.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/tpsc.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/tpscutil.o",
-        "6.5.30/usr/cpu/sysgen/IP27boot/tpu.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/tpuidbg.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/tpusim.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/ts.o",
@@ -1674,7 +2322,6 @@
         "6.5.30/usr/cpu/sysgen/IP27boot/umfs.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/umfsstubs.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/uncintf.o",
-        "6.5.30/usr/cpu/sysgen/IP27boot/universe.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/usema.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/usrbus.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/usrpci.o",
@@ -1697,7 +2344,6 @@
         "6.5.30/usr/cpu/sysgen/IP27boot/xfsrt.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/xfsrtstubs.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/xfsstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP27boot/xiovme.o",
         "6.5.30/usr/cpu/sysgen/IP27boot/xlv.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/xlv_plex.a",
         "6.5.30/usr/cpu/sysgen/IP27boot/xlvidbg.o",
@@ -1741,7 +2387,6 @@
         "6.5.30/usr/cpu/sysgen/IP30boot/cserialio.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/cxfsstubs.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/devpoll.o",
-        "6.5.30/usr/cpu/sysgen/IP30boot/dhardlocks.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/dial.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/dialbox.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/disp.a",
@@ -1758,7 +2403,6 @@
         "6.5.30/usr/cpu/sysgen/IP30boot/efsstubs.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/failover.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/failoverstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP30boot/fcadp.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/fcal.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/fcidbg.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/fd.a",
@@ -1770,7 +2414,6 @@
         "6.5.30/usr/cpu/sysgen/IP30boot/fsctl.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/gentty.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/gfx.o",
-        "6.5.30/usr/cpu/sysgen/IP30boot/gfxs.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/graphidbg.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/grio.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/grio2.a",
@@ -1786,16 +2429,11 @@
         "6.5.30/usr/cpu/sysgen/IP30boot/idbgstubs.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/idev.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/if_clstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP30boot/if_ef.o",
-        "6.5.30/usr/cpu/sysgen/IP30boot/if_eg.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/if_ppp.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/if_ptr.o",
-        "6.5.30/usr/cpu/sysgen/IP30boot/if_rns.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/if_sl.o",
-        "6.5.30/usr/cpu/sysgen/IP30boot/if_tg.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/imon.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/imp.o",
-        "6.5.30/usr/cpu/sysgen/IP30boot/ioc3_pckm.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/ip_mroute.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/ipc.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/ipfilter.o",
@@ -1811,9 +2449,7 @@
         "6.5.30/usr/cpu/sysgen/IP30boot/kmem.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/kmem_debug.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/ksync.a",
-        "6.5.30/usr/cpu/sysgen/IP30boot/ksync_metered.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/ksync_named.a",
-        "6.5.30/usr/cpu/sysgen/IP30boot/ksync_statistics.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/ldterm.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/llc2.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/lockd.o",
@@ -1824,14 +2460,11 @@
         "6.5.30/usr/cpu/sysgen/IP30boot/mad_dd.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/magellan.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/menet.o",
-        "6.5.30/usr/cpu/sysgen/IP30boot/mgras.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/mgvstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP30boot/mio.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/mloadidbg.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/mouse.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/msg.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/namefs.a",
-        "6.5.30/usr/cpu/sysgen/IP30boot/nfs.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/nfs3.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/nfsidbg.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/nfsstubs.a",
@@ -1839,13 +2472,11 @@
         "6.5.30/usr/cpu/sysgen/IP30boot/nolocks.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/noncell.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/nsmidi.o",
-        "6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/odysseystubs.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/oncrpc.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/oncrpcidbg.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/oplock.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/oplockstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP30boot/os.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/partitionstubs.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/pciba.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/pciiostubs.a",
@@ -1867,7 +2498,6 @@
         "6.5.30/usr/cpu/sysgen/IP30boot/qlidbg.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/quotas.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/rad_dd.o",
-        "6.5.30/usr/cpu/sysgen/IP30boot/rand.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/rpcsec.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/rrm.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/sad.o",
@@ -1878,11 +2508,9 @@
         "6.5.30/usr/cpu/sysgen/IP30boot/sbp2idbg.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/scsi.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/scsiha.o",
-        "6.5.30/usr/cpu/sysgen/IP30boot/sduart.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/sem.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/sesmgrstubs.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/sessionidbg.a",
-        "6.5.30/usr/cpu/sysgen/IP30boot/sflash.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/sgi.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/shareIIstubs.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/sharena.o",
@@ -1894,10 +2522,8 @@
         "6.5.30/usr/cpu/sysgen/IP30boot/sockmod.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/spec_idbg.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/specfs.a",
-        "6.5.30/usr/cpu/sysgen/IP30boot/stp.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/stpidbg.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/stpstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP30boot/stream.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/stridbg.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/stty_ld.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/suser.a",
@@ -1918,7 +2544,6 @@
         "6.5.30/usr/cpu/sysgen/IP30boot/tportpckbd.a",
         "6.5.30/usr/cpu/sysgen/IP30boot/tpsc.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/tpscutil.o",
-        "6.5.30/usr/cpu/sysgen/IP30boot/tpu.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/tpuidbg.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/tpusim.o",
         "6.5.30/usr/cpu/sysgen/IP30boot/ts.o",
@@ -2210,7 +2835,6 @@
         "6.5.30/usr/cpu/sysgen/IP35boot/cl_part.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/clone.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/clshm.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/cn.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/compression.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/connld.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/cpr.a",
@@ -2223,7 +2847,6 @@
         "6.5.30/usr/cpu/sysgen/IP35boot/devicestubs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/devpoll.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/dfsstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP35boot/dhardlocks.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/dial.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/dialbox.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/disp.a",
@@ -2237,13 +2860,11 @@
         "6.5.30/usr/cpu/sysgen/IP35boot/ds.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/eag.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/ecpplp.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/efs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/efsstubs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/emu_dd.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/failover.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/failoverstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP35boot/fcadp.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/fcal.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/fcidbg.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/fd.a",
@@ -2257,7 +2878,6 @@
         "6.5.30/usr/cpu/sysgen/IP35boot/fsctl.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/gentty.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/gfx.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/gfxs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/gfxstubs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/gr2stubs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/graphidbg.o",
@@ -2273,27 +2893,17 @@
         "6.5.30/usr/cpu/sysgen/IP35boot/hitachi.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/htport.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/idbgstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP35boot/ide.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/ide_idbg.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/idev.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/if_cl.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/if_cl_part.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/if_clstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP35boot/if_ef.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/if_eg.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/if_ppp.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/if_ptr.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/if_rns.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/if_sl.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/if_tg.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/if_xg.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/imon.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/imp.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/ioc3_pckm.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/ioc3ei.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/ioc4.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/ioc4_ei.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/ioc4_pckm.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/ip_mroute.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/ipc.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/ipfilter.o",
@@ -2306,20 +2916,14 @@
         "6.5.30/usr/cpu/sysgen/IP35boot/jtagio.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/kaiostubs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/kbd.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/kdsp.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/keyboard.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/kitchen_sync.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/klistiostubs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/klog.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/kmem.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/kmem_debug.a",
-        "6.5.30/usr/cpu/sysgen/IP35boot/kona.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/ksync.a",
-        "6.5.30/usr/cpu/sysgen/IP35boot/ksync_metered.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/ksync_named.a",
-        "6.5.30/usr/cpu/sysgen/IP35boot/ksync_statistics.a",
-        "6.5.30/usr/cpu/sysgen/IP35boot/l1.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/ldterm.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/llc2.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/lockd.o",
@@ -2327,7 +2931,6 @@
         "6.5.30/usr/cpu/sysgen/IP35boot/lofs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/lofsstubs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/log.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/ls.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/lsidbg.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/macstubs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/mad_dd.o",
@@ -2336,12 +2939,10 @@
         "6.5.30/usr/cpu/sysgen/IP35boot/menet.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/mgrasstubs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/mgvstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP35boot/mio.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/mloadidbg.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/mouse.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/msg.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/namefs.a",
-        "6.5.30/usr/cpu/sysgen/IP35boot/nfs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/nfs3.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/nfsidbg.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/nfsstubs.a",
@@ -2352,20 +2953,15 @@
         "6.5.30/usr/cpu/sysgen/IP35boot/nsmidi.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/numa_idbg.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/numaidbgstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/odysseystubs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/oncrpc.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/oncrpcidbg.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/oplock.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/oplockstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP35boot/os.a",
-        "6.5.30/usr/cpu/sysgen/IP35boot/partition.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/partition_part.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/partitionstubs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/pciba.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/pciiostubs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/pgrpidbg.a",
-        "6.5.30/usr/cpu/sysgen/IP35boot/pic.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/pipefs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/pipefsstubs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/pipemod.o",
@@ -2388,8 +2984,6 @@
         "6.5.30/usr/cpu/sysgen/IP35boot/qlidbg.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/quotas.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/quotasstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP35boot/rad_dd.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/rand.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/rpcsec.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/rrm.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/sad.o",
@@ -2400,7 +2994,6 @@
         "6.5.30/usr/cpu/sysgen/IP35boot/sbp2idbg.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/scsi.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/scsiha.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/sduart.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/sem.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/sesmgrstubs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/sessionidbg.a",
@@ -2417,10 +3010,8 @@
         "6.5.30/usr/cpu/sysgen/IP35boot/spec_idbg.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/specfs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/spi.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/stp.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/stpidbg.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/stpstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP35boot/stream.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/stridbg.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/stty_ld.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/suser.a",
@@ -2444,12 +3035,10 @@
         "6.5.30/usr/cpu/sysgen/IP35boot/tportstubs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/tpsc.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/tpscutil.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/tpu.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/tpuidbg.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/tpusim.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/ts.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/tsd.o",
-        "6.5.30/usr/cpu/sysgen/IP35boot/tserialio.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/tsutil.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/tsv.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/ude.o",
@@ -2461,7 +3050,6 @@
         "6.5.30/usr/cpu/sysgen/IP35boot/umfsstubs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/uncintf.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/uncstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP35boot/universe.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/usb.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/usb_comp.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/usb_pckm.o",
@@ -2495,7 +3083,6 @@
         "6.5.30/usr/cpu/sysgen/IP35boot/xfsrt.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/xfsrtstubs.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/xfsstubs.a",
-        "6.5.30/usr/cpu/sysgen/IP35boot/xiovme.o",
         "6.5.30/usr/cpu/sysgen/IP35boot/xlv.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/xlv_plex.a",
         "6.5.30/usr/cpu/sysgen/IP35boot/xlvidbg.o",
@@ -2562,6 +3149,631 @@
       "reason": "userland-base: Base user-space daemons and commands of the installed 6.5.30 system: hardware inventory and configuration, the controller and power-management tools, NFS, RPC and CacheFS services, the cluster daemons and the XFS repair tools. Listed so the inventory counts them; their functions are out of scope for now, not excluded.",
       "patterns": [
         ".+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.30/unix.IP27",
+        "6.5.22/unix.IP27"
+      ],
+      "reason": "kernel-image: The linked kernels. Only the hardware-facing and boot-critical subsystems are in scope for now: PROM interface and KLCONFIG, hardware graph, interrupts, NUMA and memory initialisation, node and router topology, the I/O attach framework, and the debug and panic entry points.",
+      "patterns": [
+        "(?!(?:kl(?:_|hwg|config|cfg|[A-Z])|find_lboard|get_lboard|lboard|board_|prom|arcs|ARCS|elsc|ip27|ip30|ip32|ip35|sn0|sn1|hub|router|net_|nic_|hwgraph|hwgfs|hwg_|graph_|labelcl|device_|dev_|inventory|intr|vector|ecc|mlreset|ml_|setup_|numa|nasid|cnode|compact_to|mld|mem_|memory|meminit|xbow|xtalk|xbridge|xswitch|xconn|xioba|pcibr|scsiha_ioctl|pciio|pciiox|bridge|heart|crime|mace|ioc3|gioio|giobr|fru|i2c|sio_i2c|idbg|panic|cmn_err|assfail|__nanotime\\Z|ackkgclock\\Z|acktmoclock\\Z|bootstrap\\Z|bte_copy\\Z|bte_crb_error_handler\\Z|bte_error_handler\\Z|bte_get_all_interfaces\\Z|bte_init\\Z|bte_stall_node\\Z|bte_wait_for_xfer_completion\\Z|callout_time_to_hz\\Z|capture_hub_stats\\Z|capture_router_stats\\Z|check_md_errors\\Z|check_ni_errors\\Z|chkdebug\\Z|chktimeout_tick\\Z|clear_hub_md_error\\Z|clear_hub_pi_error\\Z|cont_nmi_dump\\Z|counter_intr\\Z|cpuintr\\Z|dbgintr\\Z|debug_stop_all_cpus\\Z|do_mprboot\\Z|do_powerfail_wars\\Z|do_reset_wars\\Z|du_conpoll\\Z|dump_crb\\Z|dump_hub_registers\\Z|ef_intr\\Z|eg_intr\\Z|eiattach\\Z|enter_panic_mode\\Z|err_int_unblock_mask\\Z|fcadpattach\\Z|findcpufreq_cycles\\Z|force_system_shutdown\\Z|ftrc_event\\Z|get_my_slotid\\Z|get_myid\\Z|get_nasid\\Z|get_realtime_ticks\\Z|get_slice\\Z|getcpuid\\Z|gfx_flow_attach_me\\Z|gfx_flow_detach_me\\Z|gfx_flow_flush_my_wg\\Z|gfx_flow_init\\Z|handle_cac_buserr\\Z|handle_io_buserr\\Z|handle_uncac_buserr\\Z|if_efattach\\Z|if_tgattach\\Z|ii_llp_error_monitor\\Z|init_hub_stats\\Z|init_timebase\\Z|intpend0\\Z|intpend1\\Z|io6_vmc\\Z|is_fine_dirmode\\Z|kf_hub_analyze\\Z|klerror_check_recoverable\\Z|klerror_global_check\\Z|klsave_md_registers\\Z|klsave_spool_registers\\Z|kona_tport_reset_adaptor\\Z|ktimer_init\\Z|ktimer_read\\Z|ktimer_readticks\\Z|ktimer_slptime\\Z|ktimer_switch\\Z|llp_pfail_barrier\\Z|llp_pfail_intr\\Z|llp_pfail_switch\\Z|local_settime\\Z|log_tstamp_event\\Z|log_tstamp_vevent\\Z|md_err_log_new\\Z|md_perf_start_count\\Z|md_perf_update_count\\Z|mdir_xlate_addr_mem\\Z|mdir_xlate_addr_pdir\\Z|mdir_xlate_addr_sdir\\Z|migr_intr_handler\\Z|migr_intr_prologue_handler\\Z|migr_refcnt_init\\Z|migrate_timeouts\\Z|mio_vmc\\Z|move_buffer\\Z|nanotime\\Z|nanotime_syscall\\Z|ni_llp_error_monitor\\Z|ni_reset_port\\Z|page_local_calias\\Z|pcireg_id_get\\Z|pcireg_intr_addr_addr_set\\Z|pcireg_intr_addr_vect_set\\Z|pcireg_nic_addr\\Z|pcireg_stat_get\\Z|pckm_attach\\Z|per_hub_init\\Z|probe_common\\Z|prof_intr\\Z|rad1pciattach\\Z|random_write_internal\\Z|real_dumpsys\\Z|restart\\Z|restore_cpu_err\\Z|restore_hub_err\\Z|rfscall\\Z|rtc_read\\Z|save_cache_error\\Z|save_hub_err_ext\\Z|save_hub_io_error\\Z|save_hub_md_error\\Z|save_hub_ni_error\\Z|save_hub_pi_error\\Z|sendgroupintr\\Z|set_timer_intr\\Z|slowkgclock\\Z|ssram_discovery\\Z|start\\Z|startkgclock\\Z|strread\\Z|sysctlr_keepalive\\Z|syssgi_pfshow\\Z|tg_intr\\Z|tick_actions\\Z|tick_maint\\Z|timein_body\\Z|timeout_get_queuehead\\Z|tlbintr\\Z|tstoclock\\Z|tvtoclock\\Z|universe_attach\\Z|update_ust\\Z|us_delay\\Z|uuid_create\\Z|xiovme_vmc\\Z|xthread_periodic_timeout\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.30/unix.IP30",
+        "6.5.22/unix.IP30"
+      ],
+      "reason": "kernel-image: The linked kernels. Only the hardware-facing and boot-critical subsystems are in scope for now: PROM interface and KLCONFIG, hardware graph, interrupts, NUMA and memory initialisation, node and router topology, the I/O attach framework, and the debug and panic entry points.",
+      "patterns": [
+        "(?!(?:kl(?:_|hwg|config|cfg|[A-Z])|find_lboard|get_lboard|lboard|board_|prom|arcs|ARCS|elsc|ip27|ip30|ip32|ip35|sn0|sn1|hub|router|net_|nic_|hwgraph|hwgfs|hwg_|graph_|labelcl|device_|dev_|inventory|intr|vector|ecc|mlreset|ml_|setup_|numa|nasid|cnode|compact_to|mld|mem_|memory|meminit|xbow|xtalk|xbridge|xswitch|xconn|xioba|pcibr|scsiha_ioctl|pciio|pciiox|bridge|heart|crime|mace|ioc3|gioio|giobr|fru|i2c|sio_i2c|idbg|panic|cmn_err|assfail|VEC_dbe\\Z|VEC_ibe\\Z|__nanotime\\Z|_clock_func\\Z|_ecc_errorvec\\Z|_get_timestamp\\Z|_ticksper1024inst\\Z|badaddr\\Z|badaddr_val\\Z|baerror\\Z|callout_time_to_hz\\Z|chkdebug\\Z|chktimeout_tick\\Z|clear_cpu_intr\\Z|counter_intr\\Z|cpu_clearpower\\Z|cpu_disable\\Z|cpu_exists\\Z|cpu_soft_powerdown\\Z|cpu_waitforreset\\Z|debug_stop_all_cpus\\Z|do_mprboot\\Z|dobuserr_common\\Z|du_conpoll\\Z|early_nic_access_mcr32\\Z|earlybadaddr\\Z|earlybaerror\\Z|ef_intr\\Z|eg_intr\\Z|enter_panic_mode\\Z|fcadpattach\\Z|find_pclk_freq\\Z|flushbus\\Z|ftrc_event\\Z|get_realtime_ticks\\Z|getcpuid\\Z|gfP_OdsySaveHwShadow\\Z|gf_OdsyAttach\\Z|gf_OdsyDestroyDDRN\\Z|gf_OdsyInitialize\\Z|gf_OdsySchedSwapBuf\\Z|gfx_flow_alloc\\Z|gfx_flow_attach_me\\Z|gfx_flow_dealloc\\Z|gfx_flow_delayed_hiwater_intr_prehandler\\Z|gfx_flow_detach_me\\Z|gfx_flow_flush_my_wg\\Z|gfx_flow_init\\Z|gfx_flow_pipe_head_init\\Z|if_efattach\\Z|if_tgattach\\Z|init_timebase\\Z|io6_vmc\\Z|ktimer_init\\Z|ktimer_read\\Z|ktimer_readticks\\Z|ktimer_slptime\\Z|ktimer_switch\\Z|local_settime\\Z|log_tstamp_event\\Z|log_tstamp_vevent\\Z|migrate_timeouts\\Z|mio_vmc\\Z|nanotime\\Z|nanotime_syscall\\Z|nmi_dump\\Z|nvchecksum\\Z|odsyDMAOp\\Z|odsyInitCfifo\\Z|odsyLowLevelReset\\Z|odsyReset\\Z|odsyRestartContext\\Z|odsy_attach\\Z|pcireg_id_get\\Z|pcireg_nic_addr\\Z|pcireg_stat_get\\Z|pckbd_bell\\Z|pckm_attach\\Z|random_write_internal\\Z|restore_ioc3_sio\\Z|rfscall\\Z|rtc_read\\Z|sendintr\\Z|set_autopoweron\\Z|set_leds\\Z|set_timer_intr\\Z|silence_all_audio\\Z|slow_ioc3_sio\\Z|srflash_attach\\Z|srflash_flash_mem_check\\Z|ssram_discovery\\Z|startrtclock\\Z|stop_bell\\Z|strread\\Z|syssgi\\Z|tg_intr\\Z|tick_maint\\Z|timein_body\\Z|timeout_get_queuehead\\Z|tstoclock\\Z|tvtoclock\\Z|update_ust\\Z|uuid_create\\Z|wbadaddr\\Z|wbadaddr_val\\Z|wbadmemaddr\\Z|xthread_periodic_timeout\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.30/unix.IP35",
+        "6.5.22/unix.IP35"
+      ],
+      "reason": "kernel-image: The linked kernels. Only the hardware-facing and boot-critical subsystems are in scope for now: PROM interface and KLCONFIG, hardware graph, interrupts, NUMA and memory initialisation, node and router topology, the I/O attach framework, and the debug and panic entry points.",
+      "patterns": [
+        "(?!(?:kl(?:_|hwg|config|cfg|[A-Z])|find_lboard|get_lboard|lboard|board_|prom|arcs|ARCS|elsc|ip27|ip30|ip32|ip35|sn0|sn1|hub|router|net_|nic_|hwgraph|hwgfs|hwg_|graph_|labelcl|device_|dev_|inventory|intr|vector|ecc|mlreset|ml_|setup_|numa|nasid|cnode|compact_to|mld|mem_|memory|meminit|xbow|xtalk|xbridge|xswitch|xconn|xioba|pcibr|scsiha_ioctl|pciio|pciiox|bridge|heart|crime|mace|ioc3|gioio|giobr|fru|i2c|sio_i2c|idbg|panic|cmn_err|assfail|__nanotime\\Z|ackkgclock\\Z|acktmoclock\\Z|adjust_nmi_handler\\Z|bootstrap\\Z|bte_copy\\Z|bte_crb_error_handler\\Z|bte_error_handler\\Z|bte_get_all_interfaces\\Z|bte_init\\Z|callout_time_to_hz\\Z|capture_hub_stats\\Z|capture_router_stats\\Z|check_md_errors\\Z|check_ni_errors_nasid\\Z|chkdebug\\Z|chktimeout_tick\\Z|cleanup_remote_pi\\Z|clear_hub_md_error\\Z|clear_hub_pi_error\\Z|cn_init\\Z|cont_nmi_dump\\Z|counter_intr\\Z|cpu_node_probe\\Z|cpuintr\\Z|cpuprom_detailed_inventory_info_add\\Z|dbgintr\\Z|do_intr_block_bit\\Z|do_mprboot\\Z|doacvec\\Z|doadjtime\\Z|dogetitimer\\Z|du_conpoll\\Z|dump_crb\\Z|dump_error_spool\\Z|dump_hub_registers\\Z|ef_intr\\Z|ef_ioc3eaddr\\Z|eg_intr\\Z|eiattach\\Z|enter_panic_mode\\Z|err_int_unblock_mask\\Z|fake_a_part_number\\Z|fake_a_product_name\\Z|findcpufreq_cycles\\Z|ftrc_event\\Z|gbrick_eeprom_read\\Z|generate_unique_id\\Z|get_host_id\\Z|get_kmod_sys_snum\\Z|get_myid\\Z|get_nasid\\Z|get_realtime_ticks\\Z|get_slice\\Z|getcpuid\\Z|gfx_flow_detach_me\\Z|gfx_flow_flush_my_wg\\Z|gfx_flow_init\\Z|handle_cac_buserr\\Z|handle_io_buserr\\Z|handle_uncac_buserr\\Z|if_efattach\\Z|if_tgattach\\Z|ii_llp_error_monitor\\Z|init_all_devices\\Z|init_fasthz_variables\\Z|init_hub_stats\\Z|init_timebase\\Z|interval_tick_to_ts\\Z|intpend0\\Z|intpend1\\Z|io6_vmc\\Z|io_xswitch_widget_init\\Z|ioc4_attach\\Z|ioc4_eiattach\\Z|ioc4_pckm_attach\\Z|is_fine_dirmode\\Z|klerror_check_recoverable\\Z|klerror_global_check\\Z|klsave_md_registers\\Z|klsave_spool_registers\\Z|kona_tport_reset_adaptor\\Z|ktimer_init\\Z|ktimer_read\\Z|ktimer_readticks\\Z|ktimer_slptime\\Z|ktimer_switch\\Z|local_settime\\Z|log_tstamp_event\\Z|log_tstamp_vevent\\Z|ls_dofwdlboot\\Z|main\\Z|md_err_log_new\\Z|md_perf_start_count\\Z|md_perf_update_count\\Z|mdir_xlate_addr_mem\\Z|mdir_xlate_addr_pdir\\Z|mdir_xlate_addr_sdir\\Z|migrate_timeouts\\Z|mio_vmc\\Z|move_buffer\\Z|nanotime\\Z|nanotime_syscall\\Z|ni_llp_error_monitor\\Z|ni_reset_port\\Z|nonpeer_iobrick_eeprom_read\\Z|nonpeer_iobrick_uid_get\\Z|page_local_calias\\Z|pcireg_id_get\\Z|pcireg_nic_addr\\Z|pcireg_stat_get\\Z|pckm_attach\\Z|pic_attach2\\Z|print_xide_pciconfig\\Z|probe_common\\Z|prof_intr\\Z|query_fasttimer\\Z|rad_init\\Z|rad_reset_ust\\Z|random_eeprom_ch\\Z|random_write_internal\\Z|real_dumpsys\\Z|restart\\Z|restore_cpu_err\\Z|restore_hub_err\\Z|rfscall\\Z|rtc_read\\Z|rtc_resolution\\Z|rtr_uart_init\\Z|rtr_uart_putc\\Z|save_cache_error\\Z|sc_recv_poll\\Z|sc_set_system_state\\Z|scache_data_bit_location\\Z|scsi_ctlr_nums_add\\Z|set_leds\\Z|set_timer_intr\\Z|show_hub_pi_err\\Z|slowkgclock\\Z|ssram_discovery\\Z|start\\Z|start_kdsp_timeout_thread\\Z|start_tsio_timeout_thread\\Z|startkgclock\\Z|startrtclock\\Z|stop_all_cpus\\Z|strread\\Z|syssgi_hostident\\Z|tg_intr\\Z|tick_maint\\Z|timein_body\\Z|timeout_get_queuehead\\Z|timer_settime\\Z|timestamp_init\\Z|tlbintr\\Z|tstoclock\\Z|tvtoclock\\Z|uart_init\\Z|universe_attach\\Z|update_ust\\Z|us_delay\\Z|ust_init\\Z|uuid_create\\Z|xide_attach\\Z|xiovme_vmc\\Z|xthread_periodic_timeout\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/kernel.o",
+        "6.5.30/usr/cpu/sysgen/IP27boot/kernel.o"
+      ],
+      "reason": "kernel-platform-objects: Platform core and debugger objects hold both hardware-facing code and generic code, so the name rule of the kernel image applies to them as well.",
+      "patterns": [
+        "(?!(?:kl(?:_|hwg|config|cfg|[A-Z])|find_lboard|get_lboard|lboard|board_|prom|arcs|ARCS|elsc|ip27|ip30|ip32|ip35|sn0|sn1|hub|router|net_|nic_|hwgraph|hwgfs|hwg_|graph_|labelcl|device_|dev_|inventory|intr|vector|ecc|mlreset|ml_|setup_|numa|nasid|cnode|compact_to|mld|mem_|memory|meminit|xbow|xtalk|xbridge|xswitch|xconn|xioba|pcibr|scsiha_ioctl|pciio|pciiox|bridge|heart|crime|mace|ioc3|gioio|giobr|fru|i2c|sio_i2c|idbg|panic|cmn_err|assfail|__nanotime\\Z|ackkgclock\\Z|acktmoclock\\Z|bootstrap\\Z|bte_copy\\Z|bte_crb_error_handler\\Z|bte_error_handler\\Z|bte_get_all_interfaces\\Z|bte_init\\Z|bte_stall_node\\Z|bte_wait_for_xfer_completion\\Z|callout_time_to_hz\\Z|capture_hub_stats\\Z|capture_router_stats\\Z|check_md_errors\\Z|check_ni_errors\\Z|chkdebug\\Z|chktimeout_tick\\Z|clear_hub_md_error\\Z|clear_hub_pi_error\\Z|cont_nmi_dump\\Z|counter_intr\\Z|cpuintr\\Z|dbgintr\\Z|debug_stop_all_cpus\\Z|do_powerfail_wars\\Z|do_reset_wars\\Z|dump_crb\\Z|err_int_unblock_mask\\Z|findcpufreq_cycles\\Z|force_system_shutdown\\Z|get_my_slotid\\Z|get_nasid\\Z|get_realtime_ticks\\Z|get_slice\\Z|getcpuid\\Z|handle_cac_buserr\\Z|handle_io_buserr\\Z|handle_uncac_buserr\\Z|ii_llp_error_monitor\\Z|init_hub_stats\\Z|init_timebase\\Z|intpend0\\Z|intpend1\\Z|is_fine_dirmode\\Z|klerror_check_recoverable\\Z|klerror_global_check\\Z|klsave_md_registers\\Z|klsave_spool_registers\\Z|llp_pfail_barrier\\Z|llp_pfail_intr\\Z|llp_pfail_switch\\Z|local_settime\\Z|md_err_log_new\\Z|md_perf_start_count\\Z|md_perf_update_count\\Z|mdir_xlate_addr_mem\\Z|mdir_xlate_addr_pdir\\Z|mdir_xlate_addr_sdir\\Z|migrate_timeouts\\Z|nanotime\\Z|nanotime_syscall\\Z|ni_llp_error_monitor\\Z|ni_reset_port\\Z|page_local_calias\\Z|per_hub_init\\Z|probe_common\\Z|prof_intr\\Z|restart\\Z|restore_cpu_err\\Z|restore_hub_err\\Z|rtc_read\\Z|save_cache_error\\Z|save_hub_err_ext\\Z|save_hub_io_error\\Z|save_hub_md_error\\Z|save_hub_ni_error\\Z|save_hub_pi_error\\Z|sendgroupintr\\Z|set_timer_intr\\Z|slowkgclock\\Z|start\\Z|startkgclock\\Z|sysctlr_keepalive\\Z|syssgi_pfshow\\Z|tick_actions\\Z|tick_maint\\Z|timein_body\\Z|timeout_get_queuehead\\Z|tlbintr\\Z|tstoclock\\Z|tvtoclock\\Z|update_ust\\Z|us_delay\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP30boot/kernel.o",
+        "6.5.30/usr/cpu/sysgen/IP30boot/kernel.o"
+      ],
+      "reason": "kernel-platform-objects: Platform core and debugger objects hold both hardware-facing code and generic code, so the name rule of the kernel image applies to them as well.",
+      "patterns": [
+        "(?!(?:kl(?:_|hwg|config|cfg|[A-Z])|find_lboard|get_lboard|lboard|board_|prom|arcs|ARCS|elsc|ip27|ip30|ip32|ip35|sn0|sn1|hub|router|net_|nic_|hwgraph|hwgfs|hwg_|graph_|labelcl|device_|dev_|inventory|intr|vector|ecc|mlreset|ml_|setup_|numa|nasid|cnode|compact_to|mld|mem_|memory|meminit|xbow|xtalk|xbridge|xswitch|xconn|xioba|pcibr|scsiha_ioctl|pciio|pciiox|bridge|heart|crime|mace|ioc3|gioio|giobr|fru|i2c|sio_i2c|idbg|panic|cmn_err|assfail|VEC_dbe\\Z|VEC_ibe\\Z|__nanotime\\Z|_clock_func\\Z|_ecc_errorvec\\Z|_get_timestamp\\Z|_ticksper1024inst\\Z|badaddr\\Z|badaddr_val\\Z|baerror\\Z|callout_time_to_hz\\Z|chktimeout_tick\\Z|counter_intr\\Z|cpu_clearpower\\Z|cpu_disable\\Z|cpu_exists\\Z|cpu_soft_powerdown\\Z|cpu_waitforreset\\Z|debug_stop_all_cpus\\Z|dobuserr_common\\Z|early_nic_access_mcr32\\Z|earlybadaddr\\Z|earlybaerror\\Z|find_pclk_freq\\Z|flushbus\\Z|get_realtime_ticks\\Z|getcpuid\\Z|init_timebase\\Z|local_settime\\Z|migrate_timeouts\\Z|nanotime\\Z|nanotime_syscall\\Z|nmi_dump\\Z|nvchecksum\\Z|restore_ioc3_sio\\Z|rtc_read\\Z|sendintr\\Z|set_autopoweron\\Z|set_leds\\Z|set_timer_intr\\Z|silence_all_audio\\Z|slow_ioc3_sio\\Z|startrtclock\\Z|tick_maint\\Z|timein_body\\Z|timeout_get_queuehead\\Z|tstoclock\\Z|tvtoclock\\Z|update_ust\\Z|wbadaddr\\Z|wbadaddr_val\\Z|wbadmemaddr\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP35boot/kernel.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/kernel.o"
+      ],
+      "reason": "kernel-platform-objects: Platform core and debugger objects hold both hardware-facing code and generic code, so the name rule of the kernel image applies to them as well.",
+      "patterns": [
+        "(?!(?:kl(?:_|hwg|config|cfg|[A-Z])|find_lboard|get_lboard|lboard|board_|prom|arcs|ARCS|elsc|ip27|ip30|ip32|ip35|sn0|sn1|hub|router|net_|nic_|hwgraph|hwgfs|hwg_|graph_|labelcl|device_|dev_|inventory|intr|vector|ecc|mlreset|ml_|setup_|numa|nasid|cnode|compact_to|mld|mem_|memory|meminit|xbow|xtalk|xbridge|xswitch|xconn|xioba|pcibr|scsiha_ioctl|pciio|pciiox|bridge|heart|crime|mace|ioc3|gioio|giobr|fru|i2c|sio_i2c|idbg|panic|cmn_err|assfail|__nanotime\\Z|ackkgclock\\Z|acktmoclock\\Z|adjust_nmi_handler\\Z|bootstrap\\Z|bte_copy\\Z|bte_crb_error_handler\\Z|bte_error_handler\\Z|bte_get_all_interfaces\\Z|bte_init\\Z|callout_time_to_hz\\Z|capture_hub_stats\\Z|capture_router_stats\\Z|check_md_errors\\Z|check_ni_errors_nasid\\Z|chkdebug\\Z|chktimeout_tick\\Z|cleanup_remote_pi\\Z|clear_hub_md_error\\Z|clear_hub_pi_error\\Z|cont_nmi_dump\\Z|counter_intr\\Z|cpu_node_probe\\Z|cpuintr\\Z|dbgintr\\Z|do_intr_block_bit\\Z|doadjtime\\Z|dump_crb\\Z|dump_error_spool\\Z|err_int_unblock_mask\\Z|findcpufreq_cycles\\Z|get_kmod_sys_snum\\Z|get_nasid\\Z|get_realtime_ticks\\Z|get_slice\\Z|getcpuid\\Z|handle_cac_buserr\\Z|handle_io_buserr\\Z|handle_uncac_buserr\\Z|ii_llp_error_monitor\\Z|init_all_devices\\Z|init_fasthz_variables\\Z|init_hub_stats\\Z|init_timebase\\Z|intpend0\\Z|intpend1\\Z|io_xswitch_widget_init\\Z|is_fine_dirmode\\Z|klerror_check_recoverable\\Z|klerror_global_check\\Z|klsave_md_registers\\Z|klsave_spool_registers\\Z|local_settime\\Z|md_err_log_new\\Z|md_perf_start_count\\Z|md_perf_update_count\\Z|mdir_xlate_addr_mem\\Z|mdir_xlate_addr_pdir\\Z|mdir_xlate_addr_sdir\\Z|migrate_timeouts\\Z|nanotime\\Z|nanotime_syscall\\Z|ni_llp_error_monitor\\Z|ni_reset_port\\Z|page_local_calias\\Z|probe_common\\Z|prof_intr\\Z|query_fasttimer\\Z|restart\\Z|restore_cpu_err\\Z|restore_hub_err\\Z|rtc_read\\Z|rtc_resolution\\Z|save_cache_error\\Z|scache_data_bit_location\\Z|scsi_ctlr_nums_add\\Z|set_leds\\Z|set_timer_intr\\Z|show_hub_pi_err\\Z|slowkgclock\\Z|start\\Z|startkgclock\\Z|startrtclock\\Z|stop_all_cpus\\Z|tick_maint\\Z|timein_body\\Z|timeout_get_queuehead\\Z|timestamp_init\\Z|tlbintr\\Z|tstoclock\\Z|tvtoclock\\Z|update_ust\\Z|us_delay\\Z|ust_init\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/dhardlocks.a",
+        "6.5.22/usr/cpu/sysgen/IP30boot/dhardlocks.a",
+        "6.5.22/usr/cpu/sysgen/IP35boot/dhardlocks.a",
+        "6.5.30/usr/cpu/sysgen/IP27boot/dhardlocks.a",
+        "6.5.30/usr/cpu/sysgen/IP30boot/dhardlocks.a",
+        "6.5.30/usr/cpu/sysgen/IP35boot/dhardlocks.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:_64bitlockdebug\\Z|_64bitunlockdebug\\Z|bitlockdebug\\Z|bitunlockdebug\\Z|spinlockdebug\\Z|spinunlockdebug\\Z|trybitlockdebug\\Z|tryspinlockdebug\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/fcadp.a",
+        "6.5.22/usr/cpu/sysgen/IP30boot/fcadp.a",
+        "6.5.22/usr/cpu/sysgen/IP35boot/fcadp.a",
+        "6.5.30/usr/cpu/sysgen/IP27boot/fcadp.a",
+        "6.5.30/usr/cpu/sysgen/IP30boot/fcadp.a",
+        "6.5.30/usr/cpu/sysgen/IP35boot/fcadp.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:fcadpattach\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/gfxs.a",
+        "6.5.30/usr/cpu/sysgen/IP27boot/gfxs.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:gfx_flow_attach_me\\Z|gfx_flow_detach_me\\Z|gfx_flow_flush_my_wg\\Z|gfx_flow_init\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/if_ef.o",
+        "6.5.22/usr/cpu/sysgen/IP30boot/if_ef.o",
+        "6.5.30/usr/cpu/sysgen/IP27boot/if_ef.o",
+        "6.5.30/usr/cpu/sysgen/IP30boot/if_ef.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:ef_intr\\Z|if_efattach\\Z|ssram_discovery\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/if_eg.o",
+        "6.5.22/usr/cpu/sysgen/IP30boot/if_eg.o",
+        "6.5.22/usr/cpu/sysgen/IP35boot/if_eg.o",
+        "6.5.30/usr/cpu/sysgen/IP27boot/if_eg.o",
+        "6.5.30/usr/cpu/sysgen/IP30boot/if_eg.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/if_eg.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:eg_intr\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/if_rns.o",
+        "6.5.22/usr/cpu/sysgen/IP30boot/if_rns.o",
+        "6.5.22/usr/cpu/sysgen/IP35boot/if_rns.o",
+        "6.5.30/usr/cpu/sysgen/IP27boot/if_rns.o",
+        "6.5.30/usr/cpu/sysgen/IP30boot/if_rns.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/if_rns.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:if_rnsattach\\Z|if_rnsintr\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/if_tg.o",
+        "6.5.22/usr/cpu/sysgen/IP30boot/if_tg.o",
+        "6.5.22/usr/cpu/sysgen/IP35boot/if_tg.o",
+        "6.5.30/usr/cpu/sysgen/IP27boot/if_tg.o",
+        "6.5.30/usr/cpu/sysgen/IP30boot/if_tg.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/if_tg.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:ftrc_event\\Z|if_tgattach\\Z|tg_intr\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/ioc3_pckm.o",
+        "6.5.22/usr/cpu/sysgen/IP30boot/ioc3_pckm.o",
+        "6.5.22/usr/cpu/sysgen/IP35boot/ioc3_pckm.o",
+        "6.5.30/usr/cpu/sysgen/IP27boot/ioc3_pckm.o",
+        "6.5.30/usr/cpu/sysgen/IP30boot/ioc3_pckm.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/ioc3_pckm.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:pckm_attach\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/ioc3ei.o",
+        "6.5.22/usr/cpu/sysgen/IP35boot/ioc3ei.o",
+        "6.5.30/usr/cpu/sysgen/IP27boot/ioc3ei.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/ioc3ei.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:eiattach\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/kona.a",
+        "6.5.22/usr/cpu/sysgen/IP35boot/kona.a",
+        "6.5.30/usr/cpu/sysgen/IP27boot/kona.a",
+        "6.5.30/usr/cpu/sysgen/IP35boot/kona.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:kona_tport_reset_adaptor\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/ksync_metered.a",
+        "6.5.22/usr/cpu/sysgen/IP30boot/ksync_metered.a",
+        "6.5.22/usr/cpu/sysgen/IP35boot/ksync_metered.a",
+        "6.5.30/usr/cpu/sysgen/IP27boot/ksync_metered.a",
+        "6.5.30/usr/cpu/sysgen/IP30boot/ksync_metered.a",
+        "6.5.30/usr/cpu/sysgen/IP35boot/ksync_metered.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:_mraccess\\Z|_mrupdate\\Z|mrmeter_entry\\Z|mrpromote_or_unlock\\Z|mrtryupdate\\Z|mrunlock\\Z|mutex_lock\\Z|mutex_trylock\\Z|mutex_wake_r\\Z|rslog\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/ksync_statistics.a",
+        "6.5.22/usr/cpu/sysgen/IP30boot/ksync_statistics.a",
+        "6.5.22/usr/cpu/sysgen/IP35boot/ksync_statistics.a",
+        "6.5.30/usr/cpu/sysgen/IP27boot/ksync_statistics.a",
+        "6.5.30/usr/cpu/sysgen/IP30boot/ksync_statistics.a",
+        "6.5.30/usr/cpu/sysgen/IP35boot/ksync_statistics.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:mraccessf\\Z|mrspinaccess\\Z|mrspinupdate\\Z|mrupdatef\\Z|mutex_lock\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/mgras.a",
+        "6.5.30/usr/cpu/sysgen/IP27boot/mgras.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:hub_set_fire_n_forget\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/mio.o",
+        "6.5.22/usr/cpu/sysgen/IP30boot/mio.o",
+        "6.5.22/usr/cpu/sysgen/IP35boot/mio.o",
+        "6.5.30/usr/cpu/sysgen/IP27boot/mio.o",
+        "6.5.30/usr/cpu/sysgen/IP30boot/mio.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/mio.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:mio_vmc\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/nfs.a",
+        "6.5.22/usr/cpu/sysgen/IP30boot/nfs.a",
+        "6.5.22/usr/cpu/sysgen/IP35boot/nfs.a",
+        "6.5.30/usr/cpu/sysgen/IP27boot/nfs.a",
+        "6.5.30/usr/cpu/sysgen/IP30boot/nfs.a",
+        "6.5.30/usr/cpu/sysgen/IP35boot/nfs.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:rfscall\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/os.a",
+        "6.5.30/usr/cpu/sysgen/IP27boot/os.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:do_mprboot\\Z|dump_hub_registers\\Z|enter_panic_mode\\Z|ktimer_init\\Z|ktimer_read\\Z|ktimer_readticks\\Z|ktimer_slptime\\Z|ktimer_switch\\Z|log_tstamp_event\\Z|log_tstamp_vevent\\Z|move_buffer\\Z|real_dumpsys\\Z|uuid_create\\Z|xthread_periodic_timeout\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/partition.o",
+        "6.5.30/usr/cpu/sysgen/IP27boot/partition.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:part_heartbeat\\Z|part_init\\Z|part_interrupt\\Z|part_terminate\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/rad1pci.a",
+        "6.5.30/usr/cpu/sysgen/IP27boot/rad1pci.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:rad1pciattach\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/rand.a",
+        "6.5.22/usr/cpu/sysgen/IP30boot/rand.a",
+        "6.5.22/usr/cpu/sysgen/IP35boot/rand.a",
+        "6.5.30/usr/cpu/sysgen/IP27boot/rand.a",
+        "6.5.30/usr/cpu/sysgen/IP30boot/rand.a",
+        "6.5.30/usr/cpu/sysgen/IP35boot/rand.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:random_write_internal\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/sduart.a",
+        "6.5.22/usr/cpu/sysgen/IP30boot/sduart.a",
+        "6.5.22/usr/cpu/sysgen/IP35boot/sduart.a",
+        "6.5.30/usr/cpu/sysgen/IP27boot/sduart.a",
+        "6.5.30/usr/cpu/sysgen/IP30boot/sduart.a",
+        "6.5.30/usr/cpu/sysgen/IP35boot/sduart.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:du_conpoll\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/stp.a",
+        "6.5.22/usr/cpu/sysgen/IP30boot/stp.a",
+        "6.5.22/usr/cpu/sysgen/IP35boot/stp.a",
+        "6.5.30/usr/cpu/sysgen/IP27boot/stp.a",
+        "6.5.30/usr/cpu/sysgen/IP30boot/stp.a",
+        "6.5.30/usr/cpu/sysgen/IP35boot/stp.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:st_ec_trace\\Z|st_ec_trace_alloc\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/stream.a",
+        "6.5.22/usr/cpu/sysgen/IP30boot/stream.a",
+        "6.5.22/usr/cpu/sysgen/IP35boot/stream.a",
+        "6.5.30/usr/cpu/sysgen/IP27boot/stream.a",
+        "6.5.30/usr/cpu/sysgen/IP30boot/stream.a",
+        "6.5.30/usr/cpu/sysgen/IP35boot/stream.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:strread\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/tpu.o",
+        "6.5.22/usr/cpu/sysgen/IP30boot/tpu.o",
+        "6.5.22/usr/cpu/sysgen/IP35boot/tpu.o",
+        "6.5.30/usr/cpu/sysgen/IP27boot/tpu.o",
+        "6.5.30/usr/cpu/sysgen/IP30boot/tpu.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/tpu.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:tpu_assign\\Z|tpu_att_load\\Z|tpu_close\\Z|tpu_dmaError_intr\\Z|tpu_ioctl_config\\Z|tpu_ioctl_ext_test\\Z|tpu_ioctl_get_fault\\Z|tpu_ioctl_get_flag\\Z|tpu_ioctl_get_gtrace\\Z|tpu_ioctl_get_soft\\Z|tpu_ioctl_get_trace\\Z|tpu_ioctl_gstats\\Z|tpu_ioctl_halt\\Z|tpu_ioctl_inst\\Z|tpu_ioctl_regs\\Z|tpu_ioctl_resume\\Z|tpu_ioctl_run\\Z|tpu_ioctl_set_fault\\Z|tpu_ioctl_set_flag\\Z|tpu_ioctl_stat\\Z|tpu_ioctl_stat_list\\Z|tpu_ioctl_stats\\Z|tpu_ldiBarrier_intr\\Z|tpu_ldiCError_intr\\Z|tpu_ldiError_intr\\Z|tpu_map\\Z|tpu_open\\Z|tpu_timeout\\Z|tpu_trace\\Z|tpu_trace_alloc\\Z|tpu_unmap\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/universe.o",
+        "6.5.22/usr/cpu/sysgen/IP35boot/universe.o",
+        "6.5.30/usr/cpu/sysgen/IP27boot/universe.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/universe.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:universe_attach\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP27boot/xiovme.o",
+        "6.5.22/usr/cpu/sysgen/IP35boot/xiovme.o",
+        "6.5.30/usr/cpu/sysgen/IP27boot/xiovme.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/xiovme.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:xiovme_vmc\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP30boot/gfxs.a",
+        "6.5.30/usr/cpu/sysgen/IP30boot/gfxs.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:gfx_flow_alloc\\Z|gfx_flow_attach_me\\Z|gfx_flow_dealloc\\Z|gfx_flow_delayed_hiwater_intr_prehandler\\Z|gfx_flow_detach_me\\Z|gfx_flow_flush_my_wg\\Z|gfx_flow_init\\Z|gfx_flow_pipe_head_init\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP30boot/mgras.a",
+        "6.5.30/usr/cpu/sysgen/IP30boot/mgras.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:MgrasGeneralInterrupt\\Z|Mgras_FC_Disable\\Z|mgras_hq4_hiwater_intr\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a",
+        "6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:gfP_OdsySaveHwShadow\\Z|gf_OdsyAttach\\Z|gf_OdsyDestroyDDRN\\Z|gf_OdsyInitialize\\Z|gf_OdsySchedSwapBuf\\Z|odsyDMAOp\\Z|odsyInitCfifo\\Z|odsyLowLevelReset\\Z|odsyReset\\Z|odsyRestartContext\\Z|odsy_attach\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP30boot/os.a",
+        "6.5.30/usr/cpu/sysgen/IP30boot/os.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:do_mprboot\\Z|enter_panic_mode\\Z|ktimer_init\\Z|ktimer_read\\Z|ktimer_readticks\\Z|ktimer_slptime\\Z|ktimer_switch\\Z|log_tstamp_event\\Z|log_tstamp_vevent\\Z|syssgi\\Z|uuid_create\\Z|xthread_periodic_timeout\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP30boot/sflash.o",
+        "6.5.30/usr/cpu/sysgen/IP30boot/sflash.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:srflash_attach\\Z|srflash_flash_mem_check\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP35boot/cn.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/cn.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:cn_init\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:fake_a_part_number\\Z|fake_a_product_name\\Z|gbrick_eeprom_read\\Z|generate_unique_id\\Z|nonpeer_iobrick_eeprom_read\\Z|nonpeer_iobrick_uid_get\\Z|random_eeprom_ch\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP35boot/gfxs.a",
+        "6.5.30/usr/cpu/sysgen/IP35boot/gfxs.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:gfx_flow_detach_me\\Z|gfx_flow_flush_my_wg\\Z|gfx_flow_init\\Z|prom_has_vga_support\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP35boot/ide.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/ide.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:print_xide_pciconfig\\Z|xide_attach\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP35boot/if_ef.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/if_ef.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:ef_intr\\Z|ef_ioc3eaddr\\Z|if_efattach\\Z|ssram_discovery\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP35boot/ioc4.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/ioc4.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:ioc4_attach\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP35boot/ioc4_ei.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/ioc4_ei.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:ioc4_eiattach\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP35boot/ioc4_pckm.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/ioc4_pckm.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:ioc4_pckm_attach\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP35boot/kdsp.a",
+        "6.5.30/usr/cpu/sysgen/IP35boot/kdsp.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:start_kdsp_timeout_thread\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP35boot/l1.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/l1.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:get_myid\\Z|rtr_uart_init\\Z|rtr_uart_putc\\Z|sc_recv_poll\\Z|uart_init\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:sc_set_system_state\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a",
+        "6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:gfP_OdsySaveHwShadow\\Z|gf_OdsyAttach\\Z|gf_OdsyDestroyDDRN\\Z|gf_OdsyInitialize\\Z|gf_OdsySchedSwapBuf\\Z|odsyDMAOp\\Z|odsyHiwaterInterrupt\\Z|odsyInitCfifo\\Z|odsyReset\\Z|odsyRestartContext\\Z|odsy_attach\\Z|odsy_fc_attach\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP35boot/os.a",
+        "6.5.30/usr/cpu/sysgen/IP35boot/os.a"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:do_mprboot\\Z|doacvec\\Z|dogetitimer\\Z|dump_hub_registers\\Z|enter_panic_mode\\Z|get_host_id\\Z|interval_tick_to_ts\\Z|ktimer_init\\Z|ktimer_read\\Z|ktimer_readticks\\Z|ktimer_slptime\\Z|ktimer_switch\\Z|log_tstamp_event\\Z|log_tstamp_vevent\\Z|main\\Z|move_buffer\\Z|real_dumpsys\\Z|syssgi_hostident\\Z|timer_settime\\Z|uuid_create\\Z|xthread_periodic_timeout\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP35boot/partition.o",
+        "6.5.22/usr/cpu/sysgen/IP35boot/partition_part.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/partition.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/partition_part.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:part_add_regions\\Z|part_discovery\\Z|part_export_page_perms\\Z|part_heartbeat\\Z|part_init_node\\Z|part_interrupt\\Z|part_pfdat_permit\\Z|part_rm_regions\\Z|part_terminate\\Z|part_unexport_page_nocheck\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP35boot/pic.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/pic.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:pic_attach2\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP35boot/rad_dd.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/rad_dd.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:rad_init\\Z|rad_reset_ust\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.22/usr/cpu/sysgen/IP35boot/tserialio.o",
+        "6.5.30/usr/cpu/sysgen/IP35boot/tserialio.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:start_tsio_timeout_thread\\Z)).+"
+      ]
+    },
+    {
+      "binaries": [
+        "6.5.30/usr/cpu/sysgen/IP35boot/ls.o"
+      ],
+      "reason": "kernel-other-objects: Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons.",
+      "patterns": [
+        "(?!(?:ls_dofwdlboot\\Z)).+"
+      ]
+    }
+  ],
+  "gp_literals": [
+    {
+      "binaries": [
+        "*/unix.IP27",
+        "*/unix.IP30",
+        "*/unix.IP35"
+      ],
+      "sections": [
+        ".sdata",
+        ".lit8",
+        ".srdata"
       ]
     }
   ]

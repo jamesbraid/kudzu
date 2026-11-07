@@ -3,15 +3,38 @@
 Every file in this directory is generated. Do not edit by hand: change the documents, the headers, `scripts/scope.json` or the configuration, then regenerate. Run the two scripts from the repository root, with `root/` populated, inside the toolchain container ([tools/README.md](../../tools/README.md)):
 
     tools/re-run python3 scripts/gen-scope.py        # only after scripts/scope.json changes
+    python3 scripts/gen-hw-windows.py                # only after scripts/hw-windows.json changes
     tools/re-run python3 scripts/inventory.py
     tools/re-run python3 scripts/os_tables.py                    # needs the functions table from inventory.py; both releases
     tools/check-os-tables                                         # fails when the committed tables are not what these produce
 
-`scripts/inventory.py` is shared with the sibling repositories. It writes `binaries.tsv`, `functions.tsv`, `ioctls.tsv` and `summary.tsv`, plus `mmio.tsv`, `tokens.tsv`, `ucode.tsv` and `spec-registers.tsv`, which are graphics-hardware tables that have no rows in this repository. The columns, the five statuses (`undocumented`, `named-only`, `located`, `understood`, `no-software-dependency`) and the rule that an entry must carry a label, a role and effect and a citation specific to its subject before a row counts as `understood` are the shared definition: they are the same as in the sibling repositories, whose inventory README holds the full column text. The reproducibility inputs are `scripts/inventory-root.sha256` (hash of every file read from `root/`) and `scripts/inventory-siblings.json` (empty here: no sibling workspace is compared).
+`scripts/inventory.py` is shared with the sibling repositories. It writes `binaries.tsv`, `functions.tsv`, `ioctls.tsv`, `mmio.tsv` and `summary.tsv`, plus `tokens.tsv`, `ucode.tsv` and `spec-registers.tsv`, which are graphics-hardware tables that have no rows in this repository. `mmio.tsv` has one row per register offset the kernels reach in the windows listed under Register windows below. The columns, the five statuses (`undocumented`, `named-only`, `located`, `understood`, `no-software-dependency`) and the rule that an entry must carry a label, a role and effect and a citation specific to its subject before a row counts as `understood` are the shared definition: they are the same as in the sibling repositories, whose inventory README holds the full column text. The reproducibility inputs are `scripts/inventory-root.sha256` (hash of every file read from `root/`) and `scripts/inventory-siblings.json` (empty here: no sibling workspace is compared).
 
 ## Scope
 
 `scripts/scope.json` states, for each binary group, whether its functions are in scope (`in`), in scope only when the function name starts with one of the listed prefixes (`narrow`) or out of scope for now (`out`). `scripts/gen-scope.py` turns it into the `binaries` and `scope` sections of `scripts/inventory-config.json`. Out-of-scope rows stay in the tables with `scope` = `out:N`; `summary.tsv` reports `out_of_scope` per table and per binary, and [scope.tsv](scope.tsv) reports the rule per group with its counts. An out-of-scope row is not excluded for good: it counts when the rule changes.
+
+## Register windows
+
+`scripts/hw-windows.json` says which hardware register windows the scan looks for in the kernels, and `scripts/gen-hw-windows.py` writes them into the `windows`, `bases` and `gp_literals` sections of `scripts/inventory-config.json` (`--check` fails when the config is stale). Every base carries a `why` that names its source. The addresses, pointer arguments and pointer-returning routines that the system-chip workspace (chips) established are read from its `tools/configs/<chip>.json` at the commit pinned in `hw-windows.json`, with `git show`, from a clone at `.cache/siblings/chips`; they are not copied, so the two workspaces cannot drift. The rest comes from the reviewed Bedrock address-map datasheet (Hub register space and Hub special space) and the IP30 machine and HEART datasheets, and from this repository's own documents; the window's `docs` list is where a bare offset counts as a mention.
+
+| Platform | Windows | How code reaches them |
+|---|---|---|
+| IP27 | `HUB` (regions `HUB-PI`, `HUB-MD`, `HUB-II`, `HUB-NI`), `XBOW` | the uncached I/O alias of physical `0x01000000` for the calling processor's own Hub; the node alias `0x9200000001800000` plus the node number shifted left 32 (unresolved: see below); the `0x02000000` bus-error alias |
+| IP30 | `HEART` (regions `HEART-PIU`, `HEART-W8`), `XIO-IP30` (regions `XIO-W0` to `XIO-W15`), `XBOW`, `BRIDGE` | literal addresses in the 64-bit uncached and the 32-bit compatibility windows; widget n at `0x10000000 + n * 0x1000000` |
+| IP35 | `BEDROCK` (regions `BEDROCK-PI0`, `-PI1`, `-IO`, `-LB`, `-NI`, `-XB`, `-MD`), `BEDROCK-SPECIAL` (regions `BEDROCK-L1UART`, `BEDROCK-LED`), `BEDROCK-BOOT`, `XBOW` | the local alias `0x9200000001000000`; the node alias `0x9200000001800000` plus the node number shifted left 33 (unresolved); the Hub special space windows at `0x9000000010000000` and `0x9000000030000000` (plus the node number shifted left 33); the boot window at `0x9000000018000000` |
+| all three | `BRIDGE` (Bridge, XBridge, PIC), `IOC3`, `IOC4` (IP35 only), `XTALK-PIO`, `PCI-PIO` | pointers: the return of `pcibr_bridge_ptr_get`, `ioc3_get_mem`, `ioc3_mem_ptr`, `ioc4_get_mem`, `ioc4_mem_ptr`, and arguments the callers pass on |
+
+The linked kernels have no GOT: the compiler keeps 64-bit addresses in the small-data sections and loads them through gp. The `gp_literals` rule makes the scan read `.sdata`, `.lit8` and `.srdata` of `unix.IPnn` for those loads; without it a linked kernel resolves only the addresses it builds with `lui`.
+
+Reading the tables:
+
+- A `window` column value is a window or one of its regions. Offsets are relative to the start of the window's alias, so the local and node aliases of a Hub fall on the same offsets.
+- `XTALK-PIO` and `PCI-PIO` are pointers returned by the crosstalk and PCI mapping routines at an offset their caller chose. The scan does not follow that argument, so an access through such a pointer is an unresolved site of the window, never a register row. The same holds for the node aliases of `HUB` and `BEDROCK` and the L1 UART window, whose node number is computed: the offset is known and the node is not, and the scan reports the site as unresolved rather than filing it at node 0.
+- `summary.tsv` and the last line of the run report the unresolved sites by window. A routine with only unresolved sites still counts as reaching the window, which is what stops `scripts/scope.json` from excluding it.
+- Known artefact: the Bridge-family accessors `pcireg_*` take either the chip window or a driver record, and the routine decides which at run time. The scan gives the argument the window the callers pass, so the record's fields appear as `BRIDGE` rows `0x8` (doubleword) and `0x72` (halfword). They are not registers (`0x72` is not a register slot, and the registers are read as words at slot + 4).
+- Register names are blank: no register table is wired into the config yet (`spec-registers.tsv` is empty). `status` comes from the documents that mention the offset.
+- `scripts/scope.json` lists, under `keep`, the routines of out-of-scope objects that the scan found reaching a window (mostly readers of the free-running real-time counter). They stay in scope because the run refuses to exclude a routine that reaches a window.
 
 ## Function addresses
 
