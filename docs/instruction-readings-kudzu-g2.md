@@ -1838,7 +1838,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc0000000001d10f0 calls usb_clear_hub_feature [0xc0000000001d08c8] with a0=a0 at entry (arg0), a1=0x1, a2=0x0, a3=?.
   The `jal` at 0xc0000000001d1120 calls usb_hub_overcurrent_event [0xc0000000001d11c0] with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000001d1130 calls usb_hub_path [0xc0000000001d1c5c] with a0=a0 at entry (arg0), a1=[0xc0000000015015f4], a2=0x625f0000, a3=?.
-  The `jal` at 0xc0000000001d1144 calls usb_dbg [0xc0000000001d1c9c] with a0=0xc00000000046bb50, a1=ret(usb_hub_path), a2=ret(usb_get_hub_status), a3=?.
+  The `jal` at 0xc0000000001d1144 calls usb_dbg [0xc0000000001d1c9c] with a0=0xc00000000046bb50, a1=ret(usb_hub_path), a2=?, a3=?.
   The `jal` at 0xc0000000001d115c calls usb_dbg [0xc0000000001d1c9c] with a0=0xc00000000046bb98, a1=?, a2=0x625f0000, a3=?.
   The `jal` at 0xc0000000001d116c calls usb_clear_hub_feature [0xc0000000001d08c8] with a0=a0 at entry (arg0), a1=0x0, a2=0x0, a3=?.
   The `jal` at 0xc0000000001d1198 calls usb_dbg [0xc0000000001d1c9c] with a0=0xc00000000046bbb8, a1=ret(usb_clear_hub_feature), a2=[0xc0000000015015f4], a3=?.
@@ -4658,7 +4658,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc000000000206188 calls usb_clear_hub_feature [0xc000000000205960] with a0=a0 at entry (arg0), a1=0x1, a2=0x0, a3=?.
   The `jal` at 0xc0000000002061b8 calls usb_hub_overcurrent_event [0xc000000000206258] with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000002061c8 calls usb_hub_path [0xc000000000206d44] with a0=a0 at entry (arg0), a1=[0xc00000000158db8c], a2=0x625f0000, a3=?.
-  The `jal` at 0xc0000000002061dc calls usb_dbg [0xc000000000206d84] with a0=0xc0000000004c2730, a1=ret(usb_hub_path), a2=ret(usb_get_hub_status), a3=?.
+  The `jal` at 0xc0000000002061dc calls usb_dbg [0xc000000000206d84] with a0=0xc0000000004c2730, a1=ret(usb_hub_path), a2=?, a3=?.
   The `jal` at 0xc0000000002061f4 calls usb_dbg [0xc000000000206d84] with a0=0xc0000000004c2778, a1=?, a2=0x625f0000, a3=?.
   The `jal` at 0xc000000000206204 calls usb_clear_hub_feature [0xc000000000205960] with a0=a0 at entry (arg0), a1=0x0, a2=0x0, a3=?.
   The `jal` at 0xc000000000206230 calls usb_dbg [0xc000000000206d84] with a0=0xc0000000004c2798, a1=ret(usb_clear_hub_feature), a2=[0xc00000000158db8c], a3=?.

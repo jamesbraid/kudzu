@@ -1035,7 +1035,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc000000000023af0 targets 0xc000000000023b14, is taken when a1(?) == 0, and falls through when a1(?) != 0.
   The `beq` branch at 0xc000000000023b14 targets 0xc000000000023ac8 and is always taken.
   The `beq` branch at 0xc000000000023b1c targets 0xc000000000023ac8 and is always taken.
-  The return at 0xc000000000023ad4 has v0 = one of ret(ip27log_setup), ?, ret(promlog_delete), 0x0.
+  The return at 0xc000000000023ad4 has v0 = one of ret(ip27log_setup), ?, 0x0.
 - `ip27log_iprintf` in `6.5.22/unix.IP27` at 0xc000000000023b24 (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.22/unix.IP27`.
@@ -1719,9 +1719,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc0000000000425c8 loads 4 bytes from ?.
   The `jal` at 0xc0000000000424d0 calls cmn_err [0xc0000000001f8090] with a0=0x6, a1=0xc00000000140d098, a2=one of 0xc00000000140d088, 0xc00000000140d0c0, a3=?.
   The `jal` at 0xc0000000000424f8 calls cmn_err [0xc0000000001f8090] with a0=0x6, a1=0xc00000000140d0dc, a2=?, a3=?.
-  The `jal` at 0xc00000000004254c calls cmn_err [0xc0000000001f8090] with a0=0x6, a1=0xc00000000140d0c8, a2=?, a3=?, a6=a0-1.
-  The `jal` at 0xc000000000042568 calls cmn_err [0xc0000000001f8090] with a0=0x6, a1=0xc00000000140d0d0, a2=?, a3=?, a6=a0-1.
-  The `jal` at 0xc000000000042584 calls cmn_err [0xc0000000001f8090] with a0=0x6, a1=0xc00000000140d0d8, a2=?, a3=?, a6=a0-1.
+  The `jal` at 0xc00000000004254c calls cmn_err [0xc0000000001f8090] with a0=0x6, a1=0xc00000000140d0c8, a2=?, a3=?.
+  The `jal` at 0xc000000000042568 calls cmn_err [0xc0000000001f8090] with a0=0x6, a1=0xc00000000140d0d0, a2=?, a3=?.
+  The `jal` at 0xc000000000042584 calls cmn_err [0xc0000000001f8090] with a0=0x6, a1=0xc00000000140d0d8, a2=?, a3=?.
   The `jal` at 0xc0000000000425e4 calls find_lboard [0xc00000000001d6b4] with a0=?, a1=0x11, a2=0x9600000000000000, a3=?.
   The `jal` at 0xc0000000000425f0 calls board_to_path [0xc00000000001e408] with a0=ret(find_lboard), a1=sp-176, a2=?, a3=?.
   The `jal` at 0xc000000000042600 calls cmn_err [0xc0000000001f8090] with a0=0x6, a1=0xc00000000140d0b0, a2=sp-176, a3=?.
@@ -1731,7 +1731,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `bne` branch at 0xc0000000000424e8 targets 0xc0000000000424a0, is taken when s0(?) < s1(=a0) (signed), and falls through when s0(?) >= s1(=a0) (signed).
   The `bgtz` branch at 0xc000000000042500 targets 0xc000000000042594, is taken when s1(=a0) > 0 (signed), and falls through when s1(=a0) <= 0 (signed).
   The `bne` branch at 0xc000000000042530 targets 0xc00000000004255c, is taken when a3(?) != a4(?), and falls through when a3(?) == a4(?).
-  The `bne` branch at 0xc000000000042538 targets 0xc0000000000424dc, is taken when a6(=a0-1) != s0(?), and falls through when a6(=a0-1) == s0(?).
+  The `bne` branch at 0xc000000000042538 targets 0xc0000000000424dc, is taken when a6(?) != s0(?), and falls through when a6(?) == s0(?).
   The `beq` branch at 0xc000000000042554 targets 0xc0000000000424dc and is always taken.
   The `beq` branch at 0xc00000000004255c targets 0xc000000000042578, is taken when a2(?) == a5(?), and falls through when a2(?) != a5(?).
   The `beq` branch at 0xc000000000042570 targets 0xc00000000004258c and is always taken.
@@ -2463,9 +2463,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc000000000072fc0 calls cap_able [0xc00000000028827c] with a0=0x2000000000, a1=?, a2=?, a3=?.
   The `jal` at 0xc000000000072fd4 calls copyin [0xc00000000001f760] with a0=a2 at entry (arg2), a1=sp-80, a2=0x10, a3=?.
   The `jal` at 0xc000000000072ffc calls pcibr_device_slot_get [0xc000000000072e74] with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xc00000000007301c calls pcibr_priority_bits_set [0xc000000000076370] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x1, a3=?.
+  The `jal` at 0xc00000000007301c calls pcibr_priority_bits_set [0xc000000000076370] with a0=?, a1=?, a2=0x1, a3=?.
   The `jal` at 0xc00000000007302c calls pcibr_device_slot_get [0xc000000000072e74] with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xc00000000007304c calls pcibr_priority_bits_set [0xc000000000076370] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x0, a3=0xff.
+  The `jal` at 0xc00000000007304c calls pcibr_priority_bits_set [0xc000000000076370] with a0=?, a1=?, a2=0x0, a3=0xff.
   The `beq` branch at 0xc000000000072f34 targets 0xc000000000072f90, is taken when s0(=a1) == at(=0x6701), and falls through when s0(=a1) != at(=0x6701).
   The `beq` branch at 0xc000000000072f40 targets 0xc000000000072fc0, is taken when s0(=a1) == v0(=0x6702), and falls through when s0(=a1) != v0(=0x6702).
   The `beq` branch at 0xc000000000072f4c targets 0xc000000000072f80, is taken when s0(=a1) == v1(=0x7001), and falls through when s0(=a1) != v1(=0x7001).
@@ -2669,9 +2669,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `sb` at 0xc000000000074684 stores 1 byte to ?.
   The `jal` at 0xc000000000074618 calls pcibr_info_get [0xc00000000007306c] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xc000000000074630 calls mutex_spinlock [0xc000000000287214] with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?.
-  The `jal` at 0xc000000000074688 calls mutex_io_spinunlock [0xc000000000287120] with a0=[ret(pcibr_info_get)+40]:8+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?, a6=0xc000000001410490.
+  The `jal` at 0xc000000000074688 calls mutex_io_spinunlock [0xc000000000287120] with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?, a6=0xc000000001410490.
   The `jal` at 0xc0000000000746bc calls cmn_err [0xc0000000001f8090] with a0=0x4, a1=0xc000000001410800, a2=a2 at entry (arg2), a3=a3 at entry (arg3), a6=0xc000000001410490.
-  The `jal` at 0xc0000000000746c8 calls mutex_io_spinunlock [0xc000000000287120] with a0=[ret(pcibr_info_get)+40]:8+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?.
+  The `jal` at 0xc0000000000746c8 calls mutex_io_spinunlock [0xc000000000287120] with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000000746e0 calls hwgraph_vertex_name_get [0xc00000000029777c] with a0=a0 at entry (arg0), a1=sp-1088, a2=0x400, a3=?.
   The `jal` at 0xc0000000000746f0 calls cmn_err [0xc0000000001f8090] with a0=0x4, a1=0xc000000001410780, a2=?, a3=?.
   The `jal` at 0xc000000000074708 calls cmn_err [0xc0000000001f8090] with a0=0x4, a1=0xc0000000014107a0, a2=sp-1088, a3=a3 at entry (arg3).
@@ -3809,7 +3809,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc00000000007997c calls kmem_zalloc [0xc000000000181ce0] with a0=0x8, a1=0x0, a2=?, a3=?.
   The `jal` at 0xc00000000007999c calls hwgraph_info_add_LBL [0xc0000000002960bc] with a0=?, a1=0xc0000000014115f8, a2=ret(kmem_zalloc), a3=?.
   The `jal` at 0xc0000000000799b0 calls hwgraph_info_get_LBL [0xc000000000296160] with a0=?, a1=0xc0000000014115f8, a2=sp-64, a3=?.
-  The `jal` at 0xc0000000000799c8 calls kmem_free [0xc000000000181d4c] with a0=ret(kmem_zalloc), a1=0x8, a2=?, a3=ret(kmem_zalloc).
+  The `jal` at 0xc0000000000799c8 calls kmem_free [0xc000000000181d4c] with a0=?, a1=0x8, a2=?, a3=?.
   The `jal` at 0xc0000000000799e4 calls pcibr_debug [0xc0000000000767d0] with a0=0x2, a1=a0 at entry (arg0), a2=0xc000000001411660, a3=?.
   The `jal` at 0xc000000000079a00 calls pcibr_debug [0xc0000000000767d0] with a0=0x2, a1=a0 at entry (arg0), a2=0xc0000000014115c0, a3=?, a5=-0x1.
   The `jal` at 0xc000000000079a1c calls pcibr_debug [0xc0000000000767d0] with a0=0x2, a1=a0 at entry (arg0), a2=0xc000000001411608, a3=?.
@@ -3817,7 +3817,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc000000000079944 targets 0xc0000000000799f4, is taken when a5(=-0x1) == a0(?), and falls through when a5(=-0x1) != a0(?).
   The `beq` branch at 0xc00000000007995c targets 0xc00000000007997c, is taken when v0(?) == 0, and falls through when v0(?) != 0.
   The `beq` branch at 0xc000000000079984 targets 0xc000000000079a10, is taken when v0(=ret(kmem_zalloc)) == 0, and falls through when v0(=ret(kmem_zalloc)) != 0.
-  The `beq` branch at 0xc0000000000799c0 targets 0xc000000000079968, is taken when a2(?) == a3(=ret(kmem_zalloc)), and falls through when a2(?) != a3(=ret(kmem_zalloc)).
+  The `beq` branch at 0xc0000000000799c0 targets 0xc000000000079968, is taken when a2(?) == a3(?), and falls through when a2(?) != a3(?).
   The `beq` branch at 0xc0000000000799d4 targets 0xc000000000079a2c, is taken when a4(?) == 0, and falls through when a4(?) != 0.
   The `beq` branch at 0xc0000000000799ec targets 0xc000000000079964 and is always taken.
   The `beq` branch at 0xc000000000079a08 targets 0xc00000000007996c and is always taken.
@@ -4058,7 +4058,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xc00000000007df34 loads 8 bytes from [ret(pcibr_info_get)+40]:8 +0x8.
   The `jal` at 0xc00000000007df24 calls pcibr_info_get [0xc00000000007306c] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xc00000000007df3c calls pcibr_config_addr [0xc00000000007dde8] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=?, a3=?.
-  The `jal` at 0xc00000000007df50 calls pcibr_probe_slot [0xc000000000080038] with a0=[[ret(pcibr_info_get)+40]:8+8]:8, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
+  The `jal` at 0xc00000000007df50 calls pcibr_probe_slot [0xc000000000080038] with a0=?, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
   The `beq` branch at 0xc00000000007df58 targets 0xc00000000007df6c, is taken when v0(=ret(pcibr_probe_slot)) == 0, and falls through when v0(=ret(pcibr_probe_slot)) != 0.
   The `beq` branch at 0xc00000000007df6c targets 0xc00000000007df64 and is always taken.
   The return at 0xc00000000007df64 has v0 = one of -0x1, ?.
@@ -4158,35 +4158,32 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc00000000007f188 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x100.
   The `ld` at 0xc00000000007f190 loads 8 bytes from ret(hwgraph_fastinfo_get) +0x8.
   The `lw` at 0xc00000000007f1d0 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x110.
-  2 such `ld` accesses load 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118, including `ld` at 0xc00000000007f1f8, `ld` at 0xc00000000007f5b0.
+  The `ld` at 0xc00000000007f1f8 loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
   5 such `lh` accesses load 2 bytes from ret(hwgraph_fastinfo_get) +0x72, including `lh` at 0xc00000000007f254, `lh` at 0xc00000000007f398, `lh` at 0xc00000000007f478.
-  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc00000000007f288, `lw` at 0xc00000000007f314, `lw` at 0xc00000000007f434.
+  6 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc00000000007f288, `lw` at 0xc00000000007f314, `lw` at 0xc00000000007f434.
   3 such `sd` accesses store 8 bytes to ?, including `sd` at 0xc00000000007f290, `sd` at 0xc00000000007f298, `sd` at 0xc00000000007f4bc.
-  3 such `ld` accesses load 8 bytes from ?, including `ld` at 0xc00000000007f304, `ld` at 0xc00000000007f41c, `ld` at 0xc00000000007f420.
+  5 such `ld` accesses load 8 bytes from ?, including `ld` at 0xc00000000007f304, `ld` at 0xc00000000007f41c, `ld` at 0xc00000000007f420.
   2 such `ld` accesses load 8 bytes from table(0xc0000000014371c0) +0x0, including `ld` at 0xc00000000007f3d4, `ld` at 0xc00000000007f4f0.
-  The `ld` at 0xc00000000007f5b4 loads 8 bytes from [(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8 +0x0.
-  The `lw` at 0xc00000000007f5b8 loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8 +0x14.
-  The `lw` at 0xc00000000007f5cc loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8 +0x18.
   The `jal` at 0xc00000000007f154 calls hwgraph_fastinfo_get [0xc000000000296ee8] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
-  The `jal` at 0xc00000000007f240 calls do_pcibr_config_set [0xc00000000007e000] with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
+  The `jal` at 0xc00000000007f240 calls do_pcibr_config_set [0xc00000000007e000] with a0=?, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
   The `jal` at 0xc00000000007f280 calls pcibr_debug [0xc0000000000767d0] with a0=0x800, a1=a0 at entry (arg0), a2=0xc0000000014133b8, a3=?, a5=ret(pcibr_bus_addr_alloc).
-  The `jal` at 0xc00000000007f2a8 calls do_pcibr_config_get [0xc00000000007df74] with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?, a4=0x9004.
-  The `jal` at 0xc00000000007f2e0 calls do_pcibr_config_set [0xc00000000007e000] with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?.
-  The `jal` at 0xc00000000007f330 calls pcibr_func_config_addr [0xc00000000007dc08] with a0=[ret(hwgraph_fastinfo_get)+8]:8, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
+  The `jal` at 0xc00000000007f2a8 calls do_pcibr_config_get [0xc00000000007df74] with a0=?, a1=0x4, a2=0x4, a3=?, a4=0x9004.
+  The `jal` at 0xc00000000007f2e0 calls do_pcibr_config_set [0xc00000000007e000] with a0=?, a1=0x4, a2=0x4, a3=?.
+  The `jal` at 0xc00000000007f330 calls pcibr_func_config_addr [0xc00000000007dc08] with a0=?, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
   The `jal` at 0xc00000000007f348 calls do_pcibr_config_get [0xc00000000007df74] with a0=ret(pcibr_func_config_addr), a1=0xe, a2=0x1, a3=?.
   The `jal` at 0xc00000000007f3d0 calls sprintf [0xc0000000001f8e8c] with a0=sp-464, a1=0xc000000001413240, a2=?, a3=?, a5=entry(0xc0000000014371c0).
   The `jal` at 0xc00000000007f3e8 calls pcibr_debug [0xc0000000000767d0] with a0=0x800, a1=a0 at entry (arg0), a2=0xc0000000014131b8, a3=sp-464.
   The `jal` at 0xc00000000007f49c calls pcibr_debug [0xc0000000000767d0] with a0=0x800, a1=a0 at entry (arg0), a2=0xc0000000014132a8, a3=?, a6=0x4, a7=0xff.
-  The `jal` at 0xc00000000007f4b8 calls do_pcibr_config_set [0xc00000000007e000] with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=?.
+  The `jal` at 0xc00000000007f4b8 calls do_pcibr_config_set [0xc00000000007e000] with a0=?, a1=?, a2=0x4, a3=?.
   The `jal` at 0xc00000000007f52c calls sprintf [0xc0000000001f8e8c] with a0=sp-464, a1=0xc0000000014132f0, a2=?, a3=?, a5=entry(0xc0000000014371c0).
   The `jal` at 0xc00000000007f544 calls pcibr_debug [0xc0000000000767d0] with a0=0x800, a1=a0 at entry (arg0), a2=0xc0000000014131b8, a3=sp-464.
   The `jal` at 0xc00000000007f584 calls sprintf [0xc0000000001f8e8c] with a0=sp-464, a1=0xc000000001413358, a2=?, a3=?, a6=entry(0xc0000000014371c0), a7=0xff.
   The `jal` at 0xc00000000007f59c calls pcibr_debug [0xc0000000000767d0] with a0=0x800, a1=a0 at entry (arg0), a2=0xc0000000014131b8, a3=sp-464.
-  The `jal` at 0xc00000000007f5f0 calls do_pcibr_config_set [0xc00000000007e000] with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
-  The `jal` at 0xc00000000007f600 calls do_pcibr_config_get [0xc00000000007df74] with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=?.
+  The `jal` at 0xc00000000007f5f0 calls do_pcibr_config_set [0xc00000000007e000] with a0=?, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
+  The `jal` at 0xc00000000007f600 calls do_pcibr_config_get [0xc00000000007df74] with a0=?, a1=0x0, a2=0x4, a3=?.
   The `jal` at 0xc00000000007f62c calls pcibr_bus_addr_alloc [0xc00000000008049c] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xc00000000007f688 calls pcibr_bus_addr_alloc [0xc00000000008049c] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x2, a3=0x0, a6=0x4, a7=0xff.
-  The `jal` at 0xc00000000007f6b4 calls do_pcibr_config_get [0xc00000000007df74] with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=0xff, a4=[0xc0000000014c9e10], a6=0x4, a7=0xff.
+  The `jal` at 0xc00000000007f6b4 calls do_pcibr_config_get [0xc00000000007df74] with a0=?, a1=?, a2=0x4, a3=0xff, a4=[0xc0000000014c9e10], a6=0x4, a7=0xff.
   The `jal` at 0xc00000000007f6dc calls pcibr_bus_addr_alloc [0xc00000000008049c] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xc00000000007f72c calls pcibr_bus_addr_alloc [0xc00000000008049c] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x4, a3=0x0.
   The `beq` branch at 0xc00000000007f160 targets 0xc00000000007f750, is taken when v0(=ret(hwgraph_fastinfo_get)) == 0, and falls through when v0(=ret(hwgraph_fastinfo_get)) != 0.
@@ -4201,7 +4198,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc00000000007f258 targets 0xc00000000007f264, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xc00000000007f294 targets 0xc00000000007f660, is taken when a3(?) == a4(=0x9004), and falls through when a3(?) != a4(=0x9004).
   The `beq` branch at 0xc00000000007f2c4 targets 0xc00000000007f2e8, is taken when (a5(?) & a6(?)) == 0, and falls through when (a5(?) & a6(?)) != 0.
-  The `beq` branch at 0xc00000000007f2f4 targets 0xc00000000007f700, is taken when s4(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed), and falls through when s4(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed).
+  The `beq` branch at 0xc00000000007f2f4 targets 0xc00000000007f700, is taken when s4(?) >= a4(?) (signed), and falls through when s4(?) < a4(?) (signed).
   The `beq` branch at 0xc00000000007f30c targets 0xc00000000007f2e8, is taken when s5(?) == 0, and falls through when s5(?) != 0.
   The `beq` branch at 0xc00000000007f318 targets 0xc00000000007f2ec, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `blez` branch at 0xc00000000007f370 targets 0xc00000000007f5ac, is taken when t1(=one of 0x2, 0x6) <= 0 (signed), and falls through when t1(=one of 0x2, 0x6) > 0 (signed).
@@ -4209,7 +4206,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc00000000007f388 targets 0xc00000000007f3f4, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xc00000000007f390 targets 0xc00000000007f648, is taken when t3(=0xff) == s3(=a1), and falls through when t3(=0xff) != s3(=a1).
   The `beq` branch at 0xc00000000007f39c targets 0xc00000000007f3a8, is taken when t8(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when t8(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
-  The `beq` branch at 0xc00000000007f410 targets 0xc00000000007f5ac, is taken when s0(?) >= a3(=one of 0x2, 0x6) (signed), and falls through when s0(?) < a3(=one of 0x2, 0x6) (signed).
+  The `beq` branch at 0xc00000000007f410 targets 0xc00000000007f5ac, is taken when s0(?) >= a3(?) (signed), and falls through when s0(?) < a3(?) (signed).
   The `beq` branch at 0xc00000000007f438 targets 0xc00000000007f3f0, is taken when s1(?) == 0, and falls through when s1(?) != 0.
   The `beq` branch at 0xc00000000007f444 targets 0xc00000000007f388, is taken when a6(?) >= s1(?) (unsigned), and falls through when a6(?) < s1(?) (unsigned).
   The `beq` branch at 0xc00000000007f460 targets 0xc00000000007f678, is taken when s2(?) == s7(=0x2), and falls through when s2(?) != s7(=0x2).
@@ -4224,8 +4221,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc00000000007f554 targets 0xc00000000007f658, is taken when a3(=0xff) == s3(=a1), and falls through when a3(=0xff) != s3(=a1).
   The `beq` branch at 0xc00000000007f560 targets 0xc00000000007f56c, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xc00000000007f5a4 targets 0xc00000000007f3f4 and is always taken.
-  The `bne` branch at 0xc00000000007f5c4 targets 0xc00000000007f5d8, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+20]) != a4(=0x10a9), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+20]) == a4(=0x10a9).
-  The `beq` branch at 0xc00000000007f5d4 targets 0xc00000000007f288, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+24]) == a4(=0x3), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+24]) != a4(=0x3).
+  The `bne` branch at 0xc00000000007f5c4 targets 0xc00000000007f5d8, is taken when a3(?) != a4(=0x10a9), and falls through when a3(?) == a4(=0x10a9).
+  The `beq` branch at 0xc00000000007f5d4 targets 0xc00000000007f288, is taken when a3(?) == a4(=0x3), and falls through when a3(?) != a4(=0x3).
   The `beq` branch at 0xc00000000007f60c targets 0xc00000000007f288, is taken when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) == 0, and falls through when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) != 0.
   The `bne` branch at 0xc00000000007f634 targets 0xc00000000007f234, is taken when v0(=ret(pcibr_bus_addr_alloc)) != 0, and falls through when v0(=ret(pcibr_bus_addr_alloc)) == 0.
   The `beq` branch at 0xc00000000007f640 targets 0xc00000000007f288 and is always taken.
@@ -4245,7 +4242,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc00000000007f780 targets 0xc00000000007f700 and is always taken.
   The `beq` branch at 0xc00000000007f790 targets 0xc00000000007f41c and is always taken.
   The `beq` branch at 0xc00000000007f79c targets 0xc00000000007f300 and is always taken.
-  The return at 0xc00000000007f1b0 has v0 = one of 0x0, 0x16, 0x1c.
+  The return at 0xc00000000007f1b0 has v0 = one of ?, 0x16.
 - `pcibr_slot_guest_info_init` in `6.5.22/unix.IP27` at 0xc00000000007f898 (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.22/unix.IP27`.
@@ -4285,17 +4282,15 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc00000000007fa2c loads 4 bytes from ret(hwgraph_fastinfo_get) +0x0.
   The `lw` at 0xc00000000007fa3c loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x110.
   The `ld` at 0xc00000000007fa40 loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
-  The `sw` at 0xc00000000007fa98 stores 4 bytes to ?.
+  3 such `sw` accesses store 4 bytes to ?, including `sw` at 0xc00000000007fa98, `sw` at 0xc00000000007fb7c, `sw` at 0xc00000000007fba8.
   The `ld` at 0xc00000000007fac0 loads 8 bytes from ?.
-  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc00000000007fad0, `lw` at 0xc00000000007fae0.
+  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc00000000007fad0, `lw` at 0xc00000000007fae0, `lw` at 0xc00000000007fb70.
   The `lh` at 0xc00000000007fb28 loads 2 bytes from ret(hwgraph_fastinfo_get) +0x72.
-  2 such `lw` accesses load 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x10c, including `lw` at 0xc00000000007fb70, `lw` at 0xc00000000007fb90.
-  2 such `sw` accesses store 4 bytes to (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x10c, including `sw` at 0xc00000000007fb7c, `sw` at 0xc00000000007fba8.
   The `jal` at 0xc00000000007f9c4 calls hwgraph_fastinfo_get [0xc000000000296ee8] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xc00000000007fa28 calls async_attach_get_info [0xc0000000000d264c] with a0=[ret(hwgraph_fastinfo_get)], a1=?, a2=?, a3=?.
   The `jal` at 0xc00000000007fa88 calls pcibr_debug [0xc0000000000767d0] with a0=0x2000, a1=a0 at entry (arg0), a2=0xc000000001413478, a3=?, a5=a2 at entry (arg2), a6=ret(pciio_device_attach).
-  The `jal` at 0xc00000000007fae8 calls device_admin_info_get [0xc0000000001761c4] with a0=?, a1=0xc0000000014134e0, a2=?, a3=?, a4=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272].
-  The `jal` at 0xc00000000007fb04 calls async_attach_add_info [0xc0000000000d2680] with a0=?, a1=ret(async_attach_get_info), a2=ret(async_attach_get_info), a3=?.
+  The `jal` at 0xc00000000007fae8 calls device_admin_info_get [0xc0000000001761c4] with a0=?, a1=0xc0000000014134e0, a2=?, a3=?.
+  The `jal` at 0xc00000000007fb04 calls async_attach_add_info [0xc0000000000d2680] with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xc00000000007fb10 calls pciio_device_attach [0xc000000000095420] with a0=?, a1=a2 at entry (arg2), a2=?, a3=?.
   The `jal` at 0xc00000000007fbb8 calls vertex_to_name [0xc00000000029798c] with a0=?, a1=sp-384, a2=0x100, a3=?.
   The `jal` at 0xc00000000007fbcc calls cmn_err [0xc0000000001f8090] with a0=0x4, a1=0xc000000001413448, a2=sp-384, a3=?.
@@ -4305,11 +4300,11 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc00000000007fa20 targets 0xc00000000007fa08 and is always taken.
   The `blez` branch at 0xc00000000007fa54 targets 0xc00000000007fbac, is taken when t8(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) <= 0 (signed), and falls through when t8(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) > 0 (signed).
   The `beq` branch at 0xc00000000007fa64 targets 0xc00000000007fbdc and is always taken.
-  The `beq` branch at 0xc00000000007fab0 targets 0xc00000000007fb3c, is taken when s2(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed), and falls through when s2(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed).
+  The `beq` branch at 0xc00000000007fab0 targets 0xc00000000007fb3c, is taken when s2(?) >= a4(?) (signed), and falls through when s2(?) < a4(?) (signed).
   The `beq` branch at 0xc00000000007fac8 targets 0xc00000000007faa4, is taken when s4(?) == 0, and falls through when s4(?) != 0.
   The `beq` branch at 0xc00000000007fad4 targets 0xc00000000007faa8, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `bne` branch at 0xc00000000007faf0 targets 0xc00000000007fbb4, is taken when v0(=ret(device_admin_info_get)) != 0, and falls through when v0(=ret(device_admin_info_get)) == 0.
-  The `beq` branch at 0xc00000000007fafc targets 0xc00000000007fb0c, is taken when a2(=ret(async_attach_get_info)) == 0, and falls through when a2(=ret(async_attach_get_info)) != 0.
+  The `beq` branch at 0xc00000000007fafc targets 0xc00000000007fb0c, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xc00000000007fb20 targets 0xc00000000007fa6c, is taken when a0(=0xff) == s0(=a1), and falls through when a0(=0xff) != s0(=a1).
   The `bne` branch at 0xc00000000007fb2c targets 0xc00000000007fa6c, is taken when a3(=[ret(hwgraph_fastinfo_get)+114]:2) != a4(=0x2), and falls through when a3(=[ret(hwgraph_fastinfo_get)+114]:2) == a4(=0x2).
   The `beq` branch at 0xc00000000007fb34 targets 0xc00000000007fa6c and is always taken.
@@ -8812,12 +8807,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc000000000295d94 calls mrupdatef [0xc00000000018cefc] with a0=0xc0000000015694b8, a1=0x0, a2=?, a3=?.
   The `jal` at 0xc000000000295d9c calls do_hwgraph_connectpt_get [0xc000000000297678] with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xc000000000295db0 calls mrunlock [0xc00000000018d0d0] with a0=0xc0000000015694b8, a1=?, a2=?, a3=?.
-  The `jal` at 0xc000000000295dcc calls graph_vertex_unref [0xc000000000299558] with a0=[0xc0000000014d2e80]:8, a1=ret(do_hwgraph_connectpt_get), a2=a2 at entry (arg2), a3=?.
+  The `jal` at 0xc000000000295dcc calls graph_vertex_unref [0xc000000000299558] with a0=[0xc0000000014d2e80]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `jal` at 0xc000000000295df0 calls do_hwgraph_connectpt_set [0xc0000000002975ec] with a0=?, a1=-0x1, a2=?, a3=?.
   The `jal` at 0xc000000000295e00 calls graph_vertex_unref [0xc000000000299558] with a0=[0xc0000000014d2e80]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `beq` branch at 0xc000000000295d74 targets 0xc000000000295d90, is taken when v0(=ret(graph_edge_remove)) == 0, and falls through when v0(=ret(graph_edge_remove)) != 0.
   The `beq` branch at 0xc000000000295da8 targets 0xc000000000295dec, is taken when v0(=ret(do_hwgraph_connectpt_get)) == v1(=a0), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != v1(=a0).
-  The `beq` branch at 0xc000000000295dc0 targets 0xc000000000295dd8, is taken when v0(=ret(do_hwgraph_connectpt_get)) == a1(=-0x1), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != a1(=-0x1).
+  The `beq` branch at 0xc000000000295dc0 targets 0xc000000000295dd8, is taken when v0(?) == a1(=-0x1), and falls through when v0(?) != a1(=-0x1).
   The `beq` branch at 0xc000000000295dd8 targets 0xc000000000295e00, is taken when a2 == 0, and falls through when a2 != 0.
   The `beq` branch at 0xc000000000295de4 targets 0xc000000000295d80 and is always taken.
   The `beq` branch at 0xc000000000295df8 targets 0xc000000000295db0 and is always taken.
@@ -11614,9 +11609,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xa800000020039084 calls cap_able [0xa800000020211fdc] with a0=0x2000000000, a1=?, a2=?, a3=?.
   The `jal` at 0xa800000020039098 calls copyin [0xa80000002000ac80] with a0=a2 at entry (arg2), a1=sp-80, a2=0x10, a3=?.
   The `jal` at 0xa8000000200390c0 calls pcibr_device_slot_get [0xa800000020038f38] with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xa8000000200390e0 calls pcibr_priority_bits_set [0xa80000002003c234] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x1, a3=?.
+  The `jal` at 0xa8000000200390e0 calls pcibr_priority_bits_set [0xa80000002003c234] with a0=?, a1=?, a2=0x1, a3=?.
   The `jal` at 0xa8000000200390f0 calls pcibr_device_slot_get [0xa800000020038f38] with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xa800000020039110 calls pcibr_priority_bits_set [0xa80000002003c234] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x0, a3=0xff.
+  The `jal` at 0xa800000020039110 calls pcibr_priority_bits_set [0xa80000002003c234] with a0=?, a1=?, a2=0x0, a3=0xff.
   The `beq` branch at 0xa800000020038ff8 targets 0xa800000020039054, is taken when s0(=a1) == at(=0x6701), and falls through when s0(=a1) != at(=0x6701).
   The `beq` branch at 0xa800000020039004 targets 0xa800000020039084, is taken when s0(=a1) == v0(=0x6702), and falls through when s0(=a1) != v0(=0x6702).
   The `beq` branch at 0xa800000020039010 targets 0xa800000020039044, is taken when s0(=a1) == v1(=0x7001), and falls through when s0(=a1) != v1(=0x7001).
@@ -11820,9 +11815,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `sb` at 0xa80000002003a6b0 stores 1 byte to ?.
   The `jal` at 0xa80000002003a644 calls pcibr_info_get [0xa800000020039130] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xa80000002003a65c calls mutex_spinlock [0xa800000020210f74] with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?.
-  The `jal` at 0xa80000002003a6b4 calls mutex_io_spinunlock [0xa800000020210e84] with a0=[ret(pcibr_info_get)+40]:8+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?, a6=0xa800000020340ca0.
+  The `jal` at 0xa80000002003a6b4 calls mutex_io_spinunlock [0xa800000020210e84] with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?, a6=0xa800000020340ca0.
   The `jal` at 0xa80000002003a6e8 calls cmn_err [0xa8000000201a63b4] with a0=0x4, a1=0xa800000020340fb0, a2=a2 at entry (arg2), a3=a3 at entry (arg3), a6=0xa800000020340ca0.
-  The `jal` at 0xa80000002003a6f4 calls mutex_io_spinunlock [0xa800000020210e84] with a0=[ret(pcibr_info_get)+40]:8+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?.
+  The `jal` at 0xa80000002003a6f4 calls mutex_io_spinunlock [0xa800000020210e84] with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?.
   The `jal` at 0xa80000002003a70c calls hwgraph_vertex_name_get [0xa8000000202214dc] with a0=a0 at entry (arg0), a1=sp-1088, a2=0x400, a3=?.
   The `jal` at 0xa80000002003a71c calls cmn_err [0xa8000000201a63b4] with a0=0x4, a1=0xa800000020340f30, a2=?, a3=?.
   The `jal` at 0xa80000002003a734 calls cmn_err [0xa8000000201a63b4] with a0=0x4, a1=0xa800000020340f50, a2=sp-1088, a3=a3 at entry (arg3).
@@ -12924,7 +12919,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xa80000002003f814 calls kmem_zalloc [0xa800000020130768] with a0=0x8, a1=0x0, a2=?, a3=?.
   The `jal` at 0xa80000002003f834 calls hwgraph_info_add_LBL [0xa80000002021fe1c] with a0=?, a1=0xa800000020341d98, a2=ret(kmem_zalloc), a3=?.
   The `jal` at 0xa80000002003f848 calls hwgraph_info_get_LBL [0xa80000002021fec0] with a0=?, a1=0xa800000020341d98, a2=sp-64, a3=?.
-  The `jal` at 0xa80000002003f860 calls kmem_free [0xa8000000201307d4] with a0=ret(kmem_zalloc), a1=0x8, a2=?, a3=ret(kmem_zalloc).
+  The `jal` at 0xa80000002003f860 calls kmem_free [0xa8000000201307d4] with a0=?, a1=0x8, a2=?, a3=?.
   The `jal` at 0xa80000002003f87c calls pcibr_debug [0xa80000002003c698] with a0=0x2, a1=a0 at entry (arg0), a2=0xa800000020341e00, a3=?.
   The `jal` at 0xa80000002003f898 calls pcibr_debug [0xa80000002003c698] with a0=0x2, a1=a0 at entry (arg0), a2=0xa800000020341d60, a3=?, a5=-0x1.
   The `jal` at 0xa80000002003f8b4 calls pcibr_debug [0xa80000002003c698] with a0=0x2, a1=a0 at entry (arg0), a2=0xa800000020341da8, a3=?.
@@ -12932,7 +12927,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xa80000002003f7dc targets 0xa80000002003f88c, is taken when a5(=-0x1) == a0(?), and falls through when a5(=-0x1) != a0(?).
   The `beq` branch at 0xa80000002003f7f4 targets 0xa80000002003f814, is taken when v0(?) == 0, and falls through when v0(?) != 0.
   The `beq` branch at 0xa80000002003f81c targets 0xa80000002003f8a8, is taken when v0(=ret(kmem_zalloc)) == 0, and falls through when v0(=ret(kmem_zalloc)) != 0.
-  The `beq` branch at 0xa80000002003f858 targets 0xa80000002003f800, is taken when a2(?) == a3(=ret(kmem_zalloc)), and falls through when a2(?) != a3(=ret(kmem_zalloc)).
+  The `beq` branch at 0xa80000002003f858 targets 0xa80000002003f800, is taken when a2(?) == a3(?), and falls through when a2(?) != a3(?).
   The `beq` branch at 0xa80000002003f86c targets 0xa80000002003f8c4, is taken when a4(?) == 0, and falls through when a4(?) != 0.
   The `beq` branch at 0xa80000002003f884 targets 0xa80000002003f7fc and is always taken.
   The `beq` branch at 0xa80000002003f8a0 targets 0xa80000002003f804 and is always taken.
@@ -13164,7 +13159,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xa800000020043d84 loads 8 bytes from [ret(pcibr_info_get)+40]:8 +0x8.
   The `jal` at 0xa800000020043d74 calls pcibr_info_get [0xa800000020039130] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xa800000020043d8c calls pcibr_config_addr [0xa800000020043c38] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=?, a3=?.
-  The `jal` at 0xa800000020043da0 calls pcibr_probe_slot [0xa800000020045e88] with a0=[[ret(pcibr_info_get)+40]:8+8]:8, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
+  The `jal` at 0xa800000020043da0 calls pcibr_probe_slot [0xa800000020045e88] with a0=?, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
   The `beq` branch at 0xa800000020043da8 targets 0xa800000020043dbc, is taken when v0(=ret(pcibr_probe_slot)) == 0, and falls through when v0(=ret(pcibr_probe_slot)) != 0.
   The `beq` branch at 0xa800000020043dbc targets 0xa800000020043db4 and is always taken.
   The return at 0xa800000020043db4 has v0 = one of -0x1, ?.
@@ -13264,35 +13259,32 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xa800000020044fd8 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x100.
   The `ld` at 0xa800000020044fe0 loads 8 bytes from ret(hwgraph_fastinfo_get) +0x8.
   The `lw` at 0xa800000020045020 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x110.
-  2 such `ld` accesses load 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118, including `ld` at 0xa800000020045048, `ld` at 0xa800000020045400.
+  The `ld` at 0xa800000020045048 loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
   5 such `lh` accesses load 2 bytes from ret(hwgraph_fastinfo_get) +0x72, including `lh` at 0xa8000000200450a4, `lh` at 0xa8000000200451e8, `lh` at 0xa8000000200452c8.
-  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xa8000000200450d8, `lw` at 0xa800000020045164, `lw` at 0xa800000020045284.
+  6 such `lw` accesses load 4 bytes from ?, including `lw` at 0xa8000000200450d8, `lw` at 0xa800000020045164, `lw` at 0xa800000020045284.
   3 such `sd` accesses store 8 bytes to ?, including `sd` at 0xa8000000200450e0, `sd` at 0xa8000000200450e8, `sd` at 0xa80000002004530c.
-  3 such `ld` accesses load 8 bytes from ?, including `ld` at 0xa800000020045154, `ld` at 0xa80000002004526c, `ld` at 0xa800000020045270.
+  5 such `ld` accesses load 8 bytes from ?, including `ld` at 0xa800000020045154, `ld` at 0xa80000002004526c, `ld` at 0xa800000020045270.
   2 such `ld` accesses load 8 bytes from table(0xa800000020399fb8) +0x0, including `ld` at 0xa800000020045224, `ld` at 0xa800000020045340.
-  The `ld` at 0xa800000020045404 loads 8 bytes from [(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8 +0x0.
-  The `lw` at 0xa800000020045408 loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8 +0x14.
-  The `lw` at 0xa80000002004541c loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8 +0x18.
   The `jal` at 0xa800000020044fa4 calls hwgraph_fastinfo_get [0xa800000020220c48] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
-  The `jal` at 0xa800000020045090 calls do_pcibr_config_set [0xa800000020043e50] with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
+  The `jal` at 0xa800000020045090 calls do_pcibr_config_set [0xa800000020043e50] with a0=?, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
   The `jal` at 0xa8000000200450d0 calls pcibr_debug [0xa80000002003c698] with a0=0x800, a1=a0 at entry (arg0), a2=0xa800000020343a90, a3=?, a5=ret(pcibr_bus_addr_alloc).
-  The `jal` at 0xa8000000200450f8 calls do_pcibr_config_get [0xa800000020043dc4] with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?, a4=0x9004.
-  The `jal` at 0xa800000020045130 calls do_pcibr_config_set [0xa800000020043e50] with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?.
-  The `jal` at 0xa800000020045180 calls pcibr_func_config_addr [0xa800000020043a58] with a0=[ret(hwgraph_fastinfo_get)+8]:8, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
+  The `jal` at 0xa8000000200450f8 calls do_pcibr_config_get [0xa800000020043dc4] with a0=?, a1=0x4, a2=0x4, a3=?, a4=0x9004.
+  The `jal` at 0xa800000020045130 calls do_pcibr_config_set [0xa800000020043e50] with a0=?, a1=0x4, a2=0x4, a3=?.
+  The `jal` at 0xa800000020045180 calls pcibr_func_config_addr [0xa800000020043a58] with a0=?, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
   The `jal` at 0xa800000020045198 calls do_pcibr_config_get [0xa800000020043dc4] with a0=ret(pcibr_func_config_addr), a1=0xe, a2=0x1, a3=?.
   The `jal` at 0xa800000020045220 calls sprintf [0xa8000000201a7100] with a0=sp-464, a1=0xa800000020343918, a2=?, a3=?, a5=entry(0xa800000020399fb8).
   The `jal` at 0xa800000020045238 calls pcibr_debug [0xa80000002003c698] with a0=0x800, a1=a0 at entry (arg0), a2=0xa800000020343890, a3=sp-464.
   The `jal` at 0xa8000000200452ec calls pcibr_debug [0xa80000002003c698] with a0=0x800, a1=a0 at entry (arg0), a2=0xa800000020343980, a3=?, a6=0x4, a7=0xff.
-  The `jal` at 0xa800000020045308 calls do_pcibr_config_set [0xa800000020043e50] with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=?.
+  The `jal` at 0xa800000020045308 calls do_pcibr_config_set [0xa800000020043e50] with a0=?, a1=?, a2=0x4, a3=?.
   The `jal` at 0xa80000002004537c calls sprintf [0xa8000000201a7100] with a0=sp-464, a1=0xa8000000203439c8, a2=?, a3=?, a5=entry(0xa800000020399fb8).
   The `jal` at 0xa800000020045394 calls pcibr_debug [0xa80000002003c698] with a0=0x800, a1=a0 at entry (arg0), a2=0xa800000020343890, a3=sp-464.
   The `jal` at 0xa8000000200453d4 calls sprintf [0xa8000000201a7100] with a0=sp-464, a1=0xa800000020343a30, a2=?, a3=?, a6=entry(0xa800000020399fb8), a7=0xff.
   The `jal` at 0xa8000000200453ec calls pcibr_debug [0xa80000002003c698] with a0=0x800, a1=a0 at entry (arg0), a2=0xa800000020343890, a3=sp-464.
-  The `jal` at 0xa800000020045440 calls do_pcibr_config_set [0xa800000020043e50] with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
-  The `jal` at 0xa800000020045450 calls do_pcibr_config_get [0xa800000020043dc4] with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=?.
+  The `jal` at 0xa800000020045440 calls do_pcibr_config_set [0xa800000020043e50] with a0=?, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
+  The `jal` at 0xa800000020045450 calls do_pcibr_config_get [0xa800000020043dc4] with a0=?, a1=0x0, a2=0x4, a3=?.
   The `jal` at 0xa80000002004547c calls pcibr_bus_addr_alloc [0xa8000000200462ec] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xa8000000200454d8 calls pcibr_bus_addr_alloc [0xa8000000200462ec] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x2, a3=0x0, a6=0x4, a7=0xff.
-  The `jal` at 0xa800000020045504 calls do_pcibr_config_get [0xa800000020043dc4] with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=0xff, a4=[0xa8000000203db3f8], a6=0x4, a7=0xff.
+  The `jal` at 0xa800000020045504 calls do_pcibr_config_get [0xa800000020043dc4] with a0=?, a1=?, a2=0x4, a3=0xff, a4=[0xa8000000203db3f8], a6=0x4, a7=0xff.
   The `jal` at 0xa80000002004552c calls pcibr_bus_addr_alloc [0xa8000000200462ec] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xa80000002004557c calls pcibr_bus_addr_alloc [0xa8000000200462ec] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x4, a3=0x0.
   The `beq` branch at 0xa800000020044fb0 targets 0xa8000000200455a0, is taken when v0(=ret(hwgraph_fastinfo_get)) == 0, and falls through when v0(=ret(hwgraph_fastinfo_get)) != 0.
@@ -13307,7 +13299,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xa8000000200450a8 targets 0xa8000000200450b4, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xa8000000200450e4 targets 0xa8000000200454b0, is taken when a3(?) == a4(=0x9004), and falls through when a3(?) != a4(=0x9004).
   The `beq` branch at 0xa800000020045114 targets 0xa800000020045138, is taken when (a5(?) & a6(?)) == 0, and falls through when (a5(?) & a6(?)) != 0.
-  The `beq` branch at 0xa800000020045144 targets 0xa800000020045550, is taken when s4(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed), and falls through when s4(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed).
+  The `beq` branch at 0xa800000020045144 targets 0xa800000020045550, is taken when s4(?) >= a4(?) (signed), and falls through when s4(?) < a4(?) (signed).
   The `beq` branch at 0xa80000002004515c targets 0xa800000020045138, is taken when s5(?) == 0, and falls through when s5(?) != 0.
   The `beq` branch at 0xa800000020045168 targets 0xa80000002004513c, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `blez` branch at 0xa8000000200451c0 targets 0xa8000000200453fc, is taken when t1(=one of 0x2, 0x6) <= 0 (signed), and falls through when t1(=one of 0x2, 0x6) > 0 (signed).
@@ -13315,7 +13307,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xa8000000200451d8 targets 0xa800000020045244, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xa8000000200451e0 targets 0xa800000020045498, is taken when t3(=0xff) == s3(=a1), and falls through when t3(=0xff) != s3(=a1).
   The `beq` branch at 0xa8000000200451ec targets 0xa8000000200451f8, is taken when t8(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when t8(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
-  The `beq` branch at 0xa800000020045260 targets 0xa8000000200453fc, is taken when s0(?) >= a3(=one of 0x2, 0x6) (signed), and falls through when s0(?) < a3(=one of 0x2, 0x6) (signed).
+  The `beq` branch at 0xa800000020045260 targets 0xa8000000200453fc, is taken when s0(?) >= a3(?) (signed), and falls through when s0(?) < a3(?) (signed).
   The `beq` branch at 0xa800000020045288 targets 0xa800000020045240, is taken when s1(?) == 0, and falls through when s1(?) != 0.
   The `beq` branch at 0xa800000020045294 targets 0xa8000000200451d8, is taken when a6(?) >= s1(?) (unsigned), and falls through when a6(?) < s1(?) (unsigned).
   The `beq` branch at 0xa8000000200452b0 targets 0xa8000000200454c8, is taken when s2(?) == s7(=0x2), and falls through when s2(?) != s7(=0x2).
@@ -13330,8 +13322,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xa8000000200453a4 targets 0xa8000000200454a8, is taken when a3(=0xff) == s3(=a1), and falls through when a3(=0xff) != s3(=a1).
   The `beq` branch at 0xa8000000200453b0 targets 0xa8000000200453bc, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xa8000000200453f4 targets 0xa800000020045244 and is always taken.
-  The `bne` branch at 0xa800000020045414 targets 0xa800000020045428, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+20]) != a4(=0x10a9), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+20]) == a4(=0x10a9).
-  The `beq` branch at 0xa800000020045424 targets 0xa8000000200450d8, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+24]) == a4(=0x3), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+24]) != a4(=0x3).
+  The `bne` branch at 0xa800000020045414 targets 0xa800000020045428, is taken when a3(?) != a4(=0x10a9), and falls through when a3(?) == a4(=0x10a9).
+  The `beq` branch at 0xa800000020045424 targets 0xa8000000200450d8, is taken when a3(?) == a4(=0x3), and falls through when a3(?) != a4(=0x3).
   The `beq` branch at 0xa80000002004545c targets 0xa8000000200450d8, is taken when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) == 0, and falls through when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) != 0.
   The `bne` branch at 0xa800000020045484 targets 0xa800000020045084, is taken when v0(=ret(pcibr_bus_addr_alloc)) != 0, and falls through when v0(=ret(pcibr_bus_addr_alloc)) == 0.
   The `beq` branch at 0xa800000020045490 targets 0xa8000000200450d8 and is always taken.
@@ -13351,7 +13343,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xa8000000200455d0 targets 0xa800000020045550 and is always taken.
   The `beq` branch at 0xa8000000200455e0 targets 0xa80000002004526c and is always taken.
   The `beq` branch at 0xa8000000200455ec targets 0xa800000020045150 and is always taken.
-  The return at 0xa800000020045000 has v0 = one of 0x0, 0x16, 0x1c.
+  The return at 0xa800000020045000 has v0 = one of ?, 0x16.
 - `pcibr_slot_guest_info_init` in `6.5.22/unix.IP30` at 0xa8000000200456e8 (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.22/unix.IP30`.
@@ -13391,17 +13383,15 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xa80000002004587c loads 4 bytes from ret(hwgraph_fastinfo_get) +0x0.
   The `lw` at 0xa80000002004588c loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x110.
   The `ld` at 0xa800000020045890 loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
-  The `sw` at 0xa8000000200458e8 stores 4 bytes to ?.
+  3 such `sw` accesses store 4 bytes to ?, including `sw` at 0xa8000000200458e8, `sw` at 0xa8000000200459cc, `sw` at 0xa8000000200459f8.
   The `ld` at 0xa800000020045910 loads 8 bytes from ?.
-  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xa800000020045920, `lw` at 0xa800000020045930.
+  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xa800000020045920, `lw` at 0xa800000020045930, `lw` at 0xa8000000200459c0.
   The `lh` at 0xa800000020045978 loads 2 bytes from ret(hwgraph_fastinfo_get) +0x72.
-  2 such `lw` accesses load 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x10c, including `lw` at 0xa8000000200459c0, `lw` at 0xa8000000200459e0.
-  2 such `sw` accesses store 4 bytes to (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x10c, including `sw` at 0xa8000000200459cc, `sw` at 0xa8000000200459f8.
   The `jal` at 0xa800000020045814 calls hwgraph_fastinfo_get [0xa800000020220c48] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xa800000020045878 calls async_attach_get_info [0xa80000002008eb88] with a0=[ret(hwgraph_fastinfo_get)], a1=?, a2=?, a3=?.
   The `jal` at 0xa8000000200458d8 calls pcibr_debug [0xa80000002003c698] with a0=0x2000, a1=a0 at entry (arg0), a2=0xa800000020343b50, a3=?, a5=a2 at entry (arg2), a6=ret(pciio_device_attach).
-  The `jal` at 0xa800000020045938 calls device_admin_info_get [0xa800000020126e78] with a0=?, a1=0xa800000020343bb8, a2=?, a3=?, a4=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272].
-  The `jal` at 0xa800000020045954 calls async_attach_add_info [0xa80000002008ebbc] with a0=?, a1=ret(async_attach_get_info), a2=ret(async_attach_get_info), a3=?.
+  The `jal` at 0xa800000020045938 calls device_admin_info_get [0xa800000020126e78] with a0=?, a1=0xa800000020343bb8, a2=?, a3=?.
+  The `jal` at 0xa800000020045954 calls async_attach_add_info [0xa80000002008ebbc] with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xa800000020045960 calls pciio_device_attach [0xa80000002005606c] with a0=?, a1=a2 at entry (arg2), a2=?, a3=?.
   The `jal` at 0xa800000020045a08 calls vertex_to_name [0xa8000000202216ec] with a0=?, a1=sp-384, a2=0x100, a3=?.
   The `jal` at 0xa800000020045a1c calls cmn_err [0xa8000000201a63b4] with a0=0x4, a1=0xa800000020343b20, a2=sp-384, a3=?.
@@ -13411,11 +13401,11 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xa800000020045870 targets 0xa800000020045858 and is always taken.
   The `blez` branch at 0xa8000000200458a4 targets 0xa8000000200459fc, is taken when t8(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) <= 0 (signed), and falls through when t8(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) > 0 (signed).
   The `beq` branch at 0xa8000000200458b4 targets 0xa800000020045a2c and is always taken.
-  The `beq` branch at 0xa800000020045900 targets 0xa80000002004598c, is taken when s2(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed), and falls through when s2(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed).
+  The `beq` branch at 0xa800000020045900 targets 0xa80000002004598c, is taken when s2(?) >= a4(?) (signed), and falls through when s2(?) < a4(?) (signed).
   The `beq` branch at 0xa800000020045918 targets 0xa8000000200458f4, is taken when s4(?) == 0, and falls through when s4(?) != 0.
   The `beq` branch at 0xa800000020045924 targets 0xa8000000200458f8, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `bne` branch at 0xa800000020045940 targets 0xa800000020045a04, is taken when v0(=ret(device_admin_info_get)) != 0, and falls through when v0(=ret(device_admin_info_get)) == 0.
-  The `beq` branch at 0xa80000002004594c targets 0xa80000002004595c, is taken when a2(=ret(async_attach_get_info)) == 0, and falls through when a2(=ret(async_attach_get_info)) != 0.
+  The `beq` branch at 0xa80000002004594c targets 0xa80000002004595c, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xa800000020045970 targets 0xa8000000200458bc, is taken when a0(=0xff) == s0(=a1), and falls through when a0(=0xff) != s0(=a1).
   The `bne` branch at 0xa80000002004597c targets 0xa8000000200458bc, is taken when a3(=[ret(hwgraph_fastinfo_get)+114]:2) != a4(=0x2), and falls through when a3(=[ret(hwgraph_fastinfo_get)+114]:2) == a4(=0x2).
   The `beq` branch at 0xa800000020045984 targets 0xa8000000200458bc and is always taken.
@@ -16643,12 +16633,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xa80000002021faf4 calls mrupdatef [0xa80000002013a4f4] with a0=0xa80000002043b0f8, a1=0x0, a2=?, a3=?.
   The `jal` at 0xa80000002021fafc calls do_hwgraph_connectpt_get [0xa8000000202213d8] with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xa80000002021fb10 calls mrunlock [0xa80000002013a6c8] with a0=0xa80000002043b0f8, a1=?, a2=?, a3=?.
-  The `jal` at 0xa80000002021fb2c calls graph_vertex_unref [0xa8000000202232a8] with a0=[0xa8000000203e2c80]:8, a1=ret(do_hwgraph_connectpt_get), a2=a2 at entry (arg2), a3=?.
+  The `jal` at 0xa80000002021fb2c calls graph_vertex_unref [0xa8000000202232a8] with a0=[0xa8000000203e2c80]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `jal` at 0xa80000002021fb50 calls do_hwgraph_connectpt_set [0xa80000002022134c] with a0=?, a1=-0x1, a2=?, a3=?.
   The `jal` at 0xa80000002021fb60 calls graph_vertex_unref [0xa8000000202232a8] with a0=[0xa8000000203e2c80]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `beq` branch at 0xa80000002021fad4 targets 0xa80000002021faf0, is taken when v0(=ret(graph_edge_remove)) == 0, and falls through when v0(=ret(graph_edge_remove)) != 0.
   The `beq` branch at 0xa80000002021fb08 targets 0xa80000002021fb4c, is taken when v0(=ret(do_hwgraph_connectpt_get)) == v1(=a0), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != v1(=a0).
-  The `beq` branch at 0xa80000002021fb20 targets 0xa80000002021fb38, is taken when v0(=ret(do_hwgraph_connectpt_get)) == a1(=-0x1), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != a1(=-0x1).
+  The `beq` branch at 0xa80000002021fb20 targets 0xa80000002021fb38, is taken when v0(?) == a1(=-0x1), and falls through when v0(?) != a1(=-0x1).
   The `beq` branch at 0xa80000002021fb38 targets 0xa80000002021fb60, is taken when a2 == 0, and falls through when a2 != 0.
   The `beq` branch at 0xa80000002021fb44 targets 0xa80000002021fae0 and is always taken.
   The `beq` branch at 0xa80000002021fb58 targets 0xa80000002021fb10 and is always taken.
@@ -19307,7 +19297,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc000000000048ee0 calls fprom_flash_sectors [0xc000000000049fe4] with a0=a0 at entry (arg0), a1=?, a2=[a0+112], a3=a3 at entry (arg3).
   The `jal` at 0xc000000000048f14 calls promlog_next [0xc000000000048958] with a0=a0 at entry (arg0), a1=0x62, a2=?, a3=?.
   The `jal` at 0xc000000000048f34 calls get_entry [0xc000000000048328] with a0=a0 at entry (arg0), a1=0x40, a2=?, a3=?, a4=[a0+120].
-  The `jal` at 0xc000000000048f68 calls fprom_write [0xc00000000004aebc] with a0=a0 at entry (arg0), a1=?, a2=a0+136, a3=0x40.
+  The `jal` at 0xc000000000048f68 calls fprom_write [0xc00000000004aebc] with a0=a0 at entry (arg0), a1=?, a2=?, a3=0x40.
   The `jal` at 0xc000000000048f78 calls fprom_errmsg [0xc00000000004af10] with a0=ret(fprom_write), a1=?, a2=?, a3=?.
   The `jal` at 0xc000000000048f88 calls printf [0xc00000000026fdb4] with a0=0xc000000001497800, a1=ret(fprom_errmsg), a2=?, a3=?.
   The `jal` at 0xc000000000048f98 calls promlog_errmsg [0xc0000000000495f4] with a0=?, a1=?, a2=?, a3=?.
@@ -19603,7 +19593,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc00000000004b77c targets 0xc00000000004b7a0, is taken when a1(?) == 0, and falls through when a1(?) != 0.
   The `beq` branch at 0xc00000000004b7a0 targets 0xc00000000004b754 and is always taken.
   The `beq` branch at 0xc00000000004b7a8 targets 0xc00000000004b754 and is always taken.
-  The return at 0xc00000000004b760 has v0 = one of ret(ip27log_setup), ?, ret(promlog_delete), 0x0.
+  The return at 0xc00000000004b760 has v0 = one of ret(ip27log_setup), ?, 0x0.
 - `ip27log_iprintf` in `6.5.22/unix.IP35` at 0xc00000000004b7b0 (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.22/unix.IP35`.
@@ -20448,9 +20438,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc000000000074394 loads 4 bytes from ?.
   The `jal` at 0xc000000000074270 calls cmn_err [0xc00000000026ef18] with a0=0x6, a1=0xc0000000014a35d8, a2=one of 0xc0000000014a35c8, 0xc0000000014a3600, a3=?.
   The `jal` at 0xc000000000074298 calls cmn_err [0xc00000000026ef18] with a0=0x6, a1=0xc0000000014a361c, a2=?, a3=?.
-  The `jal` at 0xc0000000000742ec calls cmn_err [0xc00000000026ef18] with a0=0x6, a1=0xc0000000014a3608, a2=?, a3=?, a6=a0-1.
-  The `jal` at 0xc000000000074308 calls cmn_err [0xc00000000026ef18] with a0=0x6, a1=0xc0000000014a3610, a2=?, a3=?, a6=a0-1.
-  The `jal` at 0xc000000000074324 calls cmn_err [0xc00000000026ef18] with a0=0x6, a1=0xc0000000014a3618, a2=?, a3=?, a6=a0-1.
+  The `jal` at 0xc0000000000742ec calls cmn_err [0xc00000000026ef18] with a0=0x6, a1=0xc0000000014a3608, a2=?, a3=?.
+  The `jal` at 0xc000000000074308 calls cmn_err [0xc00000000026ef18] with a0=0x6, a1=0xc0000000014a3610, a2=?, a3=?.
+  The `jal` at 0xc000000000074324 calls cmn_err [0xc00000000026ef18] with a0=0x6, a1=0xc0000000014a3618, a2=?, a3=?.
   The `jal` at 0xc000000000074374 calls chk_for_pebrick [0xc000000000046138] with a0=?, a1=0x9600000000000000, a2=0xffffffffff, a3=?, a6=0x9000000034000000.
   The `jal` at 0xc0000000000743b0 calls find_lboard [0xc000000000044140] with a0=?, a1=0x11, a2=?, a3=?.
   The `jal` at 0xc0000000000743bc calls board_to_path [0xc000000000044fc8] with a0=ret(find_lboard), a1=sp-176, a2=?, a3=?.
@@ -20461,7 +20451,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `bne` branch at 0xc000000000074288 targets 0xc000000000074240, is taken when s0(?) < s1(=a0) (signed), and falls through when s0(?) >= s1(=a0) (signed).
   The `bgtz` branch at 0xc0000000000742a0 targets 0xc000000000074334, is taken when s1(=a0) > 0 (signed), and falls through when s1(=a0) <= 0 (signed).
   The `bne` branch at 0xc0000000000742d0 targets 0xc0000000000742fc, is taken when a3(?) != a4(?), and falls through when a3(?) == a4(?).
-  The `bne` branch at 0xc0000000000742d8 targets 0xc00000000007427c, is taken when a6(=a0-1) != s0(?), and falls through when a6(=a0-1) == s0(?).
+  The `bne` branch at 0xc0000000000742d8 targets 0xc00000000007427c, is taken when a6(?) != s0(?), and falls through when a6(?) == s0(?).
   The `beq` branch at 0xc0000000000742f4 targets 0xc00000000007427c and is always taken.
   The `beq` branch at 0xc0000000000742fc targets 0xc000000000074318, is taken when a2(?) == a5(?), and falls through when a2(?) != a5(?).
   The `beq` branch at 0xc000000000074310 targets 0xc00000000007432c and is always taken.
@@ -21098,9 +21088,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc0000000000a0170 calls cap_able [0xc0000000002fba24] with a0=0x2000000000, a1=0x7003, a2=?, a3=?.
   The `jal` at 0xc0000000000a0184 calls copyin [0xc000000000047360] with a0=a2 at entry (arg2), a1=sp-120, a2=0x18, a3=?.
   The `jal` at 0xc0000000000a01c4 calls pcibr_device_slot_get [0xc00000000009ffa4] with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xc0000000000a01e4 calls pcibr_priority_bits_set [0xc0000000000a370c] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x1, a3=?.
+  The `jal` at 0xc0000000000a01e4 calls pcibr_priority_bits_set [0xc0000000000a370c] with a0=?, a1=?, a2=0x1, a3=?.
   The `jal` at 0xc0000000000a01f4 calls pcibr_device_slot_get [0xc00000000009ffa4] with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xc0000000000a0214 calls pcibr_priority_bits_set [0xc0000000000a370c] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x0, a3=0xff.
+  The `jal` at 0xc0000000000a0214 calls pcibr_priority_bits_set [0xc0000000000a370c] with a0=?, a1=?, a2=0x0, a3=0xff.
   The `jal` at 0xc0000000000a0224 calls pcibr_slot_query [0xc0000000000abc4c] with a0=ret(hwgraph_connectpt_get), a1=sp-144, a2=?, a3=?.
   The `jal` at 0xc0000000000a0234 calls pcibr_slot_startup [0xc0000000000ab52c] with a0=ret(hwgraph_connectpt_get), a1=sp-96, a2=?, a3=?.
   The `jal` at 0xc0000000000a0248 calls pcibr_slot_shutdown [0xc0000000000ab68c] with a0=ret(hwgraph_connectpt_get), a1=sp-120, a2=?, a3=?.
@@ -21253,9 +21243,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc0000000000a06f4 calls strstr [0xc0000000001a97e4] with a0=sp-320, a1=0xc0000000014a6c30, a2=?, a3=?.
   The `jal` at 0xc0000000000a0710 calls pcibr_widget_to_bus [0xc0000000000ae760] with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000000a0728 calls strcat [0xc0000000001a973c] with a0=sp-320, a1=0xc0000000014a6c38, a2=?, a3=?.
-  The `jal` at 0xc0000000000a073c calls sprintf [0xc00000000026fd14] with a0=sp-56, a1=0xc0000000014a6c40, a2=ret(pcibr_widget_to_bus), a3=?.
+  The `jal` at 0xc0000000000a073c calls sprintf [0xc00000000026fd14] with a0=sp-56, a1=0xc0000000014a6c40, a2=?, a3=?.
   The `jal` at 0xc0000000000a0758 calls pcibr_debug [0xc0000000000a3b6c] with a0=0x4, a1=a0 at entry (arg0), a2=0xc0000000014a6c08, a3=sp-320, a4=sp-56.
-  The `jal` at 0xc0000000000a0768 calls hwgraph_path_add [0xc000000000309c14] with a0=[0xc00000000159c578], a1=sp-316, a2=sp-48, a3=?.
+  The `jal` at 0xc0000000000a0768 calls hwgraph_path_add [0xc000000000309c14] with a0=[0xc00000000159c578], a1=?, a2=sp-48, a3=?.
   The `jal` at 0xc0000000000a0790 calls hwgraph_edge_add [0xc000000000309420] with a0=?, a1=?, a2=sp-56, a3=?.
   The `beq` branch at 0xc0000000000a06b4 targets 0xc0000000000a06cc, is taken when v0(=ret(hwgraph_vertex_name_get)) == 0, and falls through when v0(=ret(hwgraph_vertex_name_get)) != 0.
   The `beq` branch at 0xc0000000000a06e0 targets 0xc0000000000a06f0, is taken when v0(=ret(hwgraph_traverse)) == 0, and falls through when v0(=ret(hwgraph_traverse)) != 0.
@@ -21351,9 +21341,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `sb` at 0xc0000000000a1a38 stores 1 byte to ?.
   The `jal` at 0xc0000000000a19cc calls pcibr_info_get [0xc0000000000a0268] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xc0000000000a19e4 calls mutex_spinlock [0xc0000000002fab0c] with a0=[ret(pcibr_info_get)+40]:8+140, a1=?, a2=?, a3=?.
-  The `jal` at 0xc0000000000a1a3c calls mutex_io_spinunlock [0xc0000000002faa20] with a0=[ret(pcibr_info_get)+40]:8+140, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?, a6=0xc0000000014a6bf0.
+  The `jal` at 0xc0000000000a1a3c calls mutex_io_spinunlock [0xc0000000002faa20] with a0=[ret(pcibr_info_get)+40]:8+140, a1=?, a2=?, a3=?, a6=0xc0000000014a6bf0.
   The `jal` at 0xc0000000000a1a70 calls cmn_err [0xc00000000026ef18] with a0=0x4, a1=0xc0000000014a6fe8, a2=a2 at entry (arg2), a3=a3 at entry (arg3), a6=0xc0000000014a6bf0.
-  The `jal` at 0xc0000000000a1a7c calls mutex_io_spinunlock [0xc0000000002faa20] with a0=[ret(pcibr_info_get)+40]:8+140, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?.
+  The `jal` at 0xc0000000000a1a7c calls mutex_io_spinunlock [0xc0000000002faa20] with a0=[ret(pcibr_info_get)+40]:8+140, a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000000a1a94 calls hwgraph_vertex_name_get [0xc00000000030af24] with a0=a0 at entry (arg0), a1=sp-1088, a2=0x400, a3=?.
   The `jal` at 0xc0000000000a1aa4 calls cmn_err [0xc00000000026ef18] with a0=0x4, a1=0xc0000000014a6f68, a2=?, a3=?.
   The `jal` at 0xc0000000000a1abc calls cmn_err [0xc00000000026ef18] with a0=0x4, a1=0xc0000000014a6f88, a2=sp-1088, a3=a3 at entry (arg3).
@@ -22468,7 +22458,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc0000000000a6d18 calls kmem_zalloc [0xc0000000001f6fcc] with a0=0x8, a1=0x0, a2=?, a3=?.
   The `jal` at 0xc0000000000a6d38 calls hwgraph_info_add_LBL [0xc000000000309864] with a0=?, a1=0xc0000000014a7dc8, a2=ret(kmem_zalloc), a3=?.
   The `jal` at 0xc0000000000a6d4c calls hwgraph_info_get_LBL [0xc000000000309908] with a0=?, a1=0xc0000000014a7dc8, a2=sp-64, a3=?.
-  The `jal` at 0xc0000000000a6d64 calls kmem_free [0xc0000000001f7038] with a0=ret(kmem_zalloc), a1=0x8, a2=?, a3=ret(kmem_zalloc).
+  The `jal` at 0xc0000000000a6d64 calls kmem_free [0xc0000000001f7038] with a0=?, a1=0x8, a2=?, a3=?.
   The `jal` at 0xc0000000000a6d80 calls pcibr_debug [0xc0000000000a3b6c] with a0=0x2, a1=a0 at entry (arg0), a2=0xc0000000014a7e30, a3=?.
   The `jal` at 0xc0000000000a6d9c calls pcibr_debug [0xc0000000000a3b6c] with a0=0x2, a1=a0 at entry (arg0), a2=0xc0000000014a7d90, a3=?, a5=-0x1.
   The `jal` at 0xc0000000000a6db8 calls pcibr_debug [0xc0000000000a3b6c] with a0=0x2, a1=a0 at entry (arg0), a2=0xc0000000014a7dd8, a3=?.
@@ -22476,7 +22466,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc0000000000a6ce0 targets 0xc0000000000a6d90, is taken when a5(=-0x1) == a0(?), and falls through when a5(=-0x1) != a0(?).
   The `beq` branch at 0xc0000000000a6cf8 targets 0xc0000000000a6d18, is taken when v0(?) == 0, and falls through when v0(?) != 0.
   The `beq` branch at 0xc0000000000a6d20 targets 0xc0000000000a6dac, is taken when v0(=ret(kmem_zalloc)) == 0, and falls through when v0(=ret(kmem_zalloc)) != 0.
-  The `beq` branch at 0xc0000000000a6d5c targets 0xc0000000000a6d04, is taken when a2(?) == a3(=ret(kmem_zalloc)), and falls through when a2(?) != a3(=ret(kmem_zalloc)).
+  The `beq` branch at 0xc0000000000a6d5c targets 0xc0000000000a6d04, is taken when a2(?) == a3(?), and falls through when a2(?) != a3(?).
   The `beq` branch at 0xc0000000000a6d70 targets 0xc0000000000a6dc8, is taken when a4(?) == 0, and falls through when a4(?) != 0.
   The `beq` branch at 0xc0000000000a6d88 targets 0xc0000000000a6d00 and is always taken.
   The `beq` branch at 0xc0000000000a6da4 targets 0xc0000000000a6d08 and is always taken.
@@ -22717,7 +22707,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xc0000000000ab328 loads 8 bytes from [ret(pcibr_info_get)+40]:8 +0x8.
   The `jal` at 0xc0000000000ab318 calls pcibr_info_get [0xc0000000000a0268] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xc0000000000ab330 calls pcibr_config_addr [0xc0000000000ab1dc] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=?, a3=?.
-  The `jal` at 0xc0000000000ab344 calls pcibr_probe_slot [0xc0000000000ae250] with a0=[[ret(pcibr_info_get)+40]:8+8]:8, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
+  The `jal` at 0xc0000000000ab344 calls pcibr_probe_slot [0xc0000000000ae250] with a0=?, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
   The `beq` branch at 0xc0000000000ab34c targets 0xc0000000000ab360, is taken when v0(=ret(pcibr_probe_slot)) == 0, and falls through when v0(=ret(pcibr_probe_slot)) != 0.
   The `beq` branch at 0xc0000000000ab360 targets 0xc0000000000ab358 and is always taken.
   The return at 0xc0000000000ab358 has v0 = one of -0x1, ?.
@@ -22737,7 +22727,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc0000000000ab59c calls pcibr_debug [0xc0000000000a3b6c] with a0=0x8000, a1=a0 at entry (arg0), a2=0xc0000000014a96e8, a3=ret(hwgraph_fastinfo_get), a5=a1 at entry (arg1).
   The `jal` at 0xc0000000000ab5ac calls nic_vertex_info_match [0xc0000000000979e4] with a0=[ret(hwgraph_fastinfo_get)], a1=0xc0000000014a9728, a2=?, a3=?.
   The `jal` at 0xc0000000000ab604 calls mrlock [0xc000000000205640] with a0=ret(hwgraph_fastinfo_get)+144, a1=0x2, a2=0x19, a3=?.
-  The `jal` at 0xc0000000000ab62c calls mrunlock [0xc000000000202470] with a0=ret(hwgraph_fastinfo_get)+144, a1=?, a2=?, a3=?.
+  The `jal` at 0xc0000000000ab62c calls mrunlock [0xc000000000202470] with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000000ab64c calls pcibr_slot_attach [0xc0000000000adbe8] with a0=a0 at entry (arg0), a1=?, a2=0x200, a3=sp-336, a4=sp-200.
   The `jal` at 0xc0000000000ab660 calls strncpy [0xc0000000001a95c0] with a0=sp-196, a1=sp-336, a2=0x80, a3=?.
   The `jal` at 0xc0000000000ab674 calls copyout [0xc0000000000473ec] with a0=sp-200, a1=[a1+8]:8, a2=[a1+16], a3=?.
@@ -22771,7 +22761,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc0000000000ab700 calls pcibr_debug [0xc0000000000a3b6c] with a0=0x8000, a1=a0 at entry (arg0), a2=0xc0000000014a9738, a3=ret(hwgraph_fastinfo_get), a5=a1 at entry (arg1).
   The `jal` at 0xc0000000000ab744 calls nic_vertex_info_match [0xc0000000000979e4] with a0=[ret(hwgraph_fastinfo_get)], a1=0xc0000000014a9728, a2=?, a3=0xa.
   The `jal` at 0xc0000000000ab76c calls mrlock [0xc000000000205640] with a0=ret(hwgraph_fastinfo_get)+144, a1=0x2, a2=0x19, a3=?.
-  The `jal` at 0xc0000000000ab790 calls mrunlock [0xc000000000202470] with a0=ret(hwgraph_fastinfo_get)+144, a1=?, a2=?, a3=?.
+  The `jal` at 0xc0000000000ab790 calls mrunlock [0xc000000000202470] with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000000ab838 calls pcibr_slot_detach [0xc0000000000adea4] with a0=a0 at entry (arg0), a1=?, a2=0x400, a3=sp-200, a4=sp-336, a7=[ret(hwgraph_fastinfo_get)+116]:2.
   The `jal` at 0xc0000000000ab84c calls strncpy [0xc0000000001a95c0] with a0=sp-332, a1=sp-200, a2=0x80, a3=?.
   The `jal` at 0xc0000000000ab860 calls copyout [0xc0000000000473ec] with a0=sp-336, a1=[a1+8]:8, a2=[a1+16], a3=?.
@@ -22793,7 +22783,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc0000000000ab7fc targets 0xc0000000000ab810, is taken when (t1(?) & 0x10) == 0, and falls through when (t1(?) & 0x10) != 0.
   The `beq` branch at 0xc0000000000ab804 targets 0xc0000000000ab824 and is always taken.
   The `beq` branch at 0xc0000000000ab818 targets 0xc0000000000ab7e8, is taken when a3(=[ret(hwgraph_fastinfo_get)+50]:1) >= v0(?) (signed), and falls through when a3(=[ret(hwgraph_fastinfo_get)+50]:1) < v0(?) (signed).
-  The `bne` branch at 0xc0000000000ab824 targets 0xc0000000000ab790, is taken when a1(=one of 0x0, 0x1) != 0, and falls through when a1(=one of 0x0, 0x1) == 0.
+  The `bne` branch at 0xc0000000000ab824 targets 0xc0000000000ab790, is taken when a1(?) != 0, and falls through when a1(?) == 0.
   The `beq` branch at 0xc0000000000ab868 targets 0xc0000000000ab790, is taken when v0(=ret(copyout)) == 0, and falls through when v0(=ret(copyout)) != 0.
   The `beq` branch at 0xc0000000000ab870 targets 0xc0000000000ab71c and is always taken.
   The return at 0xc0000000000ab738 has v0 = one of 0x8, 0xa, 0x9, ?, 0xe.
@@ -22983,35 +22973,32 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc0000000000ace88 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x108.
   The `ld` at 0xc0000000000ace90 loads 8 bytes from ret(hwgraph_fastinfo_get) +0x8.
   The `lw` at 0xc0000000000aced0 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
-  2 such `ld` accesses load 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x120, including `ld` at 0xc0000000000acef8, `ld` at 0xc0000000000ad2b0.
+  The `ld` at 0xc0000000000acef8 loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x120.
   5 such `lh` accesses load 2 bytes from ret(hwgraph_fastinfo_get) +0x72, including `lh` at 0xc0000000000acf54, `lh` at 0xc0000000000ad098, `lh` at 0xc0000000000ad178.
-  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc0000000000acf88, `lw` at 0xc0000000000ad014, `lw` at 0xc0000000000ad134.
+  6 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc0000000000acf88, `lw` at 0xc0000000000ad014, `lw` at 0xc0000000000ad134.
   3 such `sd` accesses store 8 bytes to ?, including `sd` at 0xc0000000000acf90, `sd` at 0xc0000000000acf98, `sd` at 0xc0000000000ad1bc.
-  3 such `ld` accesses load 8 bytes from ?, including `ld` at 0xc0000000000ad004, `ld` at 0xc0000000000ad11c, `ld` at 0xc0000000000ad120.
+  5 such `ld` accesses load 8 bytes from ?, including `ld` at 0xc0000000000ad004, `ld` at 0xc0000000000ad11c, `ld` at 0xc0000000000ad120.
   2 such `ld` accesses load 8 bytes from table(0xc0000000014d4320) +0x0, including `ld` at 0xc0000000000ad0d4, `ld` at 0xc0000000000ad1f0.
-  The `ld` at 0xc0000000000ad2b4 loads 8 bytes from [(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8 +0x0.
-  The `lw` at 0xc0000000000ad2b8 loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8 +0x14.
-  The `lw` at 0xc0000000000ad2cc loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8 +0x18.
   The `jal` at 0xc0000000000ace54 calls hwgraph_fastinfo_get [0xc00000000030a690] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
-  The `jal` at 0xc0000000000acf40 calls do_pcibr_config_set [0xc0000000000ab3f4] with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
+  The `jal` at 0xc0000000000acf40 calls do_pcibr_config_set [0xc0000000000ab3f4] with a0=?, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
   The `jal` at 0xc0000000000acf80 calls pcibr_debug [0xc0000000000a3b6c] with a0=0x800, a1=a0 at entry (arg0), a2=0xc0000000014a9c00, a3=?, a5=ret(pcibr_bus_addr_alloc).
-  The `jal` at 0xc0000000000acfa8 calls do_pcibr_config_get [0xc0000000000ab368] with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?, a4=0x9004.
-  The `jal` at 0xc0000000000acfe0 calls do_pcibr_config_set [0xc0000000000ab3f4] with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?.
-  The `jal` at 0xc0000000000ad030 calls pcibr_func_config_addr [0xc0000000000aaffc] with a0=[ret(hwgraph_fastinfo_get)+8]:8, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
+  The `jal` at 0xc0000000000acfa8 calls do_pcibr_config_get [0xc0000000000ab368] with a0=?, a1=0x4, a2=0x4, a3=?, a4=0x9004.
+  The `jal` at 0xc0000000000acfe0 calls do_pcibr_config_set [0xc0000000000ab3f4] with a0=?, a1=0x4, a2=0x4, a3=?.
+  The `jal` at 0xc0000000000ad030 calls pcibr_func_config_addr [0xc0000000000aaffc] with a0=?, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
   The `jal` at 0xc0000000000ad048 calls do_pcibr_config_get [0xc0000000000ab368] with a0=ret(pcibr_func_config_addr), a1=0xe, a2=0x1, a3=?.
   The `jal` at 0xc0000000000ad0d0 calls sprintf [0xc00000000026fd14] with a0=sp-464, a1=0xc0000000014a9a88, a2=?, a3=?, a5=entry(0xc0000000014d4320).
   The `jal` at 0xc0000000000ad0e8 calls pcibr_debug [0xc0000000000a3b6c] with a0=0x800, a1=a0 at entry (arg0), a2=0xc0000000014a9778, a3=sp-464.
   The `jal` at 0xc0000000000ad19c calls pcibr_debug [0xc0000000000a3b6c] with a0=0x800, a1=a0 at entry (arg0), a2=0xc0000000014a9af0, a3=?, a6=0x4, a7=0xff.
-  The `jal` at 0xc0000000000ad1b8 calls do_pcibr_config_set [0xc0000000000ab3f4] with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=?.
+  The `jal` at 0xc0000000000ad1b8 calls do_pcibr_config_set [0xc0000000000ab3f4] with a0=?, a1=?, a2=0x4, a3=?.
   The `jal` at 0xc0000000000ad22c calls sprintf [0xc00000000026fd14] with a0=sp-464, a1=0xc0000000014a9b38, a2=?, a3=?, a5=entry(0xc0000000014d4320).
   The `jal` at 0xc0000000000ad244 calls pcibr_debug [0xc0000000000a3b6c] with a0=0x800, a1=a0 at entry (arg0), a2=0xc0000000014a9778, a3=sp-464.
   The `jal` at 0xc0000000000ad284 calls sprintf [0xc00000000026fd14] with a0=sp-464, a1=0xc0000000014a9ba0, a2=?, a3=?, a6=entry(0xc0000000014d4320), a7=0xff.
   The `jal` at 0xc0000000000ad29c calls pcibr_debug [0xc0000000000a3b6c] with a0=0x800, a1=a0 at entry (arg0), a2=0xc0000000014a9778, a3=sp-464.
-  The `jal` at 0xc0000000000ad2f0 calls do_pcibr_config_set [0xc0000000000ab3f4] with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
-  The `jal` at 0xc0000000000ad300 calls do_pcibr_config_get [0xc0000000000ab368] with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=?.
+  The `jal` at 0xc0000000000ad2f0 calls do_pcibr_config_set [0xc0000000000ab3f4] with a0=?, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
+  The `jal` at 0xc0000000000ad300 calls do_pcibr_config_get [0xc0000000000ab368] with a0=?, a1=0x0, a2=0x4, a3=?.
   The `jal` at 0xc0000000000ad32c calls pcibr_bus_addr_alloc [0xc0000000000ae6b4] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xc0000000000ad388 calls pcibr_bus_addr_alloc [0xc0000000000ae6b4] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x2, a3=0x0, a6=0x4, a7=0xff.
-  The `jal` at 0xc0000000000ad3b4 calls do_pcibr_config_get [0xc0000000000ab368] with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=0xff, a4=[0xc000000001592fb0], a6=0x4, a7=0xff.
+  The `jal` at 0xc0000000000ad3b4 calls do_pcibr_config_get [0xc0000000000ab368] with a0=?, a1=?, a2=0x4, a3=0xff, a4=[0xc000000001592fb0], a6=0x4, a7=0xff.
   The `jal` at 0xc0000000000ad3dc calls pcibr_bus_addr_alloc [0xc0000000000ae6b4] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xc0000000000ad42c calls pcibr_bus_addr_alloc [0xc0000000000ae6b4] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x4, a3=0x0.
   The `beq` branch at 0xc0000000000ace60 targets 0xc0000000000ad450, is taken when v0(=ret(hwgraph_fastinfo_get)) == 0, and falls through when v0(=ret(hwgraph_fastinfo_get)) != 0.
@@ -23026,7 +23013,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc0000000000acf58 targets 0xc0000000000acf64, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xc0000000000acf94 targets 0xc0000000000ad360, is taken when a3(?) == a4(=0x9004), and falls through when a3(?) != a4(=0x9004).
   The `beq` branch at 0xc0000000000acfc4 targets 0xc0000000000acfe8, is taken when (a5(?) & a6(?)) == 0, and falls through when (a5(?) & a6(?)) != 0.
-  The `beq` branch at 0xc0000000000acff4 targets 0xc0000000000ad400, is taken when s4(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) (signed), and falls through when s4(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) (signed).
+  The `beq` branch at 0xc0000000000acff4 targets 0xc0000000000ad400, is taken when s4(?) >= a4(?) (signed), and falls through when s4(?) < a4(?) (signed).
   The `beq` branch at 0xc0000000000ad00c targets 0xc0000000000acfe8, is taken when s5(?) == 0, and falls through when s5(?) != 0.
   The `beq` branch at 0xc0000000000ad018 targets 0xc0000000000acfec, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `blez` branch at 0xc0000000000ad070 targets 0xc0000000000ad2ac, is taken when t1(=one of 0x2, 0x6) <= 0 (signed), and falls through when t1(=one of 0x2, 0x6) > 0 (signed).
@@ -23034,7 +23021,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc0000000000ad088 targets 0xc0000000000ad0f4, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xc0000000000ad090 targets 0xc0000000000ad348, is taken when t3(=0xff) == s3(=a1), and falls through when t3(=0xff) != s3(=a1).
   The `beq` branch at 0xc0000000000ad09c targets 0xc0000000000ad0a8, is taken when t8(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when t8(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
-  The `beq` branch at 0xc0000000000ad110 targets 0xc0000000000ad2ac, is taken when s0(?) >= a3(=one of 0x2, 0x6) (signed), and falls through when s0(?) < a3(=one of 0x2, 0x6) (signed).
+  The `beq` branch at 0xc0000000000ad110 targets 0xc0000000000ad2ac, is taken when s0(?) >= a3(?) (signed), and falls through when s0(?) < a3(?) (signed).
   The `beq` branch at 0xc0000000000ad138 targets 0xc0000000000ad0f0, is taken when s1(?) == 0, and falls through when s1(?) != 0.
   The `beq` branch at 0xc0000000000ad144 targets 0xc0000000000ad088, is taken when a6(?) >= s1(?) (unsigned), and falls through when a6(?) < s1(?) (unsigned).
   The `beq` branch at 0xc0000000000ad160 targets 0xc0000000000ad378, is taken when s2(?) == s7(=0x2), and falls through when s2(?) != s7(=0x2).
@@ -23049,8 +23036,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc0000000000ad254 targets 0xc0000000000ad358, is taken when a3(=0xff) == s3(=a1), and falls through when a3(=0xff) != s3(=a1).
   The `beq` branch at 0xc0000000000ad260 targets 0xc0000000000ad26c, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xc0000000000ad2a4 targets 0xc0000000000ad0f4 and is always taken.
-  The `bne` branch at 0xc0000000000ad2c4 targets 0xc0000000000ad2d8, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8+20]) != a4(=0x10a9), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8+20]) == a4(=0x10a9).
-  The `beq` branch at 0xc0000000000ad2d4 targets 0xc0000000000acf88, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8+24]) == a4(=0x3), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8+24]) != a4(=0x3).
+  The `bne` branch at 0xc0000000000ad2c4 targets 0xc0000000000ad2d8, is taken when a3(?) != a4(=0x10a9), and falls through when a3(?) == a4(=0x10a9).
+  The `beq` branch at 0xc0000000000ad2d4 targets 0xc0000000000acf88, is taken when a3(?) == a4(=0x3), and falls through when a3(?) != a4(=0x3).
   The `beq` branch at 0xc0000000000ad30c targets 0xc0000000000acf88, is taken when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) == 0, and falls through when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) != 0.
   The `bne` branch at 0xc0000000000ad334 targets 0xc0000000000acf34, is taken when v0(=ret(pcibr_bus_addr_alloc)) != 0, and falls through when v0(=ret(pcibr_bus_addr_alloc)) == 0.
   The `beq` branch at 0xc0000000000ad340 targets 0xc0000000000acf88 and is always taken.
@@ -23070,7 +23057,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc0000000000ad480 targets 0xc0000000000ad400 and is always taken.
   The `beq` branch at 0xc0000000000ad490 targets 0xc0000000000ad11c and is always taken.
   The `beq` branch at 0xc0000000000ad49c targets 0xc0000000000ad000 and is always taken.
-  The return at 0xc0000000000aceb0 has v0 = one of 0x0, 0x16, 0x1c.
+  The return at 0xc0000000000aceb0 has v0 = one of ?, 0x16.
 - `pcibr_slot_guest_info_init` in `6.5.22/unix.IP35` at 0xc0000000000ad598 (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.22/unix.IP35`.
@@ -23108,20 +23095,16 @@ These entries record instruction facts rendered from the routines below. They de
   The `lbu` at 0xc0000000000ad6e0 loads 1 byte from ret(hwgraph_fastinfo_get) +0x39.
   The `lw` at 0xc0000000000ad700 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x108.
   The `lw` at 0xc0000000000ad734 loads 4 bytes from ret(hwgraph_fastinfo_get) +0x0.
-  The `lw` at 0xc0000000000ad74c loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
-  The `ld` at 0xc0000000000ad768 loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x120.
-  The `sw` at 0xc0000000000ad790 stores 4 bytes to ?.
-  The `ld` at 0xc0000000000ad7b4 loads 8 bytes from ?.
-  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc0000000000ad7c4, `lw` at 0xc0000000000ad7d0.
+  5 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc0000000000ad74c, `lw` at 0xc0000000000ad7c4, `lw` at 0xc0000000000ad7d0.
+  2 such `ld` accesses load 8 bytes from ?, including `ld` at 0xc0000000000ad768, `ld` at 0xc0000000000ad7b4.
+  3 such `sw` accesses store 4 bytes to ?, including `sw` at 0xc0000000000ad790, `sw` at 0xc0000000000ad908, `sw` at 0xc0000000000ad940.
   The `lh` at 0xc0000000000ad81c loads 2 bytes from ret(hwgraph_fastinfo_get) +0x72.
-  2 such `lw` accesses load 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x114, including `lw` at 0xc0000000000ad8fc, `lw` at 0xc0000000000ad924.
-  2 such `sw` accesses store 4 bytes to (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x114, including `sw` at 0xc0000000000ad908, `sw` at 0xc0000000000ad940.
-  The `ld` at 0xc0000000000ad984 loads 8 bytes from [(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8 +0x0.
+  The `ld` at 0xc0000000000ad984 loads 8 bytes from table(0x0) +0x0.
   The `jal` at 0xc0000000000ad6cc calls hwgraph_fastinfo_get [0xc00000000030a690] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xc0000000000ad73c calls async_attach_get_info [0xc0000000001158b4] with a0=[ret(hwgraph_fastinfo_get)], a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000000ad784 calls hwgraph_vertex_unref [0xc000000000309400] with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000000ad7d8 calls device_admin_info_get [0xc0000000001e81d0] with a0=?, a1=0xc0000000014a9d48, a2=?, a3=?.
-  The `jal` at 0xc0000000000ad7f4 calls async_attach_add_info [0xc0000000001158e8] with a0=?, a1=ret(async_attach_get_info), a2=ret(async_attach_get_info), a3=?.
+  The `jal` at 0xc0000000000ad7f4 calls async_attach_add_info [0xc0000000001158e8] with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000000ad800 calls pciio_device_attach [0xc0000000000c3d90] with a0=?, a1=a2 at entry (arg2), a2=?, a3=?.
   The `jal` at 0xc0000000000ad840 calls pcibr_debug [0xc0000000000a3b6c] with a0=0x2000, a1=a0 at entry (arg0), a2=0xc0000000014a9cc0, a3=?, a5=a2 at entry (arg2), a6=ret(pciio_device_attach).
   The `jal` at 0xc0000000000ad85c calls hwgraph_path_lookup [0xc000000000309af8] with a0=?, a1=0xc0000000014a9d28, a2=sp-144, a3=0x0.
@@ -23135,13 +23118,13 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc0000000000ad6ec targets 0xc0000000000ad72c, is taken when s4(=a1) >= at(=[ret(hwgraph_fastinfo_get)+57]:1+1) (signed), and falls through when s4(=a1) < at(=[ret(hwgraph_fastinfo_get)+57]:1+1) (signed).
   The `beq` branch at 0xc0000000000ad704 targets 0xc0000000000ad734, is taken when v0(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+264]) == 0, and falls through when v0(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+264]) != 0.
   The `beq` branch at 0xc0000000000ad72c targets 0xc0000000000ad710 and is always taken.
-  The `blez` branch at 0xc0000000000ad764 targets 0xc0000000000ad944, is taken when s6(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) <= 0 (signed), and falls through when s6(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) > 0 (signed).
+  The `blez` branch at 0xc0000000000ad764 targets 0xc0000000000ad944, is taken when s6(?) <= 0 (signed), and falls through when s6(?) > 0 (signed).
   The `beq` branch at 0xc0000000000ad77c targets 0xc0000000000ad978 and is always taken.
-  The `beq` branch at 0xc0000000000ad7ac targets 0xc0000000000ad8bc, is taken when s0(?) >= s6(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) (signed), and falls through when s0(?) < s6(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) (signed).
+  The `beq` branch at 0xc0000000000ad7ac targets 0xc0000000000ad8bc, is taken when s0(?) >= s6(?) (signed), and falls through when s0(?) < s6(?) (signed).
   The `beq` branch at 0xc0000000000ad7bc targets 0xc0000000000ad7a0, is taken when s1(?) == 0, and falls through when s1(?) != 0.
   The `beq` branch at 0xc0000000000ad7c8 targets 0xc0000000000ad7a0, is taken when v1(?) == a0(=-0x1), and falls through when v1(?) != a0(=-0x1).
   The `bne` branch at 0xc0000000000ad7e0 targets 0xc0000000000ad950, is taken when v0(=ret(device_admin_info_get)) != 0, and falls through when v0(=ret(device_admin_info_get)) == 0.
-  The `beq` branch at 0xc0000000000ad7ec targets 0xc0000000000ad7fc, is taken when a2(=ret(async_attach_get_info)) == 0, and falls through when a2(=ret(async_attach_get_info)) != 0.
+  The `beq` branch at 0xc0000000000ad7ec targets 0xc0000000000ad7fc, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xc0000000000ad814 targets 0xc0000000000ad828, is taken when a0(=0xff) == s4(=a1), and falls through when a0(=0xff) != s4(=a1).
   The `beq` branch at 0xc0000000000ad820 targets 0xc0000000000ad8a4, is taken when a3(=[ret(hwgraph_fastinfo_get)+114]:2) == a4(=0x2), and falls through when a3(=[ret(hwgraph_fastinfo_get)+114]:2) != a4(=0x2).
   The `beq` branch at 0xc0000000000ad848 targets 0xc0000000000ad78c, is taken when s3(=a2) == 0, and falls through when s3(=a2) != 0.
@@ -24668,7 +24651,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `bltz` branch at 0xc0000000000d2160 targets 0xc0000000000d21d0, is taken when v0(=ret(sc_open)) < 0 (signed), and falls through when v0(=ret(sc_open)) >= 0 (signed).
   The `bltz` branch at 0xc0000000000d2188 targets 0xc0000000000d2218, is taken when v0(=ret(sc_construct_msg)) < 0 (signed), and falls through when v0(=ret(sc_construct_msg)) >= 0 (signed).
   The `beq` branch at 0xc0000000000d21a8 targets 0xc0000000000d21e8, is taken when v0(=ret(sc_command)) == 0, and falls through when v0(=ret(sc_command)) != 0.
-  The `beq` branch at 0xc0000000000d21c4 targets 0xc0000000000d2210, is taken when a3(=ret(sc_command)) == a4(=-0x4), and falls through when a3(=ret(sc_command)) != a4(=-0x4).
+  The `beq` branch at 0xc0000000000d21c4 targets 0xc0000000000d2210, is taken when a3(?) == a4(=-0x4), and falls through when a3(?) != a4(=-0x4).
   The `bltz` branch at 0xc0000000000d2200 targets 0xc0000000000d222c, is taken when v0(=ret(sc_interpret_resp)) < 0 (signed), and falls through when v0(=ret(sc_interpret_resp)) >= 0 (signed).
   The `beq` branch at 0xc0000000000d2208 targets 0xc0000000000d21d4 and is always taken.
   The `beq` branch at 0xc0000000000d2210 targets 0xc0000000000d21d4 and is always taken.
@@ -27087,12 +27070,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc00000000030953c calls mrupdatef [0xc00000000020229c] with a0=0xc00000000163b320, a1=0x0, a2=?, a3=?.
   The `jal` at 0xc000000000309544 calls do_hwgraph_connectpt_get [0xc00000000030ae20] with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xc000000000309558 calls mrunlock [0xc000000000202470] with a0=0xc00000000163b320, a1=?, a2=?, a3=?.
-  The `jal` at 0xc000000000309574 calls graph_vertex_unref [0xc00000000030cd08] with a0=[0xc00000000159c570]:8, a1=ret(do_hwgraph_connectpt_get), a2=a2 at entry (arg2), a3=?.
+  The `jal` at 0xc000000000309574 calls graph_vertex_unref [0xc00000000030cd08] with a0=[0xc00000000159c570]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `jal` at 0xc000000000309598 calls do_hwgraph_connectpt_set [0xc00000000030ad94] with a0=?, a1=-0x1, a2=?, a3=?.
   The `jal` at 0xc0000000003095a8 calls graph_vertex_unref [0xc00000000030cd08] with a0=[0xc00000000159c570]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `beq` branch at 0xc00000000030951c targets 0xc000000000309538, is taken when v0(=ret(graph_edge_remove)) == 0, and falls through when v0(=ret(graph_edge_remove)) != 0.
   The `beq` branch at 0xc000000000309550 targets 0xc000000000309594, is taken when v0(=ret(do_hwgraph_connectpt_get)) == v1(=a0), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != v1(=a0).
-  The `beq` branch at 0xc000000000309568 targets 0xc000000000309580, is taken when v0(=ret(do_hwgraph_connectpt_get)) == a1(=-0x1), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != a1(=-0x1).
+  The `beq` branch at 0xc000000000309568 targets 0xc000000000309580, is taken when v0(?) == a1(=-0x1), and falls through when v0(?) != a1(=-0x1).
   The `beq` branch at 0xc000000000309580 targets 0xc0000000003095a8, is taken when a2 == 0, and falls through when a2 != 0.
   The `beq` branch at 0xc00000000030958c targets 0xc000000000309528 and is always taken.
   The `beq` branch at 0xc0000000003095a0 targets 0xc000000000309558 and is always taken.
@@ -30210,12 +30193,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x48c calls mrupdatef with a0=sym(hwgraph_connectpt_mrlock), a1=0x0, a2=?, a3=?.
   The `jal` at 0x494 calls do_hwgraph_connectpt_get with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x4ac calls mrunlock with a0=sym(hwgraph_connectpt_mrlock), a1=?, a2=?, a3=?.
-  The `jal` at 0x4c8 calls graph_vertex_unref with a0=[sym(hwgraph)], a1=ret(do_hwgraph_connectpt_get), a2=a2 at entry (arg2), a3=?.
+  The `jal` at 0x4c8 calls graph_vertex_unref with a0=[sym(hwgraph)], a1=?, a2=a2 at entry (arg2), a3=?.
   The `jal` at 0x4f0 calls do_hwgraph_connectpt_set with a0=?, a1=-0x1, a2=?, a3=?.
   The `jal` at 0x500 calls graph_vertex_unref with a0=[sym(hwgraph)], a1=?, a2=a2 at entry (arg2), a3=a2 at entry (arg2).
   The `beq` branch at 0x468 targets 0x484, is taken when v0(=ret(graph_edge_remove)) == 0, and falls through when v0(=ret(graph_edge_remove)) != 0.
   The `beq` branch at 0x4a0 targets 0x4ec, is taken when v0(=ret(do_hwgraph_connectpt_get)) == a1(=a0), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != a1(=a0).
-  The `beq` branch at 0x4bc targets 0x4d4, is taken when v0(=ret(do_hwgraph_connectpt_get)) == a1(=-0x1), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != a1(=-0x1).
+  The `beq` branch at 0x4bc targets 0x4d4, is taken when v0(?) == a1(=-0x1), and falls through when v0(?) != a1(=-0x1).
   The `beq` branch at 0x4d8 targets 0x500, is taken when a2 == 0, and falls through when a2 != 0.
   The `beq` branch at 0x4e4 targets 0x474 and is always taken.
   The `beq` branch at 0x4f8 targets 0x4ac and is always taken.
@@ -31023,10 +31006,10 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.22/usr/cpu/sysgen/IP22boot/graph.a(hwgraph.o)`.
   Range: 0x2268-0x235c (244 bytes).
   It occupies 244 bytes.
-  2 such `lw` accesses load 4 bytes from (sym(pdaindr) + (a1 << 0x3)) +0x4, including `lw` at 0x229c, `lw` at 0x2320.
+  The `lw` at 0x229c loads 4 bytes from (sym(pdaindr) + (a1 << 0x3)) +0x4.
   The `sw` at 0x22b0 stores 4 bytes to [(sym(pdaindr) + (a1 << 0x3))+4] +0x338.
-  The `lw` at 0x2324 loads 4 bytes from [(sym(pdaindr) + (a1 << 0x3))+4] +0x38.
-  The `sw` at 0x2334 stores 4 bytes to [(sym(pdaindr) + (a1 << 0x3))+4] +0x38.
+  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0x2320, `lw` at 0x2324.
+  The `sw` at 0x2334 stores 4 bytes to ?.
   The `jal` at 0x22b8 calls graph_info_add_LBL with a0=[sym(hwgraph)], a1=a0 at entry (arg0), a2=sym(.rodata)+488, a3=0x0, a4=a1 at entry (arg1).
   The `jal` at 0x22d8 calls sprintf with a0=sp-48, a1=sym(.rodata)+504, a2=a1 at entry (arg1), a3=?.
   The `jal` at 0x22e8 calls hwgraph_edge_add with a0=[sym(.sdata)+4], a1=a0 at entry (arg0), a2=sp-48, a3=?.
@@ -31318,33 +31301,33 @@ These entries record instruction facts rendered from the routines below. They de
   The `sw` at 0x248 stores 4 bytes to a3 (arg3 at entry) +0x0.
   The `jal` at 0x1d0 calls hwgraph_traverse with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x1f8 calls hwgraph_cdevsw_get with a0=[a2], a1=?, a2=?, a3=?.
-  The `jal` at 0x204 calls hwgraph_bdevsw_get with a0=[a2], a1=?, a2=?, a3=?.
+  The `jal` at 0x204 calls hwgraph_bdevsw_get with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x250 calls strcmp with a0=a1 at entry (arg1), a1=sym(.rodata), a2=?, a3=?.
   The `jal` at 0x264 calls strcmp with a0=a1 at entry (arg1), a1=sym(.rodata)+4, a2=?, a3=?.
-  The `jal` at 0x274 calls hwgraph_connectpt_get with a0=[a2], a1=?, a2=?, a3=?.
+  The `jal` at 0x274 calls hwgraph_connectpt_get with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x280 calls hwgraph_vertex_unref with a0=ret(hwgraph_connectpt_get), a1=?, a2=?, a3=?.
   The `jal` at 0x2c0 calls hwgraph_edge_get_next with a0=a0 at entry (arg0), a1=sp-328, a2=sp-72, a3=sp-336.
   The `jal` at 0x2d8 calls hwgraph_vertex_unref with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x2e4 calls strcmp with a0=sp-328, a1=a1 at entry (arg1), a2=?, a3=?.
   The `beq` branch at 0x1d8 targets 0x1f0, is taken when v0(=ret(hwgraph_traverse)) == 0, and falls through when v0(=ret(hwgraph_traverse)) != 0.
   The `bne` branch at 0x210 targets 0x228, is taken when v0(=ret(hwgraph_bdevsw_get)) != 0, and falls through when v0(=ret(hwgraph_bdevsw_get)) == 0.
-  The `beq` branch at 0x218 targets 0x24c, is taken when a1(=ret(hwgraph_cdevsw_get)) == 0, and falls through when a1(=ret(hwgraph_cdevsw_get)) != 0.
+  The `beq` branch at 0x218 targets 0x24c, is taken when a1(?) == 0, and falls through when a1(?) != 0.
   The `beq` branch at 0x220 targets 0x23c and is always taken.
-  The `bne` branch at 0x228 targets 0x23c, is taken when a1(=ret(hwgraph_cdevsw_get)) != 0, and falls through when a1(=ret(hwgraph_cdevsw_get)) == 0.
+  The `bne` branch at 0x228 targets 0x23c, is taken when a1(?) != 0, and falls through when a1(?) == 0.
   The `beq` branch at 0x234 targets 0x240 and is always taken.
   The `beq` branch at 0x244 targets 0x1e0 and is always taken.
   The `beq` branch at 0x258 targets 0x2a0, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
   The `beq` branch at 0x26c targets 0x2a8, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
-  The `beq` branch at 0x290 targets 0x2b0, is taken when a2(=ret(hwgraph_connectpt_get)) == a3(=a0), and falls through when a2(=ret(hwgraph_connectpt_get)) != a3(=a0).
+  The `beq` branch at 0x290 targets 0x2b0, is taken when a2(?) == a3(=a0), and falls through when a2(?) != a3(=a0).
   The `beq` branch at 0x298 targets 0x23c and is always taken.
   The `beq` branch at 0x2a0 targets 0x23c and is always taken.
   The `beq` branch at 0x2a8 targets 0x23c and is always taken.
   The `beq` branch at 0x2c8 targets 0x2d8, is taken when v0(=ret(hwgraph_edge_get_next)) == 0, and falls through when v0(=ret(hwgraph_edge_get_next)) != 0.
   The `beq` branch at 0x2d0 targets 0x23c and is always taken.
   The `beq` branch at 0x2ec targets 0x30c, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
-  The `bne` branch at 0x2fc targets 0x2b8, is taken when a5(?) != a6(=[a2]), and falls through when a5(?) == a6(=[a2]).
+  The `bne` branch at 0x2fc targets 0x2b8, is taken when a5(?) != a6(?), and falls through when a5(?) == a6(?).
   The `beq` branch at 0x304 targets 0x23c and is always taken.
-  The `beq` branch at 0x310 targets 0x320, is taken when a7(?) == t0(=[a2]), and falls through when a7(?) != t0(=[a2]).
+  The `beq` branch at 0x310 targets 0x320, is taken when a7(?) == t0(?), and falls through when a7(?) != t0(?).
   The `beq` branch at 0x318 targets 0x23c and is always taken.
   The `beq` branch at 0x320 targets 0x23c and is always taken.
   The return at 0x1e8 has v0 = one of 0x0, 0x1.
@@ -31596,7 +31579,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xba4 targets 0xbb8, is taken when s3(?) == 0, and falls through when s3(?) != 0.
   The `beq` branch at 0xbe8 targets 0xc78, is taken when v1(=[a1+24]:2) == 0, and falls through when v1(=[a1+24]:2) != 0.
   The `beq` branch at 0xbf0 targets 0xb88 and is always taken.
-  The `blez` branch at 0xc20 targets 0xc9c, is taken when v0(?) <= 0 (signed), and falls through when v0(?) > 0 (signed).
+  The `blez` branch at 0xc20 targets 0xc9c, is taken when v0(=ret(?)) <= 0 (signed), and falls through when v0(=ret(?)) > 0 (signed).
   The `beq` branch at 0xc28 targets 0xb60 and is always taken.
   The `beq` branch at 0xc3c targets 0xb54 and is always taken.
   The `beq` branch at 0xc44 targets 0xbc0 and is always taken.
@@ -31778,7 +31761,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x13d0 calls cap_able_cred with a0=a3 at entry (arg3), a1=0x2000000000, a2=?, a3=?.
   The `jal` at 0x1408 calls acl_hwg_match with a0=a1 at entry (arg1), a1=a2 at entry (arg2), a2=?, a3=?, a5=[sym(acl_enabled)].
   The `jal` at 0x1434 calls cap_hwg_match with a0=a1 at entry (arg1), a1=a2 at entry (arg2), a2=?, a3=?.
-  The `jal` at 0x1460 calls hwgraph_info_remove_LBL with a0=[[a0]+36], a1=a1 at entry (arg1), a2=sp-48, a3=?.
+  The `jal` at 0x1460 calls hwgraph_info_remove_LBL with a0=?, a1=a1 at entry (arg1), a2=sp-48, a3=?.
   The `jal` at 0x1478 calls kern_free with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1490 calls mac_hwg_iaccess with a0=[[a0]+36], a1=0x80, a2=a3 at entry (arg3), a3=a3 at entry (arg3).
   The `jal` at 0x14a8 calls mac_hwg_match with a0=a1 at entry (arg1), a1=a2 at entry (arg2), a2=[a1]:1, a3=0x5f, a4=[sym(mac_enabled)].
@@ -32817,7 +32800,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x4a4 loads 4 bytes from [[ret(vproc_lookup)+28]+8] +0x1c.
   The `jal` at 0x454 calls vproc_lookup with a0=?, a1=0x1, a2=?, a3=?.
   The `jalr` at 0x4ac calls (unknown callee) with a0=[ret(vproc_lookup)+28], a1=0x6, a2=sp-88, a3=[[[ret(vproc_lookup)+28]+8]+28], a4=-0x1.
-  The `jal` at 0x4b4 calls vproc_release with a0=ret(vproc_lookup), a1=?, a2=?, a3=?.
+  The `jal` at 0x4b4 calls vproc_release with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x4e0 calls kthread_get_pid with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x4f8 calls get_current_cred with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x508 calls kthread_get_pid with a0=?, a1=?, a2=?, a3=?.
@@ -34688,8 +34671,7 @@ These entries record instruction facts rendered from the routines below. They de
   It occupies 1004 bytes.
   The `sw` at 0x6c8 stores 4 bytes to sym(.bss) -0x4.
   8 such `sw` accesses store 4 bytes to ?, including `sw` at 0x6fc, `sw` at 0x708, `sw` at 0x754.
-  3 such `lw` accesses load 4 bytes from ?, including `lw` at 0x74c, `lw` at 0x7e4, `lw` at 0x7e8.
-  The `lw` at 0x888 loads 4 bytes from ret(findpreg) +0x54.
+  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0x74c, `lw` at 0x7e4, `lw` at 0x7e8.
   The `sw` at 0x8e0 stores 4 bytes to sym(.bss) +0x0.
   2 such `lw` accesses load 4 bytes from abs 0xffffffffbfa00174, including `lw` at 0x944, `lw` at 0x96c.
   2 such `sw` accesses store 4 bytes to abs 0xffffffffbfa0018c, including `sw` at 0x950, `sw` at 0x978.
@@ -34700,7 +34682,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x7f8 calls mraccessf with a0=?, a1=0x0, a2=?, a3=?.
   The `jal` at 0x808 calls findpreg with a0=?, a1=?, a2=a0 at entry (arg0), a3=?.
   The `jal` at 0x820 calls mrunlock with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x884 calls pmap_ptes with a0=?, a1=[ret(findpreg)+84], a2=?, a3=sp-152, a4=0x1.
+  The `jal` at 0x884 calls pmap_ptes with a0=?, a1=?, a2=?, a3=sp-152, a4=0x1.
   The `jal` at 0x8a8 calls kvtophys with a0=ret(pmap_ptes), a1=?, a2=?, a3=?.
   The `jal` at 0x8f0 calls cache_operation with a0=?, a1=0x1000, a2=0x21003, a3=?.
   The `jal` at 0x928 calls mrunlock with a0=?, a1=?, a2=?, a3=?.
@@ -37324,14 +37306,14 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xb00 calls pmap_ptes with a0=?, a1=[ret(findfpreg)+84], a2=?, a3=sp-256, a4=0x1.
   The `jal` at 0xb8c calls anon_pfind with a0=[[ret(findfpreg)+44]+112], a1=?, a2=sp-252, a3=sp-248.
   The `jal` at 0xba0 calls splhi with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xbc0 calls splx with a0=ret(splhi), a1=?, a2=?, a3=?.
+  The `jal` at 0xbc0 calls splx with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xbcc calls pagefreeanon_size with a0=ret(anon_pfind), a1=0x1, a2=?, a3=?.
   The `jal` at 0xbe4 calls findattr_range_noclip with a0=ret(findfpreg), a1=?, a2=?, a3=?.
   The `jal` at 0xbfc calls pmo_ns_pmo_lookup with a0=?, a1=0x4, a2=[ret(findattr_range_noclip)+16], a3=?.
   The `jal` at 0xc58 calls bitlock_acquire_32bit with a0=?, a1=0x20000000, a2=?, a3=?.
   The `jal` at 0xca8 calls mrunlock with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xcdc calls copyout with a0=ret(kmem_zalloc), a1=a3 at entry (arg3), a2=?, a3=?.
-  The `jal` at 0xcf4 calls kmem_free with a0=ret(kmem_zalloc), a1=?, a2=?, a3=?.
+  The `jal` at 0xcdc calls copyout with a0=?, a1=a3 at entry (arg3), a2=?, a3=?.
+  The `jal` at 0xcf4 calls kmem_free with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xd20 calls mrunlock with a0=[ret(findfpreg)+44], a1=?, a2=?, a3=?.
   The `jal` at 0xd50 calls assfail with a0=sym(.rodata), a1=sym(.rodata), a2=0x2f9, a3=?.
   The `blez` branch at 0x94c targets 0xd04, is taken when a4 <= 0 (signed), and falls through when a4 > 0 (signed).
@@ -37406,7 +37388,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jalr` at 0xe2c calls (unknown callee) with a0=a1 at entry (arg1), a1=0x1, a2=sp-112, a3=[a1+60], a6=0x0.
   The `jal` at 0xe68 calls pmo_ns_pmo_lookup with a0=a0 at entry (arg0), a1=0x0, a2=a1 at entry (arg1), a3=?.
   The `jal` at 0xe8c calls mraccessf with a0=[[a5+16]]+16, a1=0x0, a2=?, a3=?.
-  The `jal` at 0xf00 calls mrunlock with a0=[[a5+16]]+16, a1=?, a2=?, a3=[[[[a5+16]]+324]+24].
+  The `jal` at 0xf00 calls mrunlock with a0=?, a1=?, a2=?, a3=[[[[a5+16]]+324]+24].
   The `beq` branch at 0xd98 targets 0xdb8, is taken when a7(=[a1+28]) == 0, and falls through when a7(=[a1+28]) != 0.
   The `beq` branch at 0xdb0 targets 0xdbc and is always taken.
   The `beq` branch at 0xdc4 targets 0xde4, is taken when a3(=[a1+44]) == 0, and falls through when a3(=[a1+44]) != 0.
@@ -37965,13 +37947,12 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.22/usr/cpu/sysgen/IP22boot/numa.a(afflink.o)`.
   Range: 0x0-0x70 (112 bytes).
   It occupies 112 bytes.
-  3 such `lw` accesses load 4 bytes from ?, including `lw` at 0x20, `lw` at 0x24, `lw` at 0x30.
+  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0x20, `lw` at 0x24, `lw` at 0x30.
   The `lw` at 0x34 loads 4 bytes from ret(aspm_getdefaultpm_func) +0x18.
-  The `lw` at 0x58 loads 4 bytes from ret(aspm_getdefaultpm_func) +0x4.
   The `jal` at 0x14 calls as_lookup_current with a0=sp-48, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x2c calls aspm_getdefaultpm_func with a0=?, a1=0x2, a2=?, a3=?.
   The `jalr` at 0x48 calls (unknown callee) with a0=ret(aspm_getdefaultpm_func), a1=0x0, a2=a0 at entry (arg0), a3=a1 at entry (arg1), a4=[ret(aspm_getdefaultpm_func)+24].
-  The `jalr` at 0x5c calls (unknown callee) with a0=ret(aspm_getdefaultpm_func), a1=?, a2=?, a3=?, a5=[ret(aspm_getdefaultpm_func)+4].
+  The `jalr` at 0x5c calls (unknown callee) with a0=?, a1=?, a2=?, a3=?.
   The return at 0x68 has v0 = ret(?).
 - `kthread_afflink_error` in `6.5.22/usr/cpu/sysgen/IP22boot/numa.a(afflink.o)` at 0x70 (n32).
   Evidence grade: inferred.
@@ -38005,12 +37986,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x144 loads 4 bytes from [ret(pmo_ns_it_getnext)+8] +0xc.
   The `jal` at 0x100 calls getpmo_ns with a0=[a1]:8, a1=[a1+8]:8, a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x110 calls splhi with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x120 calls pmo_ns_it_init with a0=sp-64, a1=ret(getpmo_ns), a2=?, a3=?.
+  The `jal` at 0x120 calls pmo_ns_it_init with a0=sp-64, a1=?, a2=?, a3=?.
   The `jal` at 0x12c calls pmo_ns_it_getnext with a0=sp-64, a1=?, a2=?, a3=?.
   The `jal` at 0x150 calls pmo_ns_it_getnext with a0=sp-64, a1=?, a2=?, a3=?.
-  The `jal` at 0x168 calls splx with a0=ret(splhi), a1=?, a2=?, a3=?, a4=0x4.
+  The `jal` at 0x168 calls splx with a0=?, a1=?, a2=?, a3=?, a4=0x4.
   The `jal` at 0x174 calls relpmo_ns with a0=[a1]:8, a1=[a1+8]:8, a2=?, a3=?.
-  The `jal` at 0x18c calls pm_contains_mld with a0=[ret(pmo_ns_it_getnext)+8], a1=[a0+352], a2=?, a3=?, a4=0x4.
+  The `jal` at 0x18c calls pm_contains_mld with a0=[ret(pmo_ns_it_getnext)+8], a1=?, a2=?, a3=?, a4=0x4.
   The `jal` at 0x19c calls pm_decusg with a0=[ret(pmo_ns_it_getnext)+8], a1=?, a2=?, a3=?.
   The `beq` branch at 0xe8 targets 0x17c, is taken when at(=[a1]) == v0(=0xf), and falls through when at(=[a1]) != v0(=0xf).
   The `beq` branch at 0xf4 targets 0x17c, is taken when v1(=[a0+352]) == 0, and falls through when v1(=[a0+352]) != 0.
@@ -41321,12 +41302,12 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.22/usr/cpu/sysgen/IP27boot/fru.a(sn0_fru_io.o)`.
   Range: 0xc74-0xe68 (500 bytes).
   It occupies 500 bytes.
-  2 such `ld` accesses load 8 bytes from ((a0 << 0x20)+0x9600000000000000 | 0x2000) +0x48, including `ld` at 0xcbc, `ld` at 0xd44.
+  The `ld` at 0xcbc loads 8 bytes from ((a0 << 0x20)+0x9600000000000000 | 0x2000) +0x48.
   2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xcd0, `lw` at 0xd54.
   The `lbu` at 0xcfc loads 1 byte from ret(find_lboard) +0x9.
+  3 such `ld` accesses load 8 bytes from ?, including `ld` at 0xd44, `ld` at 0xdc0, `ld` at 0xdd4.
   The `sd` at 0xd9c stores 8 bytes to sym(kf_conf_tab) +0xf8.
   The `ld` at 0xda4 loads 8 bytes from a1 (arg1 at entry) +0x0.
-  2 such `ld` accesses load 8 bytes from ?, including `ld` at 0xdc0, `ld` at 0xdd4.
   2 such `sd` accesses store 8 bytes to ?, including `sd` at 0xdcc, `sd` at 0xde0.
   The `lbu` at 0xdf4 loads 1 byte from ret(find_lboard) +0xa.
   The `jal` at 0xce8 calls find_lboard with a0=?, a1=0x41, a2=a2 at entry (arg2), a3=a3 at entry (arg3), a5=0x1.
@@ -41335,7 +41316,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xd8c calls find_first_component with a0=ret(find_lboard), a1=0x5, a2=?, a3=?, a5=0x1.
   The `jal` at 0xdfc calls kf_bridge_analyze with a0=ret(find_lboard), a1=ret(find_first_component), a2=sp-240, a3=?, a7=[a1]:8.
   The `jal` at 0xe14 calls find_component with a0=ret(find_lboard), a1=ret(find_first_component), a2=0x4, a3=?.
-  The `jal` at 0xe28 calls kf_xbow_analyze with a0=ret(find_lboard), a1=ret(find_first_component), a2=a1 at entry (arg1), a3=?.
+  The `jal` at 0xe28 calls kf_xbow_analyze with a0=ret(find_lboard), a1=?, a2=a1 at entry (arg1), a3=?.
   The `jal` at 0xe40 calls kf_xbow_analyze with a0=ret(find_lboard), a1=ret(find_component), a2=a1 at entry (arg1), a3=?, a5=ret(kf_xbow_analyze).
   The `jal` at 0xe58 calls kf_bridge_analyze with a0=ret(find_lboard), a1=ret(find_first_component), a2=a1 at entry (arg1), a3=?.
   The `beq` branch at 0xc98 targets 0xd0c, is taken when at(=[sym(full_fru_analysis)]) == 0, and falls through when at(=[sym(full_fru_analysis)]) != 0.
@@ -42515,12 +42496,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x474 calls mrupdatef with a0=sym(hwgraph_connectpt_mrlock), a1=0x0, a2=?, a3=?.
   The `jal` at 0x47c calls do_hwgraph_connectpt_get with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x490 calls mrunlock with a0=sym(hwgraph_connectpt_mrlock), a1=?, a2=?, a3=?.
-  The `jal` at 0x4ac calls graph_vertex_unref with a0=[sym(hwgraph)]:8, a1=ret(do_hwgraph_connectpt_get), a2=a2 at entry (arg2), a3=?.
+  The `jal` at 0x4ac calls graph_vertex_unref with a0=[sym(hwgraph)]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `jal` at 0x4d0 calls do_hwgraph_connectpt_set with a0=?, a1=-0x1, a2=?, a3=?.
   The `jal` at 0x4e0 calls graph_vertex_unref with a0=[sym(hwgraph)]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `beq` branch at 0x454 targets 0x470, is taken when v0(=ret(graph_edge_remove)) == 0, and falls through when v0(=ret(graph_edge_remove)) != 0.
   The `beq` branch at 0x488 targets 0x4cc, is taken when v0(=ret(do_hwgraph_connectpt_get)) == v1(=a0), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != v1(=a0).
-  The `beq` branch at 0x4a0 targets 0x4b8, is taken when v0(=ret(do_hwgraph_connectpt_get)) == a1(=-0x1), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != a1(=-0x1).
+  The `beq` branch at 0x4a0 targets 0x4b8, is taken when v0(?) == a1(=-0x1), and falls through when v0(?) != a1(=-0x1).
   The `beq` branch at 0x4b8 targets 0x4e0, is taken when a2 == 0, and falls through when a2 != 0.
   The `beq` branch at 0x4c4 targets 0x460 and is always taken.
   The `beq` branch at 0x4d8 targets 0x490 and is always taken.
@@ -43340,7 +43321,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x22f4 calls cpu_enabled with a0=a1 at entry (arg1), a1=?, a2=?, a3=?.
   The `jal` at 0x2308 calls device_admin_info_get with a0=a0 at entry (arg0), a1=sym(.rodata), a2=?, a3=?.
   The `jal` at 0x2340 calls mutex_spinlock_spl with a0=[(sym(pdaindr) + (a1 << 0x4))+8]:8+1324, a1=sym(spl7), a2=?, a3=?.
-  The `jal` at 0x2358 calls mutex_spinunlock with a0=[(sym(pdaindr) + (a1 << 0x4))+8]:8+1324, a1=ret(mutex_spinlock_spl), a2=?, a3=?.
+  The `jal` at 0x2358 calls mutex_spinunlock with a0=?, a1=ret(mutex_spinlock_spl), a2=?, a3=?.
   The `jal` at 0x2374 calls hwgraph_path_add with a0=[sym(hwgraph_root)], a1=sym(.rodata), a2=sym(.sdata)+4, a3=-0x1, a4=[sym(.sdata)+4].
   The `beq` branch at 0x227c targets 0x2318, is taken when a1 == at(=-0x1), and falls through when a1 != at(=-0x1).
   The `beq` branch at 0x228c targets 0x22ac, is taken when v0(=ret(cpu_enabled)) == 0, and falls through when v0(=ret(cpu_enabled)) != 0.
@@ -43688,17 +43669,17 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x20c calls hwgraph_bdevsw_get with a0=[a2], a1=?, a2=?, a3=?.
   The `jal` at 0x230 calls strcmp with a0=a1 at entry (arg1), a1=sym(.rodata), a2=?, a3=?, a4=0x2.
   The `jal` at 0x248 calls strcmp with a0=a1 at entry (arg1), a1=sym(.rodata), a2=?, a3=?, a6=a3 at entry (arg3).
-  The `jal` at 0x258 calls hwgraph_connectpt_get with a0=[a2], a1=?, a2=?, a3=?, a6=a3 at entry (arg3).
+  The `jal` at 0x258 calls hwgraph_connectpt_get with a0=?, a1=?, a2=?, a3=?, a6=a3 at entry (arg3).
   The `jal` at 0x264 calls hwgraph_vertex_unref with a0=ret(hwgraph_connectpt_get), a1=?, a2=?, a3=?.
   The `jal` at 0x2c0 calls hwgraph_edge_get_next with a0=a0 at entry (arg0), a1=sp-344, a2=sp-88, a3=sp-352.
   The `jal` at 0x2d8 calls hwgraph_vertex_unref with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x2e4 calls strcmp with a0=sp-344, a1=a1 at entry (arg1), a2=?, a3=?.
   The `beq` branch at 0x1d8 targets 0x1f8, is taken when v0(=ret(hwgraph_traverse)) == 0, and falls through when v0(=ret(hwgraph_traverse)) != 0.
   The `bne` branch at 0x21c targets 0x284, is taken when v0(=ret(hwgraph_bdevsw_get)) != 0, and falls through when v0(=ret(hwgraph_bdevsw_get)) == 0.
-  The `bne` branch at 0x224 targets 0x2a4, is taken when a1(=ret(hwgraph_cdevsw_get)) != 0, and falls through when a1(=ret(hwgraph_cdevsw_get)) == 0.
+  The `bne` branch at 0x224 targets 0x2a4, is taken when a1(?) != 0, and falls through when a1(?) == 0.
   The `beq` branch at 0x238 targets 0x298, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
   The `beq` branch at 0x250 targets 0x298, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
-  The `beq` branch at 0x274 targets 0x2b0, is taken when a2(=ret(hwgraph_connectpt_get)) == a3(=a0), and falls through when a2(=ret(hwgraph_connectpt_get)) != a3(=a0).
+  The `beq` branch at 0x274 targets 0x2b0, is taken when a2(?) == a3(=a0), and falls through when a2(?) != a3(=a0).
   The `beq` branch at 0x27c targets 0x294 and is always taken.
   The `beq` branch at 0x290 targets 0x22c, is taken when s0(=one of 0x0, 0x3) == a4(=0x2), and falls through when s0(=one of 0x0, 0x3) != a4(=0x2).
   The `beq` branch at 0x29c targets 0x1e4 and is always taken.
@@ -43706,7 +43687,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x2c8 targets 0x2d8, is taken when v0(=ret(hwgraph_edge_get_next)) == 0, and falls through when v0(=ret(hwgraph_edge_get_next)) != 0.
   The `beq` branch at 0x2d0 targets 0x294 and is always taken.
   The `beq` branch at 0x2ec targets 0x30c, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
-  The `bne` branch at 0x2fc targets 0x2b8, is taken when t0(?) != t1(=[a2]), and falls through when t0(?) == t1(=[a2]).
+  The `bne` branch at 0x2fc targets 0x2b8, is taken when t0(?) != t1(?), and falls through when t0(?) == t1(?).
   The `beq` branch at 0x304 targets 0x294 and is always taken.
   The `beq` branch at 0x318 targets 0x294 and is always taken.
   The return at 0x1f0 has v0 = one of 0x0, 0x1.
@@ -43959,7 +43940,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xbe0 targets 0xcb8, is taken when a2(=[a1+24]:2) == 0, and falls through when a2(=[a1+24]:2) != 0.
   The `beq` branch at 0xbf0 targets 0xc0c, is taken when s4(=a3) == 0, and falls through when s4(=a3) != 0.
   The `beq` branch at 0xc0c targets 0xc20, is taken when s3(?) == 0, and falls through when s3(?) != 0.
-  The `blez` branch at 0xc74 targets 0xcd4, is taken when v0(?) <= 0 (signed), and falls through when v0(?) > 0 (signed).
+  The `blez` branch at 0xc74 targets 0xcd4, is taken when v0(=ret(?)) <= 0 (signed), and falls through when v0(=ret(?)) > 0 (signed).
   The `beq` branch at 0xc7c targets 0xba4 and is always taken.
   The `beq` branch at 0xc84 targets 0xc28 and is always taken.
   The `beq` branch at 0xc98 targets 0xb44, is taken when (v0(=ret(get_current_abi)) & 0x2) == 0, and falls through when (v0(=ret(get_current_abi)) & 0x2) != 0.
@@ -45432,7 +45413,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0x4ac loads 8 bytes from [[ret(vproc_lookup)+40]:8+16]:8 +0x38.
   The `jal` at 0x458 calls vproc_lookup with a0=?, a1=0x1, a2=?, a3=?.
   The `jalr` at 0x4b4 calls (unknown callee) with a0=[ret(vproc_lookup)+40]:8, a1=0x6, a2=sp-96, a3=[[[ret(vproc_lookup)+40]:8+16]:8+56]:8, a4=-0x1.
-  The `jal` at 0x4bc calls vproc_release with a0=ret(vproc_lookup), a1=?, a2=?, a3=?.
+  The `jal` at 0x4bc calls vproc_release with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x4e8 calls kthread_get_pid with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x500 calls get_current_cred with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x510 calls kthread_get_pid with a0=?, a1=?, a2=?, a3=?.
@@ -47514,16 +47495,14 @@ These entries record instruction facts rendered from the routines below. They de
   Range: 0x40-0x144 (260 bytes).
   It occupies 260 bytes.
   The `lbu` at 0x58 loads 1 byte from abs 0xffffffffffffc523.
-  The `lw` at 0xb8 loads 4 bytes from ret(xtalk_piotrans_addr) +0x284.
-  The `sw` at 0xd8 stores 4 bytes to ret(xtalk_piotrans_addr) +0x284.
-  The `lw` at 0xe4 loads 4 bytes from ret(xtalk_piotrans_addr) +0x28c.
-  The `sw` at 0x100 stores 4 bytes to ret(xtalk_piotrans_addr) +0x28c.
+  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xb8, `lw` at 0xe4.
+  2 such `sw` accesses store 4 bytes to ?, including `sw` at 0xd8, `sw` at 0x100.
   The `jal` at 0x50 calls nic_vertex_info_match with a0=a0 at entry (arg0), a1=sym(.rodata), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x6c calls pcibr_hints_dualslot with a0=a0 at entry (arg0), a1=0x2, a2=0x4, a3=?.
   The `jal` at 0x88 calls pcibr_hints_subdevs with a0=a0 at entry (arg0), a1=0x2, a2=one of 0xb7, 0xbf, a3=?.
   The `jal` at 0xa0 calls xtalk_piotrans_addr with a0=a0 at entry (arg0), a1=0x0, a2=0x0, a3=0x1000000, a4=0x0.
   The `jal` at 0xac calls pcibr_hints_fix_rrbs with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
-  The `jal` at 0xfc calls hwgraph_traverse with a0=a0 at entry (arg0), a1=sym(.rodata), a2=sp-48, a3=?, a4=ret(xtalk_piotrans_addr), a5=0xc8888, a6=0xfffffffffff00000.
+  The `jal` at 0xfc calls hwgraph_traverse with a0=a0 at entry (arg0), a1=sym(.rodata), a2=sp-48, a3=?, a5=0xc8888, a6=0xfffffffffff00000.
   The `jal` at 0x11c calls device_inventory_add with a0=?, a1=0x15, a2=0x0, a3=0x0, a4=0x0, a5=0x0.
   The `jal` at 0x134 calls panic with a0=sym(.rodata), a1=?, a2=?, a3=?.
   The `bne` branch at 0x5c targets 0x130, is taken when at(=[-0x3add]:1) != 0, and falls through when at(=[-0x3add]:1) == 0.
@@ -48745,7 +48724,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xa970 targets 0xa994, is taken when a1(?) == 0, and falls through when a1(?) != 0.
   The `beq` branch at 0xa994 targets 0xa948 and is always taken.
   The `beq` branch at 0xa99c targets 0xa948 and is always taken.
-  The return at 0xa954 has v0 = one of ret(ip27log_setup), ?, ret(promlog_delete), 0x0.
+  The return at 0xa954 has v0 = one of ret(ip27log_setup), ?, 0x0.
 - `ip27log_iprintf` in `6.5.22/usr/cpu/sysgen/IP27boot/kernel.o` at 0xa9a4 (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.22/usr/cpu/sysgen/IP27boot/kernel.o`.
@@ -49658,9 +49637,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x29448 loads 4 bytes from ?.
   The `jal` at 0x29350 calls cmn_err with a0=0x6, a1=sym(.rodata)+37384, a2=sym(.rodata)+37384, a3=?.
   The `jal` at 0x29378 calls cmn_err with a0=0x6, a1=sym(.rodata)+37384, a2=?, a3=?.
-  The `jal` at 0x293cc calls cmn_err with a0=0x6, a1=sym(.rodata)+37384, a2=?, a3=?, a6=a0-1.
-  The `jal` at 0x293e8 calls cmn_err with a0=0x6, a1=sym(.rodata)+37384, a2=?, a3=?, a6=a0-1.
-  The `jal` at 0x29404 calls cmn_err with a0=0x6, a1=sym(.rodata)+37384, a2=?, a3=?, a6=a0-1.
+  The `jal` at 0x293cc calls cmn_err with a0=0x6, a1=sym(.rodata)+37384, a2=?, a3=?.
+  The `jal` at 0x293e8 calls cmn_err with a0=0x6, a1=sym(.rodata)+37384, a2=?, a3=?.
+  The `jal` at 0x29404 calls cmn_err with a0=0x6, a1=sym(.rodata)+37384, a2=?, a3=?.
   The `jal` at 0x29464 calls find_lboard with a0=?, a1=0x11, a2=0x9600000000000000, a3=?.
   The `jal` at 0x29470 calls board_to_path with a0=ret(find_lboard), a1=sp-176, a2=?, a3=?.
   The `jal` at 0x29480 calls cmn_err with a0=0x6, a1=sym(.rodata)+37384, a2=sp-176, a3=?.
@@ -49670,7 +49649,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `bne` branch at 0x29368 targets 0x29320, is taken when s0(?) < s1(=a0) (signed), and falls through when s0(?) >= s1(=a0) (signed).
   The `bgtz` branch at 0x29380 targets 0x29414, is taken when s1(=a0) > 0 (signed), and falls through when s1(=a0) <= 0 (signed).
   The `bne` branch at 0x293b0 targets 0x293dc, is taken when a3(?) != a4(?), and falls through when a3(?) == a4(?).
-  The `bne` branch at 0x293b8 targets 0x2935c, is taken when a6(=a0-1) != s0(?), and falls through when a6(=a0-1) == s0(?).
+  The `bne` branch at 0x293b8 targets 0x2935c, is taken when a6(?) != s0(?), and falls through when a6(?) == s0(?).
   The `beq` branch at 0x293d4 targets 0x2935c and is always taken.
   The `beq` branch at 0x293dc targets 0x293f8, is taken when a2(?) == a5(?), and falls through when a2(?) != a5(?).
   The `beq` branch at 0x293f0 targets 0x2940c and is always taken.
@@ -51544,16 +51523,14 @@ These entries record instruction facts rendered from the routines below. They de
   2 such `ld` accesses load 8 bytes from ret(findfpreg) +0x58, including `ld` at 0xae8, `ld` at 0xcec.
   The `lw` at 0xaf8 loads 4 bytes from ret(findfpreg) +0x64.
   The `ld` at 0xb40 loads 8 bytes from ret(findfpreg) +0x88.
-  2 such `ld` accesses load 8 bytes from ?, including `ld` at 0xb88, `ld` at 0xd20.
+  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0xb88, `ld` at 0xc98, `ld` at 0xca8.
   The `ld` at 0xba0 loads 8 bytes from [ret(findfpreg)+88]:8 +0xa8.
   The `lbu` at 0xbb0 loads 1 byte from ret(findfpreg) +0x69.
   The `lw` at 0xbb4 loads 4 bytes from ret(findfpreg) +0x60.
   The `lhu` at 0xbf4 loads 2 bytes from ret(anon_pfind) +0x14.
   The `sh` at 0xc08 stores 2 bytes to ret(anon_pfind) +0x14.
   The `lh` at 0xc7c loads 2 bytes from table(sym(nasid_to_compact_node)) +0x0.
-  The `ld` at 0xc98 loads 8 bytes from [[a0+32]:8]:8 +0x238.
   The `ld` at 0xc9c loads 8 bytes from ret(findattr_range_noclip) +0x20.
-  The `ld` at 0xca8 loads 8 bytes from [[[a0+32]:8]:8+568]:8 +0x0.
   3 such `sw` accesses store 4 bytes to ?, including `sw` at 0xcd0, `sw` at 0xcd4, `sw` at 0xcd8.
   The `sd` at 0xcdc stores 8 bytes to ?.
   The `lw` at 0xcf0 loads 4 bytes from ret(findfpreg) +0x6c.
@@ -51567,20 +51544,20 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x9f0 calls kmem_zalloc with a0=(((a5 << 0x2) + a5) << 0x3), a1=0x0, a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xa44 calls mraccessf with a0=[[a0+32]:8]:8+32, a1=0x0, a2=?, a3=?, a5=(a2 + a3)+16383.
   The `jal` at 0xa84 calls mrunlock with a0=[ret(findfpreg)+88]:8, a1=?, a2=?, a3=?.
-  The `jal` at 0xab4 calls findfpreg with a0=[[a0+32]:8]:8, a1=a1 at entry (arg1), a2=?, a3=?.
+  The `jal` at 0xab4 calls findfpreg with a0=?, a1=a1 at entry (arg1), a2=?, a3=?.
   The `jal` at 0xaf0 calls mrupdatef with a0=[ret(findfpreg)+88]:8, a1=0x0, a2=?, a3=[ret(findfpreg)+48]:8.
-  The `jal` at 0xb44 calls pmap_ptes with a0=[[a0+32]:8]:8, a1=[ret(findfpreg)+136]:8, a2=?, a3=sp-240, a4=0x1.
+  The `jal` at 0xb44 calls pmap_ptes with a0=?, a1=[ret(findfpreg)+136]:8, a2=?, a3=sp-240, a4=0x1.
   The `jal` at 0xbd0 calls anon_pfind with a0=[[ret(findfpreg)+88]:8+168]:8, a1=?, a2=sp-232, a3=sp-224, a5=[ret(findfpreg)+105]:1.
   The `jal` at 0xbec calls mutex_bitlock with a0=ret(anon_pfind)+16, a1=0x8000000, a2=?, a3=?.
-  The `jal` at 0xc14 calls mutex_bitunlock with a0=ret(anon_pfind)+16, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
+  The `jal` at 0xc14 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=?, a3=?.
   The `jal` at 0xc4c calls pagefreeanon_size with a0=ret(anon_pfind), a1=0x1, a2=?, a3=?.
   The `jal` at 0xc8c calls findattr_range_noclip with a0=ret(findfpreg), a1=?, a2=?, a3=entry(sym(nasid_to_compact_node)).
-  The `jal` at 0xca4 calls pmo_ns_pmo_lookup with a0=[[[[a0+32]:8]:8+568]:8]:8, a1=0x4, a2=[ret(findattr_range_noclip)+32]:8, a3=?.
+  The `jal` at 0xca4 calls pmo_ns_pmo_lookup with a0=?, a1=0x4, a2=[ret(findattr_range_noclip)+32]:8, a3=?.
   The `jal` at 0xd18 calls bitlock_acquire with a0=?, a1=0x2000000000000000, a2=?, a3=?.
-  The `jal` at 0xda8 calls mrunlock with a0=[[a0+32]:8]:8+32, a1=?, a2=?, a3=?.
+  The `jal` at 0xda8 calls mrunlock with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xdcc calls get_current_abi with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xdf8 calls xlate_copyout with a0=ret(kmem_zalloc), a1=a4 at entry (arg4), a2=?, a3=sym(pm_pginfo_to_irix5), a4=ret(get_current_abi), a5=0x4.
-  The `jal` at 0xe10 calls kmem_free with a0=ret(kmem_zalloc), a1=(((a5 << 0x2) + a5) << 0x3), a2=?, a3=?.
+  The `jal` at 0xdf8 calls xlate_copyout with a0=?, a1=a4 at entry (arg4), a2=?, a3=sym(pm_pginfo_to_irix5), a4=ret(get_current_abi), a5=0x4.
+  The `jal` at 0xe10 calls kmem_free with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xe3c calls mrunlock with a0=[ret(findfpreg)+88]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xe68 calls assfail with a0=sym(.rodata), a1=sym(.rodata), a2=0x2f9, a3=?.
   The `blez` branch at 0x99c targets 0xe20, is taken when a5 <= 0 (signed), and falls through when a5 > 0 (signed).
@@ -52482,14 +52459,13 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.22/usr/cpu/sysgen/IP27boot/numa.a(afflink.o)`.
   Range: 0x0-0x98 (152 bytes).
   It occupies 152 bytes.
-  3 such `ld` accesses load 8 bytes from ?, including `ld` at 0x24, `ld` at 0x28, `ld` at 0x34.
+  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0x24, `ld` at 0x28, `ld` at 0x34.
   The `ld` at 0x38 loads 8 bytes from ret(aspm_getdefaultpm_func) +0x28.
-  The `ld` at 0x5c loads 8 bytes from ret(aspm_getdefaultpm_func) +0x8.
   The `ld` at 0x68 loads 8 bytes from a0 (arg0 at entry) +0x0.
   The `jal` at 0x18 calls as_lookup_current with a0=sp-48, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x30 calls aspm_getdefaultpm_func with a0=?, a1=0x2, a2=?, a3=?.
   The `jalr` at 0x4c calls (unknown callee) with a0=ret(aspm_getdefaultpm_func), a1=0x0, a2=a0 at entry (arg0), a3=a1 at entry (arg1), a4=[ret(aspm_getdefaultpm_func)+40]:8.
-  The `jalr` at 0x60 calls (unknown callee) with a0=ret(aspm_getdefaultpm_func), a1=?, a2=?, a3=?, a5=[ret(aspm_getdefaultpm_func)+8]:8.
+  The `jalr` at 0x60 calls (unknown callee) with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x74 calls mld_getnodeid with a0=[a0]:8, a1=?, a2=?, a3=?.
   The `jal` at 0x7c calls kmem_zone_set_default_node with a0=ret(mld_getnodeid), a1=?, a2=?, a3=?.
   The `beq` branch at 0x6c targets 0x88, is taken when a0(=[a0]:8) == 0, and falls through when a0(=[a0]:8) != 0.
@@ -52531,12 +52507,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x1a0 loads 4 bytes from [ret(pmo_ns_it_getnext)+8]:8 +0x18.
   The `jal` at 0x158 calls getpmo_ns with a0=[a1]:8, a1=[a1+8]:8, a2=[a1+16]:8, a3=a3 at entry (arg3).
   The `jal` at 0x16c calls mutex_spinlock with a0=ret(getpmo_ns)+56, a1=?, a2=?, a3=?.
-  The `jal` at 0x17c calls pmo_ns_it_init with a0=sp-80, a1=ret(getpmo_ns), a2=?, a3=?.
+  The `jal` at 0x17c calls pmo_ns_it_init with a0=sp-80, a1=?, a2=?, a3=?.
   The `jal` at 0x188 calls pmo_ns_it_getnext with a0=sp-80, a1=?, a2=?, a3=?.
   The `jal` at 0x1ac calls pmo_ns_it_getnext with a0=sp-80, a1=?, a2=?, a3=?.
-  The `jal` at 0x1c8 calls mutex_spinunlock with a0=ret(getpmo_ns)+56, a1=ret(mutex_spinlock), a2=?, a3=?, a4=0x4.
+  The `jal` at 0x1c8 calls mutex_spinunlock with a0=?, a1=?, a2=?, a3=?, a4=0x4.
   The `jal` at 0x1d8 calls relpmo_ns with a0=[a1]:8, a1=[a1+8]:8, a2=[a1+16]:8, a3=?.
-  The `jal` at 0x1f0 calls pm_contains_mld with a0=[ret(pmo_ns_it_getnext)+8]:8, a1=[a0+608]:8, a2=?, a3=?, a4=0x4.
+  The `jal` at 0x1f0 calls pm_contains_mld with a0=[ret(pmo_ns_it_getnext)+8]:8, a1=?, a2=?, a3=?, a4=0x4.
   The `jal` at 0x200 calls pm_decusg with a0=[ret(pmo_ns_it_getnext)+8]:8, a1=?, a2=?, a3=?.
   The `beq` branch at 0x13c targets 0x1e0, is taken when at(=[a1]:8) == v0(=0xf), and falls through when at(=[a1]:8) != v0(=0xf).
   The `beq` branch at 0x148 targets 0x1e0, is taken when v1(=[a0+608]:8) == 0, and falls through when v1(=[a0+608]:8) != 0.
@@ -52978,7 +52954,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x1208 calls splhi with a0=0x3ffff, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x1210 calls tlbgetpid with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1220 calls tlb_probe with a0=ret(tlbgetpid), a1=a1 at entry (arg1), a2=sp-48, a3=?.
-  The `jal` at 0x1258 calls splx with a0=ret(splhi), a1=?, a2=?, a3=?.
+  The `jal` at 0x1258 calls splx with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1278 calls unmaptlb with a0=[[-0x3fe8]:8+1376]:8, a1=?, a2=-0x1, a3=?, a4=0xfff0000.
   The `bgez` branch at 0x1200 targets 0x1260, is taken when at(?) >= 0 (signed), and falls through when at(?) < 0 (signed).
   The `beq` branch at 0x1238 targets 0x1258, is taken when v0(=ret(tlb_probe)) == a2(=-0x1), and falls through when v0(=ret(tlb_probe)) != a2(=-0x1).
@@ -53879,7 +53855,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x514 targets 0x2b8 and is always taken.
   The `beq` branch at 0x524 targets 0x574, is taken when (s3(?) & a0(=0x10020)) == 0, and falls through when (s3(?) & a0(=0x10020)) != 0.
   The `beq` branch at 0x538 targets 0x56c, is taken when v0(=ret(migr_manager_bounce_control)) == 0, and falls through when v0(=ret(migr_manager_bounce_control)) != 0.
-  The `bne` branch at 0x56c targets 0x2b8, is taken when a3(=one of 0x0, 0x1) != 0, and falls through when a3(=one of 0x0, 0x1) == 0.
+  The `bne` branch at 0x56c targets 0x2b8, is taken when a3(?) != 0, and falls through when a3(?) == 0.
   The `beq` branch at 0x590 targets 0x5b4, is taken when a4(?) == 0, and falls through when a4(?) != 0.
   The `beq` branch at 0x5a8 targets 0x640, is taken when a7(?) == t0(=0x1), and falls through when a7(?) != t0(=0x1).
   The `beq` branch at 0x5cc targets 0x658, is taken when v0(=ret(migr_migrate_page)) == 0, and falls through when v0(=ret(migr_migrate_page)) != 0.
@@ -55037,7 +55013,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xa78 calls copyin_xlate with a0=a0 at entry (arg0), a1=sp-80, a2=0x20, a3=sym(irix5_to_mldset_info), a4=ret(get_current_abi), a5=0x4, a6=0x1.
   The `jal` at 0xab4 calls mldset_mldlist_create with a0=?, a1=?, a2=sp-48, a3=?, a5=-0x2.
   The `jal` at 0xad0 calls curpmo_ns with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xae4 calls mldset_create_and_export with a0=ret(mldset_mldlist_create), a1=ret(curpmo_ns), a2=0x0, a3=a1 at entry (arg1).
+  The `jal` at 0xae4 calls mldset_create_and_export with a0=?, a1=ret(curpmo_ns), a2=0x0, a3=a1 at entry (arg1).
   The `beq` branch at 0xa84 targets 0xa9c, is taken when v0(=ret(copyin_xlate)) == 0, and falls through when v0(=ret(copyin_xlate)) != 0.
   The `blez` branch at 0xaa4 targets 0xafc, is taken when a1(?) <= 0 (signed), and falls through when a1(?) > 0 (signed).
   The `beq` branch at 0xaac targets 0xaf4, is taken when a0(?) == 0, and falls through when a0(?) != 0.
@@ -55052,14 +55028,14 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.22/usr/cpu/sysgen/IP27boot/numa.a(mldset.o)`.
   Range: 0xb04-0xc88 (388 bytes).
   It occupies 388 bytes.
-  The `ld` at 0xbbc loads 8 bytes from ret(pmo_ns_find) +0x8.
+  The `ld` at 0xbbc loads 8 bytes from ?.
   The `jal` at 0xb18 calls get_current_abi with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xb38 calls copyin_xlate with a0=a0 at entry (arg0), a1=sp-96, a2=0x28, a3=sym(irix5_to_mldset_placement_info), a4=ret(get_current_abi), a5=0x4, a6=0x1.
   The `jal` at 0xb5c calls curpmo_ns with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xb6c calls pmo_ns_find with a0=ret(curpmo_ns), a1=?, a2=0x3, a3=?.
-  The `jalr` at 0xbc0 calls (unknown callee) with a0=ret(pmo_ns_find), a1=?, a2=?, a3=?.
+  The `jalr` at 0xbc0 calls (unknown callee) with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xc4c calls mldset_rafflist_create with a0=?, a1=?, a2=?, a3=sp-56.
-  The `jal` at 0xc70 calls mldset_place with a0=ret(pmo_ns_find), a1=?, a2=?, a3=?.
+  The `jal` at 0xc70 calls mldset_place with a0=?, a1=?, a2=?, a3=?.
   The `beq` branch at 0xb40 targets 0xb5c, is taken when v0(=ret(copyin_xlate)) == 0, and falls through when v0(=ret(copyin_xlate)) != 0.
   The `beq` branch at 0xb90 targets 0xbf4, is taken when v0(=ret(pmo_ns_find)) == 0, and falls through when v0(=ret(pmo_ns_find)) != 0.
   The `bltz` branch at 0xb9c targets 0xbb0, is taken when t0(?) < 0 (signed), and falls through when t0(?) >= 0 (signed).
@@ -55071,10 +55047,10 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xbec targets 0xbb4 and is always taken.
   The `beq` branch at 0xbf4 targets 0xb50 and is always taken.
   The `beq` branch at 0xbfc targets 0xc10, is taken when a1(?) == 0, and falls through when a1(?) != 0.
-  The `bne` branch at 0xc10 targets 0xbb8, is taken when a2(=one of 0x0, 0x1) != 0, and falls through when a2(=one of 0x0, 0x1) == 0.
+  The `bne` branch at 0xc10 targets 0xbb8, is taken when a2(?) != 0, and falls through when a2(?) == 0.
   The `bne` branch at 0xc18 targets 0xbe4, is taken when a1(?) != 0, and falls through when a1(?) == 0.
   The `beq` branch at 0xc20 targets 0xc34, is taken when a0(?) == 0, and falls through when a0(?) != 0.
-  The `bne` branch at 0xc34 targets 0xbb8, is taken when a3(=one of 0x0, 0x1) != 0, and falls through when a3(=one of 0x0, 0x1) == 0.
+  The `bne` branch at 0xc34 targets 0xbb8, is taken when a3(?) != 0, and falls through when a3(?) == 0.
   The `beq` branch at 0xc3c targets 0xbe4 and is always taken.
   The `beq` branch at 0xc44 targets 0xc80, is taken when a0(?) == 0, and falls through when a0(?) != 0.
   The `bne` branch at 0xc58 targets 0xbb4, is taken when v0(=ret(mldset_rafflist_create)) < 0x1 (unsigned), and falls through when v0(=ret(mldset_rafflist_create)) >= 0x1 (unsigned).
@@ -55333,7 +55309,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x2ec calls mrupdatef with a0=ret(aspm_getdefaultpm_func)+144, a1=0x0, a2=?, a3=?.
   The `jal` at 0x308 calls mldset_request_onnode with a0=ret(aspm_getdefaultpm_func), a1=a1 at entry (arg1), a2=?, a3=?.
   The `jalr` at 0x320 calls (unknown callee) with a0=[a0+608]:8, a1=?, a2=?, a3=?.
-  The `jal` at 0x32c calls mrunlock with a0=ret(aspm_getdefaultpm_func)+144, a1=?, a2=?, a3=?.
+  The `jal` at 0x32c calls mrunlock with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x338 calls mutex_bitlock with a0=a0+132, a1=0x4, a2=?, a3=?.
   The `jalr` at 0x348 calls (unknown callee) with a0=?, a1=?, a2=?, a3=?.
   The `jalr` at 0x360 calls (unknown callee) with a0=[a0+608]:8, a1=?, a2=?, a3=?.
@@ -55613,14 +55589,14 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc loads 4 bytes from a0 (arg0 at entry) +0x30.
   The `ld` at 0x24 loads 8 bytes from a0 (arg0 at entry) +0x20.
   The `lw` at 0x2c loads 4 bytes from [a0+32]:8 +0x4.
-  3 such `ld` accesses load 8 bytes from ret(pmolist_getelem) +0x28, including `ld` at 0x68, `ld` at 0x940, `ld` at 0xa40.
+  2 such `ld` accesses load 8 bytes from ret(pmolist_getelem) +0x28, including `ld` at 0x68, `ld` at 0x940.
   The `ld` at 0x88 loads 8 bytes from a0 (arg0 at entry) +0x38.
   The `lw` at 0x8c loads 4 bytes from a0 (arg0 at entry) +0x40.
   The `lw` at 0xa8 loads 4 bytes from [a0+56]:8 +0x4.
   2 such `lh` accesses load 2 bytes from [-0x3fe0]:8 +0xfa, including `lh` at 0xb0, `lh` at 0x6e0.
   4 such `ld` accesses load 8 bytes from abs 0xffffffffffffc400, including `ld` at 0xe0, `ld` at 0x4ac, `ld` at 0x73c.
   4 such `ld` accesses load 8 bytes from [-0x3c00]:8 +0x0, including `ld` at 0xf0, `ld` at 0x4b0, `ld` at 0x740.
-  11 such `ld` accesses load 8 bytes from ?, including `ld` at 0x108, `ld` at 0x12c, `ld` at 0x4b8.
+  16 such `ld` accesses load 8 bytes from ?, including `ld` at 0x108, `ld` at 0x12c, `ld` at 0x4b8.
   4 such `lhu` accesses load 2 bytes from ?, including `lhu` at 0x10c, `lhu` at 0x130, `lhu` at 0x750.
   The `ld` at 0x1a4 loads 8 bytes from [-0x3fe0]:8 +0x278.
   2 such `ld` accesses load 8 bytes from abs 0xffffffffffffc018, including `ld` at 0x1b8, `ld` at 0xbfc.
@@ -55633,10 +55609,7 @@ These entries record instruction facts rendered from the routines below. They de
   4 such `lw` accesses load 4 bytes from ?, including `lw` at 0x4bc, `lw` at 0x4c0, `lw` at 0xeac.
   7 such `sd` accesses store 8 bytes to ?, including `sd` at 0x4cc, `sd` at 0x51c, `sd` at 0x53c.
   4 such `lh` accesses load 2 bytes from ret(pmolist_getelem) +0x20, including `lh` at 0x680, `lh` at 0xbb4, `lh` at 0xda4.
-  2 such `lh` accesses load 2 bytes from [-0x3fe0]:8 +0xf4, including `lh` at 0x6f4, `lh` at 0xf24.
-  2 such `ld` accesses load 8 bytes from ([sym(cpusets)]:8 + ([[-0x3fe0]:8+244]:2 << 0x8)) +0x28, including `ld` at 0x704, `ld` at 0xf34.
-  2 such `ld` accesses load 8 bytes from ([sym(cpusets)]:8 + ([[-0x3fe0]:8+244]:2 << 0x8)) +0x20, including `ld` at 0x708, `ld` at 0xf38.
-  2 such `lh` accesses load 2 bytes from ?, including `lh` at 0x74c, `lh` at 0x818.
+  4 such `lh` accesses load 2 bytes from ?, including `lh` at 0x6f4, `lh` at 0x74c, `lh` at 0x818.
   The `lld` at 0xa24 loads 8 bytes from sym(__clustermask_rotor) +0x0.
   The `scd` at 0xa2c stores 8 bytes to sym(__clustermask_rotor) +0x0.
   The `ld` at 0xc00 loads 8 bytes from [-0x3fe8]:8 +0x348.
@@ -55650,40 +55623,40 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x60 calls pmolist_getelem with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xc8 calls get_effective_nodemask with a0=[-0x3fe0]:8, a1=?, a2=-0x1, a3=?.
   The `jal` at 0x1cc calls as_getassize with a0=[[-0x3fe8]:8+1432]:8, a1=[[-0x3fe8]:8+1440]:8, a2=[[-0x3fe8]:8+1448]:8, a3=sp-1920, a4=sp-1916.
-  The `jal` at 0x214 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?, a4=[a0+64].
+  The `jal` at 0x214 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?.
   The `jal` at 0x37c calls ceil_log2 with a0=[[a0+32]:8+4], a1=[sym(numnodes)], a2=?, a3=?.
   The `jal` at 0x658 calls kmem_free with a0=?, a1=?, a2=?, a3=?, a6=sp-1368.
-  The `jal` at 0x674 calls pmolist_getelem with a0=[a0+56]:8, a1=0x0, a2=[a0+56]:8, a3=?.
+  The `jal` at 0x674 calls pmolist_getelem with a0=?, a1=0x0, a2=?, a3=?.
   The `jal` at 0x690 calls physmem_selectnode with a0=?, a1=?, a2=[a0+32]:8, a3=?.
-  The `jal` at 0x6b0 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?, a4=[a0+64].
+  The `jal` at 0x6b0 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?.
   The `jal` at 0x924 calls kmem_free with a0=?, a1=0x200, a2=?, a3=?, a5=sp-1880.
   The `jal` at 0x934 calls pmolist_getelem with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0x9dc calls memfit_selectnode with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x9f4 calls pmolist_getelem with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xa10 calls physmem_mld_place_onnode with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
-  The `jal` at 0xac0 calls memfit_selectnode with a0=?, a1=[a0+56]:8, a2=[a0+56]:8, a3=?.
+  The `jal` at 0xac0 calls memfit_selectnode with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xadc calls physmem_place_node with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xaf0 calls kmem_alloc with a0=?, a1=0x0, a2=?, a3=?.
   The `jal` at 0xb1c calls pmolist_getelem with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xb28 calls physmem_mld_place_onnode with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
   The `jal` at 0xb64 calls pmolist_getelem with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xb6c calls mld_getnodeid with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
-  The `jal` at 0xbac calls pmolist_getelem with a0=[a0+56]:8, a1=0x0, a2=[a0+56]:8, a3=?.
-  The `jal` at 0xbd0 calls physmem_place_cpucluster with a0=?, a1=[a0+32]:8, a2=?, a3=?, a4=[a0+64].
+  The `jal` at 0xbac calls pmolist_getelem with a0=?, a1=0x0, a2=?, a3=?.
+  The `jal` at 0xbd0 calls physmem_place_cpucluster with a0=?, a1=[a0+32]:8, a2=?, a3=?.
   The `jal` at 0xc3c calls kmem_alloc with a0=0x200, a1=0x0, a2=?, a3=?, a6=sp-1880.
-  The `jal` at 0xc54 calls memfit_selectnode with a0=?, a1=[a0+56]:8, a2=[a0+56]:8, a3=?.
+  The `jal` at 0xc54 calls memfit_selectnode with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xc74 calls physmem_selectnode with a0=ret(memfit_selectnode), a1=?, a2=[a0+32]:8, a3=?.
   The `jal` at 0xc90 calls physmem_place_node with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xca0 calls ceil_log2 with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xcd4 calls ceil_log2 with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xcf0 calls ceil_log2 with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xd1c calls physmem_place_physical with a0=[a0+32]:8, a1=?, a2=[a0+56]:8, a3=?, a4=[a0+64].
-  The `jal` at 0xd3c calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?, a4=[a0+64].
-  The `jal` at 0xd94 calls pmolist_getelem with a0=[a0+56]:8, a1=0x0, a2=?, a3=?.
+  The `jal` at 0xd1c calls physmem_place_physical with a0=[a0+32]:8, a1=?, a2=?, a3=?.
+  The `jal` at 0xd3c calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?.
+  The `jal` at 0xd94 calls pmolist_getelem with a0=?, a1=0x0, a2=?, a3=?.
   The `jal` at 0xe6c calls physmem_place_cube_with_affinity_p with a0=ret(ceil_log2), a1=[ret(pmolist_getelem)+32]:2, a2=?, a3=?, a4=[a0+32]:8, a5=sp-848.
-  The `jal` at 0xf6c calls pmolist_getelem with a0=[a0+56]:8, a1=0x0, a2=?, a3=?, a4=[a0+56]:8.
+  The `jal` at 0xf6c calls pmolist_getelem with a0=?, a1=0x0, a2=?, a3=?.
   The `jal` at 0xf88 calls physmem_place_cube_with_affinity with a0=ret(ceil_log2), a1=[ret(pmolist_getelem)+32]:2, a2=?, a3=?, a4=[a0+32]:8.
-  The `jal` at 0xf98 calls memfit_selectnode with a0=?, a1=?, a2=?, a3=?, a4=[a0+56]:8.
+  The `jal` at 0xf98 calls memfit_selectnode with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xfb8 calls physmem_place_cube with a0=ret(ceil_log2), a1=?, a2=?, a3=?, a4=[a0+32]:8.
   The `jal` at 0xff0 calls memfit_selectnode with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x10cc calls physmem_place_cube_p with a0=ret(ceil_log2), a1=?, a2=?, a3=?, a4=[a0+32]:8, a5=sp-592.
@@ -55713,7 +55686,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x1b0 targets 0xd8 and is always taken.
   The `beq` branch at 0x1f4 targets 0x74 and is always taken.
   The `beq` branch at 0x234 targets 0xa98, is taken when s0(?) == 0, and falls through when s0(?) != 0.
-  The `beq` branch at 0x240 targets 0xd2c, is taken when a2(=[a0+64]) == 0, and falls through when a2(=[a0+64]) != 0.
+  The `beq` branch at 0x240 targets 0xd2c, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0x248 targets 0xa98, is taken when s0(?) == 0, and falls through when s0(?) != 0.
   The `beq` branch at 0x250 targets 0x260, is taken when a3(?) == 0, and falls through when a3(?) != 0.
   The `bne` branch at 0x258 targets 0x924, is taken when a3(?) != a5(=sp-1880), and falls through when a3(?) == a5(=sp-1880).
@@ -55735,7 +55708,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x388 targets 0x3a0, is taken when s1(=[[a0+32]:8+4]) == a0(?), and falls through when s1(=[[a0+32]:8+4]) != a0(?).
   The `beq` branch at 0x398 targets 0x3e0 and is always taken.
   The `bne` branch at 0x3b0 targets 0xca0, is taken when v0(?) < s1(=[[a0+32]:8+4]) (signed), and falls through when v0(?) >= s1(=[[a0+32]:8+4]) (signed).
-  The `beq` branch at 0x3e4 targets 0xc30, is taken when a6(=one of 0x0, 0x1) == 0, and falls through when a6(=one of 0x0, 0x1) != 0.
+  The `beq` branch at 0x3e4 targets 0xc30, is taken when a6(?) == 0, and falls through when a6(?) != 0.
   The `beq` branch at 0x3ec targets 0x24c and is always taken.
   The `bne` branch at 0x3f8 targets 0x37c, is taken when s8(=[a0+48]) != 0, and falls through when s8(=[a0+48]) == 0.
   The `beq` branch at 0x444 targets 0x8fc, is taken when s8(=[a0+48]) == s3(=0x1), and falls through when s8(=[a0+48]) != s3(=0x1).
@@ -55773,7 +55746,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `bgtz` branch at 0x640 targets 0x310, is taken when s1(=[[a0+32]:8+4]) > 0 (signed), and falls through when s1(=[[a0+32]:8+4]) <= 0 (signed).
   The `beq` branch at 0x648 targets 0x3f8 and is always taken.
   The `beq` branch at 0x660 targets 0x278 and is always taken.
-  The `beq` branch at 0x66c targets 0xac0, is taken when a2(=[a0+56]:8) == 0, and falls through when a2(=[a0+56]:8) != 0.
+  The `beq` branch at 0x66c targets 0xac0, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0x67c targets 0xad4, is taken when s2(?) == s3(=0x1), and falls through when s2(?) != s3(=0x1).
   The `bne` branch at 0x6bc targets 0x23c, is taken when s0(?) != 0, and falls through when s0(?) == 0.
   The `beq` branch at 0x6d4 targets 0x230 and is always taken.
@@ -55834,7 +55807,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xb8c targets 0xb10 and is always taken.
   The `beq` branch at 0xb94 targets 0x250 and is always taken.
   The `beq` branch at 0xb9c targets 0x148 and is always taken.
-  The `beq` branch at 0xba4 targets 0xc54, is taken when a1(=[a0+56]:8) == 0, and falls through when a1(=[a0+56]:8) != 0.
+  The `beq` branch at 0xba4 targets 0xc54, is taken when a1(?) == 0, and falls through when a1(?) != 0.
   The `beq` branch at 0xbb8 targets 0xc8c, is taken when s2(?) == s3(=0x1), and falls through when s2(?) != s3(=0x1).
   The `bne` branch at 0xbdc targets 0x23c, is taken when s0(?) != 0, and falls through when s0(?) == 0.
   The `beq` branch at 0xbf4 targets 0x230 and is always taken.
@@ -55857,8 +55830,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xd24 targets 0x230 and is always taken.
   The `bne` branch at 0xd44 targets 0x248, is taken when v0(=ret(physmem_place_cluster)) != 0, and falls through when v0(=ret(physmem_place_cluster)) == 0.
   The `beq` branch at 0xd58 targets 0x248 and is always taken.
-  The `beq` branch at 0xd88 targets 0xff0, is taken when at(=[a0+56]:8) == 0, and falls through when at(=[a0+56]:8) != 0.
-  The `blez` branch at 0xda8 targets 0xef4, is taken when t9(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) <= 0 (signed), and falls through when t9(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) > 0 (signed).
+  The `beq` branch at 0xd88 targets 0xff0, is taken when at(?) == 0, and falls through when at(?) != 0.
+  The `blez` branch at 0xda8 targets 0xef4, is taken when t9(?) <= 0 (signed), and falls through when t9(?) > 0 (signed).
   The `beq` branch at 0xdf0 targets 0xe50, is taken when a0(?) == 0, and falls through when a0(?) != 0.
   The `beq` branch at 0xe10 targets 0xf14, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `bne` branch at 0xe38 targets 0xe18, is taken when t1(?) < s0(=ret(ceil_log2)) (signed), and falls through when t1(?) >= s0(=ret(ceil_log2)) (signed).
@@ -55869,7 +55842,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xeb0 targets 0xe9c, is taken when s4(?) >= a1(?) (signed), and falls through when s4(?) < a1(?) (signed).
   The `bne` branch at 0xec0 targets 0xe58, is taken when t0(?) != 0, and falls through when t0(?) == 0.
   The `beq` branch at 0xed0 targets 0xf00, is taken when ra(?) == 0, and falls through when ra(?) != 0.
-  The `bne` branch at 0xeec targets 0xdec, is taken when at(?) < v0(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) (signed), and falls through when at(?) >= v0(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) (signed).
+  The `bne` branch at 0xeec targets 0xdec, is taken when at(?) < v0(?) (signed), and falls through when at(?) >= v0(?) (signed).
   The `bne` branch at 0xef8 targets 0x240, is taken when v1(?) != 0, and falls through when v1(?) == 0.
   The `beq` branch at 0xf0c targets 0x230 and is always taken.
   The `beq` branch at 0xf14 targets 0xe40 and is always taken.
@@ -55878,13 +55851,13 @@ These entries record instruction facts rendered from the routines below. They de
   The `blez` branch at 0xf48 targets 0x1178, is taken when s1(=[[a0+32]:8+4]) <= 0 (signed), and falls through when s1(=[[a0+32]:8+4]) > 0 (signed).
   The `beq` branch at 0xf50 targets 0x8b8, is taken when a0(?) == s4(?), and falls through when a0(?) != s4(?).
   The `beq` branch at 0xf58 targets 0x7e0 and is always taken.
-  The `beq` branch at 0xf64 targets 0xf98, is taken when a4(=[a0+56]:8) == 0, and falls through when a4(=[a0+56]:8) != 0.
+  The `beq` branch at 0xf64 targets 0xf98, is taken when a4(?) == 0, and falls through when a4(?) != 0.
   The `beq` branch at 0xf90 targets 0xfc4 and is always taken.
   The `bne` branch at 0xfc4 targets 0x23c, is taken when s0(?) != 0, and falls through when s0(?) == 0.
   The `beq` branch at 0xfd8 targets 0x230 and is always taken.
   The `bgtz` branch at 0xfe0 targets 0x628, is taken when s1(=[[a0+32]:8+4]) > 0 (signed), and falls through when s1(=[[a0+32]:8+4]) <= 0 (signed).
   The `beq` branch at 0xfe8 targets 0x638 and is always taken.
-  The `blez` branch at 0x1008 targets 0xef4, is taken when a3(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) <= 0 (signed), and falls through when a3(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) > 0 (signed).
+  The `blez` branch at 0x1008 targets 0xef4, is taken when a3(?) <= 0 (signed), and falls through when a3(?) > 0 (signed).
   The `beq` branch at 0x1050 targets 0x10b0, is taken when v0(?) == 0, and falls through when v0(?) != 0.
   The `beq` branch at 0x1070 targets 0x115c, is taken when v1(?) == 0, and falls through when v1(?) != 0.
   The `bne` branch at 0x1098 targets 0x1078, is taken when t2(?) < s0(=ret(ceil_log2)) (signed), and falls through when t2(?) >= s0(=ret(ceil_log2)) (signed).
@@ -55895,7 +55868,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x1114 targets 0x1100, is taken when s4(?) >= a1(?) (signed), and falls through when s4(?) < a1(?) (signed).
   The `bne` branch at 0x1120 targets 0x10b8, is taken when t0(?) != 0, and falls through when t0(?) == 0.
   The `beq` branch at 0x1130 targets 0xf00, is taken when t9(?) == 0, and falls through when t9(?) != 0.
-  The `bne` branch at 0x114c targets 0x104c, is taken when ra(?) < at(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) (signed), and falls through when ra(?) >= at(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) (signed).
+  The `bne` branch at 0x114c targets 0x104c, is taken when ra(?) < at(?) (signed), and falls through when ra(?) >= at(?) (signed).
   The `beq` branch at 0x1154 targets 0xef8 and is always taken.
   The `beq` branch at 0x115c targets 0x10a0 and is always taken.
   The `bne` branch at 0x1168 targets 0x8b0, is taken when s1(=[[a0+32]:8+4]) < 0x2 (signed), and falls through when s1(=[[a0+32]:8+4]) >= 0x2 (signed).
@@ -57915,7 +57888,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x114 calls mraccessf with a0=a0+144, a1=0x0, a2=?, a3=?.
   The `jal` at 0x130 calls mraccunlock with a0=a0+144, a1=?, a2=?, a3=?.
   The `jal` at 0x144 calls pagealloc_size with a0=a1 at entry (arg1), a1=(a2 | 0x10000), a2=[a4]:8, a3=?.
-  The `jal` at 0x15c calls mraccunlock with a0=[a0+136]:8+72, a1=?, a2=?, a3=?.
+  The `jal` at 0x15c calls mraccunlock with a0=?, a1=?, a2=?, a3=?.
   The `jalr` at 0x168 calls (unknown callee) with a0=[a0+136]:8, a1=?, a2=[[a0+136]:8+8]:8, a3=?.
   The `jal` at 0x178 calls get_effective_nodemask with a0=[-0x3fe0]:8, a1=?, a2=?, a3=?.
   The `jal` at 0x1bc calls get_effective_nodemask with a0=[-0x3fe0]:8, a1=?, a2=?, a3=?.
@@ -57925,7 +57898,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x258 calls mraccessf with a0=[a0+136]:8+72, a1=0x0, a2=?, a3=?.
   The `jal` at 0x27c calls physmem_select_masked_neighbor_node with a0=?, a1=[sym(physmem_max_radius)], a2=[[a0+136]:8+40]:8, a3=sp-112, a4=sym(page_borrow_selector), a6=[a4]:8.
   The `jal` at 0x298 calls pagealloc_size_node with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=[a4]:8.
-  The `jal` at 0x2a8 calls mraccunlock with a0=[a0+136]:8+72, a1=?, a2=?, a3=?.
+  The `jal` at 0x2a8 calls mraccunlock with a0=?, a1=?, a2=?, a3=?.
   The `jalr` at 0x2b4 calls (unknown callee) with a0=[a0+136]:8, a1=?, a2=[[a0+136]:8+8]:8, a3=?.
   The `beq` branch at 0x128 targets 0x21c, is taken when at(=[[a0+136]:8+24]) == v0(=0x3), and falls through when at(=[[a0+136]:8+24]) != v0(=0x3).
   The `beq` branch at 0x14c targets 0x18c, is taken when v0(=ret(pagealloc_size)) == 0, and falls through when v0(=ret(pagealloc_size)) != 0.
@@ -58016,18 +57989,18 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xe4 calls mraccessf with a0=a0+144, a1=0x0, a2=?, a3=?.
   The `jal` at 0x100 calls mraccunlock with a0=a0+144, a1=?, a2=[[a0+136]:8+24], a3=0x3.
   The `jal` at 0x110 calls get_effective_nodemask with a0=[-0x3fe0]:8, a1=?, a2=?, a3=?.
-  The `jal` at 0x178 calls pagealloc_size with a0=a1 at entry (arg1), a1=(a2 | 0x10000), a2=[a4]:8, a3=?.
+  The `jal` at 0x178 calls pagealloc_size with a0=a1 at entry (arg1), a1=?, a2=[a4]:8, a3=?.
   The `jalr` at 0x198 calls (unknown callee) with a0=[a0+136]:8, a1=?, a2=[[a0+136]:8+24], a3=0x3, a7=[[a0+136]:8]:8.
   The `jal` at 0x1a0 calls mraccunlock with a0=a0+144, a1=?, a2=?, a3=?.
   The `jal` at 0x1cc calls mraccessf with a0=[a0+136]:8+72, a1=0x0, a2=?, a3=?.
   The `jal` at 0x1ec calls physmem_select_masked_neighbor_node with a0=?, a1=[sym(physmem_max_radius)], a2=[[a0+136]:8+40]:8, a3=sp-144, a4=sym(page_borrow_selector).
   The `jal` at 0x208 calls pagealloc_size_node with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=[a4]:8.
-  The `jal` at 0x218 calls mraccunlock with a0=[a0+136]:8+72, a1=?, a2=?, a3=?.
+  The `jal` at 0x218 calls mraccunlock with a0=?, a1=?, a2=?, a3=?.
   The `jalr` at 0x224 calls (unknown callee) with a0=[a0+136]:8, a1=?, a2=?, a3=?.
   The `jal` at 0x244 calls pagealloc_size_node with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=0x4000.
   The `jal` at 0x25c calls get_effective_nodemask with a0=[-0x3fe0]:8, a1=?, a2=?, a3=?.
   The `jal` at 0x28c calls pagealloc_size with a0=a1 at entry (arg1), a1=a2 at entry (arg2), a2=[a4]:8, a3=?.
-  The `jal` at 0x2e0 calls mraccunlock with a0=[a0+136]:8+72, a1=?, a2=?, a3=?.
+  The `jal` at 0x2e0 calls mraccunlock with a0=?, a1=?, a2=?, a3=?.
   The `jalr` at 0x2ec calls (unknown callee) with a0=[a0+136]:8, a1=?, a2=?, a3=?, a7=[[a0+136]:8+8]:8.
   The `beq` branch at 0xa8 targets 0x234, is taken when s7(=[a4]:8) >= 0x4001 (unsigned), and falls through when s7(=[a4]:8) < 0x4001 (unsigned).
   The `bne` branch at 0xc0 targets 0x25c, is taken when s7(=[a4]:8) < 0x4000 (unsigned), and falls through when s7(=[a4]:8) >= 0x4000 (unsigned).
@@ -58394,12 +58367,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x8d8 calls migr_move_lpage with a0=a1 at entry (arg1), a1=?, a2=a2 at entry (arg2), a3=a3 at entry (arg3), a5=0xa800000000000000.
   The `jal` at 0x988 calls splhi with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x998 calls bitlock_acquire_32bit with a0=?, a1=0x1, a2=?, a3=?.
-  The `jal` at 0xa30 calls splx with a0=ret(splhi), a1=-0xf, a2=?, a3=?, a5=-0x2.
+  The `jal` at 0xa30 calls splx with a0=?, a1=-0xf, a2=?, a3=?, a5=-0x2.
   The `jal` at 0xa44 calls migr_refcnt_update_counters with a0=entry(sym(nasid_to_compact_node)), a1=a0 at entry (arg0), a2=?, a3=0x0.
   The `jal` at 0xa54 calls migr_migrate_page with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=sp-80, a3=?.
   The `jal` at 0xa68 calls migr_restart with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `jal` at 0xaf4 calls migr_restart_clear with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xb44 calls splx with a0=ret(splhi), a1=-0xf, a2=?, a3=?, a7=-0x2.
+  The `jal` at 0xb44 calls splx with a0=?, a1=-0xf, a2=?, a3=?, a7=-0x2.
   The `bne` branch at 0x89c targets 0x950, is taken when a2 < 0x2 (signed), and falls through when a2 >= 0x2 (signed).
   The `bltz` branch at 0x8e0 targets 0xb04, is taken when v0(=ret(migr_move_lpage)) < 0 (signed), and falls through when v0(=ret(migr_move_lpage)) >= 0 (signed).
   The `bne` branch at 0x9b0 targets 0xb2c, is taken when t8(?) != t9(=0x8), and falls through when t8(?) == t9(=0x8).
@@ -58416,7 +58389,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xb24 targets 0x934 and is always taken.
   The `beql` branch at 0xb3c targets 0xb30, is taken when (a6(?) & a7(=-0x2)) == 0, and falls through when (a6(?) & a7(=-0x2)) != 0; its branch-likely delay slot `nop` at 0xb40 runs only when taken and is annulled on fall-through.
   The `beq` branch at 0xb70 targets 0x934 and is always taken.
-  The return at 0x948 has v0 = one of 0x0, ret(migr_migrate_page), ret(migr_move_lpage), -0x8.
+  The return at 0x948 has v0 = one of 0x0, ?, ret(migr_move_lpage), -0x8.
 - `migr_move_lpage` in `6.5.22/usr/cpu/sysgen/IP27boot/numa.a(migr_user.o)` at 0xb78 (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.22/usr/cpu/sysgen/IP27boot/numa.a(migr_user.o)`.
@@ -58428,15 +58401,15 @@ These entries record instruction facts rendered from the routines below. They de
   3 such `ld` accesses load 8 bytes from ([[-0x3c00]:8]:8 + (entry(sym(nasid_to_compact_node)) << 0x3)) +0x0, including `ld` at 0xc64, `ld` at 0x10a0, `ld` at 0x1144.
   3 such `ld` accesses load 8 bytes from [([[-0x3c00]:8]:8 + (entry(sym(nasid_to_compact_node)) << 0x3))]:8 +0x8, including `ld` at 0xc6c, `ld` at 0x10a8, `ld` at 0x114c.
   3 such `ld` accesses load 8 bytes from [[([[-0x3c00]:8]:8 + (entry(sym(nasid_to_compact_node)) << 0x3))]:8+8]:8 +0x48, including `ld` at 0xc78, `ld` at 0x10b4, `ld` at 0x1158.
-  7 such `ld` accesses load 8 bytes from ?, including `ld` at 0xc88, `ld` at 0xde8, `ld` at 0xe48.
-  9 such `lw` accesses load 4 bytes from ?, including `lw` at 0xca8, `lw` at 0xcbc, `lw` at 0xcec.
+  9 such `ld` accesses load 8 bytes from ?, including `ld` at 0xc88, `ld` at 0xde8, `ld` at 0xe48.
+  10 such `lw` accesses load 4 bytes from ?, including `lw` at 0xca8, `lw` at 0xcbc, `lw` at 0xcec.
   4 such `ll` accesses load 4 bytes from ?, including `ll` at 0xcc8, `ll` at 0xcf8, `ll` at 0xd1c.
   4 such `sc` accesses store 4 bytes to ?, including `sc` at 0xcd8, `sc` at 0xd08, `sc` at 0xd24.
-  4 such `sw` accesses store 4 bytes to ?, including `sw` at 0xd94, `sw` at 0xdd0, `sw` at 0x1190.
+  5 such `sw` accesses store 4 bytes to ?, including `sw` at 0xd94, `sw` at 0xdd0, `sw` at 0x1190.
   The `ld` at 0xf2c loads 8 bytes from sym(allclr_cpumask) +0x8.
   The `ld` at 0xf38 loads 8 bytes from sym(allclr_cpumask) +0x0.
-  3 such `ld` accesses load 8 bytes from ([[-0x3c00]:8]:8 + (a0 << 0x3)) +0x0, including `ld` at 0xfec, `ld` at 0x100c, `ld` at 0x11cc.
-  3 such `ld` accesses load 8 bytes from [([[-0x3c00]:8]:8 + (a0 << 0x3))]:8 +0x18, including `ld` at 0xff0, `ld` at 0x1010, `ld` at 0x11d0.
+  2 such `ld` accesses load 8 bytes from ([[-0x3c00]:8]:8 + (a0 << 0x3)) +0x0, including `ld` at 0xfec, `ld` at 0x100c.
+  2 such `ld` accesses load 8 bytes from [([[-0x3c00]:8]:8 + (a0 << 0x3))]:8 +0x18, including `ld` at 0xff0, `ld` at 0x1010.
   The `lw` at 0xff4 loads 4 bytes from [[([[-0x3c00]:8]:8 + (a0 << 0x3))]:8+24]:8 +0x28.
   The `sw` at 0xffc stores 4 bytes to [[([[-0x3c00]:8]:8 + (a0 << 0x3))]:8+24]:8 +0x28.
   The `lw` at 0x1014 loads 4 bytes from [[([[-0x3c00]:8]:8 + (a0 << 0x3))]:8+24]:8 +0x64.
@@ -58446,15 +58419,13 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0x11ac loads 8 bytes from [([[-0x3c00]:8]:8 + ([-0x3bde]:2 << 0x3))]:8 +0x18.
   The `lw` at 0x11b0 loads 4 bytes from [[([[-0x3c00]:8]:8 + ([-0x3bde]:2 << 0x3))]:8+24]:8 +0x70.
   The `sw` at 0x11b8 stores 4 bytes to [[([[-0x3c00]:8]:8 + ([-0x3bde]:2 << 0x3))]:8+24]:8 +0x70.
-  The `lw` at 0x11d4 loads 4 bytes from [[([[-0x3c00]:8]:8 + (a0 << 0x3))]:8+24]:8 +0x6c.
-  The `sw` at 0x11e0 stores 4 bytes to [[([[-0x3c00]:8]:8 + (a0 << 0x3))]:8+24]:8 +0x6c.
   4 such `lhu` accesses load 2 bytes from ?, including `lhu` at 0x125c, `lhu` at 0x12d8, `lhu` at 0x13a4.
   2 such `sh` accesses store 2 bytes to ?, including `sh` at 0x1270, `sh` at 0x12f0.
   The `jal` at 0xbdc calls pagealloc_size_node with a0=a0 at entry (arg0), a1=?, a2=0x2048000, a3=(a2 << 0xe), a6=-0x7, a7=a3 at entry (arg3).
   The `jal` at 0xc90 calls splhi with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xca0 calls bitlock_acquire_32bit with a0=?, a1=0x1, a2=?, a3=?.
-  The `jal` at 0xd30 calls splx with a0=ret(splhi), a1=?, a2=?, a3=?, a5=-0x2.
-  The `jal` at 0xda0 calls lpage_size_to_index with a0=(a2 << 0xe), a1=?, a2=0xfffffffffffe3fff, a3=?, a7=0x1.
+  The `jal` at 0xd30 calls splx with a0=?, a1=?, a2=?, a3=?, a5=-0x2.
+  The `jal` at 0xda0 calls lpage_size_to_index with a0=?, a1=?, a2=0xfffffffffffe3fff, a3=?, a7=0x1.
   The `jal` at 0xdcc calls mutex_bitlock with a0=?, a1=0x8000000, a2=?, a3=?.
   The `jal` at 0xdec calls anon_hold with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xdfc calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
@@ -58467,25 +58438,25 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xf04 calls mutex_64bitunlock with a0=?, a1=0x1, a2=ret(mutex_64bitlock), a3=?.
   The `jal` at 0xf34 calls tlbsync with a0=0x0, a1=[sym(allclr_cpumask)]:8, a2=[sym(allclr_cpumask)+8]:8, a3=0x2.
   The `jal` at 0xf50 calls migr_pagemove with a0=?, a1=?, a2=0x1, a3=?.
-  The `jal` at 0xfa4 calls cache_operation with a0=?, a1=((a2 << 0xe) << 0x0), a2=0x2400, a3=0xa800000000000000.
-  The `jal` at 0xfd0 calls splx with a0=ret(splhi), a1=?, a2=-0x2, a3=?.
-  The `jal` at 0x1030 calls pagefree_size with a0=ret(pagealloc_size_node), a1=(a2 << 0xe), a2=?, a3=?.
+  The `jal` at 0xfa4 calls cache_operation with a0=?, a1=?, a2=0x2400, a3=0xa800000000000000.
+  The `jal` at 0xfd0 calls splx with a0=?, a1=?, a2=-0x2, a3=?.
+  The `jal` at 0x1030 calls pagefree_size with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x10cc calls migr_restart with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x10f8 calls migr_page_epilogue with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1170 calls migr_restart_clear with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x118c calls pagedone with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1228 calls anon_hold with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x1238 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
+  The `jal` at 0x1238 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=?, a3=?.
   The `jal` at 0x1248 calls anon_pagemigr with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1254 calls mutex_bitlock with a0=?, a1=0x8000000, a2=?, a3=?.
-  The `jal` at 0x128c calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
+  The `jal` at 0x128c calls mutex_bitunlock with a0=?, a1=0x8000000, a2=?, a3=?.
   The `jal` at 0x1294 calls pagedone with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x12d0 calls mutex_bitlock with a0=?, a1=0x8000000, a2=?, a3=?.
   The `jal` at 0x1308 calls vnode_hold with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x1318 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
+  The `jal` at 0x1318 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=?, a3=?.
   The `jal` at 0x1328 calls vnode_pagemigr with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x1344 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
-  The `jal` at 0x1364 calls pagefree_size with a0=a1 at entry (arg1), a1=(a2 << 0xe), a2=?, a3=?.
+  The `jal` at 0x1344 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=?, a3=?.
+  The `jal` at 0x1364 calls pagefree_size with a0=a1 at entry (arg1), a1=?, a2=?, a3=?.
   The `jal` at 0x137c calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
   The `jal` at 0x1398 calls assfail with a0=sym(.rodata), a1=sym(.rodata), a2=0x322, a3=?.
   The `jal` at 0x13b4 calls assfail with a0=sym(.rodata), a1=sym(.rodata), a2=0x334, a3=?.
@@ -59394,7 +59365,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x278 calls kmem_free with a0=ret(kmem_alloc), a1=0x200, a2=?, a3=?.
   The `jal` at 0x2bc calls is_specified with a0=sym(arg_maxnodes), a1=?, a2=?, a3=?.
   The `beq` branch at 0x5c targets 0xc8, is taken when v0(=ret(is_specified)) == 0, and falls through when v0(=ret(is_specified)) != 0.
-  The `beq` branch at 0x68 targets 0xc8, is taken when a1(=ret(hwgraph_edge_get)) == 0, and falls through when a1(=ret(hwgraph_edge_get)) != 0.
+  The `beq` branch at 0x68 targets 0xc8, is taken when a1(?) == 0, and falls through when a1(?) != 0.
   The `blez` branch at 0x70 targets 0xa8, is taken when a2(=[sym(numnodes)]) <= 0 (signed), and falls through when a2(=[sym(numnodes)]) > 0 (signed).
   The `bne` branch at 0x9c targets 0x88, is taken when v0(?) < a3(=[sym(numnodes)]) (signed), and falls through when v0(?) >= a3(=[sym(numnodes)]) (signed).
   The `beq` branch at 0xf4 targets 0x190 and is always taken.
@@ -60005,7 +59976,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x5e0 calls repl_control with a0=entry(sym(nasid_to_compact_node)), a1=?, a2=0x0, a3=?.
   The `jal` at 0x634 calls pagealloc_size_node with a0=?, a1=?, a2=0x2000001, a3=0x4000, a6=0x3fc0000, a7=0xfffffffffe800000.
   The `jal` at 0x64c calls page_replica_insert with a0=a2 at entry (arg2), a1=ret(pagealloc_size_node), a2=?, a3=?.
-  The `jal` at 0x6b8 calls rp_default_update_coverage with a0=[a0]:8+112, a1=?, a2=?, a3=?.
+  The `jal` at 0x6b8 calls rp_default_update_coverage with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x704 calls page_copy with a0=a2 at entry (arg2), a1=ret(pagealloc_size_node), a2=0x80, a3=0x80.
   The `jal` at 0x70c calls pagedone with a0=ret(pagealloc_size_node), a1=?, a2=?, a3=?.
   The `bne` branch at 0x4e0 targets 0x5c0, is taken when v0(=[[-0x3fe8]:8+608]:8) != 0, and falls through when v0(=[[-0x3fe8]:8+608]:8) == 0.
@@ -60300,7 +60271,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xf4 calls repl_resource_check with a0=a1 at entry (arg1), a1=sp-26, a2=0x0, a3=a3 at entry (arg3).
   The `jal` at 0x114 calls node_distance with a0=?, a1=a1 at entry (arg1), a2=?, a3=?.
   The `jal` at 0x120 calls get_effective_nodemask with a0=[-0x3fe0]:8, a1=?, a2=?, a3=?.
-  The `jal` at 0x144 calls physmem_select_masked_neighbor_node with a0=a1 at entry (arg1), a1=ret(node_distance)-1, a2=ret(get_effective_nodemask), a3=sp-80, a4=sym(repl_resource_check), a5=sp-26, a6=0x0.
+  The `jal` at 0x144 calls physmem_select_masked_neighbor_node with a0=a1 at entry (arg1), a1=?, a2=ret(get_effective_nodemask), a3=sp-80, a4=sym(repl_resource_check), a5=sp-26, a6=0x0.
   The `beq` branch at 0xe4 targets 0x158, is taken when at(=[[[([[-0x3c00]:8]:8 + (a1 << 0x3))]:8+16]:8]:1) == 0, and falls through when at(=[[[([[-0x3c00]:8]:8 + (a1 << 0x3))]:8+16]:8]:1) != 0.
   The `beq` branch at 0xfc targets 0x168, is taken when v0(=ret(repl_resource_check)) == 0, and falls through when v0(=ret(repl_resource_check)) != 0.
   The `beq` branch at 0x108 targets 0x170, is taken when v0(=a2) == v1(=0x1), and falls through when v0(=a2) != v1(=0x1).
@@ -60441,9 +60412,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x83c calls cap_able with a0=0x2000000000, a1=?, a2=?, a3=?.
   The `jal` at 0x850 calls copyin with a0=a2 at entry (arg2), a1=sp-80, a2=0x10, a3=?.
   The `jal` at 0x878 calls pcibr_device_slot_get with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x898 calls pcibr_priority_bits_set with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x1, a3=?.
+  The `jal` at 0x898 calls pcibr_priority_bits_set with a0=?, a1=?, a2=0x1, a3=?.
   The `jal` at 0x8a8 calls pcibr_device_slot_get with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x8c8 calls pcibr_priority_bits_set with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x0, a3=0xff.
+  The `jal` at 0x8c8 calls pcibr_priority_bits_set with a0=?, a1=?, a2=0x0, a3=0xff.
   The `beq` branch at 0x7b0 targets 0x80c, is taken when s0(=a1) == at(=0x6701), and falls through when s0(=a1) != at(=0x6701).
   The `beq` branch at 0x7bc targets 0x83c, is taken when s0(=a1) == v0(=0x6702), and falls through when s0(=a1) != v0(=0x6702).
   The `beq` branch at 0x7c8 targets 0x7fc, is taken when s0(=a1) == v1(=0x7001), and falls through when s0(=a1) != v1(=0x7001).
@@ -60588,7 +60559,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x1048 calls pciio_info_get with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `jal` at 0x105c calls pciio_info_mfast_get with a0=ret(pciio_info_get), a1=?, a2=?, a3=?.
   The `jal` at 0x106c calls mutex_spinlock with a0=ret(pciio_info_mfast_get)+128, a1=?, a2=?, a3=?.
-  The `jal` at 0x12f4 calls mutex_io_spinunlock with a0=ret(pciio_info_mfast_get)+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?.
+  The `jal` at 0x12f4 calls mutex_io_spinunlock with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1400 calls sprintf with a0=sp-736, a1=sym(.rodata), a2=entry(sym(pci_space)), a3=sym(.rodata), a4=sym(.rodata), a5=sym(.rodata), a6=sym(.rodata), a7=sym(.rodata).
   The `jal` at 0x14e8 calls sprintf with a0=sp-736, a1=sym(.rodata), a2=entry(sym(pci_space)), a3=?.
   The `jal` at 0x1728 calls sprintf with a0=sp-736, a1=sym(.rodata), a2=entry(sym(pci_space)), a3=?.
@@ -60786,9 +60757,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `sb` at 0x1f00 stores 1 byte to ?.
   The `jal` at 0x1e94 calls pcibr_info_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x1eac calls mutex_spinlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?.
-  The `jal` at 0x1f04 calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?, a6=sym(.rodata).
+  The `jal` at 0x1f04 calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?, a6=sym(.rodata).
   The `jal` at 0x1f38 calls cmn_err with a0=0x4, a1=sym(.rodata), a2=a2 at entry (arg2), a3=a3 at entry (arg3), a6=sym(.rodata).
-  The `jal` at 0x1f44 calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?.
+  The `jal` at 0x1f44 calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?.
   The `jal` at 0x1f5c calls hwgraph_vertex_name_get with a0=a0 at entry (arg0), a1=sp-1088, a2=0x400, a3=?.
   The `jal` at 0x1f6c calls cmn_err with a0=0x4, a1=sym(.rodata), a2=?, a3=?.
   The `jal` at 0x1f84 calls cmn_err with a0=0x4, a1=sym(.rodata), a2=sp-1088, a3=a3 at entry (arg3).
@@ -61604,8 +61575,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0x4bd8 loads 8 bytes from a0 (arg0 at entry) +0x8.
   5 such `lw` accesses load 4 bytes from ?, including `lw` at 0x4c0c, `lw` at 0x4d40, `lw` at 0x4d80.
   2 such `sw` accesses store 4 bytes to a1 (arg1 at entry) +0x0, including `sw` at 0x4c44, `sw` at 0x4cf8.
-  2 such `ll` accesses load 4 bytes from (a0 + ([a1+8]:1 << 0x7)) +0x16c, including `ll` at 0x4c50, `ll` at 0x4cfc.
-  2 such `sc` accesses store 4 bytes to (a0 + ([a1+8]:1 << 0x7)) +0x16c, including `sc` at 0x4c5c, `sc` at 0x4d08.
+  2 such `ll` accesses load 4 bytes from ?, including `ll` at 0x4c50, `ll` at 0x4cfc.
+  2 such `sc` accesses store 4 bytes to ?, including `sc` at 0x4c5c, `sc` at 0x4d08.
   The `ld` at 0x4d18 loads 8 bytes from a1 (arg1 at entry) +0x18.
   The `ld` at 0x4d50 loads 8 bytes from ?.
   3 such `sw` accesses store 4 bytes to ?, including `sw` at 0x4d54, `sw` at 0x4d60, `sw` at 0x4d90.
@@ -61615,7 +61586,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x4c6c calls mutex_io_spinunlock with a0=a0+128, a1=?, a2=?, a3=?.
   The `jal` at 0x4c74 calls pcireg_tflush_get with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `jal` at 0x4cb0 calls mutex_spinlock with a0=a0+128, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3), a6=[a1], a7=0x40000000.
-  The `jal` at 0x4d14 calls xtalk_dmamap_done with a0=[a1+24]:8, a1=(a0 + ([a1+8]:1 << 0x7))+364, a2=(a0 + ([a1+8]:1 << 0x7)), a3=([a1+8]:1 << 0x7), a4=-0x1.
+  The `jal` at 0x4d14 calls xtalk_dmamap_done with a0=[a1+24]:8, a1=?, a2=?, a3=?, a4=-0x1.
   The `jal` at 0x4db4 calls pcireg_wrb_flush_get with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `beq` branch at 0x4b48 targets 0x4ca4, is taken when at(=[a0+114]:2) == 0, and falls through when at(=[a0+114]:2) != 0.
   The `blez` branch at 0x4b50 targets 0x4ba4, is taken when s3(=a3) <= 0 (signed), and falls through when s3(=a3) > 0 (signed).
@@ -61630,11 +61601,11 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x4bf8 targets 0x4c30, is taken when s1(?) >= a0(=[a0+57]:1+1) (signed), and falls through when s1(?) < a0(=[a0+57]:1+1) (signed).
   The `bne` branch at 0x4c14 targets 0x4bd8, is taken when (a3(?) & 0x4) != 0, and falls through when (a3(?) & 0x4) == 0.
   The `bne` branch at 0x4c28 targets 0x4c00, is taken when s1(?) < a0(=[a0+57]:1+1) (signed), and falls through when s1(?) >= a0(=[a0+57]:1+1) (signed).
-  The `beql` branch at 0x4c60 targets 0x4c50, is taken when at(=[(a0 + ([a1+8]:1 << 0x7))+364]+1) == 0, and falls through when at(=[(a0 + ([a1+8]:1 << 0x7))+364]+1) != 0; its branch-likely delay slot `nop` at 0x4c64 runs only when taken and is annulled on fall-through.
+  The `beql` branch at 0x4c60 targets 0x4c50, is taken when at(=table(0x1)) == 0, and falls through when at(=table(0x1)) != 0; its branch-likely delay slot `nop` at 0x4c64 runs only when taken and is annulled on fall-through.
   The `bgez` branch at 0x4ca8 targets 0x4b50, is taken when ra(=([a1] << 0x21)) >= 0 (signed), and falls through when ra(=([a1] << 0x21)) < 0 (signed).
   The `beq` branch at 0x4ce4 targets 0x4d1c, is taken when (a0(=[a1]) & a6(=0xffffffff80000000)) == 0, and falls through when (a0(=[a1]) & a6(=0xffffffff80000000)) != 0.
   The `beq` branch at 0x4cf4 targets 0x4d14, is taken when (a5(=0x40000000) & a0(?)) == 0, and falls through when (a5(=0x40000000) & a0(?)) != 0.
-  The `beql` branch at 0x4d0c targets 0x4cfc, is taken when a7(=[(a0 + ([a1+8]:1 << 0x7))+364]-1) == 0, and falls through when a7(=[(a0 + ([a1+8]:1 << 0x7))+364]-1) != 0; its branch-likely delay slot `nop` at 0x4d10 runs only when taken and is annulled on fall-through.
+  The `beql` branch at 0x4d0c targets 0x4cfc, is taken when a7(=table(-0x1)) == 0, and falls through when a7(=table(-0x1)) != 0; its branch-likely delay slot `nop` at 0x4d10 runs only when taken and is annulled on fall-through.
   The `beq` branch at 0x4d30 targets 0x4b50, is taken when s6(=[a0+56]:1) >= a0(=[a0+57]:1+1) (signed), and falls through when s6(=[a0+56]:1) < a0(=[a0+57]:1+1) (signed).
   The `beq` branch at 0x4d38 targets 0x4e08 and is always taken.
   The `beq` branch at 0x4d48 targets 0x4d60, is taken when (a6(?) & 0x4) == 0, and falls through when (a6(?) & 0x4) != 0.
@@ -62247,7 +62218,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x71f8 calls kmem_zalloc with a0=0x8, a1=0x0, a2=?, a3=?.
   The `jal` at 0x7218 calls hwgraph_info_add_LBL with a0=?, a1=sym(.rodata)+4152, a2=ret(kmem_zalloc), a3=?.
   The `jal` at 0x722c calls hwgraph_info_get_LBL with a0=?, a1=sym(.rodata)+4152, a2=sp-64, a3=?.
-  The `jal` at 0x7244 calls kmem_free with a0=ret(kmem_zalloc), a1=0x8, a2=?, a3=ret(kmem_zalloc).
+  The `jal` at 0x7244 calls kmem_free with a0=?, a1=0x8, a2=?, a3=?.
   The `jal` at 0x7260 calls pcibr_debug with a0=0x2, a1=a0 at entry (arg0), a2=sym(.rodata)+4152, a3=?.
   The `jal` at 0x727c calls pcibr_debug with a0=0x2, a1=a0 at entry (arg0), a2=sym(.rodata)+4152, a3=?, a5=-0x1.
   The `jal` at 0x7298 calls pcibr_debug with a0=0x2, a1=a0 at entry (arg0), a2=sym(.rodata)+4152, a3=?.
@@ -62255,7 +62226,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x71c0 targets 0x7270, is taken when a5(=-0x1) == a0(?), and falls through when a5(=-0x1) != a0(?).
   The `beq` branch at 0x71d8 targets 0x71f8, is taken when v0(?) == 0, and falls through when v0(?) != 0.
   The `beq` branch at 0x7200 targets 0x728c, is taken when v0(=ret(kmem_zalloc)) == 0, and falls through when v0(=ret(kmem_zalloc)) != 0.
-  The `beq` branch at 0x723c targets 0x71e4, is taken when a2(?) == a3(=ret(kmem_zalloc)), and falls through when a2(?) != a3(=ret(kmem_zalloc)).
+  The `beq` branch at 0x723c targets 0x71e4, is taken when a2(?) == a3(?), and falls through when a2(?) != a3(?).
   The `beq` branch at 0x7250 targets 0x72a8, is taken when a4(?) == 0, and falls through when a4(?) != 0.
   The `beq` branch at 0x7268 targets 0x71e0 and is always taken.
   The `beq` branch at 0x7284 targets 0x71e8 and is always taken.
@@ -62534,7 +62505,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xb7b0 loads 8 bytes from [ret(pcibr_info_get)+40]:8 +0x8.
   The `jal` at 0xb7a0 calls pcibr_info_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xb7b8 calls pcibr_config_addr with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=?, a3=?.
-  The `jal` at 0xb7cc calls pcibr_probe_slot with a0=[[ret(pcibr_info_get)+40]:8+8]:8, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
+  The `jal` at 0xb7cc calls pcibr_probe_slot with a0=?, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
   The `beq` branch at 0xb7d4 targets 0xb7e8, is taken when v0(=ret(pcibr_probe_slot)) == 0, and falls through when v0(=ret(pcibr_probe_slot)) != 0.
   The `beq` branch at 0xb7e8 targets 0xb7e0 and is always taken.
   The return at 0xb7e0 has v0 = one of -0x1, ?.
@@ -62634,35 +62605,32 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xca04 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x100.
   The `ld` at 0xca0c loads 8 bytes from ret(hwgraph_fastinfo_get) +0x8.
   The `lw` at 0xca4c loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x110.
-  2 such `ld` accesses load 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118, including `ld` at 0xca74, `ld` at 0xce2c.
+  The `ld` at 0xca74 loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
   5 such `lh` accesses load 2 bytes from ret(hwgraph_fastinfo_get) +0x72, including `lh` at 0xcad0, `lh` at 0xcc14, `lh` at 0xccf4.
-  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xcb04, `lw` at 0xcb90, `lw` at 0xccb0.
+  6 such `lw` accesses load 4 bytes from ?, including `lw` at 0xcb04, `lw` at 0xcb90, `lw` at 0xccb0.
   3 such `sd` accesses store 8 bytes to ?, including `sd` at 0xcb0c, `sd` at 0xcb14, `sd` at 0xcd38.
-  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0xcb80, `ld` at 0xcc98, `ld` at 0xcc9c.
+  6 such `ld` accesses load 8 bytes from ?, including `ld` at 0xcb80, `ld` at 0xcc98, `ld` at 0xcc9c.
   The `ld` at 0xcc50 loads 8 bytes from table(sym(pci_space)) +0x0.
-  The `ld` at 0xce30 loads 8 bytes from [(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8 +0x0.
-  The `lw` at 0xce34 loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8 +0x14.
-  The `lw` at 0xce48 loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8 +0x18.
   The `jal` at 0xc9d0 calls hwgraph_fastinfo_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
-  The `jal` at 0xcabc calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
+  The `jal` at 0xcabc calls do_pcibr_config_set with a0=?, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
   The `jal` at 0xcafc calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10976, a3=?, a5=ret(pcibr_bus_addr_alloc).
-  The `jal` at 0xcb24 calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?, a4=0x9004.
-  The `jal` at 0xcb5c calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?.
-  The `jal` at 0xcbac calls pcibr_func_config_addr with a0=[ret(hwgraph_fastinfo_get)+8]:8, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
+  The `jal` at 0xcb24 calls do_pcibr_config_get with a0=?, a1=0x4, a2=0x4, a3=?, a4=0x9004.
+  The `jal` at 0xcb5c calls do_pcibr_config_set with a0=?, a1=0x4, a2=0x4, a3=?.
+  The `jal` at 0xcbac calls pcibr_func_config_addr with a0=?, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
   The `jal` at 0xcbc4 calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr), a1=0xe, a2=0x1, a3=?.
   The `jal` at 0xcc4c calls sprintf with a0=sp-464, a1=sym(.rodata)+10976, a2=?, a3=?, a5=entry(sym(pci_space)).
   The `jal` at 0xcc64 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10976, a3=sp-464.
   The `jal` at 0xcd18 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10976, a3=?, a6=0x4, a7=0xff.
-  The `jal` at 0xcd34 calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=?.
+  The `jal` at 0xcd34 calls do_pcibr_config_set with a0=?, a1=?, a2=0x4, a3=?.
   The `jal` at 0xcda8 calls sprintf with a0=sp-464, a1=sym(.rodata)+10976, a2=?, a3=?.
   The `jal` at 0xcdc0 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10976, a3=sp-464.
   The `jal` at 0xce00 calls sprintf with a0=sp-464, a1=sym(.rodata)+10976, a2=?, a3=?, a7=0xff.
   The `jal` at 0xce18 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10976, a3=sp-464.
-  The `jal` at 0xce6c calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
-  The `jal` at 0xce7c calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=?.
+  The `jal` at 0xce6c calls do_pcibr_config_set with a0=?, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
+  The `jal` at 0xce7c calls do_pcibr_config_get with a0=?, a1=0x0, a2=0x4, a3=?.
   The `jal` at 0xcea8 calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xcf04 calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x2, a3=0x0, a6=0x4, a7=0xff.
-  The `jal` at 0xcf30 calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=0xff, a4=[sym(pcibr_debug_mask)], a6=0x4, a7=0xff.
+  The `jal` at 0xcf30 calls do_pcibr_config_get with a0=?, a1=?, a2=0x4, a3=0xff, a4=[sym(pcibr_debug_mask)], a6=0x4, a7=0xff.
   The `jal` at 0xcf58 calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xcfa8 calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x4, a3=0x0.
   The `beq` branch at 0xc9dc targets 0xcfcc, is taken when v0(=ret(hwgraph_fastinfo_get)) == 0, and falls through when v0(=ret(hwgraph_fastinfo_get)) != 0.
@@ -62677,7 +62645,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xcad4 targets 0xcae0, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xcb10 targets 0xcedc, is taken when a3(?) == a4(=0x9004), and falls through when a3(?) != a4(=0x9004).
   The `beq` branch at 0xcb40 targets 0xcb64, is taken when (a5(?) & a6(?)) == 0, and falls through when (a5(?) & a6(?)) != 0.
-  The `beq` branch at 0xcb70 targets 0xcf7c, is taken when s4(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed), and falls through when s4(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed).
+  The `beq` branch at 0xcb70 targets 0xcf7c, is taken when s4(?) >= a4(?) (signed), and falls through when s4(?) < a4(?) (signed).
   The `beq` branch at 0xcb88 targets 0xcb64, is taken when s5(?) == 0, and falls through when s5(?) != 0.
   The `beq` branch at 0xcb94 targets 0xcb68, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `blez` branch at 0xcbec targets 0xce28, is taken when t1(=one of 0x2, 0x6) <= 0 (signed), and falls through when t1(=one of 0x2, 0x6) > 0 (signed).
@@ -62685,7 +62653,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xcc04 targets 0xcc70, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xcc0c targets 0xcec4, is taken when t3(=0xff) == s3(=a1), and falls through when t3(=0xff) != s3(=a1).
   The `beq` branch at 0xcc18 targets 0xcc24, is taken when t8(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when t8(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
-  The `beq` branch at 0xcc8c targets 0xce28, is taken when s0(?) >= a3(=one of 0x2, 0x6) (signed), and falls through when s0(?) < a3(=one of 0x2, 0x6) (signed).
+  The `beq` branch at 0xcc8c targets 0xce28, is taken when s0(?) >= a3(?) (signed), and falls through when s0(?) < a3(?) (signed).
   The `beq` branch at 0xccb4 targets 0xcc6c, is taken when s1(?) == 0, and falls through when s1(?) != 0.
   The `beq` branch at 0xccc0 targets 0xcc04, is taken when a6(?) >= s1(?) (unsigned), and falls through when a6(?) < s1(?) (unsigned).
   The `beq` branch at 0xccdc targets 0xcef4, is taken when s2(?) == s7(=0x2), and falls through when s2(?) != s7(=0x2).
@@ -62700,8 +62668,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xcdd0 targets 0xced4, is taken when a3(=0xff) == s3(=a1), and falls through when a3(=0xff) != s3(=a1).
   The `beq` branch at 0xcddc targets 0xcde8, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xce20 targets 0xcc70 and is always taken.
-  The `bne` branch at 0xce40 targets 0xce54, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+20]) != a4(=0x10a9), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+20]) == a4(=0x10a9).
-  The `beq` branch at 0xce50 targets 0xcb04, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+24]) == a4(=0x3), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+24]) != a4(=0x3).
+  The `bne` branch at 0xce40 targets 0xce54, is taken when a3(?) != a4(=0x10a9), and falls through when a3(?) == a4(=0x10a9).
+  The `beq` branch at 0xce50 targets 0xcb04, is taken when a3(?) == a4(=0x3), and falls through when a3(?) != a4(=0x3).
   The `beq` branch at 0xce88 targets 0xcb04, is taken when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) == 0, and falls through when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) != 0.
   The `bne` branch at 0xceb0 targets 0xcab0, is taken when v0(=ret(pcibr_bus_addr_alloc)) != 0, and falls through when v0(=ret(pcibr_bus_addr_alloc)) == 0.
   The `beq` branch at 0xcebc targets 0xcb04 and is always taken.
@@ -62721,7 +62689,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xcffc targets 0xcf7c and is always taken.
   The `beq` branch at 0xd00c targets 0xcc98 and is always taken.
   The `beq` branch at 0xd018 targets 0xcb7c and is always taken.
-  The return at 0xca2c has v0 = one of 0x0, 0x16, 0x1c.
+  The return at 0xca2c has v0 = one of ?, 0x16.
 - `pcibr_slot_guest_info_init` in `6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o` at 0xd114 (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o`.
@@ -62761,17 +62729,15 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xd2a8 loads 4 bytes from ret(hwgraph_fastinfo_get) +0x0.
   The `lw` at 0xd2b8 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x110.
   The `ld` at 0xd2bc loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
-  The `sw` at 0xd314 stores 4 bytes to ?.
+  3 such `sw` accesses store 4 bytes to ?, including `sw` at 0xd314, `sw` at 0xd3f8, `sw` at 0xd424.
   The `ld` at 0xd33c loads 8 bytes from ?.
-  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xd34c, `lw` at 0xd35c.
+  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xd34c, `lw` at 0xd35c, `lw` at 0xd3ec.
   The `lh` at 0xd3a4 loads 2 bytes from ret(hwgraph_fastinfo_get) +0x72.
-  2 such `lw` accesses load 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x10c, including `lw` at 0xd3ec, `lw` at 0xd40c.
-  2 such `sw` accesses store 4 bytes to (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x10c, including `sw` at 0xd3f8, `sw` at 0xd424.
   The `jal` at 0xd240 calls hwgraph_fastinfo_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xd2a4 calls async_attach_get_info with a0=[ret(hwgraph_fastinfo_get)], a1=?, a2=?, a3=?.
   The `jal` at 0xd304 calls pcibr_debug with a0=0x2000, a1=a0 at entry (arg0), a2=sym(.rodata)+10976, a3=?, a5=a2 at entry (arg2), a6=ret(pciio_device_attach).
-  The `jal` at 0xd364 calls device_admin_info_get with a0=?, a1=sym(.rodata)+10976, a2=?, a3=?, a4=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272].
-  The `jal` at 0xd380 calls async_attach_add_info with a0=?, a1=ret(async_attach_get_info), a2=ret(async_attach_get_info), a3=?.
+  The `jal` at 0xd364 calls device_admin_info_get with a0=?, a1=sym(.rodata)+10976, a2=?, a3=?.
+  The `jal` at 0xd380 calls async_attach_add_info with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xd38c calls pciio_device_attach with a0=?, a1=a2 at entry (arg2), a2=?, a3=?.
   The `jal` at 0xd434 calls vertex_to_name with a0=?, a1=sp-384, a2=0x100, a3=?.
   The `jal` at 0xd448 calls cmn_err with a0=0x4, a1=sym(.rodata)+10976, a2=sp-384, a3=?.
@@ -62781,11 +62747,11 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xd29c targets 0xd284 and is always taken.
   The `blez` branch at 0xd2d0 targets 0xd428, is taken when t8(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) <= 0 (signed), and falls through when t8(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) > 0 (signed).
   The `beq` branch at 0xd2e0 targets 0xd458 and is always taken.
-  The `beq` branch at 0xd32c targets 0xd3b8, is taken when s2(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed), and falls through when s2(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed).
+  The `beq` branch at 0xd32c targets 0xd3b8, is taken when s2(?) >= a4(?) (signed), and falls through when s2(?) < a4(?) (signed).
   The `beq` branch at 0xd344 targets 0xd320, is taken when s4(?) == 0, and falls through when s4(?) != 0.
   The `beq` branch at 0xd350 targets 0xd324, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `bne` branch at 0xd36c targets 0xd430, is taken when v0(=ret(device_admin_info_get)) != 0, and falls through when v0(=ret(device_admin_info_get)) == 0.
-  The `beq` branch at 0xd378 targets 0xd388, is taken when a2(=ret(async_attach_get_info)) == 0, and falls through when a2(=ret(async_attach_get_info)) != 0.
+  The `beq` branch at 0xd378 targets 0xd388, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xd39c targets 0xd2e8, is taken when a0(=0xff) == s0(=a1), and falls through when a0(=0xff) != s0(=a1).
   The `bne` branch at 0xd3a8 targets 0xd2e8, is taken when a3(=[ret(hwgraph_fastinfo_get)+114]:2) != a4(=0x2), and falls through when a3(=[ret(hwgraph_fastinfo_get)+114]:2) == a4(=0x2).
   The `beq` branch at 0xd3b0 targets 0xd2e8 and is always taken.
@@ -67699,10 +67665,10 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xf58 calls xwidget_name_get with a0=ret(xbow_widget_lookup), a1=?, a2=?, a3=?.
   The `jal` at 0xf74 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=[a0+24]:8, a3=?, a4=ret(xwidget_name_get).
   The `jal` at 0x1038 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+84].
-  The `jal` at 0x104c calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+36].
-  The `jal` at 0x1060 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+68].
-  The `jal` at 0x1074 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+20].
-  The `jal` at 0x1088 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+28].
+  The `jal` at 0x104c calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
+  The `jal` at 0x1060 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
+  The `jal` at 0x1074 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
+  The `jal` at 0x1088 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
   The `jal` at 0x10b4 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
   The `jal` at 0x10c4 calls cmn_err_tag with a0=0x8, a1=0x0, a2=sym(.rodata), a3=?.
   The `jal` at 0x10e4 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=[a0+24]:8, a3=?.
@@ -68242,7 +68208,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jalr` at 0x23c calls hwgraph_fastinfo_get with a0=?, a1=?, a2=sym(hwgraph_fastinfo_get), a3=sym(hwgraph_fastinfo_get).
   The `jalr` at 0x274 calls hwgraph_fastinfo_set with a0=?, a1=0x0, a2=?, a3=-0x1, a5=sym(hwgraph_fastinfo_set), a6=sym(hwgraph_fastinfo_set).
   The `jalr` at 0x294 calls hwgraph_vertex_destroy with a0=?, a1=?, a2=?, a3=?, a6=sym(hwgraph_vertex_destroy), a7=sym(hwgraph_vertex_destroy).
-  The `jalr` at 0x2b8 calls kmem_free with a0=ret(hwgraph_fastinfo_get), a1=0x8, a2=?, a3=?, a7=sym(kmem_free).
+  The `jalr` at 0x2b8 calls kmem_free with a0=?, a1=0x8, a2=?, a3=?, a7=sym(kmem_free).
   The `beq` branch at 0x20c targets 0x224, is taken when v0(=ret(hwgraph_edge_remove)) == 0, and falls through when v0(=ret(hwgraph_edge_remove)) != 0.
   The `bne` branch at 0x248 targets 0x258, is taken when v0(=ret(hwgraph_fastinfo_get)) != 0, and falls through when v0(=ret(hwgraph_fastinfo_get)) == 0.
   The `beq` branch at 0x250 targets 0x218 and is always taken.
@@ -69201,9 +69167,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `lbu` at 0x1604 loads 1 byte from a3 (arg3 at entry) +0x9.
   The `jal` at 0x15c0 calls gioio_cardinfo_get with a0=a0 at entry (arg0), a1=?, a2=sp-64, a3=a3 at entry (arg3).
   The `jal` at 0x15d8 calls gioio_error_handler with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
-  The `jal` at 0x1608 calls gioio_info_product_id_get with a0=ret(gioio_cardinfo_get), a1=?, a2=?, a3=?.
-  The `jal` at 0x1614 calls gioio_info_slot_get with a0=ret(gioio_cardinfo_get), a1=?, a2=?, a3=?.
-  The `jal` at 0x1630 calls cmn_err with a0=0x4, a1=sym(.rodata), a2=?, a3=ret(gioio_info_product_id_get), a4=ret(gioio_info_slot_get).
+  The `jal` at 0x1608 calls gioio_info_product_id_get with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0x1614 calls gioio_info_slot_get with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0x1630 calls cmn_err with a0=0x4, a1=sym(.rodata), a2=?, a3=?, a4=ret(gioio_info_slot_get).
   The `jal` at 0x1648 calls ioerror_dump with a0=sym(.rodata), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `bltz` branch at 0x15ac targets 0x1600, is taken when at(=([a3] << 0x2)) < 0 (signed), and falls through when at(=([a3] << 0x2)) >= 0 (signed).
   The `bne` branch at 0x15e0 targets 0x1608, is taken when v0(=ret(gioio_error_handler)) != 0, and falls through when v0(=ret(gioio_error_handler)) == 0.
@@ -70954,12 +70920,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x474 calls mrupdatef with a0=sym(hwgraph_connectpt_mrlock), a1=0x0, a2=?, a3=?.
   The `jal` at 0x47c calls do_hwgraph_connectpt_get with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x490 calls mrunlock with a0=sym(hwgraph_connectpt_mrlock), a1=?, a2=?, a3=?.
-  The `jal` at 0x4ac calls graph_vertex_unref with a0=[sym(hwgraph)]:8, a1=ret(do_hwgraph_connectpt_get), a2=a2 at entry (arg2), a3=?.
+  The `jal` at 0x4ac calls graph_vertex_unref with a0=[sym(hwgraph)]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `jal` at 0x4d0 calls do_hwgraph_connectpt_set with a0=?, a1=-0x1, a2=?, a3=?.
   The `jal` at 0x4e0 calls graph_vertex_unref with a0=[sym(hwgraph)]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `beq` branch at 0x454 targets 0x470, is taken when v0(=ret(graph_edge_remove)) == 0, and falls through when v0(=ret(graph_edge_remove)) != 0.
   The `beq` branch at 0x488 targets 0x4cc, is taken when v0(=ret(do_hwgraph_connectpt_get)) == v1(=a0), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != v1(=a0).
-  The `beq` branch at 0x4a0 targets 0x4b8, is taken when v0(=ret(do_hwgraph_connectpt_get)) == a1(=-0x1), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != a1(=-0x1).
+  The `beq` branch at 0x4a0 targets 0x4b8, is taken when v0(?) == a1(=-0x1), and falls through when v0(?) != a1(=-0x1).
   The `beq` branch at 0x4b8 targets 0x4e0, is taken when a2 == 0, and falls through when a2 != 0.
   The `beq` branch at 0x4c4 targets 0x460 and is always taken.
   The `beq` branch at 0x4d8 targets 0x490 and is always taken.
@@ -71779,7 +71745,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x22f4 calls cpu_enabled with a0=a1 at entry (arg1), a1=?, a2=?, a3=?.
   The `jal` at 0x2308 calls device_admin_info_get with a0=a0 at entry (arg0), a1=sym(.rodata), a2=?, a3=?.
   The `jal` at 0x2340 calls mutex_spinlock_spl with a0=[(sym(pdaindr) + (a1 << 0x4))+8]:8+1180, a1=sym(spl7), a2=?, a3=?.
-  The `jal` at 0x2358 calls mutex_spinunlock with a0=[(sym(pdaindr) + (a1 << 0x4))+8]:8+1180, a1=ret(mutex_spinlock_spl), a2=?, a3=?.
+  The `jal` at 0x2358 calls mutex_spinunlock with a0=?, a1=ret(mutex_spinlock_spl), a2=?, a3=?.
   The `jal` at 0x2374 calls hwgraph_path_add with a0=[sym(hwgraph_root)], a1=sym(.rodata), a2=sym(.sdata)+4, a3=-0x1, a4=[sym(.sdata)+4].
   The `beq` branch at 0x227c targets 0x2318, is taken when a1 == at(=-0x1), and falls through when a1 != at(=-0x1).
   The `beq` branch at 0x228c targets 0x22ac, is taken when v0(=ret(cpu_enabled)) == 0, and falls through when v0(=ret(cpu_enabled)) != 0.
@@ -72187,17 +72153,17 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x20c calls hwgraph_bdevsw_get with a0=[a2], a1=?, a2=?, a3=?.
   The `jal` at 0x230 calls strcmp with a0=a1 at entry (arg1), a1=sym(.rodata), a2=?, a3=?, a4=0x2.
   The `jal` at 0x248 calls strcmp with a0=a1 at entry (arg1), a1=sym(.rodata), a2=?, a3=?, a6=a3 at entry (arg3).
-  The `jal` at 0x258 calls hwgraph_connectpt_get with a0=[a2], a1=?, a2=?, a3=?, a6=a3 at entry (arg3).
+  The `jal` at 0x258 calls hwgraph_connectpt_get with a0=?, a1=?, a2=?, a3=?, a6=a3 at entry (arg3).
   The `jal` at 0x264 calls hwgraph_vertex_unref with a0=ret(hwgraph_connectpt_get), a1=?, a2=?, a3=?.
   The `jal` at 0x2c0 calls hwgraph_edge_get_next with a0=a0 at entry (arg0), a1=sp-344, a2=sp-88, a3=sp-352.
   The `jal` at 0x2d8 calls hwgraph_vertex_unref with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x2e4 calls strcmp with a0=sp-344, a1=a1 at entry (arg1), a2=?, a3=?.
   The `beq` branch at 0x1d8 targets 0x1f8, is taken when v0(=ret(hwgraph_traverse)) == 0, and falls through when v0(=ret(hwgraph_traverse)) != 0.
   The `bne` branch at 0x21c targets 0x284, is taken when v0(=ret(hwgraph_bdevsw_get)) != 0, and falls through when v0(=ret(hwgraph_bdevsw_get)) == 0.
-  The `bne` branch at 0x224 targets 0x2a4, is taken when a1(=ret(hwgraph_cdevsw_get)) != 0, and falls through when a1(=ret(hwgraph_cdevsw_get)) == 0.
+  The `bne` branch at 0x224 targets 0x2a4, is taken when a1(?) != 0, and falls through when a1(?) == 0.
   The `beq` branch at 0x238 targets 0x298, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
   The `beq` branch at 0x250 targets 0x298, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
-  The `beq` branch at 0x274 targets 0x2b0, is taken when a2(=ret(hwgraph_connectpt_get)) == a3(=a0), and falls through when a2(=ret(hwgraph_connectpt_get)) != a3(=a0).
+  The `beq` branch at 0x274 targets 0x2b0, is taken when a2(?) == a3(=a0), and falls through when a2(?) != a3(=a0).
   The `beq` branch at 0x27c targets 0x294 and is always taken.
   The `beq` branch at 0x290 targets 0x22c, is taken when s0(=one of 0x0, 0x3) == a4(=0x2), and falls through when s0(=one of 0x0, 0x3) != a4(=0x2).
   The `beq` branch at 0x29c targets 0x1e4 and is always taken.
@@ -72205,7 +72171,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x2c8 targets 0x2d8, is taken when v0(=ret(hwgraph_edge_get_next)) == 0, and falls through when v0(=ret(hwgraph_edge_get_next)) != 0.
   The `beq` branch at 0x2d0 targets 0x294 and is always taken.
   The `beq` branch at 0x2ec targets 0x30c, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
-  The `bne` branch at 0x2fc targets 0x2b8, is taken when t0(?) != t1(=[a2]), and falls through when t0(?) == t1(=[a2]).
+  The `bne` branch at 0x2fc targets 0x2b8, is taken when t0(?) != t1(?), and falls through when t0(?) == t1(?).
   The `beq` branch at 0x304 targets 0x294 and is always taken.
   The `beq` branch at 0x318 targets 0x294 and is always taken.
   The return at 0x1f0 has v0 = one of 0x0, 0x1.
@@ -72458,7 +72424,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xbe0 targets 0xcb8, is taken when a2(=[a1+24]:2) == 0, and falls through when a2(=[a1+24]:2) != 0.
   The `beq` branch at 0xbf0 targets 0xc0c, is taken when s4(=a3) == 0, and falls through when s4(=a3) != 0.
   The `beq` branch at 0xc0c targets 0xc20, is taken when s3(?) == 0, and falls through when s3(?) != 0.
-  The `blez` branch at 0xc74 targets 0xcd4, is taken when v0(?) <= 0 (signed), and falls through when v0(?) > 0 (signed).
+  The `blez` branch at 0xc74 targets 0xcd4, is taken when v0(=ret(?)) <= 0 (signed), and falls through when v0(=ret(?)) > 0 (signed).
   The `beq` branch at 0xc7c targets 0xba4 and is always taken.
   The `beq` branch at 0xc84 targets 0xc28 and is always taken.
   The `beq` branch at 0xc98 targets 0xb44, is taken when (v0(=ret(get_current_abi)) & 0x2) == 0, and falls through when (v0(=ret(get_current_abi)) & 0x2) != 0.
@@ -72946,7 +72912,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0x4ac loads 8 bytes from [[ret(vproc_lookup)+40]:8+16]:8 +0x38.
   The `jal` at 0x458 calls vproc_lookup with a0=?, a1=0x1, a2=?, a3=?.
   The `jalr` at 0x4b4 calls (unknown callee) with a0=[ret(vproc_lookup)+40]:8, a1=0x6, a2=sp-96, a3=[[[ret(vproc_lookup)+40]:8+16]:8+56]:8, a4=-0x1.
-  The `jal` at 0x4bc calls vproc_release with a0=ret(vproc_lookup), a1=?, a2=?, a3=?.
+  The `jal` at 0x4bc calls vproc_release with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x4e8 calls kthread_get_pid with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x500 calls get_current_cred with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x510 calls kthread_get_pid with a0=?, a1=?, a2=?, a3=?.
@@ -74384,10 +74350,8 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.22/usr/cpu/sysgen/IP30boot/io6.o`.
   Range: 0x40-0x12c (236 bytes).
   It occupies 236 bytes.
-  The `lw` at 0xb4 loads 4 bytes from ret(xtalk_piotrans_addr) +0x284.
-  The `sw` at 0xd4 stores 4 bytes to ret(xtalk_piotrans_addr) +0x284.
-  The `lw` at 0xe0 loads 4 bytes from ret(xtalk_piotrans_addr) +0x28c.
-  The `sw` at 0xfc stores 4 bytes to ret(xtalk_piotrans_addr) +0x28c.
+  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xb4, `lw` at 0xe0.
+  2 such `sw` accesses store 4 bytes to ?, including `sw` at 0xd4, `sw` at 0xfc.
   The `jal` at 0x54 calls nic_vertex_info_match with a0=a0 at entry (arg0), a1=sym(.rodata), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x68 calls pcibr_hints_dualslot with a0=a0 at entry (arg0), a1=0x2, a2=0x4, a3=?.
   The `jal` at 0x80 calls pcibr_hints_subdevs with a0=a0 at entry (arg0), a1=0x2, a2=one of 0xb7, 0xbf, a3=?.
@@ -75735,15 +75699,13 @@ These entries record instruction facts rendered from the routines below. They de
   2 such `ld` accesses load 8 bytes from ret(findfpreg) +0x58, including `ld` at 0xadc, `ld` at 0xc90.
   The `lw` at 0xaec loads 4 bytes from ret(findfpreg) +0x64.
   The `ld` at 0xb34 loads 8 bytes from ret(findfpreg) +0x88.
-  2 such `ld` accesses load 8 bytes from ?, including `ld` at 0xb7c, `ld` at 0xcc0.
+  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0xb7c, `ld` at 0xc3c, `ld` at 0xc4c.
   The `ld` at 0xb94 loads 8 bytes from [ret(findfpreg)+88]:8 +0xa8.
   The `lbu` at 0xba4 loads 1 byte from ret(findfpreg) +0x69.
   The `lw` at 0xba8 loads 4 bytes from ret(findfpreg) +0x60.
   The `lhu` at 0xbe8 loads 2 bytes from ret(anon_pfind) +0x14.
   The `sh` at 0xbfc stores 2 bytes to ret(anon_pfind) +0x14.
-  The `ld` at 0xc3c loads 8 bytes from [[a0+32]:8]:8 +0x230.
   The `ld` at 0xc40 loads 8 bytes from ret(findattr_range_noclip) +0x20.
-  The `ld` at 0xc4c loads 8 bytes from [[[a0+32]:8]:8+560]:8 +0x0.
   3 such `sw` accesses store 4 bytes to ?, including `sw` at 0xc74, `sw` at 0xc78, `sw` at 0xc7c.
   The `sd` at 0xc80 stores 8 bytes to ?.
   The `lw` at 0xc94 loads 4 bytes from ret(findfpreg) +0x6c.
@@ -75754,20 +75716,20 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x9e4 calls kmem_zalloc with a0=(((a5 << 0x2) + a5) << 0x3), a1=0x0, a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xa38 calls mraccessf with a0=[[a0+32]:8]:8+32, a1=0x0, a2=?, a3=?, a5=(a2 + a3)+16383.
   The `jal` at 0xa78 calls mrunlock with a0=[ret(findfpreg)+88]:8, a1=?, a2=?, a3=?.
-  The `jal` at 0xaa8 calls findfpreg with a0=[[a0+32]:8]:8, a1=a1 at entry (arg1), a2=?, a3=?.
+  The `jal` at 0xaa8 calls findfpreg with a0=?, a1=a1 at entry (arg1), a2=?, a3=?.
   The `jal` at 0xae4 calls mrupdatef with a0=[ret(findfpreg)+88]:8, a1=0x0, a2=?, a3=[ret(findfpreg)+48]:8.
-  The `jal` at 0xb38 calls pmap_ptes with a0=[[a0+32]:8]:8, a1=[ret(findfpreg)+136]:8, a2=?, a3=sp-240, a4=0x1.
+  The `jal` at 0xb38 calls pmap_ptes with a0=?, a1=[ret(findfpreg)+136]:8, a2=?, a3=sp-240, a4=0x1.
   The `jal` at 0xbc4 calls anon_pfind with a0=[[ret(findfpreg)+88]:8+168]:8, a1=?, a2=sp-232, a3=sp-224, a5=[ret(findfpreg)+105]:1.
   The `jal` at 0xbe0 calls mutex_bitlock with a0=ret(anon_pfind)+16, a1=0x8000000, a2=?, a3=?.
-  The `jal` at 0xc08 calls mutex_bitunlock with a0=ret(anon_pfind)+16, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
+  The `jal` at 0xc08 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=?, a3=?.
   The `jal` at 0xc14 calls pagefreeanon_size with a0=ret(anon_pfind), a1=0x1, a2=?, a3=?.
   The `jal` at 0xc30 calls findattr_range_noclip with a0=ret(findfpreg), a1=?, a2=?, a3=?.
-  The `jal` at 0xc48 calls pmo_ns_pmo_lookup with a0=[[[[a0+32]:8]:8+560]:8]:8, a1=0x4, a2=[ret(findattr_range_noclip)+32]:8, a3=?.
+  The `jal` at 0xc48 calls pmo_ns_pmo_lookup with a0=?, a1=0x4, a2=[ret(findattr_range_noclip)+32]:8, a3=?.
   The `jal` at 0xcb8 calls bitlock_acquire with a0=?, a1=0x2000000000000000, a2=?, a3=?.
-  The `jal` at 0xd30 calls mrunlock with a0=[[a0+32]:8]:8+32, a1=?, a2=?, a3=?.
+  The `jal` at 0xd30 calls mrunlock with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xd54 calls get_current_abi with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xd80 calls xlate_copyout with a0=ret(kmem_zalloc), a1=a4 at entry (arg4), a2=?, a3=sym(pm_pginfo_to_irix5), a4=ret(get_current_abi), a5=0x4.
-  The `jal` at 0xd98 calls kmem_free with a0=ret(kmem_zalloc), a1=(((a5 << 0x2) + a5) << 0x3), a2=?, a3=?.
+  The `jal` at 0xd80 calls xlate_copyout with a0=?, a1=a4 at entry (arg4), a2=?, a3=sym(pm_pginfo_to_irix5), a4=ret(get_current_abi), a5=0x4.
+  The `jal` at 0xd98 calls kmem_free with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xdc4 calls mrunlock with a0=[ret(findfpreg)+88]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xdf0 calls assfail with a0=sym(.rodata), a1=sym(.rodata), a2=0x2f9, a3=?.
   The `blez` branch at 0x990 targets 0xda8, is taken when a5 <= 0 (signed), and falls through when a5 > 0 (signed).
@@ -76649,13 +76611,12 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.22/usr/cpu/sysgen/IP30boot/numa.a(afflink.o)`.
   Range: 0x0-0x70 (112 bytes).
   It occupies 112 bytes.
-  3 such `ld` accesses load 8 bytes from ?, including `ld` at 0x20, `ld` at 0x24, `ld` at 0x30.
+  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0x20, `ld` at 0x24, `ld` at 0x30.
   The `ld` at 0x34 loads 8 bytes from ret(aspm_getdefaultpm_func) +0x28.
-  The `ld` at 0x58 loads 8 bytes from ret(aspm_getdefaultpm_func) +0x8.
   The `jal` at 0x14 calls as_lookup_current with a0=sp-48, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x2c calls aspm_getdefaultpm_func with a0=?, a1=0x2, a2=?, a3=?.
   The `jalr` at 0x48 calls (unknown callee) with a0=ret(aspm_getdefaultpm_func), a1=0x0, a2=a0 at entry (arg0), a3=a1 at entry (arg1), a4=[ret(aspm_getdefaultpm_func)+40]:8.
-  The `jalr` at 0x5c calls (unknown callee) with a0=ret(aspm_getdefaultpm_func), a1=?, a2=?, a3=?, a5=[ret(aspm_getdefaultpm_func)+8]:8.
+  The `jalr` at 0x5c calls (unknown callee) with a0=?, a1=?, a2=?, a3=?.
   The return at 0x68 has v0 = ret(?).
 - `kthread_afflink_error` in `6.5.22/usr/cpu/sysgen/IP30boot/numa.a(afflink.o)` at 0x70 (n64).
   Evidence grade: inferred.
@@ -76689,12 +76650,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x14c loads 4 bytes from [ret(pmo_ns_it_getnext)+8]:8 +0x18.
   The `jal` at 0x104 calls getpmo_ns with a0=[a1]:8, a1=[a1+8]:8, a2=[a1+16]:8, a3=a3 at entry (arg3).
   The `jal` at 0x118 calls mutex_spinlock with a0=ret(getpmo_ns)+56, a1=?, a2=?, a3=?.
-  The `jal` at 0x128 calls pmo_ns_it_init with a0=sp-80, a1=ret(getpmo_ns), a2=?, a3=?.
+  The `jal` at 0x128 calls pmo_ns_it_init with a0=sp-80, a1=?, a2=?, a3=?.
   The `jal` at 0x134 calls pmo_ns_it_getnext with a0=sp-80, a1=?, a2=?, a3=?.
   The `jal` at 0x158 calls pmo_ns_it_getnext with a0=sp-80, a1=?, a2=?, a3=?.
-  The `jal` at 0x174 calls mutex_spinunlock with a0=ret(getpmo_ns)+56, a1=ret(mutex_spinlock), a2=?, a3=?, a4=0x4.
+  The `jal` at 0x174 calls mutex_spinunlock with a0=?, a1=?, a2=?, a3=?, a4=0x4.
   The `jal` at 0x184 calls relpmo_ns with a0=[a1]:8, a1=[a1+8]:8, a2=[a1+16]:8, a3=?.
-  The `jal` at 0x19c calls pm_contains_mld with a0=[ret(pmo_ns_it_getnext)+8]:8, a1=[a0+608]:8, a2=?, a3=?, a4=0x4.
+  The `jal` at 0x19c calls pm_contains_mld with a0=[ret(pmo_ns_it_getnext)+8]:8, a1=?, a2=?, a3=?, a4=0x4.
   The `jal` at 0x1ac calls pm_decusg with a0=[ret(pmo_ns_it_getnext)+8]:8, a1=?, a2=?, a3=?.
   The `beq` branch at 0xe8 targets 0x18c, is taken when at(=[a1]:8) == v0(=0xf), and falls through when at(=[a1]:8) != v0(=0xf).
   The `beq` branch at 0xf4 targets 0x18c, is taken when v1(=[a0+608]:8) == 0, and falls through when v1(=[a0+608]:8) != 0.
@@ -77677,9 +77638,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x83c calls cap_able with a0=0x2000000000, a1=?, a2=?, a3=?.
   The `jal` at 0x850 calls copyin with a0=a2 at entry (arg2), a1=sp-80, a2=0x10, a3=?.
   The `jal` at 0x878 calls pcibr_device_slot_get with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x898 calls pcibr_priority_bits_set with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x1, a3=?.
+  The `jal` at 0x898 calls pcibr_priority_bits_set with a0=?, a1=?, a2=0x1, a3=?.
   The `jal` at 0x8a8 calls pcibr_device_slot_get with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x8c8 calls pcibr_priority_bits_set with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x0, a3=0xff.
+  The `jal` at 0x8c8 calls pcibr_priority_bits_set with a0=?, a1=?, a2=0x0, a3=0xff.
   The `beq` branch at 0x7b0 targets 0x80c, is taken when s0(=a1) == at(=0x6701), and falls through when s0(=a1) != at(=0x6701).
   The `beq` branch at 0x7bc targets 0x83c, is taken when s0(=a1) == v0(=0x6702), and falls through when s0(=a1) != v0(=0x6702).
   The `beq` branch at 0x7c8 targets 0x7fc, is taken when s0(=a1) == v1(=0x7001), and falls through when s0(=a1) != v1(=0x7001).
@@ -77824,7 +77785,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xfb0 calls pciio_info_get with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `jal` at 0xfc4 calls pciio_info_mfast_get with a0=ret(pciio_info_get), a1=?, a2=?, a3=?.
   The `jal` at 0xfd4 calls mutex_spinlock with a0=ret(pciio_info_mfast_get)+128, a1=?, a2=?, a3=?.
-  The `jal` at 0x1260 calls mutex_io_spinunlock with a0=ret(pciio_info_mfast_get)+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?.
+  The `jal` at 0x1260 calls mutex_io_spinunlock with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1368 calls sprintf with a0=sp-736, a1=sym(.rodata), a2=entry(sym(pci_space)), a3=sym(.rodata), a4=sym(.rodata), a5=sym(.rodata), a6=sym(.rodata), a7=sym(.rodata).
   The `jal` at 0x1450 calls sprintf with a0=sp-736, a1=sym(.rodata), a2=entry(sym(pci_space)), a3=?.
   The `jal` at 0x1690 calls sprintf with a0=sp-736, a1=sym(.rodata), a2=entry(sym(pci_space)), a3=?.
@@ -78022,9 +77983,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `sb` at 0x1e68 stores 1 byte to ?.
   The `jal` at 0x1dfc calls pcibr_info_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x1e14 calls mutex_spinlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?.
-  The `jal` at 0x1e6c calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?, a6=sym(.rodata).
+  The `jal` at 0x1e6c calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?, a6=sym(.rodata).
   The `jal` at 0x1ea0 calls cmn_err with a0=0x4, a1=sym(.rodata), a2=a2 at entry (arg2), a3=a3 at entry (arg3), a6=sym(.rodata).
-  The `jal` at 0x1eac calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?.
+  The `jal` at 0x1eac calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?.
   The `jal` at 0x1ec4 calls hwgraph_vertex_name_get with a0=a0 at entry (arg0), a1=sp-1088, a2=0x400, a3=?.
   The `jal` at 0x1ed4 calls cmn_err with a0=0x4, a1=sym(.rodata), a2=?, a3=?.
   The `jal` at 0x1eec calls cmn_err with a0=0x4, a1=sym(.rodata), a2=sp-1088, a3=a3 at entry (arg3).
@@ -78804,8 +78765,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0x49ac loads 8 bytes from a0 (arg0 at entry) +0x8.
   5 such `lw` accesses load 4 bytes from ?, including `lw` at 0x49e0, `lw` at 0x4b14, `lw` at 0x4b54.
   2 such `sw` accesses store 4 bytes to a1 (arg1 at entry) +0x0, including `sw` at 0x4a18, `sw` at 0x4acc.
-  2 such `ll` accesses load 4 bytes from (a0 + ([a1+8]:1 << 0x7)) +0x16c, including `ll` at 0x4a24, `ll` at 0x4ad0.
-  2 such `sc` accesses store 4 bytes to (a0 + ([a1+8]:1 << 0x7)) +0x16c, including `sc` at 0x4a30, `sc` at 0x4adc.
+  2 such `ll` accesses load 4 bytes from ?, including `ll` at 0x4a24, `ll` at 0x4ad0.
+  2 such `sc` accesses store 4 bytes to ?, including `sc` at 0x4a30, `sc` at 0x4adc.
   The `ld` at 0x4aec loads 8 bytes from a1 (arg1 at entry) +0x18.
   The `ld` at 0x4b24 loads 8 bytes from ?.
   3 such `sw` accesses store 4 bytes to ?, including `sw` at 0x4b28, `sw` at 0x4b34, `sw` at 0x4b64.
@@ -78815,7 +78776,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x4a40 calls mutex_io_spinunlock with a0=a0+128, a1=?, a2=?, a3=?.
   The `jal` at 0x4a48 calls pcireg_tflush_get with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `jal` at 0x4a84 calls mutex_spinlock with a0=a0+128, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3), a6=[a1], a7=0x40000000.
-  The `jal` at 0x4ae8 calls xtalk_dmamap_done with a0=[a1+24]:8, a1=(a0 + ([a1+8]:1 << 0x7))+364, a2=(a0 + ([a1+8]:1 << 0x7)), a3=([a1+8]:1 << 0x7), a4=-0x1.
+  The `jal` at 0x4ae8 calls xtalk_dmamap_done with a0=[a1+24]:8, a1=?, a2=?, a3=?, a4=-0x1.
   The `jal` at 0x4b88 calls pcireg_wrb_flush_get with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `beq` branch at 0x491c targets 0x4a78, is taken when at(=[a0+114]:2) == 0, and falls through when at(=[a0+114]:2) != 0.
   The `blez` branch at 0x4924 targets 0x4978, is taken when s3(=a3) <= 0 (signed), and falls through when s3(=a3) > 0 (signed).
@@ -78830,11 +78791,11 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x49cc targets 0x4a04, is taken when s1(?) >= a0(=[a0+57]:1+1) (signed), and falls through when s1(?) < a0(=[a0+57]:1+1) (signed).
   The `bne` branch at 0x49e8 targets 0x49ac, is taken when (a3(?) & 0x4) != 0, and falls through when (a3(?) & 0x4) == 0.
   The `bne` branch at 0x49fc targets 0x49d4, is taken when s1(?) < a0(=[a0+57]:1+1) (signed), and falls through when s1(?) >= a0(=[a0+57]:1+1) (signed).
-  The `beql` branch at 0x4a34 targets 0x4a24, is taken when at(=[(a0 + ([a1+8]:1 << 0x7))+364]+1) == 0, and falls through when at(=[(a0 + ([a1+8]:1 << 0x7))+364]+1) != 0; its branch-likely delay slot `nop` at 0x4a38 runs only when taken and is annulled on fall-through.
+  The `beql` branch at 0x4a34 targets 0x4a24, is taken when at(=table(0x1)) == 0, and falls through when at(=table(0x1)) != 0; its branch-likely delay slot `nop` at 0x4a38 runs only when taken and is annulled on fall-through.
   The `bgez` branch at 0x4a7c targets 0x4924, is taken when ra(=([a1] << 0x21)) >= 0 (signed), and falls through when ra(=([a1] << 0x21)) < 0 (signed).
   The `beq` branch at 0x4ab8 targets 0x4af0, is taken when (a0(=[a1]) & a6(=0xffffffff80000000)) == 0, and falls through when (a0(=[a1]) & a6(=0xffffffff80000000)) != 0.
   The `beq` branch at 0x4ac8 targets 0x4ae8, is taken when (a5(=0x40000000) & a0(?)) == 0, and falls through when (a5(=0x40000000) & a0(?)) != 0.
-  The `beql` branch at 0x4ae0 targets 0x4ad0, is taken when a7(=[(a0 + ([a1+8]:1 << 0x7))+364]-1) == 0, and falls through when a7(=[(a0 + ([a1+8]:1 << 0x7))+364]-1) != 0; its branch-likely delay slot `nop` at 0x4ae4 runs only when taken and is annulled on fall-through.
+  The `beql` branch at 0x4ae0 targets 0x4ad0, is taken when a7(=table(-0x1)) == 0, and falls through when a7(=table(-0x1)) != 0; its branch-likely delay slot `nop` at 0x4ae4 runs only when taken and is annulled on fall-through.
   The `beq` branch at 0x4b04 targets 0x4924, is taken when s6(=[a0+56]:1) >= a0(=[a0+57]:1+1) (signed), and falls through when s6(=[a0+56]:1) < a0(=[a0+57]:1+1) (signed).
   The `beq` branch at 0x4b0c targets 0x4bdc and is always taken.
   The `beq` branch at 0x4b1c targets 0x4b34, is taken when (a6(?) & 0x4) == 0, and falls through when (a6(?) & 0x4) != 0.
@@ -79447,7 +79408,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x6fcc calls kmem_zalloc with a0=0x8, a1=0x0, a2=?, a3=?.
   The `jal` at 0x6fec calls hwgraph_info_add_LBL with a0=?, a1=sym(.rodata)+4040, a2=ret(kmem_zalloc), a3=?.
   The `jal` at 0x7000 calls hwgraph_info_get_LBL with a0=?, a1=sym(.rodata)+4040, a2=sp-64, a3=?.
-  The `jal` at 0x7018 calls kmem_free with a0=ret(kmem_zalloc), a1=0x8, a2=?, a3=ret(kmem_zalloc).
+  The `jal` at 0x7018 calls kmem_free with a0=?, a1=0x8, a2=?, a3=?.
   The `jal` at 0x7034 calls pcibr_debug with a0=0x2, a1=a0 at entry (arg0), a2=sym(.rodata)+4040, a3=?.
   The `jal` at 0x7050 calls pcibr_debug with a0=0x2, a1=a0 at entry (arg0), a2=sym(.rodata)+4040, a3=?, a5=-0x1.
   The `jal` at 0x706c calls pcibr_debug with a0=0x2, a1=a0 at entry (arg0), a2=sym(.rodata)+4040, a3=?.
@@ -79455,7 +79416,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x6f94 targets 0x7044, is taken when a5(=-0x1) == a0(?), and falls through when a5(=-0x1) != a0(?).
   The `beq` branch at 0x6fac targets 0x6fcc, is taken when v0(?) == 0, and falls through when v0(?) != 0.
   The `beq` branch at 0x6fd4 targets 0x7060, is taken when v0(=ret(kmem_zalloc)) == 0, and falls through when v0(=ret(kmem_zalloc)) != 0.
-  The `beq` branch at 0x7010 targets 0x6fb8, is taken when a2(?) == a3(=ret(kmem_zalloc)), and falls through when a2(?) != a3(=ret(kmem_zalloc)).
+  The `beq` branch at 0x7010 targets 0x6fb8, is taken when a2(?) == a3(?), and falls through when a2(?) != a3(?).
   The `beq` branch at 0x7024 targets 0x707c, is taken when a4(?) == 0, and falls through when a4(?) != 0.
   The `beq` branch at 0x703c targets 0x6fb4 and is always taken.
   The `beq` branch at 0x7058 targets 0x6fbc and is always taken.
@@ -79725,7 +79686,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xb53c loads 8 bytes from [ret(pcibr_info_get)+40]:8 +0x8.
   The `jal` at 0xb52c calls pcibr_info_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xb544 calls pcibr_config_addr with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=?, a3=?.
-  The `jal` at 0xb558 calls pcibr_probe_slot with a0=[[ret(pcibr_info_get)+40]:8+8]:8, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
+  The `jal` at 0xb558 calls pcibr_probe_slot with a0=?, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
   The `beq` branch at 0xb560 targets 0xb574, is taken when v0(=ret(pcibr_probe_slot)) == 0, and falls through when v0(=ret(pcibr_probe_slot)) != 0.
   The `beq` branch at 0xb574 targets 0xb56c and is always taken.
   The return at 0xb56c has v0 = one of -0x1, ?.
@@ -79825,35 +79786,32 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc790 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x100.
   The `ld` at 0xc798 loads 8 bytes from ret(hwgraph_fastinfo_get) +0x8.
   The `lw` at 0xc7d8 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x110.
-  2 such `ld` accesses load 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118, including `ld` at 0xc800, `ld` at 0xcbb8.
+  The `ld` at 0xc800 loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
   5 such `lh` accesses load 2 bytes from ret(hwgraph_fastinfo_get) +0x72, including `lh` at 0xc85c, `lh` at 0xc9a0, `lh` at 0xca80.
-  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc890, `lw` at 0xc91c, `lw` at 0xca3c.
+  6 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc890, `lw` at 0xc91c, `lw` at 0xca3c.
   3 such `sd` accesses store 8 bytes to ?, including `sd` at 0xc898, `sd` at 0xc8a0, `sd` at 0xcac4.
-  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0xc90c, `ld` at 0xca24, `ld` at 0xca28.
+  6 such `ld` accesses load 8 bytes from ?, including `ld` at 0xc90c, `ld` at 0xca24, `ld` at 0xca28.
   The `ld` at 0xc9dc loads 8 bytes from table(sym(pci_space)) +0x0.
-  The `ld` at 0xcbbc loads 8 bytes from [(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8 +0x0.
-  The `lw` at 0xcbc0 loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8 +0x14.
-  The `lw` at 0xcbd4 loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8 +0x18.
   The `jal` at 0xc75c calls hwgraph_fastinfo_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
-  The `jal` at 0xc848 calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
+  The `jal` at 0xc848 calls do_pcibr_config_set with a0=?, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
   The `jal` at 0xc888 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10664, a3=?, a5=ret(pcibr_bus_addr_alloc).
-  The `jal` at 0xc8b0 calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?, a4=0x9004.
-  The `jal` at 0xc8e8 calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?.
-  The `jal` at 0xc938 calls pcibr_func_config_addr with a0=[ret(hwgraph_fastinfo_get)+8]:8, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
+  The `jal` at 0xc8b0 calls do_pcibr_config_get with a0=?, a1=0x4, a2=0x4, a3=?, a4=0x9004.
+  The `jal` at 0xc8e8 calls do_pcibr_config_set with a0=?, a1=0x4, a2=0x4, a3=?.
+  The `jal` at 0xc938 calls pcibr_func_config_addr with a0=?, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
   The `jal` at 0xc950 calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr), a1=0xe, a2=0x1, a3=?.
   The `jal` at 0xc9d8 calls sprintf with a0=sp-464, a1=sym(.rodata)+10664, a2=?, a3=?, a5=entry(sym(pci_space)).
   The `jal` at 0xc9f0 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10664, a3=sp-464.
   The `jal` at 0xcaa4 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10664, a3=?, a6=0x4, a7=0xff.
-  The `jal` at 0xcac0 calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=?.
+  The `jal` at 0xcac0 calls do_pcibr_config_set with a0=?, a1=?, a2=0x4, a3=?.
   The `jal` at 0xcb34 calls sprintf with a0=sp-464, a1=sym(.rodata)+10664, a2=?, a3=?.
   The `jal` at 0xcb4c calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10664, a3=sp-464.
   The `jal` at 0xcb8c calls sprintf with a0=sp-464, a1=sym(.rodata)+10664, a2=?, a3=?, a7=0xff.
   The `jal` at 0xcba4 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10664, a3=sp-464.
-  The `jal` at 0xcbf8 calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
-  The `jal` at 0xcc08 calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=?.
+  The `jal` at 0xcbf8 calls do_pcibr_config_set with a0=?, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
+  The `jal` at 0xcc08 calls do_pcibr_config_get with a0=?, a1=0x0, a2=0x4, a3=?.
   The `jal` at 0xcc34 calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xcc90 calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x2, a3=0x0, a6=0x4, a7=0xff.
-  The `jal` at 0xccbc calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=0xff, a4=[sym(pcibr_debug_mask)], a6=0x4, a7=0xff.
+  The `jal` at 0xccbc calls do_pcibr_config_get with a0=?, a1=?, a2=0x4, a3=0xff, a4=[sym(pcibr_debug_mask)], a6=0x4, a7=0xff.
   The `jal` at 0xcce4 calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xcd34 calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x4, a3=0x0.
   The `beq` branch at 0xc768 targets 0xcd58, is taken when v0(=ret(hwgraph_fastinfo_get)) == 0, and falls through when v0(=ret(hwgraph_fastinfo_get)) != 0.
@@ -79868,7 +79826,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc860 targets 0xc86c, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xc89c targets 0xcc68, is taken when a3(?) == a4(=0x9004), and falls through when a3(?) != a4(=0x9004).
   The `beq` branch at 0xc8cc targets 0xc8f0, is taken when (a5(?) & a6(?)) == 0, and falls through when (a5(?) & a6(?)) != 0.
-  The `beq` branch at 0xc8fc targets 0xcd08, is taken when s4(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed), and falls through when s4(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed).
+  The `beq` branch at 0xc8fc targets 0xcd08, is taken when s4(?) >= a4(?) (signed), and falls through when s4(?) < a4(?) (signed).
   The `beq` branch at 0xc914 targets 0xc8f0, is taken when s5(?) == 0, and falls through when s5(?) != 0.
   The `beq` branch at 0xc920 targets 0xc8f4, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `blez` branch at 0xc978 targets 0xcbb4, is taken when t1(=one of 0x2, 0x6) <= 0 (signed), and falls through when t1(=one of 0x2, 0x6) > 0 (signed).
@@ -79876,7 +79834,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc990 targets 0xc9fc, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xc998 targets 0xcc50, is taken when t3(=0xff) == s3(=a1), and falls through when t3(=0xff) != s3(=a1).
   The `beq` branch at 0xc9a4 targets 0xc9b0, is taken when t8(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when t8(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
-  The `beq` branch at 0xca18 targets 0xcbb4, is taken when s0(?) >= a3(=one of 0x2, 0x6) (signed), and falls through when s0(?) < a3(=one of 0x2, 0x6) (signed).
+  The `beq` branch at 0xca18 targets 0xcbb4, is taken when s0(?) >= a3(?) (signed), and falls through when s0(?) < a3(?) (signed).
   The `beq` branch at 0xca40 targets 0xc9f8, is taken when s1(?) == 0, and falls through when s1(?) != 0.
   The `beq` branch at 0xca4c targets 0xc990, is taken when a6(?) >= s1(?) (unsigned), and falls through when a6(?) < s1(?) (unsigned).
   The `beq` branch at 0xca68 targets 0xcc80, is taken when s2(?) == s7(=0x2), and falls through when s2(?) != s7(=0x2).
@@ -79891,8 +79849,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xcb5c targets 0xcc60, is taken when a3(=0xff) == s3(=a1), and falls through when a3(=0xff) != s3(=a1).
   The `beq` branch at 0xcb68 targets 0xcb74, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xcbac targets 0xc9fc and is always taken.
-  The `bne` branch at 0xcbcc targets 0xcbe0, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+20]) != a4(=0x10a9), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+20]) == a4(=0x10a9).
-  The `beq` branch at 0xcbdc targets 0xc890, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+24]) == a4(=0x3), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+24]) != a4(=0x3).
+  The `bne` branch at 0xcbcc targets 0xcbe0, is taken when a3(?) != a4(=0x10a9), and falls through when a3(?) == a4(=0x10a9).
+  The `beq` branch at 0xcbdc targets 0xc890, is taken when a3(?) == a4(=0x3), and falls through when a3(?) != a4(=0x3).
   The `beq` branch at 0xcc14 targets 0xc890, is taken when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) == 0, and falls through when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) != 0.
   The `bne` branch at 0xcc3c targets 0xc83c, is taken when v0(=ret(pcibr_bus_addr_alloc)) != 0, and falls through when v0(=ret(pcibr_bus_addr_alloc)) == 0.
   The `beq` branch at 0xcc48 targets 0xc890 and is always taken.
@@ -79912,7 +79870,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xcd88 targets 0xcd08 and is always taken.
   The `beq` branch at 0xcd98 targets 0xca24 and is always taken.
   The `beq` branch at 0xcda4 targets 0xc908 and is always taken.
-  The return at 0xc7b8 has v0 = one of 0x0, 0x16, 0x1c.
+  The return at 0xc7b8 has v0 = one of ?, 0x16.
 - `pcibr_slot_guest_info_init` in `6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o` at 0xcea0 (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.22/usr/cpu/sysgen/IP30boot/pcibr.o`.
@@ -79952,17 +79910,15 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xd034 loads 4 bytes from ret(hwgraph_fastinfo_get) +0x0.
   The `lw` at 0xd044 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x110.
   The `ld` at 0xd048 loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
-  The `sw` at 0xd0a0 stores 4 bytes to ?.
+  3 such `sw` accesses store 4 bytes to ?, including `sw` at 0xd0a0, `sw` at 0xd184, `sw` at 0xd1b0.
   The `ld` at 0xd0c8 loads 8 bytes from ?.
-  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xd0d8, `lw` at 0xd0e8.
+  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xd0d8, `lw` at 0xd0e8, `lw` at 0xd178.
   The `lh` at 0xd130 loads 2 bytes from ret(hwgraph_fastinfo_get) +0x72.
-  2 such `lw` accesses load 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x10c, including `lw` at 0xd178, `lw` at 0xd198.
-  2 such `sw` accesses store 4 bytes to (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x10c, including `sw` at 0xd184, `sw` at 0xd1b0.
   The `jal` at 0xcfcc calls hwgraph_fastinfo_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xd030 calls async_attach_get_info with a0=[ret(hwgraph_fastinfo_get)], a1=?, a2=?, a3=?.
   The `jal` at 0xd090 calls pcibr_debug with a0=0x2000, a1=a0 at entry (arg0), a2=sym(.rodata)+10664, a3=?, a5=a2 at entry (arg2), a6=ret(pciio_device_attach).
-  The `jal` at 0xd0f0 calls device_admin_info_get with a0=?, a1=sym(.rodata)+10664, a2=?, a3=?, a4=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272].
-  The `jal` at 0xd10c calls async_attach_add_info with a0=?, a1=ret(async_attach_get_info), a2=ret(async_attach_get_info), a3=?.
+  The `jal` at 0xd0f0 calls device_admin_info_get with a0=?, a1=sym(.rodata)+10664, a2=?, a3=?.
+  The `jal` at 0xd10c calls async_attach_add_info with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xd118 calls pciio_device_attach with a0=?, a1=a2 at entry (arg2), a2=?, a3=?.
   The `jal` at 0xd1c0 calls vertex_to_name with a0=?, a1=sp-384, a2=0x100, a3=?.
   The `jal` at 0xd1d4 calls cmn_err with a0=0x4, a1=sym(.rodata)+10664, a2=sp-384, a3=?.
@@ -79972,11 +79928,11 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xd028 targets 0xd010 and is always taken.
   The `blez` branch at 0xd05c targets 0xd1b4, is taken when t8(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) <= 0 (signed), and falls through when t8(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) > 0 (signed).
   The `beq` branch at 0xd06c targets 0xd1e4 and is always taken.
-  The `beq` branch at 0xd0b8 targets 0xd144, is taken when s2(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed), and falls through when s2(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed).
+  The `beq` branch at 0xd0b8 targets 0xd144, is taken when s2(?) >= a4(?) (signed), and falls through when s2(?) < a4(?) (signed).
   The `beq` branch at 0xd0d0 targets 0xd0ac, is taken when s4(?) == 0, and falls through when s4(?) != 0.
   The `beq` branch at 0xd0dc targets 0xd0b0, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `bne` branch at 0xd0f8 targets 0xd1bc, is taken when v0(=ret(device_admin_info_get)) != 0, and falls through when v0(=ret(device_admin_info_get)) == 0.
-  The `beq` branch at 0xd104 targets 0xd114, is taken when a2(=ret(async_attach_get_info)) == 0, and falls through when a2(=ret(async_attach_get_info)) != 0.
+  The `beq` branch at 0xd104 targets 0xd114, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xd128 targets 0xd074, is taken when a0(=0xff) == s0(=a1), and falls through when a0(=0xff) != s0(=a1).
   The `bne` branch at 0xd134 targets 0xd074, is taken when a3(=[ret(hwgraph_fastinfo_get)+114]:2) != a4(=0x2), and falls through when a3(=[ret(hwgraph_fastinfo_get)+114]:2) == a4(=0x2).
   The `beq` branch at 0xd13c targets 0xd074 and is always taken.
@@ -84505,10 +84461,10 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xf14 calls xwidget_name_get with a0=ret(xbow_widget_lookup), a1=?, a2=?, a3=?.
   The `jal` at 0xf30 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=[a0+24]:8, a3=?, a4=ret(xwidget_name_get).
   The `jal` at 0x1004 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+84].
-  The `jal` at 0x1018 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+36].
-  The `jal` at 0x102c calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+68].
-  The `jal` at 0x1040 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+20].
-  The `jal` at 0x1054 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+28].
+  The `jal` at 0x1018 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
+  The `jal` at 0x102c calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
+  The `jal` at 0x1040 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
+  The `jal` at 0x1054 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
   The `jal` at 0x1080 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
   The `jal` at 0x1090 calls cmn_err_tag with a0=0x8, a1=0x0, a2=sym(.rodata), a3=?.
   The `jal` at 0x10b0 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=[a0+24]:8, a3=?.
@@ -85632,8 +85588,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x450 loads 4 bytes from a0 (arg0 at entry) +0x18.
   2 such `lw` accesses load 4 bytes from a0 (arg0 at entry) +0x4, including `lw` at 0x4c0, `lw` at 0x4ec.
   The `sw` at 0x4f8 stores 4 bytes to a0 (arg0 at entry) +0x4.
-  The `lw` at 0x500 loads 4 bytes from [a0+24] +0x140.
-  The `sw` at 0x510 stores 4 bytes to [a0+24] +0x140.
+  The `lw` at 0x500 loads 4 bytes from ?.
+  The `sw` at 0x510 stores 4 bytes to ?.
   The `jal` at 0x47c calls gfxdd_recycle with a0=sym(crime_regmatch), a1=a0 at entry (arg0), a2=a1 at entry (arg1), a3=0x86000.
   The `jal` at 0x4d4 calls gfxdd_mmap with a0=?, a1=0x86000, a2=?, a3=sym(gfx_fault), a4=a0 at entry (arg0), a5=sp-64, a6=0x1, a7=a0+28.
   The `beq` branch at 0x458 targets 0x470, is taken when (a1 & 0xfff) == 0, and falls through when (a1 & 0xfff) != 0.
@@ -87830,7 +87786,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x52ac calls i2cfp_PanelOff with a0=[sym(crimeBoards+4)], a1=?, a2=?, a3=?.
   The `jal` at 0x52bc calls crmFreeChunk with a0=sym(crmFrameBuffer), a1=?, a2=?, a3=?.
   The `jal` at 0x52e0 calls i2cfp_DMI2_BkltFuncs with a0=[sym(crimeBoards+4)], a1=0x10, a2=0x0, a3=0x0, a4=0x0, a5=0x84, a6=[sym(.bss)+2846]:1.
-  The `jal` at 0x52f8 calls crmRetraceCloseAllRn with a0=[sym(crimeBoards+12)], a1=?, a2=?, a3=?.
+  The `jal` at 0x52f8 calls crmRetraceCloseAllRn with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x5324 calls i2cfp_DMI2_BkltFuncs with a0=[sym(crimeBoards+4)], a1=0x10, a2=0x0, a3=0x0, a4=0x0.
   The `jal` at 0x5340 calls cmn_err with a0=0x4, a1=sym(.rodata)+520, a2=?, a3=?.
   The `jal` at 0x5354 calls cmn_err with a0=0x4, a1=sym(.rodata)+520, a2=?, a3=?.
@@ -89542,10 +89498,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x1e40 loads 4 bytes from sym(crmFrameBuffer) +0x4.
   21 such `sw` accesses store 4 bytes to ?, including `sw` at 0x1e84, `sw` at 0x1e94, `sw` at 0x1e98.
   26 such `lw` accesses load 4 bytes from ?, including `lw` at 0x1e8c, `lw` at 0x1ebc, `lw` at 0x1ee4.
-  2 such `lbu` accesses load 1 byte from ?, including `lbu` at 0x1eac, `lbu` at 0x1ed0.
+  3 such `lbu` accesses load 1 byte from ?, including `lbu` at 0x1eac, `lbu` at 0x1ed0, `lbu` at 0x20ec.
   2 such `sb` accesses store 1 byte to ?, including `sb` at 0x1efc, `sb` at 0x1f44.
   2 such `lw` accesses load 4 bytes from [a0+24] +0x0, including `lw` at 0x1fb0, `lw` at 0x1ff8.
-  The `lbu` at 0x20ec loads 1 byte from [[a0+24]+140] +0x39.
   The `jal` at 0x1d1c calls init_sema with a0=sym(crmswapsema), a1=0x0, a2=sym(.rodata)+40, a3=-0x1.
   The `jal` at 0x1d24 calls semahistoff with a0=sym(crmswapsema), a1=?, a2=?, a3=?.
   The `jal` at 0x1d60 calls crmLoadTlbABC with a0=[a0+24], a1=sym(crmFrameBuffer), a2=0x0, a3=?.
@@ -90917,7 +90872,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `sw` at 0x15d8 stores 4 bytes to a2 (arg2 at entry) +0xc.
   The `jal` at 0x143c calls kern_malloc with a0=0x28, a1=?, a2=?, a3=?.
   The `jal` at 0x144c calls bzero with a0=ret(kern_malloc), a1=0x28, a2=?, a3=?.
-  The `jal` at 0x1464 calls crmAllocChunk with a0=ret(kern_malloc), a1=[a2+4], a2=one of 0x2, 0x22, a3=one of 0x6, 0x7.
+  The `jal` at 0x1464 calls crmAllocChunk with a0=ret(kern_malloc), a1=[a2+4], a2=one of 0x2, 0x22, a3=?.
   The `jal` at 0x1480 calls kern_free with a0=[ret(kern_malloc)+8], a1=?, a2=?, a3=?.
   The `jal` at 0x1488 calls kern_free with a0=ret(kern_malloc), a1=?, a2=?, a3=?.
   The `jal` at 0x14dc calls crm_get_dms_tiles with a0=ret(kern_malloc), a1=?, a2=?, a3=a0 at entry (arg0).
@@ -91052,28 +91007,25 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x1924 loads 4 bytes from a1 (arg1 at entry) +0x30.
   The `lw` at 0x1930 loads 4 bytes from a2 (arg2 at entry) +0x0.
   The `sw` at 0x1958 stores 4 bytes to a2 (arg2 at entry) +0x0.
-  9 such `lw` accesses load 4 bytes from ?, including `lw` at 0x19c4, `lw` at 0x1a34, `lw` at 0x1a6c.
+  14 such `lw` accesses load 4 bytes from ?, including `lw` at 0x19c4, `lw` at 0x1a34, `lw` at 0x1a6c.
   4 such `sd` accesses store 8 bytes to ?, including `sd` at 0x19e8, `sd` at 0x19f8, `sd` at 0x1a10.
-  The `lw` at 0x1a88 loads 4 bytes from sym(.data) +0x0.
   2 such `lhu` accesses load 2 bytes from ?, including `lhu` at 0x1ad4, `lhu` at 0x1b28.
   2 such `sh` accesses store 2 bytes to ?, including `sh` at 0x1ae8, `sh` at 0x1b30.
-  2 such `lw` accesses load 4 bytes from [[a1+76]+32] +0x18, including `lw` at 0x1bbc, `lw` at 0x1c48.
-  2 such `lw` accesses load 4 bytes from [[[a1+76]+32]+24] +0x0, including `lw` at 0x1bcc, `lw` at 0x1c50.
   The `sw` at 0x1ccc stores 4 bytes to ?.
   The `lw` at 0x1cd4 loads 4 bytes from a0 (arg0 at entry) +0x78.
   The `sd` at 0x1d08 stores 8 bytes to ret(kmem_alloc) +0x1c0.
   The `jal` at 0x1920 calls RRM_CheckValidFault with a0=[a1+48], a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x1998 calls psema with a0=[[a1+76]+32]+16, a1=0x11a, a2=?, a3=?.
-  The `jal` at 0x1b88 calls vsema with a0=[[a1+76]+32]+16, a1=?, a2=?, a3=?.
-  The `jal` at 0x1b98 calls vsema with a0=[[a1+76]+32]+16, a1=?, a2=?, a3=?.
-  The `jal` at 0x1c2c calls crmAllocTex with a0=a0 at entry (arg0), a1=[a1+76], a2=sp-160, a3=0x1.
+  The `jal` at 0x1b88 calls vsema with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0x1b98 calls vsema with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0x1c2c calls crmAllocTex with a0=a0 at entry (arg0), a1=?, a2=sp-160, a3=0x1.
   The `jal` at 0x1c64 calls crm_get_dms_tiles with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x1c7c calls vsema with a0=[[a1+76]+32]+16, a1=?, a2=?, a3=?.
-  The `jal` at 0x1c8c calls vsema with a0=[[a1+76]+32]+16, a1=?, a2=?, a3=?.
-  The `jal` at 0x1c9c calls vsema with a0=[[a1+76]+32]+16, a1=?, a2=?, a3=?.
+  The `jal` at 0x1c7c calls vsema with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0x1c8c calls vsema with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0x1c9c calls vsema with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1cb0 calls kmem_alloc with a0=0x1d0, a1=0x900, a2=?, a3=?.
   The `jal` at 0x1cc8 calls bzero with a0=ret(kmem_alloc), a1=0x1d0, a2=?, a3=?.
-  The `jal` at 0x1d0c calls vsema with a0=[[a1+76]+32]+16, a1=?, a2=?, a3=?.
+  The `jal` at 0x1d0c calls vsema with a0=?, a1=?, a2=?, a3=?.
   The `beq` branch at 0x190c targets 0x1ba8, is taken when s4(=[a1+76]) == 0, and falls through when s4(=[a1+76]) != 0.
   The `beq` branch at 0x1918 targets 0x19b0, is taken when s1(=[[a1+76]+32]) == 0, and falls through when s1(=[[a1+76]+32]) != 0.
   The `bltz` branch at 0x1928 targets 0x1bb0, is taken when v0(=ret(RRM_CheckValidFault)) < 0 (signed), and falls through when v0(=ret(RRM_CheckValidFault)) >= 0 (signed).
@@ -91112,7 +91064,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x1ba0 targets 0x1960 and is always taken.
   The `beq` branch at 0x1ba8 targets 0x1960 and is always taken.
   The `beq` branch at 0x1bb0 targets 0x1960 and is always taken.
-  The `beq` branch at 0x1bc0 targets 0x1c04, is taken when v0(=[[[a1+76]+32]+24]) == 0, and falls through when v0(=[[[a1+76]+32]+24]) != 0.
+  The `beq` branch at 0x1bc0 targets 0x1c04, is taken when v0(?) == 0, and falls through when v0(?) != 0.
   The `beq` branch at 0x1bc8 targets 0x1be0 and is always taken.
   The `beq` branch at 0x1bd4 targets 0x1c04, is taken when v0(?) == 0, and falls through when v0(?) != 0.
   The `bne` branch at 0x1be4 targets 0x1bd0, is taken when v1(?) != a6(?), and falls through when v1(?) == a6(?).
@@ -91653,9 +91605,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xd90 calls us_delay with a0=[sym(.sdata)+80], a1=?, a2=?, a3=?.
   The `jal` at 0xdb0 calls crime_2abSendCmd with a0=a0 at entry (arg0), a1=0x1, a2=sym(.bss), a3=0x0.
   The `jal` at 0xdc4 calls crime_2abGetReply with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=sp-240, a3=?.
-  The `jal` at 0xde8 calls bcopy with a0=a1+1, a1=sp-232, a2=ret(crime_2abGetReply)-1, a3=?.
+  The `jal` at 0xde8 calls bcopy with a0=?, a1=sp-232, a2=ret(crime_2abGetReply)-1, a3=?.
   The `jal` at 0xe04 calls us_delay with a0=[sym(.sdata)+80], a1=?, a2=0xe1, a3=[a1]:1.
-  The `jal` at 0xe20 calls bcopy with a0=sp-232, a1=sym(.bss), a2=ret(crime_2abGetReply)-1, a3=?, a4=0xf2.
+  The `jal` at 0xe20 calls bcopy with a0=sp-232, a1=?, a2=?, a3=?, a4=0xf2.
   The `jal` at 0xe40 calls crime_2abSendCmd with a0=a0 at entry (arg0), a1=ret(crime_2abGetReply)+1, a2=sym(.bss), a3=0x1, a5=0x4, a6=(ret(crime_2abGetReply) + sym(.bss)).
   The `jal` at 0xe74 calls strncmp with a0=sym(.rodata)+248, a1=sp-232, a2=0x13, a3=?.
   The `jal` at 0xea4 calls us_delay with a0=[sym(.sdata)+80], a1=?, a2=?, a3=?.
@@ -92161,7 +92113,7 @@ These entries record instruction facts rendered from the routines below. They de
   Range: 0x24d0-0x255c (140 bytes).
   It occupies 140 bytes.
   The `jal` at 0x24f4 calls i2_spin_for with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=0x2, a3=0x2, a4=[sym(.sdata)+92], a5=0x0, a6=sp-48.
-  The `jal` at 0x2528 calls i2_spin_for with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=0x3, a3=0x3, a4=[sym(.sdata)+92], a5=0x0, a6=0x0.
+  The `jal` at 0x2528 calls i2_spin_for with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=0x3, a3=0x3, a5=0x0, a6=0x0.
   The `beq` branch at 0x24fc targets 0x2554, is taken when v0(=ret(i2_spin_for)) == 0, and falls through when v0(=ret(i2_spin_for)) != 0.
   The `beq` branch at 0x2508 targets 0x2544, is taken when at(?) == v0(=0x3), and falls through when at(?) != v0(=0x3).
   The `beq` branch at 0x2530 targets 0x254c, is taken when v0(=ret(i2_spin_for)) == 0, and falls through when v0(=ret(i2_spin_for)) != 0.
@@ -92308,7 +92260,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x2c88 targets 0x2c98, is taken when v0(=ret(copyout)) == 0, and falls through when v0(=ret(copyout)) != 0.
   The `beq` branch at 0x2c90 targets 0x2c38 and is always taken.
   The `beq` branch at 0x2c98 targets 0x2c38 and is always taken.
-  The return at 0x2c3c has v0 = one of -0xe, ret(i2cfp_DMI2_BkltFuncs).
+  The return at 0x2c3c has v0 = one of -0xe, ?.
 - `i2cfp_DMI2_BkltFuncs` in `6.5.22/usr/cpu/sysgen/IP32boot/crime.a(crime_i2c.o)` at 0x2ca0 (n32).
   Evidence grade: inferred.
   Exact binary: `6.5.22/usr/cpu/sysgen/IP32boot/crime.a(crime_i2c.o)`.
@@ -94003,12 +93955,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x48c calls mrupdatef with a0=sym(hwgraph_connectpt_mrlock), a1=0x0, a2=?, a3=?.
   The `jal` at 0x494 calls do_hwgraph_connectpt_get with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x4ac calls mrunlock with a0=sym(hwgraph_connectpt_mrlock), a1=?, a2=?, a3=?.
-  The `jal` at 0x4c8 calls graph_vertex_unref with a0=[sym(hwgraph)], a1=ret(do_hwgraph_connectpt_get), a2=a2 at entry (arg2), a3=?.
+  The `jal` at 0x4c8 calls graph_vertex_unref with a0=[sym(hwgraph)], a1=?, a2=a2 at entry (arg2), a3=?.
   The `jal` at 0x4f0 calls do_hwgraph_connectpt_set with a0=?, a1=-0x1, a2=?, a3=?.
   The `jal` at 0x500 calls graph_vertex_unref with a0=[sym(hwgraph)], a1=?, a2=a2 at entry (arg2), a3=a2 at entry (arg2).
   The `beq` branch at 0x468 targets 0x484, is taken when v0(=ret(graph_edge_remove)) == 0, and falls through when v0(=ret(graph_edge_remove)) != 0.
   The `beq` branch at 0x4a0 targets 0x4ec, is taken when v0(=ret(do_hwgraph_connectpt_get)) == a1(=a0), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != a1(=a0).
-  The `beq` branch at 0x4bc targets 0x4d4, is taken when v0(=ret(do_hwgraph_connectpt_get)) == a1(=-0x1), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != a1(=-0x1).
+  The `beq` branch at 0x4bc targets 0x4d4, is taken when v0(?) == a1(=-0x1), and falls through when v0(?) != a1(=-0x1).
   The `beq` branch at 0x4d8 targets 0x500, is taken when a2 == 0, and falls through when a2 != 0.
   The `beq` branch at 0x4e4 targets 0x474 and is always taken.
   The `beq` branch at 0x4f8 targets 0x4ac and is always taken.
@@ -94816,10 +94768,10 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.22/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)`.
   Range: 0x2268-0x235c (244 bytes).
   It occupies 244 bytes.
-  2 such `lw` accesses load 4 bytes from (sym(pdaindr) + (a1 << 0x3)) +0x4, including `lw` at 0x229c, `lw` at 0x2320.
+  The `lw` at 0x229c loads 4 bytes from (sym(pdaindr) + (a1 << 0x3)) +0x4.
   The `sw` at 0x22b0 stores 4 bytes to [(sym(pdaindr) + (a1 << 0x3))+4] +0x36c.
-  The `lw` at 0x2324 loads 4 bytes from [(sym(pdaindr) + (a1 << 0x3))+4] +0x38.
-  The `sw` at 0x2334 stores 4 bytes to [(sym(pdaindr) + (a1 << 0x3))+4] +0x38.
+  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0x2320, `lw` at 0x2324.
+  The `sw` at 0x2334 stores 4 bytes to ?.
   The `jal` at 0x22b8 calls graph_info_add_LBL with a0=[sym(hwgraph)], a1=a0 at entry (arg0), a2=sym(.rodata)+488, a3=0x0, a4=a1 at entry (arg1).
   The `jal` at 0x22d8 calls sprintf with a0=sp-48, a1=sym(.rodata)+504, a2=a1 at entry (arg1), a3=?.
   The `jal` at 0x22e8 calls hwgraph_edge_add with a0=[sym(.sdata)+4], a1=a0 at entry (arg0), a2=sp-48, a3=?.
@@ -95042,33 +94994,33 @@ These entries record instruction facts rendered from the routines below. They de
   The `sw` at 0x248 stores 4 bytes to a3 (arg3 at entry) +0x0.
   The `jal` at 0x1d0 calls hwgraph_traverse with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x1f8 calls hwgraph_cdevsw_get with a0=[a2], a1=?, a2=?, a3=?.
-  The `jal` at 0x204 calls hwgraph_bdevsw_get with a0=[a2], a1=?, a2=?, a3=?.
+  The `jal` at 0x204 calls hwgraph_bdevsw_get with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x250 calls strcmp with a0=a1 at entry (arg1), a1=sym(.rodata), a2=?, a3=?.
   The `jal` at 0x264 calls strcmp with a0=a1 at entry (arg1), a1=sym(.rodata)+4, a2=?, a3=?.
-  The `jal` at 0x274 calls hwgraph_connectpt_get with a0=[a2], a1=?, a2=?, a3=?.
+  The `jal` at 0x274 calls hwgraph_connectpt_get with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x280 calls hwgraph_vertex_unref with a0=ret(hwgraph_connectpt_get), a1=?, a2=?, a3=?.
   The `jal` at 0x2c0 calls hwgraph_edge_get_next with a0=a0 at entry (arg0), a1=sp-328, a2=sp-72, a3=sp-336.
   The `jal` at 0x2d8 calls hwgraph_vertex_unref with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x2e4 calls strcmp with a0=sp-328, a1=a1 at entry (arg1), a2=?, a3=?.
   The `beq` branch at 0x1d8 targets 0x1f0, is taken when v0(=ret(hwgraph_traverse)) == 0, and falls through when v0(=ret(hwgraph_traverse)) != 0.
   The `bne` branch at 0x210 targets 0x228, is taken when v0(=ret(hwgraph_bdevsw_get)) != 0, and falls through when v0(=ret(hwgraph_bdevsw_get)) == 0.
-  The `beq` branch at 0x218 targets 0x24c, is taken when a1(=ret(hwgraph_cdevsw_get)) == 0, and falls through when a1(=ret(hwgraph_cdevsw_get)) != 0.
+  The `beq` branch at 0x218 targets 0x24c, is taken when a1(?) == 0, and falls through when a1(?) != 0.
   The `beq` branch at 0x220 targets 0x23c and is always taken.
-  The `bne` branch at 0x228 targets 0x23c, is taken when a1(=ret(hwgraph_cdevsw_get)) != 0, and falls through when a1(=ret(hwgraph_cdevsw_get)) == 0.
+  The `bne` branch at 0x228 targets 0x23c, is taken when a1(?) != 0, and falls through when a1(?) == 0.
   The `beq` branch at 0x234 targets 0x240 and is always taken.
   The `beq` branch at 0x244 targets 0x1e0 and is always taken.
   The `beq` branch at 0x258 targets 0x2a0, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
   The `beq` branch at 0x26c targets 0x2a8, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
-  The `beq` branch at 0x290 targets 0x2b0, is taken when a2(=ret(hwgraph_connectpt_get)) == a3(=a0), and falls through when a2(=ret(hwgraph_connectpt_get)) != a3(=a0).
+  The `beq` branch at 0x290 targets 0x2b0, is taken when a2(?) == a3(=a0), and falls through when a2(?) != a3(=a0).
   The `beq` branch at 0x298 targets 0x23c and is always taken.
   The `beq` branch at 0x2a0 targets 0x23c and is always taken.
   The `beq` branch at 0x2a8 targets 0x23c and is always taken.
   The `beq` branch at 0x2c8 targets 0x2d8, is taken when v0(=ret(hwgraph_edge_get_next)) == 0, and falls through when v0(=ret(hwgraph_edge_get_next)) != 0.
   The `beq` branch at 0x2d0 targets 0x23c and is always taken.
   The `beq` branch at 0x2ec targets 0x30c, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
-  The `bne` branch at 0x2fc targets 0x2b8, is taken when a5(?) != a6(=[a2]), and falls through when a5(?) == a6(=[a2]).
+  The `bne` branch at 0x2fc targets 0x2b8, is taken when a5(?) != a6(?), and falls through when a5(?) == a6(?).
   The `beq` branch at 0x304 targets 0x23c and is always taken.
-  The `beq` branch at 0x310 targets 0x320, is taken when a7(?) == t0(=[a2]), and falls through when a7(?) != t0(=[a2]).
+  The `beq` branch at 0x310 targets 0x320, is taken when a7(?) == t0(?), and falls through when a7(?) != t0(?).
   The `beq` branch at 0x318 targets 0x23c and is always taken.
   The `beq` branch at 0x320 targets 0x23c and is always taken.
   The return at 0x1e8 has v0 = one of 0x0, 0x1.
@@ -95320,7 +95272,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xba4 targets 0xbb8, is taken when s3(?) == 0, and falls through when s3(?) != 0.
   The `beq` branch at 0xbe8 targets 0xc78, is taken when v1(=[a1+24]:2) == 0, and falls through when v1(=[a1+24]:2) != 0.
   The `beq` branch at 0xbf0 targets 0xb88 and is always taken.
-  The `blez` branch at 0xc20 targets 0xc9c, is taken when v0(?) <= 0 (signed), and falls through when v0(?) > 0 (signed).
+  The `blez` branch at 0xc20 targets 0xc9c, is taken when v0(=ret(?)) <= 0 (signed), and falls through when v0(=ret(?)) > 0 (signed).
   The `beq` branch at 0xc28 targets 0xb60 and is always taken.
   The `beq` branch at 0xc3c targets 0xb54 and is always taken.
   The `beq` branch at 0xc44 targets 0xbc0 and is always taken.
@@ -95502,7 +95454,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x13d0 calls cap_able_cred with a0=a3 at entry (arg3), a1=0x2000000000, a2=?, a3=?.
   The `jal` at 0x1408 calls acl_hwg_match with a0=a1 at entry (arg1), a1=a2 at entry (arg2), a2=?, a3=?, a5=[sym(acl_enabled)].
   The `jal` at 0x1434 calls cap_hwg_match with a0=a1 at entry (arg1), a1=a2 at entry (arg2), a2=?, a3=?.
-  The `jal` at 0x1460 calls hwgraph_info_remove_LBL with a0=[[a0]+36], a1=a1 at entry (arg1), a2=sp-48, a3=?.
+  The `jal` at 0x1460 calls hwgraph_info_remove_LBL with a0=?, a1=a1 at entry (arg1), a2=sp-48, a3=?.
   The `jal` at 0x1478 calls kern_free with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1490 calls mac_hwg_iaccess with a0=[[a0]+36], a1=0x80, a2=a3 at entry (arg3), a3=a3 at entry (arg3).
   The `jal` at 0x14a8 calls mac_hwg_match with a0=a1 at entry (arg1), a1=a2 at entry (arg2), a2=[a1]:1, a3=0x5f, a4=[sym(mac_enabled)].
@@ -96555,7 +96507,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x4a4 loads 4 bytes from [[ret(vproc_lookup)+28]+8] +0x1c.
   The `jal` at 0x454 calls vproc_lookup with a0=?, a1=0x1, a2=?, a3=?.
   The `jalr` at 0x4ac calls (unknown callee) with a0=[ret(vproc_lookup)+28], a1=0x6, a2=sp-88, a3=[[[ret(vproc_lookup)+28]+8]+28], a4=-0x1.
-  The `jal` at 0x4b4 calls vproc_release with a0=ret(vproc_lookup), a1=?, a2=?, a3=?.
+  The `jal` at 0x4b4 calls vproc_release with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x4e0 calls kthread_get_pid with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x4f8 calls get_current_cred with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x508 calls kthread_get_pid with a0=?, a1=?, a2=?, a3=?.
@@ -99490,14 +99442,14 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xb00 calls pmap_ptes with a0=?, a1=[ret(findfpreg)+84], a2=?, a3=sp-256, a4=0x1.
   The `jal` at 0xb8c calls anon_pfind with a0=[[ret(findfpreg)+44]+112], a1=?, a2=sp-252, a3=sp-248.
   The `jal` at 0xba0 calls splhi with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xbc0 calls splx with a0=ret(splhi), a1=?, a2=?, a3=?.
+  The `jal` at 0xbc0 calls splx with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xbcc calls pagefreeanon_size with a0=ret(anon_pfind), a1=0x1, a2=?, a3=?.
   The `jal` at 0xbe4 calls findattr_range_noclip with a0=ret(findfpreg), a1=?, a2=?, a3=?.
   The `jal` at 0xbfc calls pmo_ns_pmo_lookup with a0=?, a1=0x4, a2=[ret(findattr_range_noclip)+16], a3=?.
   The `jal` at 0xc58 calls bitlock_acquire_32bit with a0=?, a1=0x10000000, a2=?, a3=?.
   The `jal` at 0xca8 calls mrunlock with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xcdc calls copyout with a0=ret(kmem_zalloc), a1=a3 at entry (arg3), a2=?, a3=?.
-  The `jal` at 0xcf4 calls kmem_free with a0=ret(kmem_zalloc), a1=?, a2=?, a3=?.
+  The `jal` at 0xcdc calls copyout with a0=?, a1=a3 at entry (arg3), a2=?, a3=?.
+  The `jal` at 0xcf4 calls kmem_free with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xd20 calls mrunlock with a0=[ret(findfpreg)+44], a1=?, a2=?, a3=?.
   The `jal` at 0xd50 calls assfail with a0=sym(.rodata), a1=sym(.rodata), a2=0x2f9, a3=?.
   The `blez` branch at 0x94c targets 0xd04, is taken when a4 <= 0 (signed), and falls through when a4 > 0 (signed).
@@ -99572,7 +99524,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jalr` at 0xe2c calls (unknown callee) with a0=a1 at entry (arg1), a1=0x1, a2=sp-112, a3=[a1+60], a6=0x0.
   The `jal` at 0xe68 calls pmo_ns_pmo_lookup with a0=a0 at entry (arg0), a1=0x0, a2=a1 at entry (arg1), a3=?.
   The `jal` at 0xe8c calls mraccessf with a0=[[a5+16]]+16, a1=0x0, a2=?, a3=?.
-  The `jal` at 0xf00 calls mrunlock with a0=[[a5+16]]+16, a1=?, a2=?, a3=[[[[a5+16]]+324]+24].
+  The `jal` at 0xf00 calls mrunlock with a0=?, a1=?, a2=?, a3=[[[[a5+16]]+324]+24].
   The `beq` branch at 0xd98 targets 0xdb8, is taken when a7(=[a1+28]) == 0, and falls through when a7(=[a1+28]) != 0.
   The `beq` branch at 0xdb0 targets 0xdbc and is always taken.
   The `beq` branch at 0xdc4 targets 0xde4, is taken when a3(=[a1+44]) == 0, and falls through when a3(=[a1+44]) != 0.
@@ -100131,13 +100083,12 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.22/usr/cpu/sysgen/IP32boot/numa.a(afflink.o)`.
   Range: 0x0-0x70 (112 bytes).
   It occupies 112 bytes.
-  3 such `lw` accesses load 4 bytes from ?, including `lw` at 0x20, `lw` at 0x24, `lw` at 0x30.
+  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0x20, `lw` at 0x24, `lw` at 0x30.
   The `lw` at 0x34 loads 4 bytes from ret(aspm_getdefaultpm_func) +0x18.
-  The `lw` at 0x58 loads 4 bytes from ret(aspm_getdefaultpm_func) +0x4.
   The `jal` at 0x14 calls as_lookup_current with a0=sp-48, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x2c calls aspm_getdefaultpm_func with a0=?, a1=0x2, a2=?, a3=?.
   The `jalr` at 0x48 calls (unknown callee) with a0=ret(aspm_getdefaultpm_func), a1=0x0, a2=a0 at entry (arg0), a3=a1 at entry (arg1), a4=[ret(aspm_getdefaultpm_func)+24].
-  The `jalr` at 0x5c calls (unknown callee) with a0=ret(aspm_getdefaultpm_func), a1=?, a2=?, a3=?, a5=[ret(aspm_getdefaultpm_func)+4].
+  The `jalr` at 0x5c calls (unknown callee) with a0=?, a1=?, a2=?, a3=?.
   The return at 0x68 has v0 = ret(?).
 - `kthread_afflink_error` in `6.5.22/usr/cpu/sysgen/IP32boot/numa.a(afflink.o)` at 0x70 (n32).
   Evidence grade: inferred.
@@ -100171,12 +100122,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x144 loads 4 bytes from [ret(pmo_ns_it_getnext)+8] +0xc.
   The `jal` at 0x100 calls getpmo_ns with a0=[a1]:8, a1=[a1+8]:8, a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x110 calls splhi with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x120 calls pmo_ns_it_init with a0=sp-64, a1=ret(getpmo_ns), a2=?, a3=?.
+  The `jal` at 0x120 calls pmo_ns_it_init with a0=sp-64, a1=?, a2=?, a3=?.
   The `jal` at 0x12c calls pmo_ns_it_getnext with a0=sp-64, a1=?, a2=?, a3=?.
   The `jal` at 0x150 calls pmo_ns_it_getnext with a0=sp-64, a1=?, a2=?, a3=?.
-  The `jal` at 0x168 calls splx with a0=ret(splhi), a1=?, a2=?, a3=?, a4=0x4.
+  The `jal` at 0x168 calls splx with a0=?, a1=?, a2=?, a3=?, a4=0x4.
   The `jal` at 0x174 calls relpmo_ns with a0=[a1]:8, a1=[a1+8]:8, a2=?, a3=?.
-  The `jal` at 0x18c calls pm_contains_mld with a0=[ret(pmo_ns_it_getnext)+8], a1=[a0+352], a2=?, a3=?, a4=0x4.
+  The `jal` at 0x18c calls pm_contains_mld with a0=[ret(pmo_ns_it_getnext)+8], a1=?, a2=?, a3=?, a4=0x4.
   The `jal` at 0x19c calls pm_decusg with a0=[ret(pmo_ns_it_getnext)+8], a1=?, a2=?, a3=?.
   The `beq` branch at 0xe8 targets 0x17c, is taken when at(=[a1]) == v0(=0xf), and falls through when at(=[a1]) != v0(=0xf).
   The `beq` branch at 0xf4 targets 0x17c, is taken when v1(=[a0+352]) == 0, and falls through when v1(=[a0+352]) != 0.
@@ -108411,12 +108362,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x474 calls mrupdatef with a0=sym(hwgraph_connectpt_mrlock), a1=0x0, a2=?, a3=?.
   The `jal` at 0x47c calls do_hwgraph_connectpt_get with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x490 calls mrunlock with a0=sym(hwgraph_connectpt_mrlock), a1=?, a2=?, a3=?.
-  The `jal` at 0x4ac calls graph_vertex_unref with a0=[sym(hwgraph)]:8, a1=ret(do_hwgraph_connectpt_get), a2=a2 at entry (arg2), a3=?.
+  The `jal` at 0x4ac calls graph_vertex_unref with a0=[sym(hwgraph)]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `jal` at 0x4d0 calls do_hwgraph_connectpt_set with a0=?, a1=-0x1, a2=?, a3=?.
   The `jal` at 0x4e0 calls graph_vertex_unref with a0=[sym(hwgraph)]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `beq` branch at 0x454 targets 0x470, is taken when v0(=ret(graph_edge_remove)) == 0, and falls through when v0(=ret(graph_edge_remove)) != 0.
   The `beq` branch at 0x488 targets 0x4cc, is taken when v0(=ret(do_hwgraph_connectpt_get)) == v1(=a0), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != v1(=a0).
-  The `beq` branch at 0x4a0 targets 0x4b8, is taken when v0(=ret(do_hwgraph_connectpt_get)) == a1(=-0x1), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != a1(=-0x1).
+  The `beq` branch at 0x4a0 targets 0x4b8, is taken when v0(?) == a1(=-0x1), and falls through when v0(?) != a1(=-0x1).
   The `beq` branch at 0x4b8 targets 0x4e0, is taken when a2 == 0, and falls through when a2 != 0.
   The `beq` branch at 0x4c4 targets 0x460 and is always taken.
   The `beq` branch at 0x4d8 targets 0x490 and is always taken.
@@ -109236,7 +109187,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x22f4 calls cpu_enabled with a0=a1 at entry (arg1), a1=?, a2=?, a3=?.
   The `jal` at 0x2308 calls device_admin_info_get with a0=a0 at entry (arg0), a1=sym(.rodata), a2=?, a3=?.
   The `jal` at 0x2340 calls mutex_spinlock_spl with a0=[(sym(pdaindr) + (a1 << 0x4))+8]:8+1332, a1=sym(spl7), a2=?, a3=?.
-  The `jal` at 0x2358 calls mutex_spinunlock with a0=[(sym(pdaindr) + (a1 << 0x4))+8]:8+1332, a1=ret(mutex_spinlock_spl), a2=?, a3=?.
+  The `jal` at 0x2358 calls mutex_spinunlock with a0=?, a1=ret(mutex_spinlock_spl), a2=?, a3=?.
   The `jal` at 0x2374 calls hwgraph_path_add with a0=[sym(hwgraph_root)], a1=sym(.rodata), a2=sym(.sdata)+4, a3=-0x1, a4=[sym(.sdata)+4].
   The `beq` branch at 0x227c targets 0x2318, is taken when a1 == at(=-0x1), and falls through when a1 != at(=-0x1).
   The `beq` branch at 0x228c targets 0x22ac, is taken when v0(=ret(cpu_enabled)) == 0, and falls through when v0(=ret(cpu_enabled)) != 0.
@@ -109516,17 +109467,17 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x20c calls hwgraph_bdevsw_get with a0=[a2], a1=?, a2=?, a3=?.
   The `jal` at 0x230 calls strcmp with a0=a1 at entry (arg1), a1=sym(.rodata), a2=?, a3=?, a4=0x2.
   The `jal` at 0x248 calls strcmp with a0=a1 at entry (arg1), a1=sym(.rodata), a2=?, a3=?, a6=a3 at entry (arg3).
-  The `jal` at 0x258 calls hwgraph_connectpt_get with a0=[a2], a1=?, a2=?, a3=?, a6=a3 at entry (arg3).
+  The `jal` at 0x258 calls hwgraph_connectpt_get with a0=?, a1=?, a2=?, a3=?, a6=a3 at entry (arg3).
   The `jal` at 0x264 calls hwgraph_vertex_unref with a0=ret(hwgraph_connectpt_get), a1=?, a2=?, a3=?.
   The `jal` at 0x2c0 calls hwgraph_edge_get_next with a0=a0 at entry (arg0), a1=sp-344, a2=sp-88, a3=sp-352.
   The `jal` at 0x2d8 calls hwgraph_vertex_unref with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x2e4 calls strcmp with a0=sp-344, a1=a1 at entry (arg1), a2=?, a3=?.
   The `beq` branch at 0x1d8 targets 0x1f8, is taken when v0(=ret(hwgraph_traverse)) == 0, and falls through when v0(=ret(hwgraph_traverse)) != 0.
   The `bne` branch at 0x21c targets 0x284, is taken when v0(=ret(hwgraph_bdevsw_get)) != 0, and falls through when v0(=ret(hwgraph_bdevsw_get)) == 0.
-  The `bne` branch at 0x224 targets 0x2a4, is taken when a1(=ret(hwgraph_cdevsw_get)) != 0, and falls through when a1(=ret(hwgraph_cdevsw_get)) == 0.
+  The `bne` branch at 0x224 targets 0x2a4, is taken when a1(?) != 0, and falls through when a1(?) == 0.
   The `beq` branch at 0x238 targets 0x298, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
   The `beq` branch at 0x250 targets 0x298, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
-  The `beq` branch at 0x274 targets 0x2b0, is taken when a2(=ret(hwgraph_connectpt_get)) == a3(=a0), and falls through when a2(=ret(hwgraph_connectpt_get)) != a3(=a0).
+  The `beq` branch at 0x274 targets 0x2b0, is taken when a2(?) == a3(=a0), and falls through when a2(?) != a3(=a0).
   The `beq` branch at 0x27c targets 0x294 and is always taken.
   The `beq` branch at 0x290 targets 0x22c, is taken when s0(=one of 0x0, 0x3) == a4(=0x2), and falls through when s0(=one of 0x0, 0x3) != a4(=0x2).
   The `beq` branch at 0x29c targets 0x1e4 and is always taken.
@@ -109534,7 +109485,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x2c8 targets 0x2d8, is taken when v0(=ret(hwgraph_edge_get_next)) == 0, and falls through when v0(=ret(hwgraph_edge_get_next)) != 0.
   The `beq` branch at 0x2d0 targets 0x294 and is always taken.
   The `beq` branch at 0x2ec targets 0x30c, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
-  The `bne` branch at 0x2fc targets 0x2b8, is taken when t0(?) != t1(=[a2]), and falls through when t0(?) == t1(=[a2]).
+  The `bne` branch at 0x2fc targets 0x2b8, is taken when t0(?) != t1(?), and falls through when t0(?) == t1(?).
   The `beq` branch at 0x304 targets 0x294 and is always taken.
   The `beq` branch at 0x318 targets 0x294 and is always taken.
   The return at 0x1f0 has v0 = one of 0x0, 0x1.
@@ -109787,7 +109738,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xbe0 targets 0xcb8, is taken when a2(=[a1+24]:2) == 0, and falls through when a2(=[a1+24]:2) != 0.
   The `beq` branch at 0xbf0 targets 0xc0c, is taken when s4(=a3) == 0, and falls through when s4(=a3) != 0.
   The `beq` branch at 0xc0c targets 0xc20, is taken when s3(?) == 0, and falls through when s3(?) != 0.
-  The `blez` branch at 0xc74 targets 0xcd4, is taken when v0(?) <= 0 (signed), and falls through when v0(?) > 0 (signed).
+  The `blez` branch at 0xc74 targets 0xcd4, is taken when v0(=ret(?)) <= 0 (signed), and falls through when v0(=ret(?)) > 0 (signed).
   The `beq` branch at 0xc7c targets 0xba4 and is always taken.
   The `beq` branch at 0xc84 targets 0xc28 and is always taken.
   The `beq` branch at 0xc98 targets 0xb44, is taken when (v0(=ret(get_current_abi)) & 0x2) == 0, and falls through when (v0(=ret(get_current_abi)) & 0x2) != 0.
@@ -110300,7 +110251,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0x4ac loads 8 bytes from [[ret(vproc_lookup)+40]:8+16]:8 +0x38.
   The `jal` at 0x458 calls vproc_lookup with a0=?, a1=0x1, a2=?, a3=?.
   The `jalr` at 0x4b4 calls (unknown callee) with a0=[ret(vproc_lookup)+40]:8, a1=0x6, a2=sp-96, a3=[[[ret(vproc_lookup)+40]:8+16]:8+56]:8, a4=-0x1.
-  The `jal` at 0x4bc calls vproc_release with a0=ret(vproc_lookup), a1=?, a2=?, a3=?.
+  The `jal` at 0x4bc calls vproc_release with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x4e8 calls kthread_get_pid with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x500 calls get_current_cred with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x510 calls kthread_get_pid with a0=?, a1=?, a2=?, a3=?.
@@ -111901,10 +111852,8 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.22/usr/cpu/sysgen/IP35boot/io6.o`.
   Range: 0x40-0x12c (236 bytes).
   It occupies 236 bytes.
-  The `lw` at 0xb4 loads 4 bytes from ret(xtalk_piotrans_addr) +0x284.
-  The `sw` at 0xd4 stores 4 bytes to ret(xtalk_piotrans_addr) +0x284.
-  The `lw` at 0xe0 loads 4 bytes from ret(xtalk_piotrans_addr) +0x28c.
-  The `sw` at 0xfc stores 4 bytes to ret(xtalk_piotrans_addr) +0x28c.
+  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xb4, `lw` at 0xe0.
+  2 such `sw` accesses store 4 bytes to ?, including `sw` at 0xd4, `sw` at 0xfc.
   The `jal` at 0x54 calls nic_vertex_info_match with a0=a0 at entry (arg0), a1=sym(.rodata), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x68 calls pcibr_hints_dualslot with a0=a0 at entry (arg0), a1=0x2, a2=0x4, a3=?.
   The `jal` at 0x80 calls pcibr_hints_subdevs with a0=a0 at entry (arg0), a1=0x2, a2=one of 0xb7, 0xbf, a3=?.
@@ -112760,7 +112709,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x8d60 calls fprom_flash_sectors with a0=a0 at entry (arg0), a1=?, a2=[a0+112], a3=a3 at entry (arg3).
   The `jal` at 0x8d94 calls promlog_next with a0=a0 at entry (arg0), a1=0x62, a2=?, a3=?.
   The `jal` at 0x8db4 calls get_entry [0x81a8] with a0=a0 at entry (arg0), a1=0x40, a2=?, a3=?, a4=[a0+120].
-  The `jal` at 0x8de8 calls fprom_write with a0=a0 at entry (arg0), a1=?, a2=a0+136, a3=0x40.
+  The `jal` at 0x8de8 calls fprom_write with a0=a0 at entry (arg0), a1=?, a2=?, a3=0x40.
   The `jal` at 0x8df8 calls fprom_errmsg with a0=ret(fprom_write), a1=?, a2=?, a3=?.
   The `jal` at 0x8e08 calls printf with a0=sym(.rodata)+3104, a1=ret(fprom_errmsg), a2=?, a3=?.
   The `jal` at 0x8e18 calls promlog_errmsg with a0=?, a1=?, a2=?, a3=?.
@@ -113047,7 +112996,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xb5fc targets 0xb620, is taken when a1(?) == 0, and falls through when a1(?) != 0.
   The `beq` branch at 0xb620 targets 0xb5d4 and is always taken.
   The `beq` branch at 0xb628 targets 0xb5d4 and is always taken.
-  The return at 0xb5e0 has v0 = one of ret(ip27log_setup), ?, ret(promlog_delete), 0x0.
+  The return at 0xb5e0 has v0 = one of ret(ip27log_setup), ?, 0x0.
 - `ip27log_iprintf` in `6.5.22/usr/cpu/sysgen/IP35boot/kernel.o` at 0xb630 (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.22/usr/cpu/sysgen/IP35boot/kernel.o`.
@@ -114148,9 +114097,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x34214 loads 4 bytes from ?.
   The `jal` at 0x340f0 calls cmn_err with a0=0x6, a1=sym(.rodata)+50816, a2=sym(.rodata)+50816, a3=?.
   The `jal` at 0x34118 calls cmn_err with a0=0x6, a1=sym(.rodata)+50816, a2=?, a3=?.
-  The `jal` at 0x3416c calls cmn_err with a0=0x6, a1=sym(.rodata)+50816, a2=?, a3=?, a6=a0-1.
-  The `jal` at 0x34188 calls cmn_err with a0=0x6, a1=sym(.rodata)+50816, a2=?, a3=?, a6=a0-1.
-  The `jal` at 0x341a4 calls cmn_err with a0=0x6, a1=sym(.rodata)+50816, a2=?, a3=?, a6=a0-1.
+  The `jal` at 0x3416c calls cmn_err with a0=0x6, a1=sym(.rodata)+50816, a2=?, a3=?.
+  The `jal` at 0x34188 calls cmn_err with a0=0x6, a1=sym(.rodata)+50816, a2=?, a3=?.
+  The `jal` at 0x341a4 calls cmn_err with a0=0x6, a1=sym(.rodata)+50816, a2=?, a3=?.
   The `jal` at 0x341f4 calls chk_for_pebrick with a0=?, a1=0x9600000000000000, a2=0xffffffffff, a3=?, a6=0x9000000034000000.
   The `jal` at 0x34230 calls find_lboard with a0=?, a1=0x11, a2=?, a3=?.
   The `jal` at 0x3423c calls board_to_path with a0=ret(find_lboard), a1=sp-176, a2=?, a3=?.
@@ -114161,7 +114110,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `bne` branch at 0x34108 targets 0x340c0, is taken when s0(?) < s1(=a0) (signed), and falls through when s0(?) >= s1(=a0) (signed).
   The `bgtz` branch at 0x34120 targets 0x341b4, is taken when s1(=a0) > 0 (signed), and falls through when s1(=a0) <= 0 (signed).
   The `bne` branch at 0x34150 targets 0x3417c, is taken when a3(?) != a4(?), and falls through when a3(?) == a4(?).
-  The `bne` branch at 0x34158 targets 0x340fc, is taken when a6(=a0-1) != s0(?), and falls through when a6(=a0-1) == s0(?).
+  The `bne` branch at 0x34158 targets 0x340fc, is taken when a6(?) != s0(?), and falls through when a6(?) == s0(?).
   The `beq` branch at 0x34174 targets 0x340fc and is always taken.
   The `beq` branch at 0x3417c targets 0x34198, is taken when a2(?) == a5(?), and falls through when a2(?) != a5(?).
   The `beq` branch at 0x34190 targets 0x341ac and is always taken.
@@ -114604,7 +114553,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xb48 calls vector_read with a0=a0 at entry (arg0), a1=0x0, a2=?, a3=sp-104.
   The `jal` at 0xb68 calls vector_read with a0=a0 at entry (arg0), a1=0x0, a2=?, a3=sp-120.
   The `jal` at 0xb84 calls vector_write with a0=a0 at entry (arg0), a1=0x0, a2=?, a3=0x0.
-  The `jal` at 0xba4 calls vector_read with a0=a0 at entry (arg0), a1=0x0, a2=?, a3=sp-112.
+  The `jal` at 0xba4 calls vector_read with a0=a0 at entry (arg0), a1=0x0, a2=?, a3=?.
   The `jal` at 0xbc0 calls vector_write with a0=a0 at entry (arg0), a1=0x0, a2=?, a3=0x0.
   The `jal` at 0xbdc calls vector_read with a0=a0 at entry (arg0), a1=0x0, a2=?, a3=sp-96.
   The `jal` at 0xc14 calls qprintf with a0=sym(.rodata), a1=?, a2=?, a3=?.
@@ -115952,16 +115901,14 @@ These entries record instruction facts rendered from the routines below. They de
   2 such `ld` accesses load 8 bytes from ret(findfpreg) +0x58, including `ld` at 0xae8, `ld` at 0xce8.
   The `lw` at 0xaf8 loads 4 bytes from ret(findfpreg) +0x64.
   The `ld` at 0xb40 loads 8 bytes from ret(findfpreg) +0x88.
-  2 such `ld` accesses load 8 bytes from ?, including `ld` at 0xb88, `ld` at 0xd1c.
+  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0xb88, `ld` at 0xc94, `ld` at 0xca4.
   The `ld` at 0xba0 loads 8 bytes from [ret(findfpreg)+88]:8 +0xa8.
   The `lbu` at 0xbb0 loads 1 byte from ret(findfpreg) +0x69.
   The `lw` at 0xbb4 loads 4 bytes from ret(findfpreg) +0x60.
   The `lhu` at 0xbf4 loads 2 bytes from ret(anon_pfind) +0x14.
   The `sh` at 0xc08 stores 2 bytes to ret(anon_pfind) +0x14.
   The `lh` at 0xc78 loads 2 bytes from table(sym(nasid_to_compact_node)) +0x0.
-  The `ld` at 0xc94 loads 8 bytes from [[a0+32]:8]:8 +0x268.
   The `ld` at 0xc98 loads 8 bytes from ret(findattr_range_noclip) +0x20.
-  The `ld` at 0xca4 loads 8 bytes from [[[a0+32]:8]:8+616]:8 +0x0.
   3 such `sw` accesses store 4 bytes to ?, including `sw` at 0xccc, `sw` at 0xcd0, `sw` at 0xcd4.
   The `sd` at 0xcd8 stores 8 bytes to ?.
   The `lw` at 0xcec loads 4 bytes from ret(findfpreg) +0x6c.
@@ -115975,20 +115922,20 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x9f0 calls kmem_zalloc with a0=(((a5 << 0x2) + a5) << 0x3), a1=0x0, a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xa44 calls mraccessf with a0=[[a0+32]:8]:8+32, a1=0x0, a2=?, a3=?, a5=(a2 + a3)+16383.
   The `jal` at 0xa84 calls mrunlock with a0=[ret(findfpreg)+88]:8, a1=?, a2=?, a3=?.
-  The `jal` at 0xab4 calls findfpreg with a0=[[a0+32]:8]:8, a1=a1 at entry (arg1), a2=?, a3=?.
+  The `jal` at 0xab4 calls findfpreg with a0=?, a1=a1 at entry (arg1), a2=?, a3=?.
   The `jal` at 0xaf0 calls mrupdatef with a0=[ret(findfpreg)+88]:8, a1=0x0, a2=?, a3=[ret(findfpreg)+48]:8.
-  The `jal` at 0xb44 calls pmap_ptes with a0=[[a0+32]:8]:8, a1=[ret(findfpreg)+136]:8, a2=?, a3=sp-240, a4=0x1.
+  The `jal` at 0xb44 calls pmap_ptes with a0=?, a1=[ret(findfpreg)+136]:8, a2=?, a3=sp-240, a4=0x1.
   The `jal` at 0xbd0 calls anon_pfind with a0=[[ret(findfpreg)+88]:8+168]:8, a1=?, a2=sp-232, a3=sp-224, a5=[ret(findfpreg)+105]:1.
   The `jal` at 0xbec calls mutex_bitlock with a0=ret(anon_pfind)+16, a1=0x8000000, a2=?, a3=?.
-  The `jal` at 0xc14 calls mutex_bitunlock with a0=ret(anon_pfind)+16, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
+  The `jal` at 0xc14 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=?, a3=?.
   The `jal` at 0xc4c calls pagefreeanon_size with a0=ret(anon_pfind), a1=0x1, a2=?, a3=?.
   The `jal` at 0xc88 calls findattr_range_noclip with a0=ret(findfpreg), a1=?, a2=?, a3=entry(sym(nasid_to_compact_node)).
-  The `jal` at 0xca0 calls pmo_ns_pmo_lookup with a0=[[[[a0+32]:8]:8+616]:8]:8, a1=0x4, a2=[ret(findattr_range_noclip)+32]:8, a3=?.
+  The `jal` at 0xca0 calls pmo_ns_pmo_lookup with a0=?, a1=0x4, a2=[ret(findattr_range_noclip)+32]:8, a3=?.
   The `jal` at 0xd14 calls bitlock_acquire with a0=?, a1=0x2000000000000000, a2=?, a3=?.
-  The `jal` at 0xdac calls mrunlock with a0=[[a0+32]:8]:8+32, a1=?, a2=?, a3=?.
+  The `jal` at 0xdac calls mrunlock with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xdd0 calls get_current_abi with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xdfc calls xlate_copyout with a0=ret(kmem_zalloc), a1=a4 at entry (arg4), a2=?, a3=sym(pm_pginfo_to_irix5), a4=ret(get_current_abi), a5=0x4.
-  The `jal` at 0xe14 calls kmem_free with a0=ret(kmem_zalloc), a1=(((a5 << 0x2) + a5) << 0x3), a2=?, a3=?.
+  The `jal` at 0xdfc calls xlate_copyout with a0=?, a1=a4 at entry (arg4), a2=?, a3=sym(pm_pginfo_to_irix5), a4=ret(get_current_abi), a5=0x4.
+  The `jal` at 0xe14 calls kmem_free with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xe40 calls mrunlock with a0=[ret(findfpreg)+88]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xe6c calls assfail with a0=sym(.rodata), a1=sym(.rodata), a2=0x2f9, a3=?.
   The `blez` branch at 0x99c targets 0xe24, is taken when a5 <= 0 (signed), and falls through when a5 > 0 (signed).
@@ -116874,14 +116821,13 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.22/usr/cpu/sysgen/IP35boot/numa.a(afflink.o)`.
   Range: 0x0-0x98 (152 bytes).
   It occupies 152 bytes.
-  3 such `ld` accesses load 8 bytes from ?, including `ld` at 0x24, `ld` at 0x28, `ld` at 0x34.
+  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0x24, `ld` at 0x28, `ld` at 0x34.
   The `ld` at 0x38 loads 8 bytes from ret(aspm_getdefaultpm_func) +0x28.
-  The `ld` at 0x5c loads 8 bytes from ret(aspm_getdefaultpm_func) +0x8.
   The `ld` at 0x68 loads 8 bytes from a0 (arg0 at entry) +0x0.
   The `jal` at 0x18 calls as_lookup_current with a0=sp-48, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x30 calls aspm_getdefaultpm_func with a0=?, a1=0x2, a2=?, a3=?.
   The `jalr` at 0x4c calls (unknown callee) with a0=ret(aspm_getdefaultpm_func), a1=0x0, a2=a0 at entry (arg0), a3=a1 at entry (arg1), a4=[ret(aspm_getdefaultpm_func)+40]:8.
-  The `jalr` at 0x60 calls (unknown callee) with a0=ret(aspm_getdefaultpm_func), a1=?, a2=?, a3=?, a5=[ret(aspm_getdefaultpm_func)+8]:8.
+  The `jalr` at 0x60 calls (unknown callee) with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x74 calls mld_getnodeid with a0=[a0]:8, a1=?, a2=?, a3=?.
   The `jal` at 0x7c calls kmem_zone_set_default_node with a0=ret(mld_getnodeid), a1=?, a2=?, a3=?.
   The `beq` branch at 0x6c targets 0x88, is taken when a0(=[a0]:8) == 0, and falls through when a0(=[a0]:8) != 0.
@@ -116923,12 +116869,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x1ac loads 4 bytes from [ret(pmo_ns_it_getnext)+8]:8 +0x18.
   The `jal` at 0x164 calls getpmo_ns with a0=[a1]:8, a1=[a1+8]:8, a2=[a1+16]:8, a3=a3 at entry (arg3).
   The `jal` at 0x178 calls mutex_spinlock with a0=ret(getpmo_ns)+56, a1=?, a2=?, a3=?.
-  The `jal` at 0x188 calls pmo_ns_it_init with a0=sp-80, a1=ret(getpmo_ns), a2=?, a3=?.
+  The `jal` at 0x188 calls pmo_ns_it_init with a0=sp-80, a1=?, a2=?, a3=?.
   The `jal` at 0x194 calls pmo_ns_it_getnext with a0=sp-80, a1=?, a2=?, a3=?.
   The `jal` at 0x1b8 calls pmo_ns_it_getnext with a0=sp-80, a1=?, a2=?, a3=?.
-  The `jal` at 0x1d4 calls mutex_spinunlock with a0=ret(getpmo_ns)+56, a1=ret(mutex_spinlock), a2=?, a3=?, a4=0x4.
+  The `jal` at 0x1d4 calls mutex_spinunlock with a0=?, a1=?, a2=?, a3=?, a4=0x4.
   The `jal` at 0x1e4 calls relpmo_ns with a0=[a1]:8, a1=[a1+8]:8, a2=[a1+16]:8, a3=?.
-  The `jal` at 0x1fc calls pm_contains_mld with a0=[ret(pmo_ns_it_getnext)+8]:8, a1=[a0+608]:8, a2=?, a3=?, a4=0x4.
+  The `jal` at 0x1fc calls pm_contains_mld with a0=[ret(pmo_ns_it_getnext)+8]:8, a1=?, a2=?, a3=?, a4=0x4.
   The `jal` at 0x20c calls pm_decusg with a0=[ret(pmo_ns_it_getnext)+8]:8, a1=?, a2=?, a3=?.
   The `beq` branch at 0x148 targets 0x1ec, is taken when at(=[a1]:8) == v0(=0xf), and falls through when at(=[a1]:8) != v0(=0xf).
   The `beq` branch at 0x154 targets 0x1ec, is taken when v1(=[a0+608]:8) == 0, and falls through when v1(=[a0+608]:8) != 0.
@@ -117384,7 +117330,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x11c4 calls splhi with a0=0x7ffff, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x11cc calls tlbgetpid with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x11dc calls tlb_probe with a0=ret(tlbgetpid), a1=a1 at entry (arg1), a2=sp-48, a3=?.
-  The `jal` at 0x1214 calls splx with a0=ret(splhi), a1=?, a2=?, a3=?.
+  The `jal` at 0x1214 calls splx with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1234 calls unmaptlb with a0=[[-0x3fe8]:8+1384]:8, a1=?, a2=-0x1, a3=?, a4=0xfff0000.
   The `bgez` branch at 0x11bc targets 0x121c, is taken when at(?) >= 0 (signed), and falls through when at(?) < 0 (signed).
   The `beq` branch at 0x11f4 targets 0x1214, is taken when v0(=ret(tlb_probe)) == a2(=-0x1), and falls through when v0(=ret(tlb_probe)) != a2(=-0x1).
@@ -118485,7 +118431,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xaf4 calls copyin_xlate with a0=a0 at entry (arg0), a1=sp-80, a2=0x20, a3=sym(irix5_to_mldset_info), a4=ret(get_current_abi), a5=0x4, a6=0x1.
   The `jal` at 0xb30 calls mldset_mldlist_create with a0=?, a1=?, a2=sp-48, a3=?, a5=-0x2.
   The `jal` at 0xb4c calls curpmo_ns with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xb60 calls mldset_create_and_export with a0=ret(mldset_mldlist_create), a1=ret(curpmo_ns), a2=0x0, a3=a1 at entry (arg1).
+  The `jal` at 0xb60 calls mldset_create_and_export with a0=?, a1=ret(curpmo_ns), a2=0x0, a3=a1 at entry (arg1).
   The `beq` branch at 0xb00 targets 0xb18, is taken when v0(=ret(copyin_xlate)) == 0, and falls through when v0(=ret(copyin_xlate)) != 0.
   The `blez` branch at 0xb20 targets 0xb78, is taken when a1(?) <= 0 (signed), and falls through when a1(?) > 0 (signed).
   The `beq` branch at 0xb28 targets 0xb70, is taken when a0(?) == 0, and falls through when a0(?) != 0.
@@ -118500,14 +118446,14 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.22/usr/cpu/sysgen/IP35boot/numa.a(mldset.o)`.
   Range: 0xb80-0xd04 (388 bytes).
   It occupies 388 bytes.
-  The `ld` at 0xc38 loads 8 bytes from ret(pmo_ns_find) +0x8.
+  The `ld` at 0xc38 loads 8 bytes from ?.
   The `jal` at 0xb94 calls get_current_abi with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xbb4 calls copyin_xlate with a0=a0 at entry (arg0), a1=sp-96, a2=0x28, a3=sym(irix5_to_mldset_placement_info), a4=ret(get_current_abi), a5=0x4, a6=0x1.
   The `jal` at 0xbd8 calls curpmo_ns with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xbe8 calls pmo_ns_find with a0=ret(curpmo_ns), a1=?, a2=0x3, a3=?.
-  The `jalr` at 0xc3c calls (unknown callee) with a0=ret(pmo_ns_find), a1=?, a2=?, a3=?.
+  The `jalr` at 0xc3c calls (unknown callee) with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xcc8 calls mldset_rafflist_create with a0=?, a1=?, a2=?, a3=sp-56.
-  The `jal` at 0xcec calls mldset_place with a0=ret(pmo_ns_find), a1=?, a2=?, a3=?.
+  The `jal` at 0xcec calls mldset_place with a0=?, a1=?, a2=?, a3=?.
   The `beq` branch at 0xbbc targets 0xbd8, is taken when v0(=ret(copyin_xlate)) == 0, and falls through when v0(=ret(copyin_xlate)) != 0.
   The `beq` branch at 0xc0c targets 0xc70, is taken when v0(=ret(pmo_ns_find)) == 0, and falls through when v0(=ret(pmo_ns_find)) != 0.
   The `bltz` branch at 0xc18 targets 0xc2c, is taken when t0(?) < 0 (signed), and falls through when t0(?) >= 0 (signed).
@@ -118519,10 +118465,10 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc68 targets 0xc30 and is always taken.
   The `beq` branch at 0xc70 targets 0xbcc and is always taken.
   The `beq` branch at 0xc78 targets 0xc8c, is taken when a1(?) == 0, and falls through when a1(?) != 0.
-  The `bne` branch at 0xc8c targets 0xc34, is taken when a2(=one of 0x0, 0x1) != 0, and falls through when a2(=one of 0x0, 0x1) == 0.
+  The `bne` branch at 0xc8c targets 0xc34, is taken when a2(?) != 0, and falls through when a2(?) == 0.
   The `bne` branch at 0xc94 targets 0xc60, is taken when a1(?) != 0, and falls through when a1(?) == 0.
   The `beq` branch at 0xc9c targets 0xcb0, is taken when a0(?) == 0, and falls through when a0(?) != 0.
-  The `bne` branch at 0xcb0 targets 0xc34, is taken when a3(=one of 0x0, 0x1) != 0, and falls through when a3(=one of 0x0, 0x1) == 0.
+  The `bne` branch at 0xcb0 targets 0xc34, is taken when a3(?) != 0, and falls through when a3(?) == 0.
   The `beq` branch at 0xcb8 targets 0xc60 and is always taken.
   The `beq` branch at 0xcc0 targets 0xcfc, is taken when a0(?) == 0, and falls through when a0(?) != 0.
   The `bne` branch at 0xcd4 targets 0xc30, is taken when v0(=ret(mldset_rafflist_create)) < 0x1 (unsigned), and falls through when v0(=ret(mldset_rafflist_create)) >= 0x1 (unsigned).
@@ -119071,14 +119017,14 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc loads 4 bytes from a0 (arg0 at entry) +0x38.
   The `ld` at 0x24 loads 8 bytes from a0 (arg0 at entry) +0x20.
   The `lw` at 0x2c loads 4 bytes from [a0+32]:8 +0x4.
-  3 such `ld` accesses load 8 bytes from ret(pmolist_getelem) +0x28, including `ld` at 0x64, `ld` at 0x9c4, `ld` at 0xad4.
+  2 such `ld` accesses load 8 bytes from ret(pmolist_getelem) +0x28, including `ld` at 0x64, `ld` at 0x9c4.
   The `ld` at 0x84 loads 8 bytes from a0 (arg0 at entry) +0x40.
   The `lw` at 0x88 loads 4 bytes from a0 (arg0 at entry) +0x48.
   The `lw` at 0xa4 loads 4 bytes from [a0+64]:8 +0x4.
   2 such `lh` accesses load 2 bytes from [-0x3fe0]:8 +0xfa, including `lh` at 0xac, `lh` at 0xb14.
   2 such `ld` accesses load 8 bytes from [-0x3fe0]:8 +0x288, including `ld` at 0xc4, `ld` at 0x2e8.
   2 such `ld` accesses load 8 bytes from [-0x3fe0]:8 +0x280, including `ld` at 0xc8, `ld` at 0x2ec.
-  50 such `ld` accesses load 8 bytes from ?, including `ld` at 0xe4, `ld` at 0x158, `ld` at 0x180.
+  51 such `ld` accesses load 8 bytes from ?, including `ld` at 0xe4, `ld` at 0x158, `ld` at 0x180.
   4 such `ld` accesses load 8 bytes from abs 0xffffffffffffc400, including `ld` at 0x12c, `ld` at 0x79c, `ld` at 0xb98.
   4 such `ld` accesses load 8 bytes from [-0x3c00]:8 +0x0, including `ld` at 0x140, `ld` at 0x7a0, `ld` at 0xb9c.
   4 such `lhu` accesses load 2 bytes from ?, including `lhu` at 0x160, `lhu` at 0x188, `lhu` at 0xbb0.
@@ -119093,8 +119039,7 @@ These entries record instruction facts rendered from the routines below. They de
   4 such `lw` accesses load 4 bytes from ?, including `lw` at 0x7ac, `lw` at 0x7b0, `lw` at 0x13f4.
   The `lld` at 0xab4 loads 8 bytes from ?.
   The `scd` at 0xabc stores 8 bytes to ?.
-  2 such `lh` accesses load 2 bytes from [-0x3fe0]:8 +0xf4, including `lh` at 0xb28, `lh` at 0x1058.
-  2 such `lh` accesses load 2 bytes from ?, including `lh` at 0xbac, `lh` at 0xd04.
+  4 such `lh` accesses load 2 bytes from ?, including `lh` at 0xb28, `lh` at 0xbac, `lh` at 0xd04.
   4 such `lh` accesses load 2 bytes from ret(pmolist_getelem) +0x20, including `lh` at 0xdc4, `lh` at 0x10ac, `lh` at 0x12e0.
   The `ld` at 0xffc loads 8 bytes from [-0x3fe8]:8 +0x358.
   The `ld` at 0x12b8 loads 8 bytes from ((ret(ceil_log2) << 0x3) + sym(.data)+294912) +0x0.
@@ -119106,37 +119051,37 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xfc calls get_effective_nodemask with a0=[-0x3fe0]:8, a1=?, a2=-0x1, a3=?.
   The `jal` at 0x314 calls as_getassize with a0=[[-0x3fe8]:8+1440]:8, a1=[[-0x3fe8]:8+1448]:8, a2=[[-0x3fe8]:8+1456]:8, a3=sp-2800, a4=sp-2796.
   The `jal` at 0x468 calls ceil_log2 with a0=[[a0+32]:8+4], a1=?, a2=?, a3=?.
-  The `jal` at 0x718 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?, a4=[a0+72].
+  The `jal` at 0x718 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?.
   The `jal` at 0x930 calls kmem_free with a0=?, a1=?, a2=?, a3=?, a6=sp-1896.
   The `jal` at 0x940 calls kmem_free with a0=?, a1=0x400, a2=?, a3=?, a5=sp-2408.
   The `jal` at 0x9b8 calls pmolist_getelem with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xa5c calls memfit_selectnode with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xa74 calls pmolist_getelem with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xa90 calls physmem_mld_place_onnode with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
-  The `jal` at 0xdb8 calls pmolist_getelem with a0=[a0+64]:8, a1=0x0, a2=[a0+64]:8, a3=0x4, a4=[a0+64]:8.
+  The `jal` at 0xdb8 calls pmolist_getelem with a0=?, a1=0x0, a2=?, a3=0x4.
   The `jal` at 0xdd4 calls physmem_selectnode with a0=?, a1=?, a2=[a0+32]:8, a3=?.
-  The `jal` at 0xdf4 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?, a4=[a0+72].
+  The `jal` at 0xdf4 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?.
   The `jal` at 0xf14 calls kmem_alloc with a0=?, a1=0x0, a2=?, a3=?.
   The `jal` at 0xf40 calls pmolist_getelem with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xf4c calls physmem_mld_place_onnode with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
   The `jal` at 0xf88 calls pmolist_getelem with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xf90 calls mld_getnodeid with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
-  The `jal` at 0xfcc calls memfit_selectnode with a0=?, a1=?, a2=[a0+64]:8, a3=0x4, a4=[a0+64]:8.
+  The `jal` at 0xfcc calls memfit_selectnode with a0=?, a1=?, a2=?, a3=0x4.
   The `jal` at 0xfe8 calls physmem_place_node with a0=[a0+32]:8, a1=?, a2=?, a3=?.
-  The `jal` at 0x10a4 calls pmolist_getelem with a0=[a0+64]:8, a1=0x0, a2=[a0+64]:8, a3=0x4.
-  The `jal` at 0x10c8 calls physmem_place_cpucluster with a0=?, a1=[a0+32]:8, a2=?, a3=?, a4=[a0+72].
+  The `jal` at 0x10a4 calls pmolist_getelem with a0=?, a1=0x0, a2=?, a3=0x4.
+  The `jal` at 0x10c8 calls physmem_place_cpucluster with a0=?, a1=[a0+32]:8, a2=?, a3=?.
   The `jal` at 0x111c calls ceil_log2 with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1140 calls kmem_alloc with a0=0x400, a1=0x0, a2=?, a3=?, a5=sp-2408.
-  The `jal` at 0x1174 calls memfit_selectnode with a0=?, a1=?, a2=[a0+64]:8, a3=0x4.
+  The `jal` at 0x1174 calls memfit_selectnode with a0=?, a1=?, a2=?, a3=0x4.
   The `jal` at 0x1198 calls physmem_selectnode with a0=ret(memfit_selectnode), a1=?, a2=[a0+32]:8, a3=?.
   The `jal` at 0x11b4 calls physmem_place_node with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0x1204 calls ceil_log2 with a0=?, a1=0x2, a2=?, a3=?.
   The `jal` at 0x1220 calls ceil_log2 with a0=?, a1=0x2, a2=0x3, a3=?.
-  The `jal` at 0x125c calls physmem_place_physical with a0=[a0+32]:8, a1=?, a2=[a0+64]:8, a3=?, a4=[a0+72].
-  The `jal` at 0x1278 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?, a4=[a0+72].
-  The `jal` at 0x12d0 calls pmolist_getelem with a0=[a0+64]:8, a1=0x0, a2=?, a3=?.
+  The `jal` at 0x125c calls physmem_place_physical with a0=[a0+32]:8, a1=?, a2=?, a3=?.
+  The `jal` at 0x1278 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?.
+  The `jal` at 0x12d0 calls pmolist_getelem with a0=?, a1=0x0, a2=?, a3=?.
   The `jal` at 0x13ac calls physmem_place_cube_with_affinity_p with a0=ret(ceil_log2), a1=[ret(pmolist_getelem)+32]:2, a2=?, a3=?, a4=[a0+32]:8, a5=sp-1344.
-  The `jal` at 0x146c calls pmolist_getelem with a0=[a0+64]:8, a1=0x0, a2=?, a3=?.
+  The `jal` at 0x146c calls pmolist_getelem with a0=?, a1=0x0, a2=?, a3=?.
   The `jal` at 0x1488 calls physmem_place_cube_with_affinity with a0=ret(ceil_log2), a1=[ret(pmolist_getelem)+32]:2, a2=?, a3=?, a4=[a0+32]:8.
   The `jal` at 0x149c calls memfit_selectnode with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x14bc calls physmem_place_cube with a0=ret(ceil_log2), a1=?, a2=?, a3=?, a4=[a0+32]:8.
@@ -119214,7 +119159,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x6f0 targets 0x10f0, is taken when v0(=one of 0x0, 0x1) == 0, and falls through when v0(=one of 0x0, 0x1) != 0.
   The `beq` branch at 0x6f8 targets 0x744 and is always taken.
   The `beq` branch at 0x730 targets 0xebc, is taken when s8(?) == 0, and falls through when s8(?) != 0.
-  The `beq` branch at 0x738 targets 0x126c, is taken when a2(=[a0+72]) == 0, and falls through when a2(=[a0+72]) != 0.
+  The `beq` branch at 0x738 targets 0x126c, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0x740 targets 0xebc, is taken when s8(?) == 0, and falls through when s8(?) != 0.
   The `beq` branch at 0x748 targets 0x758, is taken when a3(?) == 0, and falls through when a3(?) != 0.
   The `bne` branch at 0x750 targets 0x940, is taken when a3(?) != a5(=sp-2408), and falls through when a3(?) == a5(=sp-2408).
@@ -119279,7 +119224,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `bne` branch at 0xd80 targets 0xcd4, is taken when a0(?) != 0, and falls through when a0(?) == 0.
   The `bne` branch at 0xd98 targets 0x958, is taken when a1(?) < s1(=[[a0+32]:8+4]) (signed), and falls through when a1(?) >= s1(=[[a0+32]:8+4]) (signed).
   The `beq` branch at 0xda0 targets 0x96c and is always taken.
-  The `beq` branch at 0xdac targets 0xfc8, is taken when a4(=[a0+64]:8) == 0, and falls through when a4(=[a0+64]:8) != 0.
+  The `beq` branch at 0xdac targets 0xfc8, is taken when a4(?) == 0, and falls through when a4(?) != 0.
   The `beq` branch at 0xdc0 targets 0xfe0, is taken when s3(?) == s2(=0x1), and falls through when s3(?) != s2(=0x1).
   The `bne` branch at 0xe00 targets 0x738, is taken when s8(?) != 0, and falls through when s8(?) == 0.
   The `beq` branch at 0xe14 targets 0x730 and is always taken.
@@ -119308,7 +119253,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `bne` branch at 0x104c targets 0x1038, is taken when a1(?) != 0, and falls through when a1(?) == 0.
   The `bne` branch at 0x1088 targets 0x1070, is taken when a1(?) < 0x8 (signed), and falls through when a1(?) >= 0x8 (signed).
   The `beq` branch at 0x1090 targets 0xb60 and is always taken.
-  The `beq` branch at 0x1098 targets 0x1170, is taken when a1(=[a0+64]:8) == 0, and falls through when a1(=[a0+64]:8) != 0.
+  The `beq` branch at 0x1098 targets 0x1170, is taken when a1(?) == 0, and falls through when a1(?) != 0.
   The `beq` branch at 0x10b0 targets 0x11b0, is taken when s3(?) == s2(=0x1), and falls through when s3(?) != s2(=0x1).
   The `bne` branch at 0x10d4 targets 0x738, is taken when s8(?) != 0, and falls through when s8(?) == 0.
   The `beq` branch at 0x10e8 targets 0x730 and is always taken.
@@ -119337,8 +119282,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x1264 targets 0x730 and is always taken.
   The `bne` branch at 0x1280 targets 0x740, is taken when v0(=ret(physmem_place_cluster)) != 0, and falls through when v0(=ret(physmem_place_cluster)) == 0.
   The `beq` branch at 0x1294 targets 0x740 and is always taken.
-  The `beq` branch at 0x12c4 targets 0x14f4, is taken when at(=[a0+64]:8) == 0, and falls through when at(=[a0+64]:8) != 0.
-  The `blez` branch at 0x12e4 targets 0x1438, is taken when t9(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) <= 0 (signed), and falls through when t9(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) > 0 (signed).
+  The `beq` branch at 0x12c4 targets 0x14f4, is taken when at(?) == 0, and falls through when at(?) != 0.
+  The `blez` branch at 0x12e4 targets 0x1438, is taken when t9(?) <= 0 (signed), and falls through when t9(?) > 0 (signed).
   The `beq` branch at 0x132c targets 0x138c, is taken when a0(?) == 0, and falls through when a0(?) != 0.
   The `beq` branch at 0x134c targets 0x1454, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `bne` branch at 0x1374 targets 0x1354, is taken when t1(?) < s0(=ret(ceil_log2)) (signed), and falls through when t1(?) >= s0(=ret(ceil_log2)) (signed).
@@ -119349,17 +119294,17 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x13f8 targets 0x13e4, is taken when a1(?) >= v0(?) (signed), and falls through when a1(?) < v0(?) (signed).
   The `bne` branch at 0x1404 targets 0x1398, is taken when t1(?) != 0, and falls through when t1(?) == 0.
   The `beq` branch at 0x140c targets 0x1444, is taken when s8(?) == 0, and falls through when s8(?) != 0.
-  The `bne` branch at 0x1430 targets 0x1328, is taken when t0(?) < t1(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) (signed), and falls through when t0(?) >= t1(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) (signed).
+  The `bne` branch at 0x1430 targets 0x1328, is taken when t0(?) < t1(?) (signed), and falls through when t0(?) >= t1(?) (signed).
   The `bne` branch at 0x1438 targets 0x738, is taken when s8(?) != 0, and falls through when s8(?) == 0.
   The `beq` branch at 0x144c targets 0x730 and is always taken.
   The `beq` branch at 0x1454 targets 0x137c and is always taken.
-  The `beq` branch at 0x1460 targets 0x1498, is taken when t3(=[a0+64]:8) == 0, and falls through when t3(=[a0+64]:8) != 0.
+  The `beq` branch at 0x1460 targets 0x1498, is taken when t3(?) == 0, and falls through when t3(?) != 0.
   The `beq` branch at 0x1490 targets 0x14c8 and is always taken.
   The `bne` branch at 0x14c8 targets 0x738, is taken when s8(?) != 0, and falls through when s8(?) == 0.
   The `beq` branch at 0x14dc targets 0x730 and is always taken.
   The `blez` branch at 0x14e4 targets 0x950, is taken when s1(=[[a0+32]:8+4]) <= 0 (signed), and falls through when s1(=[[a0+32]:8+4]) > 0 (signed).
   The `beq` branch at 0x14ec targets 0xc3c and is always taken.
-  The `blez` branch at 0x1514 targets 0x1438, is taken when a2(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) <= 0 (signed), and falls through when a2(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) > 0 (signed).
+  The `blez` branch at 0x1514 targets 0x1438, is taken when a2(?) <= 0 (signed), and falls through when a2(?) > 0 (signed).
   The `beq` branch at 0x155c targets 0x15bc, is taken when v1(?) == 0, and falls through when v1(?) != 0.
   The `beq` branch at 0x157c targets 0x1670, is taken when a0(?) == 0, and falls through when a0(?) != 0.
   The `bne` branch at 0x15a4 targets 0x1584, is taken when t2(?) < s0(=ret(ceil_log2)) (signed), and falls through when t2(?) >= s0(=ret(ceil_log2)) (signed).
@@ -119370,7 +119315,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x1628 targets 0x1614, is taken when t8(?) >= v0(?) (signed), and falls through when t8(?) < v0(?) (signed).
   The `bne` branch at 0x1634 targets 0x15c8, is taken when t1(?) != 0, and falls through when t1(?) == 0.
   The `beq` branch at 0x163c targets 0x1444, is taken when s8(?) == 0, and falls through when s8(?) != 0.
-  The `bne` branch at 0x1660 targets 0x1558, is taken when t0(?) < t1(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) (signed), and falls through when t0(?) >= t1(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) (signed).
+  The `bne` branch at 0x1660 targets 0x1558, is taken when t0(?) < t1(?) (signed), and falls through when t0(?) >= t1(?) (signed).
   The `beq` branch at 0x1668 targets 0x1438 and is always taken.
   The `beq` branch at 0x1670 targets 0x15ac and is always taken.
   The `beq` branch at 0x1678 targets 0xd88 and is always taken.
@@ -119521,7 +119466,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0x1df4 loads 8 bytes from table(sym(.data)+294912) +0x0.
   4 such `lbu` accesses load 1 byte from ?, including `lbu` at 0x1e50, `lbu` at 0x1ed4, `lbu` at 0x1ee4.
   2 such `lh` accesses load 2 bytes from table(sym(cube_to_cnode)) +0x0, including `lh` at 0x1e7c, `lh` at 0x1f88.
-  3 such `ld` accesses load 8 bytes from ?, including `ld` at 0x1e84, `ld` at 0x2058, `ld` at 0x2088.
+  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0x1e84, `ld` at 0x201c, `ld` at 0x2058.
   The `ld` at 0x1e8c loads 8 bytes from (a3 + (entry(sym(cube_to_cnode)) << 0x3)) +0x0.
   2 such `ld` accesses load 8 bytes from abs 0xffffffffffffc400, including `ld` at 0x1fa8, `ld` at 0x2000.
   2 such `ld` accesses load 8 bytes from [-0x3c00]:8 +0x0, including `ld` at 0x1fac, `ld` at 0x2004.
@@ -119533,14 +119478,13 @@ These entries record instruction facts rendered from the routines below. They de
   The `ll` at 0x1fec loads 4 bytes from ret(pmolist_getelem) +0x30.
   The `sc` at 0x1ff4 stores 4 bytes to ret(pmolist_getelem) +0x30.
   The `ld` at 0x2010 loads 8 bytes from ret(pmolist_getelem) +0x28.
-  The `ld` at 0x201c loads 8 bytes from ([[-0x3c00]:8]:8 + (entry(sym(cube_to_cnode)) << 0x3)) +0x0.
-  The `ll` at 0x2038 loads 4 bytes from [([[-0x3c00]:8]:8 + (entry(sym(cube_to_cnode)) << 0x3))]:8 +0x5f8.
-  The `sc` at 0x2044 stores 4 bytes to [([[-0x3c00]:8]:8 + (entry(sym(cube_to_cnode)) << 0x3))]:8 +0x5f8.
+  The `ll` at 0x2038 loads 4 bytes from ?.
+  The `sc` at 0x2044 stores 4 bytes to ?.
   The `lld` at 0x2094 loads 8 bytes from ?.
   The `scd` at 0x209c stores 8 bytes to ?.
   The `jal` at 0x1f1c calls pmolist_getelem with a0=a4 at entry (arg4), a1=?, a2=?, a3=?.
   The `jal` at 0x1f90 calls mld_isplaced with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
-  The `jal` at 0x1fa0 calls mld_getnodeid with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?, a4=entry(sym(cube_to_cnode)).
+  The `jal` at 0x1fa0 calls mld_getnodeid with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
   The `bne` branch at 0x1d90 targets 0x1d80, is taken when v0(?) < 0x2 (signed), and falls through when v0(?) >= 0x2 (signed).
   The `blez` branch at 0x1dbc targets 0x2108, is taken when a1(?) <= 0 (signed), and falls through when a1(?) > 0 (signed).
   The `blez` branch at 0x1e04 targets 0x20f0, is taken when s3(=[(a0 + [sym(.sbss)+8]:8)]:1) <= 0 (signed), and falls through when s3(=[(a0 + [sym(.sbss)+8]:8)]:1) > 0 (signed).
@@ -119581,7 +119525,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0x21d8 loads 8 bytes from table(sym(.data)+294912) +0x0.
   4 such `lbu` accesses load 1 byte from ?, including `lbu` at 0x2214, `lbu` at 0x2290, `lbu` at 0x22a0.
   2 such `lh` accesses load 2 bytes from table(sym(cube_to_cnode)) +0x0, including `lh` at 0x2240, `lh` at 0x2348.
-  3 such `ld` accesses load 8 bytes from ?, including `ld` at 0x224c, `ld` at 0x2418, `ld` at 0x2444.
+  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0x224c, `ld` at 0x23dc, `ld` at 0x2418.
   The `ld` at 0x2254 loads 8 bytes from (a3 + (entry(sym(cube_to_cnode)) << 0x3)) +0x0.
   2 such `ld` accesses load 8 bytes from abs 0xffffffffffffc400, including `ld` at 0x2368, `ld` at 0x23c0.
   2 such `ld` accesses load 8 bytes from [-0x3c00]:8 +0x0, including `ld` at 0x236c, `ld` at 0x23c4.
@@ -119593,14 +119537,13 @@ These entries record instruction facts rendered from the routines below. They de
   The `ll` at 0x23ac loads 4 bytes from ret(pmolist_getelem) +0x30.
   The `sc` at 0x23b4 stores 4 bytes to ret(pmolist_getelem) +0x30.
   The `ld` at 0x23d0 loads 8 bytes from ret(pmolist_getelem) +0x28.
-  The `ld` at 0x23dc loads 8 bytes from ([[-0x3c00]:8]:8 + (entry(sym(cube_to_cnode)) << 0x3)) +0x0.
-  The `ll` at 0x23f8 loads 4 bytes from [([[-0x3c00]:8]:8 + (entry(sym(cube_to_cnode)) << 0x3))]:8 +0x5f8.
-  The `sc` at 0x2404 stores 4 bytes to [([[-0x3c00]:8]:8 + (entry(sym(cube_to_cnode)) << 0x3))]:8 +0x5f8.
+  The `ll` at 0x23f8 loads 4 bytes from ?.
+  The `sc` at 0x2404 stores 4 bytes to ?.
   The `lld` at 0x2450 loads 8 bytes from ?.
   The `scd` at 0x2458 stores 8 bytes to ?.
   The `jal` at 0x22dc calls pmolist_getelem with a0=a4 at entry (arg4), a1=?, a2=?, a3=?.
   The `jal` at 0x2350 calls mld_isplaced with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
-  The `jal` at 0x2360 calls mld_getnodeid with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?, a4=entry(sym(cube_to_cnode)).
+  The `jal` at 0x2360 calls mld_getnodeid with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
   The `bne` branch at 0x216c targets 0x215c, is taken when v0(?) < 0x2 (signed), and falls through when v0(?) >= 0x2 (signed).
   The `blez` branch at 0x2188 targets 0x24cc, is taken when a7(=[(a0 + [sym(.sbss)+8]:8)]:1) <= 0 (signed), and falls through when a7(=[(a0 + [sym(.sbss)+8]:8)]:1) > 0 (signed).
   The `blez` branch at 0x21dc targets 0x24b0, is taken when s5(?) <= 0 (signed), and falls through when s5(?) > 0 (signed).
@@ -119751,27 +119694,28 @@ These entries record instruction facts rendered from the routines below. They de
   2 such `ld` accesses load 8 bytes from ([[-0x3c00]:8]:8 + (ret(mld_getnodeid) << 0x3)) +0x0, including `ld` at 0x2cd0, `ld` at 0x2fd8.
   2 such `ll` accesses load 4 bytes from [([[-0x3c00]:8]:8 + (ret(mld_getnodeid) << 0x3))]:8 +0x5f8, including `ll` at 0x2ce0, `ll` at 0x2fe4.
   2 such `sc` accesses store 4 bytes to [([[-0x3c00]:8]:8 + (ret(mld_getnodeid) << 0x3))]:8 +0x5f8, including `sc` at 0x2cec, `sc` at 0x2ff0.
-  3 such `sh` accesses store 2 bytes to ret(pmolist_getelem) +0x20, including `sh` at 0x2d04, `sh` at 0x2e70, `sh` at 0x3018.
-  3 such `ll` accesses load 4 bytes from ret(pmolist_getelem) +0x30, including `ll` at 0x2d10, `ll` at 0x2e78, `ll` at 0x3004.
-  3 such `sc` accesses store 4 bytes to ret(pmolist_getelem) +0x30, including `sc` at 0x2d18, `sc` at 0x2e80, `sc` at 0x300c.
-  3 such `ll` accesses load 4 bytes from ?, including `ll` at 0x2d54, `ll` at 0x2e54, `ll` at 0x2eb0.
-  3 such `sc` accesses store 4 bytes to ?, including `sc` at 0x2d60, `sc` at 0x2e60, `sc` at 0x2ebc.
+  The `sh` at 0x2d04 stores 2 bytes to ?.
+  4 such `ll` accesses load 4 bytes from ?, including `ll` at 0x2d10, `ll` at 0x2d54, `ll` at 0x2e54.
+  4 such `sc` accesses store 4 bytes to ?, including `sc` at 0x2d18, `sc` at 0x2d60, `sc` at 0x2e60.
+  2 such `sh` accesses store 2 bytes to ret(pmolist_getelem) +0x20, including `sh` at 0x2e70, `sh` at 0x3018.
+  2 such `ll` accesses load 4 bytes from ret(pmolist_getelem) +0x30, including `ll` at 0x2e78, `ll` at 0x3004.
+  2 such `sc` accesses store 4 bytes to ret(pmolist_getelem) +0x30, including `sc` at 0x2e80, `sc` at 0x300c.
   The `lld` at 0x2f30 loads 8 bytes from ?.
   The `scd` at 0x2f38 stores 8 bytes to ?.
   The `lw` at 0x2fdc loads 4 bytes from ret(pmolist_getelem) +0x2c.
   The `jal` at 0x2ac8 calls kmem_alloc with a0=(a0 << 0x2), a1=0x0, a2=a2 at entry (arg2), a3=a3 at entry (arg3), a7=([sym(cpusets)]:8 + ([[-0x3fe0]:8+244]:2 << 0x8)).
   The `jal` at 0x2c88 calls pmolist_getelem with a0=a1 at entry (arg1), a1=?, a2=?, a3=?.
   The `jal` at 0x2ca8 calls mld_isplaced with a0=ret(pmolist_getelem), a1=?, a2=?, a3=[ret(pmolist_getelem)+40]:8.
-  The `jal` at 0x2cb8 calls mld_getnodeid with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
+  The `jal` at 0x2cb8 calls mld_getnodeid with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x2e10 calls pmolist_getelem with a0=a1 at entry (arg1), a1=?, a2=?, a3=?.
   The `jal` at 0x2e18 calls mld_getnodeid with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
   The `jal` at 0x2e24 calls mld_isplaced with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
   The `jal` at 0x2ee0 calls pmolist_getelem with a0=a1 at entry (arg1), a1=?, a2=?, a3=?.
-  The `jal` at 0x2f00 calls kmem_free with a0=ret(kmem_alloc), a1=(a0 << 0x2), a2=?, a3=?.
+  The `jal` at 0x2f00 calls kmem_free with a0=ret(kmem_alloc), a1=?, a2=?, a3=?.
   The `jal` at 0x2fa4 calls pmolist_getelem with a0=a1 at entry (arg1), a1=?, a2=?, a3=?.
   The `jal` at 0x2fb0 calls mld_isplaced with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
   The `jal` at 0x2fc0 calls mld_getnodeid with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
-  The `jal` at 0x3030 calls kmem_free with a0=ret(kmem_alloc), a1=(a0 << 0x2), a2=?, a3=?.
+  The `jal` at 0x3030 calls kmem_free with a0=ret(kmem_alloc), a1=?, a2=?, a3=?.
   The `beq` branch at 0x2a60 targets 0x2a88, is taken when v0(?) >= 0x8 (signed), and falls through when v0(?) < 0x8 (signed).
   The `bne` branch at 0x2a80 targets 0x2a48, is taken when v0(?) < 0x8 (signed), and falls through when v0(?) >= 0x8 (signed).
   The `bne` branch at 0x2ab0 targets 0x2a9c, is taken when v0(?) < 0x2 (signed), and falls through when v0(?) >= 0x2 (signed).
@@ -119798,8 +119742,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `blez` branch at 0x2c74 targets 0x2b70, is taken when s0(?) <= 0 (signed), and falls through when s0(?) > 0 (signed).
   The `bne` branch at 0x2ca0 targets 0x2c64, is taken when a2(?) < a3(=[ret(pmolist_getelem)+40]:8) (unsigned), and falls through when a2(?) >= a3(=[ret(pmolist_getelem)+40]:8) (unsigned).
   The `beq` branch at 0x2cb0 targets 0x2cfc, is taken when v0(=ret(mld_isplaced)) == 0, and falls through when v0(=ret(mld_isplaced)) != 0.
-  The `beql` branch at 0x2cf0 targets 0x2ce0, is taken when t0(=([[([[-0x3c00]:8]:8 + (ret(mld_getnodeid) << 0x3))]:8+1528] + ([ret(pmolist_getelem)+40]:8 << 0x0))) == 0, and falls through when t0(=([[([[-0x3c00]:8]:8 + (ret(mld_getnodeid) << 0x3))]:8+1528] + ([ret(pmolist_getelem)+40]:8 << 0x0))) != 0; its branch-likely delay slot `nop` at 0x2cf4 runs only when taken and is annulled on fall-through.
-  The `beql` branch at 0x2d1c targets 0x2d10, is taken when a3(=([ret(pmolist_getelem)+48] | 0x1)) == 0, and falls through when a3(=([ret(pmolist_getelem)+48] | 0x1)) != 0; its branch-likely delay slot `nop` at 0x2d20 runs only when taken and is annulled on fall-through.
+  The `beql` branch at 0x2cf0 targets 0x2ce0, is taken when t0(?) == 0, and falls through when t0(?) != 0; its branch-likely delay slot `nop` at 0x2cf4 runs only when taken and is annulled on fall-through.
+  The `beql` branch at 0x2d1c targets 0x2d10, is taken when a3(?) == 0, and falls through when a3(?) != 0; its branch-likely delay slot `nop` at 0x2d20 runs only when taken and is annulled on fall-through.
   The `beql` branch at 0x2d64 targets 0x2d54, is taken when v0(?) == 0, and falls through when v0(?) != 0; its branch-likely delay slot `nop` at 0x2d68 runs only when taken and is annulled on fall-through.
   The `beq` branch at 0x2da0 targets 0x2dc4, is taken when s6(?) >= s5(?) (signed), and falls through when s6(?) < s5(?) (signed).
   The `bne` branch at 0x2dbc targets 0x2da8, is taken when v0(?) < s5(?) (signed), and falls through when v0(?) >= s5(?) (signed).
@@ -119940,7 +119884,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0x36f0 loads 8 bytes from table(sym(.data)+294912) +0x0.
   4 such `lbu` accesses load 1 byte from ?, including `lbu` at 0x374c, `lbu` at 0x37cc, `lbu` at 0x37dc.
   2 such `lh` accesses load 2 bytes from table(sym(cube_to_cnode)) +0x0, including `lh` at 0x3778, `lh` at 0x3894.
-  3 such `ld` accesses load 8 bytes from ?, including `ld` at 0x3780, `ld` at 0x3964, `ld` at 0x3994.
+  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0x3780, `ld` at 0x3928, `ld` at 0x3964.
   The `ld` at 0x3788 loads 8 bytes from (a3 + (entry(sym(cube_to_cnode)) << 0x3)) +0x0.
   The `lw` at 0x382c loads 4 bytes from ?.
   2 such `ld` accesses load 8 bytes from abs 0xffffffffffffc400, including `ld` at 0x38b4, `ld` at 0x390c.
@@ -119953,14 +119897,13 @@ These entries record instruction facts rendered from the routines below. They de
   The `ll` at 0x38f8 loads 4 bytes from ret(pmolist_getelem) +0x30.
   The `sc` at 0x3900 stores 4 bytes to ret(pmolist_getelem) +0x30.
   The `ld` at 0x391c loads 8 bytes from ret(pmolist_getelem) +0x28.
-  The `ld` at 0x3928 loads 8 bytes from ([[-0x3c00]:8]:8 + (entry(sym(cube_to_cnode)) << 0x3)) +0x0.
-  The `ll` at 0x3944 loads 4 bytes from [([[-0x3c00]:8]:8 + (entry(sym(cube_to_cnode)) << 0x3))]:8 +0x5f8.
-  The `sc` at 0x3950 stores 4 bytes to [([[-0x3c00]:8]:8 + (entry(sym(cube_to_cnode)) << 0x3))]:8 +0x5f8.
+  The `ll` at 0x3944 loads 4 bytes from ?.
+  The `sc` at 0x3950 stores 4 bytes to ?.
   The `lld` at 0x39a0 loads 8 bytes from ?.
   The `scd` at 0x39a8 stores 8 bytes to ?.
   The `jal` at 0x3828 calls pmolist_getelem with a0=a4 at entry (arg4), a1=?, a2=?, a3=?.
   The `jal` at 0x389c calls mld_isplaced with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
-  The `jal` at 0x38ac calls mld_getnodeid with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?, a4=entry(sym(cube_to_cnode)).
+  The `jal` at 0x38ac calls mld_getnodeid with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
   The `bne` branch at 0x368c targets 0x367c, is taken when v0(?) < 0x2 (signed), and falls through when v0(?) >= 0x2 (signed).
   The `blez` branch at 0x36b8 targets 0x3a14, is taken when a7(?) <= 0 (signed), and falls through when a7(?) > 0 (signed).
   The `blez` branch at 0x3700 targets 0x39fc, is taken when s5(=[(a0 + [sym(.sbss)+8]:8)]:1) <= 0 (signed), and falls through when s5(=[(a0 + [sym(.sbss)+8]:8)]:1) > 0 (signed).
@@ -120001,7 +119944,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0x3ae8 loads 8 bytes from table(sym(.data)+294912) +0x0.
   4 such `lbu` accesses load 1 byte from ?, including `lbu` at 0x3b28, `lbu` at 0x3ba4, `lbu` at 0x3bb4.
   2 such `lh` accesses load 2 bytes from table(sym(cube_to_cnode)) +0x0, including `lh` at 0x3b54, `lh` at 0x3c70.
-  3 such `ld` accesses load 8 bytes from ?, including `ld` at 0x3b5c, `ld` at 0x3d40, `ld` at 0x3d6c.
+  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0x3b5c, `ld` at 0x3d04, `ld` at 0x3d40.
   The `ld` at 0x3b64 loads 8 bytes from (a3 + (entry(sym(cube_to_cnode)) << 0x3)) +0x0.
   The `lw` at 0x3c08 loads 4 bytes from ?.
   2 such `ld` accesses load 8 bytes from abs 0xffffffffffffc400, including `ld` at 0x3c90, `ld` at 0x3ce8.
@@ -120014,14 +119957,13 @@ These entries record instruction facts rendered from the routines below. They de
   The `ll` at 0x3cd4 loads 4 bytes from ret(pmolist_getelem) +0x30.
   The `sc` at 0x3cdc stores 4 bytes to ret(pmolist_getelem) +0x30.
   The `ld` at 0x3cf8 loads 8 bytes from ret(pmolist_getelem) +0x28.
-  The `ld` at 0x3d04 loads 8 bytes from ([[-0x3c00]:8]:8 + (entry(sym(cube_to_cnode)) << 0x3)) +0x0.
-  The `ll` at 0x3d20 loads 4 bytes from [([[-0x3c00]:8]:8 + (entry(sym(cube_to_cnode)) << 0x3))]:8 +0x5f8.
-  The `sc` at 0x3d2c stores 4 bytes to [([[-0x3c00]:8]:8 + (entry(sym(cube_to_cnode)) << 0x3))]:8 +0x5f8.
+  The `ll` at 0x3d20 loads 4 bytes from ?.
+  The `sc` at 0x3d2c stores 4 bytes to ?.
   The `lld` at 0x3d78 loads 8 bytes from ?.
   The `scd` at 0x3d80 stores 8 bytes to ?.
   The `jal` at 0x3c04 calls pmolist_getelem with a0=a4 at entry (arg4), a1=?, a2=?, a3=?.
   The `jal` at 0x3c78 calls mld_isplaced with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
-  The `jal` at 0x3c88 calls mld_getnodeid with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?, a4=entry(sym(cube_to_cnode)).
+  The `jal` at 0x3c88 calls mld_getnodeid with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
   The `bne` branch at 0x3a7c targets 0x3a6c, is taken when v0(?) < 0x2 (signed), and falls through when v0(?) >= 0x2 (signed).
   The `blez` branch at 0x3a98 targets 0x3df4, is taken when t0(=[(a0 + [sym(.sbss)+8]:8)]:1) <= 0 (signed), and falls through when t0(=[(a0 + [sym(.sbss)+8]:8)]:1) > 0 (signed).
   The `blez` branch at 0x3aec targets 0x3dd8, is taken when a4(?) <= 0 (signed), and falls through when a4(?) > 0 (signed).
@@ -121950,7 +121892,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xec0 loads 4 bytes from [[((a0 << 0x3) + [[-0x3c00]:8]:8)]:8+24]:8 +0x6c.
   The `sw` at 0xed4 stores 4 bytes to [[((a0 << 0x3) + [[-0x3c00]:8]:8)]:8+24]:8 +0x6c.
   The `jal` at 0xa00 calls pagealloc_size_node with a0=a0 at entry (arg0), a1=?, a2=0x2048000, a3=(a2 << 0xe), a6=-0x7, a7=a3 at entry (arg3).
-  The `jal` at 0xa5c calls lpage_size_to_index with a0=(a2 << 0xe), a1=0xfffffffffffe3fff, a2=?, a3=0x1, a6=0x0.
+  The `jal` at 0xa5c calls lpage_size_to_index with a0=?, a1=0xfffffffffffe3fff, a2=?, a3=0x1, a6=0x0.
   The `jal` at 0xa88 calls mutex_bitlock with a0=?, a1=0x8000000, a2=?, a3=?.
   The `jal` at 0xaa8 calls anon_hold with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xab8 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
@@ -121960,10 +121902,10 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xb3c calls vnode_pagemigr with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xbb8 calls mutex_64bitlock with a0=?, a1=0x1, a2=?, a3=?.
   The `jal` at 0xbcc calls rmap_scanmap with a0=?, a1=0x200, a2=sp-176, a3=?.
-  The `jal` at 0xbdc calls mutex_64bitunlock with a0=?, a1=0x1, a2=ret(mutex_64bitlock), a3=?.
+  The `jal` at 0xbdc calls mutex_64bitunlock with a0=?, a1=0x1, a2=?, a3=?.
   The `jal` at 0xc28 calls tlbsync with a0=0x0, a1=[sym(allclr_cpumask)]:8, a2=[sym(allclr_cpumask)+8]:8, a3=[sym(allclr_cpumask)+16]:8, a4=[sym(allclr_cpumask)+24]:8, a5=[sym(allclr_cpumask)+32]:8, a6=[sym(allclr_cpumask)+40]:8, a7=[sym(allclr_cpumask)+48]:8.
   The `jal` at 0xc44 calls migr_pagemove with a0=?, a1=?, a2=0x1, a3=?.
-  The `jal` at 0xc98 calls cache_operation with a0=?, a1=((a2 << 0xe) << 0x0), a2=0x2400, a3=0xa800000000000000.
+  The `jal` at 0xc98 calls cache_operation with a0=?, a1=?, a2=0x2400, a3=0xa800000000000000.
   The `jal` at 0xd18 calls anon_hold with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xd28 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
   The `jal` at 0xd38 calls anon_pagemigr with a0=?, a1=?, a2=?, a3=?.
@@ -121974,11 +121916,11 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xde8 calls vnode_hold with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xdf8 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
   The `jal` at 0xe08 calls vnode_pagemigr with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xe30 calls pagefree_size with a0=ret(pagealloc_size_node), a1=(a2 << 0xe), a2=?, a3=?.
+  The `jal` at 0xe30 calls pagefree_size with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xe44 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
   The `jal` at 0xe54 calls migr_page_epilogue with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xe74 calls pagedone with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xef4 calls pagefree_size with a0=a1 at entry (arg1), a1=(a2 << 0xe), a2=?, a3=?, a6=-0x8.
+  The `jal` at 0xef4 calls pagefree_size with a0=a1 at entry (arg1), a1=?, a2=?, a3=?, a6=-0x8.
   The `jal` at 0xf10 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
   The `jal` at 0xf2c calls assfail with a0=sym(.rodata), a1=sym(.rodata), a2=0x322, a3=?.
   The `jal` at 0xf48 calls assfail with a0=sym(.rodata), a1=sym(.rodata), a2=0x334, a3=?.
@@ -123156,7 +123098,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x6d0 calls repl_control with a0=entry(sym(nasid_to_compact_node)), a1=?, a2=0x0, a3=?.
   The `jal` at 0x724 calls pagealloc_size_node with a0=?, a1=?, a2=0x2000001, a3=0x4000, a6=0x3f80000, a7=0xfffffffffe000000.
   The `jal` at 0x73c calls page_replica_insert with a0=a2 at entry (arg2), a1=ret(pagealloc_size_node), a2=?, a3=?.
-  The `jal` at 0x7a0 calls rp_default_update_coverage with a0=[a0]:8+112, a1=?, a2=?, a3=?.
+  The `jal` at 0x7a0 calls rp_default_update_coverage with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x7f0 calls page_copy with a0=a2 at entry (arg2), a1=ret(pagealloc_size_node), a2=0x80, a3=0x80.
   The `jal` at 0x7f8 calls pagedone with a0=ret(pagealloc_size_node), a1=?, a2=?, a3=?.
   The `bne` branch at 0x5cc targets 0x6b0, is taken when v0(=[[-0x3fe8]:8+608]:8) != 0, and falls through when v0(=[[-0x3fe8]:8+608]:8) == 0.
@@ -123461,7 +123403,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xf4 calls repl_resource_check with a0=a1 at entry (arg1), a1=sp-26, a2=0x0, a3=a3 at entry (arg3).
   The `jal` at 0x114 calls node_distance with a0=?, a1=a1 at entry (arg1), a2=?, a3=?.
   The `jal` at 0x120 calls get_effective_nodemask with a0=[-0x3fe0]:8, a1=?, a2=?, a3=?.
-  The `jal` at 0x150 calls physmem_select_masked_neighbor_node with a0=a1 at entry (arg1), a1=ret(node_distance)-1, a2=ret(get_effective_nodemask), a3=?, a4=sp-80, a5=sym(repl_resource_check), a6=sp-26, a7=0x0.
+  The `jal` at 0x150 calls physmem_select_masked_neighbor_node with a0=a1 at entry (arg1), a1=?, a2=ret(get_effective_nodemask), a3=?, a4=sp-80, a5=sym(repl_resource_check), a6=sp-26, a7=0x0.
   The `beq` branch at 0xe4 targets 0x164, is taken when at(=[[[([[-0x3c00]:8]:8 + (a1 << 0x3))]:8+16]:8]:1) == 0, and falls through when at(=[[[([[-0x3c00]:8]:8 + (a1 << 0x3))]:8+16]:8]:1) != 0.
   The `beq` branch at 0xfc targets 0x174, is taken when v0(=ret(repl_resource_check)) == 0, and falls through when v0(=ret(repl_resource_check)) != 0.
   The `beq` branch at 0x108 targets 0x17c, is taken when v0(=a2) == v1(=0x1), and falls through when v0(=a2) != v1(=0x1).
@@ -123608,9 +123550,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x8bc calls cap_able with a0=0x2000000000, a1=0x7003, a2=?, a3=?.
   The `jal` at 0x8d0 calls copyin with a0=a2 at entry (arg2), a1=sp-120, a2=0x18, a3=?.
   The `jal` at 0x910 calls pcibr_device_slot_get with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x930 calls pcibr_priority_bits_set with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x1, a3=?.
+  The `jal` at 0x930 calls pcibr_priority_bits_set with a0=?, a1=?, a2=0x1, a3=?.
   The `jal` at 0x940 calls pcibr_device_slot_get with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x960 calls pcibr_priority_bits_set with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x0, a3=0xff.
+  The `jal` at 0x960 calls pcibr_priority_bits_set with a0=?, a1=?, a2=0x0, a3=0xff.
   The `jal` at 0x970 calls pcibr_slot_query with a0=ret(hwgraph_connectpt_get), a1=sp-144, a2=?, a3=?.
   The `jal` at 0x980 calls pcibr_slot_startup with a0=ret(hwgraph_connectpt_get), a1=sp-96, a2=?, a3=?.
   The `jal` at 0x994 calls pcibr_slot_shutdown with a0=ret(hwgraph_connectpt_get), a1=sp-120, a2=?, a3=?.
@@ -123763,9 +123705,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xe40 calls strstr with a0=sp-320, a1=sym(.rodata), a2=?, a3=?.
   The `jal` at 0xe5c calls pcibr_widget_to_bus with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `jal` at 0xe74 calls strcat with a0=sp-320, a1=sym(.rodata), a2=?, a3=?.
-  The `jal` at 0xe88 calls sprintf with a0=sp-56, a1=sym(.rodata), a2=ret(pcibr_widget_to_bus), a3=?.
+  The `jal` at 0xe88 calls sprintf with a0=sp-56, a1=sym(.rodata), a2=?, a3=?.
   The `jal` at 0xea4 calls pcibr_debug with a0=0x4, a1=a0 at entry (arg0), a2=sym(.rodata), a3=sp-320, a4=sp-56.
-  The `jal` at 0xeb4 calls hwgraph_path_add with a0=[sym(hwgraph_root)], a1=sp-316, a2=sp-48, a3=?.
+  The `jal` at 0xeb4 calls hwgraph_path_add with a0=[sym(hwgraph_root)], a1=?, a2=sp-48, a3=?.
   The `jal` at 0xedc calls hwgraph_edge_add with a0=?, a1=?, a2=sp-56, a3=?.
   The `beq` branch at 0xe00 targets 0xe18, is taken when v0(=ret(hwgraph_vertex_name_get)) == 0, and falls through when v0(=ret(hwgraph_vertex_name_get)) != 0.
   The `beq` branch at 0xe2c targets 0xe3c, is taken when v0(=ret(hwgraph_traverse)) == 0, and falls through when v0(=ret(hwgraph_traverse)) != 0.
@@ -123802,7 +123744,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x1294 calls pciio_info_get with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `jal` at 0x12a8 calls pciio_info_mfast_get with a0=ret(pciio_info_get), a1=?, a2=?, a3=?.
   The `jal` at 0x12b8 calls mutex_spinlock with a0=ret(pciio_info_mfast_get)+140, a1=?, a2=?, a3=?.
-  The `jal` at 0x1544 calls mutex_io_spinunlock with a0=ret(pciio_info_mfast_get)+140, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?.
+  The `jal` at 0x1544 calls mutex_io_spinunlock with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1650 calls sprintf with a0=sp-736, a1=sym(.rodata), a2=entry(sym(pci_space)), a3=sym(.rodata), a4=sym(.rodata), a5=sym(.rodata), a6=sym(.rodata), a7=sym(.rodata).
   The `jal` at 0x1738 calls sprintf with a0=sp-736, a1=sym(.rodata), a2=entry(sym(pci_space)), a3=?.
   The `jal` at 0x1974 calls sprintf with a0=sp-736, a1=sym(.rodata), a2=entry(sym(pci_space)), a3=?.
@@ -124000,9 +123942,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `sb` at 0x2184 stores 1 byte to ?.
   The `jal` at 0x2118 calls pcibr_info_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x2130 calls mutex_spinlock with a0=[ret(pcibr_info_get)+40]:8+140, a1=?, a2=?, a3=?.
-  The `jal` at 0x2188 calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+140, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?, a6=sym(.rodata).
+  The `jal` at 0x2188 calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+140, a1=?, a2=?, a3=?, a6=sym(.rodata).
   The `jal` at 0x21bc calls cmn_err with a0=0x4, a1=sym(.rodata), a2=a2 at entry (arg2), a3=a3 at entry (arg3), a6=sym(.rodata).
-  The `jal` at 0x21c8 calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+140, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?.
+  The `jal` at 0x21c8 calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+140, a1=?, a2=?, a3=?.
   The `jal` at 0x21e0 calls hwgraph_vertex_name_get with a0=a0 at entry (arg0), a1=sp-1088, a2=0x400, a3=?.
   The `jal` at 0x21f0 calls cmn_err with a0=0x4, a1=sym(.rodata), a2=?, a3=?.
   The `jal` at 0x2208 calls cmn_err with a0=0x4, a1=sym(.rodata), a2=sp-1088, a3=a3 at entry (arg3).
@@ -124795,8 +124737,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0x4e44 loads 8 bytes from a0 (arg0 at entry) +0x8.
   5 such `lw` accesses load 4 bytes from ?, including `lw` at 0x4e78, `lw` at 0x4fac, `lw` at 0x4fec.
   2 such `sw` accesses store 4 bytes to a1 (arg1 at entry) +0x0, including `sw` at 0x4eb0, `sw` at 0x4f64.
-  2 such `ll` accesses load 4 bytes from (a0 + ([a1+8]:1 << 0x7)) +0x174, including `ll` at 0x4ebc, `ll` at 0x4f68.
-  2 such `sc` accesses store 4 bytes to (a0 + ([a1+8]:1 << 0x7)) +0x174, including `sc` at 0x4ec8, `sc` at 0x4f74.
+  2 such `ll` accesses load 4 bytes from ?, including `ll` at 0x4ebc, `ll` at 0x4f68.
+  2 such `sc` accesses store 4 bytes to ?, including `sc` at 0x4ec8, `sc` at 0x4f74.
   The `ld` at 0x4f84 loads 8 bytes from a1 (arg1 at entry) +0x18.
   The `ld` at 0x4fbc loads 8 bytes from ?.
   3 such `sw` accesses store 4 bytes to ?, including `sw` at 0x4fc0, `sw` at 0x4fcc, `sw` at 0x4ffc.
@@ -124806,7 +124748,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x4ed8 calls mutex_io_spinunlock with a0=a0+140, a1=?, a2=?, a3=?.
   The `jal` at 0x4ee0 calls pcireg_tflush_get with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `jal` at 0x4f1c calls mutex_spinlock with a0=a0+140, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3), a6=[a1], a7=0x40000000.
-  The `jal` at 0x4f80 calls xtalk_dmamap_done with a0=[a1+24]:8, a1=(a0 + ([a1+8]:1 << 0x7))+372, a2=(a0 + ([a1+8]:1 << 0x7)), a3=([a1+8]:1 << 0x7), a4=-0x1.
+  The `jal` at 0x4f80 calls xtalk_dmamap_done with a0=[a1+24]:8, a1=?, a2=?, a3=?, a4=-0x1.
   The `jal` at 0x5020 calls pcireg_wrb_flush_get with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `beq` branch at 0x4db4 targets 0x4f10, is taken when at(=[a0+114]:2) == 0, and falls through when at(=[a0+114]:2) != 0.
   The `blez` branch at 0x4dbc targets 0x4e10, is taken when s3(=a3) <= 0 (signed), and falls through when s3(=a3) > 0 (signed).
@@ -124821,11 +124763,11 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x4e64 targets 0x4e9c, is taken when s1(?) >= a0(=[a0+57]:1+1) (signed), and falls through when s1(?) < a0(=[a0+57]:1+1) (signed).
   The `bne` branch at 0x4e80 targets 0x4e44, is taken when (a3(?) & 0x4) != 0, and falls through when (a3(?) & 0x4) == 0.
   The `bne` branch at 0x4e94 targets 0x4e6c, is taken when s1(?) < a0(=[a0+57]:1+1) (signed), and falls through when s1(?) >= a0(=[a0+57]:1+1) (signed).
-  The `beql` branch at 0x4ecc targets 0x4ebc, is taken when at(=[(a0 + ([a1+8]:1 << 0x7))+372]+1) == 0, and falls through when at(=[(a0 + ([a1+8]:1 << 0x7))+372]+1) != 0; its branch-likely delay slot `nop` at 0x4ed0 runs only when taken and is annulled on fall-through.
+  The `beql` branch at 0x4ecc targets 0x4ebc, is taken when at(=table(0x1)) == 0, and falls through when at(=table(0x1)) != 0; its branch-likely delay slot `nop` at 0x4ed0 runs only when taken and is annulled on fall-through.
   The `bgez` branch at 0x4f14 targets 0x4dbc, is taken when ra(=([a1] << 0x21)) >= 0 (signed), and falls through when ra(=([a1] << 0x21)) < 0 (signed).
   The `beq` branch at 0x4f50 targets 0x4f88, is taken when (a0(=[a1]) & a6(=0xffffffff80000000)) == 0, and falls through when (a0(=[a1]) & a6(=0xffffffff80000000)) != 0.
   The `beq` branch at 0x4f60 targets 0x4f80, is taken when (a5(=0x40000000) & a0(?)) == 0, and falls through when (a5(=0x40000000) & a0(?)) != 0.
-  The `beql` branch at 0x4f78 targets 0x4f68, is taken when a7(=[(a0 + ([a1+8]:1 << 0x7))+372]-1) == 0, and falls through when a7(=[(a0 + ([a1+8]:1 << 0x7))+372]-1) != 0; its branch-likely delay slot `nop` at 0x4f7c runs only when taken and is annulled on fall-through.
+  The `beql` branch at 0x4f78 targets 0x4f68, is taken when a7(=table(-0x1)) == 0, and falls through when a7(=table(-0x1)) != 0; its branch-likely delay slot `nop` at 0x4f7c runs only when taken and is annulled on fall-through.
   The `beq` branch at 0x4f9c targets 0x4dbc, is taken when s6(=[a0+56]:1) >= a0(=[a0+57]:1+1) (signed), and falls through when s6(=[a0+56]:1) < a0(=[a0+57]:1+1) (signed).
   The `beq` branch at 0x4fa4 targets 0x5074 and is always taken.
   The `beq` branch at 0x4fb4 targets 0x4fcc, is taken when (a6(?) & 0x4) == 0, and falls through when (a6(?) & 0x4) != 0.
@@ -125438,7 +125380,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x7464 calls kmem_zalloc with a0=0x8, a1=0x0, a2=?, a3=?.
   The `jal` at 0x7484 calls hwgraph_info_add_LBL with a0=?, a1=sym(.rodata)+4264, a2=ret(kmem_zalloc), a3=?.
   The `jal` at 0x7498 calls hwgraph_info_get_LBL with a0=?, a1=sym(.rodata)+4264, a2=sp-64, a3=?.
-  The `jal` at 0x74b0 calls kmem_free with a0=ret(kmem_zalloc), a1=0x8, a2=?, a3=ret(kmem_zalloc).
+  The `jal` at 0x74b0 calls kmem_free with a0=?, a1=0x8, a2=?, a3=?.
   The `jal` at 0x74cc calls pcibr_debug with a0=0x2, a1=a0 at entry (arg0), a2=sym(.rodata)+4264, a3=?.
   The `jal` at 0x74e8 calls pcibr_debug with a0=0x2, a1=a0 at entry (arg0), a2=sym(.rodata)+4264, a3=?, a5=-0x1.
   The `jal` at 0x7504 calls pcibr_debug with a0=0x2, a1=a0 at entry (arg0), a2=sym(.rodata)+4264, a3=?.
@@ -125446,7 +125388,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x742c targets 0x74dc, is taken when a5(=-0x1) == a0(?), and falls through when a5(=-0x1) != a0(?).
   The `beq` branch at 0x7444 targets 0x7464, is taken when v0(?) == 0, and falls through when v0(?) != 0.
   The `beq` branch at 0x746c targets 0x74f8, is taken when v0(=ret(kmem_zalloc)) == 0, and falls through when v0(=ret(kmem_zalloc)) != 0.
-  The `beq` branch at 0x74a8 targets 0x7450, is taken when a2(?) == a3(=ret(kmem_zalloc)), and falls through when a2(?) != a3(=ret(kmem_zalloc)).
+  The `beq` branch at 0x74a8 targets 0x7450, is taken when a2(?) == a3(?), and falls through when a2(?) != a3(?).
   The `beq` branch at 0x74bc targets 0x7514, is taken when a4(?) == 0, and falls through when a4(?) != 0.
   The `beq` branch at 0x74d4 targets 0x744c and is always taken.
   The `beq` branch at 0x74f0 targets 0x7454 and is always taken.
@@ -125725,7 +125667,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xba74 loads 8 bytes from [ret(pcibr_info_get)+40]:8 +0x8.
   The `jal` at 0xba64 calls pcibr_info_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xba7c calls pcibr_config_addr with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=?, a3=?.
-  The `jal` at 0xba90 calls pcibr_probe_slot with a0=[[ret(pcibr_info_get)+40]:8+8]:8, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
+  The `jal` at 0xba90 calls pcibr_probe_slot with a0=?, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
   The `beq` branch at 0xba98 targets 0xbaac, is taken when v0(=ret(pcibr_probe_slot)) == 0, and falls through when v0(=ret(pcibr_probe_slot)) != 0.
   The `beq` branch at 0xbaac targets 0xbaa4 and is always taken.
   The return at 0xbaa4 has v0 = one of -0x1, ?.
@@ -125745,7 +125687,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xbce8 calls pcibr_debug with a0=0x8000, a1=a0 at entry (arg0), a2=sym(.rodata)+11000, a3=ret(hwgraph_fastinfo_get), a5=a1 at entry (arg1).
   The `jal` at 0xbcf8 calls nic_vertex_info_match with a0=[ret(hwgraph_fastinfo_get)], a1=sym(.rodata)+11000, a2=?, a3=?.
   The `jal` at 0xbd50 calls mrlock with a0=ret(hwgraph_fastinfo_get)+144, a1=0x2, a2=0x19, a3=?.
-  The `jal` at 0xbd78 calls mrunlock with a0=ret(hwgraph_fastinfo_get)+144, a1=?, a2=?, a3=?.
+  The `jal` at 0xbd78 calls mrunlock with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xbd98 calls pcibr_slot_attach with a0=a0 at entry (arg0), a1=?, a2=0x200, a3=sp-336, a4=sp-200.
   The `jal` at 0xbdac calls strncpy with a0=sp-196, a1=sp-336, a2=0x80, a3=?.
   The `jal` at 0xbdc0 calls copyout with a0=sp-200, a1=[a1+8]:8, a2=[a1+16], a3=?.
@@ -125779,7 +125721,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xbe4c calls pcibr_debug with a0=0x8000, a1=a0 at entry (arg0), a2=sym(.rodata)+11000, a3=ret(hwgraph_fastinfo_get), a5=a1 at entry (arg1).
   The `jal` at 0xbe90 calls nic_vertex_info_match with a0=[ret(hwgraph_fastinfo_get)], a1=sym(.rodata)+11000, a2=?, a3=0xa.
   The `jal` at 0xbeb8 calls mrlock with a0=ret(hwgraph_fastinfo_get)+144, a1=0x2, a2=0x19, a3=?.
-  The `jal` at 0xbedc calls mrunlock with a0=ret(hwgraph_fastinfo_get)+144, a1=?, a2=?, a3=?.
+  The `jal` at 0xbedc calls mrunlock with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xbf84 calls pcibr_slot_detach with a0=a0 at entry (arg0), a1=?, a2=0x400, a3=sp-200, a4=sp-336, a7=[ret(hwgraph_fastinfo_get)+116]:2.
   The `jal` at 0xbf98 calls strncpy with a0=sp-332, a1=sp-200, a2=0x80, a3=?.
   The `jal` at 0xbfac calls copyout with a0=sp-336, a1=[a1+8]:8, a2=[a1+16], a3=?.
@@ -125801,7 +125743,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xbf48 targets 0xbf5c, is taken when (t1(?) & 0x10) == 0, and falls through when (t1(?) & 0x10) != 0.
   The `beq` branch at 0xbf50 targets 0xbf70 and is always taken.
   The `beq` branch at 0xbf64 targets 0xbf34, is taken when a3(=[ret(hwgraph_fastinfo_get)+50]:1) >= v0(?) (signed), and falls through when a3(=[ret(hwgraph_fastinfo_get)+50]:1) < v0(?) (signed).
-  The `bne` branch at 0xbf70 targets 0xbedc, is taken when a1(=one of 0x0, 0x1) != 0, and falls through when a1(=one of 0x0, 0x1) == 0.
+  The `bne` branch at 0xbf70 targets 0xbedc, is taken when a1(?) != 0, and falls through when a1(?) == 0.
   The `beq` branch at 0xbfb4 targets 0xbedc, is taken when v0(=ret(copyout)) == 0, and falls through when v0(=ret(copyout)) != 0.
   The `beq` branch at 0xbfbc targets 0xbe68 and is always taken.
   The return at 0xbe84 has v0 = one of 0x8, 0xa, 0x9, ?, 0xe.
@@ -125990,35 +125932,32 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xd5d4 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x108.
   The `ld` at 0xd5dc loads 8 bytes from ret(hwgraph_fastinfo_get) +0x8.
   The `lw` at 0xd61c loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
-  2 such `ld` accesses load 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x120, including `ld` at 0xd644, `ld` at 0xd9fc.
+  The `ld` at 0xd644 loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x120.
   5 such `lh` accesses load 2 bytes from ret(hwgraph_fastinfo_get) +0x72, including `lh` at 0xd6a0, `lh` at 0xd7e4, `lh` at 0xd8c4.
-  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xd6d4, `lw` at 0xd760, `lw` at 0xd880.
+  6 such `lw` accesses load 4 bytes from ?, including `lw` at 0xd6d4, `lw` at 0xd760, `lw` at 0xd880.
   3 such `sd` accesses store 8 bytes to ?, including `sd` at 0xd6dc, `sd` at 0xd6e4, `sd` at 0xd908.
-  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0xd750, `ld` at 0xd868, `ld` at 0xd86c.
+  6 such `ld` accesses load 8 bytes from ?, including `ld` at 0xd750, `ld` at 0xd868, `ld` at 0xd86c.
   The `ld` at 0xd820 loads 8 bytes from table(sym(pci_space)) +0x0.
-  The `ld` at 0xda00 loads 8 bytes from [(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8 +0x0.
-  The `lw` at 0xda04 loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8 +0x14.
-  The `lw` at 0xda18 loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8 +0x18.
   The `jal` at 0xd5a0 calls hwgraph_fastinfo_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
-  The `jal` at 0xd68c calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
+  The `jal` at 0xd68c calls do_pcibr_config_set with a0=?, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
   The `jal` at 0xd6cc calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+11000, a3=?, a5=ret(pcibr_bus_addr_alloc).
-  The `jal` at 0xd6f4 calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?, a4=0x9004.
-  The `jal` at 0xd72c calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?.
-  The `jal` at 0xd77c calls pcibr_func_config_addr with a0=[ret(hwgraph_fastinfo_get)+8]:8, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
+  The `jal` at 0xd6f4 calls do_pcibr_config_get with a0=?, a1=0x4, a2=0x4, a3=?, a4=0x9004.
+  The `jal` at 0xd72c calls do_pcibr_config_set with a0=?, a1=0x4, a2=0x4, a3=?.
+  The `jal` at 0xd77c calls pcibr_func_config_addr with a0=?, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
   The `jal` at 0xd794 calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr), a1=0xe, a2=0x1, a3=?.
   The `jal` at 0xd81c calls sprintf with a0=sp-464, a1=sym(.rodata)+11000, a2=?, a3=?, a5=entry(sym(pci_space)).
   The `jal` at 0xd834 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+11000, a3=sp-464.
   The `jal` at 0xd8e8 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+11000, a3=?, a6=0x4, a7=0xff.
-  The `jal` at 0xd904 calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=?.
+  The `jal` at 0xd904 calls do_pcibr_config_set with a0=?, a1=?, a2=0x4, a3=?.
   The `jal` at 0xd978 calls sprintf with a0=sp-464, a1=sym(.rodata)+11000, a2=?, a3=?.
   The `jal` at 0xd990 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+11000, a3=sp-464.
   The `jal` at 0xd9d0 calls sprintf with a0=sp-464, a1=sym(.rodata)+11000, a2=?, a3=?, a7=0xff.
   The `jal` at 0xd9e8 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+11000, a3=sp-464.
-  The `jal` at 0xda3c calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
-  The `jal` at 0xda4c calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=?.
+  The `jal` at 0xda3c calls do_pcibr_config_set with a0=?, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
+  The `jal` at 0xda4c calls do_pcibr_config_get with a0=?, a1=0x0, a2=0x4, a3=?.
   The `jal` at 0xda78 calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xdad4 calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x2, a3=0x0, a6=0x4, a7=0xff.
-  The `jal` at 0xdb00 calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=0xff, a4=[sym(pcibr_debug_mask)], a6=0x4, a7=0xff.
+  The `jal` at 0xdb00 calls do_pcibr_config_get with a0=?, a1=?, a2=0x4, a3=0xff, a4=[sym(pcibr_debug_mask)], a6=0x4, a7=0xff.
   The `jal` at 0xdb28 calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xdb78 calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x4, a3=0x0.
   The `beq` branch at 0xd5ac targets 0xdb9c, is taken when v0(=ret(hwgraph_fastinfo_get)) == 0, and falls through when v0(=ret(hwgraph_fastinfo_get)) != 0.
@@ -126033,7 +125972,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xd6a4 targets 0xd6b0, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xd6e0 targets 0xdaac, is taken when a3(?) == a4(=0x9004), and falls through when a3(?) != a4(=0x9004).
   The `beq` branch at 0xd710 targets 0xd734, is taken when (a5(?) & a6(?)) == 0, and falls through when (a5(?) & a6(?)) != 0.
-  The `beq` branch at 0xd740 targets 0xdb4c, is taken when s4(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) (signed), and falls through when s4(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) (signed).
+  The `beq` branch at 0xd740 targets 0xdb4c, is taken when s4(?) >= a4(?) (signed), and falls through when s4(?) < a4(?) (signed).
   The `beq` branch at 0xd758 targets 0xd734, is taken when s5(?) == 0, and falls through when s5(?) != 0.
   The `beq` branch at 0xd764 targets 0xd738, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `blez` branch at 0xd7bc targets 0xd9f8, is taken when t1(=one of 0x2, 0x6) <= 0 (signed), and falls through when t1(=one of 0x2, 0x6) > 0 (signed).
@@ -126041,7 +125980,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xd7d4 targets 0xd840, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xd7dc targets 0xda94, is taken when t3(=0xff) == s3(=a1), and falls through when t3(=0xff) != s3(=a1).
   The `beq` branch at 0xd7e8 targets 0xd7f4, is taken when t8(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when t8(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
-  The `beq` branch at 0xd85c targets 0xd9f8, is taken when s0(?) >= a3(=one of 0x2, 0x6) (signed), and falls through when s0(?) < a3(=one of 0x2, 0x6) (signed).
+  The `beq` branch at 0xd85c targets 0xd9f8, is taken when s0(?) >= a3(?) (signed), and falls through when s0(?) < a3(?) (signed).
   The `beq` branch at 0xd884 targets 0xd83c, is taken when s1(?) == 0, and falls through when s1(?) != 0.
   The `beq` branch at 0xd890 targets 0xd7d4, is taken when a6(?) >= s1(?) (unsigned), and falls through when a6(?) < s1(?) (unsigned).
   The `beq` branch at 0xd8ac targets 0xdac4, is taken when s2(?) == s7(=0x2), and falls through when s2(?) != s7(=0x2).
@@ -126056,8 +125995,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xd9a0 targets 0xdaa4, is taken when a3(=0xff) == s3(=a1), and falls through when a3(=0xff) != s3(=a1).
   The `beq` branch at 0xd9ac targets 0xd9b8, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xd9f0 targets 0xd840 and is always taken.
-  The `bne` branch at 0xda10 targets 0xda24, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8+20]) != a4(=0x10a9), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8+20]) == a4(=0x10a9).
-  The `beq` branch at 0xda20 targets 0xd6d4, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8+24]) == a4(=0x3), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8+24]) != a4(=0x3).
+  The `bne` branch at 0xda10 targets 0xda24, is taken when a3(?) != a4(=0x10a9), and falls through when a3(?) == a4(=0x10a9).
+  The `beq` branch at 0xda20 targets 0xd6d4, is taken when a3(?) == a4(=0x3), and falls through when a3(?) != a4(=0x3).
   The `beq` branch at 0xda58 targets 0xd6d4, is taken when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) == 0, and falls through when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) != 0.
   The `bne` branch at 0xda80 targets 0xd680, is taken when v0(=ret(pcibr_bus_addr_alloc)) != 0, and falls through when v0(=ret(pcibr_bus_addr_alloc)) == 0.
   The `beq` branch at 0xda8c targets 0xd6d4 and is always taken.
@@ -126077,7 +126016,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xdbcc targets 0xdb4c and is always taken.
   The `beq` branch at 0xdbdc targets 0xd868 and is always taken.
   The `beq` branch at 0xdbe8 targets 0xd74c and is always taken.
-  The return at 0xd5fc has v0 = one of 0x0, 0x16, 0x1c.
+  The return at 0xd5fc has v0 = one of ?, 0x16.
 - `pcibr_slot_guest_info_init` in `6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o` at 0xdce4 (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`.
@@ -126115,20 +126054,16 @@ These entries record instruction facts rendered from the routines below. They de
   The `lbu` at 0xde2c loads 1 byte from ret(hwgraph_fastinfo_get) +0x39.
   The `lw` at 0xde4c loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x108.
   The `lw` at 0xde80 loads 4 bytes from ret(hwgraph_fastinfo_get) +0x0.
-  The `lw` at 0xde98 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
-  The `ld` at 0xdeb4 loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x120.
-  The `sw` at 0xdedc stores 4 bytes to ?.
-  The `ld` at 0xdf00 loads 8 bytes from ?.
-  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xdf10, `lw` at 0xdf1c.
+  5 such `lw` accesses load 4 bytes from ?, including `lw` at 0xde98, `lw` at 0xdf10, `lw` at 0xdf1c.
+  2 such `ld` accesses load 8 bytes from ?, including `ld` at 0xdeb4, `ld` at 0xdf00.
+  3 such `sw` accesses store 4 bytes to ?, including `sw` at 0xdedc, `sw` at 0xe054, `sw` at 0xe08c.
   The `lh` at 0xdf68 loads 2 bytes from ret(hwgraph_fastinfo_get) +0x72.
-  2 such `lw` accesses load 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x114, including `lw` at 0xe048, `lw` at 0xe070.
-  2 such `sw` accesses store 4 bytes to (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x114, including `sw` at 0xe054, `sw` at 0xe08c.
-  The `ld` at 0xe0d0 loads 8 bytes from [(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8 +0x0.
+  The `ld` at 0xe0d0 loads 8 bytes from table(0x0) +0x0.
   The `jal` at 0xde18 calls hwgraph_fastinfo_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xde88 calls async_attach_get_info with a0=[ret(hwgraph_fastinfo_get)], a1=?, a2=?, a3=?.
   The `jal` at 0xded0 calls hwgraph_vertex_unref with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xdf24 calls device_admin_info_get with a0=?, a1=sym(.rodata)+11000, a2=?, a3=?.
-  The `jal` at 0xdf40 calls async_attach_add_info with a0=?, a1=ret(async_attach_get_info), a2=ret(async_attach_get_info), a3=?.
+  The `jal` at 0xdf40 calls async_attach_add_info with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xdf4c calls pciio_device_attach with a0=?, a1=a2 at entry (arg2), a2=?, a3=?.
   The `jal` at 0xdf8c calls pcibr_debug with a0=0x2000, a1=a0 at entry (arg0), a2=sym(.rodata)+11000, a3=?, a5=a2 at entry (arg2), a6=ret(pciio_device_attach).
   The `jal` at 0xdfa8 calls hwgraph_path_lookup with a0=?, a1=sym(.rodata)+11000, a2=sp-144, a3=0x0.
@@ -126142,13 +126077,13 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xde38 targets 0xde78, is taken when s4(=a1) >= at(=[ret(hwgraph_fastinfo_get)+57]:1+1) (signed), and falls through when s4(=a1) < at(=[ret(hwgraph_fastinfo_get)+57]:1+1) (signed).
   The `beq` branch at 0xde50 targets 0xde80, is taken when v0(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+264]) == 0, and falls through when v0(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+264]) != 0.
   The `beq` branch at 0xde78 targets 0xde5c and is always taken.
-  The `blez` branch at 0xdeb0 targets 0xe090, is taken when s6(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) <= 0 (signed), and falls through when s6(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) > 0 (signed).
+  The `blez` branch at 0xdeb0 targets 0xe090, is taken when s6(?) <= 0 (signed), and falls through when s6(?) > 0 (signed).
   The `beq` branch at 0xdec8 targets 0xe0c4 and is always taken.
-  The `beq` branch at 0xdef8 targets 0xe008, is taken when s0(?) >= s6(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) (signed), and falls through when s0(?) < s6(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) (signed).
+  The `beq` branch at 0xdef8 targets 0xe008, is taken when s0(?) >= s6(?) (signed), and falls through when s0(?) < s6(?) (signed).
   The `beq` branch at 0xdf08 targets 0xdeec, is taken when s1(?) == 0, and falls through when s1(?) != 0.
   The `beq` branch at 0xdf14 targets 0xdeec, is taken when v1(?) == a0(=-0x1), and falls through when v1(?) != a0(=-0x1).
   The `bne` branch at 0xdf2c targets 0xe09c, is taken when v0(=ret(device_admin_info_get)) != 0, and falls through when v0(=ret(device_admin_info_get)) == 0.
-  The `beq` branch at 0xdf38 targets 0xdf48, is taken when a2(=ret(async_attach_get_info)) == 0, and falls through when a2(=ret(async_attach_get_info)) != 0.
+  The `beq` branch at 0xdf38 targets 0xdf48, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xdf60 targets 0xdf74, is taken when a0(=0xff) == s4(=a1), and falls through when a0(=0xff) != s4(=a1).
   The `beq` branch at 0xdf6c targets 0xdff0, is taken when a3(=[ret(hwgraph_fastinfo_get)+114]:2) == a4(=0x2), and falls through when a3(=[ret(hwgraph_fastinfo_get)+114]:2) != a4(=0x2).
   The `beq` branch at 0xdf94 targets 0xded8, is taken when s3(=a2) == 0, and falls through when s3(=a2) != 0.
@@ -130719,10 +130654,10 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xed8 calls xwidget_name_get with a0=ret(xbow_widget_lookup), a1=?, a2=?, a3=?.
   The `jal` at 0xef4 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=[a0+24]:8, a3=?, a4=ret(xwidget_name_get).
   The `jal` at 0xfc0 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+84].
-  The `jal` at 0xfd4 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+36].
-  The `jal` at 0xfe8 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+68].
-  The `jal` at 0xffc calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+20].
-  The `jal` at 0x1010 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+28].
+  The `jal` at 0xfd4 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
+  The `jal` at 0xfe8 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
+  The `jal` at 0xffc calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
+  The `jal` at 0x1010 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
   The `jal` at 0x103c calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
   The `jal` at 0x104c calls cmn_err_tag with a0=0x8, a1=0x0, a2=sym(.rodata), a3=?.
   The `jal` at 0x106c calls cmn_err with a0=0x6, a1=sym(.rodata), a2=[a0+24]:8, a3=?.
@@ -132735,7 +132670,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc000000000023d20 targets 0xc000000000023d44, is taken when a1(?) == 0, and falls through when a1(?) != 0.
   The `beq` branch at 0xc000000000023d44 targets 0xc000000000023cf8 and is always taken.
   The `beq` branch at 0xc000000000023d4c targets 0xc000000000023cf8 and is always taken.
-  The return at 0xc000000000023d04 has v0 = one of ret(ip27log_setup), ?, ret(promlog_delete), 0x0.
+  The return at 0xc000000000023d04 has v0 = one of ret(ip27log_setup), ?, 0x0.
 - `ip27log_iprintf` in `6.5.30/unix.IP27` at 0xc000000000023d54 (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.30/unix.IP27`.
@@ -133419,9 +133354,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc000000000042b50 loads 4 bytes from ?.
   The `jal` at 0xc000000000042a58 calls cmn_err [0xc0000000001fcbd4] with a0=0x6, a1=0xc00000000140deb8, a2=one of 0xc00000000140dea8, 0xc00000000140dee0, a3=?.
   The `jal` at 0xc000000000042a80 calls cmn_err [0xc0000000001fcbd4] with a0=0x6, a1=0xc00000000140defc, a2=?, a3=?.
-  The `jal` at 0xc000000000042ad4 calls cmn_err [0xc0000000001fcbd4] with a0=0x6, a1=0xc00000000140dee8, a2=?, a3=?, a6=a0-1.
-  The `jal` at 0xc000000000042af0 calls cmn_err [0xc0000000001fcbd4] with a0=0x6, a1=0xc00000000140def0, a2=?, a3=?, a6=a0-1.
-  The `jal` at 0xc000000000042b0c calls cmn_err [0xc0000000001fcbd4] with a0=0x6, a1=0xc00000000140def8, a2=?, a3=?, a6=a0-1.
+  The `jal` at 0xc000000000042ad4 calls cmn_err [0xc0000000001fcbd4] with a0=0x6, a1=0xc00000000140dee8, a2=?, a3=?.
+  The `jal` at 0xc000000000042af0 calls cmn_err [0xc0000000001fcbd4] with a0=0x6, a1=0xc00000000140def0, a2=?, a3=?.
+  The `jal` at 0xc000000000042b0c calls cmn_err [0xc0000000001fcbd4] with a0=0x6, a1=0xc00000000140def8, a2=?, a3=?.
   The `jal` at 0xc000000000042b6c calls find_lboard [0xc00000000001d8e4] with a0=?, a1=0x11, a2=0x9600000000000000, a3=?.
   The `jal` at 0xc000000000042b78 calls board_to_path [0xc00000000001e638] with a0=ret(find_lboard), a1=sp-176, a2=?, a3=?.
   The `jal` at 0xc000000000042b88 calls cmn_err [0xc0000000001fcbd4] with a0=0x6, a1=0xc00000000140ded0, a2=sp-176, a3=?.
@@ -133431,7 +133366,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `bne` branch at 0xc000000000042a70 targets 0xc000000000042a28, is taken when s0(?) < s1(=a0) (signed), and falls through when s0(?) >= s1(=a0) (signed).
   The `bgtz` branch at 0xc000000000042a88 targets 0xc000000000042b1c, is taken when s1(=a0) > 0 (signed), and falls through when s1(=a0) <= 0 (signed).
   The `bne` branch at 0xc000000000042ab8 targets 0xc000000000042ae4, is taken when a3(?) != a4(?), and falls through when a3(?) == a4(?).
-  The `bne` branch at 0xc000000000042ac0 targets 0xc000000000042a64, is taken when a6(=a0-1) != s0(?), and falls through when a6(=a0-1) == s0(?).
+  The `bne` branch at 0xc000000000042ac0 targets 0xc000000000042a64, is taken when a6(?) != s0(?), and falls through when a6(?) == s0(?).
   The `beq` branch at 0xc000000000042adc targets 0xc000000000042a64 and is always taken.
   The `beq` branch at 0xc000000000042ae4 targets 0xc000000000042b00, is taken when a2(?) == a5(?), and falls through when a2(?) != a5(?).
   The `beq` branch at 0xc000000000042af8 targets 0xc000000000042b14 and is always taken.
@@ -134169,9 +134104,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc00000000007167c calls cap_able [0xc00000000028741c] with a0=0x2000000000, a1=?, a2=?, a3=?.
   The `jal` at 0xc000000000071690 calls copyin [0xc00000000001f990] with a0=a2 at entry (arg2), a1=sp-80, a2=0x10, a3=?.
   The `jal` at 0xc0000000000716b8 calls pcibr_device_slot_get [0xc000000000071530] with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xc0000000000716d8 calls pcibr_priority_bits_set [0xc000000000074a2c] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x1, a3=?.
+  The `jal` at 0xc0000000000716d8 calls pcibr_priority_bits_set [0xc000000000074a2c] with a0=?, a1=?, a2=0x1, a3=?.
   The `jal` at 0xc0000000000716e8 calls pcibr_device_slot_get [0xc000000000071530] with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xc000000000071708 calls pcibr_priority_bits_set [0xc000000000074a2c] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x0, a3=0xff.
+  The `jal` at 0xc000000000071708 calls pcibr_priority_bits_set [0xc000000000074a2c] with a0=?, a1=?, a2=0x0, a3=0xff.
   The `beq` branch at 0xc0000000000715f0 targets 0xc00000000007164c, is taken when s0(=a1) == at(=0x6701), and falls through when s0(=a1) != at(=0x6701).
   The `beq` branch at 0xc0000000000715fc targets 0xc00000000007167c, is taken when s0(=a1) == v0(=0x6702), and falls through when s0(=a1) != v0(=0x6702).
   The `beq` branch at 0xc000000000071608 targets 0xc00000000007163c, is taken when s0(=a1) == v1(=0x7001), and falls through when s0(=a1) != v1(=0x7001).
@@ -134375,9 +134310,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `sb` at 0xc000000000072d40 stores 1 byte to ?.
   The `jal` at 0xc000000000072cd4 calls pcibr_info_get [0xc000000000071728] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xc000000000072cec calls mutex_spinlock [0xc0000000002863b4] with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?.
-  The `jal` at 0xc000000000072d44 calls mutex_io_spinunlock [0xc0000000002862c4] with a0=[ret(pcibr_info_get)+40]:8+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?, a6=0xc0000000014112e8.
+  The `jal` at 0xc000000000072d44 calls mutex_io_spinunlock [0xc0000000002862c4] with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?, a6=0xc0000000014112e8.
   The `jal` at 0xc000000000072d78 calls cmn_err [0xc0000000001fcbd4] with a0=0x4, a1=0xc000000001411658, a2=a2 at entry (arg2), a3=a3 at entry (arg3), a6=0xc0000000014112e8.
-  The `jal` at 0xc000000000072d84 calls mutex_io_spinunlock [0xc0000000002862c4] with a0=[ret(pcibr_info_get)+40]:8+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?.
+  The `jal` at 0xc000000000072d84 calls mutex_io_spinunlock [0xc0000000002862c4] with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?.
   The `jal` at 0xc000000000072d9c calls hwgraph_vertex_name_get [0xc00000000029692c] with a0=a0 at entry (arg0), a1=sp-1088, a2=0x400, a3=?.
   The `jal` at 0xc000000000072dac calls cmn_err [0xc0000000001fcbd4] with a0=0x4, a1=0xc0000000014115d8, a2=?, a3=?.
   The `jal` at 0xc000000000072dc4 calls cmn_err [0xc0000000001fcbd4] with a0=0x4, a1=0xc0000000014115f8, a2=sp-1088, a3=a3 at entry (arg3).
@@ -135517,7 +135452,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc000000000078040 calls kmem_zalloc [0xc00000000017e344] with a0=0x8, a1=0x0, a2=?, a3=?.
   The `jal` at 0xc000000000078060 calls hwgraph_info_add_LBL [0xc00000000029526c] with a0=?, a1=0xc000000001412450, a2=ret(kmem_zalloc), a3=?.
   The `jal` at 0xc000000000078074 calls hwgraph_info_get_LBL [0xc000000000295310] with a0=?, a1=0xc000000001412450, a2=sp-64, a3=?.
-  The `jal` at 0xc00000000007808c calls kmem_free [0xc00000000017e3b0] with a0=ret(kmem_zalloc), a1=0x8, a2=?, a3=ret(kmem_zalloc).
+  The `jal` at 0xc00000000007808c calls kmem_free [0xc00000000017e3b0] with a0=?, a1=0x8, a2=?, a3=?.
   The `jal` at 0xc0000000000780a8 calls pcibr_debug [0xc000000000074e8c] with a0=0x2, a1=a0 at entry (arg0), a2=0xc0000000014124b8, a3=?.
   The `jal` at 0xc0000000000780c4 calls pcibr_debug [0xc000000000074e8c] with a0=0x2, a1=a0 at entry (arg0), a2=0xc000000001412418, a3=?, a5=-0x1.
   The `jal` at 0xc0000000000780e0 calls pcibr_debug [0xc000000000074e8c] with a0=0x2, a1=a0 at entry (arg0), a2=0xc000000001412460, a3=?.
@@ -135525,7 +135460,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc000000000078008 targets 0xc0000000000780b8, is taken when a5(=-0x1) == a0(?), and falls through when a5(=-0x1) != a0(?).
   The `beq` branch at 0xc000000000078020 targets 0xc000000000078040, is taken when v0(?) == 0, and falls through when v0(?) != 0.
   The `beq` branch at 0xc000000000078048 targets 0xc0000000000780d4, is taken when v0(=ret(kmem_zalloc)) == 0, and falls through when v0(=ret(kmem_zalloc)) != 0.
-  The `beq` branch at 0xc000000000078084 targets 0xc00000000007802c, is taken when a2(?) == a3(=ret(kmem_zalloc)), and falls through when a2(?) != a3(=ret(kmem_zalloc)).
+  The `beq` branch at 0xc000000000078084 targets 0xc00000000007802c, is taken when a2(?) == a3(?), and falls through when a2(?) != a3(?).
   The `beq` branch at 0xc000000000078098 targets 0xc0000000000780f0, is taken when a4(?) == 0, and falls through when a4(?) != 0.
   The `beq` branch at 0xc0000000000780b0 targets 0xc000000000078028 and is always taken.
   The `beq` branch at 0xc0000000000780cc targets 0xc000000000078030 and is always taken.
@@ -135766,7 +135701,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xc00000000007c618 loads 8 bytes from [ret(pcibr_info_get)+40]:8 +0x8.
   The `jal` at 0xc00000000007c608 calls pcibr_info_get [0xc000000000071728] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xc00000000007c620 calls pcibr_config_addr [0xc00000000007c4cc] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=?, a3=?.
-  The `jal` at 0xc00000000007c634 calls pcibr_probe_slot [0xc00000000007e71c] with a0=[[ret(pcibr_info_get)+40]:8+8]:8, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
+  The `jal` at 0xc00000000007c634 calls pcibr_probe_slot [0xc00000000007e71c] with a0=?, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
   The `beq` branch at 0xc00000000007c63c targets 0xc00000000007c650, is taken when v0(=ret(pcibr_probe_slot)) == 0, and falls through when v0(=ret(pcibr_probe_slot)) != 0.
   The `beq` branch at 0xc00000000007c650 targets 0xc00000000007c648 and is always taken.
   The return at 0xc00000000007c648 has v0 = one of -0x1, ?.
@@ -135866,35 +135801,32 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc00000000007d86c loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x100.
   The `ld` at 0xc00000000007d874 loads 8 bytes from ret(hwgraph_fastinfo_get) +0x8.
   The `lw` at 0xc00000000007d8b4 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x110.
-  2 such `ld` accesses load 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118, including `ld` at 0xc00000000007d8dc, `ld` at 0xc00000000007dc94.
+  The `ld` at 0xc00000000007d8dc loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
   5 such `lh` accesses load 2 bytes from ret(hwgraph_fastinfo_get) +0x72, including `lh` at 0xc00000000007d938, `lh` at 0xc00000000007da7c, `lh` at 0xc00000000007db5c.
-  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc00000000007d96c, `lw` at 0xc00000000007d9f8, `lw` at 0xc00000000007db18.
+  6 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc00000000007d96c, `lw` at 0xc00000000007d9f8, `lw` at 0xc00000000007db18.
   3 such `sd` accesses store 8 bytes to ?, including `sd` at 0xc00000000007d974, `sd` at 0xc00000000007d97c, `sd` at 0xc00000000007dba0.
-  3 such `ld` accesses load 8 bytes from ?, including `ld` at 0xc00000000007d9e8, `ld` at 0xc00000000007db00, `ld` at 0xc00000000007db04.
+  5 such `ld` accesses load 8 bytes from ?, including `ld` at 0xc00000000007d9e8, `ld` at 0xc00000000007db00, `ld` at 0xc00000000007db04.
   2 such `ld` accesses load 8 bytes from table(0xc000000001437d50) +0x0, including `ld` at 0xc00000000007dab8, `ld` at 0xc00000000007dbd4.
-  The `ld` at 0xc00000000007dc98 loads 8 bytes from [(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8 +0x0.
-  The `lw` at 0xc00000000007dc9c loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8 +0x14.
-  The `lw` at 0xc00000000007dcb0 loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8 +0x18.
   The `jal` at 0xc00000000007d838 calls hwgraph_fastinfo_get [0xc000000000296098] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
-  The `jal` at 0xc00000000007d924 calls do_pcibr_config_set [0xc00000000007c6e4] with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
+  The `jal` at 0xc00000000007d924 calls do_pcibr_config_set [0xc00000000007c6e4] with a0=?, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
   The `jal` at 0xc00000000007d964 calls pcibr_debug [0xc000000000074e8c] with a0=0x800, a1=a0 at entry (arg0), a2=0xc000000001414210, a3=?, a5=ret(pcibr_bus_addr_alloc).
-  The `jal` at 0xc00000000007d98c calls do_pcibr_config_get [0xc00000000007c658] with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?, a4=0x9004.
-  The `jal` at 0xc00000000007d9c4 calls do_pcibr_config_set [0xc00000000007c6e4] with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?.
-  The `jal` at 0xc00000000007da14 calls pcibr_func_config_addr [0xc00000000007c2ec] with a0=[ret(hwgraph_fastinfo_get)+8]:8, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
+  The `jal` at 0xc00000000007d98c calls do_pcibr_config_get [0xc00000000007c658] with a0=?, a1=0x4, a2=0x4, a3=?, a4=0x9004.
+  The `jal` at 0xc00000000007d9c4 calls do_pcibr_config_set [0xc00000000007c6e4] with a0=?, a1=0x4, a2=0x4, a3=?.
+  The `jal` at 0xc00000000007da14 calls pcibr_func_config_addr [0xc00000000007c2ec] with a0=?, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
   The `jal` at 0xc00000000007da2c calls do_pcibr_config_get [0xc00000000007c658] with a0=ret(pcibr_func_config_addr), a1=0xe, a2=0x1, a3=?.
   The `jal` at 0xc00000000007dab4 calls sprintf [0xc0000000001fd9d0] with a0=sp-464, a1=0xc000000001414098, a2=?, a3=?, a5=entry(0xc000000001437d50).
   The `jal` at 0xc00000000007dacc calls pcibr_debug [0xc000000000074e8c] with a0=0x800, a1=a0 at entry (arg0), a2=0xc000000001414010, a3=sp-464.
   The `jal` at 0xc00000000007db80 calls pcibr_debug [0xc000000000074e8c] with a0=0x800, a1=a0 at entry (arg0), a2=0xc000000001414100, a3=?, a6=0x4, a7=0xff.
-  The `jal` at 0xc00000000007db9c calls do_pcibr_config_set [0xc00000000007c6e4] with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=?.
+  The `jal` at 0xc00000000007db9c calls do_pcibr_config_set [0xc00000000007c6e4] with a0=?, a1=?, a2=0x4, a3=?.
   The `jal` at 0xc00000000007dc10 calls sprintf [0xc0000000001fd9d0] with a0=sp-464, a1=0xc000000001414148, a2=?, a3=?, a5=entry(0xc000000001437d50).
   The `jal` at 0xc00000000007dc28 calls pcibr_debug [0xc000000000074e8c] with a0=0x800, a1=a0 at entry (arg0), a2=0xc000000001414010, a3=sp-464.
   The `jal` at 0xc00000000007dc68 calls sprintf [0xc0000000001fd9d0] with a0=sp-464, a1=0xc0000000014141b0, a2=?, a3=?, a6=entry(0xc000000001437d50), a7=0xff.
   The `jal` at 0xc00000000007dc80 calls pcibr_debug [0xc000000000074e8c] with a0=0x800, a1=a0 at entry (arg0), a2=0xc000000001414010, a3=sp-464.
-  The `jal` at 0xc00000000007dcd4 calls do_pcibr_config_set [0xc00000000007c6e4] with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
-  The `jal` at 0xc00000000007dce4 calls do_pcibr_config_get [0xc00000000007c658] with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=?.
+  The `jal` at 0xc00000000007dcd4 calls do_pcibr_config_set [0xc00000000007c6e4] with a0=?, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
+  The `jal` at 0xc00000000007dce4 calls do_pcibr_config_get [0xc00000000007c658] with a0=?, a1=0x0, a2=0x4, a3=?.
   The `jal` at 0xc00000000007dd10 calls pcibr_bus_addr_alloc [0xc00000000007eb80] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xc00000000007dd6c calls pcibr_bus_addr_alloc [0xc00000000007eb80] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x2, a3=0x0, a6=0x4, a7=0xff.
-  The `jal` at 0xc00000000007dd98 calls do_pcibr_config_get [0xc00000000007c658] with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=0xff, a4=[0xc0000000014cb0f0], a6=0x4, a7=0xff.
+  The `jal` at 0xc00000000007dd98 calls do_pcibr_config_get [0xc00000000007c658] with a0=?, a1=?, a2=0x4, a3=0xff, a4=[0xc0000000014cb0f0], a6=0x4, a7=0xff.
   The `jal` at 0xc00000000007ddc0 calls pcibr_bus_addr_alloc [0xc00000000007eb80] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xc00000000007de10 calls pcibr_bus_addr_alloc [0xc00000000007eb80] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x4, a3=0x0.
   The `beq` branch at 0xc00000000007d844 targets 0xc00000000007de34, is taken when v0(=ret(hwgraph_fastinfo_get)) == 0, and falls through when v0(=ret(hwgraph_fastinfo_get)) != 0.
@@ -135909,7 +135841,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc00000000007d93c targets 0xc00000000007d948, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xc00000000007d978 targets 0xc00000000007dd44, is taken when a3(?) == a4(=0x9004), and falls through when a3(?) != a4(=0x9004).
   The `beq` branch at 0xc00000000007d9a8 targets 0xc00000000007d9cc, is taken when (a5(?) & a6(?)) == 0, and falls through when (a5(?) & a6(?)) != 0.
-  The `beq` branch at 0xc00000000007d9d8 targets 0xc00000000007dde4, is taken when s4(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed), and falls through when s4(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed).
+  The `beq` branch at 0xc00000000007d9d8 targets 0xc00000000007dde4, is taken when s4(?) >= a4(?) (signed), and falls through when s4(?) < a4(?) (signed).
   The `beq` branch at 0xc00000000007d9f0 targets 0xc00000000007d9cc, is taken when s5(?) == 0, and falls through when s5(?) != 0.
   The `beq` branch at 0xc00000000007d9fc targets 0xc00000000007d9d0, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `blez` branch at 0xc00000000007da54 targets 0xc00000000007dc90, is taken when t1(=one of 0x2, 0x6) <= 0 (signed), and falls through when t1(=one of 0x2, 0x6) > 0 (signed).
@@ -135917,7 +135849,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc00000000007da6c targets 0xc00000000007dad8, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xc00000000007da74 targets 0xc00000000007dd2c, is taken when t3(=0xff) == s3(=a1), and falls through when t3(=0xff) != s3(=a1).
   The `beq` branch at 0xc00000000007da80 targets 0xc00000000007da8c, is taken when t8(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when t8(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
-  The `beq` branch at 0xc00000000007daf4 targets 0xc00000000007dc90, is taken when s0(?) >= a3(=one of 0x2, 0x6) (signed), and falls through when s0(?) < a3(=one of 0x2, 0x6) (signed).
+  The `beq` branch at 0xc00000000007daf4 targets 0xc00000000007dc90, is taken when s0(?) >= a3(?) (signed), and falls through when s0(?) < a3(?) (signed).
   The `beq` branch at 0xc00000000007db1c targets 0xc00000000007dad4, is taken when s1(?) == 0, and falls through when s1(?) != 0.
   The `beq` branch at 0xc00000000007db28 targets 0xc00000000007da6c, is taken when a6(?) >= s1(?) (unsigned), and falls through when a6(?) < s1(?) (unsigned).
   The `beq` branch at 0xc00000000007db44 targets 0xc00000000007dd5c, is taken when s2(?) == s7(=0x2), and falls through when s2(?) != s7(=0x2).
@@ -135932,8 +135864,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc00000000007dc38 targets 0xc00000000007dd3c, is taken when a3(=0xff) == s3(=a1), and falls through when a3(=0xff) != s3(=a1).
   The `beq` branch at 0xc00000000007dc44 targets 0xc00000000007dc50, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xc00000000007dc88 targets 0xc00000000007dad8 and is always taken.
-  The `bne` branch at 0xc00000000007dca8 targets 0xc00000000007dcbc, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+20]) != a4(=0x10a9), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+20]) == a4(=0x10a9).
-  The `beq` branch at 0xc00000000007dcb8 targets 0xc00000000007d96c, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+24]) == a4(=0x3), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+24]) != a4(=0x3).
+  The `bne` branch at 0xc00000000007dca8 targets 0xc00000000007dcbc, is taken when a3(?) != a4(=0x10a9), and falls through when a3(?) == a4(=0x10a9).
+  The `beq` branch at 0xc00000000007dcb8 targets 0xc00000000007d96c, is taken when a3(?) == a4(=0x3), and falls through when a3(?) != a4(=0x3).
   The `beq` branch at 0xc00000000007dcf0 targets 0xc00000000007d96c, is taken when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) == 0, and falls through when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) != 0.
   The `bne` branch at 0xc00000000007dd18 targets 0xc00000000007d918, is taken when v0(=ret(pcibr_bus_addr_alloc)) != 0, and falls through when v0(=ret(pcibr_bus_addr_alloc)) == 0.
   The `beq` branch at 0xc00000000007dd24 targets 0xc00000000007d96c and is always taken.
@@ -135953,7 +135885,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc00000000007de64 targets 0xc00000000007dde4 and is always taken.
   The `beq` branch at 0xc00000000007de74 targets 0xc00000000007db00 and is always taken.
   The `beq` branch at 0xc00000000007de80 targets 0xc00000000007d9e4 and is always taken.
-  The return at 0xc00000000007d894 has v0 = one of 0x0, 0x16, 0x1c.
+  The return at 0xc00000000007d894 has v0 = one of ?, 0x16.
 - `pcibr_slot_guest_info_init` in `6.5.30/unix.IP27` at 0xc00000000007df7c (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.30/unix.IP27`.
@@ -135993,17 +135925,15 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc00000000007e110 loads 4 bytes from ret(hwgraph_fastinfo_get) +0x0.
   The `lw` at 0xc00000000007e120 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x110.
   The `ld` at 0xc00000000007e124 loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
-  The `sw` at 0xc00000000007e17c stores 4 bytes to ?.
+  3 such `sw` accesses store 4 bytes to ?, including `sw` at 0xc00000000007e17c, `sw` at 0xc00000000007e260, `sw` at 0xc00000000007e28c.
   The `ld` at 0xc00000000007e1a4 loads 8 bytes from ?.
-  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc00000000007e1b4, `lw` at 0xc00000000007e1c4.
+  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc00000000007e1b4, `lw` at 0xc00000000007e1c4, `lw` at 0xc00000000007e254.
   The `lh` at 0xc00000000007e20c loads 2 bytes from ret(hwgraph_fastinfo_get) +0x72.
-  2 such `lw` accesses load 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x10c, including `lw` at 0xc00000000007e254, `lw` at 0xc00000000007e274.
-  2 such `sw` accesses store 4 bytes to (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x10c, including `sw` at 0xc00000000007e260, `sw` at 0xc00000000007e28c.
   The `jal` at 0xc00000000007e0a8 calls hwgraph_fastinfo_get [0xc000000000296098] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xc00000000007e10c calls async_attach_get_info [0xc0000000000c6bd4] with a0=[ret(hwgraph_fastinfo_get)], a1=?, a2=?, a3=?.
   The `jal` at 0xc00000000007e16c calls pcibr_debug [0xc000000000074e8c] with a0=0x2000, a1=a0 at entry (arg0), a2=0xc0000000014142d0, a3=?, a5=a2 at entry (arg2), a6=ret(pciio_device_attach).
-  The `jal` at 0xc00000000007e1cc calls device_admin_info_get [0xc0000000001727e8] with a0=?, a1=0xc000000001414338, a2=?, a3=?, a4=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272].
-  The `jal` at 0xc00000000007e1e8 calls async_attach_add_info [0xc0000000000c6c08] with a0=?, a1=ret(async_attach_get_info), a2=ret(async_attach_get_info), a3=?.
+  The `jal` at 0xc00000000007e1cc calls device_admin_info_get [0xc0000000001727e8] with a0=?, a1=0xc000000001414338, a2=?, a3=?.
+  The `jal` at 0xc00000000007e1e8 calls async_attach_add_info [0xc0000000000c6c08] with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xc00000000007e1f4 calls pciio_device_attach [0xc000000000093b38] with a0=?, a1=a2 at entry (arg2), a2=?, a3=?.
   The `jal` at 0xc00000000007e29c calls vertex_to_name [0xc000000000296b3c] with a0=?, a1=sp-384, a2=0x100, a3=?.
   The `jal` at 0xc00000000007e2b0 calls cmn_err [0xc0000000001fcbd4] with a0=0x4, a1=0xc0000000014142a0, a2=sp-384, a3=?.
@@ -136013,11 +135943,11 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc00000000007e104 targets 0xc00000000007e0ec and is always taken.
   The `blez` branch at 0xc00000000007e138 targets 0xc00000000007e290, is taken when t8(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) <= 0 (signed), and falls through when t8(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) > 0 (signed).
   The `beq` branch at 0xc00000000007e148 targets 0xc00000000007e2c0 and is always taken.
-  The `beq` branch at 0xc00000000007e194 targets 0xc00000000007e220, is taken when s2(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed), and falls through when s2(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed).
+  The `beq` branch at 0xc00000000007e194 targets 0xc00000000007e220, is taken when s2(?) >= a4(?) (signed), and falls through when s2(?) < a4(?) (signed).
   The `beq` branch at 0xc00000000007e1ac targets 0xc00000000007e188, is taken when s4(?) == 0, and falls through when s4(?) != 0.
   The `beq` branch at 0xc00000000007e1b8 targets 0xc00000000007e18c, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `bne` branch at 0xc00000000007e1d4 targets 0xc00000000007e298, is taken when v0(=ret(device_admin_info_get)) != 0, and falls through when v0(=ret(device_admin_info_get)) == 0.
-  The `beq` branch at 0xc00000000007e1e0 targets 0xc00000000007e1f0, is taken when a2(=ret(async_attach_get_info)) == 0, and falls through when a2(=ret(async_attach_get_info)) != 0.
+  The `beq` branch at 0xc00000000007e1e0 targets 0xc00000000007e1f0, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xc00000000007e204 targets 0xc00000000007e150, is taken when a0(=0xff) == s0(=a1), and falls through when a0(=0xff) != s0(=a1).
   The `bne` branch at 0xc00000000007e210 targets 0xc00000000007e150, is taken when a3(=[ret(hwgraph_fastinfo_get)+114]:2) != a4(=0x2), and falls through when a3(=[ret(hwgraph_fastinfo_get)+114]:2) == a4(=0x2).
   The `beq` branch at 0xc00000000007e218 targets 0xc00000000007e150 and is always taken.
@@ -140421,12 +140351,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc000000000294f44 calls mrupdatef [0xc00000000018988c] with a0=0xc00000000156a888, a1=0x0, a2=?, a3=?.
   The `jal` at 0xc000000000294f4c calls do_hwgraph_connectpt_get [0xc000000000296828] with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xc000000000294f60 calls mrunlock [0xc000000000189a60] with a0=0xc00000000156a888, a1=?, a2=?, a3=?.
-  The `jal` at 0xc000000000294f7c calls graph_vertex_unref [0xc000000000298708] with a0=[0xc0000000014d4570]:8, a1=ret(do_hwgraph_connectpt_get), a2=a2 at entry (arg2), a3=?.
+  The `jal` at 0xc000000000294f7c calls graph_vertex_unref [0xc000000000298708] with a0=[0xc0000000014d4570]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `jal` at 0xc000000000294fa0 calls do_hwgraph_connectpt_set [0xc00000000029679c] with a0=?, a1=-0x1, a2=?, a3=?.
   The `jal` at 0xc000000000294fb0 calls graph_vertex_unref [0xc000000000298708] with a0=[0xc0000000014d4570]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `beq` branch at 0xc000000000294f24 targets 0xc000000000294f40, is taken when v0(=ret(graph_edge_remove)) == 0, and falls through when v0(=ret(graph_edge_remove)) != 0.
   The `beq` branch at 0xc000000000294f58 targets 0xc000000000294f9c, is taken when v0(=ret(do_hwgraph_connectpt_get)) == v1(=a0), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != v1(=a0).
-  The `beq` branch at 0xc000000000294f70 targets 0xc000000000294f88, is taken when v0(=ret(do_hwgraph_connectpt_get)) == a1(=-0x1), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != a1(=-0x1).
+  The `beq` branch at 0xc000000000294f70 targets 0xc000000000294f88, is taken when v0(?) == a1(=-0x1), and falls through when v0(?) != a1(=-0x1).
   The `beq` branch at 0xc000000000294f88 targets 0xc000000000294fb0, is taken when a2 == 0, and falls through when a2 != 0.
   The `beq` branch at 0xc000000000294f94 targets 0xc000000000294f30 and is always taken.
   The `beq` branch at 0xc000000000294fa8 targets 0xc000000000294f60 and is always taken.
@@ -143211,9 +143141,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xa80000002004337c calls cap_able [0xa80000002022e9bc] with a0=0x2000000000, a1=?, a2=?, a3=?.
   The `jal` at 0xa800000020043390 calls copyin [0xa800000020017010] with a0=a2 at entry (arg2), a1=sp-80, a2=0x10, a3=?.
   The `jal` at 0xa8000000200433b8 calls pcibr_device_slot_get [0xa800000020043230] with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xa8000000200433d8 calls pcibr_priority_bits_set [0xa80000002004652c] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x1, a3=?.
+  The `jal` at 0xa8000000200433d8 calls pcibr_priority_bits_set [0xa80000002004652c] with a0=?, a1=?, a2=0x1, a3=?.
   The `jal` at 0xa8000000200433e8 calls pcibr_device_slot_get [0xa800000020043230] with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xa800000020043408 calls pcibr_priority_bits_set [0xa80000002004652c] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x0, a3=0xff.
+  The `jal` at 0xa800000020043408 calls pcibr_priority_bits_set [0xa80000002004652c] with a0=?, a1=?, a2=0x0, a3=0xff.
   The `beq` branch at 0xa8000000200432f0 targets 0xa80000002004334c, is taken when s0(=a1) == at(=0x6701), and falls through when s0(=a1) != at(=0x6701).
   The `beq` branch at 0xa8000000200432fc targets 0xa80000002004337c, is taken when s0(=a1) == v0(=0x6702), and falls through when s0(=a1) != v0(=0x6702).
   The `beq` branch at 0xa800000020043308 targets 0xa80000002004333c, is taken when s0(=a1) == v1(=0x7001), and falls through when s0(=a1) != v1(=0x7001).
@@ -143417,9 +143347,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `sb` at 0xa8000000200449a8 stores 1 byte to ?.
   The `jal` at 0xa80000002004493c calls pcibr_info_get [0xa800000020043428] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xa800000020044954 calls mutex_spinlock [0xa80000002022d954] with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?.
-  The `jal` at 0xa8000000200449ac calls mutex_io_spinunlock [0xa80000002022d860] with a0=[ret(pcibr_info_get)+40]:8+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?, a6=0xa8000000203b09d8.
+  The `jal` at 0xa8000000200449ac calls mutex_io_spinunlock [0xa80000002022d860] with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?, a6=0xa8000000203b09d8.
   The `jal` at 0xa8000000200449e0 calls cmn_err [0xa8000000201c6b00] with a0=0x4, a1=0xa8000000203b0ce8, a2=a2 at entry (arg2), a3=a3 at entry (arg3), a6=0xa8000000203b09d8.
-  The `jal` at 0xa8000000200449ec calls mutex_io_spinunlock [0xa80000002022d860] with a0=[ret(pcibr_info_get)+40]:8+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?.
+  The `jal` at 0xa8000000200449ec calls mutex_io_spinunlock [0xa80000002022d860] with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?.
   The `jal` at 0xa800000020044a04 calls hwgraph_vertex_name_get [0xa80000002023decc] with a0=a0 at entry (arg0), a1=sp-1088, a2=0x400, a3=?.
   The `jal` at 0xa800000020044a14 calls cmn_err [0xa8000000201c6b00] with a0=0x4, a1=0xa8000000203b0c68, a2=?, a3=?.
   The `jal` at 0xa800000020044a2c calls cmn_err [0xa8000000201c6b00] with a0=0x4, a1=0xa8000000203b0c88, a2=sp-1088, a3=a3 at entry (arg3).
@@ -144523,7 +144453,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xa800000020049b14 calls kmem_zalloc [0xa8000000201486a4] with a0=0x8, a1=0x0, a2=?, a3=?.
   The `jal` at 0xa800000020049b34 calls hwgraph_info_add_LBL [0xa80000002023c80c] with a0=?, a1=0xa8000000203b1ad0, a2=ret(kmem_zalloc), a3=?.
   The `jal` at 0xa800000020049b48 calls hwgraph_info_get_LBL [0xa80000002023c8b0] with a0=?, a1=0xa8000000203b1ad0, a2=sp-64, a3=?.
-  The `jal` at 0xa800000020049b60 calls kmem_free [0xa800000020148710] with a0=ret(kmem_zalloc), a1=0x8, a2=?, a3=ret(kmem_zalloc).
+  The `jal` at 0xa800000020049b60 calls kmem_free [0xa800000020148710] with a0=?, a1=0x8, a2=?, a3=?.
   The `jal` at 0xa800000020049b7c calls pcibr_debug [0xa800000020046990] with a0=0x2, a1=a0 at entry (arg0), a2=0xa8000000203b1b38, a3=?.
   The `jal` at 0xa800000020049b98 calls pcibr_debug [0xa800000020046990] with a0=0x2, a1=a0 at entry (arg0), a2=0xa8000000203b1a98, a3=?, a5=-0x1.
   The `jal` at 0xa800000020049bb4 calls pcibr_debug [0xa800000020046990] with a0=0x2, a1=a0 at entry (arg0), a2=0xa8000000203b1ae0, a3=?.
@@ -144531,7 +144461,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xa800000020049adc targets 0xa800000020049b8c, is taken when a5(=-0x1) == a0(?), and falls through when a5(=-0x1) != a0(?).
   The `beq` branch at 0xa800000020049af4 targets 0xa800000020049b14, is taken when v0(?) == 0, and falls through when v0(?) != 0.
   The `beq` branch at 0xa800000020049b1c targets 0xa800000020049ba8, is taken when v0(=ret(kmem_zalloc)) == 0, and falls through when v0(=ret(kmem_zalloc)) != 0.
-  The `beq` branch at 0xa800000020049b58 targets 0xa800000020049b00, is taken when a2(?) == a3(=ret(kmem_zalloc)), and falls through when a2(?) != a3(=ret(kmem_zalloc)).
+  The `beq` branch at 0xa800000020049b58 targets 0xa800000020049b00, is taken when a2(?) == a3(?), and falls through when a2(?) != a3(?).
   The `beq` branch at 0xa800000020049b6c targets 0xa800000020049bc4, is taken when a4(?) == 0, and falls through when a4(?) != 0.
   The `beq` branch at 0xa800000020049b84 targets 0xa800000020049afc and is always taken.
   The `beq` branch at 0xa800000020049ba0 targets 0xa800000020049b04 and is always taken.
@@ -144763,7 +144693,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xa80000002004e0a4 loads 8 bytes from [ret(pcibr_info_get)+40]:8 +0x8.
   The `jal` at 0xa80000002004e094 calls pcibr_info_get [0xa800000020043428] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xa80000002004e0ac calls pcibr_config_addr [0xa80000002004df58] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=?, a3=?.
-  The `jal` at 0xa80000002004e0c0 calls pcibr_probe_slot [0xa8000000200501a8] with a0=[[ret(pcibr_info_get)+40]:8+8]:8, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
+  The `jal` at 0xa80000002004e0c0 calls pcibr_probe_slot [0xa8000000200501a8] with a0=?, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
   The `beq` branch at 0xa80000002004e0c8 targets 0xa80000002004e0dc, is taken when v0(=ret(pcibr_probe_slot)) == 0, and falls through when v0(=ret(pcibr_probe_slot)) != 0.
   The `beq` branch at 0xa80000002004e0dc targets 0xa80000002004e0d4 and is always taken.
   The return at 0xa80000002004e0d4 has v0 = one of -0x1, ?.
@@ -144863,35 +144793,32 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xa80000002004f2f8 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x100.
   The `ld` at 0xa80000002004f300 loads 8 bytes from ret(hwgraph_fastinfo_get) +0x8.
   The `lw` at 0xa80000002004f340 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x110.
-  2 such `ld` accesses load 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118, including `ld` at 0xa80000002004f368, `ld` at 0xa80000002004f720.
+  The `ld` at 0xa80000002004f368 loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
   5 such `lh` accesses load 2 bytes from ret(hwgraph_fastinfo_get) +0x72, including `lh` at 0xa80000002004f3c4, `lh` at 0xa80000002004f508, `lh` at 0xa80000002004f5e8.
-  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xa80000002004f3f8, `lw` at 0xa80000002004f484, `lw` at 0xa80000002004f5a4.
+  6 such `lw` accesses load 4 bytes from ?, including `lw` at 0xa80000002004f3f8, `lw` at 0xa80000002004f484, `lw` at 0xa80000002004f5a4.
   3 such `sd` accesses store 8 bytes to ?, including `sd` at 0xa80000002004f400, `sd` at 0xa80000002004f408, `sd` at 0xa80000002004f62c.
-  3 such `ld` accesses load 8 bytes from ?, including `ld` at 0xa80000002004f474, `ld` at 0xa80000002004f58c, `ld` at 0xa80000002004f590.
+  5 such `ld` accesses load 8 bytes from ?, including `ld` at 0xa80000002004f474, `ld` at 0xa80000002004f58c, `ld` at 0xa80000002004f590.
   2 such `ld` accesses load 8 bytes from table(0xa80000002043ed98) +0x0, including `ld` at 0xa80000002004f544, `ld` at 0xa80000002004f660.
-  The `ld` at 0xa80000002004f724 loads 8 bytes from [(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8 +0x0.
-  The `lw` at 0xa80000002004f728 loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8 +0x14.
-  The `lw` at 0xa80000002004f73c loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8 +0x18.
   The `jal` at 0xa80000002004f2c4 calls hwgraph_fastinfo_get [0xa80000002023d638] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
-  The `jal` at 0xa80000002004f3b0 calls do_pcibr_config_set [0xa80000002004e170] with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
+  The `jal` at 0xa80000002004f3b0 calls do_pcibr_config_set [0xa80000002004e170] with a0=?, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
   The `jal` at 0xa80000002004f3f0 calls pcibr_debug [0xa800000020046990] with a0=0x800, a1=a0 at entry (arg0), a2=0xa8000000203b37c8, a3=?, a5=ret(pcibr_bus_addr_alloc).
-  The `jal` at 0xa80000002004f418 calls do_pcibr_config_get [0xa80000002004e0e4] with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?, a4=0x9004.
-  The `jal` at 0xa80000002004f450 calls do_pcibr_config_set [0xa80000002004e170] with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?.
-  The `jal` at 0xa80000002004f4a0 calls pcibr_func_config_addr [0xa80000002004dd78] with a0=[ret(hwgraph_fastinfo_get)+8]:8, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
+  The `jal` at 0xa80000002004f418 calls do_pcibr_config_get [0xa80000002004e0e4] with a0=?, a1=0x4, a2=0x4, a3=?, a4=0x9004.
+  The `jal` at 0xa80000002004f450 calls do_pcibr_config_set [0xa80000002004e170] with a0=?, a1=0x4, a2=0x4, a3=?.
+  The `jal` at 0xa80000002004f4a0 calls pcibr_func_config_addr [0xa80000002004dd78] with a0=?, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
   The `jal` at 0xa80000002004f4b8 calls do_pcibr_config_get [0xa80000002004e0e4] with a0=ret(pcibr_func_config_addr), a1=0xe, a2=0x1, a3=?.
   The `jal` at 0xa80000002004f540 calls sprintf [0xa8000000201c784c] with a0=sp-464, a1=0xa8000000203b3650, a2=?, a3=?, a5=entry(0xa80000002043ed98).
   The `jal` at 0xa80000002004f558 calls pcibr_debug [0xa800000020046990] with a0=0x800, a1=a0 at entry (arg0), a2=0xa8000000203b35c8, a3=sp-464.
   The `jal` at 0xa80000002004f60c calls pcibr_debug [0xa800000020046990] with a0=0x800, a1=a0 at entry (arg0), a2=0xa8000000203b36b8, a3=?, a6=0x4, a7=0xff.
-  The `jal` at 0xa80000002004f628 calls do_pcibr_config_set [0xa80000002004e170] with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=?.
+  The `jal` at 0xa80000002004f628 calls do_pcibr_config_set [0xa80000002004e170] with a0=?, a1=?, a2=0x4, a3=?.
   The `jal` at 0xa80000002004f69c calls sprintf [0xa8000000201c784c] with a0=sp-464, a1=0xa8000000203b3700, a2=?, a3=?, a5=entry(0xa80000002043ed98).
   The `jal` at 0xa80000002004f6b4 calls pcibr_debug [0xa800000020046990] with a0=0x800, a1=a0 at entry (arg0), a2=0xa8000000203b35c8, a3=sp-464.
   The `jal` at 0xa80000002004f6f4 calls sprintf [0xa8000000201c784c] with a0=sp-464, a1=0xa8000000203b3768, a2=?, a3=?, a6=entry(0xa80000002043ed98), a7=0xff.
   The `jal` at 0xa80000002004f70c calls pcibr_debug [0xa800000020046990] with a0=0x800, a1=a0 at entry (arg0), a2=0xa8000000203b35c8, a3=sp-464.
-  The `jal` at 0xa80000002004f760 calls do_pcibr_config_set [0xa80000002004e170] with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
-  The `jal` at 0xa80000002004f770 calls do_pcibr_config_get [0xa80000002004e0e4] with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=?.
+  The `jal` at 0xa80000002004f760 calls do_pcibr_config_set [0xa80000002004e170] with a0=?, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
+  The `jal` at 0xa80000002004f770 calls do_pcibr_config_get [0xa80000002004e0e4] with a0=?, a1=0x0, a2=0x4, a3=?.
   The `jal` at 0xa80000002004f79c calls pcibr_bus_addr_alloc [0xa80000002005060c] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xa80000002004f7f8 calls pcibr_bus_addr_alloc [0xa80000002005060c] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x2, a3=0x0, a6=0x4, a7=0xff.
-  The `jal` at 0xa80000002004f824 calls do_pcibr_config_get [0xa80000002004e0e4] with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=0xff, a4=[0xa8000000204a7788], a6=0x4, a7=0xff.
+  The `jal` at 0xa80000002004f824 calls do_pcibr_config_get [0xa80000002004e0e4] with a0=?, a1=?, a2=0x4, a3=0xff, a4=[0xa8000000204a7788], a6=0x4, a7=0xff.
   The `jal` at 0xa80000002004f84c calls pcibr_bus_addr_alloc [0xa80000002005060c] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xa80000002004f89c calls pcibr_bus_addr_alloc [0xa80000002005060c] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x4, a3=0x0.
   The `beq` branch at 0xa80000002004f2d0 targets 0xa80000002004f8c0, is taken when v0(=ret(hwgraph_fastinfo_get)) == 0, and falls through when v0(=ret(hwgraph_fastinfo_get)) != 0.
@@ -144906,7 +144833,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xa80000002004f3c8 targets 0xa80000002004f3d4, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xa80000002004f404 targets 0xa80000002004f7d0, is taken when a3(?) == a4(=0x9004), and falls through when a3(?) != a4(=0x9004).
   The `beq` branch at 0xa80000002004f434 targets 0xa80000002004f458, is taken when (a5(?) & a6(?)) == 0, and falls through when (a5(?) & a6(?)) != 0.
-  The `beq` branch at 0xa80000002004f464 targets 0xa80000002004f870, is taken when s4(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed), and falls through when s4(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed).
+  The `beq` branch at 0xa80000002004f464 targets 0xa80000002004f870, is taken when s4(?) >= a4(?) (signed), and falls through when s4(?) < a4(?) (signed).
   The `beq` branch at 0xa80000002004f47c targets 0xa80000002004f458, is taken when s5(?) == 0, and falls through when s5(?) != 0.
   The `beq` branch at 0xa80000002004f488 targets 0xa80000002004f45c, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `blez` branch at 0xa80000002004f4e0 targets 0xa80000002004f71c, is taken when t1(=one of 0x2, 0x6) <= 0 (signed), and falls through when t1(=one of 0x2, 0x6) > 0 (signed).
@@ -144914,7 +144841,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xa80000002004f4f8 targets 0xa80000002004f564, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xa80000002004f500 targets 0xa80000002004f7b8, is taken when t3(=0xff) == s3(=a1), and falls through when t3(=0xff) != s3(=a1).
   The `beq` branch at 0xa80000002004f50c targets 0xa80000002004f518, is taken when t8(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when t8(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
-  The `beq` branch at 0xa80000002004f580 targets 0xa80000002004f71c, is taken when s0(?) >= a3(=one of 0x2, 0x6) (signed), and falls through when s0(?) < a3(=one of 0x2, 0x6) (signed).
+  The `beq` branch at 0xa80000002004f580 targets 0xa80000002004f71c, is taken when s0(?) >= a3(?) (signed), and falls through when s0(?) < a3(?) (signed).
   The `beq` branch at 0xa80000002004f5a8 targets 0xa80000002004f560, is taken when s1(?) == 0, and falls through when s1(?) != 0.
   The `beq` branch at 0xa80000002004f5b4 targets 0xa80000002004f4f8, is taken when a6(?) >= s1(?) (unsigned), and falls through when a6(?) < s1(?) (unsigned).
   The `beq` branch at 0xa80000002004f5d0 targets 0xa80000002004f7e8, is taken when s2(?) == s7(=0x2), and falls through when s2(?) != s7(=0x2).
@@ -144929,8 +144856,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xa80000002004f6c4 targets 0xa80000002004f7c8, is taken when a3(=0xff) == s3(=a1), and falls through when a3(=0xff) != s3(=a1).
   The `beq` branch at 0xa80000002004f6d0 targets 0xa80000002004f6dc, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xa80000002004f714 targets 0xa80000002004f564 and is always taken.
-  The `bne` branch at 0xa80000002004f734 targets 0xa80000002004f748, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+20]) != a4(=0x10a9), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+20]) == a4(=0x10a9).
-  The `beq` branch at 0xa80000002004f744 targets 0xa80000002004f3f8, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+24]) == a4(=0x3), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+24]) != a4(=0x3).
+  The `bne` branch at 0xa80000002004f734 targets 0xa80000002004f748, is taken when a3(?) != a4(=0x10a9), and falls through when a3(?) == a4(=0x10a9).
+  The `beq` branch at 0xa80000002004f744 targets 0xa80000002004f3f8, is taken when a3(?) == a4(=0x3), and falls through when a3(?) != a4(=0x3).
   The `beq` branch at 0xa80000002004f77c targets 0xa80000002004f3f8, is taken when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) == 0, and falls through when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) != 0.
   The `bne` branch at 0xa80000002004f7a4 targets 0xa80000002004f3a4, is taken when v0(=ret(pcibr_bus_addr_alloc)) != 0, and falls through when v0(=ret(pcibr_bus_addr_alloc)) == 0.
   The `beq` branch at 0xa80000002004f7b0 targets 0xa80000002004f3f8 and is always taken.
@@ -144950,7 +144877,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xa80000002004f8f0 targets 0xa80000002004f870 and is always taken.
   The `beq` branch at 0xa80000002004f900 targets 0xa80000002004f58c and is always taken.
   The `beq` branch at 0xa80000002004f90c targets 0xa80000002004f470 and is always taken.
-  The return at 0xa80000002004f320 has v0 = one of 0x0, 0x16, 0x1c.
+  The return at 0xa80000002004f320 has v0 = one of ?, 0x16.
 - `pcibr_slot_guest_info_init` in `6.5.30/unix.IP30` at 0xa80000002004fa08 (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.30/unix.IP30`.
@@ -144990,17 +144917,15 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xa80000002004fb9c loads 4 bytes from ret(hwgraph_fastinfo_get) +0x0.
   The `lw` at 0xa80000002004fbac loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x110.
   The `ld` at 0xa80000002004fbb0 loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
-  The `sw` at 0xa80000002004fc08 stores 4 bytes to ?.
+  3 such `sw` accesses store 4 bytes to ?, including `sw` at 0xa80000002004fc08, `sw` at 0xa80000002004fcec, `sw` at 0xa80000002004fd18.
   The `ld` at 0xa80000002004fc30 loads 8 bytes from ?.
-  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xa80000002004fc40, `lw` at 0xa80000002004fc50.
+  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xa80000002004fc40, `lw` at 0xa80000002004fc50, `lw` at 0xa80000002004fce0.
   The `lh` at 0xa80000002004fc98 loads 2 bytes from ret(hwgraph_fastinfo_get) +0x72.
-  2 such `lw` accesses load 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x10c, including `lw` at 0xa80000002004fce0, `lw` at 0xa80000002004fd00.
-  2 such `sw` accesses store 4 bytes to (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x10c, including `sw` at 0xa80000002004fcec, `sw` at 0xa80000002004fd18.
   The `jal` at 0xa80000002004fb34 calls hwgraph_fastinfo_get [0xa80000002023d638] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xa80000002004fb98 calls async_attach_get_info [0xa8000000200980fc] with a0=[ret(hwgraph_fastinfo_get)], a1=?, a2=?, a3=?.
   The `jal` at 0xa80000002004fbf8 calls pcibr_debug [0xa800000020046990] with a0=0x2000, a1=a0 at entry (arg0), a2=0xa8000000203b3888, a3=?, a5=a2 at entry (arg2), a6=ret(pciio_device_attach).
-  The `jal` at 0xa80000002004fc58 calls device_admin_info_get [0xa80000002013ed58] with a0=?, a1=0xa8000000203b38f0, a2=?, a3=?, a4=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272].
-  The `jal` at 0xa80000002004fc74 calls async_attach_add_info [0xa800000020098130] with a0=?, a1=ret(async_attach_get_info), a2=ret(async_attach_get_info), a3=?.
+  The `jal` at 0xa80000002004fc58 calls device_admin_info_get [0xa80000002013ed58] with a0=?, a1=0xa8000000203b38f0, a2=?, a3=?.
+  The `jal` at 0xa80000002004fc74 calls async_attach_add_info [0xa800000020098130] with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xa80000002004fc80 calls pciio_device_attach [0xa8000000200603c0] with a0=?, a1=a2 at entry (arg2), a2=?, a3=?.
   The `jal` at 0xa80000002004fd28 calls vertex_to_name [0xa80000002023e0dc] with a0=?, a1=sp-384, a2=0x100, a3=?.
   The `jal` at 0xa80000002004fd3c calls cmn_err [0xa8000000201c6b00] with a0=0x4, a1=0xa8000000203b3858, a2=sp-384, a3=?.
@@ -145010,11 +144935,11 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xa80000002004fb90 targets 0xa80000002004fb78 and is always taken.
   The `blez` branch at 0xa80000002004fbc4 targets 0xa80000002004fd1c, is taken when t8(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) <= 0 (signed), and falls through when t8(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) > 0 (signed).
   The `beq` branch at 0xa80000002004fbd4 targets 0xa80000002004fd4c and is always taken.
-  The `beq` branch at 0xa80000002004fc20 targets 0xa80000002004fcac, is taken when s2(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed), and falls through when s2(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed).
+  The `beq` branch at 0xa80000002004fc20 targets 0xa80000002004fcac, is taken when s2(?) >= a4(?) (signed), and falls through when s2(?) < a4(?) (signed).
   The `beq` branch at 0xa80000002004fc38 targets 0xa80000002004fc14, is taken when s4(?) == 0, and falls through when s4(?) != 0.
   The `beq` branch at 0xa80000002004fc44 targets 0xa80000002004fc18, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `bne` branch at 0xa80000002004fc60 targets 0xa80000002004fd24, is taken when v0(=ret(device_admin_info_get)) != 0, and falls through when v0(=ret(device_admin_info_get)) == 0.
-  The `beq` branch at 0xa80000002004fc6c targets 0xa80000002004fc7c, is taken when a2(=ret(async_attach_get_info)) == 0, and falls through when a2(=ret(async_attach_get_info)) != 0.
+  The `beq` branch at 0xa80000002004fc6c targets 0xa80000002004fc7c, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xa80000002004fc90 targets 0xa80000002004fbdc, is taken when a0(=0xff) == s0(=a1), and falls through when a0(=0xff) != s0(=a1).
   The `bne` branch at 0xa80000002004fc9c targets 0xa80000002004fbdc, is taken when a3(=[ret(hwgraph_fastinfo_get)+114]:2) != a4(=0x2), and falls through when a3(=[ret(hwgraph_fastinfo_get)+114]:2) == a4(=0x2).
   The `beq` branch at 0xa80000002004fca4 targets 0xa80000002004fbdc and is always taken.
@@ -148314,12 +148239,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xa80000002023c4e4 calls mrupdatef [0xa80000002015274c] with a0=0xa8000000205195f8, a1=0x0, a2=?, a3=?.
   The `jal` at 0xa80000002023c4ec calls do_hwgraph_connectpt_get [0xa80000002023ddc8] with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xa80000002023c500 calls mrunlock [0xa800000020152920] with a0=0xa8000000205195f8, a1=?, a2=?, a3=?.
-  The `jal` at 0xa80000002023c51c calls graph_vertex_unref [0xa80000002023fc98] with a0=[0xa8000000204afc38]:8, a1=ret(do_hwgraph_connectpt_get), a2=a2 at entry (arg2), a3=?.
+  The `jal` at 0xa80000002023c51c calls graph_vertex_unref [0xa80000002023fc98] with a0=[0xa8000000204afc38]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `jal` at 0xa80000002023c540 calls do_hwgraph_connectpt_set [0xa80000002023dd3c] with a0=?, a1=-0x1, a2=?, a3=?.
   The `jal` at 0xa80000002023c550 calls graph_vertex_unref [0xa80000002023fc98] with a0=[0xa8000000204afc38]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `beq` branch at 0xa80000002023c4c4 targets 0xa80000002023c4e0, is taken when v0(=ret(graph_edge_remove)) == 0, and falls through when v0(=ret(graph_edge_remove)) != 0.
   The `beq` branch at 0xa80000002023c4f8 targets 0xa80000002023c53c, is taken when v0(=ret(do_hwgraph_connectpt_get)) == v1(=a0), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != v1(=a0).
-  The `beq` branch at 0xa80000002023c510 targets 0xa80000002023c528, is taken when v0(=ret(do_hwgraph_connectpt_get)) == a1(=-0x1), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != a1(=-0x1).
+  The `beq` branch at 0xa80000002023c510 targets 0xa80000002023c528, is taken when v0(?) == a1(=-0x1), and falls through when v0(?) != a1(=-0x1).
   The `beq` branch at 0xa80000002023c528 targets 0xa80000002023c550, is taken when a2 == 0, and falls through when a2 != 0.
   The `beq` branch at 0xa80000002023c534 targets 0xa80000002023c4d0 and is always taken.
   The `beq` branch at 0xa80000002023c548 targets 0xa80000002023c500 and is always taken.
@@ -151081,7 +151006,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc000000000049120 calls fprom_flash_sectors [0xc000000000049948] with a0=a0 at entry (arg0), a1=?, a2=[a0+160], a3=a3 at entry (arg3).
   The `jal` at 0xc000000000049154 calls promlog_next [0xc000000000048b98] with a0=a0 at entry (arg0), a1=0x62, a2=?, a3=?.
   The `jal` at 0xc000000000049174 calls get_entry [0xc000000000048568] with a0=a0 at entry (arg0), a1=0x40, a2=?, a3=?, a4=[a0+168].
-  The `jal` at 0xc0000000000491a8 calls fprom_write [0xc0000000000499d0] with a0=a0 at entry (arg0), a1=?, a2=a0+184, a3=0x40.
+  The `jal` at 0xc0000000000491a8 calls fprom_write [0xc0000000000499d0] with a0=a0 at entry (arg0), a1=?, a2=?, a3=0x40.
   The `jal` at 0xc0000000000491b8 calls fprom_errmsg [0xc000000000049a24] with a0=ret(fprom_write), a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000000491c8 calls printf [0xc0000000002adeec] with a0=0xc00000000151abd8, a1=ret(fprom_errmsg), a2=?, a3=?.
   The `jal` at 0xc0000000000491d8 calls promlog_errmsg [0xc000000000049834] with a0=?, a1=?, a2=?, a3=?.
@@ -151377,7 +151302,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc00000000004ae6c targets 0xc00000000004ae90, is taken when a1(?) == 0, and falls through when a1(?) != 0.
   The `beq` branch at 0xc00000000004ae90 targets 0xc00000000004ae44 and is always taken.
   The `beq` branch at 0xc00000000004ae98 targets 0xc00000000004ae44 and is always taken.
-  The return at 0xc00000000004ae50 has v0 = one of ret(ip27log_setup), ?, ret(promlog_delete), 0x0.
+  The return at 0xc00000000004ae50 has v0 = one of ret(ip27log_setup), ?, 0x0.
 - `ip27log_iprintf` in `6.5.30/unix.IP35` at 0xc00000000004aea0 (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.30/unix.IP35`.
@@ -152222,9 +152147,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc0000000000744b4 loads 4 bytes from ?.
   The `jal` at 0xc000000000074390 calls cmn_err [0xc0000000002ad048] with a0=0x6, a1=0xc000000001526af8, a2=one of 0xc000000001526ae8, 0xc000000001526b20, a3=?.
   The `jal` at 0xc0000000000743b8 calls cmn_err [0xc0000000002ad048] with a0=0x6, a1=0xc000000001526b3c, a2=?, a3=?.
-  The `jal` at 0xc00000000007440c calls cmn_err [0xc0000000002ad048] with a0=0x6, a1=0xc000000001526b28, a2=?, a3=?, a6=a0-1.
-  The `jal` at 0xc000000000074428 calls cmn_err [0xc0000000002ad048] with a0=0x6, a1=0xc000000001526b30, a2=?, a3=?, a6=a0-1.
-  The `jal` at 0xc000000000074444 calls cmn_err [0xc0000000002ad048] with a0=0x6, a1=0xc000000001526b38, a2=?, a3=?, a6=a0-1.
+  The `jal` at 0xc00000000007440c calls cmn_err [0xc0000000002ad048] with a0=0x6, a1=0xc000000001526b28, a2=?, a3=?.
+  The `jal` at 0xc000000000074428 calls cmn_err [0xc0000000002ad048] with a0=0x6, a1=0xc000000001526b30, a2=?, a3=?.
+  The `jal` at 0xc000000000074444 calls cmn_err [0xc0000000002ad048] with a0=0x6, a1=0xc000000001526b38, a2=?, a3=?.
   The `jal` at 0xc000000000074494 calls chk_for_pebrick [0xc000000000046384] with a0=?, a1=0x9600000000000000, a2=0xffffffffff, a3=?, a6=0x9000000034000000.
   The `jal` at 0xc0000000000744d0 calls find_lboard [0xc000000000044370] with a0=?, a1=0x11, a2=?, a3=?.
   The `jal` at 0xc0000000000744dc calls board_to_path [0xc0000000000451f8] with a0=ret(find_lboard), a1=sp-176, a2=?, a3=?.
@@ -152235,7 +152160,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `bne` branch at 0xc0000000000743a8 targets 0xc000000000074360, is taken when s0(?) < s1(=a0) (signed), and falls through when s0(?) >= s1(=a0) (signed).
   The `bgtz` branch at 0xc0000000000743c0 targets 0xc000000000074454, is taken when s1(=a0) > 0 (signed), and falls through when s1(=a0) <= 0 (signed).
   The `bne` branch at 0xc0000000000743f0 targets 0xc00000000007441c, is taken when a3(?) != a4(?), and falls through when a3(?) == a4(?).
-  The `bne` branch at 0xc0000000000743f8 targets 0xc00000000007439c, is taken when a6(=a0-1) != s0(?), and falls through when a6(=a0-1) == s0(?).
+  The `bne` branch at 0xc0000000000743f8 targets 0xc00000000007439c, is taken when a6(?) != s0(?), and falls through when a6(?) == s0(?).
   The `beq` branch at 0xc000000000074414 targets 0xc00000000007439c and is always taken.
   The `beq` branch at 0xc00000000007441c targets 0xc000000000074438, is taken when a2(?) == a5(?), and falls through when a2(?) != a5(?).
   The `beq` branch at 0xc000000000074430 targets 0xc00000000007444c and is always taken.
@@ -152871,9 +152796,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc00000000009df7c calls cap_able [0xc000000000332e84] with a0=0x2000000000, a1=0x7003, a2=?, a3=?.
   The `jal` at 0xc00000000009df90 calls copyin [0xc0000000000475a0] with a0=a2 at entry (arg2), a1=sp-120, a2=0x18, a3=?.
   The `jal` at 0xc00000000009dfd0 calls pcibr_device_slot_get [0xc00000000009ddb0] with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xc00000000009dff0 calls pcibr_priority_bits_set [0xc0000000000a1518] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x1, a3=?.
+  The `jal` at 0xc00000000009dff0 calls pcibr_priority_bits_set [0xc0000000000a1518] with a0=?, a1=?, a2=0x1, a3=?.
   The `jal` at 0xc00000000009e000 calls pcibr_device_slot_get [0xc00000000009ddb0] with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xc00000000009e020 calls pcibr_priority_bits_set [0xc0000000000a1518] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x0, a3=0xff.
+  The `jal` at 0xc00000000009e020 calls pcibr_priority_bits_set [0xc0000000000a1518] with a0=?, a1=?, a2=0x0, a3=0xff.
   The `jal` at 0xc00000000009e030 calls pcibr_slot_query [0xc0000000000a9a80] with a0=ret(hwgraph_connectpt_get), a1=sp-144, a2=?, a3=?.
   The `jal` at 0xc00000000009e040 calls pcibr_slot_startup [0xc0000000000a9360] with a0=ret(hwgraph_connectpt_get), a1=sp-96, a2=?, a3=?.
   The `jal` at 0xc00000000009e054 calls pcibr_slot_shutdown [0xc0000000000a94c0] with a0=ret(hwgraph_connectpt_get), a1=sp-120, a2=?, a3=?.
@@ -153026,9 +152951,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc00000000009e500 calls strstr [0xc0000000001de44c] with a0=sp-320, a1=0xc00000000152a140, a2=?, a3=?.
   The `jal` at 0xc00000000009e51c calls pcibr_widget_to_bus [0xc0000000000ac594] with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `jal` at 0xc00000000009e534 calls strcat [0xc0000000001de3a4] with a0=sp-320, a1=0xc00000000152a148, a2=?, a3=?.
-  The `jal` at 0xc00000000009e548 calls sprintf [0xc0000000002ade4c] with a0=sp-56, a1=0xc00000000152a150, a2=ret(pcibr_widget_to_bus), a3=?.
+  The `jal` at 0xc00000000009e548 calls sprintf [0xc0000000002ade4c] with a0=sp-56, a1=0xc00000000152a150, a2=?, a3=?.
   The `jal` at 0xc00000000009e564 calls pcibr_debug [0xc0000000000a1978] with a0=0x4, a1=a0 at entry (arg0), a2=0xc00000000152a118, a3=sp-320, a4=sp-56.
-  The `jal` at 0xc00000000009e574 calls hwgraph_path_add [0xc00000000034107c] with a0=[0xc000000001646638], a1=sp-316, a2=sp-48, a3=?.
+  The `jal` at 0xc00000000009e574 calls hwgraph_path_add [0xc00000000034107c] with a0=[0xc000000001646638], a1=?, a2=sp-48, a3=?.
   The `jal` at 0xc00000000009e59c calls hwgraph_edge_add [0xc000000000340888] with a0=?, a1=?, a2=sp-56, a3=?.
   The `beq` branch at 0xc00000000009e4c0 targets 0xc00000000009e4d8, is taken when v0(=ret(hwgraph_vertex_name_get)) == 0, and falls through when v0(=ret(hwgraph_vertex_name_get)) != 0.
   The `beq` branch at 0xc00000000009e4ec targets 0xc00000000009e4fc, is taken when v0(=ret(hwgraph_traverse)) == 0, and falls through when v0(=ret(hwgraph_traverse)) != 0.
@@ -153124,9 +153049,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `sb` at 0xc00000000009f844 stores 1 byte to ?.
   The `jal` at 0xc00000000009f7d8 calls pcibr_info_get [0xc00000000009e074] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xc00000000009f7f0 calls mutex_spinlock [0xc000000000331f6c] with a0=[ret(pcibr_info_get)+40]:8+140, a1=?, a2=?, a3=?.
-  The `jal` at 0xc00000000009f848 calls mutex_io_spinunlock [0xc000000000331e84] with a0=[ret(pcibr_info_get)+40]:8+140, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?, a6=0xc00000000152a100.
+  The `jal` at 0xc00000000009f848 calls mutex_io_spinunlock [0xc000000000331e84] with a0=[ret(pcibr_info_get)+40]:8+140, a1=?, a2=?, a3=?, a6=0xc00000000152a100.
   The `jal` at 0xc00000000009f87c calls cmn_err [0xc0000000002ad048] with a0=0x4, a1=0xc00000000152a4f8, a2=a2 at entry (arg2), a3=a3 at entry (arg3), a6=0xc00000000152a100.
-  The `jal` at 0xc00000000009f888 calls mutex_io_spinunlock [0xc000000000331e84] with a0=[ret(pcibr_info_get)+40]:8+140, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?.
+  The `jal` at 0xc00000000009f888 calls mutex_io_spinunlock [0xc000000000331e84] with a0=[ret(pcibr_info_get)+40]:8+140, a1=?, a2=?, a3=?.
   The `jal` at 0xc00000000009f8a0 calls hwgraph_vertex_name_get [0xc00000000034238c] with a0=a0 at entry (arg0), a1=sp-1088, a2=0x400, a3=?.
   The `jal` at 0xc00000000009f8b0 calls cmn_err [0xc0000000002ad048] with a0=0x4, a1=0xc00000000152a478, a2=?, a3=?.
   The `jal` at 0xc00000000009f8c8 calls cmn_err [0xc0000000002ad048] with a0=0x4, a1=0xc00000000152a498, a2=sp-1088, a3=a3 at entry (arg3).
@@ -154243,7 +154168,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc0000000000a4b2c calls kmem_zalloc [0xc00000000022c21c] with a0=0x8, a1=0x0, a2=?, a3=?.
   The `jal` at 0xc0000000000a4b4c calls hwgraph_info_add_LBL [0xc000000000340ccc] with a0=?, a1=0xc00000000152b2d8, a2=ret(kmem_zalloc), a3=?.
   The `jal` at 0xc0000000000a4b60 calls hwgraph_info_get_LBL [0xc000000000340d70] with a0=?, a1=0xc00000000152b2d8, a2=sp-64, a3=?.
-  The `jal` at 0xc0000000000a4b78 calls kmem_free [0xc00000000022c288] with a0=ret(kmem_zalloc), a1=0x8, a2=?, a3=ret(kmem_zalloc).
+  The `jal` at 0xc0000000000a4b78 calls kmem_free [0xc00000000022c288] with a0=?, a1=0x8, a2=?, a3=?.
   The `jal` at 0xc0000000000a4b94 calls pcibr_debug [0xc0000000000a1978] with a0=0x2, a1=a0 at entry (arg0), a2=0xc00000000152b340, a3=?.
   The `jal` at 0xc0000000000a4bb0 calls pcibr_debug [0xc0000000000a1978] with a0=0x2, a1=a0 at entry (arg0), a2=0xc00000000152b2a0, a3=?, a5=-0x1.
   The `jal` at 0xc0000000000a4bcc calls pcibr_debug [0xc0000000000a1978] with a0=0x2, a1=a0 at entry (arg0), a2=0xc00000000152b2e8, a3=?.
@@ -154251,7 +154176,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc0000000000a4af4 targets 0xc0000000000a4ba4, is taken when a5(=-0x1) == a0(?), and falls through when a5(=-0x1) != a0(?).
   The `beq` branch at 0xc0000000000a4b0c targets 0xc0000000000a4b2c, is taken when v0(?) == 0, and falls through when v0(?) != 0.
   The `beq` branch at 0xc0000000000a4b34 targets 0xc0000000000a4bc0, is taken when v0(=ret(kmem_zalloc)) == 0, and falls through when v0(=ret(kmem_zalloc)) != 0.
-  The `beq` branch at 0xc0000000000a4b70 targets 0xc0000000000a4b18, is taken when a2(?) == a3(=ret(kmem_zalloc)), and falls through when a2(?) != a3(=ret(kmem_zalloc)).
+  The `beq` branch at 0xc0000000000a4b70 targets 0xc0000000000a4b18, is taken when a2(?) == a3(?), and falls through when a2(?) != a3(?).
   The `beq` branch at 0xc0000000000a4b84 targets 0xc0000000000a4bdc, is taken when a4(?) == 0, and falls through when a4(?) != 0.
   The `beq` branch at 0xc0000000000a4b9c targets 0xc0000000000a4b14 and is always taken.
   The `beq` branch at 0xc0000000000a4bb8 targets 0xc0000000000a4b1c and is always taken.
@@ -154492,7 +154417,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xc0000000000a915c loads 8 bytes from [ret(pcibr_info_get)+40]:8 +0x8.
   The `jal` at 0xc0000000000a914c calls pcibr_info_get [0xc00000000009e074] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xc0000000000a9164 calls pcibr_config_addr [0xc0000000000a9010] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=?, a3=?.
-  The `jal` at 0xc0000000000a9178 calls pcibr_probe_slot [0xc0000000000ac084] with a0=[[ret(pcibr_info_get)+40]:8+8]:8, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
+  The `jal` at 0xc0000000000a9178 calls pcibr_probe_slot [0xc0000000000ac084] with a0=?, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
   The `beq` branch at 0xc0000000000a9180 targets 0xc0000000000a9194, is taken when v0(=ret(pcibr_probe_slot)) == 0, and falls through when v0(=ret(pcibr_probe_slot)) != 0.
   The `beq` branch at 0xc0000000000a9194 targets 0xc0000000000a918c and is always taken.
   The return at 0xc0000000000a918c has v0 = one of -0x1, ?.
@@ -154512,7 +154437,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc0000000000a93d0 calls pcibr_debug [0xc0000000000a1978] with a0=0x8000, a1=a0 at entry (arg0), a2=0xc00000000152cbf8, a3=ret(hwgraph_fastinfo_get), a5=a1 at entry (arg1).
   The `jal` at 0xc0000000000a93e0 calls nic_vertex_info_match [0xc0000000000956c8] with a0=[ret(hwgraph_fastinfo_get)], a1=0xc00000000152cc38, a2=?, a3=?.
   The `jal` at 0xc0000000000a9438 calls mrlock [0xc00000000023ac90] with a0=ret(hwgraph_fastinfo_get)+144, a1=0x2, a2=0x19, a3=?.
-  The `jal` at 0xc0000000000a9460 calls mrunlock [0xc0000000002379e4] with a0=ret(hwgraph_fastinfo_get)+144, a1=?, a2=?, a3=?.
+  The `jal` at 0xc0000000000a9460 calls mrunlock [0xc0000000002379e4] with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000000a9480 calls pcibr_slot_attach [0xc0000000000aba1c] with a0=a0 at entry (arg0), a1=?, a2=0x200, a3=sp-336, a4=sp-200.
   The `jal` at 0xc0000000000a9494 calls strncpy [0xc0000000001de228] with a0=sp-196, a1=sp-336, a2=0x80, a3=?.
   The `jal` at 0xc0000000000a94a8 calls copyout [0xc00000000004762c] with a0=sp-200, a1=[a1+8]:8, a2=[a1+16], a3=?.
@@ -154546,7 +154471,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc0000000000a9534 calls pcibr_debug [0xc0000000000a1978] with a0=0x8000, a1=a0 at entry (arg0), a2=0xc00000000152cc48, a3=ret(hwgraph_fastinfo_get), a5=a1 at entry (arg1).
   The `jal` at 0xc0000000000a9578 calls nic_vertex_info_match [0xc0000000000956c8] with a0=[ret(hwgraph_fastinfo_get)], a1=0xc00000000152cc38, a2=?, a3=0xa.
   The `jal` at 0xc0000000000a95a0 calls mrlock [0xc00000000023ac90] with a0=ret(hwgraph_fastinfo_get)+144, a1=0x2, a2=0x19, a3=?.
-  The `jal` at 0xc0000000000a95c4 calls mrunlock [0xc0000000002379e4] with a0=ret(hwgraph_fastinfo_get)+144, a1=?, a2=?, a3=?.
+  The `jal` at 0xc0000000000a95c4 calls mrunlock [0xc0000000002379e4] with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000000a966c calls pcibr_slot_detach [0xc0000000000abcd8] with a0=a0 at entry (arg0), a1=?, a2=0x400, a3=sp-200, a4=sp-336, a7=[ret(hwgraph_fastinfo_get)+116]:2.
   The `jal` at 0xc0000000000a9680 calls strncpy [0xc0000000001de228] with a0=sp-332, a1=sp-200, a2=0x80, a3=?.
   The `jal` at 0xc0000000000a9694 calls copyout [0xc00000000004762c] with a0=sp-336, a1=[a1+8]:8, a2=[a1+16], a3=?.
@@ -154568,7 +154493,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc0000000000a9630 targets 0xc0000000000a9644, is taken when (t1(?) & 0x10) == 0, and falls through when (t1(?) & 0x10) != 0.
   The `beq` branch at 0xc0000000000a9638 targets 0xc0000000000a9658 and is always taken.
   The `beq` branch at 0xc0000000000a964c targets 0xc0000000000a961c, is taken when a3(=[ret(hwgraph_fastinfo_get)+50]:1) >= v0(?) (signed), and falls through when a3(=[ret(hwgraph_fastinfo_get)+50]:1) < v0(?) (signed).
-  The `bne` branch at 0xc0000000000a9658 targets 0xc0000000000a95c4, is taken when a1(=one of 0x0, 0x1) != 0, and falls through when a1(=one of 0x0, 0x1) == 0.
+  The `bne` branch at 0xc0000000000a9658 targets 0xc0000000000a95c4, is taken when a1(?) != 0, and falls through when a1(?) == 0.
   The `beq` branch at 0xc0000000000a969c targets 0xc0000000000a95c4, is taken when v0(=ret(copyout)) == 0, and falls through when v0(=ret(copyout)) != 0.
   The `beq` branch at 0xc0000000000a96a4 targets 0xc0000000000a9550 and is always taken.
   The return at 0xc0000000000a956c has v0 = one of 0x8, 0xa, 0x9, ?, 0xe.
@@ -154758,35 +154683,32 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc0000000000aacbc loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x108.
   The `ld` at 0xc0000000000aacc4 loads 8 bytes from ret(hwgraph_fastinfo_get) +0x8.
   The `lw` at 0xc0000000000aad04 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
-  2 such `ld` accesses load 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x120, including `ld` at 0xc0000000000aad2c, `ld` at 0xc0000000000ab0e4.
+  The `ld` at 0xc0000000000aad2c loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x120.
   5 such `lh` accesses load 2 bytes from ret(hwgraph_fastinfo_get) +0x72, including `lh` at 0xc0000000000aad88, `lh` at 0xc0000000000aaecc, `lh` at 0xc0000000000aafac.
-  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc0000000000aadbc, `lw` at 0xc0000000000aae48, `lw` at 0xc0000000000aaf68.
+  6 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc0000000000aadbc, `lw` at 0xc0000000000aae48, `lw` at 0xc0000000000aaf68.
   3 such `sd` accesses store 8 bytes to ?, including `sd` at 0xc0000000000aadc4, `sd` at 0xc0000000000aadcc, `sd` at 0xc0000000000aaff0.
-  3 such `ld` accesses load 8 bytes from ?, including `ld` at 0xc0000000000aae38, `ld` at 0xc0000000000aaf50, `ld` at 0xc0000000000aaf54.
+  5 such `ld` accesses load 8 bytes from ?, including `ld` at 0xc0000000000aae38, `ld` at 0xc0000000000aaf50, `ld` at 0xc0000000000aaf54.
   2 such `ld` accesses load 8 bytes from table(0xc0000000015596c8) +0x0, including `ld` at 0xc0000000000aaf08, `ld` at 0xc0000000000ab024.
-  The `ld` at 0xc0000000000ab0e8 loads 8 bytes from [(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8 +0x0.
-  The `lw` at 0xc0000000000ab0ec loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8 +0x14.
-  The `lw` at 0xc0000000000ab100 loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8 +0x18.
   The `jal` at 0xc0000000000aac88 calls hwgraph_fastinfo_get [0xc000000000341af8] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
-  The `jal` at 0xc0000000000aad74 calls do_pcibr_config_set [0xc0000000000a9228] with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
+  The `jal` at 0xc0000000000aad74 calls do_pcibr_config_set [0xc0000000000a9228] with a0=?, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
   The `jal` at 0xc0000000000aadb4 calls pcibr_debug [0xc0000000000a1978] with a0=0x800, a1=a0 at entry (arg0), a2=0xc00000000152d110, a3=?, a5=ret(pcibr_bus_addr_alloc).
-  The `jal` at 0xc0000000000aaddc calls do_pcibr_config_get [0xc0000000000a919c] with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?, a4=0x9004.
-  The `jal` at 0xc0000000000aae14 calls do_pcibr_config_set [0xc0000000000a9228] with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?.
-  The `jal` at 0xc0000000000aae64 calls pcibr_func_config_addr [0xc0000000000a8e30] with a0=[ret(hwgraph_fastinfo_get)+8]:8, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
+  The `jal` at 0xc0000000000aaddc calls do_pcibr_config_get [0xc0000000000a919c] with a0=?, a1=0x4, a2=0x4, a3=?, a4=0x9004.
+  The `jal` at 0xc0000000000aae14 calls do_pcibr_config_set [0xc0000000000a9228] with a0=?, a1=0x4, a2=0x4, a3=?.
+  The `jal` at 0xc0000000000aae64 calls pcibr_func_config_addr [0xc0000000000a8e30] with a0=?, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
   The `jal` at 0xc0000000000aae7c calls do_pcibr_config_get [0xc0000000000a919c] with a0=ret(pcibr_func_config_addr), a1=0xe, a2=0x1, a3=?.
   The `jal` at 0xc0000000000aaf04 calls sprintf [0xc0000000002ade4c] with a0=sp-464, a1=0xc00000000152cf98, a2=?, a3=?, a5=entry(0xc0000000015596c8).
   The `jal` at 0xc0000000000aaf1c calls pcibr_debug [0xc0000000000a1978] with a0=0x800, a1=a0 at entry (arg0), a2=0xc00000000152cc88, a3=sp-464.
   The `jal` at 0xc0000000000aafd0 calls pcibr_debug [0xc0000000000a1978] with a0=0x800, a1=a0 at entry (arg0), a2=0xc00000000152d000, a3=?, a6=0x4, a7=0xff.
-  The `jal` at 0xc0000000000aafec calls do_pcibr_config_set [0xc0000000000a9228] with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=?.
+  The `jal` at 0xc0000000000aafec calls do_pcibr_config_set [0xc0000000000a9228] with a0=?, a1=?, a2=0x4, a3=?.
   The `jal` at 0xc0000000000ab060 calls sprintf [0xc0000000002ade4c] with a0=sp-464, a1=0xc00000000152d048, a2=?, a3=?, a5=entry(0xc0000000015596c8).
   The `jal` at 0xc0000000000ab078 calls pcibr_debug [0xc0000000000a1978] with a0=0x800, a1=a0 at entry (arg0), a2=0xc00000000152cc88, a3=sp-464.
   The `jal` at 0xc0000000000ab0b8 calls sprintf [0xc0000000002ade4c] with a0=sp-464, a1=0xc00000000152d0b0, a2=?, a3=?, a6=entry(0xc0000000015596c8), a7=0xff.
   The `jal` at 0xc0000000000ab0d0 calls pcibr_debug [0xc0000000000a1978] with a0=0x800, a1=a0 at entry (arg0), a2=0xc00000000152cc88, a3=sp-464.
-  The `jal` at 0xc0000000000ab124 calls do_pcibr_config_set [0xc0000000000a9228] with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
-  The `jal` at 0xc0000000000ab134 calls do_pcibr_config_get [0xc0000000000a919c] with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=?.
+  The `jal` at 0xc0000000000ab124 calls do_pcibr_config_set [0xc0000000000a9228] with a0=?, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
+  The `jal` at 0xc0000000000ab134 calls do_pcibr_config_get [0xc0000000000a919c] with a0=?, a1=0x0, a2=0x4, a3=?.
   The `jal` at 0xc0000000000ab160 calls pcibr_bus_addr_alloc [0xc0000000000ac4e8] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xc0000000000ab1bc calls pcibr_bus_addr_alloc [0xc0000000000ac4e8] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x2, a3=0x0, a6=0x4, a7=0xff.
-  The `jal` at 0xc0000000000ab1e8 calls do_pcibr_config_get [0xc0000000000a919c] with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=0xff, a4=[0xc00000000163c850], a6=0x4, a7=0xff.
+  The `jal` at 0xc0000000000ab1e8 calls do_pcibr_config_get [0xc0000000000a919c] with a0=?, a1=?, a2=0x4, a3=0xff, a4=[0xc00000000163c850], a6=0x4, a7=0xff.
   The `jal` at 0xc0000000000ab210 calls pcibr_bus_addr_alloc [0xc0000000000ac4e8] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xc0000000000ab260 calls pcibr_bus_addr_alloc [0xc0000000000ac4e8] with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x4, a3=0x0.
   The `beq` branch at 0xc0000000000aac94 targets 0xc0000000000ab284, is taken when v0(=ret(hwgraph_fastinfo_get)) == 0, and falls through when v0(=ret(hwgraph_fastinfo_get)) != 0.
@@ -154801,7 +154723,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc0000000000aad8c targets 0xc0000000000aad98, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xc0000000000aadc8 targets 0xc0000000000ab194, is taken when a3(?) == a4(=0x9004), and falls through when a3(?) != a4(=0x9004).
   The `beq` branch at 0xc0000000000aadf8 targets 0xc0000000000aae1c, is taken when (a5(?) & a6(?)) == 0, and falls through when (a5(?) & a6(?)) != 0.
-  The `beq` branch at 0xc0000000000aae28 targets 0xc0000000000ab234, is taken when s4(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) (signed), and falls through when s4(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) (signed).
+  The `beq` branch at 0xc0000000000aae28 targets 0xc0000000000ab234, is taken when s4(?) >= a4(?) (signed), and falls through when s4(?) < a4(?) (signed).
   The `beq` branch at 0xc0000000000aae40 targets 0xc0000000000aae1c, is taken when s5(?) == 0, and falls through when s5(?) != 0.
   The `beq` branch at 0xc0000000000aae4c targets 0xc0000000000aae20, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `blez` branch at 0xc0000000000aaea4 targets 0xc0000000000ab0e0, is taken when t1(=one of 0x2, 0x6) <= 0 (signed), and falls through when t1(=one of 0x2, 0x6) > 0 (signed).
@@ -154809,7 +154731,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc0000000000aaebc targets 0xc0000000000aaf28, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xc0000000000aaec4 targets 0xc0000000000ab17c, is taken when t3(=0xff) == s3(=a1), and falls through when t3(=0xff) != s3(=a1).
   The `beq` branch at 0xc0000000000aaed0 targets 0xc0000000000aaedc, is taken when t8(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when t8(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
-  The `beq` branch at 0xc0000000000aaf44 targets 0xc0000000000ab0e0, is taken when s0(?) >= a3(=one of 0x2, 0x6) (signed), and falls through when s0(?) < a3(=one of 0x2, 0x6) (signed).
+  The `beq` branch at 0xc0000000000aaf44 targets 0xc0000000000ab0e0, is taken when s0(?) >= a3(?) (signed), and falls through when s0(?) < a3(?) (signed).
   The `beq` branch at 0xc0000000000aaf6c targets 0xc0000000000aaf24, is taken when s1(?) == 0, and falls through when s1(?) != 0.
   The `beq` branch at 0xc0000000000aaf78 targets 0xc0000000000aaebc, is taken when a6(?) >= s1(?) (unsigned), and falls through when a6(?) < s1(?) (unsigned).
   The `beq` branch at 0xc0000000000aaf94 targets 0xc0000000000ab1ac, is taken when s2(?) == s7(=0x2), and falls through when s2(?) != s7(=0x2).
@@ -154824,8 +154746,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc0000000000ab088 targets 0xc0000000000ab18c, is taken when a3(=0xff) == s3(=a1), and falls through when a3(=0xff) != s3(=a1).
   The `beq` branch at 0xc0000000000ab094 targets 0xc0000000000ab0a0, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xc0000000000ab0d8 targets 0xc0000000000aaf28 and is always taken.
-  The `bne` branch at 0xc0000000000ab0f8 targets 0xc0000000000ab10c, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8+20]) != a4(=0x10a9), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8+20]) == a4(=0x10a9).
-  The `beq` branch at 0xc0000000000ab108 targets 0xc0000000000aadbc, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8+24]) == a4(=0x3), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8+24]) != a4(=0x3).
+  The `bne` branch at 0xc0000000000ab0f8 targets 0xc0000000000ab10c, is taken when a3(?) != a4(=0x10a9), and falls through when a3(?) == a4(=0x10a9).
+  The `beq` branch at 0xc0000000000ab108 targets 0xc0000000000aadbc, is taken when a3(?) == a4(=0x3), and falls through when a3(?) != a4(=0x3).
   The `beq` branch at 0xc0000000000ab140 targets 0xc0000000000aadbc, is taken when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) == 0, and falls through when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) != 0.
   The `bne` branch at 0xc0000000000ab168 targets 0xc0000000000aad68, is taken when v0(=ret(pcibr_bus_addr_alloc)) != 0, and falls through when v0(=ret(pcibr_bus_addr_alloc)) == 0.
   The `beq` branch at 0xc0000000000ab174 targets 0xc0000000000aadbc and is always taken.
@@ -154845,7 +154767,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc0000000000ab2b4 targets 0xc0000000000ab234 and is always taken.
   The `beq` branch at 0xc0000000000ab2c4 targets 0xc0000000000aaf50 and is always taken.
   The `beq` branch at 0xc0000000000ab2d0 targets 0xc0000000000aae34 and is always taken.
-  The return at 0xc0000000000aace4 has v0 = one of 0x0, 0x16, 0x1c.
+  The return at 0xc0000000000aace4 has v0 = one of ?, 0x16.
 - `pcibr_slot_guest_info_init` in `6.5.30/unix.IP35` at 0xc0000000000ab3cc (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.30/unix.IP35`.
@@ -154883,20 +154805,16 @@ These entries record instruction facts rendered from the routines below. They de
   The `lbu` at 0xc0000000000ab514 loads 1 byte from ret(hwgraph_fastinfo_get) +0x39.
   The `lw` at 0xc0000000000ab534 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x108.
   The `lw` at 0xc0000000000ab568 loads 4 bytes from ret(hwgraph_fastinfo_get) +0x0.
-  The `lw` at 0xc0000000000ab580 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
-  The `ld` at 0xc0000000000ab59c loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x120.
-  The `sw` at 0xc0000000000ab5c4 stores 4 bytes to ?.
-  The `ld` at 0xc0000000000ab5e8 loads 8 bytes from ?.
-  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc0000000000ab5f8, `lw` at 0xc0000000000ab604.
+  5 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc0000000000ab580, `lw` at 0xc0000000000ab5f8, `lw` at 0xc0000000000ab604.
+  2 such `ld` accesses load 8 bytes from ?, including `ld` at 0xc0000000000ab59c, `ld` at 0xc0000000000ab5e8.
+  3 such `sw` accesses store 4 bytes to ?, including `sw` at 0xc0000000000ab5c4, `sw` at 0xc0000000000ab73c, `sw` at 0xc0000000000ab774.
   The `lh` at 0xc0000000000ab650 loads 2 bytes from ret(hwgraph_fastinfo_get) +0x72.
-  2 such `lw` accesses load 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x114, including `lw` at 0xc0000000000ab730, `lw` at 0xc0000000000ab758.
-  2 such `sw` accesses store 4 bytes to (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x114, including `sw` at 0xc0000000000ab73c, `sw` at 0xc0000000000ab774.
-  The `ld` at 0xc0000000000ab7b8 loads 8 bytes from [(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8 +0x0.
+  The `ld` at 0xc0000000000ab7b8 loads 8 bytes from table(0x0) +0x0.
   The `jal` at 0xc0000000000ab500 calls hwgraph_fastinfo_get [0xc000000000341af8] with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xc0000000000ab570 calls async_attach_get_info [0xc000000000112b1c] with a0=[ret(hwgraph_fastinfo_get)], a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000000ab5b8 calls hwgraph_vertex_unref [0xc000000000340868] with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000000ab60c calls device_admin_info_get [0xc00000000021d350] with a0=?, a1=0xc00000000152d258, a2=?, a3=?.
-  The `jal` at 0xc0000000000ab628 calls async_attach_add_info [0xc000000000112b50] with a0=?, a1=ret(async_attach_get_info), a2=ret(async_attach_get_info), a3=?.
+  The `jal` at 0xc0000000000ab628 calls async_attach_add_info [0xc000000000112b50] with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000000ab634 calls pciio_device_attach [0xc0000000000c1754] with a0=?, a1=a2 at entry (arg2), a2=?, a3=?.
   The `jal` at 0xc0000000000ab674 calls pcibr_debug [0xc0000000000a1978] with a0=0x2000, a1=a0 at entry (arg0), a2=0xc00000000152d1d0, a3=?, a5=a2 at entry (arg2), a6=ret(pciio_device_attach).
   The `jal` at 0xc0000000000ab690 calls hwgraph_path_lookup [0xc000000000340f60] with a0=?, a1=0xc00000000152d238, a2=sp-144, a3=0x0.
@@ -154910,13 +154828,13 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc0000000000ab520 targets 0xc0000000000ab560, is taken when s4(=a1) >= at(=[ret(hwgraph_fastinfo_get)+57]:1+1) (signed), and falls through when s4(=a1) < at(=[ret(hwgraph_fastinfo_get)+57]:1+1) (signed).
   The `beq` branch at 0xc0000000000ab538 targets 0xc0000000000ab568, is taken when v0(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+264]) == 0, and falls through when v0(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+264]) != 0.
   The `beq` branch at 0xc0000000000ab560 targets 0xc0000000000ab544 and is always taken.
-  The `blez` branch at 0xc0000000000ab598 targets 0xc0000000000ab778, is taken when s6(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) <= 0 (signed), and falls through when s6(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) > 0 (signed).
+  The `blez` branch at 0xc0000000000ab598 targets 0xc0000000000ab778, is taken when s6(?) <= 0 (signed), and falls through when s6(?) > 0 (signed).
   The `beq` branch at 0xc0000000000ab5b0 targets 0xc0000000000ab7ac and is always taken.
-  The `beq` branch at 0xc0000000000ab5e0 targets 0xc0000000000ab6f0, is taken when s0(?) >= s6(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) (signed), and falls through when s0(?) < s6(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) (signed).
+  The `beq` branch at 0xc0000000000ab5e0 targets 0xc0000000000ab6f0, is taken when s0(?) >= s6(?) (signed), and falls through when s0(?) < s6(?) (signed).
   The `beq` branch at 0xc0000000000ab5f0 targets 0xc0000000000ab5d4, is taken when s1(?) == 0, and falls through when s1(?) != 0.
   The `beq` branch at 0xc0000000000ab5fc targets 0xc0000000000ab5d4, is taken when v1(?) == a0(=-0x1), and falls through when v1(?) != a0(=-0x1).
   The `bne` branch at 0xc0000000000ab614 targets 0xc0000000000ab784, is taken when v0(=ret(device_admin_info_get)) != 0, and falls through when v0(=ret(device_admin_info_get)) == 0.
-  The `beq` branch at 0xc0000000000ab620 targets 0xc0000000000ab630, is taken when a2(=ret(async_attach_get_info)) == 0, and falls through when a2(=ret(async_attach_get_info)) != 0.
+  The `beq` branch at 0xc0000000000ab620 targets 0xc0000000000ab630, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xc0000000000ab648 targets 0xc0000000000ab65c, is taken when a0(=0xff) == s4(=a1), and falls through when a0(=0xff) != s4(=a1).
   The `beq` branch at 0xc0000000000ab654 targets 0xc0000000000ab6d8, is taken when a3(=[ret(hwgraph_fastinfo_get)+114]:2) == a4(=0x2), and falls through when a3(=[ret(hwgraph_fastinfo_get)+114]:2) != a4(=0x2).
   The `beq` branch at 0xc0000000000ab67c targets 0xc0000000000ab5c0, is taken when s3(=a2) == 0, and falls through when s3(=a2) != 0.
@@ -156442,7 +156360,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `bltz` branch at 0xc0000000000cfdf8 targets 0xc0000000000cfe68, is taken when v0(=ret(sc_open)) < 0 (signed), and falls through when v0(=ret(sc_open)) >= 0 (signed).
   The `bltz` branch at 0xc0000000000cfe20 targets 0xc0000000000cfeb0, is taken when v0(=ret(sc_construct_msg)) < 0 (signed), and falls through when v0(=ret(sc_construct_msg)) >= 0 (signed).
   The `beq` branch at 0xc0000000000cfe40 targets 0xc0000000000cfe80, is taken when v0(=ret(sc_command)) == 0, and falls through when v0(=ret(sc_command)) != 0.
-  The `beq` branch at 0xc0000000000cfe5c targets 0xc0000000000cfea8, is taken when a3(=ret(sc_command)) == a4(=-0x4), and falls through when a3(=ret(sc_command)) != a4(=-0x4).
+  The `beq` branch at 0xc0000000000cfe5c targets 0xc0000000000cfea8, is taken when a3(?) == a4(=-0x4), and falls through when a3(?) != a4(=-0x4).
   The `bltz` branch at 0xc0000000000cfe98 targets 0xc0000000000cfec4, is taken when v0(=ret(sc_interpret_resp)) < 0 (signed), and falls through when v0(=ret(sc_interpret_resp)) >= 0 (signed).
   The `beq` branch at 0xc0000000000cfea0 targets 0xc0000000000cfe6c and is always taken.
   The `beq` branch at 0xc0000000000cfea8 targets 0xc0000000000cfe6c and is always taken.
@@ -158809,12 +158727,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xc0000000003409a4 calls mrupdatef [0xc000000000237810] with a0=0xc0000000016e6778, a1=0x0, a2=?, a3=?.
   The `jal` at 0xc0000000003409ac calls do_hwgraph_connectpt_get [0xc000000000342288] with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xc0000000003409c0 calls mrunlock [0xc0000000002379e4] with a0=0xc0000000016e6778, a1=?, a2=?, a3=?.
-  The `jal` at 0xc0000000003409dc calls graph_vertex_unref [0xc000000000344170] with a0=[0xc000000001646630]:8, a1=ret(do_hwgraph_connectpt_get), a2=a2 at entry (arg2), a3=?.
+  The `jal` at 0xc0000000003409dc calls graph_vertex_unref [0xc000000000344170] with a0=[0xc000000001646630]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `jal` at 0xc000000000340a00 calls do_hwgraph_connectpt_set [0xc0000000003421fc] with a0=?, a1=-0x1, a2=?, a3=?.
   The `jal` at 0xc000000000340a10 calls graph_vertex_unref [0xc000000000344170] with a0=[0xc000000001646630]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `beq` branch at 0xc000000000340984 targets 0xc0000000003409a0, is taken when v0(=ret(graph_edge_remove)) == 0, and falls through when v0(=ret(graph_edge_remove)) != 0.
   The `beq` branch at 0xc0000000003409b8 targets 0xc0000000003409fc, is taken when v0(=ret(do_hwgraph_connectpt_get)) == v1(=a0), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != v1(=a0).
-  The `beq` branch at 0xc0000000003409d0 targets 0xc0000000003409e8, is taken when v0(=ret(do_hwgraph_connectpt_get)) == a1(=-0x1), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != a1(=-0x1).
+  The `beq` branch at 0xc0000000003409d0 targets 0xc0000000003409e8, is taken when v0(?) == a1(=-0x1), and falls through when v0(?) != a1(=-0x1).
   The `beq` branch at 0xc0000000003409e8 targets 0xc000000000340a10, is taken when a2 == 0, and falls through when a2 != 0.
   The `beq` branch at 0xc0000000003409f4 targets 0xc000000000340990 and is always taken.
   The `beq` branch at 0xc000000000340a08 targets 0xc0000000003409c0 and is always taken.
@@ -163347,12 +163265,12 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.30/usr/cpu/sysgen/IP27boot/fru.a(sn0_fru_io.o)`.
   Range: 0xc74-0xe68 (500 bytes).
   It occupies 500 bytes.
-  2 such `ld` accesses load 8 bytes from ((a0 << 0x20)+0x9600000000000000 | 0x2000) +0x48, including `ld` at 0xcbc, `ld` at 0xd44.
+  The `ld` at 0xcbc loads 8 bytes from ((a0 << 0x20)+0x9600000000000000 | 0x2000) +0x48.
   2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xcd0, `lw` at 0xd54.
   The `lbu` at 0xcfc loads 1 byte from ret(find_lboard) +0x9.
+  3 such `ld` accesses load 8 bytes from ?, including `ld` at 0xd44, `ld` at 0xdc0, `ld` at 0xdd4.
   The `sd` at 0xd9c stores 8 bytes to sym(kf_conf_tab) +0xf8.
   The `ld` at 0xda4 loads 8 bytes from a1 (arg1 at entry) +0x0.
-  2 such `ld` accesses load 8 bytes from ?, including `ld` at 0xdc0, `ld` at 0xdd4.
   2 such `sd` accesses store 8 bytes to ?, including `sd` at 0xdcc, `sd` at 0xde0.
   The `lbu` at 0xdf4 loads 1 byte from ret(find_lboard) +0xa.
   The `jal` at 0xce8 calls find_lboard with a0=?, a1=0x41, a2=a2 at entry (arg2), a3=a3 at entry (arg3), a5=0x1.
@@ -163361,7 +163279,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xd8c calls find_first_component with a0=ret(find_lboard), a1=0x5, a2=?, a3=?, a5=0x1.
   The `jal` at 0xdfc calls kf_bridge_analyze with a0=ret(find_lboard), a1=ret(find_first_component), a2=sp-240, a3=?, a7=[a1]:8.
   The `jal` at 0xe14 calls find_component with a0=ret(find_lboard), a1=ret(find_first_component), a2=0x4, a3=?.
-  The `jal` at 0xe28 calls kf_xbow_analyze with a0=ret(find_lboard), a1=ret(find_first_component), a2=a1 at entry (arg1), a3=?.
+  The `jal` at 0xe28 calls kf_xbow_analyze with a0=ret(find_lboard), a1=?, a2=a1 at entry (arg1), a3=?.
   The `jal` at 0xe40 calls kf_xbow_analyze with a0=ret(find_lboard), a1=ret(find_component), a2=a1 at entry (arg1), a3=?, a5=ret(kf_xbow_analyze).
   The `jal` at 0xe58 calls kf_bridge_analyze with a0=ret(find_lboard), a1=ret(find_first_component), a2=a1 at entry (arg1), a3=?.
   The `beq` branch at 0xc98 targets 0xd0c, is taken when at(=[sym(full_fru_analysis)]) == 0, and falls through when at(=[sym(full_fru_analysis)]) != 0.
@@ -164541,12 +164459,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x474 calls mrupdatef with a0=sym(hwgraph_connectpt_mrlock), a1=0x0, a2=?, a3=?.
   The `jal` at 0x47c calls do_hwgraph_connectpt_get with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x490 calls mrunlock with a0=sym(hwgraph_connectpt_mrlock), a1=?, a2=?, a3=?.
-  The `jal` at 0x4ac calls graph_vertex_unref with a0=[sym(hwgraph)]:8, a1=ret(do_hwgraph_connectpt_get), a2=a2 at entry (arg2), a3=?.
+  The `jal` at 0x4ac calls graph_vertex_unref with a0=[sym(hwgraph)]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `jal` at 0x4d0 calls do_hwgraph_connectpt_set with a0=?, a1=-0x1, a2=?, a3=?.
   The `jal` at 0x4e0 calls graph_vertex_unref with a0=[sym(hwgraph)]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `beq` branch at 0x454 targets 0x470, is taken when v0(=ret(graph_edge_remove)) == 0, and falls through when v0(=ret(graph_edge_remove)) != 0.
   The `beq` branch at 0x488 targets 0x4cc, is taken when v0(=ret(do_hwgraph_connectpt_get)) == v1(=a0), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != v1(=a0).
-  The `beq` branch at 0x4a0 targets 0x4b8, is taken when v0(=ret(do_hwgraph_connectpt_get)) == a1(=-0x1), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != a1(=-0x1).
+  The `beq` branch at 0x4a0 targets 0x4b8, is taken when v0(?) == a1(=-0x1), and falls through when v0(?) != a1(=-0x1).
   The `beq` branch at 0x4b8 targets 0x4e0, is taken when a2 == 0, and falls through when a2 != 0.
   The `beq` branch at 0x4c4 targets 0x460 and is always taken.
   The `beq` branch at 0x4d8 targets 0x490 and is always taken.
@@ -165366,7 +165284,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x22f4 calls cpu_enabled with a0=a1 at entry (arg1), a1=?, a2=?, a3=?.
   The `jal` at 0x2308 calls device_admin_info_get with a0=a0 at entry (arg0), a1=sym(.rodata), a2=?, a3=?.
   The `jal` at 0x2340 calls mutex_spinlock_spl with a0=[(sym(pdaindr) + (a1 << 0x4))+8]:8+1324, a1=sym(spl7), a2=?, a3=?.
-  The `jal` at 0x2358 calls mutex_spinunlock with a0=[(sym(pdaindr) + (a1 << 0x4))+8]:8+1324, a1=ret(mutex_spinlock_spl), a2=?, a3=?.
+  The `jal` at 0x2358 calls mutex_spinunlock with a0=?, a1=ret(mutex_spinlock_spl), a2=?, a3=?.
   The `jal` at 0x2374 calls hwgraph_path_add with a0=[sym(hwgraph_root)], a1=sym(.rodata), a2=sym(.sdata)+4, a3=-0x1, a4=[sym(.sdata)+4].
   The `beq` branch at 0x227c targets 0x2318, is taken when a1 == at(=-0x1), and falls through when a1 != at(=-0x1).
   The `beq` branch at 0x228c targets 0x22ac, is taken when v0(=ret(cpu_enabled)) == 0, and falls through when v0(=ret(cpu_enabled)) != 0.
@@ -165714,17 +165632,17 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x20c calls hwgraph_bdevsw_get with a0=[a2], a1=?, a2=?, a3=?.
   The `jal` at 0x230 calls strcmp with a0=a1 at entry (arg1), a1=sym(.rodata), a2=?, a3=?, a4=0x2.
   The `jal` at 0x248 calls strcmp with a0=a1 at entry (arg1), a1=sym(.rodata), a2=?, a3=?, a6=a3 at entry (arg3).
-  The `jal` at 0x258 calls hwgraph_connectpt_get with a0=[a2], a1=?, a2=?, a3=?, a6=a3 at entry (arg3).
+  The `jal` at 0x258 calls hwgraph_connectpt_get with a0=?, a1=?, a2=?, a3=?, a6=a3 at entry (arg3).
   The `jal` at 0x264 calls hwgraph_vertex_unref with a0=ret(hwgraph_connectpt_get), a1=?, a2=?, a3=?.
   The `jal` at 0x2c0 calls hwgraph_edge_get_next with a0=a0 at entry (arg0), a1=sp-344, a2=sp-88, a3=sp-352.
   The `jal` at 0x2d8 calls hwgraph_vertex_unref with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x2e4 calls strcmp with a0=sp-344, a1=a1 at entry (arg1), a2=?, a3=?.
   The `beq` branch at 0x1d8 targets 0x1f8, is taken when v0(=ret(hwgraph_traverse)) == 0, and falls through when v0(=ret(hwgraph_traverse)) != 0.
   The `bne` branch at 0x21c targets 0x284, is taken when v0(=ret(hwgraph_bdevsw_get)) != 0, and falls through when v0(=ret(hwgraph_bdevsw_get)) == 0.
-  The `bne` branch at 0x224 targets 0x2a4, is taken when a1(=ret(hwgraph_cdevsw_get)) != 0, and falls through when a1(=ret(hwgraph_cdevsw_get)) == 0.
+  The `bne` branch at 0x224 targets 0x2a4, is taken when a1(?) != 0, and falls through when a1(?) == 0.
   The `beq` branch at 0x238 targets 0x298, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
   The `beq` branch at 0x250 targets 0x298, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
-  The `beq` branch at 0x274 targets 0x2b0, is taken when a2(=ret(hwgraph_connectpt_get)) == a3(=a0), and falls through when a2(=ret(hwgraph_connectpt_get)) != a3(=a0).
+  The `beq` branch at 0x274 targets 0x2b0, is taken when a2(?) == a3(=a0), and falls through when a2(?) != a3(=a0).
   The `beq` branch at 0x27c targets 0x294 and is always taken.
   The `beq` branch at 0x290 targets 0x22c, is taken when s0(=one of 0x0, 0x3) == a4(=0x2), and falls through when s0(=one of 0x0, 0x3) != a4(=0x2).
   The `beq` branch at 0x29c targets 0x1e4 and is always taken.
@@ -165732,7 +165650,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x2c8 targets 0x2d8, is taken when v0(=ret(hwgraph_edge_get_next)) == 0, and falls through when v0(=ret(hwgraph_edge_get_next)) != 0.
   The `beq` branch at 0x2d0 targets 0x294 and is always taken.
   The `beq` branch at 0x2ec targets 0x30c, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
-  The `bne` branch at 0x2fc targets 0x2b8, is taken when t0(?) != t1(=[a2]), and falls through when t0(?) == t1(=[a2]).
+  The `bne` branch at 0x2fc targets 0x2b8, is taken when t0(?) != t1(?), and falls through when t0(?) == t1(?).
   The `beq` branch at 0x304 targets 0x294 and is always taken.
   The `beq` branch at 0x318 targets 0x294 and is always taken.
   The return at 0x1f0 has v0 = one of 0x0, 0x1.
@@ -165985,7 +165903,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xbe0 targets 0xcb8, is taken when a2(=[a1+24]:2) == 0, and falls through when a2(=[a1+24]:2) != 0.
   The `beq` branch at 0xbf0 targets 0xc0c, is taken when s4(=a3) == 0, and falls through when s4(=a3) != 0.
   The `beq` branch at 0xc0c targets 0xc20, is taken when s3(?) == 0, and falls through when s3(?) != 0.
-  The `blez` branch at 0xc74 targets 0xcd4, is taken when v0(?) <= 0 (signed), and falls through when v0(?) > 0 (signed).
+  The `blez` branch at 0xc74 targets 0xcd4, is taken when v0(=ret(?)) <= 0 (signed), and falls through when v0(=ret(?)) > 0 (signed).
   The `beq` branch at 0xc7c targets 0xba4 and is always taken.
   The `beq` branch at 0xc84 targets 0xc28 and is always taken.
   The `beq` branch at 0xc98 targets 0xb44, is taken when (v0(=ret(get_current_abi)) & 0x2) == 0, and falls through when (v0(=ret(get_current_abi)) & 0x2) != 0.
@@ -167458,7 +167376,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0x4ac loads 8 bytes from [[ret(vproc_lookup)+40]:8+16]:8 +0x38.
   The `jal` at 0x458 calls vproc_lookup with a0=?, a1=0x1, a2=?, a3=?.
   The `jalr` at 0x4b4 calls (unknown callee) with a0=[ret(vproc_lookup)+40]:8, a1=0x6, a2=sp-96, a3=[[[ret(vproc_lookup)+40]:8+16]:8+56]:8, a4=-0x1.
-  The `jal` at 0x4bc calls vproc_release with a0=ret(vproc_lookup), a1=?, a2=?, a3=?.
+  The `jal` at 0x4bc calls vproc_release with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x4e8 calls kthread_get_pid with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x500 calls get_current_cred with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x510 calls kthread_get_pid with a0=?, a1=?, a2=?, a3=?.
@@ -169540,16 +169458,14 @@ These entries record instruction facts rendered from the routines below. They de
   Range: 0x40-0x144 (260 bytes).
   It occupies 260 bytes.
   The `lbu` at 0x58 loads 1 byte from abs 0xffffffffffffc523.
-  The `lw` at 0xb8 loads 4 bytes from ret(xtalk_piotrans_addr) +0x284.
-  The `sw` at 0xd8 stores 4 bytes to ret(xtalk_piotrans_addr) +0x284.
-  The `lw` at 0xe4 loads 4 bytes from ret(xtalk_piotrans_addr) +0x28c.
-  The `sw` at 0x100 stores 4 bytes to ret(xtalk_piotrans_addr) +0x28c.
+  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xb8, `lw` at 0xe4.
+  2 such `sw` accesses store 4 bytes to ?, including `sw` at 0xd8, `sw` at 0x100.
   The `jal` at 0x50 calls nic_vertex_info_match with a0=a0 at entry (arg0), a1=sym(.rodata), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x6c calls pcibr_hints_dualslot with a0=a0 at entry (arg0), a1=0x2, a2=0x4, a3=?.
   The `jal` at 0x88 calls pcibr_hints_subdevs with a0=a0 at entry (arg0), a1=0x2, a2=one of 0xb7, 0xbf, a3=?.
   The `jal` at 0xa0 calls xtalk_piotrans_addr with a0=a0 at entry (arg0), a1=0x0, a2=0x0, a3=0x1000000, a4=0x0.
   The `jal` at 0xac calls pcibr_hints_fix_rrbs with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
-  The `jal` at 0xfc calls hwgraph_traverse with a0=a0 at entry (arg0), a1=sym(.rodata), a2=sp-48, a3=?, a4=ret(xtalk_piotrans_addr), a5=0xc8888, a6=0xfffffffffff00000.
+  The `jal` at 0xfc calls hwgraph_traverse with a0=a0 at entry (arg0), a1=sym(.rodata), a2=sp-48, a3=?, a5=0xc8888, a6=0xfffffffffff00000.
   The `jal` at 0x11c calls device_inventory_add with a0=?, a1=0x15, a2=0x0, a3=0x0, a4=0x0, a5=0x0.
   The `jal` at 0x134 calls panic with a0=sym(.rodata), a1=?, a2=?, a3=?.
   The `bne` branch at 0x5c targets 0x130, is taken when at(=[-0x3add]:1) != 0, and falls through when at(=[-0x3add]:1) == 0.
@@ -170771,7 +170687,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xaba0 targets 0xabc4, is taken when a1(?) == 0, and falls through when a1(?) != 0.
   The `beq` branch at 0xabc4 targets 0xab78 and is always taken.
   The `beq` branch at 0xabcc targets 0xab78 and is always taken.
-  The return at 0xab84 has v0 = one of ret(ip27log_setup), ?, ret(promlog_delete), 0x0.
+  The return at 0xab84 has v0 = one of ret(ip27log_setup), ?, 0x0.
 - `ip27log_iprintf` in `6.5.30/usr/cpu/sysgen/IP27boot/kernel.o` at 0xabd4 (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.30/usr/cpu/sysgen/IP27boot/kernel.o`.
@@ -171684,9 +171600,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x299d0 loads 4 bytes from ?.
   The `jal` at 0x298d8 calls cmn_err with a0=0x6, a1=sym(.rodata)+37384, a2=sym(.rodata)+37384, a3=?.
   The `jal` at 0x29900 calls cmn_err with a0=0x6, a1=sym(.rodata)+37384, a2=?, a3=?.
-  The `jal` at 0x29954 calls cmn_err with a0=0x6, a1=sym(.rodata)+37384, a2=?, a3=?, a6=a0-1.
-  The `jal` at 0x29970 calls cmn_err with a0=0x6, a1=sym(.rodata)+37384, a2=?, a3=?, a6=a0-1.
-  The `jal` at 0x2998c calls cmn_err with a0=0x6, a1=sym(.rodata)+37384, a2=?, a3=?, a6=a0-1.
+  The `jal` at 0x29954 calls cmn_err with a0=0x6, a1=sym(.rodata)+37384, a2=?, a3=?.
+  The `jal` at 0x29970 calls cmn_err with a0=0x6, a1=sym(.rodata)+37384, a2=?, a3=?.
+  The `jal` at 0x2998c calls cmn_err with a0=0x6, a1=sym(.rodata)+37384, a2=?, a3=?.
   The `jal` at 0x299ec calls find_lboard with a0=?, a1=0x11, a2=0x9600000000000000, a3=?.
   The `jal` at 0x299f8 calls board_to_path with a0=ret(find_lboard), a1=sp-176, a2=?, a3=?.
   The `jal` at 0x29a08 calls cmn_err with a0=0x6, a1=sym(.rodata)+37384, a2=sp-176, a3=?.
@@ -171696,7 +171612,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `bne` branch at 0x298f0 targets 0x298a8, is taken when s0(?) < s1(=a0) (signed), and falls through when s0(?) >= s1(=a0) (signed).
   The `bgtz` branch at 0x29908 targets 0x2999c, is taken when s1(=a0) > 0 (signed), and falls through when s1(=a0) <= 0 (signed).
   The `bne` branch at 0x29938 targets 0x29964, is taken when a3(?) != a4(?), and falls through when a3(?) == a4(?).
-  The `bne` branch at 0x29940 targets 0x298e4, is taken when a6(=a0-1) != s0(?), and falls through when a6(=a0-1) == s0(?).
+  The `bne` branch at 0x29940 targets 0x298e4, is taken when a6(?) != s0(?), and falls through when a6(?) == s0(?).
   The `beq` branch at 0x2995c targets 0x298e4 and is always taken.
   The `beq` branch at 0x29964 targets 0x29980, is taken when a2(?) == a5(?), and falls through when a2(?) != a5(?).
   The `beq` branch at 0x29978 targets 0x29994 and is always taken.
@@ -173563,16 +173479,14 @@ These entries record instruction facts rendered from the routines below. They de
   2 such `ld` accesses load 8 bytes from ret(findfpreg) +0x58, including `ld` at 0xab8, `ld` at 0xcbc.
   The `lw` at 0xac8 loads 4 bytes from ret(findfpreg) +0x64.
   The `ld` at 0xb10 loads 8 bytes from ret(findfpreg) +0x88.
-  2 such `ld` accesses load 8 bytes from ?, including `ld` at 0xb58, `ld` at 0xcf0.
+  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0xb58, `ld` at 0xc68, `ld` at 0xc78.
   The `ld` at 0xb70 loads 8 bytes from [ret(findfpreg)+88]:8 +0xa8.
   The `lbu` at 0xb80 loads 1 byte from ret(findfpreg) +0x69.
   The `lw` at 0xb84 loads 4 bytes from ret(findfpreg) +0x60.
   The `lhu` at 0xbc4 loads 2 bytes from ret(anon_pfind) +0x14.
   The `sh` at 0xbd8 stores 2 bytes to ret(anon_pfind) +0x14.
   The `lh` at 0xc4c loads 2 bytes from table(sym(nasid_to_compact_node)) +0x0.
-  The `ld` at 0xc68 loads 8 bytes from [[a0+32]:8]:8 +0x238.
   The `ld` at 0xc6c loads 8 bytes from ret(findattr_range_noclip) +0x20.
-  The `ld` at 0xc78 loads 8 bytes from [[[a0+32]:8]:8+568]:8 +0x0.
   3 such `sw` accesses store 4 bytes to ?, including `sw` at 0xca0, `sw` at 0xca4, `sw` at 0xca8.
   The `sd` at 0xcac stores 8 bytes to ?.
   The `lw` at 0xcc0 loads 4 bytes from ret(findfpreg) +0x6c.
@@ -173586,20 +173500,20 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x9c0 calls kmem_zalloc with a0=(((a5 << 0x2) + a5) << 0x3), a1=0x0, a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xa14 calls mraccessf with a0=[[a0+32]:8]:8+32, a1=0x0, a2=?, a3=?, a5=(a2 + a3)+16383.
   The `jal` at 0xa54 calls mrunlock with a0=[ret(findfpreg)+88]:8, a1=?, a2=?, a3=?.
-  The `jal` at 0xa84 calls findfpreg with a0=[[a0+32]:8]:8, a1=a1 at entry (arg1), a2=?, a3=?.
+  The `jal` at 0xa84 calls findfpreg with a0=?, a1=a1 at entry (arg1), a2=?, a3=?.
   The `jal` at 0xac0 calls mrupdatef with a0=[ret(findfpreg)+88]:8, a1=0x0, a2=?, a3=[ret(findfpreg)+48]:8.
-  The `jal` at 0xb14 calls pmap_ptes with a0=[[a0+32]:8]:8, a1=[ret(findfpreg)+136]:8, a2=?, a3=sp-240, a4=0x1.
+  The `jal` at 0xb14 calls pmap_ptes with a0=?, a1=[ret(findfpreg)+136]:8, a2=?, a3=sp-240, a4=0x1.
   The `jal` at 0xba0 calls anon_pfind with a0=[[ret(findfpreg)+88]:8+168]:8, a1=?, a2=sp-232, a3=sp-224, a5=[ret(findfpreg)+105]:1.
   The `jal` at 0xbbc calls mutex_bitlock with a0=ret(anon_pfind)+16, a1=0x8000000, a2=?, a3=?.
-  The `jal` at 0xbe4 calls mutex_bitunlock with a0=ret(anon_pfind)+16, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
+  The `jal` at 0xbe4 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=?, a3=?.
   The `jal` at 0xc1c calls pagefreeanon_size with a0=ret(anon_pfind), a1=0x1, a2=?, a3=?.
   The `jal` at 0xc5c calls findattr_range_noclip with a0=ret(findfpreg), a1=?, a2=?, a3=entry(sym(nasid_to_compact_node)).
-  The `jal` at 0xc74 calls pmo_ns_pmo_lookup with a0=[[[[a0+32]:8]:8+568]:8]:8, a1=0x4, a2=[ret(findattr_range_noclip)+32]:8, a3=?.
+  The `jal` at 0xc74 calls pmo_ns_pmo_lookup with a0=?, a1=0x4, a2=[ret(findattr_range_noclip)+32]:8, a3=?.
   The `jal` at 0xce8 calls bitlock_acquire with a0=?, a1=0x2000000000000000, a2=?, a3=?.
-  The `jal` at 0xd78 calls mrunlock with a0=[[a0+32]:8]:8+32, a1=?, a2=?, a3=?.
+  The `jal` at 0xd78 calls mrunlock with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xd9c calls get_current_abi with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xdc8 calls xlate_copyout with a0=ret(kmem_zalloc), a1=a4 at entry (arg4), a2=?, a3=sym(pm_pginfo_to_irix5), a4=ret(get_current_abi), a5=0x4.
-  The `jal` at 0xde0 calls kmem_free with a0=ret(kmem_zalloc), a1=(((a5 << 0x2) + a5) << 0x3), a2=?, a3=?.
+  The `jal` at 0xdc8 calls xlate_copyout with a0=?, a1=a4 at entry (arg4), a2=?, a3=sym(pm_pginfo_to_irix5), a4=ret(get_current_abi), a5=0x4.
+  The `jal` at 0xde0 calls kmem_free with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xe0c calls mrunlock with a0=[ret(findfpreg)+88]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xe38 calls assfail with a0=sym(.rodata), a1=sym(.rodata), a2=0x2d0, a3=?.
   The `blez` branch at 0x96c targets 0xdf0, is taken when a5 <= 0 (signed), and falls through when a5 > 0 (signed).
@@ -174418,14 +174332,13 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.30/usr/cpu/sysgen/IP27boot/numa.a(afflink.o)`.
   Range: 0x0-0x98 (152 bytes).
   It occupies 152 bytes.
-  3 such `ld` accesses load 8 bytes from ?, including `ld` at 0x24, `ld` at 0x28, `ld` at 0x34.
+  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0x24, `ld` at 0x28, `ld` at 0x34.
   The `ld` at 0x38 loads 8 bytes from ret(aspm_getdefaultpm_func) +0x28.
-  The `ld` at 0x5c loads 8 bytes from ret(aspm_getdefaultpm_func) +0x8.
   The `ld` at 0x68 loads 8 bytes from a0 (arg0 at entry) +0x0.
   The `jal` at 0x18 calls as_lookup_current with a0=sp-48, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x30 calls aspm_getdefaultpm_func with a0=?, a1=0x2, a2=?, a3=?.
   The `jalr` at 0x4c calls (unknown callee) with a0=ret(aspm_getdefaultpm_func), a1=0x0, a2=a0 at entry (arg0), a3=a1 at entry (arg1), a4=[ret(aspm_getdefaultpm_func)+40]:8.
-  The `jalr` at 0x60 calls (unknown callee) with a0=ret(aspm_getdefaultpm_func), a1=?, a2=?, a3=?, a5=[ret(aspm_getdefaultpm_func)+8]:8.
+  The `jalr` at 0x60 calls (unknown callee) with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x74 calls mld_getnodeid with a0=[a0]:8, a1=?, a2=?, a3=?.
   The `jal` at 0x7c calls kmem_zone_set_default_node with a0=ret(mld_getnodeid), a1=?, a2=?, a3=?.
   The `beq` branch at 0x6c targets 0x88, is taken when a0(=[a0]:8) == 0, and falls through when a0(=[a0]:8) != 0.
@@ -174467,12 +174380,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x1a0 loads 4 bytes from [ret(pmo_ns_it_getnext)+8]:8 +0x18.
   The `jal` at 0x158 calls getpmo_ns with a0=[a1]:8, a1=[a1+8]:8, a2=[a1+16]:8, a3=a3 at entry (arg3).
   The `jal` at 0x16c calls mutex_spinlock with a0=ret(getpmo_ns)+56, a1=?, a2=?, a3=?.
-  The `jal` at 0x17c calls pmo_ns_it_init with a0=sp-80, a1=ret(getpmo_ns), a2=?, a3=?.
+  The `jal` at 0x17c calls pmo_ns_it_init with a0=sp-80, a1=?, a2=?, a3=?.
   The `jal` at 0x188 calls pmo_ns_it_getnext with a0=sp-80, a1=?, a2=?, a3=?.
   The `jal` at 0x1ac calls pmo_ns_it_getnext with a0=sp-80, a1=?, a2=?, a3=?.
-  The `jal` at 0x1c8 calls mutex_spinunlock with a0=ret(getpmo_ns)+56, a1=ret(mutex_spinlock), a2=?, a3=?, a4=0x4.
+  The `jal` at 0x1c8 calls mutex_spinunlock with a0=?, a1=?, a2=?, a3=?, a4=0x4.
   The `jal` at 0x1d8 calls relpmo_ns with a0=[a1]:8, a1=[a1+8]:8, a2=[a1+16]:8, a3=?.
-  The `jal` at 0x1f0 calls pm_contains_mld with a0=[ret(pmo_ns_it_getnext)+8]:8, a1=[a0+608]:8, a2=?, a3=?, a4=0x4.
+  The `jal` at 0x1f0 calls pm_contains_mld with a0=[ret(pmo_ns_it_getnext)+8]:8, a1=?, a2=?, a3=?, a4=0x4.
   The `jal` at 0x200 calls pm_decusg with a0=[ret(pmo_ns_it_getnext)+8]:8, a1=?, a2=?, a3=?.
   The `beq` branch at 0x13c targets 0x1e0, is taken when at(=[a1]:8) == v0(=0xf), and falls through when at(=[a1]:8) != v0(=0xf).
   The `beq` branch at 0x148 targets 0x1e0, is taken when v1(=[a0+608]:8) == 0, and falls through when v1(=[a0+608]:8) != 0.
@@ -174927,7 +174840,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x1240 calls splhi with a0=0x3ffff, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x1248 calls tlbgetpid with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1258 calls tlb_probe with a0=ret(tlbgetpid), a1=a1 at entry (arg1), a2=sp-48, a3=?.
-  The `jal` at 0x1290 calls splx with a0=ret(splhi), a1=?, a2=?, a3=?.
+  The `jal` at 0x1290 calls splx with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x12b0 calls unmaptlb with a0=[[-0x3fe8]:8+1376]:8, a1=?, a2=-0x1, a3=?, a4=0xfff0000.
   The `bgez` branch at 0x1238 targets 0x1298, is taken when at(?) >= 0 (signed), and falls through when at(?) < 0 (signed).
   The `beq` branch at 0x1270 targets 0x1290, is taken when v0(=ret(tlb_probe)) == a2(=-0x1), and falls through when v0(=ret(tlb_probe)) != a2(=-0x1).
@@ -175827,7 +175740,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x514 targets 0x2b8 and is always taken.
   The `beq` branch at 0x524 targets 0x574, is taken when (s3(?) & a0(=0x10020)) == 0, and falls through when (s3(?) & a0(=0x10020)) != 0.
   The `beq` branch at 0x538 targets 0x56c, is taken when v0(=ret(migr_manager_bounce_control)) == 0, and falls through when v0(=ret(migr_manager_bounce_control)) != 0.
-  The `bne` branch at 0x56c targets 0x2b8, is taken when a3(=one of 0x0, 0x1) != 0, and falls through when a3(=one of 0x0, 0x1) == 0.
+  The `bne` branch at 0x56c targets 0x2b8, is taken when a3(?) != 0, and falls through when a3(?) == 0.
   The `beq` branch at 0x590 targets 0x5b4, is taken when a4(?) == 0, and falls through when a4(?) != 0.
   The `beq` branch at 0x5a8 targets 0x640, is taken when a7(?) == t0(=0x1), and falls through when a7(?) != t0(=0x1).
   The `beq` branch at 0x5cc targets 0x658, is taken when v0(=ret(migr_migrate_page)) == 0, and falls through when v0(=ret(migr_migrate_page)) != 0.
@@ -176985,7 +176898,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xa78 calls copyin_xlate with a0=a0 at entry (arg0), a1=sp-80, a2=0x20, a3=sym(irix5_to_mldset_info), a4=ret(get_current_abi), a5=0x4, a6=0x1.
   The `jal` at 0xab4 calls mldset_mldlist_create with a0=?, a1=?, a2=sp-48, a3=?, a5=-0x2.
   The `jal` at 0xad0 calls curpmo_ns with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xae4 calls mldset_create_and_export with a0=ret(mldset_mldlist_create), a1=ret(curpmo_ns), a2=0x0, a3=a1 at entry (arg1).
+  The `jal` at 0xae4 calls mldset_create_and_export with a0=?, a1=ret(curpmo_ns), a2=0x0, a3=a1 at entry (arg1).
   The `beq` branch at 0xa84 targets 0xa9c, is taken when v0(=ret(copyin_xlate)) == 0, and falls through when v0(=ret(copyin_xlate)) != 0.
   The `blez` branch at 0xaa4 targets 0xafc, is taken when a1(?) <= 0 (signed), and falls through when a1(?) > 0 (signed).
   The `beq` branch at 0xaac targets 0xaf4, is taken when a0(?) == 0, and falls through when a0(?) != 0.
@@ -177000,14 +176913,14 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.30/usr/cpu/sysgen/IP27boot/numa.a(mldset.o)`.
   Range: 0xb04-0xc88 (388 bytes).
   It occupies 388 bytes.
-  The `ld` at 0xbbc loads 8 bytes from ret(pmo_ns_find) +0x8.
+  The `ld` at 0xbbc loads 8 bytes from ?.
   The `jal` at 0xb18 calls get_current_abi with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xb38 calls copyin_xlate with a0=a0 at entry (arg0), a1=sp-96, a2=0x28, a3=sym(irix5_to_mldset_placement_info), a4=ret(get_current_abi), a5=0x4, a6=0x1.
   The `jal` at 0xb5c calls curpmo_ns with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xb6c calls pmo_ns_find with a0=ret(curpmo_ns), a1=?, a2=0x3, a3=?.
-  The `jalr` at 0xbc0 calls (unknown callee) with a0=ret(pmo_ns_find), a1=?, a2=?, a3=?.
+  The `jalr` at 0xbc0 calls (unknown callee) with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xc4c calls mldset_rafflist_create with a0=?, a1=?, a2=?, a3=sp-56.
-  The `jal` at 0xc70 calls mldset_place with a0=ret(pmo_ns_find), a1=?, a2=?, a3=?.
+  The `jal` at 0xc70 calls mldset_place with a0=?, a1=?, a2=?, a3=?.
   The `beq` branch at 0xb40 targets 0xb5c, is taken when v0(=ret(copyin_xlate)) == 0, and falls through when v0(=ret(copyin_xlate)) != 0.
   The `beq` branch at 0xb90 targets 0xbf4, is taken when v0(=ret(pmo_ns_find)) == 0, and falls through when v0(=ret(pmo_ns_find)) != 0.
   The `bltz` branch at 0xb9c targets 0xbb0, is taken when t0(?) < 0 (signed), and falls through when t0(?) >= 0 (signed).
@@ -177019,10 +176932,10 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xbec targets 0xbb4 and is always taken.
   The `beq` branch at 0xbf4 targets 0xb50 and is always taken.
   The `beq` branch at 0xbfc targets 0xc10, is taken when a1(?) == 0, and falls through when a1(?) != 0.
-  The `bne` branch at 0xc10 targets 0xbb8, is taken when a2(=one of 0x0, 0x1) != 0, and falls through when a2(=one of 0x0, 0x1) == 0.
+  The `bne` branch at 0xc10 targets 0xbb8, is taken when a2(?) != 0, and falls through when a2(?) == 0.
   The `bne` branch at 0xc18 targets 0xbe4, is taken when a1(?) != 0, and falls through when a1(?) == 0.
   The `beq` branch at 0xc20 targets 0xc34, is taken when a0(?) == 0, and falls through when a0(?) != 0.
-  The `bne` branch at 0xc34 targets 0xbb8, is taken when a3(=one of 0x0, 0x1) != 0, and falls through when a3(=one of 0x0, 0x1) == 0.
+  The `bne` branch at 0xc34 targets 0xbb8, is taken when a3(?) != 0, and falls through when a3(?) == 0.
   The `beq` branch at 0xc3c targets 0xbe4 and is always taken.
   The `beq` branch at 0xc44 targets 0xc80, is taken when a0(?) == 0, and falls through when a0(?) != 0.
   The `bne` branch at 0xc58 targets 0xbb4, is taken when v0(=ret(mldset_rafflist_create)) < 0x1 (unsigned), and falls through when v0(=ret(mldset_rafflist_create)) >= 0x1 (unsigned).
@@ -177264,7 +177177,7 @@ These entries record instruction facts rendered from the routines below. They de
   It occupies 576 bytes.
   2 such `ld` accesses load 8 bytes from a0 (arg0 at entry) +0x260, including `ld` at 0x2a8, `ld` at 0x39c.
   2 such `ld` accesses load 8 bytes from [a0+608]:8 +0x0, including `ld` at 0x2bc, `ld` at 0x4b0.
-  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0x2f4, `ld` at 0x2f8, `ld` at 0x314.
+  5 such `ld` accesses load 8 bytes from ?, including `ld` at 0x2f4, `ld` at 0x2f8, `ld` at 0x314.
   3 such `ld` accesses load 8 bytes from ret(aspm_getdefaultpm_func) +0x88, including `ld` at 0x324, `ld` at 0x344, `ld` at 0x448.
   2 such `lw` accesses load 4 bytes from [ret(aspm_getdefaultpm_func)+136]:8 +0x18, including `lw` at 0x328, `lw` at 0x348.
   3 such `ld` accesses load 8 bytes from [a0+608]:8 +0x8, including `ld` at 0x368, `ld` at 0x3a8, `ld` at 0x418.
@@ -177274,7 +177187,6 @@ These entries record instruction facts rendered from the routines below. They de
   The `sd` at 0x3d8 stores 8 bytes to a0 (arg0 at entry) +0x270.
   The `ld` at 0x3e4 loads 8 bytes from ret(aspm_getdefaultpm_func) +0x8.
   The `ld` at 0x44c loads 8 bytes from [ret(aspm_getdefaultpm_func)+136]:8 +0x0.
-  The `ld` at 0x46c loads 8 bytes from [ret(aspm_getdefaultpm_func)+136]:8 +0x8.
   The `jal` at 0x2a0 calls mutex_bitlock with a0=a0+132, a1=0x4, a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jalr` at 0x2c0 calls (unknown callee) with a0=[a0+608]:8, a1=?, a2=?, a3=?.
   The `jal` at 0x2d0 calls mutex_bitunlock with a0=a0+132, a1=0x4, a2=ret(mutex_bitlock), a3=?.
@@ -177296,8 +177208,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x42c calls mld_getnodeid with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x440 calls mraccessf with a0=ret(aspm_getdefaultpm_func)+144, a1=0x0, a2=?, a3=?.
   The `jalr` at 0x450 calls (unknown callee) with a0=[ret(aspm_getdefaultpm_func)+136]:8, a1=?, a2=?, a3=?, a6=[[ret(aspm_getdefaultpm_func)+136]:8]:8.
-  The `jal` at 0x45c calls mldset_where_placed with a0=[ret(aspm_getdefaultpm_func)+136]:8, a1=a1 at entry (arg1), a2=?, a3=?.
-  The `jalr` at 0x470 calls (unknown callee) with a0=[ret(aspm_getdefaultpm_func)+136]:8, a1=?, a2=?, a3=?, a7=[[ret(aspm_getdefaultpm_func)+136]:8+8]:8.
+  The `jal` at 0x45c calls mldset_where_placed with a0=?, a1=a1 at entry (arg1), a2=?, a3=?.
+  The `jalr` at 0x470 calls (unknown callee) with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x488 calls mrdemote with a0=ret(aspm_getdefaultpm_func)+144, a1=?, a2=?, a3=?.
   The `jal` at 0x4a4 calls assfail with a0=sym(.rodata), a1=sym(.rodata), a2=0xb8, a3=?.
   The `beq` branch at 0x2b4 targets 0x498, is taken when s0(=[a0+608]:8) == 0, and falls through when s0(=[a0+608]:8) != 0.
@@ -177560,14 +177472,14 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc loads 4 bytes from a0 (arg0 at entry) +0x30.
   The `ld` at 0x24 loads 8 bytes from a0 (arg0 at entry) +0x20.
   The `lw` at 0x2c loads 4 bytes from [a0+32]:8 +0x4.
-  3 such `ld` accesses load 8 bytes from ret(pmolist_getelem) +0x28, including `ld` at 0x68, `ld` at 0x940, `ld` at 0xa44.
+  2 such `ld` accesses load 8 bytes from ret(pmolist_getelem) +0x28, including `ld` at 0x68, `ld` at 0x940.
   The `ld` at 0x88 loads 8 bytes from a0 (arg0 at entry) +0x38.
   The `lw` at 0x8c loads 4 bytes from a0 (arg0 at entry) +0x40.
   The `lw` at 0xa8 loads 4 bytes from [a0+56]:8 +0x4.
   2 such `lh` accesses load 2 bytes from [-0x3fe0]:8 +0xfa, including `lh` at 0xb0, `lh` at 0x6e0.
   4 such `ld` accesses load 8 bytes from abs 0xffffffffffffc400, including `ld` at 0xe0, `ld` at 0x4ac, `ld` at 0x73c.
   4 such `ld` accesses load 8 bytes from [-0x3c00]:8 +0x0, including `ld` at 0xf0, `ld` at 0x4b0, `ld` at 0x740.
-  11 such `ld` accesses load 8 bytes from ?, including `ld` at 0x108, `ld` at 0x12c, `ld` at 0x4b8.
+  16 such `ld` accesses load 8 bytes from ?, including `ld` at 0x108, `ld` at 0x12c, `ld` at 0x4b8.
   4 such `lhu` accesses load 2 bytes from ?, including `lhu` at 0x10c, `lhu` at 0x130, `lhu` at 0x750.
   The `ld` at 0x1a4 loads 8 bytes from [-0x3fe0]:8 +0x278.
   2 such `ld` accesses load 8 bytes from abs 0xffffffffffffc018, including `ld` at 0x1b8, `ld` at 0xc04.
@@ -177580,10 +177492,7 @@ These entries record instruction facts rendered from the routines below. They de
   4 such `lw` accesses load 4 bytes from ?, including `lw` at 0x4bc, `lw` at 0x4c0, `lw` at 0xeb8.
   7 such `sd` accesses store 8 bytes to ?, including `sd` at 0x4cc, `sd` at 0x51c, `sd` at 0x53c.
   4 such `lh` accesses load 2 bytes from ret(pmolist_getelem) +0x20, including `lh` at 0x680, `lh` at 0xbbc, `lh` at 0xdb0.
-  2 such `lh` accesses load 2 bytes from [-0x3fe0]:8 +0xf4, including `lh` at 0x6f4, `lh` at 0xf30.
-  2 such `ld` accesses load 8 bytes from ([sym(cpusets)]:8 + ([[-0x3fe0]:8+244]:2 << 0x8)) +0x28, including `ld` at 0x704, `ld` at 0xf40.
-  2 such `ld` accesses load 8 bytes from ([sym(cpusets)]:8 + ([[-0x3fe0]:8+244]:2 << 0x8)) +0x20, including `ld` at 0x708, `ld` at 0xf44.
-  2 such `lh` accesses load 2 bytes from ?, including `lh` at 0x74c, `lh` at 0x818.
+  4 such `lh` accesses load 2 bytes from ?, including `lh` at 0x6f4, `lh` at 0x74c, `lh` at 0x818.
   The `lld` at 0xa28 loads 8 bytes from sym(__clustermask_rotor) +0x0.
   The `scd` at 0xa30 stores 8 bytes to sym(__clustermask_rotor) +0x0.
   The `ld` at 0xc08 loads 8 bytes from [-0x3fe8]:8 +0x348.
@@ -177597,40 +177506,40 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x60 calls pmolist_getelem with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xc8 calls get_effective_nodemask with a0=[-0x3fe0]:8, a1=?, a2=-0x1, a3=?.
   The `jal` at 0x1cc calls as_getassize with a0=[[-0x3fe8]:8+1432]:8, a1=[[-0x3fe8]:8+1440]:8, a2=[[-0x3fe8]:8+1448]:8, a3=sp-1920, a4=sp-1916.
-  The `jal` at 0x214 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?, a4=[a0+64].
+  The `jal` at 0x214 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?.
   The `jal` at 0x37c calls ceil_log2 with a0=[[a0+32]:8+4], a1=[sym(numnodes)], a2=?, a3=?.
   The `jal` at 0x658 calls kmem_free with a0=?, a1=?, a2=?, a3=?, a6=sp-1368.
-  The `jal` at 0x674 calls pmolist_getelem with a0=[a0+56]:8, a1=0x0, a2=[a0+56]:8, a3=?.
+  The `jal` at 0x674 calls pmolist_getelem with a0=?, a1=0x0, a2=?, a3=?.
   The `jal` at 0x690 calls physmem_selectnode with a0=?, a1=?, a2=[a0+32]:8, a3=?.
-  The `jal` at 0x6b0 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?, a4=[a0+64].
+  The `jal` at 0x6b0 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?.
   The `jal` at 0x924 calls kmem_free with a0=?, a1=0x200, a2=?, a3=?, a5=sp-1880.
   The `jal` at 0x934 calls pmolist_getelem with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0x9e0 calls memfit_selectnode with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x9f8 calls pmolist_getelem with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xa14 calls physmem_mld_place_onnode with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
-  The `jal` at 0xac8 calls memfit_selectnode with a0=?, a1=[a0+56]:8, a2=[a0+56]:8, a3=?.
+  The `jal` at 0xac8 calls memfit_selectnode with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xae4 calls physmem_place_node with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xaf8 calls kmem_alloc with a0=?, a1=0x0, a2=?, a3=?.
   The `jal` at 0xb24 calls pmolist_getelem with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xb30 calls physmem_mld_place_onnode with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
   The `jal` at 0xb6c calls pmolist_getelem with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xb74 calls mld_getnodeid with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
-  The `jal` at 0xbb4 calls pmolist_getelem with a0=[a0+56]:8, a1=0x0, a2=[a0+56]:8, a3=?.
-  The `jal` at 0xbd8 calls physmem_place_cpucluster with a0=?, a1=[a0+32]:8, a2=?, a3=?, a4=[a0+64].
+  The `jal` at 0xbb4 calls pmolist_getelem with a0=?, a1=0x0, a2=?, a3=?.
+  The `jal` at 0xbd8 calls physmem_place_cpucluster with a0=?, a1=[a0+32]:8, a2=?, a3=?.
   The `jal` at 0xc44 calls kmem_alloc with a0=0x200, a1=0x0, a2=?, a3=?, a6=sp-1880.
-  The `jal` at 0xc5c calls memfit_selectnode with a0=?, a1=[a0+56]:8, a2=[a0+56]:8, a3=?.
+  The `jal` at 0xc5c calls memfit_selectnode with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xc7c calls physmem_selectnode with a0=ret(memfit_selectnode), a1=?, a2=[a0+32]:8, a3=?.
   The `jal` at 0xc98 calls physmem_place_node with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xca8 calls ceil_log2 with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xcdc calls ceil_log2 with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xcfc calls ceil_log2 with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xd28 calls physmem_place_physical with a0=[a0+32]:8, a1=?, a2=[a0+56]:8, a3=?, a4=[a0+64].
-  The `jal` at 0xd48 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?, a4=[a0+64].
-  The `jal` at 0xda0 calls pmolist_getelem with a0=[a0+56]:8, a1=0x0, a2=?, a3=?.
+  The `jal` at 0xd28 calls physmem_place_physical with a0=[a0+32]:8, a1=?, a2=?, a3=?.
+  The `jal` at 0xd48 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?.
+  The `jal` at 0xda0 calls pmolist_getelem with a0=?, a1=0x0, a2=?, a3=?.
   The `jal` at 0xe78 calls physmem_place_cube_with_affinity_p with a0=ret(ceil_log2), a1=[ret(pmolist_getelem)+32]:2, a2=?, a3=?, a4=[a0+32]:8, a5=sp-848.
-  The `jal` at 0xf78 calls pmolist_getelem with a0=[a0+56]:8, a1=0x0, a2=?, a3=?, a4=[a0+56]:8.
+  The `jal` at 0xf78 calls pmolist_getelem with a0=?, a1=0x0, a2=?, a3=?.
   The `jal` at 0xf94 calls physmem_place_cube_with_affinity with a0=ret(ceil_log2), a1=[ret(pmolist_getelem)+32]:2, a2=?, a3=?, a4=[a0+32]:8.
-  The `jal` at 0xfa4 calls memfit_selectnode with a0=?, a1=?, a2=?, a3=?, a4=[a0+56]:8.
+  The `jal` at 0xfa4 calls memfit_selectnode with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xfc4 calls physmem_place_cube with a0=ret(ceil_log2), a1=?, a2=?, a3=?, a4=[a0+32]:8.
   The `jal` at 0xffc calls memfit_selectnode with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x10d8 calls physmem_place_cube_p with a0=ret(ceil_log2), a1=?, a2=?, a3=?, a4=[a0+32]:8, a5=sp-592.
@@ -177660,7 +177569,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x1b0 targets 0xd8 and is always taken.
   The `beq` branch at 0x1f4 targets 0x74 and is always taken.
   The `beq` branch at 0x234 targets 0xaa0, is taken when s1(?) == 0, and falls through when s1(?) != 0.
-  The `beq` branch at 0x240 targets 0xd38, is taken when a2(=[a0+64]) == 0, and falls through when a2(=[a0+64]) != 0.
+  The `beq` branch at 0x240 targets 0xd38, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0x248 targets 0xaa0, is taken when s1(?) == 0, and falls through when s1(?) != 0.
   The `beq` branch at 0x250 targets 0x260, is taken when a3(?) == 0, and falls through when a3(?) != 0.
   The `bne` branch at 0x258 targets 0x924, is taken when a3(?) != a5(=sp-1880), and falls through when a3(?) == a5(=sp-1880).
@@ -177682,7 +177591,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x388 targets 0x3a0, is taken when s0(=[[a0+32]:8+4]) == a0(?), and falls through when s0(=[[a0+32]:8+4]) != a0(?).
   The `beq` branch at 0x398 targets 0x3e0 and is always taken.
   The `bne` branch at 0x3b0 targets 0xca8, is taken when v0(?) < s0(=[[a0+32]:8+4]) (signed), and falls through when v0(?) >= s0(=[[a0+32]:8+4]) (signed).
-  The `beq` branch at 0x3e4 targets 0xc38, is taken when a6(=one of 0x0, 0x1) == 0, and falls through when a6(=one of 0x0, 0x1) != 0.
+  The `beq` branch at 0x3e4 targets 0xc38, is taken when a6(?) == 0, and falls through when a6(?) != 0.
   The `beq` branch at 0x3ec targets 0x24c and is always taken.
   The `bne` branch at 0x3f8 targets 0x37c, is taken when s8(=[a0+48]) != 0, and falls through when s8(=[a0+48]) == 0.
   The `beq` branch at 0x444 targets 0x8fc, is taken when s8(=[a0+48]) == s2(=0x1), and falls through when s8(=[a0+48]) != s2(=0x1).
@@ -177720,7 +177629,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `bgtz` branch at 0x640 targets 0x310, is taken when s0(=[[a0+32]:8+4]) > 0 (signed), and falls through when s0(=[[a0+32]:8+4]) <= 0 (signed).
   The `beq` branch at 0x648 targets 0x3f8 and is always taken.
   The `beq` branch at 0x660 targets 0x278 and is always taken.
-  The `beq` branch at 0x66c targets 0xac8, is taken when a2(=[a0+56]:8) == 0, and falls through when a2(=[a0+56]:8) != 0.
+  The `beq` branch at 0x66c targets 0xac8, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0x67c targets 0xadc, is taken when s3(?) == s2(=0x1), and falls through when s3(?) != s2(=0x1).
   The `bne` branch at 0x6bc targets 0x23c, is taken when s1(?) != 0, and falls through when s1(?) == 0.
   The `beq` branch at 0x6d4 targets 0x230 and is always taken.
@@ -177781,7 +177690,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xb94 targets 0xb18 and is always taken.
   The `beq` branch at 0xb9c targets 0x250 and is always taken.
   The `beq` branch at 0xba4 targets 0x148 and is always taken.
-  The `beq` branch at 0xbac targets 0xc5c, is taken when a1(=[a0+56]:8) == 0, and falls through when a1(=[a0+56]:8) != 0.
+  The `beq` branch at 0xbac targets 0xc5c, is taken when a1(?) == 0, and falls through when a1(?) != 0.
   The `beq` branch at 0xbc0 targets 0xc94, is taken when s3(?) == s2(=0x1), and falls through when s3(?) != s2(=0x1).
   The `bne` branch at 0xbe4 targets 0x23c, is taken when s1(?) != 0, and falls through when s1(?) == 0.
   The `beq` branch at 0xbfc targets 0x230 and is always taken.
@@ -177804,8 +177713,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xd30 targets 0x230 and is always taken.
   The `bne` branch at 0xd50 targets 0x248, is taken when v0(=ret(physmem_place_cluster)) != 0, and falls through when v0(=ret(physmem_place_cluster)) == 0.
   The `beq` branch at 0xd64 targets 0x248 and is always taken.
-  The `beq` branch at 0xd94 targets 0xffc, is taken when at(=[a0+56]:8) == 0, and falls through when at(=[a0+56]:8) != 0.
-  The `blez` branch at 0xdb4 targets 0xf00, is taken when t9(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) <= 0 (signed), and falls through when t9(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) > 0 (signed).
+  The `beq` branch at 0xd94 targets 0xffc, is taken when at(?) == 0, and falls through when at(?) != 0.
+  The `blez` branch at 0xdb4 targets 0xf00, is taken when t9(?) <= 0 (signed), and falls through when t9(?) > 0 (signed).
   The `beq` branch at 0xdfc targets 0xe5c, is taken when a0(?) == 0, and falls through when a0(?) != 0.
   The `beq` branch at 0xe1c targets 0xf20, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `bne` branch at 0xe44 targets 0xe24, is taken when t1(?) < s0(=ret(ceil_log2)) (signed), and falls through when t1(?) >= s0(=ret(ceil_log2)) (signed).
@@ -177816,7 +177725,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xebc targets 0xea8, is taken when s4(?) >= a1(?) (signed), and falls through when s4(?) < a1(?) (signed).
   The `bne` branch at 0xecc targets 0xe64, is taken when t0(?) != 0, and falls through when t0(?) == 0.
   The `beq` branch at 0xedc targets 0xf0c, is taken when ra(?) == 0, and falls through when ra(?) != 0.
-  The `bne` branch at 0xef8 targets 0xdf8, is taken when at(?) < v0(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) (signed), and falls through when at(?) >= v0(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) (signed).
+  The `bne` branch at 0xef8 targets 0xdf8, is taken when at(?) < v0(?) (signed), and falls through when at(?) >= v0(?) (signed).
   The `bne` branch at 0xf04 targets 0x240, is taken when v1(?) != 0, and falls through when v1(?) == 0.
   The `beq` branch at 0xf18 targets 0x230 and is always taken.
   The `beq` branch at 0xf20 targets 0xe4c and is always taken.
@@ -177825,13 +177734,13 @@ These entries record instruction facts rendered from the routines below. They de
   The `blez` branch at 0xf54 targets 0x1184, is taken when s0(=[[a0+32]:8+4]) <= 0 (signed), and falls through when s0(=[[a0+32]:8+4]) > 0 (signed).
   The `beq` branch at 0xf5c targets 0x8b8, is taken when a0(?) == s4(?), and falls through when a0(?) != s4(?).
   The `beq` branch at 0xf64 targets 0x7e0 and is always taken.
-  The `beq` branch at 0xf70 targets 0xfa4, is taken when a4(=[a0+56]:8) == 0, and falls through when a4(=[a0+56]:8) != 0.
+  The `beq` branch at 0xf70 targets 0xfa4, is taken when a4(?) == 0, and falls through when a4(?) != 0.
   The `beq` branch at 0xf9c targets 0xfd0 and is always taken.
   The `bne` branch at 0xfd0 targets 0x23c, is taken when s1(?) != 0, and falls through when s1(?) == 0.
   The `beq` branch at 0xfe4 targets 0x230 and is always taken.
   The `bgtz` branch at 0xfec targets 0x628, is taken when s0(=[[a0+32]:8+4]) > 0 (signed), and falls through when s0(=[[a0+32]:8+4]) <= 0 (signed).
   The `beq` branch at 0xff4 targets 0x638 and is always taken.
-  The `blez` branch at 0x1014 targets 0xf00, is taken when a3(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) <= 0 (signed), and falls through when a3(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) > 0 (signed).
+  The `blez` branch at 0x1014 targets 0xf00, is taken when a3(?) <= 0 (signed), and falls through when a3(?) > 0 (signed).
   The `beq` branch at 0x105c targets 0x10bc, is taken when v0(?) == 0, and falls through when v0(?) != 0.
   The `beq` branch at 0x107c targets 0x1168, is taken when v1(?) == 0, and falls through when v1(?) != 0.
   The `bne` branch at 0x10a4 targets 0x1084, is taken when t2(?) < s0(=ret(ceil_log2)) (signed), and falls through when t2(?) >= s0(=ret(ceil_log2)) (signed).
@@ -177842,7 +177751,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x1120 targets 0x110c, is taken when s4(?) >= a1(?) (signed), and falls through when s4(?) < a1(?) (signed).
   The `bne` branch at 0x112c targets 0x10c4, is taken when t0(?) != 0, and falls through when t0(?) == 0.
   The `beq` branch at 0x113c targets 0xf0c, is taken when t9(?) == 0, and falls through when t9(?) != 0.
-  The `bne` branch at 0x1158 targets 0x1058, is taken when ra(?) < at(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) (signed), and falls through when ra(?) >= at(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) (signed).
+  The `bne` branch at 0x1158 targets 0x1058, is taken when ra(?) < at(?) (signed), and falls through when ra(?) >= at(?) (signed).
   The `beq` branch at 0x1160 targets 0xf04 and is always taken.
   The `beq` branch at 0x1168 targets 0x10ac and is always taken.
   The `bne` branch at 0x1174 targets 0x8b0, is taken when s0(=[[a0+32]:8+4]) < 0x2 (signed), and falls through when s0(=[[a0+32]:8+4]) >= 0x2 (signed).
@@ -179861,7 +179770,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x114 calls mraccessf with a0=a0+144, a1=0x0, a2=?, a3=?.
   The `jal` at 0x130 calls mraccunlock with a0=a0+144, a1=?, a2=?, a3=?.
   The `jal` at 0x144 calls pagealloc_size with a0=a1 at entry (arg1), a1=(a2 | 0x10000), a2=[a4]:8, a3=?.
-  The `jal` at 0x15c calls mraccunlock with a0=[a0+136]:8+72, a1=?, a2=?, a3=?.
+  The `jal` at 0x15c calls mraccunlock with a0=?, a1=?, a2=?, a3=?.
   The `jalr` at 0x168 calls (unknown callee) with a0=[a0+136]:8, a1=?, a2=[[a0+136]:8+8]:8, a3=?.
   The `jal` at 0x178 calls get_effective_nodemask with a0=[-0x3fe0]:8, a1=?, a2=?, a3=?.
   The `jal` at 0x1bc calls get_effective_nodemask with a0=[-0x3fe0]:8, a1=?, a2=?, a3=?.
@@ -179871,7 +179780,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x258 calls mraccessf with a0=[a0+136]:8+72, a1=0x0, a2=?, a3=?.
   The `jal` at 0x27c calls physmem_select_masked_neighbor_node with a0=?, a1=[sym(physmem_max_radius)], a2=[[a0+136]:8+40]:8, a3=sp-112, a4=sym(page_borrow_selector), a6=[a4]:8.
   The `jal` at 0x298 calls pagealloc_size_node with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=[a4]:8.
-  The `jal` at 0x2a8 calls mraccunlock with a0=[a0+136]:8+72, a1=?, a2=?, a3=?.
+  The `jal` at 0x2a8 calls mraccunlock with a0=?, a1=?, a2=?, a3=?.
   The `jalr` at 0x2b4 calls (unknown callee) with a0=[a0+136]:8, a1=?, a2=[[a0+136]:8+8]:8, a3=?.
   The `beq` branch at 0x128 targets 0x21c, is taken when at(=[[a0+136]:8+24]) == v0(=0x3), and falls through when at(=[[a0+136]:8+24]) != v0(=0x3).
   The `beq` branch at 0x14c targets 0x18c, is taken when v0(=ret(pagealloc_size)) == 0, and falls through when v0(=ret(pagealloc_size)) != 0.
@@ -179962,18 +179871,18 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xe4 calls mraccessf with a0=a0+144, a1=0x0, a2=?, a3=?.
   The `jal` at 0x100 calls mraccunlock with a0=a0+144, a1=?, a2=[[a0+136]:8+24], a3=0x3.
   The `jal` at 0x110 calls get_effective_nodemask with a0=[-0x3fe0]:8, a1=?, a2=?, a3=?.
-  The `jal` at 0x178 calls pagealloc_size with a0=a1 at entry (arg1), a1=(a2 | 0x10000), a2=[a4]:8, a3=?.
+  The `jal` at 0x178 calls pagealloc_size with a0=a1 at entry (arg1), a1=?, a2=[a4]:8, a3=?.
   The `jalr` at 0x198 calls (unknown callee) with a0=[a0+136]:8, a1=?, a2=[[a0+136]:8+24], a3=0x3, a7=[[a0+136]:8]:8.
   The `jal` at 0x1a0 calls mraccunlock with a0=a0+144, a1=?, a2=?, a3=?.
   The `jal` at 0x1cc calls mraccessf with a0=[a0+136]:8+72, a1=0x0, a2=?, a3=?.
   The `jal` at 0x1ec calls physmem_select_masked_neighbor_node with a0=?, a1=[sym(physmem_max_radius)], a2=[[a0+136]:8+40]:8, a3=sp-144, a4=sym(page_borrow_selector).
   The `jal` at 0x208 calls pagealloc_size_node with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=[a4]:8.
-  The `jal` at 0x218 calls mraccunlock with a0=[a0+136]:8+72, a1=?, a2=?, a3=?.
+  The `jal` at 0x218 calls mraccunlock with a0=?, a1=?, a2=?, a3=?.
   The `jalr` at 0x224 calls (unknown callee) with a0=[a0+136]:8, a1=?, a2=?, a3=?.
   The `jal` at 0x244 calls pagealloc_size_node with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=0x4000.
   The `jal` at 0x25c calls get_effective_nodemask with a0=[-0x3fe0]:8, a1=?, a2=?, a3=?.
   The `jal` at 0x28c calls pagealloc_size with a0=a1 at entry (arg1), a1=a2 at entry (arg2), a2=[a4]:8, a3=?.
-  The `jal` at 0x2e0 calls mraccunlock with a0=[a0+136]:8+72, a1=?, a2=?, a3=?.
+  The `jal` at 0x2e0 calls mraccunlock with a0=?, a1=?, a2=?, a3=?.
   The `jalr` at 0x2ec calls (unknown callee) with a0=[a0+136]:8, a1=?, a2=?, a3=?, a7=[[a0+136]:8+8]:8.
   The `beq` branch at 0xa8 targets 0x234, is taken when s7(=[a4]:8) >= 0x4001 (unsigned), and falls through when s7(=[a4]:8) < 0x4001 (unsigned).
   The `bne` branch at 0xc0 targets 0x25c, is taken when s7(=[a4]:8) < 0x4000 (unsigned), and falls through when s7(=[a4]:8) >= 0x4000 (unsigned).
@@ -180397,12 +180306,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x934 calls migr_move_lpage with a0=a1 at entry (arg1), a1=?, a2=a2 at entry (arg2), a3=a3 at entry (arg3), a5=0xa800000000000000.
   The `jal` at 0x9e4 calls splhi with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x9f4 calls bitlock_acquire_32bit with a0=?, a1=0x1, a2=?, a3=?.
-  The `jal` at 0xa8c calls splx with a0=ret(splhi), a1=-0xf, a2=?, a3=?, a5=-0x2.
+  The `jal` at 0xa8c calls splx with a0=?, a1=-0xf, a2=?, a3=?, a5=-0x2.
   The `jal` at 0xaa0 calls migr_refcnt_update_counters with a0=entry(sym(nasid_to_compact_node)), a1=a0 at entry (arg0), a2=?, a3=0x0.
   The `jal` at 0xab0 calls migr_migrate_page with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=sp-80, a3=?.
   The `jal` at 0xac4 calls migr_restart with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `jal` at 0xb50 calls migr_restart_clear with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xba0 calls splx with a0=ret(splhi), a1=-0xf, a2=?, a3=?, a7=-0x2.
+  The `jal` at 0xba0 calls splx with a0=?, a1=-0xf, a2=?, a3=?, a7=-0x2.
   The `bne` branch at 0x8f8 targets 0x9ac, is taken when a2 < 0x2 (signed), and falls through when a2 >= 0x2 (signed).
   The `bltz` branch at 0x93c targets 0xb60, is taken when v0(=ret(migr_move_lpage)) < 0 (signed), and falls through when v0(=ret(migr_move_lpage)) >= 0 (signed).
   The `bne` branch at 0xa0c targets 0xb88, is taken when t8(?) != t9(=0x8), and falls through when t8(?) == t9(=0x8).
@@ -180419,7 +180328,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xb80 targets 0x990 and is always taken.
   The `beql` branch at 0xb98 targets 0xb8c, is taken when (a6(?) & a7(=-0x2)) == 0, and falls through when (a6(?) & a7(=-0x2)) != 0; its branch-likely delay slot `nop` at 0xb9c runs only when taken and is annulled on fall-through.
   The `beq` branch at 0xbcc targets 0x990 and is always taken.
-  The return at 0x9a4 has v0 = one of 0x0, ret(migr_migrate_page), ret(migr_move_lpage), -0x8.
+  The return at 0x9a4 has v0 = one of 0x0, ?, ret(migr_move_lpage), -0x8.
 - `migr_move_lpage` in `6.5.30/usr/cpu/sysgen/IP27boot/numa.a(migr_user.o)` at 0xbd4 (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.30/usr/cpu/sysgen/IP27boot/numa.a(migr_user.o)`.
@@ -180431,15 +180340,15 @@ These entries record instruction facts rendered from the routines below. They de
   3 such `ld` accesses load 8 bytes from ([[-0x3c00]:8]:8 + (entry(sym(nasid_to_compact_node)) << 0x3)) +0x0, including `ld` at 0xcc0, `ld` at 0x10f8, `ld` at 0x119c.
   3 such `ld` accesses load 8 bytes from [([[-0x3c00]:8]:8 + (entry(sym(nasid_to_compact_node)) << 0x3))]:8 +0x8, including `ld` at 0xcc8, `ld` at 0x1100, `ld` at 0x11a4.
   3 such `ld` accesses load 8 bytes from [[([[-0x3c00]:8]:8 + (entry(sym(nasid_to_compact_node)) << 0x3))]:8+8]:8 +0x48, including `ld` at 0xcd4, `ld` at 0x110c, `ld` at 0x11b0.
-  7 such `ld` accesses load 8 bytes from ?, including `ld` at 0xce4, `ld` at 0xe40, `ld` at 0xea8.
-  8 such `lw` accesses load 4 bytes from ?, including `lw` at 0xd04, `lw` at 0xd18, `lw` at 0xd48.
+  9 such `ld` accesses load 8 bytes from ?, including `ld` at 0xce4, `ld` at 0xe40, `ld` at 0xea8.
+  9 such `lw` accesses load 4 bytes from ?, including `lw` at 0xd04, `lw` at 0xd18, `lw` at 0xd48.
   4 such `ll` accesses load 4 bytes from ?, including `ll` at 0xd24, `ll` at 0xd54, `ll` at 0xd78.
   4 such `sc` accesses store 4 bytes to ?, including `sc` at 0xd34, `sc` at 0xd64, `sc` at 0xd80.
-  3 such `sw` accesses store 4 bytes to ?, including `sw` at 0xdec, `sw` at 0xe28, `sw` at 0x11f0.
+  4 such `sw` accesses store 4 bytes to ?, including `sw` at 0xdec, `sw` at 0xe28, `sw` at 0x11f0.
   The `ld` at 0xf8c loads 8 bytes from sym(allclr_cpumask) +0x8.
   The `ld` at 0xf98 loads 8 bytes from sym(allclr_cpumask) +0x0.
-  3 such `ld` accesses load 8 bytes from ([[-0x3c00]:8]:8 + (a0 << 0x3)) +0x0, including `ld` at 0x104c, `ld` at 0x106c, `ld` at 0x122c.
-  3 such `ld` accesses load 8 bytes from [([[-0x3c00]:8]:8 + (a0 << 0x3))]:8 +0x18, including `ld` at 0x1050, `ld` at 0x1070, `ld` at 0x1230.
+  2 such `ld` accesses load 8 bytes from ([[-0x3c00]:8]:8 + (a0 << 0x3)) +0x0, including `ld` at 0x104c, `ld` at 0x106c.
+  2 such `ld` accesses load 8 bytes from [([[-0x3c00]:8]:8 + (a0 << 0x3))]:8 +0x18, including `ld` at 0x1050, `ld` at 0x1070.
   The `lw` at 0x1054 loads 4 bytes from [[([[-0x3c00]:8]:8 + (a0 << 0x3))]:8+24]:8 +0x28.
   The `sw` at 0x105c stores 4 bytes to [[([[-0x3c00]:8]:8 + (a0 << 0x3))]:8+24]:8 +0x28.
   The `lw` at 0x1074 loads 4 bytes from [[([[-0x3c00]:8]:8 + (a0 << 0x3))]:8+24]:8 +0x64.
@@ -180449,13 +180358,11 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0x120c loads 8 bytes from [([[-0x3c00]:8]:8 + ([-0x3bde]:2 << 0x3))]:8 +0x18.
   The `lw` at 0x1210 loads 4 bytes from [[([[-0x3c00]:8]:8 + ([-0x3bde]:2 << 0x3))]:8+24]:8 +0x70.
   The `sw` at 0x1218 stores 4 bytes to [[([[-0x3c00]:8]:8 + ([-0x3bde]:2 << 0x3))]:8+24]:8 +0x70.
-  The `lw` at 0x1234 loads 4 bytes from [[([[-0x3c00]:8]:8 + (a0 << 0x3))]:8+24]:8 +0x6c.
-  The `sw` at 0x1240 stores 4 bytes to [[([[-0x3c00]:8]:8 + (a0 << 0x3))]:8+24]:8 +0x6c.
   The `jal` at 0xc38 calls pagealloc_size_node with a0=a0 at entry (arg0), a1=?, a2=0x2048000, a3=(a2 << 0xe), a6=-0x7, a7=a3 at entry (arg3).
   The `jal` at 0xcec calls splhi with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xcfc calls bitlock_acquire_32bit with a0=?, a1=0x1, a2=?, a3=?.
-  The `jal` at 0xd8c calls splx with a0=ret(splhi), a1=?, a2=?, a3=?, a5=-0x2.
-  The `jal` at 0xdf8 calls lpage_size_to_index with a0=(a2 << 0xe), a1=?, a2=0xfffffffffffe3fff, a3=?, a7=0x1.
+  The `jal` at 0xd8c calls splx with a0=?, a1=?, a2=?, a3=?, a5=-0x2.
+  The `jal` at 0xdf8 calls lpage_size_to_index with a0=?, a1=?, a2=0xfffffffffffe3fff, a3=?, a7=0x1.
   The `jal` at 0xe24 calls mutex_bitlock with a0=?, a1=0x8000000, a2=?, a3=?.
   The `jal` at 0xe44 calls anon_hold with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xe54 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
@@ -180468,9 +180375,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xf64 calls mutex_64bitunlock with a0=?, a1=0x1, a2=ret(mutex_64bitlock), a3=?.
   The `jal` at 0xf94 calls tlbsync with a0=0x0, a1=[sym(allclr_cpumask)]:8, a2=[sym(allclr_cpumask)+8]:8, a3=0x2.
   The `jal` at 0xfb0 calls migr_pagemove with a0=?, a1=?, a2=0x1, a3=?.
-  The `jal` at 0x1004 calls cache_operation with a0=?, a1=((a2 << 0xe) << 0x0), a2=0x2400, a3=0xa800000000000000.
-  The `jal` at 0x1030 calls splx with a0=ret(splhi), a1=?, a2=-0x2, a3=?.
-  The `jal` at 0x1090 calls pagefree_size with a0=ret(pagealloc_size_node), a1=(a2 << 0xe), a2=?, a3=?.
+  The `jal` at 0x1004 calls cache_operation with a0=?, a1=?, a2=0x2400, a3=0xa800000000000000.
+  The `jal` at 0x1030 calls splx with a0=?, a1=?, a2=-0x2, a3=?.
+  The `jal` at 0x1090 calls pagefree_size with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1124 calls migr_restart with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x112c calls migr_page_epilogue with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1150 calls migr_page_epilogue with a0=?, a1=?, a2=?, a3=?.
@@ -180478,22 +180385,22 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x11ec calls pagedone with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1288 calls anon_hold with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1294 calls nested_64bitlock with a0=?, a1=0x1, a2=?, a3=?.
-  The `jal` at 0x12a4 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
+  The `jal` at 0x12a4 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=?, a3=?.
   The `jal` at 0x12b4 calls anon_page_unmigr with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x12c0 calls mutex_64bitlock with a0=?, a1=0x1, a2=?, a3=?.
   The `jal` at 0x12d4 calls rmap_scanmap with a0=?, a1=0x20, a2=0x0, a3=?.
-  The `jal` at 0x12e4 calls mutex_64bitunlock with a0=?, a1=0x1, a2=ret(mutex_64bitlock), a3=?.
+  The `jal` at 0x12e4 calls mutex_64bitunlock with a0=?, a1=0x1, a2=?, a3=?.
   The `jal` at 0x12f0 calls pagefree_size with a0=?, a1=0x4000, a2=?, a3=?.
   The `jal` at 0x12f8 calls splhi with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x130c calls bitlock_clr with a0=?, a1=0x8000000, a2=0xc00000, a3=?.
-  The `jal` at 0x1314 calls splx with a0=ret(splhi), a1=?, a2=?, a3=?.
+  The `jal` at 0x1314 calls splx with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x135c calls mutex_bitlock with a0=?, a1=0x8000000, a2=?, a3=?.
   The `jal` at 0x1384 calls vnode_hold with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1390 calls nested_64bitlock with a0=?, a1=0x1, a2=?, a3=?.
-  The `jal` at 0x13a0 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
+  The `jal` at 0x13a0 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=?, a3=?.
   The `jal` at 0x13b0 calls vnode_page_unmigr with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x13cc calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
-  The `jal` at 0x13ec calls pagefree_size with a0=a1 at entry (arg1), a1=(a2 << 0xe), a2=?, a3=?.
+  The `jal` at 0x13ec calls pagefree_size with a0=a1 at entry (arg1), a1=?, a2=?, a3=?.
   The `jal` at 0x1404 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
   The `blez` branch at 0xc10 targets 0x13c0, is taken when a2 <= 0 (signed), and falls through when a2 > 0 (signed).
   The `beq` branch at 0xc48 targets 0x13dc, is taken when v0(=ret(pagealloc_size_node)) == 0, and falls through when v0(=ret(pagealloc_size_node)) != 0.
@@ -181378,7 +181285,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x278 calls kmem_free with a0=ret(kmem_alloc), a1=0x200, a2=?, a3=?.
   The `jal` at 0x2bc calls is_specified with a0=sym(arg_maxnodes), a1=?, a2=?, a3=?.
   The `beq` branch at 0x5c targets 0xc8, is taken when v0(=ret(is_specified)) == 0, and falls through when v0(=ret(is_specified)) != 0.
-  The `beq` branch at 0x68 targets 0xc8, is taken when a1(=ret(hwgraph_edge_get)) == 0, and falls through when a1(=ret(hwgraph_edge_get)) != 0.
+  The `beq` branch at 0x68 targets 0xc8, is taken when a1(?) == 0, and falls through when a1(?) != 0.
   The `blez` branch at 0x70 targets 0xa8, is taken when a2(=[sym(numnodes)]) <= 0 (signed), and falls through when a2(=[sym(numnodes)]) > 0 (signed).
   The `bne` branch at 0x9c targets 0x88, is taken when v0(?) < a3(=[sym(numnodes)]) (signed), and falls through when v0(?) >= a3(=[sym(numnodes)]) (signed).
   The `beq` branch at 0xf4 targets 0x190 and is always taken.
@@ -181510,9 +181417,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x83c calls cap_able with a0=0x2000000000, a1=?, a2=?, a3=?.
   The `jal` at 0x850 calls copyin with a0=a2 at entry (arg2), a1=sp-80, a2=0x10, a3=?.
   The `jal` at 0x878 calls pcibr_device_slot_get with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x898 calls pcibr_priority_bits_set with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x1, a3=?.
+  The `jal` at 0x898 calls pcibr_priority_bits_set with a0=?, a1=?, a2=0x1, a3=?.
   The `jal` at 0x8a8 calls pcibr_device_slot_get with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x8c8 calls pcibr_priority_bits_set with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x0, a3=0xff.
+  The `jal` at 0x8c8 calls pcibr_priority_bits_set with a0=?, a1=?, a2=0x0, a3=0xff.
   The `beq` branch at 0x7b0 targets 0x80c, is taken when s0(=a1) == at(=0x6701), and falls through when s0(=a1) != at(=0x6701).
   The `beq` branch at 0x7bc targets 0x83c, is taken when s0(=a1) == v0(=0x6702), and falls through when s0(=a1) != v0(=0x6702).
   The `beq` branch at 0x7c8 targets 0x7fc, is taken when s0(=a1) == v1(=0x7001), and falls through when s0(=a1) != v1(=0x7001).
@@ -181657,7 +181564,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x1048 calls pciio_info_get with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `jal` at 0x105c calls pciio_info_mfast_get with a0=ret(pciio_info_get), a1=?, a2=?, a3=?.
   The `jal` at 0x106c calls mutex_spinlock with a0=ret(pciio_info_mfast_get)+128, a1=?, a2=?, a3=?.
-  The `jal` at 0x12f4 calls mutex_io_spinunlock with a0=ret(pciio_info_mfast_get)+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?.
+  The `jal` at 0x12f4 calls mutex_io_spinunlock with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1400 calls sprintf with a0=sp-736, a1=sym(.rodata), a2=entry(sym(pci_space)), a3=sym(.rodata), a4=sym(.rodata), a5=sym(.rodata), a6=sym(.rodata), a7=sym(.rodata).
   The `jal` at 0x14e8 calls sprintf with a0=sp-736, a1=sym(.rodata), a2=entry(sym(pci_space)), a3=?.
   The `jal` at 0x1728 calls sprintf with a0=sp-736, a1=sym(.rodata), a2=entry(sym(pci_space)), a3=?.
@@ -181855,9 +181762,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `sb` at 0x1f00 stores 1 byte to ?.
   The `jal` at 0x1e94 calls pcibr_info_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x1eac calls mutex_spinlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?.
-  The `jal` at 0x1f04 calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?, a6=sym(.rodata).
+  The `jal` at 0x1f04 calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?, a6=sym(.rodata).
   The `jal` at 0x1f38 calls cmn_err with a0=0x4, a1=sym(.rodata), a2=a2 at entry (arg2), a3=a3 at entry (arg3), a6=sym(.rodata).
-  The `jal` at 0x1f44 calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?.
+  The `jal` at 0x1f44 calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?.
   The `jal` at 0x1f5c calls hwgraph_vertex_name_get with a0=a0 at entry (arg0), a1=sp-1088, a2=0x400, a3=?.
   The `jal` at 0x1f6c calls cmn_err with a0=0x4, a1=sym(.rodata), a2=?, a3=?.
   The `jal` at 0x1f84 calls cmn_err with a0=0x4, a1=sym(.rodata), a2=sp-1088, a3=a3 at entry (arg3).
@@ -182675,8 +182582,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0x4bf4 loads 8 bytes from a0 (arg0 at entry) +0x8.
   5 such `lw` accesses load 4 bytes from ?, including `lw` at 0x4c28, `lw` at 0x4d48, `lw` at 0x4d88.
   2 such `sw` accesses store 4 bytes to a1 (arg1 at entry) +0x0, including `sw` at 0x4c60, `sw` at 0x4d08.
-  2 such `ll` accesses load 4 bytes from (a0 + ([a1+8]:1 << 0x7)) +0x16c, including `ll` at 0x4c6c, `ll` at 0x4d10.
-  2 such `sc` accesses store 4 bytes to (a0 + ([a1+8]:1 << 0x7)) +0x16c, including `sc` at 0x4c78, `sc` at 0x4d1c.
+  2 such `ll` accesses load 4 bytes from ?, including `ll` at 0x4c6c, `ll` at 0x4d10.
+  2 such `sc` accesses store 4 bytes to ?, including `sc` at 0x4c78, `sc` at 0x4d1c.
   The `ld` at 0x4d58 loads 8 bytes from ?.
   3 such `sw` accesses store 4 bytes to ?, including `sw` at 0x4d5c, `sw` at 0x4d68, `sw` at 0x4d98.
   The `jal` at 0x4b84 calls pcireg_int_ate_set with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
@@ -182699,10 +182606,10 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x4c14 targets 0x4c4c, is taken when s1(?) >= a0(=[a0+57]:1+1) (signed), and falls through when s1(?) < a0(=[a0+57]:1+1) (signed).
   The `bne` branch at 0x4c30 targets 0x4bf4, is taken when (a3(?) & 0x4) != 0, and falls through when (a3(?) & 0x4) == 0.
   The `bne` branch at 0x4c44 targets 0x4c1c, is taken when s1(?) < a0(=[a0+57]:1+1) (signed), and falls through when s1(?) >= a0(=[a0+57]:1+1) (signed).
-  The `beql` branch at 0x4c7c targets 0x4c6c, is taken when at(=[(a0 + ([a1+8]:1 << 0x7))+364]+1) == 0, and falls through when at(=[(a0 + ([a1+8]:1 << 0x7))+364]+1) != 0; its branch-likely delay slot `nop` at 0x4c80 runs only when taken and is annulled on fall-through.
+  The `beql` branch at 0x4c7c targets 0x4c6c, is taken when at(=table(0x1)) == 0, and falls through when at(=table(0x1)) != 0; its branch-likely delay slot `nop` at 0x4c80 runs only when taken and is annulled on fall-through.
   The `bgez` branch at 0x4cc4 targets 0x4b6c, is taken when ra(=([a1] << 0x21)) >= 0 (signed), and falls through when ra(=([a1] << 0x21)) < 0 (signed).
   The `beq` branch at 0x4cf0 targets 0x4d28, is taken when (a2(=[a1]) & at(=0xffffffff80000000)) == 0, and falls through when (a2(=[a1]) & at(=0xffffffff80000000)) != 0.
-  The `beql` branch at 0x4d20 targets 0x4d10, is taken when a4(=[(a0 + ([a1+8]:1 << 0x7))+364]-1) == 0, and falls through when a4(=[(a0 + ([a1+8]:1 << 0x7))+364]-1) != 0; its branch-likely delay slot `nop` at 0x4d24 runs only when taken and is annulled on fall-through.
+  The `beql` branch at 0x4d20 targets 0x4d10, is taken when a4(=table(-0x1)) == 0, and falls through when a4(=table(-0x1)) != 0; its branch-likely delay slot `nop` at 0x4d24 runs only when taken and is annulled on fall-through.
   The `beq` branch at 0x4d38 targets 0x4b6c, is taken when s6(=[a0+56]:1) >= a0(=[a0+57]:1+1) (signed), and falls through when s6(=[a0+56]:1) < a0(=[a0+57]:1+1) (signed).
   The `beq` branch at 0x4d40 targets 0x4e10 and is always taken.
   The `beq` branch at 0x4d50 targets 0x4d68, is taken when (a6(?) & 0x4) == 0, and falls through when (a6(?) & 0x4) != 0.
@@ -183315,7 +183222,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x7200 calls kmem_zalloc with a0=0x8, a1=0x0, a2=?, a3=?.
   The `jal` at 0x7220 calls hwgraph_info_add_LBL with a0=?, a1=sym(.rodata)+4152, a2=ret(kmem_zalloc), a3=?.
   The `jal` at 0x7234 calls hwgraph_info_get_LBL with a0=?, a1=sym(.rodata)+4152, a2=sp-64, a3=?.
-  The `jal` at 0x724c calls kmem_free with a0=ret(kmem_zalloc), a1=0x8, a2=?, a3=ret(kmem_zalloc).
+  The `jal` at 0x724c calls kmem_free with a0=?, a1=0x8, a2=?, a3=?.
   The `jal` at 0x7268 calls pcibr_debug with a0=0x2, a1=a0 at entry (arg0), a2=sym(.rodata)+4152, a3=?.
   The `jal` at 0x7284 calls pcibr_debug with a0=0x2, a1=a0 at entry (arg0), a2=sym(.rodata)+4152, a3=?, a5=-0x1.
   The `jal` at 0x72a0 calls pcibr_debug with a0=0x2, a1=a0 at entry (arg0), a2=sym(.rodata)+4152, a3=?.
@@ -183323,7 +183230,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x71c8 targets 0x7278, is taken when a5(=-0x1) == a0(?), and falls through when a5(=-0x1) != a0(?).
   The `beq` branch at 0x71e0 targets 0x7200, is taken when v0(?) == 0, and falls through when v0(?) != 0.
   The `beq` branch at 0x7208 targets 0x7294, is taken when v0(=ret(kmem_zalloc)) == 0, and falls through when v0(=ret(kmem_zalloc)) != 0.
-  The `beq` branch at 0x7244 targets 0x71ec, is taken when a2(?) == a3(=ret(kmem_zalloc)), and falls through when a2(?) != a3(=ret(kmem_zalloc)).
+  The `beq` branch at 0x7244 targets 0x71ec, is taken when a2(?) == a3(?), and falls through when a2(?) != a3(?).
   The `beq` branch at 0x7258 targets 0x72b0, is taken when a4(?) == 0, and falls through when a4(?) != 0.
   The `beq` branch at 0x7270 targets 0x71e8 and is always taken.
   The `beq` branch at 0x728c targets 0x71f0 and is always taken.
@@ -183602,7 +183509,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xb7d8 loads 8 bytes from [ret(pcibr_info_get)+40]:8 +0x8.
   The `jal` at 0xb7c8 calls pcibr_info_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xb7e0 calls pcibr_config_addr with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=?, a3=?.
-  The `jal` at 0xb7f4 calls pcibr_probe_slot with a0=[[ret(pcibr_info_get)+40]:8+8]:8, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
+  The `jal` at 0xb7f4 calls pcibr_probe_slot with a0=?, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
   The `beq` branch at 0xb7fc targets 0xb810, is taken when v0(=ret(pcibr_probe_slot)) == 0, and falls through when v0(=ret(pcibr_probe_slot)) != 0.
   The `beq` branch at 0xb810 targets 0xb808 and is always taken.
   The return at 0xb808 has v0 = one of -0x1, ?.
@@ -183702,35 +183609,32 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xca2c loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x100.
   The `ld` at 0xca34 loads 8 bytes from ret(hwgraph_fastinfo_get) +0x8.
   The `lw` at 0xca74 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x110.
-  2 such `ld` accesses load 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118, including `ld` at 0xca9c, `ld` at 0xce54.
+  The `ld` at 0xca9c loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
   5 such `lh` accesses load 2 bytes from ret(hwgraph_fastinfo_get) +0x72, including `lh` at 0xcaf8, `lh` at 0xcc3c, `lh` at 0xcd1c.
-  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xcb2c, `lw` at 0xcbb8, `lw` at 0xccd8.
+  6 such `lw` accesses load 4 bytes from ?, including `lw` at 0xcb2c, `lw` at 0xcbb8, `lw` at 0xccd8.
   3 such `sd` accesses store 8 bytes to ?, including `sd` at 0xcb34, `sd` at 0xcb3c, `sd` at 0xcd60.
-  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0xcba8, `ld` at 0xccc0, `ld` at 0xccc4.
+  6 such `ld` accesses load 8 bytes from ?, including `ld` at 0xcba8, `ld` at 0xccc0, `ld` at 0xccc4.
   The `ld` at 0xcc78 loads 8 bytes from table(sym(pci_space)) +0x0.
-  The `ld` at 0xce58 loads 8 bytes from [(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8 +0x0.
-  The `lw` at 0xce5c loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8 +0x14.
-  The `lw` at 0xce70 loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8 +0x18.
   The `jal` at 0xc9f8 calls hwgraph_fastinfo_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
-  The `jal` at 0xcae4 calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
+  The `jal` at 0xcae4 calls do_pcibr_config_set with a0=?, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
   The `jal` at 0xcb24 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10976, a3=?, a5=ret(pcibr_bus_addr_alloc).
-  The `jal` at 0xcb4c calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?, a4=0x9004.
-  The `jal` at 0xcb84 calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?.
-  The `jal` at 0xcbd4 calls pcibr_func_config_addr with a0=[ret(hwgraph_fastinfo_get)+8]:8, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
+  The `jal` at 0xcb4c calls do_pcibr_config_get with a0=?, a1=0x4, a2=0x4, a3=?, a4=0x9004.
+  The `jal` at 0xcb84 calls do_pcibr_config_set with a0=?, a1=0x4, a2=0x4, a3=?.
+  The `jal` at 0xcbd4 calls pcibr_func_config_addr with a0=?, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
   The `jal` at 0xcbec calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr), a1=0xe, a2=0x1, a3=?.
   The `jal` at 0xcc74 calls sprintf with a0=sp-464, a1=sym(.rodata)+10976, a2=?, a3=?, a5=entry(sym(pci_space)).
   The `jal` at 0xcc8c calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10976, a3=sp-464.
   The `jal` at 0xcd40 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10976, a3=?, a6=0x4, a7=0xff.
-  The `jal` at 0xcd5c calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=?.
+  The `jal` at 0xcd5c calls do_pcibr_config_set with a0=?, a1=?, a2=0x4, a3=?.
   The `jal` at 0xcdd0 calls sprintf with a0=sp-464, a1=sym(.rodata)+10976, a2=?, a3=?.
   The `jal` at 0xcde8 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10976, a3=sp-464.
   The `jal` at 0xce28 calls sprintf with a0=sp-464, a1=sym(.rodata)+10976, a2=?, a3=?, a7=0xff.
   The `jal` at 0xce40 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10976, a3=sp-464.
-  The `jal` at 0xce94 calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
-  The `jal` at 0xcea4 calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=?.
+  The `jal` at 0xce94 calls do_pcibr_config_set with a0=?, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
+  The `jal` at 0xcea4 calls do_pcibr_config_get with a0=?, a1=0x0, a2=0x4, a3=?.
   The `jal` at 0xced0 calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xcf2c calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x2, a3=0x0, a6=0x4, a7=0xff.
-  The `jal` at 0xcf58 calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=0xff, a4=[sym(pcibr_debug_mask)], a6=0x4, a7=0xff.
+  The `jal` at 0xcf58 calls do_pcibr_config_get with a0=?, a1=?, a2=0x4, a3=0xff, a4=[sym(pcibr_debug_mask)], a6=0x4, a7=0xff.
   The `jal` at 0xcf80 calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xcfd0 calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x4, a3=0x0.
   The `beq` branch at 0xca04 targets 0xcff4, is taken when v0(=ret(hwgraph_fastinfo_get)) == 0, and falls through when v0(=ret(hwgraph_fastinfo_get)) != 0.
@@ -183745,7 +183649,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xcafc targets 0xcb08, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xcb38 targets 0xcf04, is taken when a3(?) == a4(=0x9004), and falls through when a3(?) != a4(=0x9004).
   The `beq` branch at 0xcb68 targets 0xcb8c, is taken when (a5(?) & a6(?)) == 0, and falls through when (a5(?) & a6(?)) != 0.
-  The `beq` branch at 0xcb98 targets 0xcfa4, is taken when s4(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed), and falls through when s4(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed).
+  The `beq` branch at 0xcb98 targets 0xcfa4, is taken when s4(?) >= a4(?) (signed), and falls through when s4(?) < a4(?) (signed).
   The `beq` branch at 0xcbb0 targets 0xcb8c, is taken when s5(?) == 0, and falls through when s5(?) != 0.
   The `beq` branch at 0xcbbc targets 0xcb90, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `blez` branch at 0xcc14 targets 0xce50, is taken when t1(=one of 0x2, 0x6) <= 0 (signed), and falls through when t1(=one of 0x2, 0x6) > 0 (signed).
@@ -183753,7 +183657,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xcc2c targets 0xcc98, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xcc34 targets 0xceec, is taken when t3(=0xff) == s3(=a1), and falls through when t3(=0xff) != s3(=a1).
   The `beq` branch at 0xcc40 targets 0xcc4c, is taken when t8(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when t8(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
-  The `beq` branch at 0xccb4 targets 0xce50, is taken when s0(?) >= a3(=one of 0x2, 0x6) (signed), and falls through when s0(?) < a3(=one of 0x2, 0x6) (signed).
+  The `beq` branch at 0xccb4 targets 0xce50, is taken when s0(?) >= a3(?) (signed), and falls through when s0(?) < a3(?) (signed).
   The `beq` branch at 0xccdc targets 0xcc94, is taken when s1(?) == 0, and falls through when s1(?) != 0.
   The `beq` branch at 0xcce8 targets 0xcc2c, is taken when a6(?) >= s1(?) (unsigned), and falls through when a6(?) < s1(?) (unsigned).
   The `beq` branch at 0xcd04 targets 0xcf1c, is taken when s2(?) == s7(=0x2), and falls through when s2(?) != s7(=0x2).
@@ -183768,8 +183672,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xcdf8 targets 0xcefc, is taken when a3(=0xff) == s3(=a1), and falls through when a3(=0xff) != s3(=a1).
   The `beq` branch at 0xce04 targets 0xce10, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xce48 targets 0xcc98 and is always taken.
-  The `bne` branch at 0xce68 targets 0xce7c, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+20]) != a4(=0x10a9), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+20]) == a4(=0x10a9).
-  The `beq` branch at 0xce78 targets 0xcb2c, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+24]) == a4(=0x3), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+24]) != a4(=0x3).
+  The `bne` branch at 0xce68 targets 0xce7c, is taken when a3(?) != a4(=0x10a9), and falls through when a3(?) == a4(=0x10a9).
+  The `beq` branch at 0xce78 targets 0xcb2c, is taken when a3(?) == a4(=0x3), and falls through when a3(?) != a4(=0x3).
   The `beq` branch at 0xceb0 targets 0xcb2c, is taken when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) == 0, and falls through when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) != 0.
   The `bne` branch at 0xced8 targets 0xcad8, is taken when v0(=ret(pcibr_bus_addr_alloc)) != 0, and falls through when v0(=ret(pcibr_bus_addr_alloc)) == 0.
   The `beq` branch at 0xcee4 targets 0xcb2c and is always taken.
@@ -183789,7 +183693,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xd024 targets 0xcfa4 and is always taken.
   The `beq` branch at 0xd034 targets 0xccc0 and is always taken.
   The `beq` branch at 0xd040 targets 0xcba4 and is always taken.
-  The return at 0xca54 has v0 = one of 0x0, 0x16, 0x1c.
+  The return at 0xca54 has v0 = one of ?, 0x16.
 - `pcibr_slot_guest_info_init` in `6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o` at 0xd13c (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o`.
@@ -183829,17 +183733,15 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xd2d0 loads 4 bytes from ret(hwgraph_fastinfo_get) +0x0.
   The `lw` at 0xd2e0 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x110.
   The `ld` at 0xd2e4 loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
-  The `sw` at 0xd33c stores 4 bytes to ?.
+  3 such `sw` accesses store 4 bytes to ?, including `sw` at 0xd33c, `sw` at 0xd420, `sw` at 0xd44c.
   The `ld` at 0xd364 loads 8 bytes from ?.
-  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xd374, `lw` at 0xd384.
+  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xd374, `lw` at 0xd384, `lw` at 0xd414.
   The `lh` at 0xd3cc loads 2 bytes from ret(hwgraph_fastinfo_get) +0x72.
-  2 such `lw` accesses load 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x10c, including `lw` at 0xd414, `lw` at 0xd434.
-  2 such `sw` accesses store 4 bytes to (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x10c, including `sw` at 0xd420, `sw` at 0xd44c.
   The `jal` at 0xd268 calls hwgraph_fastinfo_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xd2cc calls async_attach_get_info with a0=[ret(hwgraph_fastinfo_get)], a1=?, a2=?, a3=?.
   The `jal` at 0xd32c calls pcibr_debug with a0=0x2000, a1=a0 at entry (arg0), a2=sym(.rodata)+10976, a3=?, a5=a2 at entry (arg2), a6=ret(pciio_device_attach).
-  The `jal` at 0xd38c calls device_admin_info_get with a0=?, a1=sym(.rodata)+10976, a2=?, a3=?, a4=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272].
-  The `jal` at 0xd3a8 calls async_attach_add_info with a0=?, a1=ret(async_attach_get_info), a2=ret(async_attach_get_info), a3=?.
+  The `jal` at 0xd38c calls device_admin_info_get with a0=?, a1=sym(.rodata)+10976, a2=?, a3=?.
+  The `jal` at 0xd3a8 calls async_attach_add_info with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xd3b4 calls pciio_device_attach with a0=?, a1=a2 at entry (arg2), a2=?, a3=?.
   The `jal` at 0xd45c calls vertex_to_name with a0=?, a1=sp-384, a2=0x100, a3=?.
   The `jal` at 0xd470 calls cmn_err with a0=0x4, a1=sym(.rodata)+10976, a2=sp-384, a3=?.
@@ -183849,11 +183751,11 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xd2c4 targets 0xd2ac and is always taken.
   The `blez` branch at 0xd2f8 targets 0xd450, is taken when t8(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) <= 0 (signed), and falls through when t8(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) > 0 (signed).
   The `beq` branch at 0xd308 targets 0xd480 and is always taken.
-  The `beq` branch at 0xd354 targets 0xd3e0, is taken when s2(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed), and falls through when s2(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed).
+  The `beq` branch at 0xd354 targets 0xd3e0, is taken when s2(?) >= a4(?) (signed), and falls through when s2(?) < a4(?) (signed).
   The `beq` branch at 0xd36c targets 0xd348, is taken when s4(?) == 0, and falls through when s4(?) != 0.
   The `beq` branch at 0xd378 targets 0xd34c, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `bne` branch at 0xd394 targets 0xd458, is taken when v0(=ret(device_admin_info_get)) != 0, and falls through when v0(=ret(device_admin_info_get)) == 0.
-  The `beq` branch at 0xd3a0 targets 0xd3b0, is taken when a2(=ret(async_attach_get_info)) == 0, and falls through when a2(=ret(async_attach_get_info)) != 0.
+  The `beq` branch at 0xd3a0 targets 0xd3b0, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xd3c4 targets 0xd310, is taken when a0(=0xff) == s0(=a1), and falls through when a0(=0xff) != s0(=a1).
   The `bne` branch at 0xd3d0 targets 0xd310, is taken when a3(=[ret(hwgraph_fastinfo_get)+114]:2) != a4(=0x2), and falls through when a3(=[ret(hwgraph_fastinfo_get)+114]:2) == a4(=0x2).
   The `beq` branch at 0xd3d8 targets 0xd310 and is always taken.
@@ -188768,10 +188670,10 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xf58 calls xwidget_name_get with a0=ret(xbow_widget_lookup), a1=?, a2=?, a3=?.
   The `jal` at 0xf74 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=[a0+24]:8, a3=?, a4=ret(xwidget_name_get).
   The `jal` at 0x1038 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+84].
-  The `jal` at 0x104c calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+36].
-  The `jal` at 0x1060 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+68].
-  The `jal` at 0x1074 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+20].
-  The `jal` at 0x1088 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+28].
+  The `jal` at 0x104c calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
+  The `jal` at 0x1060 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
+  The `jal` at 0x1074 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
+  The `jal` at 0x1088 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
   The `jal` at 0x10b4 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
   The `jal` at 0x10c4 calls cmn_err_tag with a0=0x8, a1=0x0, a2=sym(.rodata), a3=?.
   The `jal` at 0x10e4 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=[a0+24]:8, a3=?.
@@ -189311,7 +189213,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jalr` at 0x23c calls hwgraph_fastinfo_get with a0=?, a1=?, a2=sym(hwgraph_fastinfo_get), a3=sym(hwgraph_fastinfo_get).
   The `jalr` at 0x274 calls hwgraph_fastinfo_set with a0=?, a1=0x0, a2=?, a3=-0x1, a5=sym(hwgraph_fastinfo_set), a6=sym(hwgraph_fastinfo_set).
   The `jalr` at 0x294 calls hwgraph_vertex_destroy with a0=?, a1=?, a2=?, a3=?, a6=sym(hwgraph_vertex_destroy), a7=sym(hwgraph_vertex_destroy).
-  The `jalr` at 0x2b8 calls kmem_free with a0=ret(hwgraph_fastinfo_get), a1=0x8, a2=?, a3=?, a7=sym(kmem_free).
+  The `jalr` at 0x2b8 calls kmem_free with a0=?, a1=0x8, a2=?, a3=?, a7=sym(kmem_free).
   The `beq` branch at 0x20c targets 0x224, is taken when v0(=ret(hwgraph_edge_remove)) == 0, and falls through when v0(=ret(hwgraph_edge_remove)) != 0.
   The `bne` branch at 0x248 targets 0x258, is taken when v0(=ret(hwgraph_fastinfo_get)) != 0, and falls through when v0(=ret(hwgraph_fastinfo_get)) == 0.
   The `beq` branch at 0x250 targets 0x218 and is always taken.
@@ -190270,9 +190172,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `lbu` at 0x1604 loads 1 byte from a3 (arg3 at entry) +0x9.
   The `jal` at 0x15c0 calls gioio_cardinfo_get with a0=a0 at entry (arg0), a1=?, a2=sp-64, a3=a3 at entry (arg3).
   The `jal` at 0x15d8 calls gioio_error_handler with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
-  The `jal` at 0x1608 calls gioio_info_product_id_get with a0=ret(gioio_cardinfo_get), a1=?, a2=?, a3=?.
-  The `jal` at 0x1614 calls gioio_info_slot_get with a0=ret(gioio_cardinfo_get), a1=?, a2=?, a3=?.
-  The `jal` at 0x1630 calls cmn_err with a0=0x4, a1=sym(.rodata), a2=?, a3=ret(gioio_info_product_id_get), a4=ret(gioio_info_slot_get).
+  The `jal` at 0x1608 calls gioio_info_product_id_get with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0x1614 calls gioio_info_slot_get with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0x1630 calls cmn_err with a0=0x4, a1=sym(.rodata), a2=?, a3=?, a4=ret(gioio_info_slot_get).
   The `jal` at 0x1648 calls ioerror_dump with a0=sym(.rodata), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `bltz` branch at 0x15ac targets 0x1600, is taken when at(=([a3] << 0x2)) < 0 (signed), and falls through when at(=([a3] << 0x2)) >= 0 (signed).
   The `bne` branch at 0x15e0 targets 0x1608, is taken when v0(=ret(gioio_error_handler)) != 0, and falls through when v0(=ret(gioio_error_handler)) == 0.
@@ -192023,12 +191925,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x474 calls mrupdatef with a0=sym(hwgraph_connectpt_mrlock), a1=0x0, a2=?, a3=?.
   The `jal` at 0x47c calls do_hwgraph_connectpt_get with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x490 calls mrunlock with a0=sym(hwgraph_connectpt_mrlock), a1=?, a2=?, a3=?.
-  The `jal` at 0x4ac calls graph_vertex_unref with a0=[sym(hwgraph)]:8, a1=ret(do_hwgraph_connectpt_get), a2=a2 at entry (arg2), a3=?.
+  The `jal` at 0x4ac calls graph_vertex_unref with a0=[sym(hwgraph)]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `jal` at 0x4d0 calls do_hwgraph_connectpt_set with a0=?, a1=-0x1, a2=?, a3=?.
   The `jal` at 0x4e0 calls graph_vertex_unref with a0=[sym(hwgraph)]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `beq` branch at 0x454 targets 0x470, is taken when v0(=ret(graph_edge_remove)) == 0, and falls through when v0(=ret(graph_edge_remove)) != 0.
   The `beq` branch at 0x488 targets 0x4cc, is taken when v0(=ret(do_hwgraph_connectpt_get)) == v1(=a0), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != v1(=a0).
-  The `beq` branch at 0x4a0 targets 0x4b8, is taken when v0(=ret(do_hwgraph_connectpt_get)) == a1(=-0x1), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != a1(=-0x1).
+  The `beq` branch at 0x4a0 targets 0x4b8, is taken when v0(?) == a1(=-0x1), and falls through when v0(?) != a1(=-0x1).
   The `beq` branch at 0x4b8 targets 0x4e0, is taken when a2 == 0, and falls through when a2 != 0.
   The `beq` branch at 0x4c4 targets 0x460 and is always taken.
   The `beq` branch at 0x4d8 targets 0x490 and is always taken.
@@ -192848,7 +192750,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x22f4 calls cpu_enabled with a0=a1 at entry (arg1), a1=?, a2=?, a3=?.
   The `jal` at 0x2308 calls device_admin_info_get with a0=a0 at entry (arg0), a1=sym(.rodata), a2=?, a3=?.
   The `jal` at 0x2340 calls mutex_spinlock_spl with a0=[(sym(pdaindr) + (a1 << 0x4))+8]:8+1180, a1=sym(spl7), a2=?, a3=?.
-  The `jal` at 0x2358 calls mutex_spinunlock with a0=[(sym(pdaindr) + (a1 << 0x4))+8]:8+1180, a1=ret(mutex_spinlock_spl), a2=?, a3=?.
+  The `jal` at 0x2358 calls mutex_spinunlock with a0=?, a1=ret(mutex_spinlock_spl), a2=?, a3=?.
   The `jal` at 0x2374 calls hwgraph_path_add with a0=[sym(hwgraph_root)], a1=sym(.rodata), a2=sym(.sdata)+4, a3=-0x1, a4=[sym(.sdata)+4].
   The `beq` branch at 0x227c targets 0x2318, is taken when a1 == at(=-0x1), and falls through when a1 != at(=-0x1).
   The `beq` branch at 0x228c targets 0x22ac, is taken when v0(=ret(cpu_enabled)) == 0, and falls through when v0(=ret(cpu_enabled)) != 0.
@@ -193256,17 +193158,17 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x20c calls hwgraph_bdevsw_get with a0=[a2], a1=?, a2=?, a3=?.
   The `jal` at 0x230 calls strcmp with a0=a1 at entry (arg1), a1=sym(.rodata), a2=?, a3=?, a4=0x2.
   The `jal` at 0x248 calls strcmp with a0=a1 at entry (arg1), a1=sym(.rodata), a2=?, a3=?, a6=a3 at entry (arg3).
-  The `jal` at 0x258 calls hwgraph_connectpt_get with a0=[a2], a1=?, a2=?, a3=?, a6=a3 at entry (arg3).
+  The `jal` at 0x258 calls hwgraph_connectpt_get with a0=?, a1=?, a2=?, a3=?, a6=a3 at entry (arg3).
   The `jal` at 0x264 calls hwgraph_vertex_unref with a0=ret(hwgraph_connectpt_get), a1=?, a2=?, a3=?.
   The `jal` at 0x2c0 calls hwgraph_edge_get_next with a0=a0 at entry (arg0), a1=sp-344, a2=sp-88, a3=sp-352.
   The `jal` at 0x2d8 calls hwgraph_vertex_unref with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x2e4 calls strcmp with a0=sp-344, a1=a1 at entry (arg1), a2=?, a3=?.
   The `beq` branch at 0x1d8 targets 0x1f8, is taken when v0(=ret(hwgraph_traverse)) == 0, and falls through when v0(=ret(hwgraph_traverse)) != 0.
   The `bne` branch at 0x21c targets 0x284, is taken when v0(=ret(hwgraph_bdevsw_get)) != 0, and falls through when v0(=ret(hwgraph_bdevsw_get)) == 0.
-  The `bne` branch at 0x224 targets 0x2a4, is taken when a1(=ret(hwgraph_cdevsw_get)) != 0, and falls through when a1(=ret(hwgraph_cdevsw_get)) == 0.
+  The `bne` branch at 0x224 targets 0x2a4, is taken when a1(?) != 0, and falls through when a1(?) == 0.
   The `beq` branch at 0x238 targets 0x298, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
   The `beq` branch at 0x250 targets 0x298, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
-  The `beq` branch at 0x274 targets 0x2b0, is taken when a2(=ret(hwgraph_connectpt_get)) == a3(=a0), and falls through when a2(=ret(hwgraph_connectpt_get)) != a3(=a0).
+  The `beq` branch at 0x274 targets 0x2b0, is taken when a2(?) == a3(=a0), and falls through when a2(?) != a3(=a0).
   The `beq` branch at 0x27c targets 0x294 and is always taken.
   The `beq` branch at 0x290 targets 0x22c, is taken when s0(=one of 0x0, 0x3) == a4(=0x2), and falls through when s0(=one of 0x0, 0x3) != a4(=0x2).
   The `beq` branch at 0x29c targets 0x1e4 and is always taken.
@@ -193274,7 +193176,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x2c8 targets 0x2d8, is taken when v0(=ret(hwgraph_edge_get_next)) == 0, and falls through when v0(=ret(hwgraph_edge_get_next)) != 0.
   The `beq` branch at 0x2d0 targets 0x294 and is always taken.
   The `beq` branch at 0x2ec targets 0x30c, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
-  The `bne` branch at 0x2fc targets 0x2b8, is taken when t0(?) != t1(=[a2]), and falls through when t0(?) == t1(=[a2]).
+  The `bne` branch at 0x2fc targets 0x2b8, is taken when t0(?) != t1(?), and falls through when t0(?) == t1(?).
   The `beq` branch at 0x304 targets 0x294 and is always taken.
   The `beq` branch at 0x318 targets 0x294 and is always taken.
   The return at 0x1f0 has v0 = one of 0x0, 0x1.
@@ -193527,7 +193429,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xbe0 targets 0xcb8, is taken when a2(=[a1+24]:2) == 0, and falls through when a2(=[a1+24]:2) != 0.
   The `beq` branch at 0xbf0 targets 0xc0c, is taken when s4(=a3) == 0, and falls through when s4(=a3) != 0.
   The `beq` branch at 0xc0c targets 0xc20, is taken when s3(?) == 0, and falls through when s3(?) != 0.
-  The `blez` branch at 0xc74 targets 0xcd4, is taken when v0(?) <= 0 (signed), and falls through when v0(?) > 0 (signed).
+  The `blez` branch at 0xc74 targets 0xcd4, is taken when v0(=ret(?)) <= 0 (signed), and falls through when v0(=ret(?)) > 0 (signed).
   The `beq` branch at 0xc7c targets 0xba4 and is always taken.
   The `beq` branch at 0xc84 targets 0xc28 and is always taken.
   The `beq` branch at 0xc98 targets 0xb44, is taken when (v0(=ret(get_current_abi)) & 0x2) == 0, and falls through when (v0(=ret(get_current_abi)) & 0x2) != 0.
@@ -194015,7 +193917,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0x4ac loads 8 bytes from [[ret(vproc_lookup)+40]:8+16]:8 +0x38.
   The `jal` at 0x458 calls vproc_lookup with a0=?, a1=0x1, a2=?, a3=?.
   The `jalr` at 0x4b4 calls (unknown callee) with a0=[ret(vproc_lookup)+40]:8, a1=0x6, a2=sp-96, a3=[[[ret(vproc_lookup)+40]:8+16]:8+56]:8, a4=-0x1.
-  The `jal` at 0x4bc calls vproc_release with a0=ret(vproc_lookup), a1=?, a2=?, a3=?.
+  The `jal` at 0x4bc calls vproc_release with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x4e8 calls kthread_get_pid with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x500 calls get_current_cred with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x510 calls kthread_get_pid with a0=?, a1=?, a2=?, a3=?.
@@ -195453,10 +195355,8 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.30/usr/cpu/sysgen/IP30boot/io6.o`.
   Range: 0x40-0x12c (236 bytes).
   It occupies 236 bytes.
-  The `lw` at 0xb4 loads 4 bytes from ret(xtalk_piotrans_addr) +0x284.
-  The `sw` at 0xd4 stores 4 bytes to ret(xtalk_piotrans_addr) +0x284.
-  The `lw` at 0xe0 loads 4 bytes from ret(xtalk_piotrans_addr) +0x28c.
-  The `sw` at 0xfc stores 4 bytes to ret(xtalk_piotrans_addr) +0x28c.
+  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xb4, `lw` at 0xe0.
+  2 such `sw` accesses store 4 bytes to ?, including `sw` at 0xd4, `sw` at 0xfc.
   The `jal` at 0x54 calls nic_vertex_info_match with a0=a0 at entry (arg0), a1=sym(.rodata), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x68 calls pcibr_hints_dualslot with a0=a0 at entry (arg0), a1=0x2, a2=0x4, a3=?.
   The `jal` at 0x80 calls pcibr_hints_subdevs with a0=a0 at entry (arg0), a1=0x2, a2=one of 0xb7, 0xbf, a3=?.
@@ -196796,15 +196696,13 @@ These entries record instruction facts rendered from the routines below. They de
   2 such `ld` accesses load 8 bytes from ret(findfpreg) +0x58, including `ld` at 0xaac, `ld` at 0xc60.
   The `lw` at 0xabc loads 4 bytes from ret(findfpreg) +0x64.
   The `ld` at 0xb04 loads 8 bytes from ret(findfpreg) +0x88.
-  2 such `ld` accesses load 8 bytes from ?, including `ld` at 0xb4c, `ld` at 0xc90.
+  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0xb4c, `ld` at 0xc0c, `ld` at 0xc1c.
   The `ld` at 0xb64 loads 8 bytes from [ret(findfpreg)+88]:8 +0xa8.
   The `lbu` at 0xb74 loads 1 byte from ret(findfpreg) +0x69.
   The `lw` at 0xb78 loads 4 bytes from ret(findfpreg) +0x60.
   The `lhu` at 0xbb8 loads 2 bytes from ret(anon_pfind) +0x14.
   The `sh` at 0xbcc stores 2 bytes to ret(anon_pfind) +0x14.
-  The `ld` at 0xc0c loads 8 bytes from [[a0+32]:8]:8 +0x230.
   The `ld` at 0xc10 loads 8 bytes from ret(findattr_range_noclip) +0x20.
-  The `ld` at 0xc1c loads 8 bytes from [[[a0+32]:8]:8+560]:8 +0x0.
   3 such `sw` accesses store 4 bytes to ?, including `sw` at 0xc44, `sw` at 0xc48, `sw` at 0xc4c.
   The `sd` at 0xc50 stores 8 bytes to ?.
   The `lw` at 0xc64 loads 4 bytes from ret(findfpreg) +0x6c.
@@ -196815,20 +196713,20 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x9b4 calls kmem_zalloc with a0=(((a5 << 0x2) + a5) << 0x3), a1=0x0, a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xa08 calls mraccessf with a0=[[a0+32]:8]:8+32, a1=0x0, a2=?, a3=?, a5=(a2 + a3)+16383.
   The `jal` at 0xa48 calls mrunlock with a0=[ret(findfpreg)+88]:8, a1=?, a2=?, a3=?.
-  The `jal` at 0xa78 calls findfpreg with a0=[[a0+32]:8]:8, a1=a1 at entry (arg1), a2=?, a3=?.
+  The `jal` at 0xa78 calls findfpreg with a0=?, a1=a1 at entry (arg1), a2=?, a3=?.
   The `jal` at 0xab4 calls mrupdatef with a0=[ret(findfpreg)+88]:8, a1=0x0, a2=?, a3=[ret(findfpreg)+48]:8.
-  The `jal` at 0xb08 calls pmap_ptes with a0=[[a0+32]:8]:8, a1=[ret(findfpreg)+136]:8, a2=?, a3=sp-240, a4=0x1.
+  The `jal` at 0xb08 calls pmap_ptes with a0=?, a1=[ret(findfpreg)+136]:8, a2=?, a3=sp-240, a4=0x1.
   The `jal` at 0xb94 calls anon_pfind with a0=[[ret(findfpreg)+88]:8+168]:8, a1=?, a2=sp-232, a3=sp-224, a5=[ret(findfpreg)+105]:1.
   The `jal` at 0xbb0 calls mutex_bitlock with a0=ret(anon_pfind)+16, a1=0x8000000, a2=?, a3=?.
-  The `jal` at 0xbd8 calls mutex_bitunlock with a0=ret(anon_pfind)+16, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
+  The `jal` at 0xbd8 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=?, a3=?.
   The `jal` at 0xbe4 calls pagefreeanon_size with a0=ret(anon_pfind), a1=0x1, a2=?, a3=?.
   The `jal` at 0xc00 calls findattr_range_noclip with a0=ret(findfpreg), a1=?, a2=?, a3=?.
-  The `jal` at 0xc18 calls pmo_ns_pmo_lookup with a0=[[[[a0+32]:8]:8+560]:8]:8, a1=0x4, a2=[ret(findattr_range_noclip)+32]:8, a3=?.
+  The `jal` at 0xc18 calls pmo_ns_pmo_lookup with a0=?, a1=0x4, a2=[ret(findattr_range_noclip)+32]:8, a3=?.
   The `jal` at 0xc88 calls bitlock_acquire with a0=?, a1=0x2000000000000000, a2=?, a3=?.
-  The `jal` at 0xd00 calls mrunlock with a0=[[a0+32]:8]:8+32, a1=?, a2=?, a3=?.
+  The `jal` at 0xd00 calls mrunlock with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xd24 calls get_current_abi with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xd50 calls xlate_copyout with a0=ret(kmem_zalloc), a1=a4 at entry (arg4), a2=?, a3=sym(pm_pginfo_to_irix5), a4=ret(get_current_abi), a5=0x4.
-  The `jal` at 0xd68 calls kmem_free with a0=ret(kmem_zalloc), a1=(((a5 << 0x2) + a5) << 0x3), a2=?, a3=?.
+  The `jal` at 0xd50 calls xlate_copyout with a0=?, a1=a4 at entry (arg4), a2=?, a3=sym(pm_pginfo_to_irix5), a4=ret(get_current_abi), a5=0x4.
+  The `jal` at 0xd68 calls kmem_free with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xd94 calls mrunlock with a0=[ret(findfpreg)+88]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xdc0 calls assfail with a0=sym(.rodata), a1=sym(.rodata), a2=0x2d0, a3=?.
   The `blez` branch at 0x960 targets 0xd78, is taken when a5 <= 0 (signed), and falls through when a5 > 0 (signed).
@@ -197627,13 +197525,12 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.30/usr/cpu/sysgen/IP30boot/numa.a(afflink.o)`.
   Range: 0x0-0x70 (112 bytes).
   It occupies 112 bytes.
-  3 such `ld` accesses load 8 bytes from ?, including `ld` at 0x20, `ld` at 0x24, `ld` at 0x30.
+  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0x20, `ld` at 0x24, `ld` at 0x30.
   The `ld` at 0x34 loads 8 bytes from ret(aspm_getdefaultpm_func) +0x28.
-  The `ld` at 0x58 loads 8 bytes from ret(aspm_getdefaultpm_func) +0x8.
   The `jal` at 0x14 calls as_lookup_current with a0=sp-48, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x2c calls aspm_getdefaultpm_func with a0=?, a1=0x2, a2=?, a3=?.
   The `jalr` at 0x48 calls (unknown callee) with a0=ret(aspm_getdefaultpm_func), a1=0x0, a2=a0 at entry (arg0), a3=a1 at entry (arg1), a4=[ret(aspm_getdefaultpm_func)+40]:8.
-  The `jalr` at 0x5c calls (unknown callee) with a0=ret(aspm_getdefaultpm_func), a1=?, a2=?, a3=?, a5=[ret(aspm_getdefaultpm_func)+8]:8.
+  The `jalr` at 0x5c calls (unknown callee) with a0=?, a1=?, a2=?, a3=?.
   The return at 0x68 has v0 = ret(?).
 - `kthread_afflink_error` in `6.5.30/usr/cpu/sysgen/IP30boot/numa.a(afflink.o)` at 0x70 (n64).
   Evidence grade: inferred.
@@ -197667,12 +197564,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x14c loads 4 bytes from [ret(pmo_ns_it_getnext)+8]:8 +0x18.
   The `jal` at 0x104 calls getpmo_ns with a0=[a1]:8, a1=[a1+8]:8, a2=[a1+16]:8, a3=a3 at entry (arg3).
   The `jal` at 0x118 calls mutex_spinlock with a0=ret(getpmo_ns)+56, a1=?, a2=?, a3=?.
-  The `jal` at 0x128 calls pmo_ns_it_init with a0=sp-80, a1=ret(getpmo_ns), a2=?, a3=?.
+  The `jal` at 0x128 calls pmo_ns_it_init with a0=sp-80, a1=?, a2=?, a3=?.
   The `jal` at 0x134 calls pmo_ns_it_getnext with a0=sp-80, a1=?, a2=?, a3=?.
   The `jal` at 0x158 calls pmo_ns_it_getnext with a0=sp-80, a1=?, a2=?, a3=?.
-  The `jal` at 0x174 calls mutex_spinunlock with a0=ret(getpmo_ns)+56, a1=ret(mutex_spinlock), a2=?, a3=?, a4=0x4.
+  The `jal` at 0x174 calls mutex_spinunlock with a0=?, a1=?, a2=?, a3=?, a4=0x4.
   The `jal` at 0x184 calls relpmo_ns with a0=[a1]:8, a1=[a1+8]:8, a2=[a1+16]:8, a3=?.
-  The `jal` at 0x19c calls pm_contains_mld with a0=[ret(pmo_ns_it_getnext)+8]:8, a1=[a0+608]:8, a2=?, a3=?, a4=0x4.
+  The `jal` at 0x19c calls pm_contains_mld with a0=[ret(pmo_ns_it_getnext)+8]:8, a1=?, a2=?, a3=?, a4=0x4.
   The `jal` at 0x1ac calls pm_decusg with a0=[ret(pmo_ns_it_getnext)+8]:8, a1=?, a2=?, a3=?.
   The `beq` branch at 0xe8 targets 0x18c, is taken when at(=[a1]:8) == v0(=0xf), and falls through when at(=[a1]:8) != v0(=0xf).
   The `beq` branch at 0xf4 targets 0x18c, is taken when v1(=[a0+608]:8) == 0, and falls through when v1(=[a0+608]:8) != 0.
@@ -198620,9 +198517,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x83c calls cap_able with a0=0x2000000000, a1=?, a2=?, a3=?.
   The `jal` at 0x850 calls copyin with a0=a2 at entry (arg2), a1=sp-80, a2=0x10, a3=?.
   The `jal` at 0x878 calls pcibr_device_slot_get with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x898 calls pcibr_priority_bits_set with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x1, a3=?.
+  The `jal` at 0x898 calls pcibr_priority_bits_set with a0=?, a1=?, a2=0x1, a3=?.
   The `jal` at 0x8a8 calls pcibr_device_slot_get with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x8c8 calls pcibr_priority_bits_set with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x0, a3=0xff.
+  The `jal` at 0x8c8 calls pcibr_priority_bits_set with a0=?, a1=?, a2=0x0, a3=0xff.
   The `beq` branch at 0x7b0 targets 0x80c, is taken when s0(=a1) == at(=0x6701), and falls through when s0(=a1) != at(=0x6701).
   The `beq` branch at 0x7bc targets 0x83c, is taken when s0(=a1) == v0(=0x6702), and falls through when s0(=a1) != v0(=0x6702).
   The `beq` branch at 0x7c8 targets 0x7fc, is taken when s0(=a1) == v1(=0x7001), and falls through when s0(=a1) != v1(=0x7001).
@@ -198767,7 +198664,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xfb0 calls pciio_info_get with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `jal` at 0xfc4 calls pciio_info_mfast_get with a0=ret(pciio_info_get), a1=?, a2=?, a3=?.
   The `jal` at 0xfd4 calls mutex_spinlock with a0=ret(pciio_info_mfast_get)+128, a1=?, a2=?, a3=?.
-  The `jal` at 0x1260 calls mutex_io_spinunlock with a0=ret(pciio_info_mfast_get)+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?.
+  The `jal` at 0x1260 calls mutex_io_spinunlock with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1368 calls sprintf with a0=sp-736, a1=sym(.rodata), a2=entry(sym(pci_space)), a3=sym(.rodata), a4=sym(.rodata), a5=sym(.rodata), a6=sym(.rodata), a7=sym(.rodata).
   The `jal` at 0x1450 calls sprintf with a0=sp-736, a1=sym(.rodata), a2=entry(sym(pci_space)), a3=?.
   The `jal` at 0x1690 calls sprintf with a0=sp-736, a1=sym(.rodata), a2=entry(sym(pci_space)), a3=?.
@@ -198965,9 +198862,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `sb` at 0x1e68 stores 1 byte to ?.
   The `jal` at 0x1dfc calls pcibr_info_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x1e14 calls mutex_spinlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?.
-  The `jal` at 0x1e6c calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?, a6=sym(.rodata).
+  The `jal` at 0x1e6c calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?, a6=sym(.rodata).
   The `jal` at 0x1ea0 calls cmn_err with a0=0x4, a1=sym(.rodata), a2=a2 at entry (arg2), a3=a3 at entry (arg3), a6=sym(.rodata).
-  The `jal` at 0x1eac calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?.
+  The `jal` at 0x1eac calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+128, a1=?, a2=?, a3=?.
   The `jal` at 0x1ec4 calls hwgraph_vertex_name_get with a0=a0 at entry (arg0), a1=sp-1088, a2=0x400, a3=?.
   The `jal` at 0x1ed4 calls cmn_err with a0=0x4, a1=sym(.rodata), a2=?, a3=?.
   The `jal` at 0x1eec calls cmn_err with a0=0x4, a1=sym(.rodata), a2=sp-1088, a3=a3 at entry (arg3).
@@ -199749,8 +199646,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0x49c8 loads 8 bytes from a0 (arg0 at entry) +0x8.
   5 such `lw` accesses load 4 bytes from ?, including `lw` at 0x49fc, `lw` at 0x4b1c, `lw` at 0x4b5c.
   2 such `sw` accesses store 4 bytes to a1 (arg1 at entry) +0x0, including `sw` at 0x4a34, `sw` at 0x4adc.
-  2 such `ll` accesses load 4 bytes from (a0 + ([a1+8]:1 << 0x7)) +0x16c, including `ll` at 0x4a40, `ll` at 0x4ae4.
-  2 such `sc` accesses store 4 bytes to (a0 + ([a1+8]:1 << 0x7)) +0x16c, including `sc` at 0x4a4c, `sc` at 0x4af0.
+  2 such `ll` accesses load 4 bytes from ?, including `ll` at 0x4a40, `ll` at 0x4ae4.
+  2 such `sc` accesses store 4 bytes to ?, including `sc` at 0x4a4c, `sc` at 0x4af0.
   The `ld` at 0x4b2c loads 8 bytes from ?.
   3 such `sw` accesses store 4 bytes to ?, including `sw` at 0x4b30, `sw` at 0x4b3c, `sw` at 0x4b6c.
   The `jal` at 0x4958 calls pcireg_int_ate_set with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
@@ -199773,10 +199670,10 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x49e8 targets 0x4a20, is taken when s1(?) >= a0(=[a0+57]:1+1) (signed), and falls through when s1(?) < a0(=[a0+57]:1+1) (signed).
   The `bne` branch at 0x4a04 targets 0x49c8, is taken when (a3(?) & 0x4) != 0, and falls through when (a3(?) & 0x4) == 0.
   The `bne` branch at 0x4a18 targets 0x49f0, is taken when s1(?) < a0(=[a0+57]:1+1) (signed), and falls through when s1(?) >= a0(=[a0+57]:1+1) (signed).
-  The `beql` branch at 0x4a50 targets 0x4a40, is taken when at(=[(a0 + ([a1+8]:1 << 0x7))+364]+1) == 0, and falls through when at(=[(a0 + ([a1+8]:1 << 0x7))+364]+1) != 0; its branch-likely delay slot `nop` at 0x4a54 runs only when taken and is annulled on fall-through.
+  The `beql` branch at 0x4a50 targets 0x4a40, is taken when at(=table(0x1)) == 0, and falls through when at(=table(0x1)) != 0; its branch-likely delay slot `nop` at 0x4a54 runs only when taken and is annulled on fall-through.
   The `bgez` branch at 0x4a98 targets 0x4940, is taken when ra(=([a1] << 0x21)) >= 0 (signed), and falls through when ra(=([a1] << 0x21)) < 0 (signed).
   The `beq` branch at 0x4ac4 targets 0x4afc, is taken when (a2(=[a1]) & at(=0xffffffff80000000)) == 0, and falls through when (a2(=[a1]) & at(=0xffffffff80000000)) != 0.
-  The `beql` branch at 0x4af4 targets 0x4ae4, is taken when a4(=[(a0 + ([a1+8]:1 << 0x7))+364]-1) == 0, and falls through when a4(=[(a0 + ([a1+8]:1 << 0x7))+364]-1) != 0; its branch-likely delay slot `nop` at 0x4af8 runs only when taken and is annulled on fall-through.
+  The `beql` branch at 0x4af4 targets 0x4ae4, is taken when a4(=table(-0x1)) == 0, and falls through when a4(=table(-0x1)) != 0; its branch-likely delay slot `nop` at 0x4af8 runs only when taken and is annulled on fall-through.
   The `beq` branch at 0x4b0c targets 0x4940, is taken when s6(=[a0+56]:1) >= a0(=[a0+57]:1+1) (signed), and falls through when s6(=[a0+56]:1) < a0(=[a0+57]:1+1) (signed).
   The `beq` branch at 0x4b14 targets 0x4be4 and is always taken.
   The `beq` branch at 0x4b24 targets 0x4b3c, is taken when (a6(?) & 0x4) == 0, and falls through when (a6(?) & 0x4) != 0.
@@ -200389,7 +200286,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x6fd4 calls kmem_zalloc with a0=0x8, a1=0x0, a2=?, a3=?.
   The `jal` at 0x6ff4 calls hwgraph_info_add_LBL with a0=?, a1=sym(.rodata)+4040, a2=ret(kmem_zalloc), a3=?.
   The `jal` at 0x7008 calls hwgraph_info_get_LBL with a0=?, a1=sym(.rodata)+4040, a2=sp-64, a3=?.
-  The `jal` at 0x7020 calls kmem_free with a0=ret(kmem_zalloc), a1=0x8, a2=?, a3=ret(kmem_zalloc).
+  The `jal` at 0x7020 calls kmem_free with a0=?, a1=0x8, a2=?, a3=?.
   The `jal` at 0x703c calls pcibr_debug with a0=0x2, a1=a0 at entry (arg0), a2=sym(.rodata)+4040, a3=?.
   The `jal` at 0x7058 calls pcibr_debug with a0=0x2, a1=a0 at entry (arg0), a2=sym(.rodata)+4040, a3=?, a5=-0x1.
   The `jal` at 0x7074 calls pcibr_debug with a0=0x2, a1=a0 at entry (arg0), a2=sym(.rodata)+4040, a3=?.
@@ -200397,7 +200294,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x6f9c targets 0x704c, is taken when a5(=-0x1) == a0(?), and falls through when a5(=-0x1) != a0(?).
   The `beq` branch at 0x6fb4 targets 0x6fd4, is taken when v0(?) == 0, and falls through when v0(?) != 0.
   The `beq` branch at 0x6fdc targets 0x7068, is taken when v0(=ret(kmem_zalloc)) == 0, and falls through when v0(=ret(kmem_zalloc)) != 0.
-  The `beq` branch at 0x7018 targets 0x6fc0, is taken when a2(?) == a3(=ret(kmem_zalloc)), and falls through when a2(?) != a3(=ret(kmem_zalloc)).
+  The `beq` branch at 0x7018 targets 0x6fc0, is taken when a2(?) == a3(?), and falls through when a2(?) != a3(?).
   The `beq` branch at 0x702c targets 0x7084, is taken when a4(?) == 0, and falls through when a4(?) != 0.
   The `beq` branch at 0x7044 targets 0x6fbc and is always taken.
   The `beq` branch at 0x7060 targets 0x6fc4 and is always taken.
@@ -200667,7 +200564,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xb564 loads 8 bytes from [ret(pcibr_info_get)+40]:8 +0x8.
   The `jal` at 0xb554 calls pcibr_info_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xb56c calls pcibr_config_addr with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=?, a3=?.
-  The `jal` at 0xb580 calls pcibr_probe_slot with a0=[[ret(pcibr_info_get)+40]:8+8]:8, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
+  The `jal` at 0xb580 calls pcibr_probe_slot with a0=?, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
   The `beq` branch at 0xb588 targets 0xb59c, is taken when v0(=ret(pcibr_probe_slot)) == 0, and falls through when v0(=ret(pcibr_probe_slot)) != 0.
   The `beq` branch at 0xb59c targets 0xb594 and is always taken.
   The return at 0xb594 has v0 = one of -0x1, ?.
@@ -200767,35 +200664,32 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc7b8 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x100.
   The `ld` at 0xc7c0 loads 8 bytes from ret(hwgraph_fastinfo_get) +0x8.
   The `lw` at 0xc800 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x110.
-  2 such `ld` accesses load 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118, including `ld` at 0xc828, `ld` at 0xcbe0.
+  The `ld` at 0xc828 loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
   5 such `lh` accesses load 2 bytes from ret(hwgraph_fastinfo_get) +0x72, including `lh` at 0xc884, `lh` at 0xc9c8, `lh` at 0xcaa8.
-  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc8b8, `lw` at 0xc944, `lw` at 0xca64.
+  6 such `lw` accesses load 4 bytes from ?, including `lw` at 0xc8b8, `lw` at 0xc944, `lw` at 0xca64.
   3 such `sd` accesses store 8 bytes to ?, including `sd` at 0xc8c0, `sd` at 0xc8c8, `sd` at 0xcaec.
-  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0xc934, `ld` at 0xca4c, `ld` at 0xca50.
+  6 such `ld` accesses load 8 bytes from ?, including `ld` at 0xc934, `ld` at 0xca4c, `ld` at 0xca50.
   The `ld` at 0xca04 loads 8 bytes from table(sym(pci_space)) +0x0.
-  The `ld` at 0xcbe4 loads 8 bytes from [(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8 +0x0.
-  The `lw` at 0xcbe8 loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8 +0x14.
-  The `lw` at 0xcbfc loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8 +0x18.
   The `jal` at 0xc784 calls hwgraph_fastinfo_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
-  The `jal` at 0xc870 calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
+  The `jal` at 0xc870 calls do_pcibr_config_set with a0=?, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
   The `jal` at 0xc8b0 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10664, a3=?, a5=ret(pcibr_bus_addr_alloc).
-  The `jal` at 0xc8d8 calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?, a4=0x9004.
-  The `jal` at 0xc910 calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?.
-  The `jal` at 0xc960 calls pcibr_func_config_addr with a0=[ret(hwgraph_fastinfo_get)+8]:8, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
+  The `jal` at 0xc8d8 calls do_pcibr_config_get with a0=?, a1=0x4, a2=0x4, a3=?, a4=0x9004.
+  The `jal` at 0xc910 calls do_pcibr_config_set with a0=?, a1=0x4, a2=0x4, a3=?.
+  The `jal` at 0xc960 calls pcibr_func_config_addr with a0=?, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
   The `jal` at 0xc978 calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr), a1=0xe, a2=0x1, a3=?.
   The `jal` at 0xca00 calls sprintf with a0=sp-464, a1=sym(.rodata)+10664, a2=?, a3=?, a5=entry(sym(pci_space)).
   The `jal` at 0xca18 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10664, a3=sp-464.
   The `jal` at 0xcacc calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10664, a3=?, a6=0x4, a7=0xff.
-  The `jal` at 0xcae8 calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=?.
+  The `jal` at 0xcae8 calls do_pcibr_config_set with a0=?, a1=?, a2=0x4, a3=?.
   The `jal` at 0xcb5c calls sprintf with a0=sp-464, a1=sym(.rodata)+10664, a2=?, a3=?.
   The `jal` at 0xcb74 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10664, a3=sp-464.
   The `jal` at 0xcbb4 calls sprintf with a0=sp-464, a1=sym(.rodata)+10664, a2=?, a3=?, a7=0xff.
   The `jal` at 0xcbcc calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+10664, a3=sp-464.
-  The `jal` at 0xcc20 calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
-  The `jal` at 0xcc30 calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=?.
+  The `jal` at 0xcc20 calls do_pcibr_config_set with a0=?, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
+  The `jal` at 0xcc30 calls do_pcibr_config_get with a0=?, a1=0x0, a2=0x4, a3=?.
   The `jal` at 0xcc5c calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xccb8 calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x2, a3=0x0, a6=0x4, a7=0xff.
-  The `jal` at 0xcce4 calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=0xff, a4=[sym(pcibr_debug_mask)], a6=0x4, a7=0xff.
+  The `jal` at 0xcce4 calls do_pcibr_config_get with a0=?, a1=?, a2=0x4, a3=0xff, a4=[sym(pcibr_debug_mask)], a6=0x4, a7=0xff.
   The `jal` at 0xcd0c calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xcd5c calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x4, a3=0x0.
   The `beq` branch at 0xc790 targets 0xcd80, is taken when v0(=ret(hwgraph_fastinfo_get)) == 0, and falls through when v0(=ret(hwgraph_fastinfo_get)) != 0.
@@ -200810,7 +200704,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc888 targets 0xc894, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xc8c4 targets 0xcc90, is taken when a3(?) == a4(=0x9004), and falls through when a3(?) != a4(=0x9004).
   The `beq` branch at 0xc8f4 targets 0xc918, is taken when (a5(?) & a6(?)) == 0, and falls through when (a5(?) & a6(?)) != 0.
-  The `beq` branch at 0xc924 targets 0xcd30, is taken when s4(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed), and falls through when s4(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed).
+  The `beq` branch at 0xc924 targets 0xcd30, is taken when s4(?) >= a4(?) (signed), and falls through when s4(?) < a4(?) (signed).
   The `beq` branch at 0xc93c targets 0xc918, is taken when s5(?) == 0, and falls through when s5(?) != 0.
   The `beq` branch at 0xc948 targets 0xc91c, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `blez` branch at 0xc9a0 targets 0xcbdc, is taken when t1(=one of 0x2, 0x6) <= 0 (signed), and falls through when t1(=one of 0x2, 0x6) > 0 (signed).
@@ -200818,7 +200712,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc9b8 targets 0xca24, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xc9c0 targets 0xcc78, is taken when t3(=0xff) == s3(=a1), and falls through when t3(=0xff) != s3(=a1).
   The `beq` branch at 0xc9cc targets 0xc9d8, is taken when t8(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when t8(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
-  The `beq` branch at 0xca40 targets 0xcbdc, is taken when s0(?) >= a3(=one of 0x2, 0x6) (signed), and falls through when s0(?) < a3(=one of 0x2, 0x6) (signed).
+  The `beq` branch at 0xca40 targets 0xcbdc, is taken when s0(?) >= a3(?) (signed), and falls through when s0(?) < a3(?) (signed).
   The `beq` branch at 0xca68 targets 0xca20, is taken when s1(?) == 0, and falls through when s1(?) != 0.
   The `beq` branch at 0xca74 targets 0xc9b8, is taken when a6(?) >= s1(?) (unsigned), and falls through when a6(?) < s1(?) (unsigned).
   The `beq` branch at 0xca90 targets 0xcca8, is taken when s2(?) == s7(=0x2), and falls through when s2(?) != s7(=0x2).
@@ -200833,8 +200727,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xcb84 targets 0xcc88, is taken when a3(=0xff) == s3(=a1), and falls through when a3(=0xff) != s3(=a1).
   The `beq` branch at 0xcb90 targets 0xcb9c, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xcbd4 targets 0xca24 and is always taken.
-  The `bne` branch at 0xcbf4 targets 0xcc08, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+20]) != a4(=0x10a9), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+20]) == a4(=0x10a9).
-  The `beq` branch at 0xcc04 targets 0xc8b8, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+24]) == a4(=0x3), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]:8]:8+24]) != a4(=0x3).
+  The `bne` branch at 0xcbf4 targets 0xcc08, is taken when a3(?) != a4(=0x10a9), and falls through when a3(?) == a4(=0x10a9).
+  The `beq` branch at 0xcc04 targets 0xc8b8, is taken when a3(?) == a4(=0x3), and falls through when a3(?) != a4(=0x3).
   The `beq` branch at 0xcc3c targets 0xc8b8, is taken when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) == 0, and falls through when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) != 0.
   The `bne` branch at 0xcc64 targets 0xc864, is taken when v0(=ret(pcibr_bus_addr_alloc)) != 0, and falls through when v0(=ret(pcibr_bus_addr_alloc)) == 0.
   The `beq` branch at 0xcc70 targets 0xc8b8 and is always taken.
@@ -200854,7 +200748,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xcdb0 targets 0xcd30 and is always taken.
   The `beq` branch at 0xcdc0 targets 0xca4c and is always taken.
   The `beq` branch at 0xcdcc targets 0xc930 and is always taken.
-  The return at 0xc7e0 has v0 = one of 0x0, 0x16, 0x1c.
+  The return at 0xc7e0 has v0 = one of ?, 0x16.
 - `pcibr_slot_guest_info_init` in `6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o` at 0xcec8 (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.30/usr/cpu/sysgen/IP30boot/pcibr.o`.
@@ -200894,17 +200788,15 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xd05c loads 4 bytes from ret(hwgraph_fastinfo_get) +0x0.
   The `lw` at 0xd06c loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x110.
   The `ld` at 0xd070 loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
-  The `sw` at 0xd0c8 stores 4 bytes to ?.
+  3 such `sw` accesses store 4 bytes to ?, including `sw` at 0xd0c8, `sw` at 0xd1ac, `sw` at 0xd1d8.
   The `ld` at 0xd0f0 loads 8 bytes from ?.
-  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xd100, `lw` at 0xd110.
+  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xd100, `lw` at 0xd110, `lw` at 0xd1a0.
   The `lh` at 0xd158 loads 2 bytes from ret(hwgraph_fastinfo_get) +0x72.
-  2 such `lw` accesses load 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x10c, including `lw` at 0xd1a0, `lw` at 0xd1c0.
-  2 such `sw` accesses store 4 bytes to (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x10c, including `sw` at 0xd1ac, `sw` at 0xd1d8.
   The `jal` at 0xcff4 calls hwgraph_fastinfo_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xd058 calls async_attach_get_info with a0=[ret(hwgraph_fastinfo_get)], a1=?, a2=?, a3=?.
   The `jal` at 0xd0b8 calls pcibr_debug with a0=0x2000, a1=a0 at entry (arg0), a2=sym(.rodata)+10664, a3=?, a5=a2 at entry (arg2), a6=ret(pciio_device_attach).
-  The `jal` at 0xd118 calls device_admin_info_get with a0=?, a1=sym(.rodata)+10664, a2=?, a3=?, a4=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272].
-  The `jal` at 0xd134 calls async_attach_add_info with a0=?, a1=ret(async_attach_get_info), a2=ret(async_attach_get_info), a3=?.
+  The `jal` at 0xd118 calls device_admin_info_get with a0=?, a1=sym(.rodata)+10664, a2=?, a3=?.
+  The `jal` at 0xd134 calls async_attach_add_info with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xd140 calls pciio_device_attach with a0=?, a1=a2 at entry (arg2), a2=?, a3=?.
   The `jal` at 0xd1e8 calls vertex_to_name with a0=?, a1=sp-384, a2=0x100, a3=?.
   The `jal` at 0xd1fc calls cmn_err with a0=0x4, a1=sym(.rodata)+10664, a2=sp-384, a3=?.
@@ -200914,11 +200806,11 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xd050 targets 0xd038 and is always taken.
   The `blez` branch at 0xd084 targets 0xd1dc, is taken when t8(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) <= 0 (signed), and falls through when t8(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) > 0 (signed).
   The `beq` branch at 0xd094 targets 0xd20c and is always taken.
-  The `beq` branch at 0xd0e0 targets 0xd16c, is taken when s2(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed), and falls through when s2(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+272]) (signed).
+  The `beq` branch at 0xd0e0 targets 0xd16c, is taken when s2(?) >= a4(?) (signed), and falls through when s2(?) < a4(?) (signed).
   The `beq` branch at 0xd0f8 targets 0xd0d4, is taken when s4(?) == 0, and falls through when s4(?) != 0.
   The `beq` branch at 0xd104 targets 0xd0d8, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `bne` branch at 0xd120 targets 0xd1e4, is taken when v0(=ret(device_admin_info_get)) != 0, and falls through when v0(=ret(device_admin_info_get)) == 0.
-  The `beq` branch at 0xd12c targets 0xd13c, is taken when a2(=ret(async_attach_get_info)) == 0, and falls through when a2(=ret(async_attach_get_info)) != 0.
+  The `beq` branch at 0xd12c targets 0xd13c, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xd150 targets 0xd09c, is taken when a0(=0xff) == s0(=a1), and falls through when a0(=0xff) != s0(=a1).
   The `bne` branch at 0xd15c targets 0xd09c, is taken when a3(=[ret(hwgraph_fastinfo_get)+114]:2) != a4(=0x2), and falls through when a3(=[ret(hwgraph_fastinfo_get)+114]:2) == a4(=0x2).
   The `beq` branch at 0xd164 targets 0xd09c and is always taken.
@@ -205448,10 +205340,10 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xf14 calls xwidget_name_get with a0=ret(xbow_widget_lookup), a1=?, a2=?, a3=?.
   The `jal` at 0xf30 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=[a0+24]:8, a3=?, a4=ret(xwidget_name_get).
   The `jal` at 0x1004 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+84].
-  The `jal` at 0x1018 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+36].
-  The `jal` at 0x102c calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+68].
-  The `jal` at 0x1040 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+20].
-  The `jal` at 0x1054 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+28].
+  The `jal` at 0x1018 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
+  The `jal` at 0x102c calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
+  The `jal` at 0x1040 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
+  The `jal` at 0x1054 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
   The `jal` at 0x1080 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
   The `jal` at 0x1090 calls cmn_err_tag with a0=0x8, a1=0x0, a2=sym(.rodata), a3=?.
   The `jal` at 0x10b0 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=[a0+24]:8, a3=?.
@@ -206575,8 +206467,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x450 loads 4 bytes from a0 (arg0 at entry) +0x18.
   2 such `lw` accesses load 4 bytes from a0 (arg0 at entry) +0x4, including `lw` at 0x4c0, `lw` at 0x4ec.
   The `sw` at 0x4f8 stores 4 bytes to a0 (arg0 at entry) +0x4.
-  The `lw` at 0x500 loads 4 bytes from [a0+24] +0x140.
-  The `sw` at 0x510 stores 4 bytes to [a0+24] +0x140.
+  The `lw` at 0x500 loads 4 bytes from ?.
+  The `sw` at 0x510 stores 4 bytes to ?.
   The `jal` at 0x47c calls gfxdd_recycle with a0=sym(crime_regmatch), a1=a0 at entry (arg0), a2=a1 at entry (arg1), a3=0x86000.
   The `jal` at 0x4d4 calls gfxdd_mmap with a0=?, a1=0x86000, a2=?, a3=sym(gfx_fault), a4=a0 at entry (arg0), a5=sp-64, a6=0x1, a7=a0+28.
   The `beq` branch at 0x458 targets 0x470, is taken when (a1 & 0xfff) == 0, and falls through when (a1 & 0xfff) != 0.
@@ -208773,7 +208665,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x52ac calls i2cfp_PanelOff with a0=[sym(crimeBoards+4)], a1=?, a2=?, a3=?.
   The `jal` at 0x52bc calls crmFreeChunk with a0=sym(crmFrameBuffer), a1=?, a2=?, a3=?.
   The `jal` at 0x52e0 calls i2cfp_DMI2_BkltFuncs with a0=[sym(crimeBoards+4)], a1=0x10, a2=0x0, a3=0x0, a4=0x0, a5=0x84, a6=[sym(.bss)+2846]:1.
-  The `jal` at 0x52f8 calls crmRetraceCloseAllRn with a0=[sym(crimeBoards+12)], a1=?, a2=?, a3=?.
+  The `jal` at 0x52f8 calls crmRetraceCloseAllRn with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x5324 calls i2cfp_DMI2_BkltFuncs with a0=[sym(crimeBoards+4)], a1=0x10, a2=0x0, a3=0x0, a4=0x0.
   The `jal` at 0x5340 calls cmn_err with a0=0x4, a1=sym(.rodata)+520, a2=?, a3=?.
   The `jal` at 0x5354 calls cmn_err with a0=0x4, a1=sym(.rodata)+520, a2=?, a3=?.
@@ -210485,10 +210377,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x1e40 loads 4 bytes from sym(crmFrameBuffer) +0x4.
   21 such `sw` accesses store 4 bytes to ?, including `sw` at 0x1e84, `sw` at 0x1e94, `sw` at 0x1e98.
   26 such `lw` accesses load 4 bytes from ?, including `lw` at 0x1e8c, `lw` at 0x1ebc, `lw` at 0x1ee4.
-  2 such `lbu` accesses load 1 byte from ?, including `lbu` at 0x1eac, `lbu` at 0x1ed0.
+  3 such `lbu` accesses load 1 byte from ?, including `lbu` at 0x1eac, `lbu` at 0x1ed0, `lbu` at 0x20ec.
   2 such `sb` accesses store 1 byte to ?, including `sb` at 0x1efc, `sb` at 0x1f44.
   2 such `lw` accesses load 4 bytes from [a0+24] +0x0, including `lw` at 0x1fb0, `lw` at 0x1ff8.
-  The `lbu` at 0x20ec loads 1 byte from [[a0+24]+140] +0x39.
   The `jal` at 0x1d1c calls init_sema with a0=sym(crmswapsema), a1=0x0, a2=sym(.rodata)+40, a3=-0x1.
   The `jal` at 0x1d24 calls semahistoff with a0=sym(crmswapsema), a1=?, a2=?, a3=?.
   The `jal` at 0x1d60 calls crmLoadTlbABC with a0=[a0+24], a1=sym(crmFrameBuffer), a2=0x0, a3=?.
@@ -211860,7 +211751,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `sw` at 0x15d8 stores 4 bytes to a2 (arg2 at entry) +0xc.
   The `jal` at 0x143c calls kern_malloc with a0=0x28, a1=?, a2=?, a3=?.
   The `jal` at 0x144c calls bzero with a0=ret(kern_malloc), a1=0x28, a2=?, a3=?.
-  The `jal` at 0x1464 calls crmAllocChunk with a0=ret(kern_malloc), a1=[a2+4], a2=one of 0x2, 0x22, a3=one of 0x6, 0x7.
+  The `jal` at 0x1464 calls crmAllocChunk with a0=ret(kern_malloc), a1=[a2+4], a2=one of 0x2, 0x22, a3=?.
   The `jal` at 0x1480 calls kern_free with a0=[ret(kern_malloc)+8], a1=?, a2=?, a3=?.
   The `jal` at 0x1488 calls kern_free with a0=ret(kern_malloc), a1=?, a2=?, a3=?.
   The `jal` at 0x14dc calls crm_get_dms_tiles with a0=ret(kern_malloc), a1=?, a2=?, a3=a0 at entry (arg0).
@@ -211995,28 +211886,25 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x1924 loads 4 bytes from a1 (arg1 at entry) +0x30.
   The `lw` at 0x1930 loads 4 bytes from a2 (arg2 at entry) +0x0.
   The `sw` at 0x1958 stores 4 bytes to a2 (arg2 at entry) +0x0.
-  9 such `lw` accesses load 4 bytes from ?, including `lw` at 0x19c4, `lw` at 0x1a34, `lw` at 0x1a6c.
+  14 such `lw` accesses load 4 bytes from ?, including `lw` at 0x19c4, `lw` at 0x1a34, `lw` at 0x1a6c.
   4 such `sd` accesses store 8 bytes to ?, including `sd` at 0x19e8, `sd` at 0x19f8, `sd` at 0x1a10.
-  The `lw` at 0x1a88 loads 4 bytes from sym(.data) +0x0.
   2 such `lhu` accesses load 2 bytes from ?, including `lhu` at 0x1ad4, `lhu` at 0x1b28.
   2 such `sh` accesses store 2 bytes to ?, including `sh` at 0x1ae8, `sh` at 0x1b30.
-  2 such `lw` accesses load 4 bytes from [[a1+76]+32] +0x18, including `lw` at 0x1bbc, `lw` at 0x1c48.
-  2 such `lw` accesses load 4 bytes from [[[a1+76]+32]+24] +0x0, including `lw` at 0x1bcc, `lw` at 0x1c50.
   The `sw` at 0x1ccc stores 4 bytes to ?.
   The `lw` at 0x1cd4 loads 4 bytes from a0 (arg0 at entry) +0x78.
   The `sd` at 0x1d08 stores 8 bytes to ret(kmem_alloc) +0x1c0.
   The `jal` at 0x1920 calls RRM_CheckValidFault with a0=[a1+48], a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x1998 calls psema with a0=[[a1+76]+32]+16, a1=0x11a, a2=?, a3=?.
-  The `jal` at 0x1b88 calls vsema with a0=[[a1+76]+32]+16, a1=?, a2=?, a3=?.
-  The `jal` at 0x1b98 calls vsema with a0=[[a1+76]+32]+16, a1=?, a2=?, a3=?.
-  The `jal` at 0x1c2c calls crmAllocTex with a0=a0 at entry (arg0), a1=[a1+76], a2=sp-160, a3=0x1.
+  The `jal` at 0x1b88 calls vsema with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0x1b98 calls vsema with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0x1c2c calls crmAllocTex with a0=a0 at entry (arg0), a1=?, a2=sp-160, a3=0x1.
   The `jal` at 0x1c64 calls crm_get_dms_tiles with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x1c7c calls vsema with a0=[[a1+76]+32]+16, a1=?, a2=?, a3=?.
-  The `jal` at 0x1c8c calls vsema with a0=[[a1+76]+32]+16, a1=?, a2=?, a3=?.
-  The `jal` at 0x1c9c calls vsema with a0=[[a1+76]+32]+16, a1=?, a2=?, a3=?.
+  The `jal` at 0x1c7c calls vsema with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0x1c8c calls vsema with a0=?, a1=?, a2=?, a3=?.
+  The `jal` at 0x1c9c calls vsema with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1cb0 calls kmem_alloc with a0=0x1d0, a1=0x900, a2=?, a3=?.
   The `jal` at 0x1cc8 calls bzero with a0=ret(kmem_alloc), a1=0x1d0, a2=?, a3=?.
-  The `jal` at 0x1d0c calls vsema with a0=[[a1+76]+32]+16, a1=?, a2=?, a3=?.
+  The `jal` at 0x1d0c calls vsema with a0=?, a1=?, a2=?, a3=?.
   The `beq` branch at 0x190c targets 0x1ba8, is taken when s4(=[a1+76]) == 0, and falls through when s4(=[a1+76]) != 0.
   The `beq` branch at 0x1918 targets 0x19b0, is taken when s1(=[[a1+76]+32]) == 0, and falls through when s1(=[[a1+76]+32]) != 0.
   The `bltz` branch at 0x1928 targets 0x1bb0, is taken when v0(=ret(RRM_CheckValidFault)) < 0 (signed), and falls through when v0(=ret(RRM_CheckValidFault)) >= 0 (signed).
@@ -212055,7 +211943,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x1ba0 targets 0x1960 and is always taken.
   The `beq` branch at 0x1ba8 targets 0x1960 and is always taken.
   The `beq` branch at 0x1bb0 targets 0x1960 and is always taken.
-  The `beq` branch at 0x1bc0 targets 0x1c04, is taken when v0(=[[[a1+76]+32]+24]) == 0, and falls through when v0(=[[[a1+76]+32]+24]) != 0.
+  The `beq` branch at 0x1bc0 targets 0x1c04, is taken when v0(?) == 0, and falls through when v0(?) != 0.
   The `beq` branch at 0x1bc8 targets 0x1be0 and is always taken.
   The `beq` branch at 0x1bd4 targets 0x1c04, is taken when v0(?) == 0, and falls through when v0(?) != 0.
   The `bne` branch at 0x1be4 targets 0x1bd0, is taken when v1(?) != a6(?), and falls through when v1(?) == a6(?).
@@ -212596,9 +212484,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xd90 calls us_delay with a0=[sym(.sdata)+80], a1=?, a2=?, a3=?.
   The `jal` at 0xdb0 calls crime_2abSendCmd with a0=a0 at entry (arg0), a1=0x1, a2=sym(.bss), a3=0x0.
   The `jal` at 0xdc4 calls crime_2abGetReply with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=sp-240, a3=?.
-  The `jal` at 0xde8 calls bcopy with a0=a1+1, a1=sp-232, a2=ret(crime_2abGetReply)-1, a3=?.
+  The `jal` at 0xde8 calls bcopy with a0=?, a1=sp-232, a2=ret(crime_2abGetReply)-1, a3=?.
   The `jal` at 0xe04 calls us_delay with a0=[sym(.sdata)+80], a1=?, a2=0xe1, a3=[a1]:1.
-  The `jal` at 0xe20 calls bcopy with a0=sp-232, a1=sym(.bss), a2=ret(crime_2abGetReply)-1, a3=?, a4=0xf2.
+  The `jal` at 0xe20 calls bcopy with a0=sp-232, a1=?, a2=?, a3=?, a4=0xf2.
   The `jal` at 0xe40 calls crime_2abSendCmd with a0=a0 at entry (arg0), a1=ret(crime_2abGetReply)+1, a2=sym(.bss), a3=0x1, a5=0x4, a6=(ret(crime_2abGetReply) + sym(.bss)).
   The `jal` at 0xe74 calls strncmp with a0=sym(.rodata)+248, a1=sp-232, a2=0x13, a3=?.
   The `jal` at 0xea4 calls us_delay with a0=[sym(.sdata)+80], a1=?, a2=?, a3=?.
@@ -213104,7 +212992,7 @@ These entries record instruction facts rendered from the routines below. They de
   Range: 0x24d0-0x255c (140 bytes).
   It occupies 140 bytes.
   The `jal` at 0x24f4 calls i2_spin_for with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=0x2, a3=0x2, a4=[sym(.sdata)+92], a5=0x0, a6=sp-48.
-  The `jal` at 0x2528 calls i2_spin_for with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=0x3, a3=0x3, a4=[sym(.sdata)+92], a5=0x0, a6=0x0.
+  The `jal` at 0x2528 calls i2_spin_for with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=0x3, a3=0x3, a5=0x0, a6=0x0.
   The `beq` branch at 0x24fc targets 0x2554, is taken when v0(=ret(i2_spin_for)) == 0, and falls through when v0(=ret(i2_spin_for)) != 0.
   The `beq` branch at 0x2508 targets 0x2544, is taken when at(?) == v0(=0x3), and falls through when at(?) != v0(=0x3).
   The `beq` branch at 0x2530 targets 0x254c, is taken when v0(=ret(i2_spin_for)) == 0, and falls through when v0(=ret(i2_spin_for)) != 0.
@@ -213251,7 +213139,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x2c88 targets 0x2c98, is taken when v0(=ret(copyout)) == 0, and falls through when v0(=ret(copyout)) != 0.
   The `beq` branch at 0x2c90 targets 0x2c38 and is always taken.
   The `beq` branch at 0x2c98 targets 0x2c38 and is always taken.
-  The return at 0x2c3c has v0 = one of -0xe, ret(i2cfp_DMI2_BkltFuncs).
+  The return at 0x2c3c has v0 = one of -0xe, ?.
 - `i2cfp_DMI2_BkltFuncs` in `6.5.30/usr/cpu/sysgen/IP32boot/crime.a(crime_i2c.o)` at 0x2ca0 (n32).
   Evidence grade: inferred.
   Exact binary: `6.5.30/usr/cpu/sysgen/IP32boot/crime.a(crime_i2c.o)`.
@@ -214946,12 +214834,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x48c calls mrupdatef with a0=sym(hwgraph_connectpt_mrlock), a1=0x0, a2=?, a3=?.
   The `jal` at 0x494 calls do_hwgraph_connectpt_get with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x4ac calls mrunlock with a0=sym(hwgraph_connectpt_mrlock), a1=?, a2=?, a3=?.
-  The `jal` at 0x4c8 calls graph_vertex_unref with a0=[sym(hwgraph)], a1=ret(do_hwgraph_connectpt_get), a2=a2 at entry (arg2), a3=?.
+  The `jal` at 0x4c8 calls graph_vertex_unref with a0=[sym(hwgraph)], a1=?, a2=a2 at entry (arg2), a3=?.
   The `jal` at 0x4f0 calls do_hwgraph_connectpt_set with a0=?, a1=-0x1, a2=?, a3=?.
   The `jal` at 0x500 calls graph_vertex_unref with a0=[sym(hwgraph)], a1=?, a2=a2 at entry (arg2), a3=a2 at entry (arg2).
   The `beq` branch at 0x468 targets 0x484, is taken when v0(=ret(graph_edge_remove)) == 0, and falls through when v0(=ret(graph_edge_remove)) != 0.
   The `beq` branch at 0x4a0 targets 0x4ec, is taken when v0(=ret(do_hwgraph_connectpt_get)) == a1(=a0), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != a1(=a0).
-  The `beq` branch at 0x4bc targets 0x4d4, is taken when v0(=ret(do_hwgraph_connectpt_get)) == a1(=-0x1), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != a1(=-0x1).
+  The `beq` branch at 0x4bc targets 0x4d4, is taken when v0(?) == a1(=-0x1), and falls through when v0(?) != a1(=-0x1).
   The `beq` branch at 0x4d8 targets 0x500, is taken when a2 == 0, and falls through when a2 != 0.
   The `beq` branch at 0x4e4 targets 0x474 and is always taken.
   The `beq` branch at 0x4f8 targets 0x4ac and is always taken.
@@ -215759,10 +215647,10 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.30/usr/cpu/sysgen/IP32boot/graph.a(hwgraph.o)`.
   Range: 0x2268-0x235c (244 bytes).
   It occupies 244 bytes.
-  2 such `lw` accesses load 4 bytes from (sym(pdaindr) + (a1 << 0x3)) +0x4, including `lw` at 0x229c, `lw` at 0x2320.
+  The `lw` at 0x229c loads 4 bytes from (sym(pdaindr) + (a1 << 0x3)) +0x4.
   The `sw` at 0x22b0 stores 4 bytes to [(sym(pdaindr) + (a1 << 0x3))+4] +0x36c.
-  The `lw` at 0x2324 loads 4 bytes from [(sym(pdaindr) + (a1 << 0x3))+4] +0x38.
-  The `sw` at 0x2334 stores 4 bytes to [(sym(pdaindr) + (a1 << 0x3))+4] +0x38.
+  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0x2320, `lw` at 0x2324.
+  The `sw` at 0x2334 stores 4 bytes to ?.
   The `jal` at 0x22b8 calls graph_info_add_LBL with a0=[sym(hwgraph)], a1=a0 at entry (arg0), a2=sym(.rodata)+488, a3=0x0, a4=a1 at entry (arg1).
   The `jal` at 0x22d8 calls sprintf with a0=sp-48, a1=sym(.rodata)+504, a2=a1 at entry (arg1), a3=?.
   The `jal` at 0x22e8 calls hwgraph_edge_add with a0=[sym(.sdata)+4], a1=a0 at entry (arg0), a2=sp-48, a3=?.
@@ -216054,33 +215942,33 @@ These entries record instruction facts rendered from the routines below. They de
   The `sw` at 0x248 stores 4 bytes to a3 (arg3 at entry) +0x0.
   The `jal` at 0x1d0 calls hwgraph_traverse with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x1f8 calls hwgraph_cdevsw_get with a0=[a2], a1=?, a2=?, a3=?.
-  The `jal` at 0x204 calls hwgraph_bdevsw_get with a0=[a2], a1=?, a2=?, a3=?.
+  The `jal` at 0x204 calls hwgraph_bdevsw_get with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x250 calls strcmp with a0=a1 at entry (arg1), a1=sym(.rodata), a2=?, a3=?.
   The `jal` at 0x264 calls strcmp with a0=a1 at entry (arg1), a1=sym(.rodata)+4, a2=?, a3=?.
-  The `jal` at 0x274 calls hwgraph_connectpt_get with a0=[a2], a1=?, a2=?, a3=?.
+  The `jal` at 0x274 calls hwgraph_connectpt_get with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x280 calls hwgraph_vertex_unref with a0=ret(hwgraph_connectpt_get), a1=?, a2=?, a3=?.
   The `jal` at 0x2c0 calls hwgraph_edge_get_next with a0=a0 at entry (arg0), a1=sp-328, a2=sp-72, a3=sp-336.
   The `jal` at 0x2d8 calls hwgraph_vertex_unref with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x2e4 calls strcmp with a0=sp-328, a1=a1 at entry (arg1), a2=?, a3=?.
   The `beq` branch at 0x1d8 targets 0x1f0, is taken when v0(=ret(hwgraph_traverse)) == 0, and falls through when v0(=ret(hwgraph_traverse)) != 0.
   The `bne` branch at 0x210 targets 0x228, is taken when v0(=ret(hwgraph_bdevsw_get)) != 0, and falls through when v0(=ret(hwgraph_bdevsw_get)) == 0.
-  The `beq` branch at 0x218 targets 0x24c, is taken when a1(=ret(hwgraph_cdevsw_get)) == 0, and falls through when a1(=ret(hwgraph_cdevsw_get)) != 0.
+  The `beq` branch at 0x218 targets 0x24c, is taken when a1(?) == 0, and falls through when a1(?) != 0.
   The `beq` branch at 0x220 targets 0x23c and is always taken.
-  The `bne` branch at 0x228 targets 0x23c, is taken when a1(=ret(hwgraph_cdevsw_get)) != 0, and falls through when a1(=ret(hwgraph_cdevsw_get)) == 0.
+  The `bne` branch at 0x228 targets 0x23c, is taken when a1(?) != 0, and falls through when a1(?) == 0.
   The `beq` branch at 0x234 targets 0x240 and is always taken.
   The `beq` branch at 0x244 targets 0x1e0 and is always taken.
   The `beq` branch at 0x258 targets 0x2a0, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
   The `beq` branch at 0x26c targets 0x2a8, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
-  The `beq` branch at 0x290 targets 0x2b0, is taken when a2(=ret(hwgraph_connectpt_get)) == a3(=a0), and falls through when a2(=ret(hwgraph_connectpt_get)) != a3(=a0).
+  The `beq` branch at 0x290 targets 0x2b0, is taken when a2(?) == a3(=a0), and falls through when a2(?) != a3(=a0).
   The `beq` branch at 0x298 targets 0x23c and is always taken.
   The `beq` branch at 0x2a0 targets 0x23c and is always taken.
   The `beq` branch at 0x2a8 targets 0x23c and is always taken.
   The `beq` branch at 0x2c8 targets 0x2d8, is taken when v0(=ret(hwgraph_edge_get_next)) == 0, and falls through when v0(=ret(hwgraph_edge_get_next)) != 0.
   The `beq` branch at 0x2d0 targets 0x23c and is always taken.
   The `beq` branch at 0x2ec targets 0x30c, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
-  The `bne` branch at 0x2fc targets 0x2b8, is taken when a5(?) != a6(=[a2]), and falls through when a5(?) == a6(=[a2]).
+  The `bne` branch at 0x2fc targets 0x2b8, is taken when a5(?) != a6(?), and falls through when a5(?) == a6(?).
   The `beq` branch at 0x304 targets 0x23c and is always taken.
-  The `beq` branch at 0x310 targets 0x320, is taken when a7(?) == t0(=[a2]), and falls through when a7(?) != t0(=[a2]).
+  The `beq` branch at 0x310 targets 0x320, is taken when a7(?) == t0(?), and falls through when a7(?) != t0(?).
   The `beq` branch at 0x318 targets 0x23c and is always taken.
   The `beq` branch at 0x320 targets 0x23c and is always taken.
   The return at 0x1e8 has v0 = one of 0x0, 0x1.
@@ -216332,7 +216220,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xba4 targets 0xbb8, is taken when s3(?) == 0, and falls through when s3(?) != 0.
   The `beq` branch at 0xbe8 targets 0xc78, is taken when v1(=[a1+24]:2) == 0, and falls through when v1(=[a1+24]:2) != 0.
   The `beq` branch at 0xbf0 targets 0xb88 and is always taken.
-  The `blez` branch at 0xc20 targets 0xc9c, is taken when v0(?) <= 0 (signed), and falls through when v0(?) > 0 (signed).
+  The `blez` branch at 0xc20 targets 0xc9c, is taken when v0(=ret(?)) <= 0 (signed), and falls through when v0(=ret(?)) > 0 (signed).
   The `beq` branch at 0xc28 targets 0xb60 and is always taken.
   The `beq` branch at 0xc3c targets 0xb54 and is always taken.
   The `beq` branch at 0xc44 targets 0xbc0 and is always taken.
@@ -216514,7 +216402,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x13d0 calls cap_able_cred with a0=a3 at entry (arg3), a1=0x2000000000, a2=?, a3=?.
   The `jal` at 0x1408 calls acl_hwg_match with a0=a1 at entry (arg1), a1=a2 at entry (arg2), a2=?, a3=?, a5=[sym(acl_enabled)].
   The `jal` at 0x1434 calls cap_hwg_match with a0=a1 at entry (arg1), a1=a2 at entry (arg2), a2=?, a3=?.
-  The `jal` at 0x1460 calls hwgraph_info_remove_LBL with a0=[[a0]+36], a1=a1 at entry (arg1), a2=sp-48, a3=?.
+  The `jal` at 0x1460 calls hwgraph_info_remove_LBL with a0=?, a1=a1 at entry (arg1), a2=sp-48, a3=?.
   The `jal` at 0x1478 calls kern_free with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1490 calls mac_hwg_iaccess with a0=[[a0]+36], a1=0x80, a2=a3 at entry (arg3), a3=a3 at entry (arg3).
   The `jal` at 0x14a8 calls mac_hwg_match with a0=a1 at entry (arg1), a1=a2 at entry (arg2), a2=[a1]:1, a3=0x5f, a4=[sym(mac_enabled)].
@@ -217567,7 +217455,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x4a4 loads 4 bytes from [[ret(vproc_lookup)+28]+8] +0x1c.
   The `jal` at 0x454 calls vproc_lookup with a0=?, a1=0x1, a2=?, a3=?.
   The `jalr` at 0x4ac calls (unknown callee) with a0=[ret(vproc_lookup)+28], a1=0x6, a2=sp-88, a3=[[[ret(vproc_lookup)+28]+8]+28], a4=-0x1.
-  The `jal` at 0x4b4 calls vproc_release with a0=ret(vproc_lookup), a1=?, a2=?, a3=?.
+  The `jal` at 0x4b4 calls vproc_release with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x4e0 calls kthread_get_pid with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x4f8 calls get_current_cred with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x508 calls kthread_get_pid with a0=?, a1=?, a2=?, a3=?.
@@ -220991,14 +220879,14 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xad4 calls pmap_ptes with a0=?, a1=[ret(findfpreg)+88], a2=?, a3=sp-256, a4=0x1.
   The `jal` at 0xb60 calls anon_pfind with a0=[[ret(findfpreg)+44]+112], a1=?, a2=sp-252, a3=sp-248.
   The `jal` at 0xb74 calls splhi with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xb94 calls splx with a0=ret(splhi), a1=?, a2=?, a3=?.
+  The `jal` at 0xb94 calls splx with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xba0 calls pagefreeanon_size with a0=ret(anon_pfind), a1=0x1, a2=?, a3=?.
   The `jal` at 0xbb8 calls findattr_range_noclip with a0=ret(findfpreg), a1=?, a2=?, a3=?.
   The `jal` at 0xbd0 calls pmo_ns_pmo_lookup with a0=?, a1=0x4, a2=[ret(findattr_range_noclip)+16], a3=?.
   The `jal` at 0xc2c calls bitlock_acquire_32bit with a0=?, a1=0x4000000, a2=?, a3=?.
   The `jal` at 0xc7c calls mrunlock with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xcb0 calls copyout with a0=ret(kmem_zalloc), a1=a3 at entry (arg3), a2=?, a3=?.
-  The `jal` at 0xcc8 calls kmem_free with a0=ret(kmem_zalloc), a1=?, a2=?, a3=?.
+  The `jal` at 0xcb0 calls copyout with a0=?, a1=a3 at entry (arg3), a2=?, a3=?.
+  The `jal` at 0xcc8 calls kmem_free with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xcf4 calls mrunlock with a0=[ret(findfpreg)+44], a1=?, a2=?, a3=?.
   The `jal` at 0xd24 calls assfail with a0=sym(.rodata), a1=sym(.rodata), a2=0x2d0, a3=?.
   The `blez` branch at 0x920 targets 0xcd8, is taken when a4 <= 0 (signed), and falls through when a4 > 0 (signed).
@@ -221073,7 +220961,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jalr` at 0xe00 calls (unknown callee) with a0=a1 at entry (arg1), a1=0x1, a2=sp-112, a3=[a1+60], a6=0x0.
   The `jal` at 0xe3c calls pmo_ns_pmo_lookup with a0=a0 at entry (arg0), a1=0x0, a2=a1 at entry (arg1), a3=?.
   The `jal` at 0xe60 calls mraccessf with a0=[[a5+16]]+16, a1=0x0, a2=?, a3=?.
-  The `jal` at 0xed4 calls mrunlock with a0=[[a5+16]]+16, a1=?, a2=?, a3=[[[[a5+16]]+324]+24].
+  The `jal` at 0xed4 calls mrunlock with a0=?, a1=?, a2=?, a3=[[[[a5+16]]+324]+24].
   The `beq` branch at 0xd6c targets 0xd8c, is taken when a7(=[a1+28]) == 0, and falls through when a7(=[a1+28]) != 0.
   The `beq` branch at 0xd84 targets 0xd90 and is always taken.
   The `beq` branch at 0xd98 targets 0xdb8, is taken when a3(=[a1+44]) == 0, and falls through when a3(=[a1+44]) != 0.
@@ -221554,13 +221442,12 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.30/usr/cpu/sysgen/IP32boot/numa.a(afflink.o)`.
   Range: 0x0-0x70 (112 bytes).
   It occupies 112 bytes.
-  3 such `lw` accesses load 4 bytes from ?, including `lw` at 0x20, `lw` at 0x24, `lw` at 0x30.
+  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0x20, `lw` at 0x24, `lw` at 0x30.
   The `lw` at 0x34 loads 4 bytes from ret(aspm_getdefaultpm_func) +0x18.
-  The `lw` at 0x58 loads 4 bytes from ret(aspm_getdefaultpm_func) +0x4.
   The `jal` at 0x14 calls as_lookup_current with a0=sp-48, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x2c calls aspm_getdefaultpm_func with a0=?, a1=0x2, a2=?, a3=?.
   The `jalr` at 0x48 calls (unknown callee) with a0=ret(aspm_getdefaultpm_func), a1=0x0, a2=a0 at entry (arg0), a3=a1 at entry (arg1), a4=[ret(aspm_getdefaultpm_func)+24].
-  The `jalr` at 0x5c calls (unknown callee) with a0=ret(aspm_getdefaultpm_func), a1=?, a2=?, a3=?, a5=[ret(aspm_getdefaultpm_func)+4].
+  The `jalr` at 0x5c calls (unknown callee) with a0=?, a1=?, a2=?, a3=?.
   The return at 0x68 has v0 = ret(?).
 - `kthread_afflink_error` in `6.5.30/usr/cpu/sysgen/IP32boot/numa.a(afflink.o)` at 0x70 (n32).
   Evidence grade: inferred.
@@ -221594,12 +221481,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x144 loads 4 bytes from [ret(pmo_ns_it_getnext)+8] +0xc.
   The `jal` at 0x100 calls getpmo_ns with a0=[a1]:8, a1=[a1+8]:8, a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x110 calls splhi with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x120 calls pmo_ns_it_init with a0=sp-64, a1=ret(getpmo_ns), a2=?, a3=?.
+  The `jal` at 0x120 calls pmo_ns_it_init with a0=sp-64, a1=?, a2=?, a3=?.
   The `jal` at 0x12c calls pmo_ns_it_getnext with a0=sp-64, a1=?, a2=?, a3=?.
   The `jal` at 0x150 calls pmo_ns_it_getnext with a0=sp-64, a1=?, a2=?, a3=?.
-  The `jal` at 0x168 calls splx with a0=ret(splhi), a1=?, a2=?, a3=?, a4=0x4.
+  The `jal` at 0x168 calls splx with a0=?, a1=?, a2=?, a3=?, a4=0x4.
   The `jal` at 0x174 calls relpmo_ns with a0=[a1]:8, a1=[a1+8]:8, a2=?, a3=?.
-  The `jal` at 0x18c calls pm_contains_mld with a0=[ret(pmo_ns_it_getnext)+8], a1=[a0+352], a2=?, a3=?, a4=0x4.
+  The `jal` at 0x18c calls pm_contains_mld with a0=[ret(pmo_ns_it_getnext)+8], a1=?, a2=?, a3=?, a4=0x4.
   The `jal` at 0x19c calls pm_decusg with a0=[ret(pmo_ns_it_getnext)+8], a1=?, a2=?, a3=?.
   The `beq` branch at 0xe8 targets 0x17c, is taken when at(=[a1]) == v0(=0xf), and falls through when at(=[a1]) != v0(=0xf).
   The `beq` branch at 0xf4 targets 0x17c, is taken when v1(=[a0+352]) == 0, and falls through when v1(=[a0+352]) != 0.
@@ -229806,12 +229693,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x474 calls mrupdatef with a0=sym(hwgraph_connectpt_mrlock), a1=0x0, a2=?, a3=?.
   The `jal` at 0x47c calls do_hwgraph_connectpt_get with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x490 calls mrunlock with a0=sym(hwgraph_connectpt_mrlock), a1=?, a2=?, a3=?.
-  The `jal` at 0x4ac calls graph_vertex_unref with a0=[sym(hwgraph)]:8, a1=ret(do_hwgraph_connectpt_get), a2=a2 at entry (arg2), a3=?.
+  The `jal` at 0x4ac calls graph_vertex_unref with a0=[sym(hwgraph)]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `jal` at 0x4d0 calls do_hwgraph_connectpt_set with a0=?, a1=-0x1, a2=?, a3=?.
   The `jal` at 0x4e0 calls graph_vertex_unref with a0=[sym(hwgraph)]:8, a1=?, a2=a2 at entry (arg2), a3=?.
   The `beq` branch at 0x454 targets 0x470, is taken when v0(=ret(graph_edge_remove)) == 0, and falls through when v0(=ret(graph_edge_remove)) != 0.
   The `beq` branch at 0x488 targets 0x4cc, is taken when v0(=ret(do_hwgraph_connectpt_get)) == v1(=a0), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != v1(=a0).
-  The `beq` branch at 0x4a0 targets 0x4b8, is taken when v0(=ret(do_hwgraph_connectpt_get)) == a1(=-0x1), and falls through when v0(=ret(do_hwgraph_connectpt_get)) != a1(=-0x1).
+  The `beq` branch at 0x4a0 targets 0x4b8, is taken when v0(?) == a1(=-0x1), and falls through when v0(?) != a1(=-0x1).
   The `beq` branch at 0x4b8 targets 0x4e0, is taken when a2 == 0, and falls through when a2 != 0.
   The `beq` branch at 0x4c4 targets 0x460 and is always taken.
   The `beq` branch at 0x4d8 targets 0x490 and is always taken.
@@ -230631,7 +230518,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x22f4 calls cpu_enabled with a0=a1 at entry (arg1), a1=?, a2=?, a3=?.
   The `jal` at 0x2308 calls device_admin_info_get with a0=a0 at entry (arg0), a1=sym(.rodata), a2=?, a3=?.
   The `jal` at 0x2340 calls mutex_spinlock_spl with a0=[(sym(pdaindr) + (a1 << 0x4))+8]:8+1332, a1=sym(spl7), a2=?, a3=?.
-  The `jal` at 0x2358 calls mutex_spinunlock with a0=[(sym(pdaindr) + (a1 << 0x4))+8]:8+1332, a1=ret(mutex_spinlock_spl), a2=?, a3=?.
+  The `jal` at 0x2358 calls mutex_spinunlock with a0=?, a1=ret(mutex_spinlock_spl), a2=?, a3=?.
   The `jal` at 0x2374 calls hwgraph_path_add with a0=[sym(hwgraph_root)], a1=sym(.rodata), a2=sym(.sdata)+4, a3=-0x1, a4=[sym(.sdata)+4].
   The `beq` branch at 0x227c targets 0x2318, is taken when a1 == at(=-0x1), and falls through when a1 != at(=-0x1).
   The `beq` branch at 0x228c targets 0x22ac, is taken when v0(=ret(cpu_enabled)) == 0, and falls through when v0(=ret(cpu_enabled)) != 0.
@@ -230911,17 +230798,17 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x20c calls hwgraph_bdevsw_get with a0=[a2], a1=?, a2=?, a3=?.
   The `jal` at 0x230 calls strcmp with a0=a1 at entry (arg1), a1=sym(.rodata), a2=?, a3=?, a4=0x2.
   The `jal` at 0x248 calls strcmp with a0=a1 at entry (arg1), a1=sym(.rodata), a2=?, a3=?, a6=a3 at entry (arg3).
-  The `jal` at 0x258 calls hwgraph_connectpt_get with a0=[a2], a1=?, a2=?, a3=?, a6=a3 at entry (arg3).
+  The `jal` at 0x258 calls hwgraph_connectpt_get with a0=?, a1=?, a2=?, a3=?, a6=a3 at entry (arg3).
   The `jal` at 0x264 calls hwgraph_vertex_unref with a0=ret(hwgraph_connectpt_get), a1=?, a2=?, a3=?.
   The `jal` at 0x2c0 calls hwgraph_edge_get_next with a0=a0 at entry (arg0), a1=sp-344, a2=sp-88, a3=sp-352.
   The `jal` at 0x2d8 calls hwgraph_vertex_unref with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x2e4 calls strcmp with a0=sp-344, a1=a1 at entry (arg1), a2=?, a3=?.
   The `beq` branch at 0x1d8 targets 0x1f8, is taken when v0(=ret(hwgraph_traverse)) == 0, and falls through when v0(=ret(hwgraph_traverse)) != 0.
   The `bne` branch at 0x21c targets 0x284, is taken when v0(=ret(hwgraph_bdevsw_get)) != 0, and falls through when v0(=ret(hwgraph_bdevsw_get)) == 0.
-  The `bne` branch at 0x224 targets 0x2a4, is taken when a1(=ret(hwgraph_cdevsw_get)) != 0, and falls through when a1(=ret(hwgraph_cdevsw_get)) == 0.
+  The `bne` branch at 0x224 targets 0x2a4, is taken when a1(?) != 0, and falls through when a1(?) == 0.
   The `beq` branch at 0x238 targets 0x298, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
   The `beq` branch at 0x250 targets 0x298, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
-  The `beq` branch at 0x274 targets 0x2b0, is taken when a2(=ret(hwgraph_connectpt_get)) == a3(=a0), and falls through when a2(=ret(hwgraph_connectpt_get)) != a3(=a0).
+  The `beq` branch at 0x274 targets 0x2b0, is taken when a2(?) == a3(=a0), and falls through when a2(?) != a3(=a0).
   The `beq` branch at 0x27c targets 0x294 and is always taken.
   The `beq` branch at 0x290 targets 0x22c, is taken when s0(=one of 0x0, 0x3) == a4(=0x2), and falls through when s0(=one of 0x0, 0x3) != a4(=0x2).
   The `beq` branch at 0x29c targets 0x1e4 and is always taken.
@@ -230929,7 +230816,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x2c8 targets 0x2d8, is taken when v0(=ret(hwgraph_edge_get_next)) == 0, and falls through when v0(=ret(hwgraph_edge_get_next)) != 0.
   The `beq` branch at 0x2d0 targets 0x294 and is always taken.
   The `beq` branch at 0x2ec targets 0x30c, is taken when v0(=ret(strcmp)) == 0, and falls through when v0(=ret(strcmp)) != 0.
-  The `bne` branch at 0x2fc targets 0x2b8, is taken when t0(?) != t1(=[a2]), and falls through when t0(?) == t1(=[a2]).
+  The `bne` branch at 0x2fc targets 0x2b8, is taken when t0(?) != t1(?), and falls through when t0(?) == t1(?).
   The `beq` branch at 0x304 targets 0x294 and is always taken.
   The `beq` branch at 0x318 targets 0x294 and is always taken.
   The return at 0x1f0 has v0 = one of 0x0, 0x1.
@@ -231182,7 +231069,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xbe0 targets 0xcb8, is taken when a2(=[a1+24]:2) == 0, and falls through when a2(=[a1+24]:2) != 0.
   The `beq` branch at 0xbf0 targets 0xc0c, is taken when s4(=a3) == 0, and falls through when s4(=a3) != 0.
   The `beq` branch at 0xc0c targets 0xc20, is taken when s3(?) == 0, and falls through when s3(?) != 0.
-  The `blez` branch at 0xc74 targets 0xcd4, is taken when v0(?) <= 0 (signed), and falls through when v0(?) > 0 (signed).
+  The `blez` branch at 0xc74 targets 0xcd4, is taken when v0(=ret(?)) <= 0 (signed), and falls through when v0(=ret(?)) > 0 (signed).
   The `beq` branch at 0xc7c targets 0xba4 and is always taken.
   The `beq` branch at 0xc84 targets 0xc28 and is always taken.
   The `beq` branch at 0xc98 targets 0xb44, is taken when (v0(=ret(get_current_abi)) & 0x2) == 0, and falls through when (v0(=ret(get_current_abi)) & 0x2) != 0.
@@ -231695,7 +231582,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0x4ac loads 8 bytes from [[ret(vproc_lookup)+40]:8+16]:8 +0x38.
   The `jal` at 0x458 calls vproc_lookup with a0=?, a1=0x1, a2=?, a3=?.
   The `jalr` at 0x4b4 calls (unknown callee) with a0=[ret(vproc_lookup)+40]:8, a1=0x6, a2=sp-96, a3=[[[ret(vproc_lookup)+40]:8+16]:8+56]:8, a4=-0x1.
-  The `jal` at 0x4bc calls vproc_release with a0=ret(vproc_lookup), a1=?, a2=?, a3=?.
+  The `jal` at 0x4bc calls vproc_release with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x4e8 calls kthread_get_pid with a0=?, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x500 calls get_current_cred with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x510 calls kthread_get_pid with a0=?, a1=?, a2=?, a3=?.
@@ -233296,10 +233183,8 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.30/usr/cpu/sysgen/IP35boot/io6.o`.
   Range: 0x40-0x12c (236 bytes).
   It occupies 236 bytes.
-  The `lw` at 0xb4 loads 4 bytes from ret(xtalk_piotrans_addr) +0x284.
-  The `sw` at 0xd4 stores 4 bytes to ret(xtalk_piotrans_addr) +0x284.
-  The `lw` at 0xe0 loads 4 bytes from ret(xtalk_piotrans_addr) +0x28c.
-  The `sw` at 0xfc stores 4 bytes to ret(xtalk_piotrans_addr) +0x28c.
+  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xb4, `lw` at 0xe0.
+  2 such `sw` accesses store 4 bytes to ?, including `sw` at 0xd4, `sw` at 0xfc.
   The `jal` at 0x54 calls nic_vertex_info_match with a0=a0 at entry (arg0), a1=sym(.rodata), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x68 calls pcibr_hints_dualslot with a0=a0 at entry (arg0), a1=0x2, a2=0x4, a3=?.
   The `jal` at 0x80 calls pcibr_hints_subdevs with a0=a0 at entry (arg0), a1=0x2, a2=one of 0xb7, 0xbf, a3=?.
@@ -234155,7 +234040,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x8fa0 calls fprom_flash_sectors with a0=a0 at entry (arg0), a1=?, a2=[a0+160], a3=a3 at entry (arg3).
   The `jal` at 0x8fd4 calls promlog_next with a0=a0 at entry (arg0), a1=0x62, a2=?, a3=?.
   The `jal` at 0x8ff4 calls get_entry [0x83e8] with a0=a0 at entry (arg0), a1=0x40, a2=?, a3=?, a4=[a0+168].
-  The `jal` at 0x9028 calls fprom_write with a0=a0 at entry (arg0), a1=?, a2=a0+184, a3=0x40.
+  The `jal` at 0x9028 calls fprom_write with a0=a0 at entry (arg0), a1=?, a2=?, a3=0x40.
   The `jal` at 0x9038 calls fprom_errmsg with a0=ret(fprom_write), a1=?, a2=?, a3=?.
   The `jal` at 0x9048 calls printf with a0=sym(.rodata)+3120, a1=ret(fprom_errmsg), a2=?, a3=?.
   The `jal` at 0x9058 calls promlog_errmsg with a0=?, a1=?, a2=?, a3=?.
@@ -234442,7 +234327,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xacec targets 0xad10, is taken when a1(?) == 0, and falls through when a1(?) != 0.
   The `beq` branch at 0xad10 targets 0xacc4 and is always taken.
   The `beq` branch at 0xad18 targets 0xacc4 and is always taken.
-  The return at 0xacd0 has v0 = one of ret(ip27log_setup), ?, ret(promlog_delete), 0x0.
+  The return at 0xacd0 has v0 = one of ret(ip27log_setup), ?, 0x0.
 - `ip27log_iprintf` in `6.5.30/usr/cpu/sysgen/IP35boot/kernel.o` at 0xad20 (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.30/usr/cpu/sysgen/IP35boot/kernel.o`.
@@ -235543,9 +235428,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x34334 loads 4 bytes from ?.
   The `jal` at 0x34210 calls cmn_err with a0=0x6, a1=sym(.rodata)+51152, a2=sym(.rodata)+51152, a3=?.
   The `jal` at 0x34238 calls cmn_err with a0=0x6, a1=sym(.rodata)+51152, a2=?, a3=?.
-  The `jal` at 0x3428c calls cmn_err with a0=0x6, a1=sym(.rodata)+51152, a2=?, a3=?, a6=a0-1.
-  The `jal` at 0x342a8 calls cmn_err with a0=0x6, a1=sym(.rodata)+51152, a2=?, a3=?, a6=a0-1.
-  The `jal` at 0x342c4 calls cmn_err with a0=0x6, a1=sym(.rodata)+51152, a2=?, a3=?, a6=a0-1.
+  The `jal` at 0x3428c calls cmn_err with a0=0x6, a1=sym(.rodata)+51152, a2=?, a3=?.
+  The `jal` at 0x342a8 calls cmn_err with a0=0x6, a1=sym(.rodata)+51152, a2=?, a3=?.
+  The `jal` at 0x342c4 calls cmn_err with a0=0x6, a1=sym(.rodata)+51152, a2=?, a3=?.
   The `jal` at 0x34314 calls chk_for_pebrick with a0=?, a1=0x9600000000000000, a2=0xffffffffff, a3=?, a6=0x9000000034000000.
   The `jal` at 0x34350 calls find_lboard with a0=?, a1=0x11, a2=?, a3=?.
   The `jal` at 0x3435c calls board_to_path with a0=ret(find_lboard), a1=sp-176, a2=?, a3=?.
@@ -235556,7 +235441,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `bne` branch at 0x34228 targets 0x341e0, is taken when s0(?) < s1(=a0) (signed), and falls through when s0(?) >= s1(=a0) (signed).
   The `bgtz` branch at 0x34240 targets 0x342d4, is taken when s1(=a0) > 0 (signed), and falls through when s1(=a0) <= 0 (signed).
   The `bne` branch at 0x34270 targets 0x3429c, is taken when a3(?) != a4(?), and falls through when a3(?) == a4(?).
-  The `bne` branch at 0x34278 targets 0x3421c, is taken when a6(=a0-1) != s0(?), and falls through when a6(=a0-1) == s0(?).
+  The `bne` branch at 0x34278 targets 0x3421c, is taken when a6(?) != s0(?), and falls through when a6(?) == s0(?).
   The `beq` branch at 0x34294 targets 0x3421c and is always taken.
   The `beq` branch at 0x3429c targets 0x342b8, is taken when a2(?) == a5(?), and falls through when a2(?) != a5(?).
   The `beq` branch at 0x342b0 targets 0x342cc and is always taken.
@@ -235999,7 +235884,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xb48 calls vector_read with a0=a0 at entry (arg0), a1=0x0, a2=?, a3=sp-104.
   The `jal` at 0xb68 calls vector_read with a0=a0 at entry (arg0), a1=0x0, a2=?, a3=sp-120.
   The `jal` at 0xb84 calls vector_write with a0=a0 at entry (arg0), a1=0x0, a2=?, a3=0x0.
-  The `jal` at 0xba4 calls vector_read with a0=a0 at entry (arg0), a1=0x0, a2=?, a3=sp-112.
+  The `jal` at 0xba4 calls vector_read with a0=a0 at entry (arg0), a1=0x0, a2=?, a3=?.
   The `jal` at 0xbc0 calls vector_write with a0=a0 at entry (arg0), a1=0x0, a2=?, a3=0x0.
   The `jal` at 0xbdc calls vector_read with a0=a0 at entry (arg0), a1=0x0, a2=?, a3=sp-96.
   The `jal` at 0xc14 calls qprintf with a0=sym(.rodata), a1=?, a2=?, a3=?.
@@ -237334,16 +237219,14 @@ These entries record instruction facts rendered from the routines below. They de
   2 such `ld` accesses load 8 bytes from ret(findfpreg) +0x58, including `ld` at 0xab8, `ld` at 0xcb8.
   The `lw` at 0xac8 loads 4 bytes from ret(findfpreg) +0x64.
   The `ld` at 0xb10 loads 8 bytes from ret(findfpreg) +0x88.
-  2 such `ld` accesses load 8 bytes from ?, including `ld` at 0xb58, `ld` at 0xcec.
+  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0xb58, `ld` at 0xc64, `ld` at 0xc74.
   The `ld` at 0xb70 loads 8 bytes from [ret(findfpreg)+88]:8 +0xa8.
   The `lbu` at 0xb80 loads 1 byte from ret(findfpreg) +0x69.
   The `lw` at 0xb84 loads 4 bytes from ret(findfpreg) +0x60.
   The `lhu` at 0xbc4 loads 2 bytes from ret(anon_pfind) +0x14.
   The `sh` at 0xbd8 stores 2 bytes to ret(anon_pfind) +0x14.
   The `lh` at 0xc48 loads 2 bytes from table(sym(nasid_to_compact_node)) +0x0.
-  The `ld` at 0xc64 loads 8 bytes from [[a0+32]:8]:8 +0x268.
   The `ld` at 0xc68 loads 8 bytes from ret(findattr_range_noclip) +0x20.
-  The `ld` at 0xc74 loads 8 bytes from [[[a0+32]:8]:8+616]:8 +0x0.
   3 such `sw` accesses store 4 bytes to ?, including `sw` at 0xc9c, `sw` at 0xca0, `sw` at 0xca4.
   The `sd` at 0xca8 stores 8 bytes to ?.
   The `lw` at 0xcbc loads 4 bytes from ret(findfpreg) +0x6c.
@@ -237357,20 +237240,20 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x9c0 calls kmem_zalloc with a0=(((a5 << 0x2) + a5) << 0x3), a1=0x0, a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xa14 calls mraccessf with a0=[[a0+32]:8]:8+32, a1=0x0, a2=?, a3=?, a5=(a2 + a3)+16383.
   The `jal` at 0xa54 calls mrunlock with a0=[ret(findfpreg)+88]:8, a1=?, a2=?, a3=?.
-  The `jal` at 0xa84 calls findfpreg with a0=[[a0+32]:8]:8, a1=a1 at entry (arg1), a2=?, a3=?.
+  The `jal` at 0xa84 calls findfpreg with a0=?, a1=a1 at entry (arg1), a2=?, a3=?.
   The `jal` at 0xac0 calls mrupdatef with a0=[ret(findfpreg)+88]:8, a1=0x0, a2=?, a3=[ret(findfpreg)+48]:8.
-  The `jal` at 0xb14 calls pmap_ptes with a0=[[a0+32]:8]:8, a1=[ret(findfpreg)+136]:8, a2=?, a3=sp-240, a4=0x1.
+  The `jal` at 0xb14 calls pmap_ptes with a0=?, a1=[ret(findfpreg)+136]:8, a2=?, a3=sp-240, a4=0x1.
   The `jal` at 0xba0 calls anon_pfind with a0=[[ret(findfpreg)+88]:8+168]:8, a1=?, a2=sp-232, a3=sp-224, a5=[ret(findfpreg)+105]:1.
   The `jal` at 0xbbc calls mutex_bitlock with a0=ret(anon_pfind)+16, a1=0x8000000, a2=?, a3=?.
-  The `jal` at 0xbe4 calls mutex_bitunlock with a0=ret(anon_pfind)+16, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
+  The `jal` at 0xbe4 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=?, a3=?.
   The `jal` at 0xc1c calls pagefreeanon_size with a0=ret(anon_pfind), a1=0x1, a2=?, a3=?.
   The `jal` at 0xc58 calls findattr_range_noclip with a0=ret(findfpreg), a1=?, a2=?, a3=entry(sym(nasid_to_compact_node)).
-  The `jal` at 0xc70 calls pmo_ns_pmo_lookup with a0=[[[[a0+32]:8]:8+616]:8]:8, a1=0x4, a2=[ret(findattr_range_noclip)+32]:8, a3=?.
+  The `jal` at 0xc70 calls pmo_ns_pmo_lookup with a0=?, a1=0x4, a2=[ret(findattr_range_noclip)+32]:8, a3=?.
   The `jal` at 0xce4 calls bitlock_acquire with a0=?, a1=0x2000000000000000, a2=?, a3=?.
-  The `jal` at 0xd7c calls mrunlock with a0=[[a0+32]:8]:8+32, a1=?, a2=?, a3=?.
+  The `jal` at 0xd7c calls mrunlock with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xda0 calls get_current_abi with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xdcc calls xlate_copyout with a0=ret(kmem_zalloc), a1=a4 at entry (arg4), a2=?, a3=sym(pm_pginfo_to_irix5), a4=ret(get_current_abi), a5=0x4.
-  The `jal` at 0xde4 calls kmem_free with a0=ret(kmem_zalloc), a1=(((a5 << 0x2) + a5) << 0x3), a2=?, a3=?.
+  The `jal` at 0xdcc calls xlate_copyout with a0=?, a1=a4 at entry (arg4), a2=?, a3=sym(pm_pginfo_to_irix5), a4=ret(get_current_abi), a5=0x4.
+  The `jal` at 0xde4 calls kmem_free with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xe10 calls mrunlock with a0=[ret(findfpreg)+88]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xe3c calls assfail with a0=sym(.rodata), a1=sym(.rodata), a2=0x2d0, a3=?.
   The `blez` branch at 0x96c targets 0xdf4, is taken when a5 <= 0 (signed), and falls through when a5 > 0 (signed).
@@ -238173,14 +238056,13 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.30/usr/cpu/sysgen/IP35boot/numa.a(afflink.o)`.
   Range: 0x0-0x98 (152 bytes).
   It occupies 152 bytes.
-  3 such `ld` accesses load 8 bytes from ?, including `ld` at 0x24, `ld` at 0x28, `ld` at 0x34.
+  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0x24, `ld` at 0x28, `ld` at 0x34.
   The `ld` at 0x38 loads 8 bytes from ret(aspm_getdefaultpm_func) +0x28.
-  The `ld` at 0x5c loads 8 bytes from ret(aspm_getdefaultpm_func) +0x8.
   The `ld` at 0x68 loads 8 bytes from a0 (arg0 at entry) +0x0.
   The `jal` at 0x18 calls as_lookup_current with a0=sp-48, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x30 calls aspm_getdefaultpm_func with a0=?, a1=0x2, a2=?, a3=?.
   The `jalr` at 0x4c calls (unknown callee) with a0=ret(aspm_getdefaultpm_func), a1=0x0, a2=a0 at entry (arg0), a3=a1 at entry (arg1), a4=[ret(aspm_getdefaultpm_func)+40]:8.
-  The `jalr` at 0x60 calls (unknown callee) with a0=ret(aspm_getdefaultpm_func), a1=?, a2=?, a3=?, a5=[ret(aspm_getdefaultpm_func)+8]:8.
+  The `jalr` at 0x60 calls (unknown callee) with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x74 calls mld_getnodeid with a0=[a0]:8, a1=?, a2=?, a3=?.
   The `jal` at 0x7c calls kmem_zone_set_default_node with a0=ret(mld_getnodeid), a1=?, a2=?, a3=?.
   The `beq` branch at 0x6c targets 0x88, is taken when a0(=[a0]:8) == 0, and falls through when a0(=[a0]:8) != 0.
@@ -238222,12 +238104,12 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0x1ac loads 4 bytes from [ret(pmo_ns_it_getnext)+8]:8 +0x18.
   The `jal` at 0x164 calls getpmo_ns with a0=[a1]:8, a1=[a1+8]:8, a2=[a1+16]:8, a3=a3 at entry (arg3).
   The `jal` at 0x178 calls mutex_spinlock with a0=ret(getpmo_ns)+56, a1=?, a2=?, a3=?.
-  The `jal` at 0x188 calls pmo_ns_it_init with a0=sp-80, a1=ret(getpmo_ns), a2=?, a3=?.
+  The `jal` at 0x188 calls pmo_ns_it_init with a0=sp-80, a1=?, a2=?, a3=?.
   The `jal` at 0x194 calls pmo_ns_it_getnext with a0=sp-80, a1=?, a2=?, a3=?.
   The `jal` at 0x1b8 calls pmo_ns_it_getnext with a0=sp-80, a1=?, a2=?, a3=?.
-  The `jal` at 0x1d4 calls mutex_spinunlock with a0=ret(getpmo_ns)+56, a1=ret(mutex_spinlock), a2=?, a3=?, a4=0x4.
+  The `jal` at 0x1d4 calls mutex_spinunlock with a0=?, a1=?, a2=?, a3=?, a4=0x4.
   The `jal` at 0x1e4 calls relpmo_ns with a0=[a1]:8, a1=[a1+8]:8, a2=[a1+16]:8, a3=?.
-  The `jal` at 0x1fc calls pm_contains_mld with a0=[ret(pmo_ns_it_getnext)+8]:8, a1=[a0+608]:8, a2=?, a3=?, a4=0x4.
+  The `jal` at 0x1fc calls pm_contains_mld with a0=[ret(pmo_ns_it_getnext)+8]:8, a1=?, a2=?, a3=?, a4=0x4.
   The `jal` at 0x20c calls pm_decusg with a0=[ret(pmo_ns_it_getnext)+8]:8, a1=?, a2=?, a3=?.
   The `beq` branch at 0x148 targets 0x1ec, is taken when at(=[a1]:8) == v0(=0xf), and falls through when at(=[a1]:8) != v0(=0xf).
   The `beq` branch at 0x154 targets 0x1ec, is taken when v1(=[a0+608]:8) == 0, and falls through when v1(=[a0+608]:8) != 0.
@@ -238693,7 +238575,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x11f4 calls splhi with a0=0x7ffff, a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x11fc calls tlbgetpid with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x120c calls tlb_probe with a0=ret(tlbgetpid), a1=a1 at entry (arg1), a2=sp-48, a3=?.
-  The `jal` at 0x1244 calls splx with a0=ret(splhi), a1=?, a2=?, a3=?.
+  The `jal` at 0x1244 calls splx with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1264 calls unmaptlb with a0=[[-0x3fe8]:8+1384]:8, a1=?, a2=-0x1, a3=?, a4=0xfff0000.
   The `bgez` branch at 0x11ec targets 0x124c, is taken when at(?) >= 0 (signed), and falls through when at(?) < 0 (signed).
   The `beq` branch at 0x1224 targets 0x1244, is taken when v0(=ret(tlb_probe)) == a2(=-0x1), and falls through when v0(=ret(tlb_probe)) != a2(=-0x1).
@@ -239787,7 +239669,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xacc calls copyin_xlate with a0=a0 at entry (arg0), a1=sp-80, a2=0x20, a3=sym(irix5_to_mldset_info), a4=ret(get_current_abi), a5=0x4, a6=0x1.
   The `jal` at 0xb08 calls mldset_mldlist_create with a0=?, a1=?, a2=sp-48, a3=?, a5=-0x2.
   The `jal` at 0xb24 calls curpmo_ns with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xb38 calls mldset_create_and_export with a0=ret(mldset_mldlist_create), a1=ret(curpmo_ns), a2=0x0, a3=a1 at entry (arg1).
+  The `jal` at 0xb38 calls mldset_create_and_export with a0=?, a1=ret(curpmo_ns), a2=0x0, a3=a1 at entry (arg1).
   The `beq` branch at 0xad8 targets 0xaf0, is taken when v0(=ret(copyin_xlate)) == 0, and falls through when v0(=ret(copyin_xlate)) != 0.
   The `blez` branch at 0xaf8 targets 0xb50, is taken when a1(?) <= 0 (signed), and falls through when a1(?) > 0 (signed).
   The `beq` branch at 0xb00 targets 0xb48, is taken when a0(?) == 0, and falls through when a0(?) != 0.
@@ -239802,14 +239684,14 @@ These entries record instruction facts rendered from the routines below. They de
   Exact binary: `6.5.30/usr/cpu/sysgen/IP35boot/numa.a(mldset.o)`.
   Range: 0xb58-0xcdc (388 bytes).
   It occupies 388 bytes.
-  The `ld` at 0xc10 loads 8 bytes from ret(pmo_ns_find) +0x8.
+  The `ld` at 0xc10 loads 8 bytes from ?.
   The `jal` at 0xb6c calls get_current_abi with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xb8c calls copyin_xlate with a0=a0 at entry (arg0), a1=sp-96, a2=0x28, a3=sym(irix5_to_mldset_placement_info), a4=ret(get_current_abi), a5=0x4, a6=0x1.
   The `jal` at 0xbb0 calls curpmo_ns with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xbc0 calls pmo_ns_find with a0=ret(curpmo_ns), a1=?, a2=0x3, a3=?.
-  The `jalr` at 0xc14 calls (unknown callee) with a0=ret(pmo_ns_find), a1=?, a2=?, a3=?.
+  The `jalr` at 0xc14 calls (unknown callee) with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xca0 calls mldset_rafflist_create with a0=?, a1=?, a2=?, a3=sp-56.
-  The `jal` at 0xcc4 calls mldset_place with a0=ret(pmo_ns_find), a1=?, a2=?, a3=?.
+  The `jal` at 0xcc4 calls mldset_place with a0=?, a1=?, a2=?, a3=?.
   The `beq` branch at 0xb94 targets 0xbb0, is taken when v0(=ret(copyin_xlate)) == 0, and falls through when v0(=ret(copyin_xlate)) != 0.
   The `beq` branch at 0xbe4 targets 0xc48, is taken when v0(=ret(pmo_ns_find)) == 0, and falls through when v0(=ret(pmo_ns_find)) != 0.
   The `bltz` branch at 0xbf0 targets 0xc04, is taken when t0(?) < 0 (signed), and falls through when t0(?) >= 0 (signed).
@@ -239821,10 +239703,10 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xc40 targets 0xc08 and is always taken.
   The `beq` branch at 0xc48 targets 0xba4 and is always taken.
   The `beq` branch at 0xc50 targets 0xc64, is taken when a1(?) == 0, and falls through when a1(?) != 0.
-  The `bne` branch at 0xc64 targets 0xc0c, is taken when a2(=one of 0x0, 0x1) != 0, and falls through when a2(=one of 0x0, 0x1) == 0.
+  The `bne` branch at 0xc64 targets 0xc0c, is taken when a2(?) != 0, and falls through when a2(?) == 0.
   The `bne` branch at 0xc6c targets 0xc38, is taken when a1(?) != 0, and falls through when a1(?) == 0.
   The `beq` branch at 0xc74 targets 0xc88, is taken when a0(?) == 0, and falls through when a0(?) != 0.
-  The `bne` branch at 0xc88 targets 0xc0c, is taken when a3(=one of 0x0, 0x1) != 0, and falls through when a3(=one of 0x0, 0x1) == 0.
+  The `bne` branch at 0xc88 targets 0xc0c, is taken when a3(?) != 0, and falls through when a3(?) == 0.
   The `beq` branch at 0xc90 targets 0xc38 and is always taken.
   The `beq` branch at 0xc98 targets 0xcd4, is taken when a0(?) == 0, and falls through when a0(?) != 0.
   The `bne` branch at 0xcac targets 0xc08, is taken when v0(=ret(mldset_rafflist_create)) < 0x1 (unsigned), and falls through when v0(=ret(mldset_rafflist_create)) >= 0x1 (unsigned).
@@ -240366,14 +240248,14 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xc loads 4 bytes from a0 (arg0 at entry) +0x38.
   The `ld` at 0x24 loads 8 bytes from a0 (arg0 at entry) +0x20.
   The `lw` at 0x2c loads 4 bytes from [a0+32]:8 +0x4.
-  3 such `ld` accesses load 8 bytes from ret(pmolist_getelem) +0x28, including `ld` at 0x64, `ld` at 0xb20, `ld` at 0xc44.
+  2 such `ld` accesses load 8 bytes from ret(pmolist_getelem) +0x28, including `ld` at 0x64, `ld` at 0xb20.
   The `ld` at 0x84 loads 8 bytes from a0 (arg0 at entry) +0x40.
   The `lw` at 0x88 loads 4 bytes from a0 (arg0 at entry) +0x48.
   The `lw` at 0xa4 loads 4 bytes from [a0+64]:8 +0x4.
   2 such `lh` accesses load 2 bytes from [-0x3fe0]:8 +0xfa, including `lh` at 0xac, `lh` at 0x7f0.
   2 such `ld` accesses load 8 bytes from [-0x3fe0]:8 +0x288, including `ld` at 0xc4, `ld` at 0x2c0.
   2 such `ld` accesses load 8 bytes from [-0x3fe0]:8 +0x280, including `ld` at 0xc8, `ld` at 0x2c4.
-  41 such `ld` accesses load 8 bytes from ?, including `ld` at 0xe4, `ld` at 0x158, `ld` at 0x180.
+  42 such `ld` accesses load 8 bytes from ?, including `ld` at 0xe4, `ld` at 0x158, `ld` at 0x180.
   4 such `ld` accesses load 8 bytes from abs 0xffffffffffffc400, including `ld` at 0x12c, `ld` at 0x618, `ld` at 0x878.
   4 such `ld` accesses load 8 bytes from [-0x3c00]:8 +0x0, including `ld` at 0x140, `ld` at 0x61c, `ld` at 0x87c.
   4 such `lhu` accesses load 2 bytes from ?, including `lhu` at 0x160, `lhu` at 0x188, `lhu` at 0x890.
@@ -240388,8 +240270,7 @@ These entries record instruction facts rendered from the routines below. They de
   6 such `lbu` accesses load 1 byte from a0 (arg0 at entry) +0x3c, including `lbu` at 0x340, `lbu` at 0xdf4, `lbu` at 0x102c.
   6 such `sb` accesses store 1 byte to a0 (arg0 at entry) +0x3c, including `sb` at 0x348, `sb` at 0xe00, `sb` at 0x1038.
   4 such `lw` accesses load 4 bytes from ?, including `lw` at 0x628, `lw` at 0x62c, `lw` at 0x13bc.
-  2 such `lh` accesses load 2 bytes from [-0x3fe0]:8 +0xf4, including `lh` at 0x804, `lh` at 0xf68.
-  2 such `lh` accesses load 2 bytes from ?, including `lh` at 0x88c, `lh` at 0x9fc.
+  4 such `lh` accesses load 2 bytes from ?, including `lh` at 0x804, `lh` at 0x88c, `lh` at 0x9fc.
   The `lld` at 0xc24 loads 8 bytes from ?.
   The `scd` at 0xc2c stores 8 bytes to ?.
   The `ld` at 0xc8c loads 8 bytes from sym(cube_to_cnode) +0x208.
@@ -240404,7 +240285,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x5c calls pmolist_getelem with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xfc calls get_effective_nodemask with a0=[-0x3fe0]:8, a1=?, a2=-0x1, a3=?.
   The `jal` at 0x2ec calls as_getassize with a0=[[-0x3fe8]:8+1440]:8, a1=[[-0x3fe8]:8+1448]:8, a2=[[-0x3fe8]:8+1456]:8, a3=sp-2816, a4=sp-2812.
-  The `jal` at 0x334 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?, a4=[a0+72].
+  The `jal` at 0x334 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?.
   The `jal` at 0x4b8 calls ceil_log2 with a0=[[a0+32]:8+4], a1=[sym(numnodes)], a2=?, a3=sp-2760.
   The `jal` at 0x988 calls kmem_free with a0=?, a1=?, a2=?, a3=?, a6=sp-1912.
   The `jal` at 0xb04 calls kmem_free with a0=?, a1=0x400, a2=?, a3=?, a5=sp-2424.
@@ -240412,30 +240293,30 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xbcc calls memfit_selectnode with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xbe4 calls pmolist_getelem with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xc00 calls physmem_mld_place_onnode with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
-  The `jal` at 0xda0 calls pmolist_getelem with a0=[a0+64]:8, a1=0x0, a2=[a0+64]:8, a3=sp-2760.
+  The `jal` at 0xda0 calls pmolist_getelem with a0=?, a1=0x0, a2=?, a3=sp-2760.
   The `jal` at 0xdbc calls physmem_selectnode with a0=?, a1=?, a2=[a0+32]:8, a3=?.
-  The `jal` at 0xddc calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?, a4=[a0+72].
+  The `jal` at 0xddc calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?.
   The `jal` at 0xe58 calls kmem_alloc with a0=?, a1=0x0, a2=?, a3=sp-2760.
   The `jal` at 0xe88 calls pmolist_getelem with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xe94 calls physmem_mld_place_onnode with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
   The `jal` at 0xed0 calls pmolist_getelem with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0xed8 calls mld_getnodeid with a0=ret(pmolist_getelem), a1=?, a2=?, a3=?.
-  The `jal` at 0xfb8 calls memfit_selectnode with a0=?, a1=?, a2=[a0+64]:8, a3=sp-2760.
+  The `jal` at 0xfb8 calls memfit_selectnode with a0=?, a1=?, a2=?, a3=sp-2760.
   The `jal` at 0xfd4 calls physmem_place_node with a0=[a0+32]:8, a1=?, a2=?, a3=?.
-  The `jal` at 0xff0 calls pmolist_getelem with a0=[a0+64]:8, a1=0x0, a2=[a0+64]:8, a3=sp-2760.
-  The `jal` at 0x1014 calls physmem_place_cpucluster with a0=?, a1=[a0+32]:8, a2=?, a3=?, a4=[a0+72].
+  The `jal` at 0xff0 calls pmolist_getelem with a0=?, a1=0x0, a2=?, a3=sp-2760.
+  The `jal` at 0x1014 calls physmem_place_cpucluster with a0=?, a1=[a0+32]:8, a2=?, a3=?.
   The `jal` at 0x1134 calls kmem_alloc with a0=0x400, a1=0x0, a2=?, a3=sp-2760, a7=sp-2424.
-  The `jal` at 0x115c calls memfit_selectnode with a0=?, a1=?, a2=[a0+64]:8, a3=sp-2760.
+  The `jal` at 0x115c calls memfit_selectnode with a0=?, a1=?, a2=?, a3=sp-2760.
   The `jal` at 0x1180 calls physmem_selectnode with a0=ret(memfit_selectnode), a1=?, a2=[a0+32]:8, a3=?.
   The `jal` at 0x119c calls physmem_place_node with a0=[a0+32]:8, a1=?, a2=?, a3=?.
   The `jal` at 0x11ac calls ceil_log2 with a0=?, a1=?, a2=?, a3=sp-2760.
   The `jal` at 0x11e0 calls ceil_log2 with a0=?, a1=?, a2=?, a3=sp-2760.
   The `jal` at 0x11fc calls ceil_log2 with a0=?, a1=?, a2=?, a3=sp-2760.
-  The `jal` at 0x1228 calls physmem_place_physical with a0=[a0+32]:8, a1=?, a2=[a0+64]:8, a3=?, a4=[a0+72].
-  The `jal` at 0x1244 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?, a4=[a0+72].
-  The `jal` at 0x129c calls pmolist_getelem with a0=[a0+64]:8, a1=0x0, a2=?, a3=?.
+  The `jal` at 0x1228 calls physmem_place_physical with a0=[a0+32]:8, a1=?, a2=?, a3=?.
+  The `jal` at 0x1244 calls physmem_place_cluster with a0=?, a1=[a0+32]:8, a2=?, a3=?.
+  The `jal` at 0x129c calls pmolist_getelem with a0=?, a1=0x0, a2=?, a3=?.
   The `jal` at 0x1378 calls physmem_place_cube_with_affinity_p with a0=ret(ceil_log2), a1=[ret(pmolist_getelem)+32]:2, a2=?, a3=?, a4=[a0+32]:8, a5=sp-1360.
-  The `jal` at 0x144c calls pmolist_getelem with a0=[a0+64]:8, a1=0x0, a2=?, a3=?.
+  The `jal` at 0x144c calls pmolist_getelem with a0=?, a1=0x0, a2=?, a3=?.
   The `jal` at 0x1468 calls physmem_place_cube_with_affinity with a0=ret(ceil_log2), a1=[ret(pmolist_getelem)+32]:2, a2=?, a3=?, a4=[a0+32]:8.
   The `jal` at 0x147c calls memfit_selectnode with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x149c calls physmem_place_cube with a0=ret(ceil_log2), a1=?, a2=?, a3=?, a4=[a0+32]:8.
@@ -240470,7 +240351,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x2d0 targets 0x120 and is always taken.
   The `beq` branch at 0x314 targets 0x70 and is always taken.
   The `beq` branch at 0x34c targets 0xe24, is taken when s8(?) == 0, and falls through when s8(?) != 0.
-  The `beq` branch at 0x354 targets 0x1238, is taken when a2(=[a0+72]) == 0, and falls through when a2(=[a0+72]) != 0.
+  The `beq` branch at 0x354 targets 0x1238, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0x35c targets 0xe24, is taken when s8(?) == 0, and falls through when s8(?) != 0.
   The `beq` branch at 0x364 targets 0x374, is taken when a3(?) == 0, and falls through when a3(?) != 0.
   The `bne` branch at 0x36c targets 0xb04, is taken when a3(?) != a5(=sp-2424), and falls through when a3(?) == a5(=sp-2424).
@@ -240576,7 +240457,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `bne` branch at 0xd7c targets 0xd60, is taken when a5(?) != 0, and falls through when a5(?) == 0.
   The `bne` branch at 0xd84 targets 0x3c4, is taken when t2(?) != 0, and falls through when t2(?) == 0.
   The `beq` branch at 0xd8c targets 0x4a4 and is always taken.
-  The `beq` branch at 0xd98 targets 0xfb0, is taken when a0(=[a0+64]:8) == 0, and falls through when a0(=[a0+64]:8) != 0.
+  The `beq` branch at 0xd98 targets 0xfb0, is taken when a0(?) == 0, and falls through when a0(?) != 0.
   The `beq` branch at 0xda8 targets 0xfcc, is taken when s3(?) == s2(=0x1), and falls through when s3(?) != s2(=0x1).
   The `bne` branch at 0xde8 targets 0x354, is taken when s8(?) != 0, and falls through when s8(?) == 0.
   The `beq` branch at 0xdfc targets 0x34c and is always taken.
@@ -240602,7 +240483,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xfa8 targets 0x1b4 and is always taken.
   The `bne` branch at 0xfc4 targets 0xdb0, is taken when s3(?) != s2(=0x1), and falls through when s3(?) == s2(=0x1).
   The `beq` branch at 0xfdc targets 0xde8 and is always taken.
-  The `beq` branch at 0xfe4 targets 0x1158, is taken when t8(=[a0+64]:8) == 0, and falls through when t8(=[a0+64]:8) != 0.
+  The `beq` branch at 0xfe4 targets 0x1158, is taken when t8(?) == 0, and falls through when t8(?) != 0.
   The `beq` branch at 0xffc targets 0x1198, is taken when s3(?) == s2(=0x1), and falls through when s3(?) != s2(=0x1).
   The `bne` branch at 0x1020 targets 0x354, is taken when s8(?) != 0, and falls through when s8(?) == 0.
   The `beq` branch at 0x1034 targets 0x34c and is always taken.
@@ -240630,8 +240511,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x1230 targets 0x34c and is always taken.
   The `bne` branch at 0x124c targets 0x35c, is taken when v0(=ret(physmem_place_cluster)) != 0, and falls through when v0(=ret(physmem_place_cluster)) == 0.
   The `beq` branch at 0x1260 targets 0x35c and is always taken.
-  The `beq` branch at 0x1290 targets 0x14dc, is taken when ra(=[a0+64]:8) == 0, and falls through when ra(=[a0+64]:8) != 0.
-  The `blez` branch at 0x12b0 targets 0x1404, is taken when t9(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) <= 0 (signed), and falls through when t9(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) > 0 (signed).
+  The `beq` branch at 0x1290 targets 0x14dc, is taken when ra(?) == 0, and falls through when ra(?) != 0.
+  The `blez` branch at 0x12b0 targets 0x1404, is taken when t9(?) <= 0 (signed), and falls through when t9(?) > 0 (signed).
   The `beq` branch at 0x12f8 targets 0x1358, is taken when a0(?) == 0, and falls through when a0(?) != 0.
   The `beq` branch at 0x1318 targets 0x1420, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `bne` branch at 0x1340 targets 0x1320, is taken when t1(?) < s0(=ret(ceil_log2)) (signed), and falls through when t1(?) >= s0(=ret(ceil_log2)) (signed).
@@ -240642,20 +240523,20 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x13c0 targets 0x13ac, is taken when a1(?) >= v0(?) (signed), and falls through when a1(?) < v0(?) (signed).
   The `bne` branch at 0x13d0 targets 0x1364, is taken when t1(?) != 0, and falls through when t1(?) == 0.
   The `beq` branch at 0x13d8 targets 0x1410, is taken when s8(?) == 0, and falls through when s8(?) != 0.
-  The `bne` branch at 0x13fc targets 0x12f4, is taken when t0(?) < t1(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) (signed), and falls through when t0(?) >= t1(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) (signed).
+  The `bne` branch at 0x13fc targets 0x12f4, is taken when t0(?) < t1(?) (signed), and falls through when t0(?) >= t1(?) (signed).
   The `bne` branch at 0x1404 targets 0x354, is taken when s8(?) != 0, and falls through when s8(?) == 0.
   The `beq` branch at 0x1418 targets 0x34c and is always taken.
   The `beq` branch at 0x1420 targets 0x1348 and is always taken.
   The `blez` branch at 0x1428 targets 0x1660, is taken when s1(=[[a0+32]:8+4]) <= 0 (signed), and falls through when s1(=[[a0+32]:8+4]) > 0 (signed).
   The `beq` branch at 0x1434 targets 0x91c and is always taken.
-  The `beq` branch at 0x1440 targets 0x1478, is taken when t3(=[a0+64]:8) == 0, and falls through when t3(=[a0+64]:8) != 0.
+  The `beq` branch at 0x1440 targets 0x1478, is taken when t3(?) == 0, and falls through when t3(?) != 0.
   The `beq` branch at 0x1470 targets 0x14a8 and is always taken.
   The `bne` branch at 0x14a8 targets 0x354, is taken when s8(?) != 0, and falls through when s8(?) == 0.
   The `beq` branch at 0x14bc targets 0x34c and is always taken.
   The `blez` branch at 0x14c4 targets 0x10f8, is taken when s1(=[[a0+32]:8+4]) <= 0 (signed), and falls through when s1(=[[a0+32]:8+4]) > 0 (signed).
   The `beq` branch at 0x14cc targets 0xd28 and is always taken.
   The `beq` branch at 0x14d4 targets 0xa80 and is always taken.
-  The `blez` branch at 0x14fc targets 0x1404, is taken when a2(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) <= 0 (signed), and falls through when a2(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) > 0 (signed).
+  The `blez` branch at 0x14fc targets 0x1404, is taken when a2(?) <= 0 (signed), and falls through when a2(?) > 0 (signed).
   The `beq` branch at 0x1544 targets 0x15a4, is taken when v1(?) == 0, and falls through when v1(?) != 0.
   The `beq` branch at 0x1564 targets 0x1658, is taken when a0(?) == 0, and falls through when a0(?) != 0.
   The `bne` branch at 0x158c targets 0x156c, is taken when t2(?) < s0(=ret(ceil_log2)) (signed), and falls through when t2(?) >= s0(=ret(ceil_log2)) (signed).
@@ -240666,7 +240547,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x160c targets 0x15f8, is taken when t8(?) >= v0(?) (signed), and falls through when t8(?) < v0(?) (signed).
   The `bne` branch at 0x161c targets 0x15b0, is taken when t1(?) != 0, and falls through when t1(?) == 0.
   The `beq` branch at 0x1624 targets 0x1410, is taken when s8(?) == 0, and falls through when s8(?) != 0.
-  The `bne` branch at 0x1648 targets 0x1540, is taken when t0(?) < t1(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) (signed), and falls through when t0(?) >= t1(=[((ret(ceil_log2) << 0x2) + sym(.data)+294912)]) (signed).
+  The `bne` branch at 0x1648 targets 0x1540, is taken when t0(?) < t1(?) (signed), and falls through when t0(?) >= t1(?) (signed).
   The `beq` branch at 0x1650 targets 0x1404 and is always taken.
   The `beq` branch at 0x1658 targets 0x1594 and is always taken.
   The `beq` branch at 0x1660 targets 0xaa0, is taken when t2(?) == 0, and falls through when t2(?) != 0.
@@ -243261,7 +243142,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xd94 loads 4 bytes from [[((a0 << 0x3) + [[-0x3c00]:8]:8)]:8+24]:8 +0x6c.
   The `sw` at 0xda0 stores 4 bytes to [[((a0 << 0x3) + [[-0x3c00]:8]:8)]:8+24]:8 +0x6c.
   The `jal` at 0xa5c calls pagealloc_size_node with a0=a0 at entry (arg0), a1=?, a2=0x2048000, a3=(a2 << 0xe), a6=-0x7, a7=a3 at entry (arg3).
-  The `jal` at 0xab0 calls lpage_size_to_index with a0=(a2 << 0xe), a1=0x1, a2=?, a3=?, a6=0x0.
+  The `jal` at 0xab0 calls lpage_size_to_index with a0=?, a1=0x1, a2=?, a3=?, a6=0x0.
   The `jal` at 0xadc calls mutex_bitlock with a0=?, a1=0x8000000, a2=?, a3=?.
   The `jal` at 0xafc calls anon_hold with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xb0c calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
@@ -243271,10 +243152,10 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xb90 calls vnode_pagemigr with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xc04 calls mutex_64bitlock with a0=?, a1=0x1, a2=?, a3=?.
   The `jal` at 0xc18 calls rmap_scanmap with a0=?, a1=0x200, a2=sp-176, a3=?.
-  The `jal` at 0xc28 calls mutex_64bitunlock with a0=?, a1=0x1, a2=ret(mutex_64bitlock), a3=?.
+  The `jal` at 0xc28 calls mutex_64bitunlock with a0=?, a1=0x1, a2=?, a3=?.
   The `jal` at 0xc74 calls tlbsync with a0=0x0, a1=[sym(allclr_cpumask)]:8, a2=[sym(allclr_cpumask)+8]:8, a3=[sym(allclr_cpumask)+16]:8, a4=[sym(allclr_cpumask)+24]:8, a5=[sym(allclr_cpumask)+32]:8, a6=[sym(allclr_cpumask)+40]:8, a7=[sym(allclr_cpumask)+48]:8.
   The `jal` at 0xc90 calls migr_pagemove with a0=?, a1=?, a2=0x1, a3=?.
-  The `jal` at 0xce0 calls cache_operation with a0=?, a1=((a2 << 0xe) << 0x0), a2=0x2400, a3=0xa800000000000000.
+  The `jal` at 0xce0 calls cache_operation with a0=?, a1=?, a2=0x2400, a3=0xa800000000000000.
   The `jal` at 0xd10 calls migr_page_epilogue with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xd34 calls migr_page_epilogue with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xd50 calls pagedone with a0=?, a1=?, a2=?, a3=?.
@@ -243294,9 +243175,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xed8 calls nested_64bitlock with a0=?, a1=0x1, a2=?, a3=?.
   The `jal` at 0xee8 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
   The `jal` at 0xef8 calls vnode_page_unmigr with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0xf1c calls pagefree_size with a0=ret(pagealloc_size_node), a1=(a2 << 0xe), a2=?, a3=?.
+  The `jal` at 0xf1c calls pagefree_size with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xf30 calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
-  The `jal` at 0xf50 calls pagefree_size with a0=a1 at entry (arg1), a1=(a2 << 0xe), a2=?, a3=?.
+  The `jal` at 0xf50 calls pagefree_size with a0=a1 at entry (arg1), a1=?, a2=?, a3=?.
   The `jal` at 0xf6c calls mutex_bitunlock with a0=?, a1=0x8000000, a2=ret(mutex_bitlock), a3=?.
   The `blez` branch at 0xa34 targets 0xf40, is taken when a2 <= 0 (signed), and falls through when a2 > 0 (signed).
   The `beq` branch at 0xa6c targets 0xf60, is taken when v0(=ret(pagealloc_size_node)) == 0, and falls through when v0(=ret(pagealloc_size_node)) != 0.
@@ -243968,9 +243849,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x8bc calls cap_able with a0=0x2000000000, a1=0x7003, a2=?, a3=?.
   The `jal` at 0x8d0 calls copyin with a0=a2 at entry (arg2), a1=sp-120, a2=0x18, a3=?.
   The `jal` at 0x910 calls pcibr_device_slot_get with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x930 calls pcibr_priority_bits_set with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x1, a3=?.
+  The `jal` at 0x930 calls pcibr_priority_bits_set with a0=?, a1=?, a2=0x1, a3=?.
   The `jal` at 0x940 calls pcibr_device_slot_get with a0=?, a1=?, a2=?, a3=?.
-  The `jal` at 0x960 calls pcibr_priority_bits_set with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x0, a3=0xff.
+  The `jal` at 0x960 calls pcibr_priority_bits_set with a0=?, a1=?, a2=0x0, a3=0xff.
   The `jal` at 0x970 calls pcibr_slot_query with a0=ret(hwgraph_connectpt_get), a1=sp-144, a2=?, a3=?.
   The `jal` at 0x980 calls pcibr_slot_startup with a0=ret(hwgraph_connectpt_get), a1=sp-96, a2=?, a3=?.
   The `jal` at 0x994 calls pcibr_slot_shutdown with a0=ret(hwgraph_connectpt_get), a1=sp-120, a2=?, a3=?.
@@ -244123,9 +244004,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xe40 calls strstr with a0=sp-320, a1=sym(.rodata), a2=?, a3=?.
   The `jal` at 0xe5c calls pcibr_widget_to_bus with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `jal` at 0xe74 calls strcat with a0=sp-320, a1=sym(.rodata), a2=?, a3=?.
-  The `jal` at 0xe88 calls sprintf with a0=sp-56, a1=sym(.rodata), a2=ret(pcibr_widget_to_bus), a3=?.
+  The `jal` at 0xe88 calls sprintf with a0=sp-56, a1=sym(.rodata), a2=?, a3=?.
   The `jal` at 0xea4 calls pcibr_debug with a0=0x4, a1=a0 at entry (arg0), a2=sym(.rodata), a3=sp-320, a4=sp-56.
-  The `jal` at 0xeb4 calls hwgraph_path_add with a0=[sym(hwgraph_root)], a1=sp-316, a2=sp-48, a3=?.
+  The `jal` at 0xeb4 calls hwgraph_path_add with a0=[sym(hwgraph_root)], a1=?, a2=sp-48, a3=?.
   The `jal` at 0xedc calls hwgraph_edge_add with a0=?, a1=?, a2=sp-56, a3=?.
   The `beq` branch at 0xe00 targets 0xe18, is taken when v0(=ret(hwgraph_vertex_name_get)) == 0, and falls through when v0(=ret(hwgraph_vertex_name_get)) != 0.
   The `beq` branch at 0xe2c targets 0xe3c, is taken when v0(=ret(hwgraph_traverse)) == 0, and falls through when v0(=ret(hwgraph_traverse)) != 0.
@@ -244162,7 +244043,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x1294 calls pciio_info_get with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
   The `jal` at 0x12a8 calls pciio_info_mfast_get with a0=ret(pciio_info_get), a1=?, a2=?, a3=?.
   The `jal` at 0x12b8 calls mutex_spinlock with a0=ret(pciio_info_mfast_get)+140, a1=?, a2=?, a3=?.
-  The `jal` at 0x1544 calls mutex_io_spinunlock with a0=ret(pciio_info_mfast_get)+140, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?.
+  The `jal` at 0x1544 calls mutex_io_spinunlock with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0x1650 calls sprintf with a0=sp-736, a1=sym(.rodata), a2=entry(sym(pci_space)), a3=sym(.rodata), a4=sym(.rodata), a5=sym(.rodata), a6=sym(.rodata), a7=sym(.rodata).
   The `jal` at 0x1738 calls sprintf with a0=sp-736, a1=sym(.rodata), a2=entry(sym(pci_space)), a3=?.
   The `jal` at 0x1974 calls sprintf with a0=sp-736, a1=sym(.rodata), a2=entry(sym(pci_space)), a3=?.
@@ -244360,9 +244241,9 @@ These entries record instruction facts rendered from the routines below. They de
   The `sb` at 0x2184 stores 1 byte to ?.
   The `jal` at 0x2118 calls pcibr_info_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0x2130 calls mutex_spinlock with a0=[ret(pcibr_info_get)+40]:8+140, a1=?, a2=?, a3=?.
-  The `jal` at 0x2188 calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+140, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?, a6=sym(.rodata).
+  The `jal` at 0x2188 calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+140, a1=?, a2=?, a3=?, a6=sym(.rodata).
   The `jal` at 0x21bc calls cmn_err with a0=0x4, a1=sym(.rodata), a2=a2 at entry (arg2), a3=a3 at entry (arg3), a6=sym(.rodata).
-  The `jal` at 0x21c8 calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+140, a1=(ret(mutex_spinlock) << 0x0), a2=?, a3=?.
+  The `jal` at 0x21c8 calls mutex_io_spinunlock with a0=[ret(pcibr_info_get)+40]:8+140, a1=?, a2=?, a3=?.
   The `jal` at 0x21e0 calls hwgraph_vertex_name_get with a0=a0 at entry (arg0), a1=sp-1088, a2=0x400, a3=?.
   The `jal` at 0x21f0 calls cmn_err with a0=0x4, a1=sym(.rodata), a2=?, a3=?.
   The `jal` at 0x2208 calls cmn_err with a0=0x4, a1=sym(.rodata), a2=sp-1088, a3=a3 at entry (arg3).
@@ -245157,8 +245038,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0x4e60 loads 8 bytes from a0 (arg0 at entry) +0x8.
   5 such `lw` accesses load 4 bytes from ?, including `lw` at 0x4e94, `lw` at 0x4fb4, `lw` at 0x4ff4.
   2 such `sw` accesses store 4 bytes to a1 (arg1 at entry) +0x0, including `sw` at 0x4ecc, `sw` at 0x4f74.
-  2 such `ll` accesses load 4 bytes from (a0 + ([a1+8]:1 << 0x7)) +0x174, including `ll` at 0x4ed8, `ll` at 0x4f7c.
-  2 such `sc` accesses store 4 bytes to (a0 + ([a1+8]:1 << 0x7)) +0x174, including `sc` at 0x4ee4, `sc` at 0x4f88.
+  2 such `ll` accesses load 4 bytes from ?, including `ll` at 0x4ed8, `ll` at 0x4f7c.
+  2 such `sc` accesses store 4 bytes to ?, including `sc` at 0x4ee4, `sc` at 0x4f88.
   The `ld` at 0x4fc4 loads 8 bytes from ?.
   3 such `sw` accesses store 4 bytes to ?, including `sw` at 0x4fc8, `sw` at 0x4fd4, `sw` at 0x5004.
   The `jal` at 0x4df0 calls pcireg_int_ate_set with a0=a0 at entry (arg0), a1=?, a2=?, a3=?.
@@ -245181,10 +245062,10 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x4e80 targets 0x4eb8, is taken when s1(?) >= a0(=[a0+57]:1+1) (signed), and falls through when s1(?) < a0(=[a0+57]:1+1) (signed).
   The `bne` branch at 0x4e9c targets 0x4e60, is taken when (a3(?) & 0x4) != 0, and falls through when (a3(?) & 0x4) == 0.
   The `bne` branch at 0x4eb0 targets 0x4e88, is taken when s1(?) < a0(=[a0+57]:1+1) (signed), and falls through when s1(?) >= a0(=[a0+57]:1+1) (signed).
-  The `beql` branch at 0x4ee8 targets 0x4ed8, is taken when at(=[(a0 + ([a1+8]:1 << 0x7))+372]+1) == 0, and falls through when at(=[(a0 + ([a1+8]:1 << 0x7))+372]+1) != 0; its branch-likely delay slot `nop` at 0x4eec runs only when taken and is annulled on fall-through.
+  The `beql` branch at 0x4ee8 targets 0x4ed8, is taken when at(=table(0x1)) == 0, and falls through when at(=table(0x1)) != 0; its branch-likely delay slot `nop` at 0x4eec runs only when taken and is annulled on fall-through.
   The `bgez` branch at 0x4f30 targets 0x4dd8, is taken when ra(=([a1] << 0x21)) >= 0 (signed), and falls through when ra(=([a1] << 0x21)) < 0 (signed).
   The `beq` branch at 0x4f5c targets 0x4f94, is taken when (a2(=[a1]) & at(=0xffffffff80000000)) == 0, and falls through when (a2(=[a1]) & at(=0xffffffff80000000)) != 0.
-  The `beql` branch at 0x4f8c targets 0x4f7c, is taken when a4(=[(a0 + ([a1+8]:1 << 0x7))+372]-1) == 0, and falls through when a4(=[(a0 + ([a1+8]:1 << 0x7))+372]-1) != 0; its branch-likely delay slot `nop` at 0x4f90 runs only when taken and is annulled on fall-through.
+  The `beql` branch at 0x4f8c targets 0x4f7c, is taken when a4(=table(-0x1)) == 0, and falls through when a4(=table(-0x1)) != 0; its branch-likely delay slot `nop` at 0x4f90 runs only when taken and is annulled on fall-through.
   The `beq` branch at 0x4fa4 targets 0x4dd8, is taken when s6(=[a0+56]:1) >= a0(=[a0+57]:1+1) (signed), and falls through when s6(=[a0+56]:1) < a0(=[a0+57]:1+1) (signed).
   The `beq` branch at 0x4fac targets 0x507c and is always taken.
   The `beq` branch at 0x4fbc targets 0x4fd4, is taken when (a6(?) & 0x4) == 0, and falls through when (a6(?) & 0x4) != 0.
@@ -245797,7 +245678,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0x746c calls kmem_zalloc with a0=0x8, a1=0x0, a2=?, a3=?.
   The `jal` at 0x748c calls hwgraph_info_add_LBL with a0=?, a1=sym(.rodata)+4264, a2=ret(kmem_zalloc), a3=?.
   The `jal` at 0x74a0 calls hwgraph_info_get_LBL with a0=?, a1=sym(.rodata)+4264, a2=sp-64, a3=?.
-  The `jal` at 0x74b8 calls kmem_free with a0=ret(kmem_zalloc), a1=0x8, a2=?, a3=ret(kmem_zalloc).
+  The `jal` at 0x74b8 calls kmem_free with a0=?, a1=0x8, a2=?, a3=?.
   The `jal` at 0x74d4 calls pcibr_debug with a0=0x2, a1=a0 at entry (arg0), a2=sym(.rodata)+4264, a3=?.
   The `jal` at 0x74f0 calls pcibr_debug with a0=0x2, a1=a0 at entry (arg0), a2=sym(.rodata)+4264, a3=?, a5=-0x1.
   The `jal` at 0x750c calls pcibr_debug with a0=0x2, a1=a0 at entry (arg0), a2=sym(.rodata)+4264, a3=?.
@@ -245805,7 +245686,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0x7434 targets 0x74e4, is taken when a5(=-0x1) == a0(?), and falls through when a5(=-0x1) != a0(?).
   The `beq` branch at 0x744c targets 0x746c, is taken when v0(?) == 0, and falls through when v0(?) != 0.
   The `beq` branch at 0x7474 targets 0x7500, is taken when v0(=ret(kmem_zalloc)) == 0, and falls through when v0(=ret(kmem_zalloc)) != 0.
-  The `beq` branch at 0x74b0 targets 0x7458, is taken when a2(?) == a3(=ret(kmem_zalloc)), and falls through when a2(?) != a3(=ret(kmem_zalloc)).
+  The `beq` branch at 0x74b0 targets 0x7458, is taken when a2(?) == a3(?), and falls through when a2(?) != a3(?).
   The `beq` branch at 0x74c4 targets 0x751c, is taken when a4(?) == 0, and falls through when a4(?) != 0.
   The `beq` branch at 0x74dc targets 0x7454 and is always taken.
   The `beq` branch at 0x74f8 targets 0x745c and is always taken.
@@ -246084,7 +245965,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `ld` at 0xba9c loads 8 bytes from [ret(pcibr_info_get)+40]:8 +0x8.
   The `jal` at 0xba8c calls pcibr_info_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xbaa4 calls pcibr_config_addr with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=?, a3=?.
-  The `jal` at 0xbab8 calls pcibr_probe_slot with a0=[[ret(pcibr_info_get)+40]:8+8]:8, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
+  The `jal` at 0xbab8 calls pcibr_probe_slot with a0=?, a1=ret(pcibr_config_addr), a2=sp-48, a3=?.
   The `beq` branch at 0xbac0 targets 0xbad4, is taken when v0(=ret(pcibr_probe_slot)) == 0, and falls through when v0(=ret(pcibr_probe_slot)) != 0.
   The `beq` branch at 0xbad4 targets 0xbacc and is always taken.
   The return at 0xbacc has v0 = one of -0x1, ?.
@@ -246104,7 +245985,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xbd10 calls pcibr_debug with a0=0x8000, a1=a0 at entry (arg0), a2=sym(.rodata)+11000, a3=ret(hwgraph_fastinfo_get), a5=a1 at entry (arg1).
   The `jal` at 0xbd20 calls nic_vertex_info_match with a0=[ret(hwgraph_fastinfo_get)], a1=sym(.rodata)+11000, a2=?, a3=?.
   The `jal` at 0xbd78 calls mrlock with a0=ret(hwgraph_fastinfo_get)+144, a1=0x2, a2=0x19, a3=?.
-  The `jal` at 0xbda0 calls mrunlock with a0=ret(hwgraph_fastinfo_get)+144, a1=?, a2=?, a3=?.
+  The `jal` at 0xbda0 calls mrunlock with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xbdc0 calls pcibr_slot_attach with a0=a0 at entry (arg0), a1=?, a2=0x200, a3=sp-336, a4=sp-200.
   The `jal` at 0xbdd4 calls strncpy with a0=sp-196, a1=sp-336, a2=0x80, a3=?.
   The `jal` at 0xbde8 calls copyout with a0=sp-200, a1=[a1+8]:8, a2=[a1+16], a3=?.
@@ -246138,7 +246019,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xbe74 calls pcibr_debug with a0=0x8000, a1=a0 at entry (arg0), a2=sym(.rodata)+11000, a3=ret(hwgraph_fastinfo_get), a5=a1 at entry (arg1).
   The `jal` at 0xbeb8 calls nic_vertex_info_match with a0=[ret(hwgraph_fastinfo_get)], a1=sym(.rodata)+11000, a2=?, a3=0xa.
   The `jal` at 0xbee0 calls mrlock with a0=ret(hwgraph_fastinfo_get)+144, a1=0x2, a2=0x19, a3=?.
-  The `jal` at 0xbf04 calls mrunlock with a0=ret(hwgraph_fastinfo_get)+144, a1=?, a2=?, a3=?.
+  The `jal` at 0xbf04 calls mrunlock with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xbfac calls pcibr_slot_detach with a0=a0 at entry (arg0), a1=?, a2=0x400, a3=sp-200, a4=sp-336, a7=[ret(hwgraph_fastinfo_get)+116]:2.
   The `jal` at 0xbfc0 calls strncpy with a0=sp-332, a1=sp-200, a2=0x80, a3=?.
   The `jal` at 0xbfd4 calls copyout with a0=sp-336, a1=[a1+8]:8, a2=[a1+16], a3=?.
@@ -246160,7 +246041,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xbf70 targets 0xbf84, is taken when (t1(?) & 0x10) == 0, and falls through when (t1(?) & 0x10) != 0.
   The `beq` branch at 0xbf78 targets 0xbf98 and is always taken.
   The `beq` branch at 0xbf8c targets 0xbf5c, is taken when a3(=[ret(hwgraph_fastinfo_get)+50]:1) >= v0(?) (signed), and falls through when a3(=[ret(hwgraph_fastinfo_get)+50]:1) < v0(?) (signed).
-  The `bne` branch at 0xbf98 targets 0xbf04, is taken when a1(=one of 0x0, 0x1) != 0, and falls through when a1(=one of 0x0, 0x1) == 0.
+  The `bne` branch at 0xbf98 targets 0xbf04, is taken when a1(?) != 0, and falls through when a1(?) == 0.
   The `beq` branch at 0xbfdc targets 0xbf04, is taken when v0(=ret(copyout)) == 0, and falls through when v0(=ret(copyout)) != 0.
   The `beq` branch at 0xbfe4 targets 0xbe90 and is always taken.
   The return at 0xbeac has v0 = one of 0x8, 0xa, 0x9, ?, 0xe.
@@ -246349,35 +246230,32 @@ These entries record instruction facts rendered from the routines below. They de
   The `lw` at 0xd5fc loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x108.
   The `ld` at 0xd604 loads 8 bytes from ret(hwgraph_fastinfo_get) +0x8.
   The `lw` at 0xd644 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
-  2 such `ld` accesses load 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x120, including `ld` at 0xd66c, `ld` at 0xda24.
+  The `ld` at 0xd66c loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x120.
   5 such `lh` accesses load 2 bytes from ret(hwgraph_fastinfo_get) +0x72, including `lh` at 0xd6c8, `lh` at 0xd80c, `lh` at 0xd8ec.
-  4 such `lw` accesses load 4 bytes from ?, including `lw` at 0xd6fc, `lw` at 0xd788, `lw` at 0xd8a8.
+  6 such `lw` accesses load 4 bytes from ?, including `lw` at 0xd6fc, `lw` at 0xd788, `lw` at 0xd8a8.
   3 such `sd` accesses store 8 bytes to ?, including `sd` at 0xd704, `sd` at 0xd70c, `sd` at 0xd930.
-  4 such `ld` accesses load 8 bytes from ?, including `ld` at 0xd778, `ld` at 0xd890, `ld` at 0xd894.
+  6 such `ld` accesses load 8 bytes from ?, including `ld` at 0xd778, `ld` at 0xd890, `ld` at 0xd894.
   The `ld` at 0xd848 loads 8 bytes from table(sym(pci_space)) +0x0.
-  The `ld` at 0xda28 loads 8 bytes from [(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8 +0x0.
-  The `lw` at 0xda2c loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8 +0x14.
-  The `lw` at 0xda40 loads 4 bytes from [[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8 +0x18.
   The `jal` at 0xd5c8 calls hwgraph_fastinfo_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
-  The `jal` at 0xd6b4 calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
+  The `jal` at 0xd6b4 calls do_pcibr_config_set with a0=?, a1=0x0, a2=0x4, a3=ret(pcibr_bus_addr_alloc).
   The `jal` at 0xd6f4 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+11000, a3=?, a5=ret(pcibr_bus_addr_alloc).
-  The `jal` at 0xd71c calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?, a4=0x9004.
-  The `jal` at 0xd754 calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr), a1=0x4, a2=0x4, a3=?.
-  The `jal` at 0xd7a4 calls pcibr_func_config_addr with a0=[ret(hwgraph_fastinfo_get)+8]:8, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
+  The `jal` at 0xd71c calls do_pcibr_config_get with a0=?, a1=0x4, a2=0x4, a3=?, a4=0x9004.
+  The `jal` at 0xd754 calls do_pcibr_config_set with a0=?, a1=0x4, a2=0x4, a3=?.
+  The `jal` at 0xd7a4 calls pcibr_func_config_addr with a0=?, a1=0x0, a2=a1 at entry (arg1), a3=?, a4=0x0.
   The `jal` at 0xd7bc calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr), a1=0xe, a2=0x1, a3=?.
   The `jal` at 0xd844 calls sprintf with a0=sp-464, a1=sym(.rodata)+11000, a2=?, a3=?, a5=entry(sym(pci_space)).
   The `jal` at 0xd85c calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+11000, a3=sp-464.
   The `jal` at 0xd910 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+11000, a3=?, a6=0x4, a7=0xff.
-  The `jal` at 0xd92c calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=?.
+  The `jal` at 0xd92c calls do_pcibr_config_set with a0=?, a1=?, a2=0x4, a3=?.
   The `jal` at 0xd9a0 calls sprintf with a0=sp-464, a1=sym(.rodata)+11000, a2=?, a3=?.
   The `jal` at 0xd9b8 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+11000, a3=sp-464.
   The `jal` at 0xd9f8 calls sprintf with a0=sp-464, a1=sym(.rodata)+11000, a2=?, a3=?, a7=0xff.
   The `jal` at 0xda10 calls pcibr_debug with a0=0x800, a1=a0 at entry (arg0), a2=sym(.rodata)+11000, a3=sp-464.
-  The `jal` at 0xda64 calls do_pcibr_config_set with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
-  The `jal` at 0xda74 calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr)+48, a1=0x0, a2=0x4, a3=?.
+  The `jal` at 0xda64 calls do_pcibr_config_set with a0=?, a1=0x0, a2=0x4, a3=0xfffff000, a4=one of 0x3, 0x10a9.
+  The `jal` at 0xda74 calls do_pcibr_config_get with a0=?, a1=0x0, a2=0x4, a3=?.
   The `jal` at 0xdaa0 calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xdafc calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x2, a3=0x0, a6=0x4, a7=0xff.
-  The `jal` at 0xdb28 calls do_pcibr_config_get with a0=ret(pcibr_func_config_addr)+16, a1=?, a2=0x4, a3=0xff, a4=[sym(pcibr_debug_mask)], a6=0x4, a7=0xff.
+  The `jal` at 0xdb28 calls do_pcibr_config_get with a0=?, a1=?, a2=0x4, a3=0xff, a4=[sym(pcibr_debug_mask)], a6=0x4, a7=0xff.
   The `jal` at 0xdb50 calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x5, a3=0x0.
   The `jal` at 0xdba0 calls pcibr_bus_addr_alloc with a0=ret(hwgraph_fastinfo_get), a1=?, a2=0x4, a3=0x0.
   The `beq` branch at 0xd5d4 targets 0xdbc4, is taken when v0(=ret(hwgraph_fastinfo_get)) == 0, and falls through when v0(=ret(hwgraph_fastinfo_get)) != 0.
@@ -246392,7 +246270,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xd6cc targets 0xd6d8, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xd708 targets 0xdad4, is taken when a3(?) == a4(=0x9004), and falls through when a3(?) != a4(=0x9004).
   The `beq` branch at 0xd738 targets 0xd75c, is taken when (a5(?) & a6(?)) == 0, and falls through when (a5(?) & a6(?)) != 0.
-  The `beq` branch at 0xd768 targets 0xdb74, is taken when s4(?) >= a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) (signed), and falls through when s4(?) < a4(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) (signed).
+  The `beq` branch at 0xd768 targets 0xdb74, is taken when s4(?) >= a4(?) (signed), and falls through when s4(?) < a4(?) (signed).
   The `beq` branch at 0xd780 targets 0xd75c, is taken when s5(?) == 0, and falls through when s5(?) != 0.
   The `beq` branch at 0xd78c targets 0xd760, is taken when a7(?) == t0(=-0x1), and falls through when a7(?) != t0(=-0x1).
   The `blez` branch at 0xd7e4 targets 0xda20, is taken when t1(=one of 0x2, 0x6) <= 0 (signed), and falls through when t1(=one of 0x2, 0x6) > 0 (signed).
@@ -246400,7 +246278,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xd7fc targets 0xd868, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xd804 targets 0xdabc, is taken when t3(=0xff) == s3(=a1), and falls through when t3(=0xff) != s3(=a1).
   The `beq` branch at 0xd810 targets 0xd81c, is taken when t8(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when t8(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
-  The `beq` branch at 0xd884 targets 0xda20, is taken when s0(?) >= a3(=one of 0x2, 0x6) (signed), and falls through when s0(?) < a3(=one of 0x2, 0x6) (signed).
+  The `beq` branch at 0xd884 targets 0xda20, is taken when s0(?) >= a3(?) (signed), and falls through when s0(?) < a3(?) (signed).
   The `beq` branch at 0xd8ac targets 0xd864, is taken when s1(?) == 0, and falls through when s1(?) != 0.
   The `beq` branch at 0xd8b8 targets 0xd7fc, is taken when a6(?) >= s1(?) (unsigned), and falls through when a6(?) < s1(?) (unsigned).
   The `beq` branch at 0xd8d4 targets 0xdaec, is taken when s2(?) == s7(=0x2), and falls through when s2(?) != s7(=0x2).
@@ -246415,8 +246293,8 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xd9c8 targets 0xdacc, is taken when a3(=0xff) == s3(=a1), and falls through when a3(=0xff) != s3(=a1).
   The `beq` branch at 0xd9d4 targets 0xd9e0, is taken when a4(=[ret(hwgraph_fastinfo_get)+114]:2) == s7(=0x2), and falls through when a4(=[ret(hwgraph_fastinfo_get)+114]:2) != s7(=0x2).
   The `beq` branch at 0xda18 targets 0xd868 and is always taken.
-  The `bne` branch at 0xda38 targets 0xda4c, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8+20]) != a4(=0x10a9), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8+20]) == a4(=0x10a9).
-  The `beq` branch at 0xda48 targets 0xd6fc, is taken when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8+24]) == a4(=0x3), and falls through when a3(=[[[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8]:8+24]) != a4(=0x3).
+  The `bne` branch at 0xda38 targets 0xda4c, is taken when a3(?) != a4(=0x10a9), and falls through when a3(?) == a4(=0x10a9).
+  The `beq` branch at 0xda48 targets 0xd6fc, is taken when a3(?) == a4(=0x3), and falls through when a3(?) != a4(=0x3).
   The `beq` branch at 0xda80 targets 0xd6fc, is taken when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) == 0, and falls through when (s0(=0xfffff000) & v0(=ret(do_pcibr_config_get))) != 0.
   The `bne` branch at 0xdaa8 targets 0xd6a8, is taken when v0(=ret(pcibr_bus_addr_alloc)) != 0, and falls through when v0(=ret(pcibr_bus_addr_alloc)) == 0.
   The `beq` branch at 0xdab4 targets 0xd6fc and is always taken.
@@ -246436,7 +246314,7 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xdbf4 targets 0xdb74 and is always taken.
   The `beq` branch at 0xdc04 targets 0xd890 and is always taken.
   The `beq` branch at 0xdc10 targets 0xd774 and is always taken.
-  The return at 0xd624 has v0 = one of 0x0, 0x16, 0x1c.
+  The return at 0xd624 has v0 = one of ?, 0x16.
 - `pcibr_slot_guest_info_init` in `6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o` at 0xdd0c (n64).
   Evidence grade: inferred.
   Exact binary: `6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o`.
@@ -246474,20 +246352,16 @@ These entries record instruction facts rendered from the routines below. They de
   The `lbu` at 0xde54 loads 1 byte from ret(hwgraph_fastinfo_get) +0x39.
   The `lw` at 0xde74 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x108.
   The `lw` at 0xdea8 loads 4 bytes from ret(hwgraph_fastinfo_get) +0x0.
-  The `lw` at 0xdec0 loads 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x118.
-  The `ld` at 0xdedc loads 8 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x120.
-  The `sw` at 0xdf04 stores 4 bytes to ?.
-  The `ld` at 0xdf28 loads 8 bytes from ?.
-  2 such `lw` accesses load 4 bytes from ?, including `lw` at 0xdf38, `lw` at 0xdf44.
+  5 such `lw` accesses load 4 bytes from ?, including `lw` at 0xdec0, `lw` at 0xdf38, `lw` at 0xdf44.
+  2 such `ld` accesses load 8 bytes from ?, including `ld` at 0xdedc, `ld` at 0xdf28.
+  3 such `sw` accesses store 4 bytes to ?, including `sw` at 0xdf04, `sw` at 0xe07c, `sw` at 0xe0b4.
   The `lh` at 0xdf90 loads 2 bytes from ret(hwgraph_fastinfo_get) +0x72.
-  2 such `lw` accesses load 4 bytes from (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x114, including `lw` at 0xe070, `lw` at 0xe098.
-  2 such `sw` accesses store 4 bytes to (ret(hwgraph_fastinfo_get) + (a1 << 0x7)) +0x114, including `sw` at 0xe07c, `sw` at 0xe0b4.
-  The `ld` at 0xe0f8 loads 8 bytes from [(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+288]:8 +0x0.
+  The `ld` at 0xe0f8 loads 8 bytes from table(0x0) +0x0.
   The `jal` at 0xde40 calls hwgraph_fastinfo_get with a0=a0 at entry (arg0), a1=a1 at entry (arg1), a2=a2 at entry (arg2), a3=a3 at entry (arg3).
   The `jal` at 0xdeb0 calls async_attach_get_info with a0=[ret(hwgraph_fastinfo_get)], a1=?, a2=?, a3=?.
   The `jal` at 0xdef8 calls hwgraph_vertex_unref with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xdf4c calls device_admin_info_get with a0=?, a1=sym(.rodata)+11000, a2=?, a3=?.
-  The `jal` at 0xdf68 calls async_attach_add_info with a0=?, a1=ret(async_attach_get_info), a2=ret(async_attach_get_info), a3=?.
+  The `jal` at 0xdf68 calls async_attach_add_info with a0=?, a1=?, a2=?, a3=?.
   The `jal` at 0xdf74 calls pciio_device_attach with a0=?, a1=a2 at entry (arg2), a2=?, a3=?.
   The `jal` at 0xdfb4 calls pcibr_debug with a0=0x2000, a1=a0 at entry (arg0), a2=sym(.rodata)+11000, a3=?, a5=a2 at entry (arg2), a6=ret(pciio_device_attach).
   The `jal` at 0xdfd0 calls hwgraph_path_lookup with a0=?, a1=sym(.rodata)+11000, a2=sp-144, a3=0x0.
@@ -246501,13 +246375,13 @@ These entries record instruction facts rendered from the routines below. They de
   The `beq` branch at 0xde60 targets 0xdea0, is taken when s4(=a1) >= at(=[ret(hwgraph_fastinfo_get)+57]:1+1) (signed), and falls through when s4(=a1) < at(=[ret(hwgraph_fastinfo_get)+57]:1+1) (signed).
   The `beq` branch at 0xde78 targets 0xdea8, is taken when v0(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+264]) == 0, and falls through when v0(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+264]) != 0.
   The `beq` branch at 0xdea0 targets 0xde84 and is always taken.
-  The `blez` branch at 0xded8 targets 0xe0b8, is taken when s6(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) <= 0 (signed), and falls through when s6(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) > 0 (signed).
+  The `blez` branch at 0xded8 targets 0xe0b8, is taken when s6(?) <= 0 (signed), and falls through when s6(?) > 0 (signed).
   The `beq` branch at 0xdef0 targets 0xe0ec and is always taken.
-  The `beq` branch at 0xdf20 targets 0xe030, is taken when s0(?) >= s6(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) (signed), and falls through when s0(?) < s6(=[(ret(hwgraph_fastinfo_get) + (a1 << 0x7))+280]) (signed).
+  The `beq` branch at 0xdf20 targets 0xe030, is taken when s0(?) >= s6(?) (signed), and falls through when s0(?) < s6(?) (signed).
   The `beq` branch at 0xdf30 targets 0xdf14, is taken when s1(?) == 0, and falls through when s1(?) != 0.
   The `beq` branch at 0xdf3c targets 0xdf14, is taken when v1(?) == a0(=-0x1), and falls through when v1(?) != a0(=-0x1).
   The `bne` branch at 0xdf54 targets 0xe0c4, is taken when v0(=ret(device_admin_info_get)) != 0, and falls through when v0(=ret(device_admin_info_get)) == 0.
-  The `beq` branch at 0xdf60 targets 0xdf70, is taken when a2(=ret(async_attach_get_info)) == 0, and falls through when a2(=ret(async_attach_get_info)) != 0.
+  The `beq` branch at 0xdf60 targets 0xdf70, is taken when a2(?) == 0, and falls through when a2(?) != 0.
   The `beq` branch at 0xdf88 targets 0xdf9c, is taken when a0(=0xff) == s4(=a1), and falls through when a0(=0xff) != s4(=a1).
   The `beq` branch at 0xdf94 targets 0xe018, is taken when a3(=[ret(hwgraph_fastinfo_get)+114]:2) == a4(=0x2), and falls through when a3(=[ret(hwgraph_fastinfo_get)+114]:2) != a4(=0x2).
   The `beq` branch at 0xdfbc targets 0xdf00, is taken when s3(=a2) == 0, and falls through when s3(=a2) != 0.
@@ -251079,10 +250953,10 @@ These entries record instruction facts rendered from the routines below. They de
   The `jal` at 0xed8 calls xwidget_name_get with a0=ret(xbow_widget_lookup), a1=?, a2=?, a3=?.
   The `jal` at 0xef4 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=[a0+24]:8, a3=?, a4=ret(xwidget_name_get).
   The `jal` at 0xfc0 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+84].
-  The `jal` at 0xfd4 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+36].
-  The `jal` at 0xfe8 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+68].
-  The `jal` at 0xffc calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+20].
-  The `jal` at 0x1010 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=[[a0+16]:8+28].
+  The `jal` at 0xfd4 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
+  The `jal` at 0xfe8 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
+  The `jal` at 0xffc calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
+  The `jal` at 0x1010 calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
   The `jal` at 0x103c calls cmn_err with a0=0x6, a1=sym(.rodata), a2=sym(.rodata), a3=?.
   The `jal` at 0x104c calls cmn_err_tag with a0=0x8, a1=0x0, a2=sym(.rodata), a3=?.
   The `jal` at 0x106c calls cmn_err with a0=0x6, a1=sym(.rodata), a2=[a0+24]:8, a3=?.
