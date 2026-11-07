@@ -4,7 +4,7 @@ Questions the binaries have not yet answered. Each entry names the routes alread
 
 ## Triage (2026-11-01)
 
-Six entries: 2 software-now, 3 missing-input, 1 hardware-only.
+Six entries at the date of this triage: 2 software-now, 3 missing-input, 1 hardware-only. Sections added later list their own questions with a class in each row.
 
 Route classes:
 
@@ -103,6 +103,8 @@ Hardware-only:
 | Whether sleeping primitives (`mutex_lock`, `sv_wait`, `psema`) refuse or panic when called at interrupt level. | missing-input | [module-interfaces.md](module-interfaces.md) | Kernel strings searched: no message for it. | Read `mutex_wait` and `sv_timedwait` for a test of the interrupt-level state. |
 | The syssgi selector and sub-command numbers that reach the 196-byte performance-counter argument block, how `perfex` and `libperfex` use the /proc and syssgi routes, the mapping of the 32 event slots to hardware counters, and how the kernel's secondary-cache error monitor shares counter 3 with user requests. | missing-input | [module-interfaces.md](module-interfaces.md) | Syssgi tail located (0xc0000000002e4e24) but its branch chain was not followed; no `perfex` or `libperfex` binary in `root/`. | Follow the branches into 0xc0000000002e4e24; obtain the userland binaries; read `hwperf_get_access`. |
 | Whether an R16000 (implementation 0x10 in the standard encoding) is counted by 6.5.30 at all; the counter code recognises only implementations 0x9, 0xe and 0xf. | missing-input | [module-interfaces.md](module-interfaces.md) | `r1nk_perf_architecture` and the overflow tests read on IP35. | A kernel run or trace on an R16000 system, or the published part documents for the processor identification value. |
+| The rules `setpgid` applies when the target process is in another session or is a session leader. | software-now | [process-model.md](process-model.md) | `setpgid` read as far as `vproc_lookup`, `pcred_access` and `mac_access`; the cross-session tests were not read. | Read the process-operation routine behind the slot at +168 for session-id comparisons and the error values it returns. |
+| The condition that selects `fdt_fork` (copy of the descriptor table) instead of `fdt_forkfree` in `procdup`. | software-now | [process-model.md](process-model.md) | Both calls located in `procdup`; the branch between them was not traced. | Read the mask bits that `procdup` tests before each call and match them with the `sproc` share-mask bits. |
 ## Tracing and modules
 
 | Question | Class | Owner | Routes tried | Next route |
