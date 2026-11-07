@@ -733,7 +733,7 @@ to 2 (unless it already is, which takes the 256 path), builds the frame from the
 saves ra, a0 to a7, s0 to
 s7, gp, sp and the saved value of at, calls `tfi_save`, copies the +144 doubleword into the word at -16360, calls
 `uli_setasids` with the halfword at +168 and jumps to `ecommon_allsaved`. The block at +0x94, a tail jump to `assfail`
-with "invalid kstk", "intrnorm.s" and 0, is not reached from inside the routine. The workaround stage was read
+with "invalid kstk", "the IRIX tree assembly unit 1" and 0, is not reached from inside the routine. The workaround stage was read
 instruction by instruction but its purpose (a cut-off multiply or divide) is inferred from the instruction pattern.
 **Inferred.**
 - `xbow_attach` (`6.5.30/unix.IP30`, occupies 796 bytes at address 0xa80000002003b64c): attach routine of the Crossbow

@@ -98,7 +98,7 @@ Many name disagreements are aliases (`rexit` and `exit`, `exece` and `execve`, `
 
 ## syssgi selectors
 
-The kernel's selectors are compared with the `IRIX_SGI_*` values of NetBSD's `irix_syssgi.h` (253 distinct values) and with the 18 `case SGI_*` names of the Linux emulation (15 of which NetBSD gives a value). "Has a case" means the selector reaches code of its own, not a path shared with other selectors. A public selector without a case may be a default or a range the extractor could not narrow, because selectors that never narrow to one value are not listed.
+The kernel's selectors are compared with the `IRIX_SGI_*` values of NetBSD's the IRIX tree header 3 (253 distinct values) and with the 18 `case SGI_*` names of the Linux emulation (15 of which NetBSD gives a value). "Has a case" means the selector reaches code of its own, not a path shared with other selectors. A public selector without a case may be a default or a range the extractor could not narrow, because selectors that never narrow to one value are not listed.
 
 | Kernel | Selector rows | Public values with a case | Public values without | Kernel cases with no public constant | Linux names with a case (of 15) |
 |---|---:|---:|---:|---:|---:|
@@ -136,4 +136,4 @@ Linux-implemented names with no case (2): 1 SYSID, 8 SETNVRAM
 
 ## Regenerating
 
-Put copies of the public files in one directory under the names `linux-irix5sys.S`, `netbsd-irix-syscalls.master`, `qi-linux-user_irix_syscall_nr.h`, `netbsd-irix_syssgi.h` and `linux-sysirix.c`, then run `tools/re-run --syscalls root/6.5.30/unix.IP35 --cross-check DIR --report FILE` and the same with `--syssgi`.
+Put copies of the public files in one directory under the names `linux-irix5sys.S`, `netbsd-irix-syscalls.master`, the IRIX tree header 5, the IRIX tree header 4 and the IRIX tree source unit 1, then run `tools/re-run --syscalls root/6.5.30/unix.IP35 --cross-check DIR --report FILE` and the same with `--syssgi`.

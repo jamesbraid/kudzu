@@ -83525,7 +83525,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_pmm.o)	shared-kernel	n64	.text	0x6234	456	mm_check_enode	dwarf+symtab	3605fc87a6f5		out:37	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_pmm.o)	shared-kernel	n64	.text	0x63fc	1696	mm_shake	dwarf+symtab	90d562db05ef		out:37	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0x0	48	odsy_tport_lock_init	dwarf+symtab	e799e21d1150		out:37	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0x30	2440	ODSY_SET_GC	dwarf+symtab	1751f1102255		out:37	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0x30	2440	the set graphics-context Odyssey driver request	dwarf+symtab	1751f1102255		out:37	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0x9b8	216	odsy_color	dwarf+symtab	33cd0c9d0e55		out:37	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0xa90	256	odsy_mapcolor	dwarf+symtab	96e9218746ee		out:37	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0xb90	600	odsy_sboxfi	dwarf+symtab	2c09b4dd3408		out:37	undocumented		
@@ -115725,7 +115725,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_pmm.o)	shared-kernel	n64	.text	0x6220	456	mm_check_enode	dwarf+symtab	3605fc87a6f5		out:51	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_pmm.o)	shared-kernel	n64	.text	0x63e8	1696	mm_shake	dwarf+symtab	90d562db05ef		out:51	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0x0	48	odsy_tport_lock_init	dwarf+symtab	e799e21d1150		out:51	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0x30	2440	ODSY_SET_GC	dwarf+symtab	1751f1102255		out:51	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0x30	2440	the set graphics-context Odyssey driver request	dwarf+symtab	1751f1102255		out:51	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0x9b8	192	odsy_color	dwarf+symtab	9bc5e60cb483		out:51	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0xa78	236	odsy_mapcolor	dwarf+symtab	6418fe9c6c22		out:51	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0xb64	572	odsy_sboxfi	dwarf+symtab	e8d86a33dfe1		out:51	undocumented		
@@ -150726,7 +150726,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020363be4	452	gfP_OdsyPbufAssoc	dwarf+symtab	ccfe835dbea9		out:5	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020363da8	392	gfP_OdsyPbufDeassoc	dwarf+symtab	e4709616a6fb		out:5	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020363f30	48	odsy_tport_lock_init	dwarf+symtab	ef6fd611ae8f		out:5	undocumented		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020363f60	2440	ODSY_SET_GC	dwarf+symtab	9f51d820efab		out:5	undocumented		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020363f60	2440	the set graphics-context Odyssey driver request	dwarf+symtab	9f51d820efab		out:5	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000203648e8	216	odsy_color	dwarf	97553ffec8bb		out:5	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000203649c0	256	odsy_mapcolor	dwarf	9afb413b18ea		out:5	undocumented		
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020364ac0	600	odsy_sboxfi	dwarf	03e24ba0be08		out:5	undocumented		
@@ -196740,7 +196740,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_pmm.o)	shared-kernel	n64	.text	0x6248	456	mm_check_enode	dwarf+symtab	3605fc87a6f5		out:37	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_pmm.o)	shared-kernel	n64	.text	0x6410	1696	mm_shake	dwarf+symtab	90d562db05ef		out:37	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0x0	48	odsy_tport_lock_init	dwarf+symtab	e799e21d1150		out:37	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0x30	2440	ODSY_SET_GC	dwarf+symtab	1751f1102255		out:37	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0x30	2440	the set graphics-context Odyssey driver request	dwarf+symtab	1751f1102255		out:37	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0x9b8	216	odsy_color	dwarf+symtab	33cd0c9d0e55		out:37	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0xa90	256	odsy_mapcolor	dwarf+symtab	96e9218746ee		out:37	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0xb90	600	odsy_sboxfi	dwarf+symtab	2c09b4dd3408		out:37	undocumented		
@@ -233234,7 +233234,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_pmm.o)	shared-kernel	n64	.text	0x6234	456	mm_check_enode	dwarf+symtab	3605fc87a6f5		out:51	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_pmm.o)	shared-kernel	n64	.text	0x63fc	1696	mm_shake	dwarf+symtab	90d562db05ef		out:51	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0x0	48	odsy_tport_lock_init	dwarf+symtab	e799e21d1150		out:51	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0x30	2440	ODSY_SET_GC	dwarf+symtab	1751f1102255		out:51	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0x30	2440	the set graphics-context Odyssey driver request	dwarf+symtab	1751f1102255		out:51	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0x9b8	192	odsy_color	dwarf+symtab	9bc5e60cb483		out:51	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0xa78	236	odsy_mapcolor	dwarf+symtab	6418fe9c6c22		out:51	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_tport.o)	shared-kernel	n64	.text	0xb64	572	odsy_sboxfi	dwarf+symtab	e8d86a33dfe1		out:51	undocumented		

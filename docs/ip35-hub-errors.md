@@ -502,7 +502,7 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   structure's +144 doubleword to the word at -16360, calls `uli_setasids` (0xc00000000006589c) with the halfword at +168
   and jumps to `ecommon_allsaved`. The block at 0xc00000000006d774 to 0xc00000000006d7ac, which loads sp from -15288
   and jumps to the routine at 0xc0000000000619f4 with the strings "invalid kstk" (0xc000000001531cc8) and
-  "intrnorm.s" (0xc000000001531cd5) and 0, has no branch into it from inside the routine. Inferred.
+  "the IRIX tree assembly unit 1" (0xc000000001531cd5) and 0, has no branch into it from inside the routine. Inferred.
 - `sub_c000000000062980` (`6.5.30/unix.IP35`, address 0xc000000000062980, 520 bytes, 96-byte frame): the unnamed
   routine behind `hub_intr_alloc` and `hub_intr_alloc_nothd`; it picks a processor and an interrupt bit for a device and
   builds the 48-byte handle that the other `hub_intr_*` routines use. `a0` is the device vertex (kept in `s2`), `a1` a

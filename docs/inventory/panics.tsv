@@ -4600,7 +4600,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	DBGT	0xa80000002033ca94	cmn_err	2	out	undocumented
 6.5.30/unix.IP30	GfxKiller	0xa8000000200c280c	cmn_err	5	out	undocumented
 6.5.30/unix.IP30	GfxRegisterBoard	0xa8000000200c1fc0	cmn_err	1	out	undocumented
-6.5.30/unix.IP30	ODSY_SET_GC	0xa800000020363f60	cmn_err	1	out	undocumented
+6.5.30/unix.IP30	the set graphics-context Odyssey driver request	0xa800000020363f60	cmn_err	1	out	undocumented
 6.5.30/unix.IP30	OdsyFree32kSlot	0xa80000002036e3a4	cmn_err	2	out	undocumented
 6.5.30/unix.IP30	RRM_Exit	0xa8000000200c74c0	cmn_err	2	out	undocumented
 6.5.30/unix.IP30	RRM_ValidFault	0xa8000000200c88fc	cmn_err	1	out	undocumented

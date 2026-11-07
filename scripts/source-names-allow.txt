@@ -1,0 +1,38 @@
+# Source-file names and request names the reference docs may carry: each one is a name that a published source holds,
+# a file shipped in the installed system, or a file in this workspace. Anything else is described in words.
+# NAME<TAB>REASON; checked by retools/scripts/check-leaks.py.
+6.5.22/usr/cpu/sysgen/IP22boot/bwhen.h	name of a file shipped in the installed system, not a source file
+6.5.22/usr/cpu/sysgen/IP22boot/bwhen_f.h	name of a file shipped in the installed system, not a source file
+6.5.22/usr/cpu/sysgen/IP27boot/bwhen.h	name of a file shipped in the installed system, not a source file
+6.5.22/usr/cpu/sysgen/IP27boot/bwhen_f.h	name of a file shipped in the installed system, not a source file
+6.5.22/usr/cpu/sysgen/IP30boot/bwhen.h	name of a file shipped in the installed system, not a source file
+6.5.22/usr/cpu/sysgen/IP30boot/bwhen_f.h	name of a file shipped in the installed system, not a source file
+6.5.22/usr/cpu/sysgen/IP32boot/bwhen.h	name of a file shipped in the installed system, not a source file
+6.5.22/usr/cpu/sysgen/IP32boot/bwhen_f.h	name of a file shipped in the installed system, not a source file
+6.5.22/usr/cpu/sysgen/IP35boot/bwhen.h	name of a file shipped in the installed system, not a source file
+6.5.22/usr/cpu/sysgen/IP35boot/bwhen_f.h	name of a file shipped in the installed system, not a source file
+6.5.30/usr/cpu/sysgen/IP27boot/bwhen.h	name of a file shipped in the installed system, not a source file
+6.5.30/usr/cpu/sysgen/IP27boot/bwhen_f.h	name of a file shipped in the installed system, not a source file
+6.5.30/usr/cpu/sysgen/IP30boot/bwhen.h	name of a file shipped in the installed system, not a source file
+6.5.30/usr/cpu/sysgen/IP30boot/bwhen_f.h	name of a file shipped in the installed system, not a source file
+6.5.30/usr/cpu/sysgen/IP32boot/bwhen.h	name of a file shipped in the installed system, not a source file
+6.5.30/usr/cpu/sysgen/IP32boot/bwhen_f.h	name of a file shipped in the installed system, not a source file
+6.5.30/usr/cpu/sysgen/IP35boot/bwhen.h	name of a file shipped in the installed system, not a source file
+6.5.30/usr/cpu/sysgen/IP35boot/bwhen_f.h	name of a file shipped in the installed system, not a source file
+arch/mips/include/asm/sn/klconfig.h	name in published Linux source
+arch/mips/include/asm/sn/sn0/hubpi.h	name in published Linux source
+arch/mips/kernel/irixelf.c	name in published Linux source
+bfd/ecoff.c	name in published OpenBSD source
+ecofflink.c	name in published Linux or OpenBSD source
+gcc/config/mips/iris6.h	name in published OpenBSD source
+gdb/solib-irix.c	name in published OpenBSD source
+hubmd.h	name in published Linux or OpenBSD source
+include/asm-mips64/sn/intr.h	name in published Linux source
+ioc3-eth.c	name in published Linux or OpenBSD source
+irix5-nat.c	name in published Linux or OpenBSD source
+master.c	name in published Linux or OpenBSD source
+mips-irix-tdep.c	name in published Linux or OpenBSD source
+sys/arch/sgi/include/mnode.h	name in published OpenBSD source
+sys/arch/sgi/sgi/ip27_machdep.c	name in published OpenBSD source
+sys/invent.h	name of a file shipped in the installed system, not a source file
+sysirix.c	name in published Linux or OpenBSD source
