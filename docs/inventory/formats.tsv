@@ -10,7 +10,7 @@ section	.MIPS.options	type SHT_MIPS_OPTIONS	6	6.5.22/unix.IP27	in	documented
 section	.bss	type SHT_NOBITS	6	6.5.22/unix.IP27	in	documented
 section	.comment	type SHT_PROGBITS	6	6.5.22/unix.IP27	in	undocumented
 section	.data	type SHT_PROGBITS	6	6.5.22/unix.IP27	in	documented
-section	.debug_abbrev	type SHT_MIPS_DWARF	6	6.5.22/unix.IP27	in	undocumented
+section	.debug_abbrev	type SHT_MIPS_DWARF	6	6.5.22/unix.IP27	in	documented
 section	.debug_aranges	type SHT_MIPS_DWARF	6	6.5.22/unix.IP27	in	undocumented
 section	.debug_frame	type SHT_MIPS_DWARF	6	6.5.22/unix.IP27	in	documented
 section	.debug_funcnames	type SHT_MIPS_DWARF	6	6.5.22/unix.IP27	in	undocumented
