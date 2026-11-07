@@ -1,0 +1,172 @@
+# Checkpoint and restart in the IRIX kernels
+
+IRIX 6.5.30 ships a kernel checkpoint and restart facility, built from the object archive `cpr.a` and gated by the tunable `ckpt_enabled`. This page documents the kernel half: the system call and `syssgi` selector it adds, the `/proc` requests that save and restore process state, the hooks the rest of the kernel carries for it, what it refuses, and what is still unknown. The IP35 kernel (`6.5.30/unix.IP35`) was read first; IP27 differences are in the last section. The user-space half (the `cpr` command, its library and the viewer) is not in `root/` and is covered only as an open question.
+
+Evidence is the linked kernels and the kernel object archives `cpr.a`, `cprstubs.a` and `os.a` in the 6.5.30 and 6.5.22 boot directories, plus the 6.5.22 IP35 system-generation configuration files. No published manual for the facility could be retrieved for this page (the document service refused connections), so no manual page is cited and every behaviour below is read from the kernel.
+
+Routine names and sizes come from the kernel symbol table where the routine is global, and from the symbol tables of the object files where it is `static`; a static routine's address in a linked kernel is the object's text base plus its offset in the object. Grades follow [AGENTS.md](../AGENTS.md) in other words: "read" means the statement was checked in the named routine or table, "reasoned" means an inference whose basis is given, and "unknown" names what would settle it. The first list below is graded in the repository's checked form.
+
+## Does the facility exist, and how is it configured
+
+The global entry points, with address and size in the 6.5.30 IP35 kernel (checked by the claim checker):
+
+- `ckpt_sys` (`6.5.30/unix.IP35`, 0xc00000000043efb0, 648 bytes) is the `syssgi` back end. Established.
+- `ckpt_restartreturn` (`6.5.30/unix.IP35`, 0xc00000000043f238, 560 bytes) is system call 1225. Established.
+- `ckpt_prioctl` (`6.5.30/unix.IP35`, 0xc00000000043def0, 560 bytes) handles the process-wide `/proc` requests. Established.
+- `ckpt_prioctl_thread` (`6.5.30/unix.IP35`, 0xc00000000043e120, 728 bytes) handles the per-thread `/proc` requests. Established.
+- `ckpt_prioctl_attr` (`6.5.30/unix.IP35`, 0xc00000000043aa80, 96 bytes) returns a flag word per request. Established.
+- `ckpt_lookup_add` (`6.5.30/unix.IP35`, 0xc00000000043a880, 304 bytes) records file identifiers on a vnode. Established.
+- `ckpt_vp_open` (`6.5.30/unix.IP35`, 0xc00000000043a5c8, 280 bytes) opens a vnode for the facility. Established.
+
+- The facility is present in all three 6.5.30 kernels. `cpr.a` holds three objects, `ckpt_sys.o`, `ckpt_procfs.o` and `ckpt_util.o`; the process-side hooks are in `pproc_ckpt.o` inside `os.a`. The 6.5.22 archives hold the same objects. Read.
+- The linked IP35 kernel defines the global routines `ckpt_init` (0xc00000000043a5a4, 36 bytes), `ckpt_sys` (0xc00000000043efb0, 648 bytes), `ckpt_restartreturn` (0xc00000000043f238, 560 bytes), `ckpt_prioctl` (0xc00000000043def0, 560 bytes), `ckpt_prioctl_thread` (0xc00000000043e120, 728 bytes) and `ckpt_prioctl_attr` (0xc00000000043aa80, 96 bytes), and the switch `ckpt_enabled` (0xc00000000163c1b0, one word). Read.
+- `cprstubs.a` is the build without the facility. Its object `cprstubs.o` defines every entry point as an eight-byte stub: `ckpt_sys` and `ckpt_restartreturn` return 89, `ckpt_lookup_add` returns -1, `pproc_get_ckpt` returns -1, `ckpt_prioctl`, `ckpt_prioctl_thread` and `ckpt_prioctl_attr` return 0, and the rest return at once. Read. That the configuration tool links the stubs only when `cpr.a` is absent is reasoned from the two `master.d` files below; the linked kernels carry the real routines.
+- The configuration files of 6.5.22 (`master.d/cpr`, `master.d/cprstubs`, `mtune/kernel`, `master.c`) show the tunable: `mtune/kernel` has a stanza `ckpt: run` with the single tunable `ckpt_enabled`, default 1, and the comment "enable/disable cpr"; `master.c` lists the module `ckpt` with state `N_RUN` and initialises `ckpt_enabled` to 1; the kernel makefiles build with `-DCKPT`. The 6.5.30 system-generation directory is not held, so these are 6.5.22 facts; the 6.5.30 kernels carry the same `ckpt_enabled` symbol. Read for 6.5.22, reasoned that 6.5.30 ships the same default.
+- `ckpt_init` has no direct caller. Its address is stored as a data word at 0xc0000000015984e8 in `6.5.30/unix.IP35`, next to what looks like an initialisation table entry, so it is reached through a table. It allocates one kernel memory zone with 0x38-byte elements and keeps the zone pointer at gp+0x3260. The zone holds the per-vnode file-identifier records described below. Read for the zone, reasoned for the table.
+
+## The two user entry points
+
+### `syssgi` selector 178 reaches `ckpt_sys`
+
+- The `syssgi` case for selector 178 (0xc0000000002e1c20 on IP35; row in [selectors.tsv](inventory/selectors.tsv)) loads the five argument doublewords at +8 to +40 of the argument block and calls `ckpt_sys` with them, passing the return-value pointer as the sixth argument. The first argument is the sub-command, the others its arguments. Read. The selector number is the same on IP27 (0xc000000000232534) and IP30 (0xa8000000201ec524). The public name `SGI_CKPT_SYS` for 178 is a hint only; the kernel symbol is `ckpt_sys`.
+- `ckpt_sys` (0xc00000000043efb0, 648 bytes) compares the sub-command unsigned with 0x17 and jumps through a table of 23 words at 0xc0000000004e22b0. A larger value returns 22. It does not test `ckpt_enabled` itself, and it checks no privilege (no `cap_able` call); whether `syssgi` checks privilege before dispatching was not read. Read for what `ckpt_sys` does and does not test.
+- The 23 sub-commands, in table order. Static routines are named as in their object; "result" means the handler writes a word through the return pointer.
+
+| Sub-command | Handler | What it does |
+|---|---|---|
+| 0 | `ckpt_diropen` (0xc00000000043e3f8, 300 bytes) | Opens the object recorded for a descriptor by its file identifier instead of by path; see "File identifiers". Result: the new descriptor. |
+| 1 | `ckpt_execmap` (0xc00000000043e524, 224 bytes) | Copies in a 0x30-byte request, takes the descriptor in it, and calls `execmap` on the current address space, so restart can map an executable's segments. |
+| 2 | `ckpt_setbrk` (0xc00000000043e80c, 88 bytes) | Looks up the current address space and adjusts its break through an address-space operation. |
+| 3 | `pidfork` | Calls `pidfork` with the return pointer, creating a child with a requested process id. |
+| 4 | `ckpt_fpaddr` (0xc00000000043e864, 56 bytes) | Maps the descriptor with `getf` and stores the kernel address of the file record through the pointer. Result. |
+| 5 | `ckpt_svr3pipe` (0xc00000000043e8d8, 116 bytes) | Calls `oldpipe` with 0 and stores the two descriptors it makes at the user address and the word after it (`suiword`). |
+| 6 | `ckpt_getchildpids` (0xc00000000043ea28, 272 bytes) | Looks up a process, collects the ids of its children (`ckpt_childpid`) under its mutex and copies them out. |
+| 7 | `ckpt_unmapprda` (0xc00000000043ec50, 112 bytes) | Unmaps the 0x4000-byte per-process data page at 0x200000 through an address-space operation. Returns 16 if the thread has a nonzero pointer at +0x350. |
+| 8 | `ckpt_getshdpids` (0xc00000000043eb38, 280 bytes) | Looks up a process and copies out the ids of its share group (`getshdpids`). |
+| 9 | `ckpt_fsettimes` (0xc00000000043ecc0, 128 bytes) | Copies in times and sets them on a descriptor (`fdsetattr`). |
+| 10 | `ckpt_settimes` (0xc00000000043ed40, 132 bytes) | The same on a path (`namesetattr`). |
+| 11 | `ckpt_setexec` (0xc00000000043e604, 520 bytes) | Replaces the record of the process's executable: under the address-space lock it releases the old vnode and holds the one behind a descriptor. |
+| 12 | none | Returns 0 without doing anything. |
+| 13 | none | Returns 22. Unused slot. |
+| 14 | `fdaccess` | Calls `fdaccess` (checks access through a descriptor). |
+| 15 | `ckpt_sockmate` (0xc00000000043e89c, 60 bytes) | Maps the descriptor with `getf` and stores the word at +0x40 of the file record. Result. |
+| 16 | `ckpt_setsuid` (0xc00000000043edc4, 80 bytes) | Rejects a negative id with 22, otherwise calls a process operation (table slot +0xb8) with the id, -1 and 4. |
+| 17 | `_ckpt_pmogetnext` (0xc00000000043ee14, 56 bytes) | Calls `pmo_ckpt_pmo_nexthandle`, the next policy-module object handle; see "Memory placement". Result. |
+| 18 | `aspm_ckpt_swap` | Calls `aspm_ckpt_swap` with 0, then under the bit lock at proc+0x290 sets bit 0x400000 in the word at proc+0x290. |
+| 19 | `ckpt_munmap_local` (0xc00000000043ee4c, 176 bytes) | Checks the user range for the caller's ABI (`chk_kuseg_abi`) and unmaps it from the current address space. |
+| 20 | `ckpt_setshmmac` (0xc00000000043eefc, 28 bytes) | Calls `vshm_set_shm_mac_label`. |
+| 21 | `ckpt_getshmmac` (0xc00000000043ef18, 28 bytes) | Calls `vshm_get_shm_mac_label`. |
+| 22 | `ckpt_grow` (0xc00000000043ef34, 124 bytes) | Looks up the address space and calls `grow`. Absent from 6.5.22. |
+
+Read for the table, the handler calls and the constants. The purposes in the right-hand column are read from the calls the handlers make; the reason the facility needs each one (for example that sub-command 0 serves restart) is reasoned from the names. Sub-command 18 is the only one that changes a process flag word; what bit 0x400000 means was not followed. Unknown.
+
+### System call 1225 is `ckpt_restartreturn`
+
+- `ckpt_restartreturn` (0xc00000000043f238, 560 bytes) is call 1225 in both the native `sysent` table and `irix5_64_sysent` ([syscalls.tsv](inventory/syscalls.tsv)), three arguments, first flag byte 0x10. That flag makes the dispatcher skip storing return values, which is what `sigreturn` does too (see [syscalls.md](syscalls.md)). Read.
+- It reads the first argument as a signed doubleword, the next as a 32-bit word and the third as a doubleword. If the third is nonzero it decodes the 32-bit word as a wait status with `ckpt_wstat_decode` (0xc00000000043f468, 152 bytes) and calls `exit` with the decoded kind and value, so the process ends with the status the original had. Read.
+- `ckpt_wstat_decode` maps a wait status to a pair: low byte 0 gives kind 1 with the high byte as value; a low byte of 0x7f gives kind 5 with the stop signal; the pattern 0xffff gives kind 6; any other low byte gives kind 3 if bit 0x80 (core dumped) is set and kind 2 otherwise, with the signal in the low seven bits. These numbers are the standard child-status codes of the `siginfo` header (exited, killed, dumped, stopped, continued), which is a hint; the arithmetic is read.
+- Otherwise it sets bit 0x20000000 in the thread flag word at thread+0x340 under the thread bit lock, calls `stop` with reason 7, clears the bit again, and takes and drops the read lock of the process's address-space record. It then acts on the first argument: zero returns 0; a negative value first waits on `sigisready`; if bit 0x80 is set in the word at +0xa0 of the record the thread points to at +0x328, it calls `prctl` (with sub-command 2 when the argument is -1, otherwise sub-command 3 once per count); if the bit is clear it calls `procblk` once per count. Read for the branches. The role (the restarted thread parks itself in a stop until the restart tool releases it, then releases or waits for its peers) is reasoned; the meaning of the `prctl` sub-commands 2 and 3 and of the bit at +0xa0 was not looked up.
+
+## The `/proc` requests
+
+The bulk of the state transfer is a set of `/proc` ioctl requests numbered 0x71b0 to 0x71e8.
+
+- The `/proc` ioctl routine `prioctl` (0xc000000000434478) calls `ckpt_prioctl` (call at 0xc0000000004346a0) after a test of bit 0x400 in a flag word (the branch at 0xc000000000434684), and the per-thread routine (0xc000000000434c00) calls `ckpt_prioctl_thread` (call at 0xc000000000434c5c) after a test of bit 0x400 in the word at +0x10 of its first argument (0xc000000000434c40). `ckpt_prioctl_attr` is called at 0xc000000000435dc4, where the ordinary request table has no entry for the request. What opens a `/proc` file with that bit is unknown; the route is the `/proc` open path. Read for the dispatch, unknown for the opener.
+- `ckpt_prioctl` subtracts 0x71b0 from the request, compares it unsigned with 0x2e and jumps through a table at 0xc0000000004e1f98; `ckpt_prioctl_thread` subtracts 0x71b4, compares with 0x35 and uses a table at 0xc0000000004e2108; `ckpt_prioctl_attr` subtracts 0x71b0, compares with 0x39 and returns a flag word per request from a table at 0xc0000000004e1dc8 (values such as 0x421, 0x423, 0x441, 0x443, 0x4c5, 0x601 and 0x603, or 0). The meaning of the flag word was not decoded; `prioctl` uses it to decide how it copies the argument. Reasoned. Read for the tables and their sizes.
+- Process-wide requests handled by `ckpt_prioctl`, with their handlers (all static in `ckpt_procfs.o`):
+
+| Request | Handler | What it saves or restores |
+|---|---|---|
+| 0x71b0 | `ckpt_getcsa` | Seven doublewords (+8 to +0x38) of the accounting record at proc+0x7a0; returns 1700 if the process has none. |
+| 0x71b1 | `ckpt_setcsa` | Writes them back. |
+| 0x71b2 | `ckpt_getjinfo` | Job record; see "Jobs and array sessions". |
+| 0x71b3 | `ckpt_setjinfo` | Writes part of it back. |
+| 0x71b8 | `ckpt_schedmode` | Copies in a request and sets scheduling mode. |
+| 0x71b9 | `ckpt_prfswap` | Swaps the file references behind two descriptors (`fdt_swapref`). |
+| 0x71c8 | `ckpt_prfstat` | File status of a descriptor of the target. |
+| 0x71c9 | `ckpt_propen` | Opens, in the caller, the vnode behind a descriptor of the target (`fdt_getref`, `vn_hold`, `ckpt_vp_open`). |
+| 0x71cd | `ckpt_getpsinfo` | The `ps`-style process record. |
+| 0x71ce | `ckpt_setpinfo` | Writes it back, including the command name (`strcpy` into proc+0x8a8). |
+| 0x71d1 | `ckpt_queuesig` | Queues a signal with its `siginfo` to the target. |
+| 0x71d4 | `ckpt_mark` | Sets or clears bit 0x2000 in the process flag word at proc+0x290 from a user word. |
+| 0x71d5 | `ckpt_dup` | Duplicates a descriptor into a given slot of the target (`fdt_dup`). |
+| 0x71d8 | `ckpt_propen_cwd` | Opens the target's current directory. |
+| 0x71d9 | `ckpt_propen_root` | Opens the target's root directory. |
+| 0x71da | `ckpt_chroot` | Sets the target's root directory from a path; the only handler here that tests a capability (`cap_able` with bit 1<<40). |
+| 0x71dd | `prgetusage` | Resource usage, in the native 0x178-byte layout when the caller's ABI word has bit 4, else the 0xbc-byte 32-bit layout (`irix5_prgetusage`). |
+
+- Per-thread requests handled by `ckpt_prioctl_thread`:
+
+| Request | Handler | What it saves or restores |
+|---|---|---|
+| 0x71b4 | `ckpt_shm` | System V shared memory ids; see below. |
+| 0x71b5 | `ckpt_stop` | Sets or clears bit 0x20000000 in thread+0x340 (the flag `ckpt_restartreturn` sets) from a user word. |
+| 0x71b6 | `ckpt_getutinfo` | Scheduling policy of the user thread (`uthread_sched_getscheduler`) and block counts. |
+| 0x71b7 | `ckpt_sigthread` | Sends a signal to a user thread (`sigtouthread`). |
+| 0x71ba | `ckpt_pm_pginfo` | Page placement; see below. |
+| 0x71ca | `ckpt_getmap` | The address-space map, by range, in 0x30-byte records. |
+| 0x71cb | `ckpt_getcontext` | Registers and floating-point registers of the thread (`ckpt_savecontext` calls `prgetregs`, `prgetfpregs` and their 32-bit forms). |
+| 0x71cc | `ckpt_setcontext` | Restores them (`ckpt_restorecontext`: `prsetregs`, `prsetfpregs`, then `uthread_apply`). |
+| 0x71d0 | `ckpt_getsiginfo` | Pending and held signal state. |
+| 0x71d2 | `ckpt_cursig` | The current signal. |
+| 0x71d3 | `ckpt_abort` | Interrupts a thread out of a system call and returns its status and registers (`prwstop_ut`, `thread_interrupt`, `prgetstatus`, `prgetregs`). |
+| 0x71db | `ckpt_memstat` | Per-mapping status (`xcstat`, `as_lookup`). |
+| 0x71dc | `ckpt_memfork` | Duplicates regions into another address space (`dupreg`), taking the address-space lock; the way restart rebuilds memory. |
+| 0x71de | `ckpt_getitimers` | The interval timers (`ckptitimer`). |
+| 0x71df | `ckpt_setrealitimer` | Restores the real-time timer (`dosetitimer`). |
+| 0x71e0 | `ckpt_getpusema` | User synchronisation objects in a range (`usync_object_ckpt`). |
+| 0x71e1 to 0x71e8 | `ckpt_pmogetnext`, `ckpt_pmogetall`, `ckpt_pmoinfo`, `ckpt_mldinfo`, `ckpt_mldlinkinfo`, `ckpt_mldsetinfo`, `ckpt_mldset_placement`, `ckpt_mldset_raffopen` | Memory-placement objects; see below. |
+
+All other values in both ranges return 22 (the process table) or are ignored (the thread table jumps to the common exit with a zero status). The handler names, tables and the calls each makes are read; each row's description is read from those calls and, where it says "state", is reasoned from the names.
+
+### What state is covered, by area
+
+- **Registers and execution context.** Integer and floating-point registers, saved and restored in both the native layout and the 32-bit layouts (`irix5_prgetregs` and `irix5_prsetregs` and the floating-point pair). Read.
+- **Address space.** The map (0x71ca), per-mapping status (0x71db), region duplication (0x71dc), the executable's segments (sub-command 1), the break (2), the data page (7), local unmapping (19) and growth (22). The shared-memory half of the address space is covered by `ckpt_shm` and the shm label calls (20, 21). Read for the entry points.
+- **Share groups.** `ckpt_getshdpids` (sub-command 8) lists the group's member ids; `ckpt_fork` is called from `sprocsp` (call at 0xc0000000002ead48), the share-group process creation routine, and copies the shared-memory record to the new process; `ckpt_restartreturn` has a share-group branch. Read for those calls.
+- **File descriptors.** Duplicate (0x71d5), swap (0x71b9), status (0x71c8), reopen through the target (0x71c9), current and root directory (0x71d8, 0x71d9), set root (0x71da), file-identifier open (sub-command 0), times (9, 10), the kernel file address (4). Read.
+- **Pipes and sockets.** A pipe made on restart comes from sub-command 5. For sockets the facility has only `ckpt_sockmate` (15), which returns the word at +0x40 of a file record, and `ckpt_fpaddr` (4), which returns the file record's kernel address. Neither reads socket state, buffered data or addresses; no handler in `cpr.a` calls a socket routine. Read that none is called; reasoned that the two let a user tool pair the two ends of a local connection, since both return identities, not content.
+- **System V IPC.** `ckpt_shm` (0x71b4) returns the shared-memory ids a process has used, kept by the process record: `pproc_ckpt_shmget` (0xc0000000002de114, 264 bytes) records an id in an AVL tree hung off the process at +0xb30, 16 ids to a node (each slot holds the id plus one so that zero means empty), under the lock at +0xac8; `pproc_get_ckpt` (0xc0000000002de3e0, 92 bytes) with sub-operation 0 returns how many ids are recorded and with 1 copies them out (the two static helpers `ckpt_get_shmcnt` and `ckpt_get_shmlist` in `pproc_ckpt.o`); `ckpt_fork` (0xc0000000002de43c, 216 bytes) copies the tree to a new process; `ckpt_exit` (0xc0000000002de514, 112 bytes) frees it, and `pproc_exit` calls it (call at 0xc0000000002d4548). The shared-memory object also gets a mark: `as_allocshmmo` stores the value 4 at +0xc8 and a word at +0xcc of the new record when `ckpt_enabled` is set. Read. No handler touches message queues or System V semaphores by that name; user-space synchronisation objects are covered by `ckpt_getpusema`. Reasoned that message queues and semaphore sets are not saved; the route to settle it is the missing user-space tool.
+- **Signals.** Pending state (0x71d0), the current signal (0x71d2), queueing a signal back (0x71d1, 0x71b7), and the `sigreturn` hook below. Read.
+- **Timers.** Interval timers (0x71de, 0x71df); only the real-time timer has a setter, so the virtual and profiling timers are read but not restored by name. Reasoned from the handler list.
+- **Threads.** The thread requests above run per user thread, and `uthread_apply` appears in `ckpt_setcontext` and `ckpt_getutinfo` uses `uthread_sched_getscheduler`, so thread state is part of it. Read for the calls; whether a checkpoint covers every thread kind (process, sproc, pthread) was not followed.
+- **Credentials, accounting, process info.** `ckpt_setsuid` (16), accounting words (0x71b0, 0x71b1), `ps` record (0x71cd, 0x71ce). Read.
+- **Memory placement.** `pm_ckpt_get_pginfo`, `pmo_ckpt_pm_info`, `pmo_ckpt_pm_getpmhandles`, `pmo_ckpt_pmo_nexthandle`, `pmo_ckpt_mld_info`, `pmo_ckpt_mldlink_info`, `pmo_ckpt_mldset_info`, `pmo_ckpt_mldset_place_info` and `pmo_ckpt_mldset_place_ckptinfo` are routines of the NUMA policy code that the requests 0x71ba and 0x71e1 to 0x71e8 call; `ckpt_mldset_raffopen` additionally opens the resource-affinity object for a placement set with `ckpt_vp_open`. So policy modules, memory locality domains, their links and sets, and the page-level placement can be read out. Read for the calls. Whether a restart re-creates them (there is no matching setter in the table except `aspm_ckpt_swap`, sub-command 18) is reasoned only.
+
+## Hooks in the rest of the kernel
+
+Each of these tests `ckpt_enabled` (a load from the global at 0xc00000000163c1b0; the sites were found by scanning the whole IP35 text for that gp-relative load) before doing anything:
+
+- `copen` (load at 0xc0000000002a4d20), `ioctl` (0xc0000000002aaed4, calling `ckpt_setfd`), `vn_free` (0xc00000000028eb68, calling `ckpt_vnode_free`), `vn_unhash` (0xc00000000028e5ac, which also calls it), `as_allocshmmo` (0xc00000000028dc60), the executables' loaders `elf64exec`, `elf32exec` and `intpexec`, `rexec`, `raff_convert`, and the region-attribute routines `pas_addmmap`, `pas_addmmapdevice`, `pas_addexec` and `pas_addload`. Read that each reads the switch. The effect in the `pas_*` routines was not followed. Unknown.
+- `sigreturn` tests it too; see [syscalls.md](syscalls.md) for what it then does with the thread flag word.
+- `ckpt_lookup`, `ckpt_lookup_add`, `ckpt_lookup_free` are called from `lookuppn` (calls at 0xc0000000002c1d18 and 0xc0000000002c1d70, free at 0xc0000000002c1be0), `vn_open` (add at 0xc00000000029069c), `vn_create` (add 0xc000000000290cbc, free 0xc000000000290bf4), the loaders above, `raff_convert` and `get_class`. Read.
+
+## File identifiers
+
+- `ckpt_vp_open` (0xc00000000043a5c8, 280 bytes) allocates a file record (`vfile_alloc`), opens a vnode with the open mode masked with 0x790ff (`vp_open`), stores the supplied index in the word at +0x40 of the new file record, marks the file ready, stores the new descriptor, and reports the open to the audit code (`sat_open`). It is the open used by `ckpt_propen`, `ckpt_diropen`, `ckpt_mldset_raffopen` and the others. Read.
+- `ckpt_lookup` (0xc00000000043a7fc, 100 bytes) allocates a record from the zone and asks the filesystem for the file identifier of a vnode (`ckpt_fid`, a static routine, which calls the vnode operation at table slot +0xb8 and, on error 89, the one at +0xb0). `ckpt_lookup_add` (0xc00000000043a880, 304 bytes) appends such a record to a list hung off the vnode at +0xf8, comparing identifiers with `memcmp` to avoid duplicates, and returns the position of the entry (the count before it); `ckpt_lookup_get` (0xc00000000043a9b0, 76 bytes) returns the nth entry; `ckpt_vnode_free` (0xc00000000043a9fc, 72 bytes) frees the whole list. `ckpt_lookup_add` does not record a vnode whose type word (+0x20) is 0, 2, 5, 7 or 8: it frees the record and returns -1. Read. `lookuppn` takes the identifier of the directory that held the last path component and `vn_open` adds it to the opened vnode's list, storing the index through an optional pointer; `ckpt_setfd` (0xc00000000043aa44, 60 bytes), called from `ioctl`, `elf64exec`, `elf32exec` and `remove_proc`, stores a value at +0x40 of a file record (default -1).
+- `ckpt_diropen` (sub-command 0) uses all of that: it takes the file behind a descriptor, rejects a socket (flag 0x200 at +0x24 of the file record) or a record whose index is -1 with 22, fetches the entry for that index from the vnode's list, calls the filesystem's file-identifier lookup (slot +0x48 of the filesystem operations) to get the directory's vnode, and opens it with `ckpt_vp_open`. Reading: when a process opens a file, the kernel remembers which directory it found it in, as a file identifier, so a restart can open that directory without knowing a path and then open the file relative to it. Read for the mechanism; the purpose is reasoned.
+
+## What it refuses
+
+- Any `/proc` request that passes the caller's ABI word to `ckpt_supported_abi` (a static routine of 12 bytes at 0xc00000000043aae0 that returns whether bit 4 of the word is set) fails with 89 when the bit is clear: `ckpt_getmap`, `ckpt_getcontext`, `ckpt_setcontext`, `ckpt_shm`, `ckpt_getutinfo`, `ckpt_sigthread`, `ckpt_queuesig`, `ckpt_getitimers`, `ckpt_setrealitimer`, `ckpt_getpusema`, `ckpt_abort` and the memory-placement requests call it. `ckpt_getmap` was read in full and returns 89 in that case. Read for `ckpt_getmap`; the other callers are read as callers and the error is reasoned to be the same. The ABI word in `sigreturn` uses the values 2, 4 and 8 for the three ABIs and calls the 64-bit variant for 4, so bit 4 is the 64-bit native ABI; the request is that the tool making the call be 64-bit (the caller's ABI, not the target's: the context handlers carry both layouts). Reasoned.
+- Sockets: `ckpt_diropen` returns 22 for a socket descriptor, and `ckpt_lookup_add` skips five vnode types; which types 0, 2, 5, 7 and 8 are was not looked up. No socket state is saved anywhere in `cpr.a` (see above).
+- Without the facility configured, `ckpt_sys` and `ckpt_restartreturn` return 89 (stubs). Read.
+- A fault reading a user word in `ckpt_stop` or `ckpt_mark` returns 14 when `fuiword` returns -1 and 9 for other negative values.
+- What a checkpoint tool must refuse at a higher level (for example processes with open devices, graphics contexts or tty sessions) is not in the kernel: no routine in `cpr.a` rejects a descriptor by file type except `ckpt_diropen` and `ckpt_lookup_add`. Unknown: the user-space tool decides.
+
+## Jobs and array sessions
+
+- `ckpt_getjinfo` (0xc00000000043dc88, 184 bytes) and `ckpt_setjinfo` (0xc00000000043dd40, 168 bytes) reach the process's job record through the pointer at proc+0xb50, its field at +0x28 and an operation at slot +0x258, then under a spinlock at +0xc of the record copy an 8-byte id, four 32-bit words and a 0x100-byte block into a 0x118-byte user structure (get), or write one 32-bit word (at +8) and the 0x100-byte block back (set); the id and the other words are not written. Read. That the record is the process-accounting job is reasoned from the field names around it, which are not in the symbol table.
+- No routine in `cpr.a` or `pproc_ckpt.o` refers to an array session, an array session handle or a session id by name (the undefined symbols of the four objects were listed and none matches). The facility therefore does not appear to save or restore array sessions. Reasoned; the user-space tool might handle a session on its own, which is unknown.
+- Accounting: `ckpt_getcsa` and `ckpt_setcsa` copy seven doublewords (+8 to +0x38) of the accounting record the pointer at proc+0x7a0 names, and return 1700 when that pointer is null. Read. What the counters mean is unknown.
+
+## The on-disk format and the user tools
+
+- The kernel never writes a checkpoint file. Every handler copies to or from the caller's memory (`bsd_copyin`, `bsd_copyout`, `copyin`, `copyout`) or manipulates descriptors; no routine in `cpr.a` calls a file write routine. Read. So the file format is entirely a user-space matter.
+- The commands (`cpr`, the viewer), their library and any manual pages are not in `root/6.5.30`, which holds only `sbin` (`hinv`, `ioconfig`), a few `usr/etc` and `usr/sbin` programs and `usr/cluster/bin`. The 6.5.30 and 6.5.22 trees contain no file whose name contains `cpr`, `ckpt`, `checkpoint` or `cview` outside the kernel archives. Read for what is held. The format, the file layout, the restart sequence and the privilege rules of the tool are unknown; see [open-questions.md](open-questions.md).
+
+## IP27 and 6.5.22
+
+- IP27 (`6.5.30/unix.IP27`) carries the same routines with the same sizes: `ckpt_sys` 0xc0000000003660b0 (648 bytes, 23-entry table at 0xc0000000003fba50 in the same order), `ckpt_restartreturn` 0xc000000000366338 (560 bytes), `ckpt_prioctl` 0xc000000000364ff0 (560 bytes), `ckpt_prioctl_thread` 0xc000000000365220 (728 bytes), `ckpt_prioctl_attr` 0xc000000000361b80 (96 bytes), `ckpt_init` 0xc0000000003616a4, `ckpt_vp_open` 0xc0000000003616c8, `ckpt_enabled` 0xc0000000014caa68. The sub-command table is compared by the sequence of target blocks the fact sheet lists and matches IP35 entry for entry; the `/proc` tables were not dumped on IP27. IP30 has its own copy (`ckpt_sys` is selector 178's target at 0xa8000000201ec524). Read for the sizes and addresses, reasoned for the equality of the `/proc` tables.
+- 6.5.22: `ckpt_sys` is 632 bytes and has 22 sub-commands (0 to 21); the object `ckpt_sys.o` lacks `ckpt_grow` and the `grow` reference. Sub-command 22 is new in 6.5.30. The other two objects have the same symbols. Read for the symbols and the table size on IP35; the `/proc` tables of 6.5.22 were not compared.
