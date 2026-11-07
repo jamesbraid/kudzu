@@ -106,7 +106,7 @@ The best structural template for a tun-style device is `if_gif.o`, read from the
 
 The serial-line objects show the STREAMS-plus-`ifnet` form: `if_sl.o` defines `sl_open`, `sl_wput`, `sl_rput`, `sl_wsrv`, `sl_rsrv`, `sl_output`, `sl_ioctl` and imports `if_attach`, `rawif_attach`, `snoop_input`, `network_input`, `in_rtinit`, `if_down` and `if_dropall` next to `putnext`, `qreply`, `allocb`, `canput`. `if_ppp.o` has the same shape plus `ppp_output4` and `ppp_output6` and imports `ndp6_ifinit`. A module of this kind creates its interface when it is opened on a stream and receives packets by calling `network_input`. Established for the symbols; the sequence is Inferred.
 
-Why `if_sl` and `if_ppp` are absent from the installed kernels: the 6.5.22 IP35 system file lists `USE: if_sl` and `USE: if_ppp`, yet neither the 6.5.22 nor the 6.5.30 linked kernels contain their code, while the objects ship in the boot directory. The master files give both the flags `ofms` with no dynamic-load flag. Unknown which condition leaves them out (section 6).
+Why `if_sl` and `if_ppp` are absent from the installed kernels: the 6.5.22 IP35 system file lists `USE: if_sl` and `USE: if_ppp`, yet neither the 6.5.22 nor the 6.5.30 linked kernels contain their code, while the objects ship in the boot directory. The master files give both the flags `ofms` with no dynamic-load flag. The objects are in the optional subsystems `eoe.sw.slip` and `eoe.sw.ppp` of the base product (idb entries of the 6.5.30 media); the 6.5.30 IP35 `irix.sm` lists `USE: if_sl` at line 443 and `USE: if_ppp` at line 447, and a `USE`d module whose object is missing from the boot directory is skipped (the `lboot` strings; not disassembled). Inferred: those subsystems were not installed on the system the kernels were linked on. The `ofms` flags have no bearing.
 
 ### 1.8 How STREAMS modules are pushed
 
@@ -251,7 +251,7 @@ Address spaces differ: IP27 and IP35 kernels are at 0xc000... and IP30's at 0xa8
 
 Each is recorded in [open-questions.md](open-questions.md) with the route tried and the next route.
 
-- Which condition leaves `if_sl`, `if_ppp`, `ppp_fram` and `ipfilter` out of the installed kernels, and whether a stock configuration links them.
+- Whether the system the shipped kernels were linked on had the optional subsystems for `if_sl`, `if_ppp`, `ppp_fram` and `ipfilter` (`eoe.sw.slip`, `eoe.sw.ppp`, `eoe.sw.ipgate`) installed; their software-version database is not held.
 - The layout of the header a driver leaves in front of a packet before `network_input` and `ip_input`.
 - The code a module would install in `ipf_process`, and the filter daemon's rule syntax (the latter is recorded in [network-and-snapshots.md](network-and-snapshots.md)).
 - How a pseudo-interface is created from user space (the case list of `ifioctl`, 0xc0000000001b2ac0, 2672 bytes).
