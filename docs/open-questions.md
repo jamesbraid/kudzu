@@ -105,6 +105,7 @@ Hardware-only:
 | Whether an R16000 (implementation 0x10 in the standard encoding) is counted by 6.5.30 at all; the counter code recognises only implementations 0x9, 0xe and 0xf. | missing-input | [module-interfaces.md](module-interfaces.md) | `r1nk_perf_architecture` and the overflow tests read on IP35. | A kernel run or trace on an R16000 system, or the published part documents for the processor identification value. |
 | The rules `setpgid` applies when the target process is in another session or is a session leader. | software-now | [process-model.md](process-model.md) | `setpgid` read as far as `vproc_lookup`, `pcred_access` and `mac_access`; the cross-session tests were not read. | Read the process-operation routine behind the slot at +168 for session-id comparisons and the error values it returns. |
 | The condition that selects `fdt_fork` (copy of the descriptor table) instead of `fdt_forkfree` in `procdup`. | software-now | [process-model.md](process-model.md) | Both calls located in `procdup`; the branch between them was not traced. | Read the mask bits that `procdup` tests before each call and match them with the `sproc` share-mask bits. |
+
 ## Tracing and modules
 
 | Question | Class | Owner | Routes tried | Next route |
