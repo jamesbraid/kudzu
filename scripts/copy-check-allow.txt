@@ -1567,3 +1567,8 @@ ypbind_resp_arms
 _RLD64_PATH
 _RLDN32_PATH
 _RLD_ROOT
+#
+# Kernel module names that appear in the shipped master files and boot objects
+# (docs/kernel-optional-subsystems.md); read there, not in any source tree.
+dp_idbg
+klistio
