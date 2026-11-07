@@ -322,6 +322,55 @@ Established for the rows' call sites and objects; the body of `waitsys` was read
 
 Coverage by a tag filter: neither is covered by a filter on `vproc_lookup`, `vpgrp_lookup` or `vsession_lookup`. `getsid` has no handler to filter, but `/proc` status and process-info reads expose the session id and process ids and sit outside the system call handlers (they reach processes by `vproc_lookup` from `prthreadio` and `prlock`, and list them with `pid_getlist`; they need their own filter, or no `/proc` mount in the container). `utssys` file-user queries enumerate every process with `procscan` and report the process ids that hold the file; the lookups they make are on already-enumerated processes, so a lookup filter would not hide any process from them. The filter has to be in the three callbacks (or in `procscan` itself, for a caller that is a tagged process), or the query has to be refused for a tagged caller. Inferred from the call graph; no filter was tried.
 
+### Is an override of a handler reached
+
+The question: if a boot object defines a handler symbol, does the system call path reach it, and does any other path reach the original. Addresses are `6.5.30/unix.IP35`. The duplicate-definition rule (a boot object's symbol wins) is the observed one in [namespace-dispatch.md](namespace-dispatch.md).
+
+`syscall` (`6.5.30/unix.IP35`, 0xc000000000255a84, 1380 bytes) in `os.a(trap.o)` is the dispatcher: it scales the call number by 24 (the entry size, 5,688 bytes for 237 entries), loads the handler from entry +8 (`ld t8, 8(s3)` at 0xc000000000255c54) and calls it with `jalr t8` at 0xc000000000255c68. The tables `sysent` (0xc0000000015940e0) and `irix5_64_sysent` (0xc000000001595718) are both defined by `os.a(sysent.o)`, a data-only member, and every handler in them is a relocation against the handler's global symbol, which is undefined in that member (`kill`, `setpgrp`, `BSDgetpgrp`, `BSDsetpgrp`, `waitsys_wrapper`, `sigsendsys`, `sigqueue_sys` each checked: undefined, global; relocation type 18, a 64-bit address). So the table words are filled in at link time from whichever definition wins, and the call is indirect and cross-member. Established. A scan of every aligned doubleword of the allocated data for the handlers' addresses finds them only in those two tables (14 hits for 7 handlers); no other table, no `syssgi` jump table holds them. Established for the loaded data; a handler address formed in code was found only through the `jal` scan below.
+
+Every direct caller of the handlers, from the `jal` scan of `.text`, and whether the call is relocated against the global symbol (a relocation of type 4 at the call site in the member's own text):
+
+| Handler | Table entries | Other callers | Verdict |
+|---|---|---|---|
+| `kill` (0xc000000000270914, `os.a(sig.o)`) | `sysent` entry at 0xc000000001594460 and `irix5_64_sysent` entry at 0xc000000001595a98 | `klm_shutdown` (0xc0000000000fc1a4, `lockd.o`) and `ksvc_manager` (0xc0000000003c1164, `oncrpc.a(ksvc.o)`), both in other members (relocated by symbol, kernel-internal) | override reached, no bypass. A boot object that overrides `kill` also intercepts those two kernel callers. `sigsendsys` does not call `kill`; it calls the unnamed routines at kill+0x94 and kill+0x30c directly (0xc0000000002708bc, 0xc0000000002708d0), so overriding `kill` alone leaves `sigsend` on the original code |
+| `sigsendsys` (0xc00000000027081c, `os.a(sig.o)`) | both tables | none | override reached, no bypass |
+| `sigqueue_sys` (0xc00000000026ebc8, `os.a(sig.o)`) | both tables | none | override reached, no bypass |
+| `waitsys_wrapper` (0xc0000000002b98b8, `os.a(exit.o)`) | both tables | none | override reached, no bypass |
+| `waitsys` (0xc0000000002b9a98, `os.a(exit.o)`) | none | `waitsys_wrapper` calls it at 0xc0000000002b998c, inside the member | intra-member call; the call site is a type 4 relocation against the global `waitsys` (member offset 0x578), so the linker binds it by name, but the entry point to override is `waitsys_wrapper`, not `waitsys` |
+| `BSDgetpgrp` (0xc0000000002b5638, `os.a(scalls.o)`) | both tables | none | override reached, no bypass |
+| `setpgrp` (0xc0000000002b5544, `os.a(scalls.o)`) | both tables | none | override reached, no bypass |
+| `BSDsetpgrp` (0xc0000000002b57b0, `os.a(scalls.o)`) | both tables | none | override reached, no bypass |
+| `setpgid` (0xc0000000002b5938, `os.a(scalls.o)`) | none | `BSDsetpgrp` at 0xc0000000002b5870 (intra-member, relocated against the global, member offset 0x87c); `syssgi` at 0xc0000000002e2758 (`os.a(syssgi.o)`, selector 21, relocated by symbol); `ksvc_manager` at 0xc0000000003c0f20 (kernel-internal) | **has a second user path**: `syssgi` selector 21 calls `setpgid` directly with the caller's process id and group id arguments (loads at +0xc and +0x14 of the argument block, 0xc0000000002e2754 and 0xc0000000002e275c) and never goes through `BSDsetpgrp`. Overriding `BSDsetpgrp` alone leaves this path unfiltered; overriding the symbol `setpgid` (or `syssgi.o`) covers it |
+
+Established for the table and call sites, the relocation types and the dispatcher; the statement that a type 4 relocation against a global is bound by name even inside the defining member follows from the object format and the observed first-definition-wins rule, and was not itself tested on a handler (inferred). The sizes of the objects match the linked kernel, so the objects read are the ones linked.
+
+Other user entries that reach process lookups and are not in the set above: `syssgi` (0xc0000000002e0310, `os.a(syssgi.o)`, 16,704 bytes) has `vproc_lookup` calls at 0xc0000000002e0a14, 0xc0000000002e2e78, 0xc0000000002e3d74 and 0xc0000000002e59b4, `procscan` calls at 0xc0000000002e3b08, 0xc0000000002e55c4, 0xc0000000002e55f8 and 0xc0000000002e5a14, the `setpgid` call above and the `setsid` call at 0xc0000000002e173c (selector 20). A tag filter that wants complete coverage of the process-naming calls has to include `syssgi.o`, as well as `prctl`, `procblk`, `schedctl`, `sysmp`, `sched_*` and the terminal ioctls listed in the callers paragraph. Established as call sites; which selector each belongs to was not read except 20 and 21.
+
+### Process file system: where the identifiers are written
+
+`prgetstatus` (`6.5.30/unix.IP35`, 0xc000000000436900, 1484 bytes), `prgetpsinfo` (`6.5.30/unix.IP35`, 0xc000000000437fcc, 1076 bytes) and `irix5_prgetpsinfo` (`6.5.30/unix.IP35`, 0xc000000000438b44, 1084 bytes) copy identifiers from the process record into the status structure they fill. Each is a plain load from the process record followed by a store, read at the instructions shown. Established.
+
+| Writer | Output offset | From process record | Field |
+|---|---|---|---|
+| `prgetstatus` | +0x148 (store 0xc000000000436cac) | +0x29c (load 0xc000000000436ca8) | process id |
+| `prgetstatus` | +0x14c (0xc000000000436cb4) | +0x2a0 (0xc000000000436cb0) | parent process id |
+| `prgetstatus` | +0x150 (0xc000000000436cbc) | +0x298 (0xc000000000436cb8) | process group id |
+| `prgetstatus` | +0x154 (0xc000000000436cc4) | +0x2a4 (0xc000000000436cc0) | session id |
+| `prgetpsinfo` | +0x18 (0xc000000000438078) and +0x114 (0xc000000000438080) | +0x29c (0xc000000000438074, 0xc00000000043807c) | process id, written twice |
+| `prgetpsinfo` | +0x1c (0xc000000000438090) | +0x2a0 (0xc00000000043808c) | parent process id |
+| `prgetpsinfo` | +0x20 (store in the delay slot at 0xc0000000004380a0) | +0x298 (0xc000000000438094) | process group id |
+| `prgetpsinfo` | +0x24 (0xc0000000004380f8) | +0x2a4 (0xc0000000004380f4) | session id |
+| `irix5_prgetpsinfo` | +0x10 (0xc000000000438bf0) and +0xdc (0xc000000000438bf8) | +0x29c (0xc000000000438bec, 0xc000000000438bf4) | process id, written twice |
+| `irix5_prgetpsinfo` | +0x14 (0xc000000000438c08) | +0x2a0 (0xc000000000438c04) | parent process id |
+| `irix5_prgetpsinfo` | +0x18 (store in the delay slot at 0xc000000000438c18) | +0x298 (0xc000000000438c0c) | process group id |
+| `irix5_prgetpsinfo` | +0x1c (0xc000000000438c70) | +0x2a4 (0xc000000000438c6c) | session id |
+
+In `prgetstatus` the process record is the thread's `ut_proc` (+0x300 of the thread record, load at 0xc000000000436914); in the two info routines it is the word at +0x38 of the second argument. The two info routines also store the halfword at process +0x88 (0xc000000000438084, 0xc000000000438bfc) at +0x138 and +0xf8, and the controlling terminal through `cttydev` (0xc000000000318020), which names a device, not a process. The names of the output fields were not taken from any header; the roles come from the source offsets, which `pproc_get_attr` (0xc0000000002d4e0c) labels the same way (+0x2a0 parent in buffer +0, +0x298 group in +4, +0x2a4 session in +8). Established for the offsets; inferred for the role of the second process-id copy (it is the same load, so it is a second field that carries the same number).
+
+Other readers of the identifiers in the process file system, from a scan of loads at +0x29c, +0x2a0 and +0x298: `prbuild` (two loads, at 0xc00000000042e734 and 0xc00000000042e868) and `procfs_umfinal` (0xc00000000042f708, 0xc00000000042f808) which build and tear down the per-process directory entries, `prusrio` (0xc00000000042fa38, 0xc00000000042fbc0), `prthreadio` (six loads, 0xc000000000430b0c to 0xc000000000433178, among them the `pid_getlist` call that produces the directory listing and the `vproc_lookup` calls that resolve a name), `prioctl` (0xc0000000004345d4), and `ckpt_prioctl_attr` (five loads). A view that remaps the identifiers has to cover those as well as the three writers above. Established as sites; what each does with the number was not read.
+
+Replaceability: `prgetstatus` is in `proc.a(priface2.o)`, `prgetpsinfo` in `proc.a(priface.o)` and `irix5_prgetpsinfo` in `proc.a(irix5_priface.o)`; `prbuild` is in `proc.a(prsubr.o)`, `prthreadio` and `prusrio` in `proc.a(prusrio.o)`, `prioctl` in `proc.a(prioctl.o)`, `procfs_umfinal` in `proc.a(prvfsops.o)`. None of these symbols is defined in `kernel.o`. `proc.a` is a stand-alone module archive, not the required core: its master file (6.5.22 `master.d/proc`) carries the flags `jox` (a file system, with no `k`) and defines inline stubs for `prexit`, `prinvalidate`, `prfault` and `prawake`, and `irix.sm` names it on its `INCLUDE:` line. So it is a member-level override target on the same terms as `os.a`, and a boot object's symbol wins over the archive member's. Established for the placement and the master file; inferred for what replacing a member costs (the `priface` members share exported symbols with other members, which was not counted).
+
 ### Answer
 
 There **is** one shared process-id lookup (`vproc_lookup` calling `pid_to_vproc`) and one shared group lookup (`vpgrp_lookup`), and one enumerator (`procscan`, plus the `pid_getlist` path for the process file system). Together they cover `kill`, `sigsend`, `sigqueue`, `getpgid`, `setpgid`, and the group form of `waitpid`. No syscall handler walks the tables itself, so containment need not be copied into each handler.
