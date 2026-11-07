@@ -200,6 +200,8 @@ The network stack, System V message queues, semaphores and shared memory, the ho
 
 ## Namespace scope
 
+Where each of these is dispatched and which link input defines it: [namespace-dispatch.md](namespace-dispatch.md).
+
 Whether the mount table, the host name and the System V IPC key space are global or can differ between groups of processes. All three are global in `6.5.30/unix.IP35`; nothing in these paths reads a process, share group, session, job or array session to choose a table or a value. IP27 and IP30 were not read for this section. Addresses are `6.5.30/unix.IP35`. Reference pages are not used.
 
 ### Mount table
@@ -224,7 +226,7 @@ Global. Established.
 - A scan of the kernel text for loads through the two global-pointer slots that hold the addresses of `hostname` and `utsname` (gp-0x2720, gp-0x2740) finds only `inituname`, `uname`, `systeminfo` (`6.5.30/unix.IP35`, 0xc000000000264354, 1544 bytes) and the `phost_*` name routines. `syssgi` (0xc0000000002e0310) is not among them, so no `syssgi` selector reads or writes the name. The scan covers those slots only; a use through some other way of forming the address was not searched for.
 - `sethostname` therefore renames the host for every process. A process in a root with the root user id and the default `cap_enabled` passes the `1 << 28` test without any capability (see "The capability check"); one with a non-zero user id needs the capability bit.
 
-UTS-namespace-like feasibility without new kernel code: **no** for a kernel-visible per-container name. Every kernel path reads one global. The `vhost` / `phost` indirection (a behavior table behind `local_vhp`) is the structure a cell-aware kernel uses; `cell_enabled` (0xc00000000163dbb0) is 0 in the file image and no code here picks a second record. Whether a loadable module could install other operations in `phost_ops` was not tested: unknown (would be settled by reading the module loader's symbol and relocation rules, see [module-interfaces.md](module-interfaces.md)). A user-space substitute (an interposer in the container's `gethostname` and `uname` calls) is not shown to exist in the binaries: unknown, settled by reading the loader's environment handling in [userland-abi-and-loader.md](userland-abi-and-loader.md) for a preload list.
+UTS-namespace-like feasibility without new kernel code: **no** for a kernel-visible per-container name. Every kernel path reads one global. The `vhost` / `phost` indirection (a behavior table behind `local_vhp`) is the structure a cell-aware kernel uses; `cell_enabled` (0xc00000000163dbb0) is 0 in the file image and no code here picks a second record. `phost_ops` has no registration call (its two register slots only panic), and `uname`, `systeminfo` and the NFS client read the global name data without it; [namespace-dispatch.md](namespace-dispatch.md) gives the slot table, which archive member defines each routine, and what that means for mount, name and IPC. Whether a loadable module could displace a kernel symbol stays unknown (see [module-interfaces.md](module-interfaces.md)). A user-space substitute (an interposer in the container's `gethostname` and `uname` calls) is not shown to exist in the binaries: unknown, settled by reading the loader's environment handling in [userland-abi-and-loader.md](userland-abi-and-loader.md) for a preload list.
 
 ### System V IPC keys and ids
 
