@@ -107,6 +107,39 @@ Established.
 - None is in `kernel.o`. Shared memory is in the required archive; `sem.o`, `msg.o` and `ipc.o` are separate objects that `irix.sm` names on `USE:` lines and whose master files list stubs for the case that they are absent (`semsys`, `semexit`; `msgsys`; `ipc_init`, `ipcaccess`, the two converters; all "not installed"). Read directly.
 - Consequence, reasoned under the standard rule: the semaphore and message modules are whole modules whose only outside entry points are the syscall functions `semsys` and `msgsys`, which the syscall table points at. A replacement object that defines those two and its own key space, and uses the existing `ipc.o` for permissions, replaces them completely. This is the module-level substitution the configuration language is built for. Shared memory is different: its lookup is in `vshm_mgr.o`, which has 14 symbols used from other members, so it is a replacement of one archive member of the required module (with the local-provider member that calls it).
 
+## 4. Process-id and group-id lookup
+
+Read for the container-tag work; the function bodies and call sites are in [process-model.md](process-model.md#process-id-and-group-id-lookup). Placement here.
+
+### A. Dispatch: hard calls into small lookup routines
+
+Established. `vproc_lookup` (0xc0000000002d2150, 28 bytes) is a direct call to `pid_to_vproc` (0xc0000000002dadc4, 312 bytes), which hashes into `pidtab` and returns a counted reference to the process object. `vpgrp_lookup` (0xc00000000030b9e8) and `vsession_lookup` (0xc0000000002ee284) have the same shape over `vpgrptab` and `vsessiontab`. `procscan` (0xc0000000002db140) walks the active list and calls a function pointer that its caller passes. All callers use `jal`; the 93 `vproc_lookup` sites, 16 `vpgrp_lookup` sites and 23 `procscan` sites found by scanning `.text` have no vector between them and the routine. After the first call the process object's own operations are vectored (the `vproc` table, [process-model.md](process-model.md#records-this-page-uses)), but the choice of which process a number names is not.
+
+### B. Where it lives
+
+Established.
+
+| Symbols | Archive member | Linked | Referenced from other members |
+| --- | --- | --- | --- |
+| `vproc_lookup`, `vproc_lookup_prevent`, `vproc_init`, `vproc_exec`, `idbg_vproc_lookup` (5 global entries) | `os.a(vproc_mgmt_lp.o)`, text 0xc0000000002d2134 to 0xc0000000002d21d8 | yes (sizes equal) | `vproc_lookup` from 57 routines (93 call sites); `vproc_lookup_prevent` from `pproc_exit` and `pproc_reap` |
+| `pid_to_vproc`, `procscan`, `pid_op`, `pid_alloc`, `pid_associate`, `pid_getlist_local`, `pidtab`, `pidtabsz`, `pid_base`, `pid_active_list` and 10 more (20 global entries) | `os.a(pid.o)`, text 0xc0000000002da52c to 0xc0000000002db574 | yes | `pid_to_vproc` only from `vproc_lookup`; `procscan` from 23 sites; `pid_op` from the group and session code, `sprocsp`, `p0exit` and `miser`; the tables by no other member |
+| `vpgrp_lookup`, `vpgrp_create`, `vpgrp_remove`, `vpgrptab`, `pgrp_zone` and 8 more (13 global entries) | `os.a(vpgrp.o)`, text 0xc00000000030b89c to 0xc00000000030bcf0 | yes | `vpgrp_lookup` from 16 sites (kill, signal, wait, setpgid, setsid, cpuset, miser, schedctl, STREAMS) |
+| `kill`, `sigsendsys`, `sigqueue_sys`, `signal`, `sigtopid` and 57 more (62 global entries) | `os.a(sig.o)` | yes | |
+| `waitsys_wrapper`, `waitsys` | `os.a(exit.o)` | yes | |
+| `BSDgetpgrp`, `BSDsetpgrp`, `setpgrp`, `setpgid` | `os.a(scalls.o)` | yes | |
+| `checkprocset`, `procinset`, `getmyid` | `os.a(procset.o)` | yes | `kill`/`sigsendsys` |
+
+- No definition of any of these is in `kernel.o` or in a second archive: `kernel.o` is the only mandatory core, and every symbol above has exactly one defining member in the 353 link inputs. Member extents come from the symbol addresses of each member's global functions; they bound where the member's code lies and were not cross-checked against section headers (a member with only local routines past its last global would extend further).
+- Placement of a replacement, reasoned under the standard archive rule: the group lookup is `vpgrp.o` (13 symbols, 5 of them used outside); the process-id lookup and the enumerator are in two members, `vproc_mgmt_lp.o` (small) and `pid.o` (20 symbols, the process table). A filter on the process-id lookup alone is `vproc_mgmt_lp.o` and nothing else, because `pid_to_vproc` has no other caller. The enumerator needs `pid.o`, which holds the table, so replacing it means supplying the table and allocator too (`pid_op` alone has callers in the group and session code, `sprocsp`, `p0exit` and `miser`).
+- The lookups are used by the kernel's own exit, reap and reparent paths ([process-model.md](process-model.md#process-id-and-group-id-lookup)), so a replacement member has to tell system call callers from internal ones; the code gives no flag that does.
+
+## 5. Sockets and ARP (skimmed)
+
+Read only for placement; function bodies of the socket entry points were not read. Linked sizes match the objects.
+
+- `bind` (`6.5.30/unix.IP35`, 0xc0000000001ba6a4, 200 bytes) and `connect` (0xc0000000001ba86c, 148 bytes), the system call handlers for calls 1090 and 1091, are in `bsd.a(uipc_syscalls.o)`; `sobind` (0xc0000000001ae794) and `soconnect` (0xc0000000001aeeb0) in `bsd.a(uipc_socket.o)`; `in_pcbbind` (0xc0000000001cac94, 644 bytes) and `in_pcbconnect` (0xc0000000001cb6d0, 104 bytes) in `bsd.a(in_pcb.o)`. `socket.a` carries same-named members of the same sizes. None is in `kernel.o`. So the BSD socket path is replaceable at the member level on the same terms as the rest of this page. The TPI socket path (`tpisocket.a`, `tpiudp.o`, `tpitcp.o` and others) was not read, so whether every socket reaches these routines is unknown. Established for placement; inferred for what a replacement would intercept.
+- `arpioctl` (`6.5.30/unix.IP35`, 0xc0000000001b9b00, 1008 bytes) supports proxy ARP: for the set-entry request it tests bit 8 of the request flags (0xc0000000001b9d64), sets bit 0x4000 in the route's flags word (+0x68, 0xc0000000001b9d7c) and sends an ARP request for the address through `arprequest` (0xc0000000001b9dd0). On the input side, the ARP input routine (the code that starts at `arp_findaddr`+0x64, 0xc0000000001b94c4, static in `if_ether.o`) looks up a target address that is not the receiving interface's (call at 0xc0000000001b9850, the lookup helper at `arp_rtrequest`+0x3f8 with the proxy argument 1), tests bit 0x4000 of the found route (0xc0000000001b9868), and if set copies the entry's stored hardware address into the reply (the 6-byte `bcopy` at 0xc0000000001b98b0) instead of dropping the packet. So a host entry added with the publish flag is answered on the other interface's behalf, which is what a routed container network needs. Inferred: the two halves were read, but not the whole of the input routine (1,596 bytes), so the conditions that skip the reply, such as the interface the request arrived on, were not checked.
+
 ## General characterisation
 
 Measured on `6.5.30/unix.IP35` unless marked.
@@ -131,8 +164,10 @@ The consumer's question is which of mount, host name and IPC look reachable by s
 | Mount placement and the mount list | vnode cover slot, global list | `os.a(vfs.o)` (67 global entries), `os.a(fs_subr.o)` (34) | wide; not needed if the crossing is replaced instead |
 | Semaphore and message key spaces | direct scan, per-entry table | stand-alone `sem.o` and `msg.o`; only `semsys` and `msgsys` are outside entry points | **yes, cheap** (inferred): whole-module substitution |
 | Shared-memory key space | direct scan, per-entry table | `os.a(vshm_mgr.o)` (14 outside-referenced symbols) | **yes, moderate** (inferred) |
+| Process-id and group-id lookup | hard calls into `vproc_lookup`, `vpgrp_lookup`, `procscan` | `os.a(vproc_mgmt_lp.o)` (5 symbols), `os.a(vpgrp.o)` (13), `os.a(pid.o)` (20) | **yes** (inferred), but the lookups also serve exit, reap and reparent, so the filter must tell callers apart |
+| Socket bind and connect | hard calls | `bsd.a(uipc_syscalls.o)`, `uipc_socket.o`, `in_pcb.o` | **yes** for the BSD path (inferred); TPI path unread |
 
-Nothing in the six rows needs a run-time memory change if relinking with our own boot objects is acceptable. The run-time alternative for the name, storing into `phost_ops`, would be incomplete anyway because `uname` bypasses the table.
+Nothing in the rows above needs a run-time memory change if relinking with our own boot objects is acceptable. The run-time alternative for the name, storing into `phost_ops`, would be incomplete anyway because `uname` bypasses the table.
 
 ## 6.5.22
 
