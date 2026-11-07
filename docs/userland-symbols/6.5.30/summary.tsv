@@ -1,0 +1,15 @@
+library	abi	variant	path	exported	func	object	other	weak	global
+libc	n32	mips3	usr/lib32/mips3/libc.so.1	4737	4416	317	4	1918	2819
+libc	n32	mips4	usr/lib32/mips4/libc.so.1	4737	4416	317	4	1918	2819
+libc	n64	mips3	usr/lib64/mips3/libc.so.1	4775	4446	325	4	1948	2827
+libc	n64	mips4	usr/lib64/mips4/libc.so.1	4775	4446	325	4	1948	2827
+libpthread	n32	only	usr/lib32/libpthread.so	219	193	22	4	0	219
+libpthread	n64	only	usr/lib64/libpthread.so	219	193	22	4	0	219
+libm	n32	mips3	usr/lib32/mips3/libm.so	755	657	95	3	347	408
+libm	n32	mips4	usr/lib32/mips4/libm.so	755	657	95	3	347	408
+libm	n32	mips4-r8000	usr/lib32/mips4/libm.so.CPUARCH-R8000	755	657	95	3	347	408
+libm	n64	mips3	usr/lib64/mips3/libm.so	755	657	95	3	347	408
+libm	n64	mips4	usr/lib64/mips4/libm.so	755	657	95	3	347	408
+libm	n64	mips4-r8000	usr/lib64/mips4/libm.so.CPUARCH-R8000	755	657	95	3	347	408
+libdl-abi	n64	only	usr/lib64/abi/libdl.so	11	8	0	3	4	7
+libc-abi	n64	only	usr/lib64/abi/libc.so	1554	1459	91	4	569	985
