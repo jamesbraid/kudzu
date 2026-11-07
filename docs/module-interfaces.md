@@ -1,0 +1,118 @@
+# Loadable kernel modules and performance counters
+
+What a loadable kernel module can rely on in the IRIX 6.5.30 kernel, and how the R10000-family event counters reach software. The first half answers what the author of a module in another language (Rust, an interpreter) has to satisfy: the interfaces the module links against, the object format the loader accepts, and the context rules. The second half is the performance-counter path.
+
+Evidence is the linked 6.5.30 kernel `6.5.30/unix.IP35` (Origin 300/350 class). Where `6.5.30/unix.IP27` differs this is said; the last section lists the IP27 addresses. The vendor's own loadable modules, the objects under `usr/cpu/sysgen/IP35boot/` whose configuration file carries the dynamic-module flag, are used as a cross-check of what the loader must accept. The configuration files used are the 6.5.22 `var/sysgen.IP35` ones (no 6.5.30 copy is held). Userland programs and libraries (`perfex`, `libperfex`, `ml`, `lboot`) are not in `root/`, so nothing about them is read from a binary.
+
+Grades follow the repository rules. An entry that names a routine, its binary, address and size ends with its grade. Elsewhere on this page a fact marked "read directly" is shown by the named data or instructions in the kernel (the top grade); "reasoned" says what the conclusion rests on; "not known" is recorded in [open-questions.md](open-questions.md) with the next route.
+
+No other kernel-module document has landed in this repository yet, so none is linked. The syssgi and system-call conventions used are in [syssgi.md](syssgi.md) and [syscalls.md](syscalls.md).
+
+## Module loading
+
+### What a loadable module is
+
+- `mload_init` (`6.5.30/unix.IP35`, 0xc00000000027fe78, 692 bytes) is the loader's setup; `mload_driver_load` (`6.5.30/unix.IP35`, 0xc0000000002826a8, 540 bytes) loads a driver for a device number and `mautounload` (`6.5.30/unix.IP35`, 0xc0000000002833c4, 36 bytes) is the auto-unload hook. The object reader, symbol-table reader and relocator are `mreadelf`, `mreadelfsymtab` (960 bytes), `msetelfsym` (932 bytes), `mfreeelfobj` (296 bytes) and `doelfrelocs`, entries below. The kernel's messages name the failures: "no runtime symbol table available", "Object file format not ELF", "Cannot read or relocate object", "Failed to initialize driver". Established.
+- Read directly from the shipped configuration README (6.5.22 `var/sysgen.IP35/master.d/README`): the flag `d` marks a dynamically loadable module, `R` an auto-registerable one, `N` one that is never auto-unloaded, `D` one loaded and then unloaded. The sample configuration for the `fglrx` module says the object lives under `/var/sysgen/boot/`, is loaded with `lboot -L` and unloaded with `ml unload`. Modules carrying `d` include the serial and MIDI character drivers, the keyboard, tablet and Wacom drivers, `tpsc`, `smfd`, `pciba` and `xioba_`.
+- Read directly: the loader takes its runtime symbol table from the kernel file named by the boot variable `kernname`. When it cannot (a kernel booted over the network, or the variable unset) the kernel prints that loadable modules will not be registered or loaded. An undefined symbol of a module is looked up by name in that table with `melf_findexactname` (216 bytes); a name not found prints `%s: symbol %s not found`. Not known: whether every symbol of the kernel file is visible or only the globally bound ones.
+
+### Object format the loader accepts
+
+- `mreadelf` (`6.5.30/unix.IP35`, 0xc0000000002cc898, 2836 bytes) reads the module file with `vn_rdwr` into `kern_malloc` memory. It checks bytes 2 and 3 of the identification for "LF", the data encoding for big endian, the object type for relocatable (a mismatch gives error 11) and the class for 64-bit (a 32-bit object gives error 99). The `e_flags` architecture bits (flag word & 0xf0000000) must be 0, 0x10000000, 0x20000000, 0x30000000 (MIPS I to IV) or 0xf0000000, else error 25. Only 13 section names are kept (table at 0xc000000001597d58, matched by the static `section_key`, 0xc0000000002cdc38): `.text`, `.rel.text`, `.rela.text`, `.data`, `.rel.data`, `.rela.data`, `.rodata`, `.rel.rodata`, `.rela.rodata`, `.bss`, `.symtab`, `.shstrtab`, `.strtab`. Every other section, the `.MIPS.*` and debug sections included, is skipped without error. Two `strcmp` calls compare each name with `.sdata` and `.sbss`; a match fails the load with error 78. The image is the sum of `.text`, `.data`, `.rodata` and `.bss`, each rounded up by 16, taken with one `kern_malloc` call; the sections are read into it and `.bss` is cleared with `blkclr`. Established.
+- Read directly, from the shipped vendor modules: all fifteen dynamic-module objects checked carry `e_flags` 0x30000010 and have none of `.sdata`, `.sbss`, `.lit8`, `.srdata`. A module is therefore built with the small-data area off and without global-pointer-relative access.
+- Consequence for writable data: a module has its own initialised (`.data`) and zero-initialised (`.bss`) data, in the same heap block as its code. Read directly for the layout; whether the block is writable and executable at the page level, and the address range it falls in, are not known.
+
+### Relocation kinds
+
+`doelfrelocs` (`6.5.30/unix.IP35`, 0xc0000000002cdf84, 1308 bytes) walks the relocation sections of the six classes (text, data, rodata, each in REL and RELA form) and calls `cache_operation`, the static `extract_relc_val`, `rela_get_addend`, `rel_get_addend`, `get_target_value`, `fixup` and `put_relc_val`, and `printf` for its failure messages. A relocation entry is the 16-byte MIPS n64 form: byte 12 is the special-symbol byte, bytes 13, 14 and 15 are up to three chained operations, applied third, second, first. A special-symbol byte of 1 or 2 (global pointer) fails with "can't handle GP" and any other nonzero value except 3 with "unknown r_ssym type". A table of 3 bytes per kind at 0xc0000000004d04a8 gives the width of the patched field, how to find the symbol value and how to find the addend; `fixup` (0xc0000000002ce96c) dispatches through a 32-entry jump table at 0xc0000000004d06a0 and returns error 76 for any kind of 32 or more. Established.
+
+| Kind | Name | Result in this loader |
+| --- | --- | --- |
+| 0 | NONE | accepted, nothing patched |
+| 1 | 16 | accepted, 16-bit add |
+| 2 | 32 | accepted, 32-bit add |
+| 3 | REL32 | accepted; the table gives addend class 0 and the dispatch entry is the "no change" exit, so the value written is the symbol value (reasoned from the table, the store not traced) |
+| 4 | 26 | accepted with a range check: the target and the next instruction address must agree in bits 63 to 28, else error 84 |
+| 5 | HI16 | accepted; the paired low half is found by scanning forward for a kind-6 entry on the same symbol |
+| 6 | LO16 | accepted, signed 16-bit add |
+| 18 | 64 | accepted, 64-bit add |
+| 24 | SUB | accepted, 64-bit subtract |
+| 28, 29 | HIGHER, HIGHEST | accepted |
+| 7 to 17, 19 to 23, 25 to 27, 30, 31 | GPREL16, LITERAL, GOT16, PC16, CALL16, GPREL32, SHIFT5, SHIFT6, GOT_DISP, GOT_PAGE, GOT_OFST, GOT_HI16, GOT_LO16, INSERT_A, INSERT_B, DELETE, CALL_HI16, CALL_LO16 | rejected: error 76 from `fixup` (the addend routines return error 77 for table class 7) |
+| 32 and up | SCN_DISP and above | rejected by `fixup`, error 76 |
+
+Read directly: the table and the dispatch above. The vendor modules confirm the accepted set from the other side. In the sections the loader keeps, the fifteen objects hold kinds 5 (4111 entries), 6 (4108), 28 (4102) and 29 (4380) in text and kind 18 in data and rodata (359 and 2692); kind 32 occurs only in `.MIPS.*` sections that the loader skips; kinds 4, 7 and 11 do not occur. The low half (kind 6) is REL, the high half and the HIGHER/HIGHEST pieces are RELA, both in one object. A module is therefore compiled non-PIC with 64-bit absolute addresses built by the HIGHEST, HIGHER, HI16, LO16 sequence and calls through a register (`jalr`). Reasoned, from the range check: a direct `jal` from a heap block to kernel text would often fail. Undefined symbols are patched with the address from the runtime symbol table; module symbols with the section base plus the symbol value, for object and function symbols only.
+
+### Calling into the kernel
+
+Everything a module links against is a name in the kernel symbol table. Present in `6.5.30/unix.IP35` (read directly from the symbol table):
+
+- Allocation: `kmem_alloc`, `kmem_zalloc`, `kmem_free`, `kmem_realloc`, the `_node` forms, `kern_malloc`, `kern_calloc`, `kern_free`, zones (`kmem_zone_init`, `kmem_zone_alloc`, `kmem_zone_zalloc`, `kmem_zone_free`) and `kmem_contig_alloc`.
+- Locks: spin locks `init_spinlock`, `spinlock_init`, `mutex_spinlock`, `mutex_spinunlock`, `mutex_spintrylock`, `nested_spinlock`, `nested_spinunlock`, `mutex_spinlock_spl`, bit locks `mutex_bitlock`, `mutex_bitunlock`; sleeping locks `init_mutex`, `mutex_lock`, `mutex_unlock`, `mutex_trylock`, `mutex_destroy`; read/write locks `mrlock_init`, `mraccess`, `mrupdate`, `mrunlock`, `mrfree`; semaphores `init_sema`, `psema`, `vsema`, `cpsema`, `cvsema`, `freesema`.
+- Sleep and wakeup: synchronisation variables `init_sv`, `sv_wait`, `sv_wait_sig`, `sv_timedwait`, `sv_signal`, `sv_broadcast`, `sv_destroy`; the older `sleep` and `wakeup`.
+- Timers: `timeout`, `itimeout`, `dtimeout`, `fast_timeout`, `fast_itimeout`, `untimeout`. The table size is the tunable `ncallout` (auto-configured, bounds 20 to 5000, 6.5.22 `mtune/kernel`).
+- Interrupt level: `splhi`, `spl7`, `splx`, `splnet`, `spltimeout`, `splimp` and others, as functions.
+
+Argument lists and flag meanings come from the published manual pages (`kmem_alloc(D3)` and the Device Driver Programmer's Guide, 007-0911-210; page numbers not checked) and are a hint, not read here. Five routines were read:
+
+- `kmem_alloc` (`6.5.30/unix.IP35`, 0xc00000000022c0f8, 108 bytes) passes its size and flags to `heapzone_malloc` and, as a debugging hook, to `log_tstamp_event`; `kmem_zalloc` (0xc00000000022c21c, 108 bytes) is the same with `heapzone_zalloc`. Established.
+- `kern_malloc` (`6.5.30/unix.IP35`, 0xc00000000022c2e0, 112 bytes) calls `heapzone_malloc`, the routine `kmem_alloc` uses, with flags 0 and node -1. That flags 0 is the sleeping form, so module load runs in process context, is reasoned from the published flag meanings. Inferred.
+- `mutex_spinlock` (`6.5.30/unix.IP35`, 0xc000000000331f6c, 76 bytes) reads CP0 Status, clears the interrupt-enable bit while it takes bit 0 of the lock word with a load-linked/store-conditional loop, then writes Status back with the interrupt-mask bits 0x9700 cleared, and returns the old Status; `mutex_spinunlock` takes that value back. A spin lock thus raises the interrupt level for the holder, and the returned word must be passed to the unlock. Established.
+- `mutex_lock` (`6.5.30/unix.IP35`, 0xc0000000002386b8, 64 bytes) makes one `compare_and_swap_int64` on the lock word and calls `mutex_wait` when it fails: a sleeping lock. Established.
+- `sv_wait` (`6.5.30/unix.IP35`, 0xc000000000239758, 36 bytes) is a call to `sv_timedwait` with no timeout. Established.
+
+### Rules for interrupt context, stacks and preemption
+
+- Read directly: the interrupt stack is the fixed 16384-byte object `intstack` (0xc00000000158fd18), its size is the word `intstacksize` at 0xc00000000163d370 (value 0x4000) and its end is `eintstack`. The kernel prints "Kernel/Interrupt Stack Overflow" and "Underflow" messages when the stack pointer leaves it. Code at interrupt level has 16 KB shared with everything nested above it. IP27 has the same size.
+- Not known: the stack size of an ordinary kernel thread and of a kernel daemon. The tunable `add_kthread_stack` (default 0) adds bytes to a daemon's stack. `uthread_create`, `xthread_create` and `allocpshare` allocate no stack directly.
+- Reasoned: kernel preemption exists. The exception-return label `kpreemption` (0xc00000000004035c) calls `kpswtch` before restoring Status, and the tunable `nonpreempts` (default 32, range 0 to 256, 6.5.22 `mtune/disp`) bounds how often a thread can avoid being preempted. Whether code holding only a sleeping lock or no lock can be preempted in a module is not read; assume it can.
+- Reasoned, from the manuals and the lock code above: a routine called from an interrupt handler or a callout must not sleep (`mutex_lock`, `psema`, `sv_wait`, a sleeping allocation) and may take only spin locks, whose acquisition masks the interrupt lines. Not known: whether the sleeping primitives refuse or panic when called at interrupt level; no check or message was found.
+- Not found: a tracing or probe facility by any name searched in the symbol table; the other design effort cannot count on a kernel hook for probes.
+
+## Performance counters
+
+### Framework
+
+The kernel has a family of `hwperf_*` routines over the per-processor `r1nk_perf_*` routines. `hwperf_init` (`6.5.30/unix.IP35`, 0xc00000000007f788, 308 bytes) sets up the lock and per-processor state and calls `md_perf_init` and `io_perf_init` for the Hub memory and I/O counters (separate families `md_perf_*`, `io_perf_*`; the crossbar has `xbow_*_perf_counter`). The processor counters are what this page covers. Established.
+
+Read directly: counter state is per thread. The thread record holds a pointer at +1160 (0x488) to a counter block whose first halfword carries the mode flags (0x8 once configured, 0x80 profile mode, 0x4). Counts follow the thread across processors. A system-wide mode exists (`hwperf_enable_sys_counters`). The fork path copies counter state (`sprocsp` calls `hwperf_fork_counters`), the clock tick drives event multiplexing (`clock` calls `hwperf_multiplex_events`) and `profil` calls `hwperf_enable_counters`; the argument it passes was not read.
+
+### /proc ioctls
+
+`prioctl` (`6.5.30/unix.IP35`, 0xc000000000434478, 1928 bytes) switches on the command minus 0x7102 through a 254-entry jump table. The counter commands each reach a static handler that calls one function through a global-pointer slot; the six slots hold, in order, `piocenevctrsex` (0xc000000000436604), `piocrelevctrs`, `piocgetevctrs`, `piocgetevctrl`, `piocsetevctrl` and `piocsaveccntrs` (0xc000000000436754). Established.
+
+| Command | Role | Routine reached |
+| --- | --- | --- |
+| 0x71e9 | enable counters with an argument block | `piocenevctrsex`, then `hwperf_enable_counters` (flags 4) |
+| 0x71ea | release counters | `piocrelevctrs`, then `hwperf_disable_counters` |
+| 0x71eb | read counter values | `piocgetevctrs`, then `hwperf_plus_counters`; the handler also calls `hwperf_get_counters` |
+| 0x71ed | read control settings | `piocgetevctrl`, then `hwperf_control_info` |
+| 0x71ee | set control settings | `piocsetevctrl`, then `hwperf_change_control` |
+| 0x71ef | save counts into the process | `piocsaveccntrs`, then `hwperf_parent_accumulates` |
+| 0x71f0, 0x71f1 | one handler uses the enable and release slots, the other the control-read slot a second time | same routines |
+
+The command numbers and the routines reached are read directly. That they are the public `PIOCENEVCTRS`, `PIOCRELEVCTRS`, `PIOCGETEVCTRS`, `PIOCGETEVCTRL`, `PIOCSETEVCTRL` and `PIOCSAVECCNTRS` is reasoned from the handler shapes and the names in the `/proc` manual page; the roles of 0x71f0 and 0x71f1 are reasoned from the slots only. Command 0x71fc reaches the symbol `prioctl_piocacinfo` (0xc000000000433a30); its recorded size is too short and the counter handlers lie just after it, so its own role was not read.
+
+### System call and userland
+
+The tail of `syssgi` (0xc0000000002e0310; the routine runs past its recorded size) holds a sub-command switch that copies a 196-byte (0xc4) block in and uses the same counter block at +1160. Not known: which selector number reaches it. Not known: how `perfex` and `libperfex` drive the interface, since neither is in `root/`; the published `perfex(1)`, `libperfex(3)` and `proc(4)` pages describe the /proc route, and the kernel side above matches it.
+
+### Argument block and selectable events
+
+- `hwperf_enable_counters` (`6.5.30/unix.IP35`, 0xc00000000007f940, 440 bytes) calls `cap_able` with mask 0x2000000000 before it accepts the system-wide flag (bit 8 of its flags argument), takes `mutex_lock` on the block, calls `hwperf_get_access`, then `r1nk_perf_init_counters`, then `hwperf_initiate_startup` and `mutex_unlock`. The argument block is 196 bytes: 32 sixteen-bit control words at +0, 32 thirty-two-bit overflow thresholds at +0x40 and one 32-bit overflow signal number at +0xc0; the signal must be 0 to 64 inclusive or the call fails with error 22, and it is stored at +12 of the counter block. Established.
+- `r1nk_perf_init_counters` (`6.5.30/unix.IP35`, 0xc00000000007ad38, 740 bytes) clears reserved bit 2 of each control word, takes the event number from bits 8:5 and requires it below 16, and turns a nonzero threshold into the start value 0x80000000 minus the threshold, so the counter's top bit sets, and its overflow interrupt fires, after that many events. A negative threshold is rejected with error 22. Established. Not known: which of the 32 slots maps to which hardware counter, and which event numbers are meaningful on which part; the lists are in the published R10000, R12000 and R14000 manuals and `perfex(1)` (document numbers not checked; no copy here).
+- `r1nk_perf_architecture` (`6.5.30/unix.IP35`, 0xc00000000007b01c, 116 bytes) reads the processor revision word (bits 15:8 the implementation, 7:4 the major revision). Implementations 0xe (R12000) and 0xf (R14000) give four counters; 0x9 (R10000) gives two when the major revision is 3 or more and one below that (architecture value 2 and 1); any other value prints "r1nk_perf_architecture unknown CPU type" and the counters are unavailable ("Performance counters unavailable on this architecture"). Established.
+- `hwperf_overflowed_intr` (`6.5.30/unix.IP35`, 0xc00000000007f8bc, 80 bytes) chooses `r12k_perf_overflow_intr` for implementations 0xe and 0xf, which tests four counters, and `r10k_perf_overflow_intr` otherwise, which tests two. Established. So the R16000 (implementation 0x10 in the standard encoding, a hint from outside this repository) is not recognised by this kernel's counter code. Whether an R16000 system boots this kernel with usable counters is not known.
+- `l2_sbe_init` (`6.5.30/unix.IP35`, 0xc00000000007b114, 628 bytes) sets up the kernel's secondary-cache single-bit-error monitor, which uses processor counter 3 on R12000 and R14000 (counter 0 on R10000) when the tunable `l2_sbe_check` selects the class; the default 0x000c selects R12K-S and R14K and the tunable names bits 0x10 to 0x80 as reserved. Established. Not known: how a user request for that counter is arbitrated against the monitor.
+
+### Overflow interrupt and delivery
+
+- `counter_intr` (`6.5.30/unix.IP35`, 0xc000000000067478, 824 bytes) is the processor counter interrupt, shared with the timer; it calls `hwperf_overflowed_intr` and, when that reports an overflow, `hwperf_intr`. Established.
+- `r1nk_perf_intr` (`6.5.30/unix.IP35`, 0xc00000000007a6f8, 448 bytes) reads each counter with `r1nkperf_data_register_get`, stops them with `r1nk_perf_stop_counters`, adds each delta to a 64-bit software accumulator in the thread's block with a `lld`/`scd` loop, reloads any counter whose top bit was set from its preload, calls `r1nk_perf_intr_action` and restarts with `r1nk_perf_start_counters`. Counts are 64-bit in software over the 32-bit hardware counters, and sampling by period is the preload. Established.
+- `r1nk_perf_intr_action` (`6.5.30/unix.IP35`, 0xc00000000007a8b8, 256 bytes) chooses by the block's mode flags. With bits 0x80 and 0x4 it calls `prfintr` with the interrupted context (the kernel profiler). Otherwise, if the block's signal number (halfword at +12) is nonzero, it calls `sigtouthread` on the current thread with it and, when the interrupted context was user mode, sets a flag word so the thread acts on return to user mode; if the interrupt hit kernel mode it sets a pending bit (0x400000) in the thread's flag word under `mutex_bitlock`. Established.
+
+Delivery is therefore a signal to the thread that was running when its counter overflowed, with a number the caller chose (0 to 64), one number per enable call and not per counter. It is not sent to a process group or fixed to a processor. Because counters are saved and restored with the thread, the signal belongs to the thread that owns the count. Sampling-based profiling is supported by the kernel: the period (preload), the signal and the `prfintr` path with `profil` all exist, and the signal handler runs in the sampled thread. The userland that turns this into a profile is not in `root/`; not known.
+
+## IP27 differences
+
+The same routines exist in `6.5.30/unix.IP27` with equal sizes except where noted: `doelfrelocs` 0xc00000000021eb10, `mreadelf` 0xc00000000021d424, `mload_init` 0xc0000000001d0548, `mload_driver_load` 0xc0000000001d2d78, `hwperf_enable_counters` 0xc000000000057d20, `r1nk_perf_architecture` 0xc000000000055348, `r1nk_perf_intr` 0xc000000000054aa8, `r1nk_perf_intr_action` 0xc000000000054c68, `hwperf_overflowed_intr` 0xc000000000057c9c, `kmem_alloc` 0xc00000000017e220, `kern_malloc` 0xc00000000017e408, `mutex_spinlock` 0xc0000000002863b4. The 3-byte relocation table is byte-identical (105 bytes compared). `counter_intr` is 728 bytes on IP27 against 824, `l2_sbe_init` is 624 against 628 and `prioctl` 1968 against 1928; those differences were not read, and the /proc command numbers and the syssgi tail were read only on IP35.
