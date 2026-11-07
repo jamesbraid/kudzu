@@ -215,6 +215,8 @@ Global. Established.
 - A `mount` or `lofs` mount made after `chroot` resolves the mount-point and source paths from the caller's `ut_rdir` (through `lookuppn` (`6.5.30/unix.IP35`, 0xc0000000002c1698, 2260 bytes), above) and is then visible to every process that reaches the mount-point vnode, including processes outside the root that name the same directory by its real path. This is a reading of the two routines above, not a run.
 - No per-process, per-share-group or per-session vfs root exists beyond `ut_rdir` / `ut_cdir` (the 28-routine scan under "chroot: where the root is kept", which includes `lookuppn` (`6.5.30/unix.IP35`, 0xc0000000002c1698, 2260 bytes)). That the `proc`, `pshare_s`, `shaddr` and session records hold no mount pointer rests on that scan and on the absence of any other reader of a mount view, and is unverified; their debug records could not be dumped for this section (no `dwarfdump` on the host and `readelf` rejects the kernel's `.debug_abbrev`).
 
+The one path-name hook the walk has, `mac_moldy_path` behind `mac_enabled` in `lookuppn`, is a stub in the shipped kernel and redirects walks inside a shared tree; see [trusted-irix.md](trusted-irix.md), "The multilevel-directory hook". It does not change the mount table.
+
 Per-container mount view reachable without new kernel code: **no**. What is reachable is a static tree: a supervisor builds a directory tree, mounts (`lofs`, capability `1 << 29`; other types unknown, see the open question above) on directories inside it, and `chroot`s the container into it. The mounts are global and appear in the host's view at the host path. Inferred.
 
 ### Host name and domain name
