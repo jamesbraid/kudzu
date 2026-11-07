@@ -12,7 +12,7 @@ section	.comment	type SHT_PROGBITS	6	6.5.22/unix.IP27	in	undocumented
 section	.data	type SHT_PROGBITS	6	6.5.22/unix.IP27	in	documented
 section	.debug_abbrev	type SHT_MIPS_DWARF	6	6.5.22/unix.IP27	in	undocumented
 section	.debug_aranges	type SHT_MIPS_DWARF	6	6.5.22/unix.IP27	in	undocumented
-section	.debug_frame	type SHT_MIPS_DWARF	6	6.5.22/unix.IP27	in	undocumented
+section	.debug_frame	type SHT_MIPS_DWARF	6	6.5.22/unix.IP27	in	documented
 section	.debug_funcnames	type SHT_MIPS_DWARF	6	6.5.22/unix.IP27	in	undocumented
 section	.debug_info	type SHT_MIPS_DWARF	6	6.5.22/unix.IP27	in	documented
 section	.debug_line	type SHT_MIPS_DWARF	6	6.5.22/unix.IP27	in	undocumented
@@ -23,8 +23,8 @@ section	.lit8	type SHT_PROGBITS	6	6.5.22/unix.IP27	in	documented
 section	.rodata	type SHT_PROGBITS	10	6.5.22/unix.IP27	in	documented
 section	.sbss	type SHT_PROGBITS	6	6.5.22/unix.IP27	in	documented
 section	.sdata	type SHT_PROGBITS	6	6.5.22/unix.IP27	in	documented
-section	.shstrtab	type SHT_STRTAB	6	6.5.22/unix.IP27	in	undocumented
+section	.shstrtab	type SHT_STRTAB	6	6.5.22/unix.IP27	in	documented
 section	.srdata	type SHT_PROGBITS	6	6.5.22/unix.IP27	in	documented
-section	.strtab	type SHT_STRTAB	6	6.5.22/unix.IP27	in	undocumented
-section	.symtab	type SHT_SYMTAB	6	6.5.22/unix.IP27	in	undocumented
+section	.strtab	type SHT_STRTAB	6	6.5.22/unix.IP27	in	documented
+section	.symtab	type SHT_SYMTAB	6	6.5.22/unix.IP27	in	documented
 section	.text	type SHT_PROGBITS	6	6.5.22/unix.IP27	in	documented

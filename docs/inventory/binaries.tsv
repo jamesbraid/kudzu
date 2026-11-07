@@ -1272,7 +1272,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(migr_user.o)	kernel-platform-drivers	shared-kernel	object	n64	18484	12f912a3b19e3c4e		7	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(migr_policy_control.o)	kernel-platform-drivers	shared-kernel	object	n64	8516	bb61748f8edc3847		5	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(migr_policy_refcnt.o)	kernel-platform-drivers	shared-kernel	object	n64	7892	179b9cab617f9cb3		5	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP27boot/numa.a(mem_profiler.o)	kernel-platform-drivers	shared-kernel	object	n64	1220	1420b4d3fc0b3318	6.5.22/usr/cpu/sysgen/IP35boot/numa.a(mem_profiler.o)	0	none	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/numa.a(mem_profiler.o)	kernel-platform-drivers	shared-kernel	object	n64	1220	1420b4d3fc0b3318	6.5.22/usr/cpu/sysgen/IP35boot/numa.a(mem_profiler.o)	0	none	0	0	named-only	docs/kernel-optional-subsystems.md#built-empty	Built empty
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(migr_refcnt.o)	kernel-platform-drivers	shared-kernel	object	n64	14932	957b8b2fd110bfec		9	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(mem_refcnt.o)	kernel-platform-drivers	shared-kernel	object	n64	8996	ae49bd48e1f865ec		6	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(cpuset_mem.o)	kernel-platform-drivers	shared-kernel	object	n64	17636	03876a4df10b1093		13	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -1286,7 +1286,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(repl_policy.o)	kernel-platform-drivers	shared-kernel	object	n64	7908	8958808504a918e4		5	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(repl_policy_default.o)	kernel-platform-drivers	shared-kernel	object	n64	14900	a08d3db524ceeef4		13	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(repl_shoot.o)	kernel-platform-drivers	shared-kernel	object	n64	11332	fee22d2145988eb3		4	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP27boot/numa.a(repldebug.o)	kernel-platform-drivers	shared-kernel	object	n64	1220	004efeee5164506b	6.5.22/usr/cpu/sysgen/IP35boot/numa.a(repldebug.o)	0	none	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/numa.a(repldebug.o)	kernel-platform-drivers	shared-kernel	object	n64	1220	004efeee5164506b	6.5.22/usr/cpu/sysgen/IP35boot/numa.a(repldebug.o)	0	none	0	0	named-only	docs/kernel-optional-subsystems.md#built-empty	Built empty
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(repl_policy_one.o)	kernel-platform-drivers	shared-kernel	object	n64	7380	1b447fec95760021		5	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP27boot/numa.a(repl_control.o)	kernel-platform-drivers	shared-kernel	object	n64	7988	09cd6215ed33db27		3	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP27boot/numa_idbg.a(numa_idbg.o)	kernel-other-objects	shared-kernel	object	n64	46836	e986395b4dcdbfcb		28	symtab	0	0	undocumented		
@@ -2096,7 +2096,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_flow.o)	kernel-other-objects	shared-kernel	object	n64	9556	6d469cf73d120c40		6	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_hpipe.o)	kernel-other-objects	shared-kernel	object	n64	26372	82f35cc2efe19cdf		19	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_i2c.o)	kernel-other-objects	shared-kernel	object	n64	69460	81bac26e77f8d9ac		19	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_idbg.o)	kernel-other-objects	shared-kernel	object	n64	1236	67dd60f94fc96a2f	6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_idbg.o);6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_idbg.o);6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_idbg.o)	0	none	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_idbg.o)	kernel-other-objects	shared-kernel	object	n64	1236	67dd60f94fc96a2f	6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_idbg.o);6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_idbg.o);6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_idbg.o)	0	none	0	0	named-only	docs/kernel-optional-subsystems.md#built-empty	Built empty
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_init.o)	kernel-other-objects	shared-kernel	object	n64	81668	44bff5391b5515a3		29	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_intr.o)	kernel-other-objects	shared-kernel	object	n64	20580	182cd87e4ca23759		5	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_map.o)	kernel-other-objects	shared-kernel	object	n64	14708	9ae09eda68481088		13	symtab	0	0	undocumented		
@@ -3222,7 +3222,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/frsstubs.a(frsstubs.o)	kernel-other-objects	shared-kernel	object	n64	12852	da79252a7482e8d3		34	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/fru.a(sn_fru_analysis.o)	kernel-platform-drivers	shared-kernel	object	n64	22340	69b0eb3560642669		28	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP35boot/fru.a(sn1_fru_rules.o)	kernel-platform-drivers	shared-kernel	object	n64	141876	3051cca09dcf4dc7		111	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP35boot/frustubs.a(frustubs.o)	kernel-other-objects	shared-kernel	object	n64	1220	413ddf62191a58db	6.5.30/usr/cpu/sysgen/IP35boot/frustubs.a(frustubs.o)	0	none	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/frustubs.a(frustubs.o)	kernel-other-objects	shared-kernel	object	n64	1220	413ddf62191a58db	6.5.30/usr/cpu/sysgen/IP35boot/frustubs.a(frustubs.o)	0	none	0	0	named-only	docs/kernel-optional-subsystems.md#built-empty	Built empty
 6.5.22/usr/cpu/sysgen/IP35boot/fsctl.o	kernel-other-objects	shared-kernel	object	n64	18512	2b59c807442c61fa		13	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/gentty.o	kernel-other-objects	shared-kernel	object	n64	11640	b63585705efa3590		8	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/gfx.o	kernel-other-objects	shared-kernel	object	n64	53824	30e1106823877e9e		62	symtab	0	0	undocumented		
@@ -3851,7 +3851,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/vga.a(xf86x86emu.o)	kernel-other-objects	shared-kernel	object	n64	8724	dc3b8890b92a3242		4	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/vga.a(vga_init.o)	kernel-other-objects	shared-kernel	object	n64	30196	b1701104f5e8f9a8		23	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/vga.a(vga_tport.o)	kernel-other-objects	shared-kernel	object	n64	13012	3c3a5c8ce93f6269		11	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/vga.a(vga_idbg.o)	kernel-other-objects	shared-kernel	object	n64	1220	75f91dc61018340c	6.5.30/usr/cpu/sysgen/IP35boot/vga.a(vga_idbg.o)	0	none	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/vga.a(vga_idbg.o)	kernel-other-objects	shared-kernel	object	n64	1220	75f91dc61018340c	6.5.30/usr/cpu/sysgen/IP35boot/vga.a(vga_idbg.o)	0	none	0	0	named-only	docs/kernel-optional-subsystems.md#built-empty	Built empty
 6.5.22/usr/cpu/sysgen/IP35boot/vidstubs.a(vidstubs.o)	kernel-other-objects	shared-kernel	object	n64	3892	549e34b73323d285		5	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/vme_idbg.o	kernel-other-objects	shared-kernel	object	n64	16536	b2d8beb3a803b91c		7	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/vmeio.o	kernel-other-objects	shared-kernel	object	n64	25592	ac844ad43e9a56f0		55	symtab	0	0	undocumented		
@@ -3942,11 +3942,11 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_irix_root.o)	kernel-other-objects	shared-kernel	object	n64	11268	483470cc2fb5dea8		2	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_snapshot.o)	kernel-other-objects	shared-kernel	object	n64	74212	6ce6deb1ef5096d3		60	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/xvmidbg.o	kernel-other-objects	shared-kernel	object	n64	108064	a47c444640f24c6b		39	symtab	0	0	undocumented		
-6.5.30/sbin/hinv	userland-base	userland	executable	n32	77064	4f430d6c4da73656		19	dynsym	0	0	named-only	docs/hwgraph-paths.md#hinv-strings	Hinv strings
-6.5.30/sbin/ioconfig	userland-base	userland	executable	n32	41768	cef4f7b1b16a0c3e		24	dynsym	0	0	named-only	docs/hwgraph-paths.md#ioconfig	ioconfig
-6.5.30/unix.IP27	kernel-image	shared-kernel	executable	n64	11101184	567474674eaa83d3		13484	symtab+dwarf	0	0	named-only	docs/errnos.md#syssgi-7-setled	`syssgi` 7 (SETLED)
+6.5.30/sbin/hinv	userland-base	userland	executable	n32	77064	4f430d6c4da73656		19	dynsym	0	0	named-only	docs/checkpoint-restart.md#the-on-disk-format-and-the-user-tools	The on-disk format and the user tools
+6.5.30/sbin/ioconfig	userland-base	userland	executable	n32	41768	cef4f7b1b16a0c3e		24	dynsym	0	0	named-only	docs/checkpoint-restart.md#the-on-disk-format-and-the-user-tools	The on-disk format and the user tools
+6.5.30/unix.IP27	kernel-image	shared-kernel	executable	n64	11101184	567474674eaa83d3		13484	symtab+dwarf	0	0	named-only	docs/checkpoint-restart.md#ip27-and-6522	IP27 and 6.5.22
 6.5.30/unix.IP30	kernel-image	shared-kernel	executable	n64	10716216	607a432f441d15f7		13087	symtab+dwarf	0	0	named-only	docs/driver-ioctls.md#driver-control-requests-ip30-kernel-dispatch	Driver control requests: IP30 kernel dispatch
-6.5.30/unix.IP35	kernel-image	shared-kernel	executable	n64	13104040	412a1aae553a3483		15130	symtab+dwarf	0	0	named-only	docs/errnos.md#syssgi-7-setled	`syssgi` 7 (SETLED)
+6.5.30/unix.IP35	kernel-image	shared-kernel	executable	n64	13104040	412a1aae553a3483		15130	symtab+dwarf	0	0	named-only	docs/checkpoint-restart.md#checkpoint-and-restart-in-the-irix-kernels	Checkpoint and restart in the IRIX kernels
 6.5.30/usr/cluster/bin/cmon_ctrl	userland-base	userland	executable	n32	30396	fb10cd802a5f35a8		11	dynsym+dwarf	0	0	named-only	docs/userland.md#6530usrclusterbincmon_ctrl	`6.5.30/usr/cluster/bin/cmon_ctrl`
 6.5.30/usr/cluster/bin/cmond	userland-base	userland	executable	n32	219644	64a4074332f415de		96	dynsym+dwarf	0	0	named-only	docs/userland.md#6530usrclusterbincmond	`6.5.30/usr/cluster/bin/cmond`
 6.5.30/usr/cluster/bin/cms_failconf	userland-base	userland	executable	n32	35164	84de8c8ad7046823		7	dynsym+dwarf	0	0	named-only	docs/userland.md#6530usrclusterbincms_failconf	`6.5.30/usr/cluster/bin/cms_failconf`
@@ -4824,7 +4824,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_inode_item.o)	kernel-other-objects	shared-kernel	object	n64	15940	3ac99bd020887c41	6.5.30/usr/cpu/sysgen/IP30boot/xfs.a(xfs_inode_item.o);6.5.30/usr/cpu/sysgen/IP35boot/xfs.a(xfs_inode_item.o)	16	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_iocore.o)	kernel-other-objects	shared-kernel	object	n64	11540	442fd80ab9ce7369		9	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_itable.o)	kernel-other-objects	shared-kernel	object	n64	18196	2797b6ed3d1a8dfc		6	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_dfrag.o)	kernel-other-objects	shared-kernel	object	n64	10500	b09a5b6947d973fd	6.5.30/usr/cpu/sysgen/IP30boot/xfs.a(xfs_dfrag.o);6.5.30/usr/cpu/sysgen/IP35boot/xfs.a(xfs_dfrag.o)	2	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_dfrag.o)	kernel-other-objects	shared-kernel	object	n64	10500	b09a5b6947d973fd	6.5.30/usr/cpu/sysgen/IP30boot/xfs.a(xfs_dfrag.o);6.5.30/usr/cpu/sysgen/IP35boot/xfs.a(xfs_dfrag.o)	2	symtab	0	0	named-only	docs/network-and-snapshots.md#extent-sharing-and-clones	Extent sharing and clones
 6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_log.o)	kernel-other-objects	shared-kernel	object	n64	50308	81229b6d82b71728		50	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_log_recover.o)	kernel-other-objects	shared-kernel	object	n64	52532	770270adab4d61e5	6.5.30/usr/cpu/sysgen/IP30boot/xfs.a(xfs_log_recover.o);6.5.30/usr/cpu/sysgen/IP35boot/xfs.a(xfs_log_recover.o)	50	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_misc.o)	kernel-other-objects	shared-kernel	object	n64	5684	a9b8581b23e4d777	6.5.30/usr/cpu/sysgen/IP30boot/xfs.a(xfs_misc.o);6.5.30/usr/cpu/sysgen/IP35boot/xfs.a(xfs_misc.o)	4	symtab	0	0	undocumented		
@@ -6632,7 +6632,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/ioc4_ei.o	kernel-other-objects	shared-kernel	object	n64	21512	d1296012cdbeec0d		19	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ioc4_pckm.o	kernel-other-objects	shared-kernel	object	n64	36408	c2d08701d772ec62		35	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ip_mroute.o	kernel-other-objects	shared-kernel	object	n64	41144	86743841a0450c23		34	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/ipfilter.o	kernel-other-objects	shared-kernel	object	n64	18800	1eef1c1b78008594		9	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/ipfilter.o	kernel-other-objects	shared-kernel	object	n64	18800	1eef1c1b78008594		9	symtab	0	0	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/cpu/sysgen/IP35boot/ipv6.a(dest6.o)	kernel-other-objects	shared-kernel	object	n64	5380	6aeb0b91e82dbd85		1	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ipv6.a(frag6.o)	kernel-other-objects	shared-kernel	object	n64	12788	2089c80e0229f845		9	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ipv6.a(if_ndp6.o)	kernel-other-objects	shared-kernel	object	n64	44196	f5b205ef25fc4d98		23	symtab	0	0	undocumented		
@@ -7003,7 +7003,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(watchpoints.o)	kernel-other-objects	shared-kernel	object	n64	12404	593b58523aaa239c		10	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(xthread.o)	kernel-other-objects	shared-kernel	object	n64	16724	36c10c38b431513b		15	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(xthread_table.o)	kernel-other-objects	shared-kernel	object	n64	14852	fe5b5191224df067		10	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/partition.o	kernel-other-objects	shared-kernel	object	n64	76352	2a403e50ad5c03a9	6.5.30/usr/cpu/sysgen/IP35boot/partition_part.o	72	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/partition.o	kernel-other-objects	shared-kernel	object	n64	76352	2a403e50ad5c03a9	6.5.30/usr/cpu/sysgen/IP35boot/partition_part.o	72	symtab	0	0	named-only	docs/page-migration.md#the-partition-layer	The partition layer
 6.5.30/usr/cpu/sysgen/IP35boot/pciba.o	kernel-other-objects	shared-kernel	object	n64	52008	c63361dc9bed7553		25	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/pcibr.o	kernel-platform-drivers	shared-kernel	object	n64	300848	5a79bfd6f2bf07f4		265	symtab+dwarf	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP35boot/pciio.o	kernel-platform-drivers	shared-kernel	object	n64	47872	4d2e3ed5eac64973		108	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -7227,14 +7227,14 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/xfs.a(xfs_trans_inode.o)	kernel-other-objects	shared-kernel	object	n64	8004	56563e6688d5ee52		6	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xfs.a(xfs_vfsops.o)	kernel-other-objects	shared-kernel	object	n64	48916	f1d4848f923a7e07		28	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xfs.a(xfs_kvfsops.o)	kernel-other-objects	shared-kernel	object	n64	14244	d442b26677252d8c		4	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/xfs.a(xfs_vnodeops.o)	kernel-other-objects	shared-kernel	object	n64	101028	8226c36c982cd2e5		52	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/xfs.a(xfs_vnodeops.o)	kernel-other-objects	shared-kernel	object	n64	101028	8226c36c982cd2e5		52	symtab	0	0	named-only	docs/network-and-snapshots.md#project-identifiers-and-project-quotas	Project identifiers and project quotas
 6.5.30/usr/cpu/sysgen/IP35boot/xfs.a(xfs_mfstream.o)	kernel-other-objects	shared-kernel	object	n64	10948	c14dc2ae349fd8fa		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xfs_attr_fetch.o	kernel-other-objects	shared-kernel	object	n64	5848	7e69080a3f3cb9df		1	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xfsdmapi.a(xfs_dmapi.o)	kernel-other-objects	shared-kernel	object	n64	49636	fcd233a5503e453b		54	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xfsidbg.o	kernel-other-objects	shared-kernel	object	n64	156256	df8e7605999e1190		100	symtab+dwarf	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xfsquotas.a(xfs_dquot.o)	kernel-other-objects	shared-kernel	object	n64	29620	4747bcf1000c96b9		27	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xfsquotas.a(xfs_qm.o)	kernel-other-objects	shared-kernel	object	n64	49652	ef8731ae0f41c8bc		49	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/xfsquotas.a(xfs_qm_syscalls.o)	kernel-other-objects	shared-kernel	object	n64	24756	198262c940288ad3		17	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/xfsquotas.a(xfs_qm_syscalls.o)	kernel-other-objects	shared-kernel	object	n64	24756	198262c940288ad3		17	symtab	0	0	named-only	docs/network-and-snapshots.md#project-identifiers-and-project-quotas	Project identifiers and project quotas
 6.5.30/usr/cpu/sysgen/IP35boot/xfsrt.a(xfs_grio.o)	kernel-other-objects	shared-kernel	object	n64	9444	e3f8c7b9c2a5e11b		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xiovme.o	kernel-other-objects	shared-kernel	object	n64	6896	a7bbfbe18a390b42		3	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xlv.a(xlv.o)	kernel-other-objects	shared-kernel	object	n64	42692	161819aab0fec57b		26	symtab	0	0	undocumented		
@@ -7245,7 +7245,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/xlvidbg.o	kernel-other-objects	shared-kernel	object	n64	33120	cea76f6a6a6f4059		19	symtab+dwarf	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xlvplexstubs.a(xlvplexstubs.o)	kernel-other-objects	shared-kernel	object	n64	6676	054cb5f76a796c9b		10	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xlvstubs.a(xlvstubs.o)	kernel-other-objects	shared-kernel	object	n64	5636	b719c3e77400a448		8	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/xpc.o	kernel-other-objects	shared-kernel	object	n64	57600	e85fea68a22e615b	6.5.30/usr/cpu/sysgen/IP35boot/xpc_part.o	44	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/xpc.o	kernel-other-objects	shared-kernel	object	n64	57600	e85fea68a22e615b	6.5.30/usr/cpu/sysgen/IP35boot/xpc_part.o	44	symtab	0	0	named-only	docs/page-migration.md#xpc	XPC
 6.5.30/usr/cpu/sysgen/IP35boot/xpcstubs.a(xpcstubs.o)	kernel-other-objects	shared-kernel	object	n64	9892	67b817f07ee00c2a		16	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xpmem.o	kernel-other-objects	shared-kernel	object	n64	89400	4bcfafc50738eed4		75	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xswitch.o	kernel-platform-drivers	shared-kernel	object	n64	10304	2ac96f6287b076ad		13	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -7288,31 +7288,31 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/xvm.a(xvm_snapshot.o)	kernel-other-objects	shared-kernel	object	n64	74708	44f50e379c03c023		58	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xvm.a(xvm_irix_snapshot.o)	kernel-other-objects	shared-kernel	object	n64	22708	be841889d5cb09da		25	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xvmidbg.o	kernel-other-objects	shared-kernel	object	n64	107400	d257b6091b3a821b		40	symtab	0	0	undocumented		
-6.5.30/usr/etc/automount	userland-base	userland	executable	n32	81780	6da8967f2fd4bf7b		124	dynsym	0	0	named-only	docs/userland.md#6530usretcautomount	`6.5.30/usr/etc/automount`
+6.5.30/usr/etc/automount	userland-base	userland	executable	n32	81780	6da8967f2fd4bf7b		124	dynsym	0	0	named-only	docs/network-dataplane-and-vfs.md#network-dataplane-and-virtual-file-system-attachment-points	Network dataplane and virtual file system attachment points
 6.5.30/usr/etc/cfsadmin	userland-base	userland	executable	n32	39928	ff70755e57a0382f		32	dynsym	0	0	named-only	docs/userland.md#6530usretccfsadmin	`6.5.30/usr/etc/cfsadmin`
 6.5.30/usr/etc/cfsstat	userland-base	userland	executable	n32	37648	75a22aab1b9ec79c		9	dynsym	0	0	named-only	docs/userland.md#6530usretccfsstat	`6.5.30/usr/etc/cfsstat`
 6.5.30/usr/etc/eventmond	userland-base	userland	executable	n32	159128	edf94f779e9a580d		130	dynsym	0	0	named-only	docs/userland.md#6530usretceventmond	`6.5.30/usr/etc/eventmond`
 6.5.30/usr/etc/exportfs	userland-base	userland	executable	n32	73192	8edb27d96991ef73		40	dynsym	0	0	understood	docs/userland.md#6530usretcexportfs	`6.5.30/usr/etc/exportfs`
 6.5.30/usr/etc/mediad	userland-base	userland	executable	n32	222192	d38efd64c2bb819f		438	dynsym	0	0	named-only	docs/open-questions.md#triage-2026-11-01	Triage (2026-11-01)
-6.5.30/usr/etc/mmscd	userland-base	userland	executable	n32	41672	f670e794ef6faa77		37	dynsym	0	0	named-only	docs/userland.md#6530usretcmmscd	`6.5.30/usr/etc/mmscd`
-6.5.30/usr/etc/nfsd	userland-base	userland	executable	n32	69304	4cb351d0032fe7d3		4	dynsym	0	0	named-only	docs/userland.md#6530usretcnfsd	`6.5.30/usr/etc/nfsd`
+6.5.30/usr/etc/mmscd	userland-base	userland	executable	n32	41672	f670e794ef6faa77		37	dynsym	0	0	named-only	docs/userland-abi-and-loader.md#how-a-program-is-started	How a program is started
+6.5.30/usr/etc/nfsd	userland-base	userland	executable	n32	69304	4cb351d0032fe7d3		4	dynsym	0	0	named-only	docs/network-dataplane-and-vfs.md#42-other-server-side-and-loopback-pieces	4.2 Other server-side and loopback pieces
 6.5.30/usr/etc/nfsdctl	userland-base	userland	executable	n32	67572	d1205e7652d1ba77		4	dynsym	0	0	named-only	docs/userland.md#6530usretcnfsdctl	`6.5.30/usr/etc/nfsdctl`
 6.5.30/usr/etc/rpc.bootparamd	userland-base	userland	executable	n32	20440	fd2cd1bd0e81246b		12	dynsym	0	0	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
 6.5.30/usr/etc/rpc.espd	userland-base	userland	executable	n32	19212	47be78510c959ff1		7	dynsym	0	0	named-only	docs/userland.md#6530usretcrpcespd	`6.5.30/usr/etc/rpc.espd`
-6.5.30/usr/etc/rpc.lockd	userland-base	userland	executable	n32	18924	b832f9d95310da3e		5	dynsym	0	0	named-only	docs/userland.md#6530usretcrpclockd	`6.5.30/usr/etc/rpc.lockd`
-6.5.30/usr/etc/rpc.mountd	userland-base	userland	executable	n32	74092	1145809f65bf8134		14	dynsym	0	0	named-only	docs/userland.md#6530usretcrpcmountd	`6.5.30/usr/etc/rpc.mountd`
+6.5.30/usr/etc/rpc.lockd	userland-base	userland	executable	n32	18924	b832f9d95310da3e		5	dynsym	0	0	named-only	docs/network-dataplane-and-vfs.md#42-other-server-side-and-loopback-pieces	4.2 Other server-side and loopback pieces
+6.5.30/usr/etc/rpc.mountd	userland-base	userland	executable	n32	74092	1145809f65bf8134		14	dynsym	0	0	named-only	docs/network-dataplane-and-vfs.md#42-other-server-side-and-loopback-pieces	4.2 Other server-side and loopback pieces
 6.5.30/usr/etc/rpc.passwd	userland-base	userland	executable	n32	72588	3e3896dc0076300f		4	dynsym	0	0	named-only	docs/userland.md#6530usretcrpcpasswd	`6.5.30/usr/etc/rpc.passwd`
 6.5.30/usr/etc/rpc.rexd	userland-base	userland	executable	n32	38476	b0a7edd00fd8b14c		37	dynsym	0	0	named-only	docs/userland.md#6530usretcrpcrexd	`6.5.30/usr/etc/rpc.rexd`
 6.5.30/usr/etc/rpc.rquotad	userland-base	userland	executable	n32	68124	9c63142407642b0d		9	dynsym	0	0	named-only	docs/userland.md#6530usretcrpcrquotad	`6.5.30/usr/etc/rpc.rquotad`
-6.5.30/usr/etc/rpc.rstatd	userland-base	userland	executable	n64	77400	6ccf4193d5d5c9e0		31	dynsym	0	0	named-only	docs/userland.md#6530usretcrpcrstatd	`6.5.30/usr/etc/rpc.rstatd`
+6.5.30/usr/etc/rpc.rstatd	userland-base	userland	executable	n64	77400	6ccf4193d5d5c9e0		31	dynsym	0	0	named-only	docs/userland-abi-and-loader.md#evidence-and-sample	Evidence and sample
 6.5.30/usr/etc/rpc.rusersd	userland-base	userland	executable	n32	67804	1afea4c6f433c4e0		8	dynsym	0	0	named-only	docs/userland.md#6530usretcrpcrusersd	`6.5.30/usr/etc/rpc.rusersd`
 6.5.30/usr/etc/rpc.rwalld	userland-base	userland	executable	n32	67476	8747679e82755ab3		6	dynsym	0	0	named-only	docs/userland.md#6530usretcrpcrwalld	`6.5.30/usr/etc/rpc.rwalld`
 6.5.30/usr/etc/rpc.sprayd	userland-base	userland	executable	n32	67476	94daa4cd189dd319		6	dynsym	0	0	named-only	docs/userland.md#6530usretcrpcsprayd	`6.5.30/usr/etc/rpc.sprayd`
-6.5.30/usr/etc/rpc.statd	userland-base	userland	executable	n32	39564	0db13befa4eb1a99		22	dynsym	0	0	named-only	docs/userland.md#6530usretcrpcstatd	`6.5.30/usr/etc/rpc.statd`
+6.5.30/usr/etc/rpc.statd	userland-base	userland	executable	n32	39564	0db13befa4eb1a99		22	dynsym	0	0	named-only	docs/network-dataplane-and-vfs.md#42-other-server-side-and-loopback-pieces	4.2 Other server-side and loopback pieces
 6.5.30/usr/etc/rpc.ypupdated	userland-base	userland	executable	n32	67836	4787f916baae7913		9	dynsym	0	0	named-only	docs/userland.md#6530usretcrpcypupdated	`6.5.30/usr/etc/rpc.ypupdated`
 6.5.30/usr/sbin/flashmmsc	userland-base	userland	executable	n32	43824	362d470b4fcc55ca		41	dynsym	0	0	named-only	docs/userland.md#6530usrsbinflashmmsc	`6.5.30/usr/sbin/flashmmsc`
 6.5.30/usr/sbin/l1cmd	userland-base	userland	executable	n32	251576	9184e7789998e5bf		261	dynsym	0	0	named-only	docs/userland.md#6530usrsbinl1cmd	`6.5.30/usr/sbin/l1cmd`
-6.5.30/usr/sbin/numastatd	userland-base	userland	executable	n32	19972	91380a2b19e3715a		18	dynsym	0	0	named-only	docs/userland.md#6530usrsbinnumastatd	`6.5.30/usr/sbin/numastatd`
-6.5.30/usr/sbin/sysmon	userland-base	userland	executable	n32	256620	c1009c32b337a441		385	dynsym	0	0	named-only	docs/userland.md#6530usrsbinsysmon	`6.5.30/usr/sbin/sysmon`
-6.5.30/usr/sbin/xfs_db	userland-base	userland	executable	n32	217348	d02f7cbc9029e895		193	dynsym	0	0	named-only	docs/userland.md#6530usrsbinxfs_db	`6.5.30/usr/sbin/xfs_db`
+6.5.30/usr/sbin/numastatd	userland-base	userland	executable	n32	19972	91380a2b19e3715a		18	dynsym	0	0	named-only	docs/page-migration.md#policy-interfaces	Policy interfaces
+6.5.30/usr/sbin/sysmon	userland-base	userland	executable	n32	256620	c1009c32b337a441		385	dynsym	0	0	named-only	docs/userland-abi-and-loader.md#relocations	Relocations
+6.5.30/usr/sbin/xfs_db	userland-base	userland	executable	n32	217348	d02f7cbc9029e895		193	dynsym	0	0	named-only	docs/network-and-snapshots.md#evidence-and-method	Evidence and method
 6.5.30/usr/sbin/xfs_repair	userland-base	userland	executable	n32	639436	4829c0925f6acb30		873	dynsym	0	0	located	docs/userland.md#6530usrsbinxfs_repair	`6.5.30/usr/sbin/xfs_repair`
