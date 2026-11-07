@@ -1572,3 +1572,16 @@ _RLD_ROOT
 # (docs/kernel-optional-subsystems.md); read there, not in any source tree.
 dp_idbg
 klistio
+#
+# Names read in the shipped 6.5.30 user-level files for page migration
+# (docs/page-migration.md): the node-table column headings printed by nstats, the
+# libdplace routine that calls migr_range_migrate, the dplace -migration_level option
+# (in its usage text and in the published dplace(1) manual page) and the runon
+# command name (published runon(1)). None was taken from any source tree.
+AutoMigr
+CoalMigr
+MigrIntrs
+UserMigr
+migrate_range
+migration_level
+runon
