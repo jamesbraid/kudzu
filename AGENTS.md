@@ -4,17 +4,9 @@ This repository documents how IRIX 6.5.30 and IRIX 6.5.22 work, from the shipped
 
 ## 1. Scope
 
-The long-term scope is all of IRIX and its add-ons: the full kernel, CXFS, ONC RPC and NFS, the base applications and libraries. The inventory has to be able to grow to that, so every binary of the releases may be listed. What is **in scope now** is narrow, and the rule for each binary group is in [scripts/scope.json](scripts/scope.json) and reported in [docs/inventory/scope.tsv](docs/inventory/scope.tsv) and `summary.tsv`:
+The long-term scope is all of IRIX and its add-ons: the full kernel, CXFS, ONC RPC and NFS, the base applications and libraries. The inventory has to be able to grow to that, so every binary of the releases may be listed. What is **in scope now** is the whole kernel: the linked kernels (`unix.IP27`, `unix.IP30`, `unix.IP35`) and every object of the platform boot directories, with the hardware-facing subsystems (PROM interface and KLCONFIG parsing, hardware graph, interrupt routing, NUMA and memory initialisation, topology checks, the device attach framework) and the generic kernel (processes, scheduler, virtual memory, file systems, networking, STREAMS, IPC, system calls). The rule for each binary group is in [scripts/scope.json](scripts/scope.json) and reported in [docs/inventory/scope.tsv](docs/inventory/scope.tsv) and `summary.tsv`.
 
-- the PROM interface and KLCONFIG parsing;
-- hardware-graph construction;
-- interrupt routing;
-- NUMA and memory initialisation;
-- the topology checks that panic or skip nodes;
-- the device attach framework;
-- a kernel debugging map: structure layouts, subsystem entry points, panic and assert sites.
-
-Everything else is out of scope **for now**, not excluded: it stays in the inventory with an `out` scope, and moves in when a rule in `scope.json` changes. A function, structure or call site that matches an in-scope rule counts toward the finish line in section 6; one that does not is still listed so the totals stay honest.
+User-space binaries and the optional subsystems are out of scope **for now**, not excluded: they stay in the inventory with an `out` scope, and move in when a rule in `scripts/scope.json` changes. A function, structure or call site that matches an in-scope rule counts toward the finish line in section 6; one that does not is still listed so the totals stay honest.
 
 Platforms: IP27 (Origin 200/2000, Onyx2), IP30 (Octane), IP35 (Origin 300/350, Onyx 300/350) and IP32 (O2) where the media has them. Releases: 6.5.30 is the primary release; 6.5.22 has its kernel object archives and linked IP27, IP30 and IP35 kernels in `root/` (see [IRIX_FILES.md](IRIX_FILES.md) and [docs/version-diffs.md](docs/version-diffs.md)). A fact from one release or platform does not fill a gap in another.
 

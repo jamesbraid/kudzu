@@ -71,7 +71,7 @@
     {
       "group": "kernel-image",
       "role": "shared-kernel",
-      "scope": "narrow",
+      "scope": "in",
       "paths": [
         "6.5.30/unix.IP27",
         "6.5.30/unix.IP30",
@@ -80,18 +80,18 @@
         "6.5.22/unix.IP30",
         "6.5.22/unix.IP35"
       ],
-      "reason": "The linked kernels. Only the hardware-facing and boot-critical subsystems are in scope for now: PROM interface and KLCONFIG, hardware graph, interrupts, NUMA and memory initialisation, node and router topology, the I/O attach framework, and the debug and panic entry points."
+      "reason": "The linked kernels, in full: the hardware-facing and boot-critical subsystems (PROM interface and KLCONFIG, hardware graph, interrupts, NUMA and memory initialisation, node and router topology, the I/O attach framework, debug and panic entry points) and the generic kernel (processes, scheduler, virtual memory, file systems, networking, IPC, system calls)."
     },
     {
       "group": "kernel-platform-objects",
       "role": "shared-kernel",
-      "scope": "narrow",
+      "scope": "in",
       "paths": [
         "*/usr/cpu/sysgen/IP*boot/kernel.o",
         "*/usr/cpu/sysgen/IP*boot/idbg.o",
         "*/usr/cpu/sysgen/IP*boot/mem.o"
       ],
-      "reason": "Platform core and debugger objects hold both hardware-facing code and generic code, so the name rule of the kernel image applies to them as well."
+      "reason": "Platform core and debugger objects: the hardware-facing and generic code in them, in full."
     },
     {
       "group": "kernel-platform-drivers",
@@ -132,11 +132,11 @@
     {
       "group": "kernel-other-objects",
       "role": "shared-kernel",
-      "scope": "out",
+      "scope": "in",
       "paths": [
         "*/usr/cpu/sysgen/IP*boot"
       ],
-      "reason": "Every other kernel object (file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers). Out of scope for now, not excluded: the long-term scope is the whole of IRIX and its add-ons."
+      "reason": "Every other kernel object of the platform boot directories: file systems, networking, STREAMS, NFS and RPC, CXFS stubs, scheduler and virtual memory in os.a, other drivers."
     },
     {
       "group": "userland-base",
