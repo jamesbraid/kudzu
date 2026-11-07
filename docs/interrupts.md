@@ -2,7 +2,7 @@
 
 Each IP27 hub has two 64-bit pending registers and, per processor slice, two mask registers. The 6.5.30 kernel numbers hub interrupt levels 0 to 127: levels 0 to 63 are bits of the first pending register and levels 64 to 127 bits of the second. This page states how the kernel reserves levels, connects handlers, masks levels and clears what is pending, and which levels it reserves at boot, first for IP27 and then for the IP35 differences.
 
-Every fact is graded as in [klconfig.md](klconfig.md). Register offsets are from the hub's register window: the kernel writes a node's registers at `0x9200000001800000` plus the NASID shifted left 32, and the calling processor's own hub at `0x9200000001000000`. Public Linux names the same offsets in `arch/mips/include/asm/sn/sn0/hubpi.h`; those names are used as labels.
+Every fact is graded as in [klconfig.md](klconfig.md). Register offsets are from the hub's register window: the kernel writes a node's registers at `0x9200000001800000` plus the NASID shifted left 32, and the calling processor's own hub at `0x9200000001000000`. The public Linux SN0 hub PI header names the same offsets; those names are used as labels.
 
 | Offset | Linux name | Kernel use | Grade |
 |---|---|---|---|

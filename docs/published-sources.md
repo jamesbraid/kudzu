@@ -14,7 +14,7 @@ The trees below are pinned submodules at the commits listed.
 | `linux-2.5.40` | kernel.org history tree | 7570df54 | 2.5.40: IP27 code before rewrites; carries the first public Linux XFS import (merged in 2.5.36), the oldest SGI Linux XFS history reachable here |
 | `linux-2.4.37` | xtreamerdev/linux-mips | e0dbf803 | linux-mips 2.4: IP27, IP30, IP32 in original form |
 | `linux-ip30` | jaaron/linux-mips-ip30 | bff2b6da | Octane (IP30) port |
-| `linux-irix-compat` | torvalds/linux | 99728851 | Parent of the 2008-07-15 commit that removed IRIX compatibility: `arch/mips/kernel/irixelf.c`, `sysirix.c` and the irix signal and ioctl code are present (verified at this commit) |
+| `linux-irix-compat` | torvalds/linux | 99728851 | Parent of the 2008-07-15 commit that removed IRIX compatibility: Linux's IRIX a.out/ELF loader, Linux's IRIX syscall-compat code and the irix signal and ioctl code are present (verified at this commit) |
 | `netbsd` | NetBSD/src | 0747dc05 | sgimips, ARCS and mips support |
 | `netbsd-compat-irix` | NetBSD/src | eee31751 | Parent of the 2011-04-26 commit "Remove IRIX emulation": last tree with `sys/compat/irix` (45 entries verified). NetBSD's history is in one repository, so the removed compat code is reachable from this pin |
 | `openbsd` | openbsd/src | 7011342f | sgi platform: IP27, IP30, IP35, ARCS, xbridge and xbow |

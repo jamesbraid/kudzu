@@ -4,7 +4,7 @@
 
 Public sources (copies are not kept in this repository):
 
-- Linux's old IRIX emulation, v2.6.12: https://github.com/torvalds/linux/blob/v2.6.12/arch/mips/kernel/irix5sys.S (system calls) and https://github.com/torvalds/linux/blob/v2.6.12/arch/mips/kernel/sysirix.c (the `case SGI_*` names).
+- Linux's old IRIX emulation, v2.6.12: the MIPS system-call entry code for IRIX binaries (system calls) and its IRIX syscall-compat code (the `case SGI_*` names).
 - NetBSD's IRIX compatibility layer, netbsd-5 branch: https://github.com/NetBSD/src/blob/netbsd-5/sys/compat/irix/syscalls.master and https://github.com/NetBSD/src/blob/netbsd-5/sys/compat/irix/irix_syssgi.h
 - qemu-irix: https://github.com/n64decomp/qemu-irix/blob/master/linux-user/irix/syscall_nr.h
 
