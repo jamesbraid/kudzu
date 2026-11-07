@@ -36,3 +36,4 @@ sys/arch/sgi/include/mnode.h	name in published OpenBSD source
 sys/arch/sgi/sgi/ip27_machdep.c	name in published OpenBSD source
 sys/invent.h	name of a file shipped in the installed system, not a source file
 sysirix.c	name in published Linux or OpenBSD source
+ODSY_SET_GC	function name in the symbol tables of the shipped kernels and Odyssey objects; the inventory tables list every symbol, so it cannot be described in words there
