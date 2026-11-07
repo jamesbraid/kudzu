@@ -1560,3 +1560,10 @@ xlv_shutdown
 yp_host
 yp_update
 ypbind_resp_arms
+#
+# Environment variable names of the dynamic loader. They are strings in the shipped
+# 6.5.30 loaders and C libraries and are documented in the published rld(5) manual
+# page; the loaders themselves are not in root/ yet, so the baseline cannot see them.
+_RLD64_PATH
+_RLDN32_PATH
+_RLD_ROOT

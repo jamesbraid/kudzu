@@ -1,0 +1,237 @@
+# Userland ABI and the dynamic loader
+
+How a shipped IRIX 6.5.30 program is described, accepted and started: the ELF flags and program headers of the three user-space ABIs (old 32-bit, new 32-bit and 64-bit), the dynamic section, the loader that resolves them, relocations and the global offset table, per-thread data, and the unwinding metadata. The ABI names used here are the SGI ones: **o32** is the old 32-bit ABI, **n32** the new 32-bit ABI and **n64** the 64-bit ABI. IP35 (Origin 300/350) is the kernel read; the user-space files are the same on every machine, so only the kernel and the CPU-specific library variants can differ between platforms ([IP27 and 6.5.22](#ip27-and-6522)).
+
+## Evidence and sample
+
+Every fact is read from a shipped 6.5.30 file, or from the published `rld(5)` manual page (IRIX 6.5 reference pages), which is cited only where a binary cannot show the behaviour (library search order, the `_RLD_ARGS` flags). A page statement that a binary does not confirm is graded inferred.
+
+- The user-space sample is two sets. The first is every big-endian ELF file that the three 6.5.30 Installation Tools and Overlays discs install under `lib`, `lib32`, `lib64`, `usr/lib`, `usr/lib32` or `usr/lib64`: **3,073 files**. By ABI (class and the `e_flags` ABI bit, see below): **o32 762** (5 executables, 757 shared objects), **n32 1,470** (123 executables, 1,347 shared objects) and **n64 842** (3 executables, 839 shared objects). It includes the three loaders, `lib/rld`, `lib32/rld` and `lib64/rld`, with the debug variants `usr/lib/rld.debug`, `usr/lib32/rld.debug` and `usr/lib64/rld.debug`, and the C libraries. The second is the 38 programs already held under `root/6.5.30/` in `sbin`, `usr/etc`, `usr/sbin` and `usr/cluster/bin` (37 n32 and the n64 `usr/etc/rpc.rstatd`). The libraries and loaders are not yet in the working `root/`; the install paths given below are the media's. Counts are over the first set unless a row names a program or says "root programs".
+- Method: `readelf` over every file for headers, program headers, section names, dynamic tags and relocations; `retools/scripts/hostfacts.py` and a small instruction decoder for the routines named below. The kernel routines are read in `6.5.30/unix.IP35` first.
+- 6.5.22: no user-space file of that release is held, so every user-space statement is for 6.5.30 only. The 6.5.22 kernels are compared in [IP27 and 6.5.22](#ip27-and-6522).
+- Not done: no program was run, so nothing here says what happens when a rejected file is presented.
+
+## How a program is started
+
+Established by the files named; the order is the order of control transfer.
+
+Step 1. The kernel's exec entry `elfexec` (`6.5.30/unix.IP35`, 0xc0000000002f5818, 184 bytes) reads the first 16 bytes of the file with `exrdhead`, then branches on the class byte (offset 4): 1 goes to `elf32exec` (0xc0000000002f58d0, 840 bytes), 2 to `elf64exec` (0xc0000000002f291c, 840 bytes), any other value returns 8. A failed header read returns what `exrdhead` returned. Established.
+
+Step 2. Every dynamic executable in the sample (the 121 n32 executables other than the two loaders, the three o32, the one n64, and the 38 root programs) carries a `PT_INTERP` that names `libc.so.1`: `/usr/lib/libc.so.1` for o32, `/usr/lib32/libc.so.1` for n32 (four root programs, `hinv`, `ioconfig`, `mediad` and `mmscd`, name `/lib32/libc.so.1`), `/usr/lib64/libc.so.1` for n64. The `rld(5)` page says the same and adds that C library is both the interpreter and a needed library. Established for the names.
+
+Step 3. The interpreter is therefore the C library itself. Its ELF entry point is the routine `__exec_rld`: `lib32/libc.so.1` 0xfae5110 (136 bytes) for the CPU-neutral n32 file, `lib/libc.so.1` 0xfaf9f10, `usr/lib64/mips3/libc.so.1` 0xdaa60fc. Established: header entry and symbol agree in all of them.
+
+Step 4. `__exec_rld` finds `envp` by walking `argv` to its terminator, calls `__get_rld` with it, traps (`break 10`) if the result is not positive, and otherwise jumps to the returned address with `argc`, the environment pointer and the auxiliary-vector pointer in a0 to a2. The loader does not use them: it reads the stack again. Established (0xfae5110 to 0xfae5194).
+
+Step 5. `__get_rld` (`lib32/libc.so.1`, 0xfa8cf14, 448 bytes) reads `_RLDN32_PATH` (`_RLD64_PATH` in the 64-bit library, `_RLD_PATH` in the o32 one) from the environment. If it is set it calls `syssgi` with selector 92 and 1; a non-zero answer discards the variable. With no usable variable the path is `/lib32/rld` (`/lib64/rld`, `/lib/rld`). It opens that file through the library's own small mapping routine, checks the four ELF magic bytes, and returns the file's `e_entry`. A failure writes a message (`Could not map rld from file` or `File specified as rld is not an ELF file:`) to descriptor 2 and calls `_exit` with 0xdeadbeef. Established. The kernel handler for selector 92 is `get_current_cred` (6.5.30 IP35 case code at 0xc0000000002e27bc, see [syssgi.md](syssgi.md) and `selectors.tsv`) and compares the real and effective user and group of the caller before testing a capability mask against the credential, so the call is inferred to report whether the program is privileged or changed identity; the argument 1 is not decoded (open question).
+
+Step 6. The loader `rld` is a statically linked executable (no `PT_INTERP`, no dynamic section) at the same fixed address in all three ABIs: its `.text` starts at 0xfb60150 in n32 and o32 (`newmain`, 252 bytes) and at 0xfb60170 in n64, in a segment based at 0xfb60000. `newmain` takes `argc`, `argv` and `envp` from the stack, calls `sgi_main` (n32 0xfb71280, 252 bytes), and `sgi_main` returns the **executable's** entry address; `newmain` then jumps there with `argc`, `argv` and `envp` in a0 to a2 and zero in v0. A byte flag in the loader's data (0xfbd32c8) selects a second exit that passes `argc` minus 1 and the vectors advanced by one word, for a loader started directly as a program with the target as its first argument (Inferred from the shift; that start was not exercised). Established for the main path.
+
+Step 7. The executable's own start routine `__start` (for example `usr/sbin/xfs_db`, 0x100054e0, 268 bytes) reads `argc` and `argv` from the stack, aligns the stack to 16 bytes, stores `argc`, `argv` and (if `environ` is still zero) `envp` in `__Argc`, `__Argv` and `_environ`, calls `__istart`, then `__readenv_sigfpe`, then `main(argc, argv, environ)` and finally `exit` with its result, with a `break` after it. The five callees are the dynamic symbols that the GOT slots load (see [The global offset table](#the-global-offset-table)). Established for `xfs_db` only.
+
+The kernel-side copy of step 3 is not read: how `elf32exec` and `elf64exec` treat `PT_INTERP`, and what `syssgi` selector 68 (used by the loader's mapping routine) maps, are in [syssgi.md](syssgi.md) and open ([Unknowns](#unknowns)).
+
+## ELF headers, flags and program headers
+
+### `e_flags`, class and the ABI markers
+
+The three ABIs are told apart by `e_ident[EI_CLASS]` and one `e_flags` bit; there is no `EI_OSABI` marker (the byte is 0 everywhere) and no ABI-version byte.
+
+| ABI | Class | `e_flags` values seen (count) | Reading |
+|---|---|---|---|
+| o32 | ELF32 | 0x10000003 (745), 0x10000005 (3 executables), 0x10000002 (3), 0x00000002 (3), 0x00000003 (3), 0x20000003 (3), 0x10000001 (2, `lib/rld` and `usr/lib/rld.debug`) | MIPS II (0x10000000) mostly; MIPS III (0x20000000) for `lib/libc.so.1` and two image-converter plug-ins; bit 0 no-reorder, bit 1 PIC, bit 2 CPIC |
+| n32 | ELF32 | 0x20000022 (1,253), 0x30000022 (94), 0x20000024 (121 executables), 0x20000020 (2, `lib32/rld` and `usr/lib32/rld.debug`) | bit 0x20 is the n32 marker; MIPS III or MIPS IV in the top nibble; bit 1 PIC in shared objects, bit 2 CPIC in executables |
+| n64 | ELF64 | 0x20000002 (683), 0x30000002 (156), 0x20000004 (1), 0x20000000 (2, the two loaders) | no ABI bit: ELF64 is n64; MIPS III or MIPS IV; PIC in shared objects, CPIC in the executable |
+
+Established for the values and for the bit names, which `readelf` prints as `pic`, `cpic`, `abi2`, `noreorder`, `mips2`, `mips3` and `mips4`. The architecture nibble is a CPU floor: the MIPS IV shared objects are a second copy of the library for newer CPUs (see [Library search](#library-search-and-environment)). `e_machine` is 8 (MIPS) throughout. Executables are `ET_EXEC` and shared objects `ET_DYN`; the loaders are `ET_EXEC`.
+
+### Program headers
+
+| Type (value) | n32 | o32 | n64 |
+|---|---|---|---|
+| `PT_PHDR` (6) | executables only | executables only | executable only |
+| `PT_INTERP` (3) | executables only | executables only | executable only |
+| `PT_LOAD` (1) | exactly 2 per file: read-execute at the file start, read-write after it | 2 | 2 |
+| `PT_DYNAMIC` (2) | all but the loaders | all but the loaders | all but the loaders |
+| `PT_MIPS_REGINFO` (0x70000000) | all | all | none |
+| `PT_MIPS_RTPROC` (0x70000001) | none | 760 of 762 | none |
+| `PT_MIPS_OPTIONS` (0x70000002) | all | 756 of 762 | all |
+| `PT_TLS`, `PT_NOTE`, `PT_GNU_*`, `PT_*_EH_FRAME` | none | none | none |
+
+Established over the sample. Text segments are 0x10000-aligned and data segments 0x4000-aligned; an executable's text segment begins at a file offset of 0, so the `PHDR` and `INTERP` headers are inside it. Base addresses: executables 0x10000000 (n32, n64) or 0x400000 (o32); the C library 0x0f9e0000 (o32 and n32) or 0x0d980000 (n64); the loaders 0x0fb60000. Established (`PT_LOAD` and `DT_MIPS_BASE_ADDRESS`).
+
+## Dynamic section tags
+
+Counts are of files that carry the tag (n32 dynamic files 1,468; o32 759; n64 840). The first block is the standard set, the second the MIPS block.
+
+| Tag (value) | Notes |
+|---|---|
+| `DT_NEEDED` (1), `DT_PLTGOT` (3), `DT_HASH` (4), `DT_STRTAB` (5), `DT_SYMTAB` (6), `DT_STRSZ` (10), `DT_SYMENT` (11), `DT_INIT` (12), `DT_FINI` (13), `DT_SONAME` (14) | all dynamic files; `DT_NEEDED` is absent only in files that import nothing (1,440 of 1,468 n32 files have it); `DT_SONAME` is in shared objects; `DT_INIT` and `DT_FINI` are in every dynamic file and are 0 in 103 of the 121 n32 executables; `DT_PLTGOT` is the address of `.got` |
+| `DT_REL`/`DT_RELSZ`/`DT_RELENT` (17 to 19) | 914 of 1,468 n32, 365 o32, 509 n64; **never `DT_RELA`**, `DT_JMPREL` or `DT_TEXTREL` |
+| `DT_RPATH` (15), `DT_SYMBOLIC` (16) | RPATH in 40 n32, 1 o32, 11 n64; SYMBOLIC in 9 n32, 4 o32, 4 n64 |
+| `DT_MIPS_RLD_VERSION` (0x70000001) | always 1 |
+| `DT_MIPS_TIME_STAMP` (2), `DT_MIPS_ICHECKSUM` (3), `DT_MIPS_IVERSION` (4) | stamp (seconds since 1970), a 32-bit checksum of the exported interface, and a colon-separated list of interface-version names such as `sgi1.0` or `sgi4.0:sgi4.0.440:sgi4.1:sgi4.2` |
+| `DT_MIPS_FLAGS` (5) | see [Quickstart](#quickstart-and-library-versioning) |
+| `DT_MIPS_BASE_ADDRESS` (6) | the address the file was linked at; always present |
+| `DT_MIPS_MSYM` (7), `DT_MIPS_SYMBOL_LIB` (0x24) | the `.msym` and `.MIPS.symlib` tables |
+| `DT_MIPS_CONFLICT` (8), `DT_MIPS_CONFLICTNO` (0xb) | the `.conflict` table; the count tag is always present |
+| `DT_MIPS_LIBLIST` (9), `DT_MIPS_LIBLISTNO` (0x10) | the `.liblist` table |
+| `DT_MIPS_LOCAL_GOTNO` (0xa), `DT_MIPS_GOTSYM` (0x13), `DT_MIPS_SYMTABNO` (0x11), `DT_MIPS_UNREFEXTNO` (0x12) | the GOT split, see [The global offset table](#the-global-offset-table) |
+| `DT_MIPS_LOCALPAGE_GOTIDX` (0x25, twice in executables), `DT_MIPS_LOCAL_GOTIDX` (0x26), `DT_MIPS_HIDDEN_GOTIDX` (0x27), `DT_MIPS_PROTECTED_GOTIDX` (0x28) | GOT partition indices, see below |
+| `DT_MIPS_OPTIONS` (0x29), `DT_MIPS_INTERFACE` (0x2a), `DT_MIPS_INTERFACE_SIZE` (0x2c) | addresses of `.MIPS.options` and the interface table |
+| `DT_MIPS_RLD_TEXT_RESOLVE_ADDR` (0x2d) | the lazy-binding resolver address in the loader; every n32 and n64 dynamic file, 758 of 759 o32 |
+| `DT_MIPS_GP_VALUE` (0x30) | the `gp` value: 1,290 of 1,468 n32, 572 of 759 o32, 752 of 840 n64 |
+| `DT_MIPS_RLD_MAP` (0x70000016) | executables only (121 n32): the address of a word, exported as the symbol `__rld_obj_head`, that the loader fills with its object list |
+| `DT_MIPS_COMPACT_SIZE` (0x7000002f), `DT_MIPS_HIPAGENO` (0x70000014) | o32 only (753 and 6 files) |
+| `DT_MIPS_AUX_DYNAMIC` (0x70000031) | 9 n64 libraries: a second dynamic section `.dynamic_2` for a second GOT |
+
+Established for presence, values and counts. The role of each tag is Inferred from its use below and from the loader's strings; the loader's own routine for walking the dynamic section (the n32 routine at 0xfb62740, 1,388 bytes) was read only as far as its program-header walk. The `rld` strings also name a `DT_MIPS_RLD_OBJ_UPDATE` callback that no shipped file carries (Established: absent from the sample).
+
+## MIPS sections
+
+Present in the shipped files, with the section type and the entry size where the size is fixed:
+
+| Section | Type, entry size | Where | Role |
+|---|---|---|---|
+| `.MIPS.options` | `SHT_MIPS_OPTIONS`, 0x80 bytes in the executables read | n32 and n64 always, o32 755 of 762 | records of kind 1 (register use, 0x20 bytes n32, 0x28 n64), 2 (exceptions), 4 (hardware patch), 6 (tags), 7 and 8 (hardware and/or), as in the public ELF header for MIPS; same records in o32 |
+| `.reginfo` | `SHT_MIPS_REGINFO`, 0x18 bytes | n32 and o32 always | register masks and the `gp` value; not used in n64 |
+| `.liblist` | `SHT_MIPS_LIBLIST`, 0x14 bytes | files that need a library | one record per needed library: name offset, timestamp, checksum, version-name offset, flags |
+| `.MIPS.symlib` | `SHT_MIPS_SYMBOL_LIB`, 1 byte | files with a liblist | for each dynamic symbol, the number of the liblist entry that exports it |
+| `.msym` | `SHT_MIPS_MSYM`, 8 bytes | almost all | per dynamic symbol: a precomputed hash value and an information word |
+| `.conflict` | `SHT_MIPS_CONFLICT`, 8 bytes | 208 n32, 66 o32, 80 n64 | quickstart conflicts: symbols the preset addresses cannot satisfy |
+| `.MIPS.stubs` | progbits, executable | 1,449 of 1,468 n32 | lazy-call stubs, see below |
+| `.MIPS.interfaces` | `SHT_MIPS_IFACE`, 8 bytes, not loaded | 1,302 n32, 826 n64 | interface records; `DT_MIPS_INTERFACE` is 0 and `DT_MIPS_INTERFACE_SIZE` 0x38 in `xfs_db` and 0x78 in `usr/lib64/libInventor.so.3` |
+| `.MIPS.events.*`, `.MIPS.content.*`, `.MIPS.post_rel.text` | not loaded | most n32 and n64 | profiling and layout feedback for the vendor tools (pixie, cord) |
+| `.rtproc`, the compact relocation section, `.mdebug` | not loaded | o32 only (751, 750, 750) | o32 symbolic and runtime-procedure tables |
+| `_MIPS_eh_region`, `_MIPS_eh_region_supp`, `__cplinit` | progbits, flags `WAo` | 425 n32, 269 n64 (C++) | exception-region tables and C++ initialisation list, see [Unwinding](#unwinding-metadata) |
+| `.debug_frame` | `SHT_MIPS_DWARF`, not loaded | 1,468 n32, 842 n64 | call-frame information, see [Unwinding](#unwinding-metadata) |
+
+Established for presence, type, flags and counts. Role statements are Inferred from the type names and from the loader's behaviour; the roles of `.msym`, `.MIPS.interfaces` and `.conflict` in particular are not decoded (open question). No n32 or n64 file has `.mdebug`, `.pdr`, `.symtab` outside the loaders and a few tools, or `.interp` outside executables.
+
+## Quickstart and library versioning
+
+`DT_MIPS_FLAGS` is a bit mask. The bits that occur: 0x1 quickstart, 0x10 SGI-only, 0x400 requickstart, 0x800 requickstarted, 0x1000 cord, 0x2000 no unresolved undefined symbols, 0x4000 loader order safe, and a default-delay-load bit. Values seen in the shared objects of `usr/lib32` and `usr/lib` include 0x6411 (113 files), 0x4410 (99), 0x6410 (98), 0x4411 (53), 0x7411 (13) and 0x7410 (9); the three ABIs share the same set of names. Established for the values (names from `readelf` and from the `rld` messages and its option list).
+
+What the loader compares to decide that a library is the one an executable was linked against is the routine `essentially_identical_object` (`6.5.30/lib32/rld`, 0xfb6a630, 148 bytes): the library's recorded time stamp and checksum against words 1 and 2 of the executable's liblist entry, then the interface-version test `match_interface_version` (0xfb6a7a0, 100 bytes), then a string comparison of the library's name with the liblist entry's. The liblist entry for `libc.so.1` in `usr/sbin/xfs_db` holds time stamp 0x44c001ab (2006-07-20 22:20:27 UTC), checksum 0xb42c1512 and version `sgi1.0`, which are exactly the three tags of `lib32/libc.so.1`. Established, with the record layout Inferred from the public liblist layout.
+
+Quickstart: an executable linked with a preset base for each library carries ready-made GOT entries for its imports. The first GOT entries of `xfs_db` are real addresses (for example 0xfa44620 in the library range). The loader maps each library at its recorded base, and if every liblist match above succeeds it can skip relocation. The loader's own words are `Ball_fully_quickstarted` and `all_fully_quickstarted`, an option `-quickstart_only` and the error `NON-QUICKSTART detected -- QUICKSTART must be enforced`. Established for the option and message, Inferred for the skip.
+
+Library versions: the executable records one version name for each library; the library lists the versions it can stand in for (`DT_MIPS_IVERSION`). The sample's lists are `sgi1.0` (833 files), `sgi2.0` followed by up to seven minor names, `sgi3.0` with five, `sgi4.0:sgi4.0.440:sgi4.1:sgi4.2`, and single `sgi5.0` to `sgi9.0`. `match_interface_version` is skipped when a global ignore flag is set, when the liblist entry's flag word has bit 2, when the library's flags lack SGI-only (0x10), and when the entry has no version; otherwise the loader splits the library's list at its separators and accepts if one token equals the wanted name (`found_matching_string`, 0xfb648c0, 252 bytes). A mismatch makes it keep searching other directories (messages `Cannot Successfully map soname '%s' version '%s' under any of the filenames %s`, and a suppression note for versions that are not SGI interface versions). The `_RLD_ARGS` options `-ignore_version`, `-ignore_all_versions` and `-idv` change this, per the `rld(5)` page. Established for the comparison, Inferred for the list semantics (read in the sample, not run).
+
+- What the loader does when one library of an executable fails the match (the requickstart path, flag 0x400) is not read. The n32 `libc.so.1` has two variants for one install path (below): the executable's liblist records the stamp of the MIPS III variant (22:20:27) while the MIPS IV variant is stamped 22:20:32, so an exact match on a machine that installs the MIPS IV variant is impossible by construction. Whether the loader recovers by re-resolving or rejects the executable is unknown ([Unknowns](#unknowns)).
+
+## What each side requires to accept an executable
+
+For a linker whose output must be accepted, the following is what the shipped binaries demonstrate. Every row is Established unless marked; a requirement that is only "always present in the sample" says so.
+
+**Kernel, 32-bit header routine** (`getelf32head`, `6.5.30/unix.IP35`, 0xc0000000002f65b8, read in full; `getelf64head`, 0xc0000000002f3610, has the same checks on a 64-byte header): it reads 0x34 bytes at offset 0 and then requires, in this order, that `e_ident[2]` is 0x4c and `e_ident[3]` is 0x46, `e_ident[4]` is 1 (2 in the 64-bit routine), `e_ident[5]` is 2 (big-endian), `e_type` is 2 or 3, `e_phentsize` (offset 0x2a; 0x36 in the 64-bit header) is non-zero, the architecture nibble of `e_flags` (mask 0xf0000000) is 0, 0x10000000, 0x20000000, 0x30000000 or 0xf0000000, and `e_machine` is 8. Any failed check returns 8, except an unsupported architecture nibble, which returns 0x36. It then reads the program headers (`e_phentsize` times `e_phnum` bytes at `e_phoff`). Bytes 0 and 1 of the magic are not tested here and are presumably matched by the exec dispatch before this routine (unknown). The routine records the ABI kind in the exec record (+0x38): 2 for a 32-bit file without bit 0x20, 8 for one with it (n32); `getelf64head` stores 4 (the n64 kind), read from its constants. `e_flags` bits other than the architecture nibble and 0x20 are not tested.
+
+**Loader, from its messages and routines** (`6.5.30/lib32/rld`; the 64-bit and o32 loaders have the same message set):
+
+- The file must have a `PT_DYNAMIC`; otherwise `The object %s has no PT_DYNAMIC program header! Improper ELF shared/call-shared object. Cannot continue`.
+- `DT_MIPS_BASE_ADDRESS` must be present and non-zero; otherwise `DT_MIPS_BASE_ADDRESS missing or zero in %s. rld cannot continue`.
+- `e_machine` must be MIPS (`elfmap: executable/DSO cannot be run on this machine since program header %s not marked as MIPS`), and ELF class and the ABI bit must agree between the program and each library. A library of the wrong class or ABI is skipped and the search continues, with the messages telling the user to set `LD_LIBRARY_PATH` for o32, `LD_LIBRARYN32_PATH` for n32 and `LD_LIBRARY64_PATH` for n64.
+- A shared object cannot be the main program (`Cannot exec a shared library directly`).
+Relocations in `.rel.dyn` are limited to the types in [Relocations](#relocations).
+
+Always present in the sample, therefore the safe minimum for a replacement linker, though the loader's reaction to their absence is not read: `DT_HASH` (the loader has its own ELF hash routine), `DT_SYMTAB`, `DT_STRTAB`, `DT_MIPS_LOCAL_GOTNO`, `DT_MIPS_GOTSYM`, `DT_MIPS_SYMTABNO`, `DT_MIPS_RLD_VERSION`, `DT_MIPS_RLD_TEXT_RESOLVE_ADDR`, `.MIPS.stubs` when functions are imported, and for an executable `DT_MIPS_RLD_MAP`. Inferred.
+
+The loader's address is fixed. Every dynamic file records the resolver address in `DT_MIPS_RLD_TEXT_RESOLVE_ADDR`: 0xfb60290 (o32), 0xfb602ac (n32), 0xfb6032c (n64), equal to the symbol `_rld_text_resolve` in each loader (264 bytes n32, 200 bytes o32, 312 bytes n64). A linker must put exactly that value into the tag and into GOT entry 0 (see below); the loader's own use of the tag was not read. The libraries' and loaders' symbols are in their symbol tables; this equality is Established for all three.
+
+The loader file itself is not found through the program's `PT_INTERP`: that names the C library. A non-SGI C library must supply `__exec_rld` as its entry and find `/lib32/rld`, or the replacement must follow the `rld(5)` note that any substitute interpreter "must be able to act as interpreter (or invoke rld)". Established for the entry; the note is the manual's.
+
+## Library search and environment
+
+Established by the loader's strings and routines for which variable names exist, and by the `rld(5)` page for the search order.
+
+| Variable | o32 | n32 | n64 |
+|---|---|---|---|
+| Search-path variable | `LD_LIBRARY_PATH` | `LD_LIBRARYN32_PATH`, then `LD_LIBRARY_PATH` | `LD_LIBRARY64_PATH`, then `LD_LIBRARY_PATH` |
+| Root prefix list | `_RLD_ROOT` | `_RLDN32_ROOT` (and `_RLD_ROOT`) | `_RLD64_ROOT` (and `_RLD_ROOT`) |
+| Object-list override | `_RLD_LIST` | `_RLDN32_LIST`, then `_RLD_LIST` | `_RLD64_LIST`, then `_RLD_LIST` |
+| Alternate loader | `_RLD_PATH` | `_RLDN32_PATH` | `_RLD64_PATH` |
+
+The common variables are `LD_BIND_NOW`, `_RLD_ARGS`, `_RLD_ARGS_BIG_PAGES` and `_DYNAMIC_LINK` (strings in all three loaders). Default directories (strings): n32 `/lib32`, `/opt/lib32`, `/usr/lib32`, `/usr/lib32/internal`; n64 the same with `64`; o32 `/lib`, `/opt/lib`, `/usr/lib`, `/usr/lib/internal`, `/lib/cmplrs/cc`, `/usr/lib/cmplrs/cc`. The search order for a library is, per the manual: a path in the liblist entry, then `DT_RPATH` of the executable and every library already opened, then `LD_LIBRARY_PATH`-style variable, then the defaults; the root list is prepended to the run-time path list. `DT_RPATH` is set in 40 n32, 1 o32 and 11 n64 files, for example `/lib32` in `hinv`, `ioconfig`, `mediad` and `mmscd`. `LD_BIND_NOW` set to 1 or on makes every relocation resolve before the program runs (manual); the binary shows only the name. Variables other than the loader override are ignored for setuid, setgid or capability-gaining programs, and `RHF_NO_LIBRARY_REPLACE` can turn them off for non-root users (manual; not read in the binary, Inferred from the `syssgi` 92 check above).
+
+CPU variants: the C libraries are installed per CPU. `lib32/libc.so.1` has two install-time files chosen by the machine's CPU: the MIPS III build (3,323,968 bytes) for the R4000 class and the MIPS IV build (3,324,696 bytes, flags 0x30000022) for R5000, R8000 and R10000; `usr/lib32/mips3/libc.so.1` and `usr/lib32/mips4/libc.so.1` are symbolic links to `../libc.so.1`. The 64-bit library has real files at `usr/lib64/mips3/libc.so.1` and `usr/lib64/mips4/libc.so.1`. Many other libraries have `mips3` and `mips4` subdirectories. Established from the installation manifests and the files. The names that `PT_INTERP` uses, `/usr/lib32/libc.so.1`, `/usr/lib64/libc.so.1` and `/usr/lib/libc.so.1`, do not appear as a file or link in the manifests of the three discs (open question).
+
+## Startup and shutdown order
+
+Libraries: `execute_all_init_sections` (`6.5.30/lib32/rld`, 0xfb66cd0, 200 bytes) runs each object's initialisation through one routine in the order of the loader's object array from its last element to its first, so a library later in the list is initialised before the program that precedes it. Shutdown (`execute_all_fini_sections`, 0xfb6fca0, 264 bytes) builds an array of all objects, sorts it with `qsort` using `ascending_init_order` (0xfb66910, 56 bytes: ascending by the word at +0xd4 of each object record), and calls `call_fini` (0xfb67bd0) from the end of the sorted array to its start. Established; the meaning of the +0xd4 word is Inferred to be the order the loader assigned.
+
+Executables: `DT_INIT` and `DT_FINI` exist in every dynamic file; they are zero in 103 of the 121 n32 executables (and the n64 one), and the other 18, which also have a `.fini` section, are the ones with real initialisation code. In the zero case the `.init` section is a run of no-ops that ends in `jr ra` (`xfs_db` 0x10021bd0, 24 bytes), reached from `__start` as `__istart` (0x10021bdc). Established; which code calls the non-zero `DT_INIT` of an executable (the loader or `__istart`) is not read. A C++ program's `__cplinit` section (below) carries its static-constructor list; the routine that reads it is not read.
+
+The program image at the start: `sp` points to `argc`, then `argv`, a null, `envp` and a null, then the auxiliary vector; `__start` and the loader both assume this layout. Established.
+
+## Relocations
+
+Over all 3,073 files every relocation section is `.rel.dyn` of `SHT_REL` (8-byte entries n32, o32; 16-byte n64). No `.rela` or `.rel.plt` section exists.
+
+| ABI | Relocation types present (count) |
+|---|---|
+| o32 | `R_MIPS_REL32` 387,956 (252,928 against a named symbol, 135,028 against a section or local); `R_MIPS_NONE` 370 |
+| n32 | `R_MIPS_REL32` 1,210,392 (537,752 named, 672,640 section or local); `R_MIPS_NONE` 914 |
+| n64 | `R_MIPS_REL32` 654,841, `R_MIPS_RELGOT` (type 36, 0x24) 92,057; every one of these 746,898 entries has a second relocation type `R_MIPS_64` (18) in the packed 64-bit entry; `R_MIPS_NONE` 509 |
+
+Established. In each file with relocations the first entry is a zero (type `R_MIPS_NONE`) entry. The "named" split is by whether `readelf` shows a symbol name or a section/blank in the symbol column. Relocation counts by file: 914 of 1,470 n32 files, 365 of 762 o32 and 509 of 842 n64 have a `.rel.dyn`; 29 of the 121 n32 executables and all three o32 executables have one. The n32 sample contains **no** type-36 relocation; the n64 type-36 entries are in C++ libraries (the first sampled is `usr/lib64/libInventor.so.3`).
+
+Loader behaviour. `resolve_relocations` (`6.5.30/lib32/rld`, 0xfb661c0, 536 bytes) walks the sorted `.rel.dyn` of an object for the entries whose symbol index equals the symbol just bound and handles exactly two types: type 3 (`R_MIPS_REL32`), where it adds the difference between the symbol's new value and the value the link recorded to the (possibly unaligned) word at the relocation address, and type 0x24, where it writes the new value. Any other type reaches the warning `Encountered unsupported relocation in .rel.dyn of %s` (0xfb662b4 calls the reporting routine). The same routine adjusts for the object's load displacement when the object is not at its linked address. Established; the unaligned case uses a load-left/load-right pair.
+
+Eager versus lazy. There is no other relocation kind: all `.rel.dyn` entries are processed when the object is bound (at program start, or at `dlopen`). Function calls take the lazy path through `.MIPS.stubs` ([Call stubs](#call-stubs-and-lazy-binding)). Data references in the GOT (including undefined data symbols, whose dynamic-symbol address is zero) are bound at start. Among the root programs, `xfs_db` has 39 undefined functions with a stub address in `st_value` and 40 with zero, `sysmon` 238 and 53, `mediad` 61 and 53; the undefined data objects (6, 34 and 7) all have zero. The zero-address functions are Inferred to be those whose address is taken (bound at start, so pointer comparisons agree); the loader's decision is not read. `LD_BIND_NOW` forces everything (manual).
+
+## The global offset table
+
+Established from `usr/sbin/xfs_db` and cross-checked on the other ABIs.
+
+- `DT_PLTGOT` is the address of `.got`; `gp` is `.got` plus 0x7ff0 (`DT_MIPS_GP_VALUE` for `xfs_db` is 0x10036dac, and `.got` is at 0x1002edbc). All global-pointer loads in the start routine have displacements between -0x7ff0 and +0x7fff.
+Entry 0 holds the lazy resolver (0xfb602ac, equal to `DT_MIPS_RLD_TEXT_RESOLVE_ADDR`); entry 1 holds 0x10000000 in `xfs_db` (a module marker; its meaning is not read).
+
+Local entries are indices 0 to `DT_MIPS_LOCAL_GOTNO` - 1 (28 for `xfs_db`, 418 for both the n32 and the o32 C library). The two `DT_MIPS_LOCALPAGE_GOTIDX` tags in `xfs_db` (1 and 15) start two groups of page entries: entries 1 to 4 hold 0x10000000 to 0x10030000 and entries 15 to 17 hold 0x10020000 to 0x10040000 (high-half page bases), and the rest of the local area is zero until the loader fills it. `DT_MIPS_LOCAL_GOTIDX`, `HIDDEN_GOTIDX` and `PROTECTED_GOTIDX` are all 0x1c (28) in `xfs_db`; in the n32 C library (`lib32/libc.so.1`) the page groups start at 1 and 0x1d and the three tags are 0x2a (42), 0x2a and 0x19f (415) with 418 local entries. They are Inferred to be the first index of each class (local-symbol entries, hidden, protected).
+
+Global entries start at index `DT_MIPS_LOCAL_GOTNO` and follow the dynamic symbol table: entry `DT_MIPS_LOCAL_GOTNO + k` belongs to dynamic symbol `GOTSYM + k`, for k up to `SYMTABNO` - `GOTSYM` - 1. In `xfs_db` the slots the start routine loads (displacements -0x7c94, -0x7ec8, -0x7cc4, -0x7ed4, -0x7ed0, -0x7c1c, -0x7c20) are entries 215, 74, 203, 71, 72, 245 and 244, which map to dynamic symbols 422 (`__istart`), 281 (`__readenv_sigfpe`), 410 (`main`), 278 (`exit`), 279 (`_environ`), 452 (`__Argc`) and 451 (`__Argv`), as `readelf` lists them. The last global entry (`__Argc`, 245) is followed by three zero words in `xfs_db`.
+
+The same arithmetic holds for the three ABIs: `.got` size equals (`DT_MIPS_LOCAL_GOTNO` + `SYMTABNO` - `GOTSYM` + 3) words (n32 `xfs_db`: 28 + 453 - 235 + 3 = 249 words, 0x3e4 bytes; n32 `lib32/libc.so.1`: 418 + 7,643 - 6,421 + 3 = 1,643 words, 0x19ac bytes; o32 `lib/libc.so.1`: 418 + 4,539 - 3,335 + 3 = 1,625 words; o32 `lib/cpp`: 26 + 226 - 42 + 3 = 213; n64 `usr/lib/sa/sadc` with 8-byte entries: 25 + 122 - 51 + 3 = 99). Established as arithmetic; the three padding words are Inferred padding, since only `xfs_db`'s were read.
+
+Entries are 4 bytes (o32, n32) and 8 bytes (n64). A large n64 library may have a second dynamic section, `.dynamic_2`, a second GOT `.got_2`, and the tag `DT_MIPS_AUX_DYNAMIC`; nine libraries do, `libInventor.so.3` among them. Established; how the loader merges the two is not read.
+
+## Call stubs and lazy binding
+
+`.MIPS.stubs` holds one stub per imported function, preceded by a lone `break 6` word:
+
+- n32 and o32 (20 bytes): `lw t9, -0x7ff0(gp)` / `move t7, ra` / `jalr t9` / `ori t8, zero, INDEX` / `nop`.
+- n64 (16 bytes): `ld t9, -0x7ff0(gp)` / `move t7, ra` / `jalr t9` / `ori t8, zero, INDEX` in the call's delay slot.
+
+`gp - 0x7ff0` is GOT entry 0, so a stub calls the loader's resolver; `INDEX` is the dynamic symbol number of the function (0x119 for the first stub of `xfs_db`; `GOTSYM` is 0xeb there). The stub neither sets nor needs a new `gp`; it relies on the caller's. Established for `xfs_db` (n32), `usr/lib32/libm.so` (n32), `lib/cpp` (o32) and `usr/lib/sa/sadc` (n64).
+
+The resolver `_rld_text_resolve` (n32, `6.5.30/lib32/rld`, 0xfb602ac, 264 bytes) saves the eight integer argument registers and the floating-point registers f12 to f19 on a 0xa0-byte frame, passes `ra` (the stub's caller), `t8` (the index) and `t7` (the original return address) to `lazy_text_resolve` (0xfb64d60, 1,012 bytes), restores the registers and jumps to the address that call returns in `t9`. `lazy_text_resolve` locates the object that owns the stub's caller (a routine that maps an address to its object), binds the symbol (`resolve_symbol`), applies the relocations against it (`resolve_relocations`) and updates the object's GOT entry. Established for the call graph. The function-call convention for the ABIs is the vendor ABI: arguments in a0 to a7 and f12 to f19 for n32 and n64, a0 to a3 and f12 and f14 for o32 (the n32 resolver saves exactly the n32 set; the o32 and n64 loaders' resolvers have a different size, 200 and 312 bytes, and were not read).
+
+## Thread-local data
+
+No shipped file has thread-local storage. Over the 3,073 files: no `PT_TLS`, no `.tdata` or `.tbss` section, no symbol of type `STT_TLS`. Established; the C compiler's `__thread` is therefore not part of the shipped ABI. Per-thread data works through a process data area at a fixed address:
+
+The kernel's `setup_prda` (`6.5.30/unix.IP35`, 0xc0000000002c2da0, 324 bytes) attaches a region at virtual address 0x200000 (the constant is loaded into the argument registers of `vattachreg`). Established for the address; the region's role is the process data area named by the routine, Inferred.
+
+`pthread_getspecific` (`usr/lib32/libpthread.so`, 0xc008aa8, 44 bytes) loads the word at 0x200edc, loads the word at +0x30 of what it points to, and returns the entry of that array indexed by the key; it returns 0 when the array pointer is null. `pthread_self` (0xc00c97c, 80 bytes) loads the same word at 0x200edc, divides its difference from a base held in the library's GOT by 0x160 to get a thread index, and combines it with the upper halfword of a field at +0x14. So the area at 0x200000 holds, at +0xedc, a pointer to the current thread's control block, whose size is 0x160 bytes. Established.
+
+`errno` is per-thread through the same area: `__initperthread_errno` (`lib32/libc.so.1`, 0xfac91c0, 32 bytes) stores 0x200e84 into the library's `__errnoaddr`, so the per-thread error number is the word at 0x200e84. Established.
+
+Per-thread keys are `pthread_key_create` (540 bytes), `pthread_setspecific` (212 bytes) and `pthread_getspecific`, in `libpthread.so` only, not in the C library. The `libpthread` loader hook is `_RLD_PTHREADS_START` (a `rld` string, with the message `_RLD_PTHREADS_START invoked twice! Internal error in libpthread or in rld`). Established for the names.
+
+## Unwinding metadata
+
+**n32 and n64**: call-frame information is in DWARF `.debug_frame` sections, non-loaded (type `SHT_MIPS_DWARF`, not allocated), in 1,468 of 1,470 n32 files and all 842 n64 files; one n32 file (`usr/lib32/libRPCapiRT.so`) also has a loaded `.eh_frame` section. There is no `.pdr` and no `.mdebug` in any n32 or n64 file. The unwinder library `libexc.so` reads the file's `.debug_frame` through an embedded copy of the public DWARF reader (its frame-description list, per-address and per-register readers), finds the frame description by program counter (`__exc_find_fde`, `__exc_get_fde_in_obj`) and has a message `update_obj_info: no .debug_frame section in %s`. It opens object files with `open`, `fstat` and `mmap`, so unwinding in n32 and n64 reads the file from disk, not the loaded image. It registers with the loader through `_rld_new_interface` and `__rld_obj_head`. Established for the sections and imports, Inferred for the file-based reading from the imports.
+
+- **o32**: unwinding data is `.rtproc` (0x28-byte entries, 751 files) selected by `PT_MIPS_RTPROC`, with `.mdebug` and the compact relocation section (750 each); `DT_MIPS_COMPACT_SIZE` is set. These are the o32 runtime-procedure descriptors; how `libexc` uses them is not read.
+- **C++ exceptions**: n32 and n64 C++ objects (425 and 269 files) carry `_MIPS_eh_region` and `_MIPS_eh_region_supp`, plus `__cplinit` (50 n64 files, 96 n32), all `SHT_PROGBITS` with the allocated, writable and OS-specific flags (`WAo`). `usr/lib32/libC.so` has 0xafc and 0x988 bytes of them; `usr/lib32/libInventor.so` 0x17820 and 0x17284. The tables are loaded with the data segment and have matching `.MIPS.content_*` records for the profile tools. The entry format, and how the C++ run-time library (`libC`, `libCsup`) consumes the sections, is not read (open question).
+- **C**: no `.eh_frame`, no `PT_EH_FRAME`: a C program unwinds only through `.debug_frame` when a tool such as `libexc` asks.
+
+## IP27 and 6.5.22
+
+The kernel routines above are present in the three 6.5.30 kernels. By comparing instruction text with branch targets and `gp` offsets masked: `elfexec` is identical on IP27 and IP35 (and 6.5.22 IP35), `elfmap`, `elf64map`, `doelfrelocs` and `execmap` are identical on 6.5.30 IP27 and IP35, `elf32exec` and `elf64exec` differ on IP27 only in a few record displacements (+0x318 against +0x328, and a shift constant in `elf64exec`), and `gexec` differs in displacements. Between 6.5.30 and 6.5.22 on IP35, `elfexec`, `elf32exec`, `elf64exec` and `doelfrelocs` are identical, while `elfmap` (1,124 bytes against 1,172), `execmap` (876 against 976) and `gexec` (708 against 728) differ and were not compared further. Established as to the comparison.
+
+- The user-space files do not depend on the platform except the C-library CPU variants (above); which variant a host installs follows the CPU names in the installation manifest (R4000 for the MIPS III build; R5000, R8000 and R10000 for the MIPS IV build). The manifest line names no R12000, R14000 or R16000, so what an Origin 300 or 350 host with an R14000 or R16000 installs is unknown from this evidence.
+- `doelfrelocs` (0xc0000000002cdf84, 1,308 bytes) is the kernel's own object relocator for loadable kernel objects, a separate path from the user-space loader (it calls `fixup`, `put_relc_val` and `extract_relc_val`); the relocation types it supports are not decoded here.
+
+## Unknowns
+
+Open questions are recorded in [open-questions.md](open-questions.md): the origin of the `PT_INTERP` file names, the requickstart recovery, the roles of GOT entry 1 and the partition tags, how `syssgi` 92 gates `_RLDN32_PATH`, o32 unwinding, the C++ region tables, the kernel's treatment of `PT_INTERP` and of the mapping selector, and the 6.5.22 user-space files.
