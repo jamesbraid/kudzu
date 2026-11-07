@@ -808,8 +808,8 @@ binary	function	address	callee	sites	scope	status
 6.5.22/unix.IP27	pdetopfdat_hold	0xc0000000001b115c	assfail	1	in	undocumented
 6.5.22/unix.IP27	pdinsert	0xc000000000152e3c	cmn_err_tag	1	in	undocumented
 6.5.22/unix.IP27	pgetsanon	0xc0000000001b9d94	assfail	1	in	undocumented
-6.5.22/unix.IP27	phost_deregister	0xc00000000026401c	panic	1	in	undocumented
-6.5.22/unix.IP27	phost_register	0xc000000000264000	panic	1	in	undocumented
+6.5.22/unix.IP27	phost_deregister	0xc00000000026401c	panic	1	in	documented
+6.5.22/unix.IP27	phost_register	0xc000000000264000	panic	1	in	documented
 6.5.22/unix.IP27	pid_associate	0xc000000000225308	panic	2	in	documented
 6.5.22/unix.IP27	pid_op	0xc000000000225564	panic	1	in	documented
 6.5.22/unix.IP27	plac_policy_cachecolor_init	0xc00000000027e898	cmn_err	2	in	documented
@@ -868,7 +868,7 @@ binary	function	address	callee	sites	scope	status
 6.5.22/unix.IP27	ps_init	0xc00000000011024c	printf	5	in	undocumented
 6.5.22/unix.IP27	psanonfree	0xc0000000001b98bc	assfail	1	in	undocumented
 6.5.22/unix.IP27	pshm_alloc	0xc000000000265a9c	cmn_err	1	in	undocumented
-6.5.22/unix.IP27	pshm_rmid	0xc0000000002660e0	cmn_err	1	in	undocumented
+6.5.22/unix.IP27	pshm_rmid	0xc0000000002660e0	cmn_err	1	in	documented
 6.5.22/unix.IP27	ptcinit	0xc000000000142ca8	panic	1	in	undocumented
 6.5.22/unix.IP27	ptcinit	0xc000000000142ca8	printf	1	in	undocumented
 6.5.22/unix.IP27	ptrace	0xc0000000001bde24	panic	1	in	documented
@@ -1819,8 +1819,8 @@ binary	function	address	callee	sites	scope	status
 6.5.22/unix.IP30	pdetopfdat_hold	0xa80000002015a734	assfail	1	in	undocumented
 6.5.22/unix.IP30	pdinsert	0xa80000002010e564	cmn_err_tag	1	in	undocumented
 6.5.22/unix.IP30	pgetsanon	0xa8000000201624e4	assfail	1	in	undocumented
-6.5.22/unix.IP30	phost_deregister	0xa800000020200c84	panic	1	in	undocumented
-6.5.22/unix.IP30	phost_register	0xa800000020200c68	panic	1	in	undocumented
+6.5.22/unix.IP30	phost_deregister	0xa800000020200c84	panic	1	in	documented
+6.5.22/unix.IP30	phost_register	0xa800000020200c68	panic	1	in	documented
 6.5.22/unix.IP30	pid_associate	0xa8000000201c8bc0	panic	2	in	documented
 6.5.22/unix.IP30	pid_op	0xa8000000201c8e1c	panic	1	in	documented
 6.5.22/unix.IP30	plac_policy_uma_create	0xa80000002020f06c	cmn_err	1	in	documented
@@ -1863,7 +1863,7 @@ binary	function	address	callee	sites	scope	status
 6.5.22/unix.IP30	ps_init	0xa8000000200cca4c	printf	5	in	undocumented
 6.5.22/unix.IP30	psanonfree	0xa80000002016205c	assfail	1	in	undocumented
 6.5.22/unix.IP30	pshm_alloc	0xa8000000202056c0	cmn_err	1	in	undocumented
-6.5.22/unix.IP30	pshm_rmid	0xa800000020205d04	cmn_err	1	in	undocumented
+6.5.22/unix.IP30	pshm_rmid	0xa800000020205d04	cmn_err	1	in	documented
 6.5.22/unix.IP30	ptcinit	0xa8000000200ff498	panic	1	in	undocumented
 6.5.22/unix.IP30	ptcinit	0xa8000000200ff498	printf	1	in	undocumented
 6.5.22/unix.IP30	ptrace	0xa800000020166254	panic	1	in	documented
@@ -2955,8 +2955,8 @@ binary	function	address	callee	sites	scope	status
 6.5.22/unix.IP35	pdinsert	0xc0000000001b64d8	cmn_err_tag	1	in	undocumented
 6.5.22/unix.IP35	peer_iobrick_type_get	0xc0000000000d381c	printf	1	in	documented
 6.5.22/unix.IP35	pgetsanon	0xc00000000022fbb4	assfail	1	in	undocumented
-6.5.22/unix.IP35	phost_deregister	0xc0000000002db458	panic	1	in	undocumented
-6.5.22/unix.IP35	phost_register	0xc0000000002db43c	panic	1	in	undocumented
+6.5.22/unix.IP35	phost_deregister	0xc0000000002db458	panic	1	in	documented
+6.5.22/unix.IP35	phost_register	0xc0000000002db43c	panic	1	in	documented
 6.5.22/unix.IP35	pic_attach2	0xc00000000009db24	cmn_err	2	in	documented
 6.5.22/unix.IP35	pic_bus1_inventory_dup	0xc00000000009d57c	cmn_err	1	in	undocumented
 6.5.22/unix.IP35	pic_bus1_redist	0xc00000000009d7bc	cmn_err	3	in	undocumented
@@ -3015,7 +3015,7 @@ binary	function	address	callee	sites	scope	status
 6.5.22/unix.IP35	ps_init	0xc000000000173530	printf	5	in	undocumented
 6.5.22/unix.IP35	psanonfree	0xc00000000022f6d8	assfail	1	in	undocumented
 6.5.22/unix.IP35	pshm_alloc	0xc0000000002dced8	cmn_err	1	in	undocumented
-6.5.22/unix.IP35	pshm_rmid	0xc0000000002dd51c	cmn_err	1	in	undocumented
+6.5.22/unix.IP35	pshm_rmid	0xc0000000002dd51c	cmn_err	1	in	documented
 6.5.22/unix.IP35	ptcinit	0xc0000000001a5f94	panic	1	in	undocumented
 6.5.22/unix.IP35	ptcinit	0xc0000000001a5f94	printf	1	in	undocumented
 6.5.22/unix.IP35	ptrace	0xc000000000233c6c	panic	1	in	documented
@@ -4197,8 +4197,8 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	pdetopfdat_hold	0xc0000000001afa30	assfail	1	in	undocumented
 6.5.30/unix.IP27	pdremove	0xc00000000014f70c	cmn_err_tag	1	in	undocumented
 6.5.30/unix.IP27	pgetsanon	0xc0000000001b9e10	assfail	1	in	undocumented
-6.5.30/unix.IP27	phost_deregister	0xc000000000265164	panic	1	in	undocumented
-6.5.30/unix.IP27	phost_register	0xc000000000265148	panic	1	in	undocumented
+6.5.30/unix.IP27	phost_deregister	0xc000000000265164	panic	1	in	documented
+6.5.30/unix.IP27	phost_register	0xc000000000265148	panic	1	in	documented
 6.5.30/unix.IP27	pid_associate	0xc00000000022b4e8	panic	2	in	documented
 6.5.30/unix.IP27	pid_op	0xc00000000022b744	panic	1	in	documented
 6.5.30/unix.IP27	plac_policy_cachecolor_init	0xc00000000027f118	cmn_err	2	in	documented
@@ -4254,7 +4254,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	ps_txq_stat	0xc0000000001059cc	panic	1	in	undocumented
 6.5.30/unix.IP27	psanonfree	0xc0000000001b9938	assfail	1	in	undocumented
 6.5.30/unix.IP27	pshm_alloc	0xc000000000266bd4	cmn_err	1	in	undocumented
-6.5.30/unix.IP27	pshm_rmid	0xc000000000267218	cmn_err	1	in	undocumented
+6.5.30/unix.IP27	pshm_rmid	0xc000000000267218	cmn_err	1	in	documented
 6.5.30/unix.IP27	ptcinit	0xc00000000013ee90	panic	1	in	undocumented
 6.5.30/unix.IP27	ptcinit	0xc00000000013ee90	printf	1	in	undocumented
 6.5.30/unix.IP27	ptrace	0xc0000000001be340	panic	1	in	documented
@@ -4600,7 +4600,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	DBGT	0xa80000002033ca94	cmn_err	2	in	undocumented
 6.5.30/unix.IP30	GfxKiller	0xa8000000200c280c	cmn_err	5	in	undocumented
 6.5.30/unix.IP30	GfxRegisterBoard	0xa8000000200c1fc0	cmn_err	1	in	undocumented
-6.5.30/unix.IP30	ODSY_SET_GC	0xa800000020363f60	cmn_err	1	in	undocumented
+6.5.30/unix.IP30	the set graphics-context Odyssey driver request	0xa800000020363f60	cmn_err	1	in	undocumented
 6.5.30/unix.IP30	OdsyFree32kSlot	0xa80000002036e3a4	cmn_err	2	in	undocumented
 6.5.30/unix.IP30	RRM_Exit	0xa8000000200c74c0	cmn_err	2	in	undocumented
 6.5.30/unix.IP30	RRM_ValidFault	0xa8000000200c88fc	cmn_err	1	in	undocumented
@@ -5369,8 +5369,8 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	pdetopfdat_hold	0xa8000000201745c8	assfail	1	in	undocumented
 6.5.30/unix.IP30	pdremove	0xa8000000201266d0	cmn_err_tag	1	in	undocumented
 6.5.30/unix.IP30	pgetsanon	0xa80000002017e7f0	assfail	1	in	undocumented
-6.5.30/unix.IP30	phost_deregister	0xa80000002021dc98	panic	1	in	undocumented
-6.5.30/unix.IP30	phost_register	0xa80000002021dc7c	panic	1	in	undocumented
+6.5.30/unix.IP30	phost_deregister	0xa80000002021dc98	panic	1	in	documented
+6.5.30/unix.IP30	phost_register	0xa80000002021dc7c	panic	1	in	documented
 6.5.30/unix.IP30	pid_associate	0xa8000000201e9a84	panic	2	in	documented
 6.5.30/unix.IP30	pid_op	0xa8000000201e9ce0	panic	1	in	documented
 6.5.30/unix.IP30	plac_policy_uma_create	0xa80000002022b9e8	cmn_err	1	in	documented
@@ -5413,7 +5413,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	ps_txq_stat	0xa8000000200dda88	panic	1	in	undocumented
 6.5.30/unix.IP30	psanonfree	0xa80000002017e36c	assfail	1	in	undocumented
 6.5.30/unix.IP30	pshm_alloc	0xa800000020222760	cmn_err	1	in	undocumented
-6.5.30/unix.IP30	pshm_rmid	0xa800000020222da4	cmn_err	1	in	undocumented
+6.5.30/unix.IP30	pshm_rmid	0xa800000020222da4	cmn_err	1	in	documented
 6.5.30/unix.IP30	ptcinit	0xa800000020116f30	panic	1	in	undocumented
 6.5.30/unix.IP30	ptcinit	0xa800000020116f30	printf	1	in	undocumented
 6.5.30/unix.IP30	ptrace	0xa8000000201829ac	panic	1	in	documented
@@ -6565,8 +6565,8 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	pdremove	0xc0000000001eb820	cmn_err_tag	1	in	undocumented
 6.5.30/unix.IP35	peer_iobrick_type_get	0xc0000000000d15c4	printf	1	in	documented
 6.5.30/unix.IP35	pgetsanon	0xc0000000002697b0	assfail	1	in	undocumented
-6.5.30/unix.IP35	phost_deregister	0xc000000000314ed0	panic	1	in	undocumented
-6.5.30/unix.IP35	phost_register	0xc000000000314eb4	panic	1	in	undocumented
+6.5.30/unix.IP35	phost_deregister	0xc000000000314ed0	panic	1	in	documented
+6.5.30/unix.IP35	phost_register	0xc000000000314eb4	panic	1	in	documented
 6.5.30/unix.IP35	pic_attach2	0xc00000000009b884	cmn_err	2	in	documented
 6.5.30/unix.IP35	pic_bus1_inventory_dup	0xc00000000009b274	cmn_err	2	in	undocumented
 6.5.30/unix.IP35	pic_bus1_redist	0xc00000000009b4c8	cmn_err	3	in	undocumented
@@ -6624,7 +6624,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	ps_txq_stat	0xc0000000001a173c	panic	1	in	undocumented
 6.5.30/unix.IP35	psanonfree	0xc0000000002692d8	assfail	1	in	undocumented
 6.5.30/unix.IP35	pshm_alloc	0xc000000000316940	cmn_err	1	in	undocumented
-6.5.30/unix.IP35	pshm_rmid	0xc000000000316f84	cmn_err	1	in	undocumented
+6.5.30/unix.IP35	pshm_rmid	0xc000000000316f84	cmn_err	1	in	documented
 6.5.30/unix.IP35	ptcinit	0xc0000000001dabfc	panic	1	in	undocumented
 6.5.30/unix.IP35	ptcinit	0xc0000000001dabfc	printf	1	in	undocumented
 6.5.30/unix.IP35	ptrace	0xc00000000026dd08	panic	1	in	documented
