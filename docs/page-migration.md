@@ -581,6 +581,228 @@ Data requirements only; none of this is a statement of how to obtain them.
 - The node distance table and `physmem_maxradius`, to apply a minimum-distance filter.
 - The statistics the `nstats` tool prints, so a reimplementation can report through the same names.
 
+### The 6.5.10-6.5.16 IP35 handler in detail
+
+What a re-implementation of the IP35 automatic page-migration handler has to know, read from the IP35 `numa.a`, `kernel.o` and `os.a` objects of one release. Nothing was run. The summary rows in [What the working IP27 path consumed](#what-the-working-ip27-path-consumed) and [Hardware side](#hardware-side) stay as they are; this section adds the detail and corrects two sentences of that summary (see [Corrections](#corrections-to-the-summary-above)).
+
+**Release read: 6.5.16** (April 2002, the last release before the handler was emptied; the objects come from `eoe.sw.base` on the first installation disc). Method: the members were disassembled with `scripts/hostfacts.py` and a relocation-aware Capstone listing, and the register and structure accesses were followed by hand. A hash of the `.text` of the key members across 6.5.10 to 6.5.17 gives:
+
+| Member (`numa.a`) | 6.5.10 | 6.5.11-6.5.13 | 6.5.14 | 6.5.15 and 6.5.16 | 6.5.17 |
+|---|---|---|---|---|---|
+| `migr_interrupt` | 788 bytes | 712 | 704 | 704, identical | emptied |
+| `migr_manager` | 1944 | 1776 | 1780 | 1780, identical | emptied |
+| `migr_bounce`, `migr_queue` | 1580, 2208 | 1748, 2244 | 1756, 2244 | 1752, 2244, identical | emptied |
+| `migr_refcnt`, `migr_engine`, `migr_states`, `migr_control`, `migr_unpegging`, `mem_tick`, `migr_init` | present | present | present | present, identical | present; `migr_refcnt`, `migr_engine` and `migr_control` differ, `mem_tick` is an 8-byte stub |
+| `numa_hw` | 216 | 196 | 196 | 196 | 196 |
+
+6.5.15 and 6.5.16 are byte for byte the same in every member listed, so "6.5.16" below also holds for 6.5.15. The 6.5.10 `migr_intr_handler` was read as well: it decodes the candidate the same way (same masks, same bit 33 type test, same requester bits, same repeat check, same re-arm), only the register allocation and the code size differ. The other releases were compared by size and hash, not read line by line; any difference in the 6.5.10 to 6.5.14 members beyond the handler is unknown. Grades: **E** established (read in full at the address), **I** inferred (reasoning given), **U** unknown.
+
+Addresses are `member+offset` inside the 6.5.16 IP35 `numa.a` (`kernel.o` and `os.a` where named). Fixed addresses `0xffffffffffffcNNN` are in the per-processor `pda_s` page (so the field is at offset `NNN - 0xc000` of `pda_s`; `p_nodepda` is +1024, `p_nodeid` +1066 and `p_cpuid` +1064, matching the 6.5.30 IP35 layout in [interrupts.md](interrupts.md)).
+
+#### Routines
+
+| Routine | Address | Size |
+|---|---|---|
+| `migr_intr_prologue_handler`, `migr_intr_handler` | `migr_interrupt+0x0`, `+0x8c` | 140, 564 |
+| `migr_effthreshold_diff_set`, `migr_pageref_disable` | `numa_hw+0x0`, `+0x40` | 64, 132 |
+| `migr_init` | `migr_init+0x0` | 392 |
+| `migr_control_init` | `migr_control+0x0` | 3276 |
+| `migr_refcnt_supersetbase_get`, `migr_refcnt_init`, `migr_refcnt_get_offsets`, `migr_refcnt_update_counters`, `migr_refcnt_restart` | `migr_refcnt+0x0`, `+0x48`, `+0x368`, `+0x490`, `+0x714` | 72, 624, 296, 644, 476 |
+| `migr_start`, `migr_restart`, `migr_restart_clear`, `migr_stop` | `migr_states+0x0`, `+0x344`, `+0x42c`, `+0x514` | 836, 232, 232, 236 |
+| `migr_manager` | `migr_manager+0x0` | 1780 |
+| `migr_manager_bounce_control`, `migr_periodic_bounce_control` | `migr_bounce+0x4a8`, `+0x0` | 560, 1192 |
+| `migr_periodic_unpegging_control` | `migr_unpegging+0x0` | 1012 |
+| `migr_fastcheck_migratable`, `migr_check_migratable` | `migr_engine+0x144`, `+0x0` | 148, 324 |
+| `migr_migrate_page`, `migr_migrate_frame`, `migr_page_prologue`, `migr_pagemove`, `migr_page_epilogue` | `migr_engine+0xbd8`, `+0x9a4`, `+0x6f4`, `+0x498`, `+0x87c` | 448, 564, 392, 604, 296 |
+| `mem_tick`, `mem_tick_init`, `mem_tick_init_node` | `mem_tick+0x4c4`, `+0x448`, `+0x8` | 556, 124, 1088 |
+| `nodepda_pfms_alloc` | `pfms+0x0` | 208 |
+| `hub_migrintr_init`, `cnodetocpu`, `intr_connect_level`, `per_hub_init` (`kernel.o`) | `0x205d0`, `0xeb44`, `0x1eb04`, `0xe850` (call to `hub_migrintr_init` at `0xea60`) | 112, 192, 792, n/a |
+| `clock` (`os.a`, `clock.o`) | `0x398`; the call to `mem_tick` is at `0x910` | 1776 |
+
+#### Hub window: read and clear sequence, acknowledge and re-arm
+
+The window base is the doubleword `0x9200000001fc0000` (`.lit8` of `migr_interrupt`, `numa_hw`, `migr_refcnt`). A node's window is that value plus the node's NASID shifted left 33 (`dsll32 ...,1`), the NASID being `compact_to_nasid_node[cnode]`. In the hub register numbering of [interrupts.md](interrupts.md) the window is hub offset `0x7c0000`, so the accesses below are hub offsets `0x7c0038`, `0x7c0040`, `0x7c0048`. All accesses are 64-bit loads and stores.
+
+| Step | Where | What | Grade |
+|---|---|---|---|
+| Boot arm of +0x40 | `migr_init+0xa0` calls `migr_effthreshold_diff_set` (`numa_hw+0x0`) for every node, before the counters are initialised and whatever the counter mode | stores `(0x7fff - (uint32)count) \| bit 63` at +0x40, where `count = ctrl.threshold_percent * ctrl.reference / 100` (the two control-record fields in the records table). Standard memory, defaults (50 percent, reference 0x7ff): `0x8000000000007c00`. Premium memory (reference 0x7ffff, count 262143) gives a 64-bit subtraction that goes negative, so the stored value is `0xfffffffffffc8000` | E; the effect of the upper bits on hardware U |
+| Boot arm of +0x48 | `migr_refcnt_init+0x1d8` to `+0x208`, only when the counter mode nibble is non-zero | stores `bit 63 \| (uint32)ctrl.overflow_count` at +0x48 (`ctrl+0x10`, see records), then ORs bit 63 into the register again | E |
+| Interrupt, in the prologue (interrupt context) | `migr_intr_prologue_handler+0x20` to `+0x60` | reads **+0x38** once (the candidate); clears bit 63 of +0x40 and of +0x48 (read, AND with `0x7fffffffffffffff`, write; disarm); stores the candidate into the executing node's record at `nodepda+0x48` if its bit 63 is set, else stores 0; adds 1 to the 32-bit word at `stats+4` | E |
+| Interrupt, in the thread | `migr_intr_handler+0x8c`, loop body `+0x134` to `+0x238`, re-read at `+0x108` to `+0x130` | processes the stored candidate; after each one re-reads **+0x38**; the loop ends when the register's bit 63 is clear or when the new value's low 21 bits equal the previous candidate's low 21 bits (a repeat guard) | E |
+| Re-arm | `migr_intr_handler+0x23c` to `+0x290` | reads +0x48 and ORs in bit 63 (`0x8000000000000000`), writes it; then the same for +0x40. Order: +0x48 first, then +0x40 | E |
+| Register +0x30 | nowhere in the 6.5.16 IP35 members | the handler touches +0x38, +0x40, +0x48 only. The IP27 build uses +0x30, +0x38, +0x48 with a different meaning; do not carry the IP27 offsets over | E |
+
+What the three registers mean is not in the binaries. Reading +0x38 more than once per interrupt implies that a read removes (or exposes the next) candidate, as the repeat guard also suggests (I). That bit 63 of +0x40 and +0x48 is an arm bit that hardware clears by itself (the software clears it explicitly, so it does not depend on this) is U. There is no write to any interrupt-pending or clear register in the migration path (E); whether the generic dispatch clears the level 3 pending bit before it calls the prologue is not read here (U).
+
+#### Candidate decode and dispatch
+
+The candidate is the 64-bit value read from +0x38 (E for every field position).
+
+| Bits | Use | Where |
+|---|---|---|
+| 63 | valid; the stored candidate is 0 and the loop ends when it is clear | `migr_interrupt+0x50`, `+0x114` |
+| 33 | type: set takes the migration path, clear takes the counter-maintenance path; any other value of the one-bit test calls `cmn_err` with "Invalid intr type" (the test is written so that path cannot be reached) | handler `+0x190`, `+0x1e8` |
+| 24 to 31 | requesting node's NASID, 8 bits, converted with `nasid_to_compact_node` (a 128-entry table; an 8-bit NASID above 127 would read past it) | handler `+0x1fc` to `+0x218` |
+| 0 to 20 | page field, masked with `0x1fffff` | handler `+0xe0`, `+0x138` |
+
+Page number. The software forms `pfn = (own NASID << 19) \| (candidate & 0x1fffff)`, where own NASID is `compact_to_nasid_node[p_nodeid]` of the **interrupted node** (handler `+0x134` to `+0x13c`). The node of the page therefore is not decoded from the candidate: a candidate always names a page of the memory behind the hub that raised it. `pfn` is a 16 KB frame number: physical address `pfn << 14`, NASID at bit 19 of the frame number (bit 33 of the address), 19 bits of frame within a node (8 GB), 1 GB slots of 2^16 frames (frame bits 16 to 18 select the slot, bits 0 to 15 the frame within the slot) (E for the arithmetic; I that the unit is 16 KB, from the page-descriptor addressing below, which is the same `pfn`). The page field has two bits more than a frame within a node needs; bits 19 and 20 of the field are OR-ed over the low NASID bits, so the code relies on them being 0, or on the hub reporting a different unit (U; see open questions).
+
+State word of the page: `state = ((uint32 *) nodepda[home].ctrl[+0x50][ (pfn >> 16) & 7 ])[ pfn & 0xffff ]`, read without the lock (handler `+0x138` to `+0x1ac`).
+
+| State word at read | Action | Call | Grade |
+|---|---|---|---|
+| type 0, bit 4 (`0x10`) clear | restart the page's counters | `migr_refcnt_restart(pfn, state, 0)` | E |
+| type 0, bit 4 set, bit 17 (`0x20000`) clear | fold counters | `migr_refcnt_update_counters(own cnode, pfn, state, 0x10)` | E |
+| type 0, bits 4, 17 and 14 (`0x4000`) set | fold counters | the same, `0x10` | E |
+| type 0, bits 4 and 17 set, bit 14 clear | fold counters, keep the preload | the same, `0x18` | E |
+| type 1, bit 17 clear | skip; read the next candidate | none | E |
+| type 1, bit 17 set | move decision | `migr_manager(own cnode, compact(requester NASID), pfn)` | E |
+
+Reading (inferred): type 1 is a difference-threshold candidate (the +0x40 register, the page is being read remotely more than locally) and type 0 is a value-threshold candidate (the +0x48 register, a counter nearing its limit), because the type 1 path asks for a move and the type 0 path only restarts or folds counters. The binaries do not say which register raises which type.
+
+#### Interrupt wiring
+
+| Item | Fact | Grade |
+|---|---|---|
+| Who calls | `per_hub_init` (`kernel.o+0xe850`) calls `hub_migrintr_init(cnode)` at `+0xea60`, once per node, right after `hub_rtc_init`. The 6.5.30 IP35 `per_hub_init` has no such call | E |
+| Skip | `hub_migrintr_init` calls `cnodetocpu(cnode)` first (`kernel.o+0x205d8`), then returns without connecting anything when `numnodes == 1` (`+0x205f0`) or when the CPU is -1 (`+0x205f8`) | E |
+| Target CPU | `cnodetocpu(cnode)` (`kernel.o+0xeb44`) walks the node's CPUs from `node_first_cpu` (halfword at `nodepda+34230`) for `node_num_cpus` (halfword at `+34232`) and returns the first for which `cpu_enabled` is true. So the first **enabled** CPU of each node takes the interrupt, not the boot CPU as such | E |
+| Connect call | `intr_connect_level(cpu, 3, 0, migr_intr_handler, 0, migr_intr_prologue_handler)` (`kernel.o+0x20610`). `intr_connect_level` stores arguments 4, 6 and 5 at +0, +8 and +16 of the 72-byte vector record (`iv_func`, `iv_prefunc`, `iv_arg` of [structs/intr_vector_s.md](structs/intr_vector_s.md)) and argument 3 as a halfword at +0x38; a non-zero return prints a message and the node continues without migration | E |
+| Level and mode | level 3, the "Migration" entry of the hardwired table, flagged as a threaded handler. So `migr_intr_prologue_handler` runs as the pre-function in interrupt context (it disarms and latches one candidate) and `migr_intr_handler` runs in the interrupt thread (it drains and re-arms) | E for the connect call; the threaded flag is read in the 6.5.30 table ([interrupts.md](interrupts.md)), so I for 6.5.16; I for the order, from the names and the vector layout |
+| Hub side | the processor-interface source that raises level 3 and its routing are not in the binaries; the datasheet lists pending bank 0 bit 3 | U here |
+
+#### Counter address arithmetic
+
+The per-page hardware word for node `n` of page `pfn`, as built in `migr_refcnt_update_counters` (`migr_refcnt+0x52c` to `+0x5c0`), `migr_refcnt_restart`, `migr_refcnt_read` and `migr_pageref_disable` (E):
+
+```
+word(pfn, n) = 0x90000001c0000408                           ; .lit8 + 8, a base
+             | ((pfn << 14) & (0x7f << 33))                  ; NASID of the page, bits 33..39
+             | ((pfn & 0x7ffff) << 11)                       ; frame in the node, bits 11..29
+             | ((compact_to_nasid_node[n] & 0x1e) << 5)      ; node group, bits 6..9
+```
+
+The code also ORs in `((pfn << 11) & 0x30)`, which is always 0 for a frame number. Reading the arithmetic: 2 KB of space per 16 KB frame, 16 groups of 64 bytes selected by bits 1 to 4 of the counting node's NASID (so NASIDs 2k and 2k+1 share a group), and the fixed offset `0x408` inside the page's space. The base `0x90000001c0000408` is the protection-entry base of the Bedrock memory/directory datasheet, not the counter base (see [Hardware side](#hardware-side); that discrepancy is unchanged).
+
+Field widths when the word is read (`migr_refcnt+0x5c8` to `+0x5ec`, `migr_refcnt_read` at `+0xa94`): `count = (word >> 5) & mask`, mask `0x7ff` (11 bits) or, when the **counting node's** control record has `byte[0x5c] == 1`, `0x7ffff` (19 bits). The flag comes from the control record of node `n`, not the page's home node (E). It is set in `migr_control_init` from `klhwg_premium_std_dimm_mix_check` (E for the call; I that it means premium memory).
+
+Write form (`migr_refcnt+0x628` to `+0x6dc`, `+0x84c` to `+0x8cc`): the word stored is `((offset << 5) \| mode) \| 0xffff`; for the local node `offset` is `out8` and for every other node it is `outC`, and the mode value (a small constant, 0 locally when the mode is 0x18) is OR-ed in as well. For 11-bit counters `offset << 5` is at most `0xffe0`, so the OR leaves exactly `0xffff` whatever the offsets are; only a premium (19-bit) counter can keep a non-zero offset above bit 15 (E). What the low sixteen bits of this word mean when written is U; the same `0xffff` is what `migr_pageref_disable` stores, which supports reading these as protection-entry bits (I), but then the "preload" reading of the offsets is doubtful: see open questions.
+
+#### Per-page and per-node state
+
+**Per-page state word.** 4 bytes per frame, `nodepda_pfms_alloc` (`pfms+0x0`) builds for each node a 64-byte table of 8 pointers (one per 1 GB slot), each pointing at `slot_getsize(node, slot) * 4` zeroed bytes from `low_mem_alloc`; the table pointer is stored at `ctrl+0x50`. Bit 0 is a lock taken with `bitlock_acquire_32bit` at raised priority level (E). The other fields, as the routines read and write them (E for position and use, I for the names):
+
+| Bits | Mask | Meaning | Set or used by |
+|---|---|---|---|
+| 0 | `0x1` | lock | every writer; `migr_manager+0x9c`, `migr_states+0x368` |
+| 1-3 | `0xe` | tracking state: `0x8` idle and tracked; `0xc` a decision is running; 0 untracked. `migr_manager` refuses unless the field is exactly `0x8` (`+0xac`) and moves it to `0xc` (`+0x11c`); `migr_restart` and `migr_restart_clear` move `0xc` back to `0x8` | `migr_start` sets bit 3 (`migr_states+0x268` to `+0x274`: `(word & ~0xe) \| 8`); `migr_stop` clears the whole word but the lock bit (`migr_states+0x5a8`) |
+| 4 | `0x10` | counters are on for this page | `migr_start` (`migr_states+0x10c`), cleared when the policy says off |
+| 5 | `0x20` | dampening on | `migr_start` (`migr_states+0x1ec`) |
+| 6-7 | `0xc0` | dampening counter | bounce control |
+| 8-9 | `0x300` | dampening limit, `(policy value * 3 / 100) << 8` | `migr_start` |
+| 10 | `0x400` | enqueue-on-failure allowed | `migr_start` (`migr_states+0x20c`), tested at `migr_manager+0x5e4` |
+| 11-13 | `0x3800` | bounce count (0 to 7) | bounce control, cleared when a page is frozen or melted |
+| 14 | `0x4000` | frozen (the manager refuses; counters are restarted) | `migr_manager` on refusal; `migr_manager_bounce_control` |
+| 15 | `0x8000` | melt on | `migr_start` (`migr_states+0x1a8`) |
+| 16 | `0x10000` | freeze on | `migr_start` (`migr_states+0x15c`) |
+| 17 | `0x20000` | per-page threshold in use; also required before `migr_manager` is called | `migr_start` (`migr_states+0xa8`) |
+| 18-20 | `0x1c0000` | melt threshold, `(policy value * 7 / 100) << 18` | `migr_start` |
+| 21-23 | `0xe00000` | freeze threshold, `(policy value * 7 / 100) << 21` | `migr_start` |
+| 24-30 | `0x7f000000` | per-page threshold percent (the policy's byte copy) | `migr_start` (`migr_states+0xa4`) |
+
+`migr_start(pfn, object)` (called from the fault, map and swap-in paths) asks the owning object's policy (`vector+0x68`, selector 4, 16-byte result) for the page's settings and builds the word from them; `migr_stop(pfn)` folds the counters (`update_counters(..., 0)`) and clears the word; `pflip_pfms_get` and `pflip_pfms_set` read and write the word for a physical address with a counter restart (`restart(..., 1)`). The policy's own result layout (which result byte feeds which field) is I from the shifts only.
+
+**Per-node control record** (`nodepda+8`, 96 bytes from `low_mem_alloc`, filled by `migr_control_init`; `nodepda_numa_init` in the `numa_init` object calls it for each node). Byte fields written by read-modify-write keep the other bits of their byte.
+
+| Offset | Width | Content (tunable) | Grade |
+|---|---|---|---|
+| +0 | byte | bits 4-7: migration mode nibble (`numa_migr_default_mode`: 0 gives 0, 1 gives 0x1, 3 gives 0x2, 2 gives 0x3, 4 gives 0x3 below `numa_migr_min_maxradius` of `physmem_maxradius(4)` else 0x2); bits 2-3: freeze enable (2 bits); bits 0-1: melt enable | E |
+| +1 | byte | bits 4-7: counter mode nibble (`numa_refcnt_default_mode`, same encoding); bits 2-3: enqueue-on-failure; bits 0-1: dampening enable. `migr_init`, `update_counters`, `restart` and `migr_refcnt_enabled` all test `byte[1] >> 4`; zero turns the counter code into a no-op | E |
+| +2 | byte | default threshold percent (`numa_migr_default_threshold`, 50) | E |
+| +3 | byte | minimum node distance (`numa_migr_min_distance`) | E |
+| +4 | byte | `numa_migr_min_maxradius` | E |
+| +5, +6, +7 | bytes | freeze threshold, melt threshold, dampening factor | E |
+| +8 | byte | bit 7 `memoryd_enabled`, 6 traffic control, 5 unpegging control, 4 automatic mechanism, 3 user mechanism, 2 coalesce mechanism | E |
+| +0xc | word | threshold reference: `0x7ff`, or `0x7ffff` when `numa_migr_threshold_reference` is 1 and the node has the premium flag | E |
+| +0x10 | word | counter overflow count: `numa_refcnt_overflow_threshold` percent of the reference | I (arithmetic seen, fallback paths not traced) |
+| +0x14, +0x18 | word, byte | traffic-control interval and threshold | E |
+| +0x1c, +0x20 | words | bounce-control interval, unpegging interval | E |
+| +0x24 | byte | unpegging threshold percent | E |
+| +0x25 | byte | queue flags: bit 7 queue control, 6 traffic trigger, 5 capacity trigger, 4 time trigger | E |
+| +0x26 to +0x34 | bytes and words | queue maximum length, control interval (word at +0x28), limit, trigger thresholds, time-trigger interval (word at +0x30), maximum page age | E |
+| +0x38, +0x39 | bytes | copies of the traffic-control and queue-control intervals, truncated to a byte | E |
+| +0x35, +0x36 | bytes | bit 7 of +0x35: destination-memory-low filter on; +0x36: its threshold percent | E |
+| +0x37 | byte | migration vehicle (`numa_migr_vehicle`, forced to 1 by `migr_control_init`) | E |
+| +0x40, +0x48 | pointers | migration queue (`migr_queue_alloc`); queue entry storage (`maxlen * 24` bytes) | E |
+| +0x50 | pointer | state-word tables (above) | E |
+| +0x58 | lock | spinlock (`spinlock_init`) | E |
+| +0x5c | byte | premium-memory flag | E |
+
+**Software counters.** `migr_refcnt_init(cnode)` (only when the counter nibble is non-zero) sums `slot_getsize` over the 8 slots to get the node's frame count `P`, allocates `numnodes * P * 8` bytes with `kmem_contig_alloc_node` (and a 64-byte table of 8 slot pointers with `kmem_alloc_node`), zeroes the bytes, and stores: `nodepda+0x28` slot-pointer table, `+0x30` base, `+0x38` size, `+0x40` (word) `P`. `migr_refcnt_supersetbase_get(cnode, pfn)` returns `table[(pfn >> 16) & 7] + numnodes * (pfn & 0xffff) * 8`: the 64-bit counter of node `n` for the page is the `n`th doubleword there (E). A page's counters exist (and the hardware words are folded into them) only while bit 4 of its state word is set.
+
+**Per-node scratch.** `nodepda+0x48` (candidate stored by the prologue; `migr_init` zeroes it), `nodepda+0x18` points at the statistics record (of the executing or the named node, as the step says) whose offsets the path updates (inferred names): +4 interrupts, +0x20 + 4*vehicle pages copied per vehicle, +0x28 state not idle, +0x2c page not eligible (bit 17 clear), +0x30 page frozen, +0x34 pages moved in, +0x38 pages moved out, +0x3c refused, +0x88/+0x8c/+0x90 unpegging scans, +0x94 counter restarts after a refusal, +0x98 to +0xa0 bounce-control passes, melts and per-pass work, +0xa4 dampened, +0xc4 destination low on memory, +0xc8 too near, +0xcc not migratable. Offsets E, names I; whether `nstats` prints these is U (see [Unknowns](#unknowns)).
+
+**Fold and restart.** `migr_refcnt_update_counters(cnode, pfn, state, mode)` (E):
+
+1. If the counter nibble is 0 it returns.
+2. `migr_refcnt_get_offsets(cnode, pfn, state, ...)` yields a pointer to the page's software counters (non-zero only when bit 4 is set) and three words: `out8`, `outC` and `out10`. With bit 17 clear, or with bits 17 and 14 both set, the offsets are zero and `out10` is `0x10` (0 when bit 4 is clear). With bit 17 set and bit 14 clear the page has its own threshold: `d = (state >> 24) & 0x7f` is compared with the control record's default percent `p`; if `d < p`, `outC = reference * (p - d) / 100` and `out8 = 0`, else `outC = 0` and `out8 = reference * (d - p) / 100`; `out10` is `0x18`. (`out10` is the third value `restart` ORs into the words it writes.)
+3. For every node `n`, when the pointer is non-zero: read `count(n)` (above); `sw[n] += count(n) - (n == cnode ? out8 : outC)`. So the software value is the hardware value minus the offset the hardware word was loaded with.
+4. Unless `mode == 0x18`, `out8` and `outC` are zeroed; then every node's hardware word is written back as above. So mode `0x10`, `8` and `0` reset the hardware words and `0x18` rewrites them with the offsets. `migr_refcnt_restart(pfn, state, clear)` does the write-back only, and zeroes the software counters first when `clear` is non-zero; it derives the home node from the frame (`pfn >> 19`). Callers: the handler (`clear = 0`), `migr_restart` (0), `migr_restart_clear` (1), `pflip_pfms_set` (1), `migr_start` (1).
+
+The meaning of the preload (whether hardware counts up from it, or what the low bits do) is U.
+
+#### Decision and move
+
+`migr_manager(cnode, requester, pfn)` order of checks, each refusal ending with the lock released (E for the order, I for the names of the filters; each refusal bumps a statistic):
+
+1. Lock the state word (`bitlock_acquire_32bit`, at raised level). Not exactly `0x8` in bits 1-3: stat +0x28, return. Bit 17 clear: stat +0x2c, return. Bit 14 set: stat +0x30, return.
+2. Move the field to `0xc`, unlock, fold the counters (`update_counters(own, pfn, state, 8)`, which also resets the hardware words).
+3. Destination memory filter (the executing node's control `+0x35` bit 7): `100 * [dest nodepda+0x614] / [dest nodepda+0x620]` is compared with the executing node's `ctrl[+0x36]`; when below it, set the frozen bit, clear the bounce count, `migr_restart`, stats +0x3c, +0xc4 and +0x94, return.
+4. `node_distance(own, requester)` below `ctrl[+3]`: the same refusal (stats +0x3c, +0xc8).
+5. `migr_fastcheck_migratable(pfn)` non-zero: the same refusal (stats +0x3c, +0xcc). The check (`migr_engine+0x144`) returns non-zero when the descriptor's halfword at +0x16 is non-zero (1), when its halfword at +0x14 exceeds `2 * numcpus + 32` (4), when its flags word has bit 1 (5) or bit 24 (5).
+6. When state bits 5 or 16 are set (dampening or freeze on): `migr_manager_bounce_control(state*, pfn, own)`. Dampening: if bit 5 set and the dampening counter is below the limit, bump the counter and refuse (returns 1, stat +0xa4). Otherwise zero the counter. Freeze: if bit 16 set and the bounce count has reached the freeze threshold, set bit 14, clear the count, `migr_restart` and return 2 (stat +0x94); else bump the count (below 7).
+7. When the queue control flag (`+0x25` bit 7) and the automatic-mechanism bit (`+8` bit 4) are both set, the request goes to `migr_queue_insert` instead of moving now. Otherwise `migr_migrate_page(pfn, requester, &newpfn)`.
+8. Success (0): stats +0x38 and +0x34, `migr_restart_clear` on the new frame's state word. Failure: stat +0x3c; with queue control on and bit 10 set the request is enqueued, otherwise `migr_restart` (the code compares the error against 9 and 2 but both outcomes reach the enqueue).
+
+Defaults of the 6.5.16 `mtune/numa`: migration mode 2 (off, user may enable), counter mode 0 (off), threshold 50 percent, reference 0, vehicle 1, minimum distance 1, memory-low filter on at 20 percent, freeze, melt, dampening, traffic control and queue control off, unpegging on, `mem_tick_enabled` 1. With these `ctrl.byte[1] >> 4` is 0 on every node, so `migr_refcnt_update_counters` and `migr_refcnt_restart` return at their first test and no software counters are allocated (E for the file and the test). The manager is still reachable for a page whose state has bit 17 set.
+
+**The page move.** Chain: `migr_migrate_page` -> `migr_migrate_frame` -> `migr_page_prologue`, `tlbsync` (vehicle 1), `migr_pagemove`, `cache_operation` (vehicle 1), `migr_page_epilogue` (E for order).
+
+| Step | Address | What it does | Grade |
+|---|---|---|---|
+| Allocate | `migr_engine+0xc0c` to `+0xc20` | `*out = pfn`; `pagealloc_size_node(dest, pfntocachekey(pfn, 0x4000), 0x2000000, 0x4000)`; zero result returns 2. The old descriptor is addressed directly: `0xa800000000000000 + (nasid << 33) + 0x2000000 + (frame in node) * 64` | E |
+| Frame | `migr_engine+0x9e8` to `+0x9f8` | control `+0x37` (vehicle) zero returns 7. Calls the prologue; non-zero is returned | E |
+| Prologue | `migr_engine+0x6f4` | clears flag bits `0x1c000` of the new descriptor's flags word (+0x10); takes the old descriptor's flag lock (bit 27); flags bit 8 (`0x100`) selects an anonymous object (`anon_hold`, then `anon_pagemigr(obj, old, new)`), flags bit 2 a vnode (`vnode_hold`, `vnode_pagemigr`), neither returns 9; then under the new descriptor's 64-bit lock at +0x30 runs `rmap_scanmap(new, 1, 0)` and `rmap_scanmap(new, 0x200, &newpfn)` (the owning object takes over the page, then every mapping is updated to the new frame) | E for calls and order, I for what ops 1 and 0x200 do |
+| TLB sync | `migr_engine+0xae8` to `+0xb14` (vehicle 1 only) | `tlbsync(0, <the 64-byte all-clear cpumask by value>, 2)` before the copy | E for the call, I for the effect |
+| Copy | `migr_engine+0x498` (`bte_pbcopy` call at `+0x540`, `bte_poison_copy` at `+0x610`) | vehicle 1: `bte_pbcopy(old, new, 0x4000)` between the two frames' physical addresses (each OR-ed with `0xa800000000000000`); vehicle 0: `bte_poison_copy`, a non-zero result prints "Failed bte_copy"; other vehicle numbers print "Invalid Migration Vehicle". Adds 1 to stat `+0x20 + 4 * vehicle`. For vehicle 1 it then clears flag bit 22 (`0x400000`) of the old descriptor under the flag lock | E |
+| Cache | `migr_engine+0xaa0` to `+0xad8` (vehicle 1 only) | `cache_operation(0xa800000000000000 \| (new frame << 14), 0x4000, 0x2400)`. The address is built from the **new** frame, the one the block transfer wrote, which is what makes sense for invalidating stale lines; an earlier sentence of this page says the old page for the IP27 build | E for the argument; I for the purpose |
+| Epilogue | `migr_engine+0x87c` | `pagedone(new)`; under the 64-bit lock `rmap_scanmap(new, 2, 0)`; clears descriptor flag bit 23 (`0x800000`); if the halfword reference count at +0x14 is 2 or more it is decremented, otherwise the page is freed (`pagefreesanon` when flag bit 18 is set, else `pagefreeanon_size`) | E |
+| Free | `migr_engine+0xccc` to `+0xd00` | on success `pagefree_size(old, 0x4000)` and `*out` = the new frame number; on a frame error the new frame is freed instead | E |
+
+The sequence has trace points `0xead6` to `0xeae0` through `log_tstamp_event`, enabled by bit 8 of the private-page doubleword at `0xffffffffffffc280` (E). After a successful move the new frame's state word and counters are reset by `migr_restart_clear` in the manager (E).
+
+Local TLB removal: `migr_page_unmap_tlb(addr, vaddr)` (`migr_engine+0x1220`) probes the processor's own TLB for the virtual address and calls `unmaptlb` when the entry maps this frame; it is not on the manager's path (no caller among the IP35 members). Cross-processor invalidation is the `tlbsync` above plus whatever `rmap_scanmap` does in the mapping update (U).
+
+#### Time-driven work (freeze, melt, dampening, unpegging)
+
+| Piece | Fact | Grade |
+|---|---|---|
+| Clock | `clock` (`os.a`, `clock.o`+0x398) decrements the word at `0xffffffffffffc45c` (`pda_s+0x45c`) when the halfword at `0xffffffffffffc454` is non-zero and calls `mem_tick(p_cpuid)` at `+0x910` when it reaches zero, reloading it from `0xffffffffffffc458` | E |
+| `mem_tick` | takes the CPU's `pda_s` through `pdaindr`; does nothing unless `pda+0x764` is non-zero; counts ticks in `pda+0x760`. On every tick it runs `migr_periodic_bounce_control(cnode, resume = pda+0x794, budget)` when freeze or dampening is on (control `+0` bits 2-3 or `+1` bits 0-1) and stores the returned frame number back in `pda+0x794`; likewise `migr_periodic_unpegging_control(cnode, pda+0x7a0, budget)` when control `+8` bit 5 is on. When the tick count is a multiple of the bounce (or unpegging) interval the resume frame is reset to `pda+0x768` and the budget is `pda+0x764 - pda+0x790 * (interval - 1)`; otherwise it is `pda+0x790` (`pda+0x79c` for unpegging). So one pass over the node's frames is spread over `interval` ticks. It also keeps min, max, last and mean tick durations in `pda+0x770` to `+0x788`. `memoryd_init` and the queue's process routine are 8-byte stubs | E for the calls and fields; I for the meaning of the budget fields |
+| Registration | `numa_init`'s init table lists `migr_init` and, last, `mem_tick_init`, which initialises one bit lock per node and calls `mem_tick_init_node` | E |
+| Bounce pass | `migr_periodic_bounce_control` walks frames of the node from the saved frame, up to the budget, using `pfdat_probe` to jump over holes; for each frame with state field `0x8` and bit 17 set it locks the word and: for a frozen page, melts it (clears bit 14 and the count, folds the counters with mode `0x18`) when melt is on and the count has passed the melt threshold, else adds 1 to the count (up to 7); for an unfrozen page it decays the bounce count and the dampening counter by 1 | E for the structure; I for the names |
+| Unpegging pass | `migr_periodic_unpegging_control` walks frames the same way; for each page with state field `0x8`, bit 17 set and bit 14 clear it reads the page's hardware count for every node and, if any exceeds `ctrl[+0x24] * reference / 100`, calls `update_counters(cnode, pfn, state, 0x18)` (statistics +0x8c, +0x90). Purpose: fold counters before they saturate | E for the walk and threshold; I for the purpose |
+| Queue | the queue (`ctrl+0x40`) is used only when `+0x25` bit 7 is set, which no shipped default does; `migr_queue_migrate` and `migr_periodic_queue_control` exist but have no caller among the IP35 members (the 8-byte process stub is what both call) | E for the stub and the default; the queue's behaviour was not read |
+
+#### Corrections to the summary above
+
+- The [IP35 row of the IP27 table](#what-the-working-ip27-path-consumed) says the handler "takes the node from the bits above" the page number. It does not: the page's node is the interrupted node's own NASID; the bits above the 21-bit page field carry the requesting node (bits 24 to 31) and the type (bit 33). Read at `migr_interrupt+0x134` to `+0x13c` and `+0x1fc` to `+0x218` (grade E).
+- The Page move row says `cache_operation` flushes the old page's cache lines (read for the 6.5.30 IP27 build). In the IP35 6.5.16 build it is called with the new frame. The IP27 build was not re-read for this; its `migr_migrate_frame` has the same shape.
+
+#### Open questions
+
+These need a running kernel, real silicon or a register document; none is guessed above. They are rows of the page-migration table in [open-questions.md](open-questions.md): the hub's pending-bit and read semantics for the three registers, the unit and top bits of the candidate's page field and the requester field above NASID 127, the meaning of the `0xffff` low bits of the counter word and of the negative threshold for premium memory, and (software-now) the policy result layout `migr_start` consumes and the callee bodies of the page move.
+
 ## Unknowns
 
 - The page-migration mode and enable state of the hub on an Origin 300: the kernel never writes `MD_MIG_CONFIG` (offset 0x1f80018 by the vendor header) or the candidate registers, and the only register it arms is the count-difference threshold. Whether the hardware raises the migration interrupt, and what the power-on state of the mode control is, is unknown. The IP35 PROM was searched for stores to those offsets with two coarse patterns (a `lui` of the window half followed by an offset, and a base-register copy) and found none; that is not a full read. Next route: the held PROM disassembly, and a Bedrock register document (unknown whether any exists outside the vendor header).
