@@ -53,7 +53,7 @@ The interrupt-time producers are `cpuintr` (0xc000000000060890, calls `log_tstam
 
 The recorder is switched on from the profiler device: `prfioctl` (0xc00000000008e7b8, 520 bytes) calls `fawlty_control` (0xc00000000008fd80, 264 bytes) at 0xc00000000008e8ec, `fawlty_start` (0xc00000000008fb94, 192 bytes) at 0xc00000000008e99c and `fawlty_stop` (0xc00000000008fcf8, 136 bytes) at 0xc00000000008e9b0. `fawlty_control` calls `cap_able`, `vproc_lookup`, `bitlock_set` and `bitlock_clr`, so it sets and clears a per-process bit by process id; `fawlty_start` calls `cap_able`, `vproc_lookup`, `fawltyscan` (0xc00000000008faf0) and `procscan`, so it turns recording on for a process or for every process. Which `prfioctl` command numbers reach which routine is not decoded. Established for the calls; the command numbers are unknown.
 
-There is no `ktrace` in the shipped kernels (see above), no probe facility by any name in the symbol table (as [module-interfaces.md](module-interfaces.md) also records), and no profiling-prologue support: neither symbol table has an `_mcount`; the only name that contains `mcount` is `dms_get_itemcount`. Established from the symbol tables. No static table of trace points was found.
+No `ktrace` is linked in the shipped kernels (see above), no probe facility is linked under any name found in the symbol table (as [module-interfaces.md](module-interfaces.md) also records), and no profiling prologue is linked: neither symbol table has an `_mcount`; the only name that contains `mcount` is `dms_get_itemcount`. Established from the symbol tables. No static table of trace points was found.
 
 ### The /proc controls
 
@@ -115,7 +115,7 @@ The `syssgi` selectors that touch tracing or the debugger, with the case code on
 | 1015 (FLUSH_ICACHE) | 0xc0000000002e0e4c | 0xc000000000231cbc | pins the thread, calls `__icache_inval` per range |
 | 320, 321 (PEEK, POKE), 1030, 1051, 1105 to 1108 (MEMPROF_*) | not in the table | shared default 0xc000000000231848, the address `syssgi` also uses for an out-of-range selector (22) | no handler in either kernel |
 
-Selectors 300 and 301 return 0, so these are not debug kernels. There is no peek or poke selector in either 6.5.30 kernel. Established from the table and the case code.
+Selectors 300 and 301 return 0, so these are not debug kernels. No peek or poke selector is linked in either shipped 6.5.30 kernel. Established from the table and the case code.
 
 ## Loadable kernel modules
 
