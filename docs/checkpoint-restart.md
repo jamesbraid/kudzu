@@ -153,7 +153,7 @@ Each of these tests `ckpt_enabled` (a load from the global at 0xc00000000163c1b0
 - Sockets: `ckpt_diropen` returns 22 for a socket descriptor, and `ckpt_lookup_add` skips five vnode types; which types 0, 2, 5, 7 and 8 are was not looked up. No socket state is saved anywhere in `cpr.a` (see above).
 - Without the facility configured, `ckpt_sys` and `ckpt_restartreturn` return 89 (stubs). Read.
 - A fault reading a user word in `ckpt_stop` or `ckpt_mark` returns 14 when `fuiword` returns -1 and 9 for other negative values.
-- What a checkpoint tool must refuse at a higher level (for example processes with open devices, graphics contexts or tty sessions) is not in the kernel: no routine in `cpr.a` rejects a descriptor by file type except `ckpt_diropen` and `ckpt_lookup_add`. Unknown: the user-space tool decides.
+- What a checkpoint tool must refuse at a higher level (for example processes with open devices, graphics contexts or tty sessions) is not in the linked kernel's checkpoint code: no routine in `cpr.a` rejects a descriptor by file type except `ckpt_diropen` and `ckpt_lookup_add`. Unknown: the user-space tool decides.
 
 ## Jobs and array sessions
 
