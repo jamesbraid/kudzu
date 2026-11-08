@@ -10,6 +10,8 @@ The layout follows the sibling repositories for graphics and chip reverse engine
 
 ## Running the tools
 
+After cloning, run `git submodule update --init retools`: the container definitions and shared scripts under `tools/` and `scripts/` are links into it. The other submodules are public reference trees and are large; initialise them only when you want them ([tools/README.md](tools/README.md) describes `tools/setup-clone.sh`, which links `root/` and fetches the public-source submodules).
+
 The host needs Podman, git and python3. Everything else runs in a container; [tools/README.md](tools/README.md) has the commands:
 
     tools/re-run python3 scripts/inventory.py     # binaries, functions, ioctls, scope
