@@ -5,13 +5,13 @@ Usage: scripts/tunable_sites.py [--root root/6.5.30] [--kernels IP27 IP30 IP35]
                                 [--out docs/inventory]
 
 Run from the repository root inside the toolchain container
-(tools/re-run python3 scripts/tunable_sites.py), with root/ populated.
+(retools/tools/re-run python3 scripts/tunable_sites.py), with root/ populated.
 
 Input: docs/inventory/sysgen-tunables.tsv (scripts/sysgen_tables.py). Every tunable name there is
 looked up as a data symbol of the same name in each linked kernel. The tunables are read from the
 6.5.22 configuration files; the lookup and the sites are of the 6.5.30 kernels.
 
-For each function symbol of a kernel, scripts/facts.py runs its symbolic pass. A load, store or
+For each function symbol of a kernel, retools/tools/facts.py runs its symbolic pass. A load, store or
 address formation whose resolved absolute address falls inside a tunable's symbol is one site.
 The pass follows the code as shipped; a site it cannot resolve (an address that depends on an
 argument, for instance) is not counted, and the routine's count of unresolved accesses is not
@@ -38,7 +38,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
-sys.path.insert(0, HERE)
+sys.path.insert(0, os.path.join(REPO, 'retools', 'tools'))
 
 import facts  # noqa: E402  the symbolic pass shared with the fact sheets
 

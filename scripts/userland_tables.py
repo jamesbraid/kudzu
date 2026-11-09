@@ -4,7 +4,7 @@
 Usage: scripts/userland_tables.py [--release 6.5.30] [--out docs/inventory]
 
 Run from the repository root with root/ populated, inside the toolchain container
-(tools/re-run python3 scripts/userland_tables.py); the readers come from that container.
+(retools/tools/re-run python3 scripts/userland_tables.py); the readers come from that container.
 
 Input: root/<release>/<install path> for every key of scripts/userland-roles.json. The
 ELF facts (class, type, ABI from the header flags, interpreter, section headers and the

@@ -3,8 +3,8 @@
 
 Usage: scripts/version_table_diff.py [--out docs/inventory/version-table-diff.tsv]
 
-Run it from the repository root, inside the toolchain container (tools/re-run python3
-scripts/version_table_diff.py), after scripts/os_tables.py has written syscalls.tsv and
+Run it from the repository root, inside the toolchain container (retools/tools/re-run python3
+scripts/version_table_diff.py), after retools/tools/kudzu/os_tables.py has written syscalls.tsv and
 selectors.tsv for both releases. The argument-table bytes are read from root/<release>/unix.IPnn.
 
 Inputs: docs/inventory/syscalls.tsv, docs/inventory/selectors.tsv, docs/version-diffs-queue.tsv
@@ -59,6 +59,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
+sys.path.insert(0, os.path.join(REPO, 'retools', 'tools'))  # syscall_table
 
 KERNELS = ('unix.IP27', 'unix.IP30', 'unix.IP35')
 RELEASES = ('6.5.22', '6.5.30')

@@ -1,12 +1,12 @@
 #!/bin/sh
 # Check that docs/inventory/ and the kernel-table block of docs/coverage.md are what
-# scripts/os_tables.py generates now. They go stale when a docs/*.md page changes (the
+# retools/tools/kudzu/os_tables.py generates now. They go stale when a docs/*.md page changes (the
 # status columns read the pages) or scripts/scope.json does; regenerate with
 #
-#   tools/re-run python3 scripts/inventory.py
-#   tools/re-run python3 scripts/os_tables.py
+#   retools/tools/re-run python3 retools/tools/inventory.py
+#   retools/tools/re-run python3 retools/tools/kudzu/os_tables.py
 #
 # Needs root/ populated. Takes about a minute.
 set -eu
 cd "$(dirname "$0")/.."
-exec tools/re-run python3 scripts/os_tables.py --check
+exec retools/tools/re-run python3 retools/tools/kudzu/os_tables.py --check

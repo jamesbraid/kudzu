@@ -4,7 +4,7 @@
 Usage: scripts/sysgen_tables.py [--release 6.5.30] [--out docs/inventory]
 
 Run from the repository root with root/ populated, inside the toolchain container
-(tools/re-run python3 scripts/sysgen_tables.py); the symbol check runs nm from that container.
+(retools/tools/re-run python3 scripts/sysgen_tables.py); the symbol check runs nm from that container.
 
 Input, per machine directory root/<release>/var/sysgen.IPnn/ (IP27, IP30, IP35):
   master.d/<module>   one driver configuration file per module. The first data line is

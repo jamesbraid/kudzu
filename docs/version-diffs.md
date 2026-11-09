@@ -5,7 +5,7 @@ This page compares the routines of the IRIX 6.5.22 and 6.5.30 kernels. It covers
 ## Inputs
 
 - The 6.5.22 linked kernels are in `root/6.5.22/`. Their SHA-256 hashes were added to `scripts/inventory-root.sha256`; they match a direct hash of the files. This repository does not record which installed system they came from.
-- The scope rule now names the 6.5.22 linked kernels with the same name rule as 6.5.30 (`scripts/gen-scope.py`). Before this, the 6.5.22 kernel rows were all counted as in scope.
+- The scope rule now names the 6.5.22 linked kernels with the same name rule as 6.5.30 (`retools/tools/kudzu/gen-scope.py`). Before this, the 6.5.22 kernel rows were all counted as in scope.
 - `var/sysgen.IP27`, `var/sysgen.IP30` and `var/sysgen.IP35` in 6.5.22 hold configuration files and no object code. They are not compared.
 
 ## Method
@@ -166,7 +166,7 @@ The hardware-facing code and size rows are the first to read. The layout rows of
 
 ## System call and syssgi selector tables
 
-The two system call tables (`sysent` and `irix5_64_sysent`) and the `syssgi` selector dispatch were extracted from the three linked kernels of both releases, with [scripts/syscall_table.py](../scripts/syscall_table.py) and [scripts/syssgi_selectors.py](../scripts/syssgi_selectors.py) through `scripts/os_tables.py`. The rows are in [syscalls.tsv](inventory/syscalls.tsv) and [selectors.tsv](inventory/selectors.tsv), where the release is the prefix of the `binary` column. The differences are one row each in [version-table-diff.tsv](inventory/version-table-diff.tsv), written by [scripts/version_table_diff.py](../scripts/version_table_diff.py). Its `grade` column means: **established**, read from the tables or the argument-table bytes; **class-only**, the routine differs by the byte class in the queue and its body was not read; **heuristic**, taken from the extractor's own reading of a compare tree or of the first call in a block, so the row is a lead to read, not a finding.
+The two system call tables (`sysent` and `irix5_64_sysent`) and the `syssgi` selector dispatch were extracted from the three linked kernels of both releases, with [retools/tools/syscall_table.py](../scripts/syscall_table.py) and [retools/tools/syssgi_selectors.py](../scripts/syssgi_selectors.py) through `retools/tools/kudzu/os_tables.py`. The rows are in [syscalls.tsv](inventory/syscalls.tsv) and [selectors.tsv](inventory/selectors.tsv), where the release is the prefix of the `binary` column. The differences are one row each in [version-table-diff.tsv](inventory/version-table-diff.tsv), written by [scripts/version_table_diff.py](../scripts/version_table_diff.py). Its `grade` column means: **established**, read from the tables or the argument-table bytes; **class-only**, the routine differs by the byte class in the queue and its body was not read; **heuristic**, taken from the extractor's own reading of a compare tree or of the first call in a block, so the row is a lead to read, not a finding.
 
 ### System calls
 

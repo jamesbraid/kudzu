@@ -360,4 +360,4 @@ Limits the table adds to the entries above:
 - The `usr/etc/rpc.rstatd` row is the 64-bit build. The 32-bit build at the same path under a mode suffix is not classified.
 - `usr/etc/rpc.espd` has grade `unknown`: the binary does not say what its sessions are for.
 
-Regenerate with `tools/re-run python3 scripts/userland_tables.py`. A file missing from `root/6.5.30/` stops the run and names the path.
+Regenerate with `retools/tools/re-run python3 scripts/userland_tables.py`. A file missing from `root/6.5.30/` stops the run and names the path.

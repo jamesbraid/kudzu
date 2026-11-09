@@ -27,28 +27,26 @@ Rules for what is written down:
 
 ## 3. Layout
 
-- `root/` is gitignored. It mirrors the install of each release under `root/<release>/` (for example `root/6.5.30/usr/cpu/sysgen/IP27boot/kernel.o`) and holds the linked kernels as `root/<release>/unix.IPnn`. [IRIX_FILES.md](IRIX_FILES.md) lists the paths and which media each came from. `scripts/populate-root` links per-area directories into it.
+- `root/` is gitignored. It mirrors the install of each release under `root/<release>/` (for example `root/6.5.30/usr/cpu/sysgen/IP27boot/kernel.o`) and holds the linked kernels as `root/<release>/unix.IPnn`. [IRIX_FILES.md](IRIX_FILES.md) lists the paths and which media each came from.
 - `docs/` holds the findings (`docs/<area>.md`), [docs/coverage.md](docs/coverage.md) (the map and the measured totals), [docs/open-questions.md](docs/open-questions.md) and the generated [docs/inventory/](docs/inventory/README.md).
 - `include/` and per-area directories hold C headers that describe structure layouts and constants, each field commented with its grade and derivation.
-- `scripts/` holds the shared inventory, fact sheet and claim checker, and the tables specific to this repository (`os_tables.py`, `gen-scope.py`, `gen-hw-windows.py`). `tools/` holds the container definitions and wrappers, shared through the `retools/` submodule; `tools/check-shared` verifies its pin.
+- `scripts/` holds this repository's own generators and data (`errno_table.py`, `gen-hw-windows.py`, `scope.json`, `inventory-config.json` and the like). The shared tooling is the `retools/` submodule (sgi-retools): `retools/tools/` has the inventory, fact sheet, container definitions and wrappers, and `retools/tools/kudzu/` has the tables specific to this repository (`os_tables.py`, `gen-scope.py`, `panic_sites.py`, `struct_fields.py`). Run them from the repository root; they find this repository from the current directory. `tools/` keeps only this repository's `check-os-tables` and `setup-clone.sh`.
 - Public sources are pinned submodules ([docs/published-sources.md](docs/published-sources.md) says why each pin).
 
 ## 4. Tools
 
-Everything runs in a container built from `tools/Containerfile` (MIPS binutils, dwarfdump, pyelftools, capstone, unicorn, spimdisasm). `tools/README.md` has the commands: `tools/re-run`, the Ghidra image and `--ghidra-export`, the inventory, the claim checker and the pre-push checks.
+Everything runs in a container built from `retools/tools/Containerfile` (MIPS binutils, dwarfdump, pyelftools, capstone, unicorn, spimdisasm). `tools/README.md` has the commands: `retools/tools/re-run`, the Ghidra image and `--ghidra-export`, the inventory and the copy check.
 
 Tables (all generated; never edit them by hand):
 
-- `binaries.tsv`, `functions.tsv`, `ioctls.tsv` from `scripts/inventory.py` (shared with the sibling repositories; configuration in `scripts/inventory-config.json`, which `scripts/gen-scope.py` partly writes from `scripts/scope.json` and `scripts/gen-hw-windows.py` partly writes from `scripts/hw-windows.json`);
-- `syscalls.tsv`, `structs.tsv`, `panics.tsv`, `selectors.tsv`, `formats.tsv`, `summary-os.tsv` from `scripts/os_tables.py`;
+- `binaries.tsv`, `functions.tsv`, `ioctls.tsv` from `retools/tools/inventory.py` (shared with the sibling repositories; configuration in `scripts/inventory-config.json`, which `retools/tools/kudzu/gen-scope.py` partly writes from `scripts/scope.json` and `scripts/gen-hw-windows.py` partly writes from `scripts/hw-windows.json`);
+- `syscalls.tsv`, `structs.tsv`, `panics.tsv`, `selectors.tsv`, `formats.tsv`, `summary-os.tsv` from `retools/tools/kudzu/os_tables.py`;
 - `scope.tsv` and `summary.tsv`, which report the in-scope rule per group and the in-scope and out-of-scope counts.
 
 ## 5. Checks before every push
 
-- `scripts/check-leaks.sh` (also run by the `scripts/pre-push` hook: install it with `ln -s ../../scripts/pre-push .git/hooks/pre-push`): no forbidden names, private paths or commit trailers.
 - The copy check in `tools/README.md`: a fingerprint comparison of the C in this repository and an identifier comparison of the prose against a stored index of a reference tree. It never prints reference source. Read every lead; a lead is judged by opening the pair, not by the score.
-- `scripts/check_claims.py`: compares the mechanical claims of routine entries (addresses, sizes, callees, frames) with the binaries. The hook refuses a push on a blocking mismatch.
-- `tools/check-shared`, `scripts/gen-scope.py --check` and `scripts/gen-hw-windows.py --check`.
+- `retools/tools/kudzu/gen-scope.py --check` and `scripts/gen-hw-windows.py --check`.
 
 ## 6. When work is finished
 

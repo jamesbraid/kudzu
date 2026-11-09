@@ -4,11 +4,11 @@
 Usage: scripts/hwgraph_sites.py extract [--show] [--json OUT]
        scripts/hwgraph_sites.py render [--out docs/inventory/hwgraph-adds.tsv]
 
-Run from the repository root inside the toolchain environment (tools/re-run python3 ...), with root/ populated.
+Run from the repository root inside the toolchain environment (retools/tools/re-run python3 ...), with root/ populated.
 
 extract finds every jal or bal to one of the hardware-graph add routines in each root/6.5.30/unix.IP* image,
-attributes the call to its routine the way scripts/panic_sites.py does, and reads the argument that carries the
-name (ADD_CALLEES says which). Argument values come from the same straight-line scan (scripts/panic_sites.py
+attributes the call to its routine the way retools/tools/kudzu/panic_sites.py does, and reads the argument that carries the
+name (ADD_CALLEES says which). Argument values come from the same straight-line scan (retools/tools/kudzu/panic_sites.py
 `value_at_call`); a string at a resolved address is read from the image's own data. A name that is built at run
 time (sprintf output, a register that another path sets) is reported as unresolved with the reason.
 
@@ -26,7 +26,7 @@ import sys
 
 os.environ['LC_ALL'] = os.environ['LANG'] = 'C'
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(REPO, 'scripts'))
+sys.path.insert(0, os.path.join(REPO, 'retools', 'tools', 'kudzu'))
 
 import panic_sites as ps  # noqa: E402  (shared argument scan and string reader)
 

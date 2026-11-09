@@ -1,1 +1,0 @@
-../retools/scripts/kudzu/struct_fields.py

@@ -1,1 +1,0 @@
-../retools/scripts/kudzu/os_tables.py

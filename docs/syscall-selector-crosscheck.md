@@ -1,6 +1,6 @@
 # Cross-check of the syscall and syssgi tables against public lists
 
-`scripts/syscall_table.py` and `scripts/syssgi_selectors.py` read the tables from the linked 6.5.30 kernels (IP27, IP30, IP35). Every row in [syscalls.tsv](inventory/syscalls.tsv) and [selectors.tsv](inventory/selectors.tsv) comes from the kernel image. The public lists below are used only to check numbering. A disagreement is a finding to explain, not a correction of the kernel's row.
+`retools/tools/syscall_table.py` and `retools/tools/syssgi_selectors.py` read the tables from the linked 6.5.30 kernels (IP27, IP30, IP35). Every row in [syscalls.tsv](inventory/syscalls.tsv) and [selectors.tsv](inventory/selectors.tsv) comes from the kernel image. The public lists below are used only to check numbering. A disagreement is a finding to explain, not a correction of the kernel's row.
 
 Public sources (copies are not kept in this repository):
 
@@ -136,4 +136,4 @@ Linux-implemented names with no case (2): 1 SYSID, 8 SETNVRAM
 
 ## Regenerating
 
-Put copies of the public files in one directory under the names `linux-irix5sys.S`, `netbsd-irix-syscalls.master`, the IRIX tree header 5, the IRIX tree header 4 and the IRIX tree source unit 1, then run `tools/re-run --syscalls root/6.5.30/unix.IP35 --cross-check DIR --report FILE` and the same with `--syssgi`.
+Put copies of the public files in one directory under the names `linux-irix5sys.S`, `netbsd-irix-syscalls.master`, the IRIX tree header 5, the IRIX tree header 4 and the IRIX tree source unit 1, then run `retools/tools/re-run --syscalls root/6.5.30/unix.IP35 --cross-check DIR --report FILE` and the same with `--syssgi`.

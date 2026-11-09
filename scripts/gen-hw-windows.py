@@ -10,7 +10,7 @@ tools/configs/<chip>.json at the commit pinned in hw-windows.json, with `git sho
 drift from the census that found it. The checkout is given with --chips or found at the path the file
 names (a clone at .cache/siblings/chips); it must contain the pinned commit. With --check nothing is
 written and the run fails when the config is out of date. Run it like the other scripts, from the
-repository root, then run scripts/inventory.py again.
+repository root, then run retools/tools/inventory.py again.
 """
 import json
 import os

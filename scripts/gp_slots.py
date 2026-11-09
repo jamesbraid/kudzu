@@ -12,7 +12,7 @@ and, at every pair whose gp offsets differ, resolves gp + offset in each kernel:
   constant   an 8-byte word that is not an address
   unknown    anything else
 
-Output is docs/version-diffs-gp-slots.tsv. Run: scripts/gp_slots.py (inside tools/re-run).
+Output is docs/version-diffs-gp-slots.tsv. Run: scripts/gp_slots.py (inside retools/tools/re-run).
 """
 import bisect
 import csv

@@ -46,7 +46,7 @@ A driver row is `understood` only with a grade (`established` or `inferred`), a 
 
 ## Tunable read sites
 
-[inventory/tunable-summary.tsv](inventory/tunable-summary.tsv) and [inventory/tunable-sites.tsv](inventory/tunable-sites.tsv) map each tunable to its data symbol in the linked 6.5.30 kernels and list every routine that loads or stores it. The tunable names come from the 6.5.22 tables above, and the sites are read from the 6.5.30 kernels. The method is in `scripts/tunable_sites.py`: the symbolic pass of `scripts/facts.py` resolves each access to an absolute address, so a site is an access the pass resolved, not every use of the variable.
+[inventory/tunable-summary.tsv](inventory/tunable-summary.tsv) and [inventory/tunable-sites.tsv](inventory/tunable-sites.tsv) map each tunable to its data symbol in the linked 6.5.30 kernels and list every routine that loads or stores it. The tunable names come from the 6.5.22 tables above, and the sites are read from the 6.5.30 kernels. The method is in `scripts/tunable_sites.py`: the symbolic pass of `retools/tools/facts.py` resolves each access to an absolute address, so a site is an access the pass resolved, not every use of the variable.
 
 Roles are written for the hardware-related tunables whose IP27 sites were read in the disassembly (the R10000 check, the memory-error counters, the NUMA migration selectors) and live in `scripts/tunable-roles.json`. Each role names the kernels whose sites it covers. The symbolic pass finds no read of the NUMA migration tunables in the IP30 kernel. The IP35 sites named in the roles are listed but not yet traced; those rows stay `located`.
 

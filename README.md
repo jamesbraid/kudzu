@@ -10,14 +10,14 @@ The layout follows the sibling repositories for graphics and chip reverse engine
 
 ## Running the tools
 
-After cloning, run `git submodule update --init retools`: the container definitions and shared scripts under `tools/` and `scripts/` are links into it. The other submodules are public reference trees and are large; initialise them only when you want them ([tools/README.md](tools/README.md) describes `tools/setup-clone.sh`, which links `root/` and fetches the public-source submodules).
+After cloning, run `git submodule update --init retools`: the container definitions and shared scripts are in it, under `retools/tools/` (shared) and `retools/tools/kudzu/` (this repository's). Run them from the repository root by that path. The other submodules are public reference trees and are large; initialise them only when you want them ([tools/README.md](tools/README.md) describes `tools/setup-clone.sh`, which links `root/` and fetches the public-source submodules).
 
 The host needs Podman, git and python3. Everything else runs in a container; [tools/README.md](tools/README.md) has the commands:
 
-    tools/re-run python3 scripts/inventory.py     # binaries, functions, ioctls, scope
-    tools/re-run python3 scripts/os_tables.py     # system calls, structures, panic sites, formats
-    tools/check-os-tables                         # fail if the committed tables are stale
+    retools/tools/re-run python3 retools/tools/inventory.py             # binaries, functions, ioctls, scope
+    retools/tools/re-run python3 retools/tools/kudzu/os_tables.py     # system calls, structures, panic sites, formats
+    tools/check-os-tables                                     # fail if the committed tables are stale
 
 The generated tables are in [docs/inventory/](docs/inventory/README.md). `git status --short docs` shows nothing after a run when your `root/` matches `scripts/inventory-root.sha256`.
 
-Licence: BSD-3-Clause, see [LICENSE](LICENSE). The scripts descend from gr4's and keep its notice in [scripts/LICENSE-gr4](scripts/LICENSE-gr4).
+Licence: BSD-3-Clause, see [LICENSE](LICENSE). The scripts descend from gr4's and keep its notice in [retools/tools/LICENSE-gr4](retools/tools/LICENSE-gr4).

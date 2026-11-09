@@ -2,7 +2,7 @@
 
 This lists the proprietary SGI files a reader copies from their own IRIX media or install into a local `root/` directory. They are not tracked in source control. Paths only: this repository holds no file contents.
 
-`root/` holds one directory per release, `root/6.5.30/` and `root/6.5.22/`, each mirroring the IRIX filesystem plus the linked kernels as `unix.IPnn`. `scripts/populate-root` makes the links that the per-area directories expect.
+`root/` holds one directory per release, `root/6.5.30/` and `root/6.5.22/`, each mirroring the IRIX filesystem plus the linked kernels as `unix.IPnn`.
 
 ## 1. IRIX 6.5.30 (primary)
 
