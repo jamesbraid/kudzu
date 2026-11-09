@@ -1,0 +1,1265 @@
+likelihood	conf	binary	abi	func_start	near_dynsym	addr	op	kind	source	other	insn
+boot	high	/usr/etc/timed	n32	0x10002800	measure	0x10002cd8	div	abs	gettimeofday.tv_sec:gtod@0x0/lw	const86400	div $zero, $s2, $a0
+boot	high	/usr/etc/timed	n32	0x10002800	measure	0x10002d5c	div	abs	gettimeofday.tv_sec:gtod@0x0/lw	const86400	div $zero, $t4, $s2
+boot	high	/usr/etc/timeslave	n32	0x10002400	secdiff	0x100025c8	div	abs	gettimeofday.tv_sec:gtod@0x0/lw	const86400	div $zero, $a1, $a2
+boot	high	/usr/etc/timeslave	n32	0x10002400	secdiff	0x100027b4	div	abs	gettimeofday.tv_sec:gtod@0x0/lw	const86400	div $zero, $t6, $t1
+boot	high	/usr/etc/timeslave	n32	0x10002400	secdiff	0x100035c0	div	abs	gettimeofday.tv_sec:gtod@0x0/lw	const86400	div $zero, $a0, $v1
+boot	high	/usr/sbin/ntpd	n32	0x1001f5a8	stats_config	0x1001f9a8	div	abs	gettimeofday.tv_sec:gtod@0x0/lw	const86400	div $zero, $a1, $t1
+boot	high	/usr/sbin/ntpd	n32	0x1001f5a8	stats_config	0x1001fae8	div	abs	gettimeofday.tv_sec:gtod@0x0/lw	const86400	div $zero, $a1, $t1
+boot	high	/usr/sbin/ntpd	n32	0x1001f5a8	stats_config	0x1001fc0c	div	abs	gettimeofday.tv_sec:gtod@0x0/lw	const86400	div $zero, $a1, $t1
+boot	high	/usr/sbin/ntpd	n32	0x1001f5a8	stats_config	0x1001fd30	div	abs	gettimeofday.tv_sec:gtod@0x0/lw	const86400	div $zero, $a1, $t1
+boot	medium	/lib32/libc.so.1	n32	0xfb09ea8	_yp_dobind	0xfb0a28c	slt	abs	time()	untainted-reg	slt $t2, $v0, $t2
+boot	medium	/lib32/libc.so.1	n32	0xfb09ea8	_yp_dobind	0xfb0a2b4	slt	abs	time()	untainted-reg	slt $t4, $t4, $t5
+boot	medium	/lib32/libc.so.1.CPUARCH-R8000-CPUARCH-R10000-CPUARCH-R5000	n32	0xfb090d4	_yp_dobind	0xfb094f8	slt	abs	time()	untainted-reg	slt $a1, $v0, $a1
+boot	medium	/lib32/libc.so.1.CPUARCH-R8000-CPUARCH-R10000-CPUARCH-R5000	n32	0xfb090d4	_yp_dobind	0xfb09520	slt	abs	time()	untainted-reg	slt $a3, $a3, $t0
+boot	medium	/sbin/make	n32	0x10008ac0	doname	0x1000a0dc	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $v1, $a2, $v0
+boot	medium	/sbin/ps	n32	0x10002db4	_mcount	0x100030dc	slt	abs	time()	untainted-reg	slt $a2, $a2, $s3
+boot	medium	/sbin/ps	n32	0x10002db4	_mcount	0x10004828	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $t1, $t1, $v0
+boot	medium	/sbin/ps	n32	0x10002db4	_mcount	0x10004834	slt	abs	stat-time-field:stat@0x54/lw	tainted	slt $t2, $t2, $v0
+boot	medium	/sbin/ps	n32	0x10002db4	_mcount	0x1000485c	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $t4, $t4, $v0
+boot	medium	/sbin/ps	n32	0x10002db4	_mcount	0x10004868	slt	abs	stat-time-field:stat@0x54/lw	tainted	slt $t5, $t5, $v0
+boot	medium	/sbin/ps	n32	0x10002db4	_mcount	0x10004894	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $a2, $a2, $v0
+boot	medium	/sbin/ps	n32	0x10002db4	_mcount	0x100048a4	slt	abs	stat-time-field:stat@0x54/lw	tainted	slt $a3, $a3, $v0
+boot	medium	/sbin/restore	n32	0x1000aa0c	extractfile	0x1000ada4	slt	abs	stat-time-field:stat@0x54/lw	untainted-reg	slt $a2, $a2, $a3
+boot	medium	/sbin/xfsrestore	n64	0x10018514	HsmEndRestoreFile	0x1001967c	slt	abs	time()	untainted-reg	slt $a2, $v0, $a2
+boot	medium	/sbin/xfsrestore	n64	0x10018514	HsmEndRestoreFile	0x10019b70	slt	abs	time()	untainted-reg	slt $a1, $s6, $v0
+boot	medium	/sbin/xfsrestore	n64	0x10018514	HsmEndRestoreFile	0x10019b84	slt	abs	time()	untainted-reg	slt $a2, $s6, $v0
+boot	medium	/sbin/xfsrestore	n64	0x10018514	HsmEndRestoreFile	0x1001a2a0	slt	abs	time()	untainted-reg	slt $v1, $v0, $a3
+boot	medium	/sbin/xfsrestore	n64	0x10018514	HsmEndRestoreFile	0x1001a2b0	slt	abs	time()	untainted-reg	slt $a0, $v0, $a3
+boot	medium	/sbin/xfsrestore	n64	0x1001ac74	preemptchk	0x1001bd38	slt	abs	time()	untainted-reg	slt $t1, $v0, $t1
+boot	medium	/sbin/xfsrestore.MODE-32bit	n32	0x10015fd0	HsmEndRestoreFile	0x1001701c	slt	abs	time()	untainted-reg	slt $a2, $v0, $a2
+boot	medium	/sbin/xfsrestore.MODE-32bit	n32	0x10015fd0	HsmEndRestoreFile	0x100174b8	slt	abs	time()	untainted-reg	slt $t0, $s6, $v0
+boot	medium	/sbin/xfsrestore.MODE-32bit	n32	0x10015fd0	HsmEndRestoreFile	0x100174cc	slt	abs	time()	untainted-reg	slt $t1, $s6, $v0
+boot	medium	/sbin/xfsrestore.MODE-32bit	n32	0x10015fd0	HsmEndRestoreFile	0x10017ab4	slt	abs	time()	untainted-reg	slt $v1, $v0, $a3
+boot	medium	/sbin/xfsrestore.MODE-32bit	n32	0x10015fd0	HsmEndRestoreFile	0x10017ac4	slt	abs	time()	untainted-reg	slt $a0, $v0, $a3
+boot	medium	/sbin/xfsrestore.MODE-32bit	n32	0x100183c4	preemptchk	0x100192a4	slt	abs	time()	untainted-reg	slt $a3, $v0, $a3
+boot	medium	/usr/bin/X11/xfs	n32	0x1005bd30	t1_PathDelta	0x1005c6f8	slt	abs	time()	untainted-reg	slt $t4, $t0, $v0
+boot	medium	/usr/bin/icrash	n32	0x10119700	sial_isnew	0x10119750	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $a3, $a3, $t0
+boot	medium	/usr/bin/mail	n32	0x100077b4	pipletr	0x10007d60	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $a1, $a1, $a2
+boot	medium	/usr/bin/mail	n32	0x100077b4	pipletr	0x100082f0	slt	abs	stat-time-field:stat@0x54/lw	tainted	slt $t0, $v0, $a0
+boot	medium	/usr/bin/mail.local	n32	0x100042d0	main	0x100061e4	slt	abs	time(&t):time@0x0/lw	tainted	slt $a0, $a0, $a1
+boot	medium	/usr/bin/mail.local	n32	0x100042d0	main	0x1000625c	slt	abs	time(&t):time@0x0/lw	tainted	slt $t0, $t0, $t1
+boot	medium	/usr/bin/mail.local	n32	0x10010ab0	sm_snprintf	0x10010dd4	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t5, $t5, $t1
+boot	medium	/usr/bin/mail.local	n32	0x10010ab0	sm_snprintf	0x10011258	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $at, $v0
+boot	medium	/usr/bin/mail.local	n32	0x10010ab0	sm_snprintf	0x10011420	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t4, $a0, $t4
+boot	medium	/usr/bin/mail.local	n32	0x10010ab0	sm_snprintf	0x10011580	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t3, $t3, $t4
+boot	medium	/usr/bin/more	n32	0x10009bf0	find_linenum	0x10009ecc	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t2, $v0, $t2
+boot	medium	/usr/bin/more	n32	0x10009bf0	find_linenum	0x10009ef0	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t3, $v0, $t3
+boot	medium	/usr/etc/arrayd	n32	0x100053ac	main	0x10006d24	slt	abs	time()	untainted-reg	slt $v1, $v0, $v1
+boot	medium	/usr/etc/arrayd	n32	0x100053ac	main	0x10006e44	slt	abs	stat-time-field:stat@0x54/lw	untainted-reg	slt $t1, $t1, $t2
+boot	medium	/usr/etc/autofsd	n32	0x1000f430	pingnfs	0x1000f4c0	slt	abs	time()	untainted-reg	slt $t2, $t2, $t3
+boot	medium	/usr/etc/autofsd	n32	0x1000f430	pingnfs	0x1000f540	slt	abs	time()	untainted-reg	slt $v1, $v1, $a0
+boot	medium	/usr/etc/cron	n32	0x7fc04cc8	readcron	0x7fc07070	slt	abs	time()	tainted	slt $t9, $v0, $s1
+boot	medium	/usr/etc/cron	n32	0x7fc04cc8	readcron	0x7fc07138	slt	abs	time()	tainted	slt $t1, $v0, $s1
+boot	medium	/usr/etc/espdbd	n32	0x10169150	-	0x10169ca8	slt	abs	time()	tainted	slt $at, $v0, $a0
+boot	medium	/usr/etc/espdbd	n32	0x10169150	-	0x10169d38	slt	abs	time()	untainted-reg	slt $t1, $v0, $s3
+boot	medium	/usr/etc/eventmond	n32	0x10007b34	DoWatchDog	0x10007be0	slt	abs	time()	untainted-reg	slt $a2, $a2, $a3
+boot	medium	/usr/etc/ipfilterd	n32	0x10008578	cache	0x100086b4	branch-bltz	abs	time()	zero	bltz $v0, 0x100086f8
+boot	medium	/usr/etc/ipfilterd	n32	0x10008578	cache	0x100086dc	slt	abs	time(&t):time@0x0/lw	tainted	slt $a3, $a3, $t0
+boot	medium	/usr/etc/ipfilterd	n32	0x100174d4	sunrpc_getmaps	0x1001757c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a0, $a0, $a1
+boot	medium	/usr/etc/lmgrd	n32	0x10028c88	l_set_registry	0x10029038	slt	abs	time()	untainted-reg	slt $a1, $a1, $a2
+boot	medium	/usr/etc/lmgrd	n32	0x1003b968	l_set_attr	0x1003bafc	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t9, $t9, $ra
+boot	medium	/usr/etc/lmgrd	n32	0x1003f73c	l_ckout_borrow	0x10040114	slt	abs	time()	untainted-reg	slt $t5, $t5, $v0
+boot	medium	/usr/etc/lmgrd	n32	0x1003f73c	l_ckout_borrow	0x10040138	slt	abs	time()	untainted-reg	slt $t6, $v0, $t6
+boot	medium	/usr/etc/lmgrd	n32	0x10040924	l_read_borrow	0x100410b4	slt	abs	time()	untainted-reg	slt $t4, $t4, $v0
+boot	medium	/usr/etc/lmgrd	n32	0x10040924	l_read_borrow	0x100410d8	slt	abs	time()	untainted-reg	slt $t5, $v0, $t5
+boot	medium	/usr/etc/lmgrd	n32	0x10042dcc	l_borrow_stat	0x10042fe4	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t5, $t5, $t6
+boot	medium	/usr/etc/mediad	n32	0x1001a178	schedule__4TaskGRC7timevalT1	0x1001a358	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t9, $a3, $a2
+boot	medium	/usr/etc/miser	n32	0x10008f04	repack_remove	0x10009030	div	abs	gettimeofday.tv_sec:gtod@0x0/lw	reg	div $zero, $at, $t9
+boot	medium	/usr/etc/miser	n32	0x1000b210	__dt__18miser_job_scheduleGv	0x1000b470	div	abs	gettimeofday.tv_sec:gtod@0x0/lw	reg	div $zero, $a1, $a0
+boot	medium	/usr/etc/nsd	n32	0x1000631c	nsd_file_delete	0x10008554	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a3, $v0
+boot	medium	/usr/etc/nsd	n32	0x100169d4	nsd_timeout_new	0x10016aac	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t2, $t1, $t0
+boot	medium	/usr/etc/nsd	n32	0x100169d4	nsd_timeout_new	0x10016b14	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t5, $t1, $t0
+boot	medium	/usr/etc/nsd	n32	0x100169d4	nsd_timeout_new	0x1001833c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a3, $a0, $a2
+boot	medium	/usr/etc/portmap	n32	0x100054a4	pmap_service	0x10005a60	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t0, $a1, $a3
+boot	medium	/usr/etc/portmap	n32	0x1000818c	rpcbproc_taddr2uaddr_com	0x100094f4	slt	abs	time()	untainted-reg	slt $v0, $a3, $fp
+boot	medium	/usr/etc/proclaim	n32	0x10003a18	do_unicast_dhcp	0x10003e3c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t0, $a3, $t2
+boot	medium	/usr/etc/qpage.d	n32	0x10005910	authorize	0x10006e88	slt	abs	time()	untainted-reg	slt $t0, $s2, $s0
+boot	medium	/usr/etc/qpage.d	n32	0x10005910	authorize	0x100071cc	slt	abs	time()	untainted-reg	slt $a2, $v0, $a2
+boot	medium	/usr/etc/qpage.d	n32	0x10005910	authorize	0x100079e8	slt	abs	time()	untainted-reg	slt $a2, $fp, $a1
+boot	medium	/usr/etc/qpage.d	n32	0x10005910	authorize	0x1000862c	slt	abs	time()	untainted-reg	slt $a1, $s4, $a1
+boot	medium	/usr/etc/route6d	n32	0x10003f04	sendpacket	0x10004acc	slt	abs	time()	untainted-reg	slt $a3, $a3, $t0
+boot	medium	/usr/etc/route6d	n32	0x10003f04	sendpacket	0x1000629c	slt	abs	time()	untainted-reg	slt $a2, $a0, $v0
+boot	medium	/usr/etc/route6d	n32	0x10003f04	sendpacket	0x10006658	slt	abs	time()	untainted-reg	slt $a2, $a0, $a1
+boot	medium	/usr/etc/route6d	n32	0x10003f04	sendpacket	0x10006748	slt	abs	time()	tainted	slt $a2, $a0, $a1
+boot	medium	/usr/etc/rpcbind	n32	0x10007858	pmap_service	0x10007e14	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t0, $a1, $a3
+boot	medium	/usr/etc/rpcbind	n32	0x1000a3c0	create_rmtcall_fd	0x1000b4a8	slt	abs	time()	untainted-reg	slt $v0, $a3, $fp
+boot	medium	/usr/etc/sarrayd	n32	0x100057c8	main	0x100072b4	slt	abs	time()	untainted-reg	slt $v1, $v0, $v1
+boot	medium	/usr/etc/sarrayd	n32	0x100057c8	main	0x100073d4	slt	abs	stat-time-field:stat@0x54/lw	untainted-reg	slt $t1, $t1, $t2
+boot	medium	/usr/etc/snmpd	n32	0x1000c4f8	run__9snmpAgentGv	0x1000c680	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $t6, $t6, $t7
+boot	medium	/usr/etc/snmpd	n32	0x1002b700	authorize__13communityAuthGP7in_addrP14asnOctetStringi	0x1002b75c	slt	abs	stat-time-field:stat@0x54/lw	untainted-reg	slt $v0, $v0, $v1
+boot	medium	/usr/etc/syslogd	n32	0x7fc05098	filtermsg	0x7fc05114	slt	abs	time()	untainted-reg	slt $v1, $v0, $v1
+boot	medium	/usr/etc/timed	n32	0x10002800	measure	0x10002b3c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t1, $a1, $t4
+boot	medium	/usr/etc/timed	n32	0x10003b14	slave	0x10003ca8	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	tainted	slt $t2, $s4, $v0
+boot	medium	/usr/etc/timed	n32	0x10003b14	slave	0x10003cb0	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	tainted	slt $a2, $v0, $s3
+boot	medium	/usr/etc/timed	n32	0x10003b14	slave	0x10003ce8	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	tainted	slt $a2, $v0, $s3
+boot	medium	/usr/etc/timed	n32	0x10003b14	slave	0x10003cf0	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	tainted	slt $t8, $v0, $s2
+boot	medium	/usr/etc/timed	n32	0x10003b14	slave	0x10003d88	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	tainted	slt $t8, $v0, $s2
+boot	medium	/usr/etc/timed	n32	0x10003b14	slave	0x10003d90	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	tainted	slt $t1, $s2, $s3
+boot	medium	/usr/etc/timed	n32	0x10003b14	slave	0x10003eac	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	tainted	slt $t1, $s2, $s3
+boot	medium	/usr/etc/timed	n32	0x10003b14	slave	0x10003ebc	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	tainted	slt $t8, $t0, $s4
+boot	medium	/usr/etc/timed	n32	0x10003b14	slave	0x10004154	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $v1, $s4, $t0
+boot	medium	/usr/etc/timed	n32	0x10003b14	slave	0x100047e4	slti	abs	gettimeofday.tv_sec:gtod@0x0/lw	imm	slti $ra, $v0, 0x14
+boot	medium	/usr/etc/timed	n32	0x10003b14	slave	0x100047ec	slti	abs	gettimeofday.tv_sec:gtod@0x0/lw	imm	slti $t0, $v0, -0x13
+boot	medium	/usr/etc/timed	n32	0x10003b14	slave	0x10004aa0	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t2, $v0, $t2
+boot	medium	/usr/etc/timed	n32	0x10003b14	slave	0x10004c4c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	tainted	slt $ra, $ra, $s4
+boot	medium	/usr/etc/timed	n32	0x100056b8	correct	0x10005aac	branch-blez	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	blez $a2, 0x100059e4
+boot	medium	/usr/etc/timed	n32	0x100056b8	correct	0x10005d34	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a2, $a0, $a2
+boot	medium	/usr/etc/timed	n32	0x100056b8	correct	0x10005d3c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a0, $a0, $a1
+boot	medium	/usr/etc/timed	n32	0x10009194	spreadtime	0x10009410	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	tainted	slt $t8, $v0, $s1
+boot	medium	/usr/etc/timed	n32	0x10009194	spreadtime	0x10009d04	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t8, $t8, $s1
+boot	medium	/usr/lib/sendmail	n32	0x10016920	alias	0x10017470	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $a1, $a1, $a2
+boot	medium	/usr/lib/sendmail	n32	0x100419e0	dns_map_parseargs	0x10042cac	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $t4, $t4, $t5
+boot	medium	/usr/lib/sendmail	n32	0x100419e0	dns_map_parseargs	0x10043e34	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $t4, $t4, $t5
+boot	medium	/usr/lib/sendmail	n32	0x100943d0	sm_signal	0x100948f4	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t5, $t5, $t1
+boot	medium	/usr/lib/sendmail	n32	0x100943d0	sm_signal	0x10094d78	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $at, $v0
+boot	medium	/usr/lib/sendmail	n32	0x100943d0	sm_signal	0x10094f40	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t4, $a0, $t4
+boot	medium	/usr/lib/sendmail	n32	0x100943d0	sm_signal	0x100950a0	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t3, $t3, $t4
+boot	medium	/usr/lib32/cluster/cbe/fs2d	n32	0x10075e7c	l_set_attr	0x10076010	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t9, $t9, $ra
+boot	medium	/usr/lib32/cluster/cbe/fs2d	n32	0x10079658	l_set_registry	0x10079a08	slt	abs	time()	untainted-reg	slt $a1, $a1, $a2
+boot	medium	/usr/lib32/cluster/cbe/fs2d	n32	0x1007d6d4	l_ckout_borrow	0x1007e0ac	slt	abs	time()	untainted-reg	slt $t5, $t5, $v0
+boot	medium	/usr/lib32/cluster/cbe/fs2d	n32	0x1007d6d4	l_ckout_borrow	0x1007e0d0	slt	abs	time()	untainted-reg	slt $t6, $v0, $t6
+boot	medium	/usr/lib32/cluster/cbe/fs2d	n32	0x1007e8bc	l_read_borrow	0x1007f04c	slt	abs	time()	untainted-reg	slt $t4, $t4, $v0
+boot	medium	/usr/lib32/cluster/cbe/fs2d	n32	0x1007e8bc	l_read_borrow	0x1007f070	slt	abs	time()	untainted-reg	slt $t5, $v0, $t5
+boot	medium	/usr/lib32/cluster/cbe/fs2d	n32	0x10080d64	l_borrow_stat	0x10080f7c	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t5, $t5, $t6
+boot	medium	/usr/lib32/libci.so	n32	0x413380	ci_times	0x41343c	div	abs	clock_gettime.tv_sec:cgt@0x4/lw	reg	div $zero, $t4, $t3
+boot	medium	/usr/lib32/libcpr.so	n32	0x411de8	ckpt_dump_one_ofile	0x411e94	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $a2, $a0, $v0
+boot	medium	/usr/lib32/libcups.so.2	n32	0x5ff1c980		0x5ff1cf4c	slt	abs	time()	untainted-reg	slt $a3, $a3, $v0
+boot	medium	/usr/lib32/libpcp.so.2	n32	0x407d3c	pmNewContext	0x408630	slt	abs	time()	untainted-reg	slt $a3, $v0, $a3
+boot	medium	/usr/lib64/mips3/libc.so.1	n64	0xda06bb0	__ns_cache_open	0xda07034	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t4, $t4, $t5
+boot	medium	/usr/lib64/mips3/libc.so.1	n64	0xdaccd88	_yp_dobind	0xdacd198	slt	abs	time()	untainted-reg	slt $t3, $v0, $t3
+boot	medium	/usr/lib64/mips3/libc.so.1	n64	0xdaccd88	_yp_dobind	0xdacd1c4	slt	abs	time()	untainted-reg	slt $t6, $t6, $t7
+boot	medium	/usr/lib64/mips4/libc.so.1	n64	0xda067e8	__ns_cache_open	0xda06c54	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t4, $t4, $t5
+boot	medium	/usr/lib64/mips4/libc.so.1	n64	0xdac33bc	_yp_dobind	0xdac37e8	slt	abs	time()	untainted-reg	slt $a2, $v0, $a2
+boot	medium	/usr/lib64/mips4/libc.so.1	n64	0xdac33bc	_yp_dobind	0xdac3814	slt	abs	time()	untainted-reg	slt $t1, $t1, $t2
+boot	medium	/usr/sbin/Mail	n32	0x100156c0	makelock	0x10015ab4	slt	abs	stat-time-field:stat@0x54/lw	untainted-reg	slt $t0, $v0, $s1
+boot	medium	/usr/sbin/configmon	n32	0x1006a7f4	get_sysconfigs	0x1006a86c	slt	abs	time()	untainted-reg	slt $a3, $v0, $a3
+boot	medium	/usr/sbin/configmon	n32	0x1006a7f4	get_sysconfigs	0x1006aa6c	slt	abs	time()	untainted-reg	slt $v1, $v1, $a0
+boot	medium	/usr/sbin/cupsd	n32	0x10028240	CloseClient	0x10033e18	slt	abs	time()	untainted-reg	slt $t0, $t0, $t3
+boot	medium	/usr/sbin/cupsd	n32	0x10036220	main	0x10036aa0	slt	abs	time()	untainted-reg	slt $a2, $v0, $a2
+boot	medium	/usr/sbin/cupsd	n32	0x10036220	main	0x10036abc	slt	abs	time()	tainted	slt $a3, $a3, $v0
+boot	medium	/usr/sbin/cupsd	n32	0x10037a40	SetStringf	0x10037e64	slt	abs	time()	untainted-reg	slt $t0, $a0, $s0
+boot	medium	/usr/sbin/cupsd	n32	0x10037a40	SetStringf	0x10037fc4	slt	abs	time()	untainted-reg	slt $t0, $a2, $s0
+boot	medium	/usr/sbin/cupsd	n32	0x10037a40	SetStringf	0x10038024	slt	abs	time()	tainted	slt $a1, $a2, $s0
+boot	medium	/usr/sbin/cupsd	n32	0x100447e0	CancelJob	0x10044bf8	slt	abs	time()	untainted-reg	slt $a0, $a0, $v0
+boot	medium	/usr/sbin/cupsd	n32	0x1004fc10	ValidateDest	0x10050d88	slt	abs	time()	untainted-reg	slt $a2, $v0, $a2
+boot	medium	/usr/sbin/cupsd	n32	0x10058120	is_licensed2	0x10058234	slt	abs	time()	untainted-reg	slt $a2, $v0, $a1
+boot	medium	/usr/sbin/cupsd	n32	0x10061520	ssl_get_new_session	0x10061aec	slt	abs	time()	untainted-reg	slt $a3, $a3, $v0
+boot	medium	/usr/sbin/dump	n32	0x10003518	main	0x10004e68	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t3, $t2, $t3
+boot	medium	/usr/sbin/fcagent	n32	0x10003d90	main	0x100044ac	slt	abs	time()	untainted-reg	slt $t2, $t2, $t3
+boot	medium	/usr/sbin/ggd	n32	0x1000b5e0	get_all_disks_in_vdisk	0x1000b834	slt	abs	time()	untainted-reg	slt $v0, $v1, $v0
+boot	medium	/usr/sbin/ggd	n32	0x1000b5e0	get_all_disks_in_vdisk	0x1000b858	slt	abs	time()	untainted-reg	slt $a1, $a1, $v0
+boot	medium	/usr/sbin/host	n32	0x100ddd88	isc_time_now	0x100ddddc	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x100dde20
+boot	medium	/usr/sbin/host	n32	0x100ddd88	isc_time_now	0x100ddf18	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a0, 0x100de054
+boot	medium	/usr/sbin/host	n32	0x100ddd88	isc_time_now	0x100ddf3c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a3, $a3, $t4
+boot	medium	/usr/sbin/named	n32	0x1011cff4	isc_time_now	0x1011d048	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x1011d08c
+boot	medium	/usr/sbin/named	n32	0x1011cff4	isc_time_now	0x1011d184	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a0, 0x1011d2c0
+boot	medium	/usr/sbin/named	n32	0x1011cff4	isc_time_now	0x1011d1a8	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a3, $a3, $t4
+boot	medium	/usr/sbin/setsym	n32	0x10003530	elf_read_symtab	0x100045a4	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $ra, $ra, $at
+boot	low	/lib32/libc.so.1	n32	0xfa54f54	waitpid	0xfa55d08	div	const-only	none	const86400	div $zero, $t5, $t2
+boot	low	/lib32/libc.so.1	n32	0xfa54f54	waitpid	0xfa55d4c	div	const-only	none	const86400	div $zero, $at, $t2
+boot	low	/lib32/libc.so.1	n32	0xfa54f54	waitpid	0xfa55d94	div	const-only	none	const3600	div $zero, $a3, $t6
+boot	low	/lib32/libc.so.1	n32	0xfa54f54	waitpid	0xfa55dac	div	const-only	none	const60	div $zero, $t8, $t5
+boot	low	/lib32/libc.so.1	n32	0xfacaec4	pmap_getport	0xfacb564	mult-timeconst	abs	gettimeofday.tv_sec:gtod@0x0/lw	const1000	mult $t4, $t5
+boot	low	/lib32/libc.so.1	n32	0xfb0d5d8	xdr_rpcb_stat_byvers	0xfb0dc8c	slti	delta	gettimeofday.tv_sec:gtod@0x0/lw	imm	slti $t5, $t1, 0x23
+boot	low	/lib32/libc.so.1	n32	0xfb0d5d8	xdr_rpcb_stat_byvers	0xfb0dc90	slt	delta	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t2, $s6, $t1
+boot	low	/lib32/libc.so.1.CPUARCH-R8000-CPUARCH-R10000-CPUARCH-R5000	n32	0xfa553a8	waitpid	0xfa56154	div	const-only	none	const86400	div $zero, $t5, $t2
+boot	low	/lib32/libc.so.1.CPUARCH-R8000-CPUARCH-R10000-CPUARCH-R5000	n32	0xfa553a8	waitpid	0xfa56198	div	const-only	none	const86400	div $zero, $at, $t2
+boot	low	/lib32/libc.so.1.CPUARCH-R8000-CPUARCH-R10000-CPUARCH-R5000	n32	0xfa553a8	waitpid	0xfa561d8	div	const-only	none	const3600	div $zero, $a3, $t6
+boot	low	/lib32/libc.so.1.CPUARCH-R8000-CPUARCH-R10000-CPUARCH-R5000	n32	0xfa553a8	waitpid	0xfa561f0	div	const-only	none	const60	div $zero, $t8, $t5
+boot	low	/lib32/libc.so.1.CPUARCH-R8000-CPUARCH-R10000-CPUARCH-R5000	n32	0xfacacb8	pmap_getport	0xfacb38c	mult-timeconst	abs	gettimeofday.tv_sec:gtod@0x0/lw	const1000	mult $t3, $s0
+boot	low	/lib32/libc.so.1.CPUARCH-R8000-CPUARCH-R10000-CPUARCH-R5000	n32	0xfb0c7e0	xdr_rpcb_stat_byvers	0xfb0cf34	slti	delta	gettimeofday.tv_sec:gtod@0x0/lw	imm	slti $t5, $t1, 0x23
+boot	low	/lib32/libc.so.1.CPUARCH-R8000-CPUARCH-R10000-CPUARCH-R5000	n32	0xfb0c7e0	xdr_rpcb_stat_byvers	0xfb0cf38	slt	delta	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t2, $s6, $t1
+boot	low	/sbin/init	n32	0x10003ab8	get_inittab	0x1000443c	slti	delta	time(&t):time@0x0/lw	imm	slti $a1, $a1, 0x1a4
+boot	low	/sbin/init	n32	0x10003ab8	get_inittab	0x10004828	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t2, $t2, $t3
+boot	low	/sbin/init	n32	0x10003ab8	get_inittab	0x10004f44	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $ra, $ra, $at
+boot	low	/sbin/init	n32	0x10005ea4	setup_consdev	0x100069a0	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t5, $t5, $t6
+boot	low	/sbin/init	n32	0x10005ea4	setup_consdev	0x10007d84	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $a0, $a0, $a3
+boot	low	/sbin/init	n32	0x10005ea4	setup_consdev	0x100086f4	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $a0, $a0, $a3
+boot	low	/sbin/init	n32	0x10005ea4	setup_consdev	0x10008dd4	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $a0, $a0, $a1
+boot	low	/sbin/init	n32	0x10005ea4	setup_consdev	0x10009f8c	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t5, $t5, $t6
+boot	low	/sbin/ps	n32	0x10006774	uconv_all	0x10006d34	div	const-only	none	const86400	div $zero, $a0, $at
+boot	low	/sbin/ps	n32	0x10006774	uconv_all	0x10006d50	div	const-only	none	const3600	div $zero, $a3, $t0
+boot	low	/sbin/ps	n32	0x10006774	uconv_all	0x10006d70	div	const-only	none	const60	div $zero, $v1, $a2
+boot	low	/sbin/xlv_assemble	n32	0x1003bf38	license_chk_out	0x1003c090	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t0, $a1, $t0
+boot	low	/sbin/xlv_assemble	n32	0x1003bf38	license_chk_out	0x1003c09c	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+boot	low	/sbin/xlv_assemble	n32	0x1003bf38	license_chk_out	0x1003c0b0	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+boot	low	/sbin/xlv_assemble	n32	0x1003bf38	license_chk_out	0x1003c0ec	div	const-only	none	const86400	div $zero, $a1, $at
+boot	low	/sbin/xlv_assemble	n32	0x1003bf38	license_chk_out	0x1003c11c	div	const-only	none	const86400	div $zero, $a1, $ra
+boot	low	/sbin/xlv_mgr	n32	0x10024ca4	Tcl_FlushCmd	0x100265b0	mult-timeconst	delta	gettimeofday.tv_sec:gtod@0x0/lw	const1000000	mult $t5, $t6
+boot	low	/sbin/xlv_mgr	n32	0x10069c84	license_chk_out	0x10069ddc	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t0, $a1, $t0
+boot	low	/sbin/xlv_mgr	n32	0x10069c84	license_chk_out	0x10069de8	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+boot	low	/sbin/xlv_mgr	n32	0x10069c84	license_chk_out	0x10069dfc	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+boot	low	/sbin/xlv_mgr	n32	0x10069c84	license_chk_out	0x10069e38	div	const-only	none	const86400	div $zero, $a1, $at
+boot	low	/sbin/xlv_mgr	n32	0x10069c84	license_chk_out	0x10069e68	div	const-only	none	const86400	div $zero, $a1, $ra
+boot	low	/sbin/xvm	n32	0x100a2d80	Tcl_HashStats	0x100a30e0	mult-timeconst	abs	gettimeofday.tv_sec:gtod@0x0/lw	const1000000	mult $a0, $a1
+boot	low	/sbin/xvm	n32	0x100a2d80	Tcl_HashStats	0x100a312c	div	const-only	none	const60	div $zero, $v1, $a0
+boot	low	/sbin/xvminit	n32	0x1002e4c4	license_chk_out	0x1002e61c	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t0, $a1, $t0
+boot	low	/sbin/xvminit	n32	0x1002e4c4	license_chk_out	0x1002e628	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+boot	low	/sbin/xvminit	n32	0x1002e4c4	license_chk_out	0x1002e63c	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+boot	low	/sbin/xvminit	n32	0x1002e4c4	license_chk_out	0x1002e678	div	const-only	none	const86400	div $zero, $a1, $at
+boot	low	/sbin/xvminit	n32	0x1002e4c4	license_chk_out	0x1002e6a8	div	const-only	none	const86400	div $zero, $a1, $ra
+boot	low	/usr/bin/X11/xdm	n32	0x100169f0	FreeLoginOptionStrings	0x10016bc8	slt	delta	time()	untainted-reg	slt $v1, $a2, $v1
+boot	low	/usr/bin/X11/xdm	n32	0x10025590	FindDisplayByServerPid	0x10025944	slt	delta	time()	untainted-reg	slt $a3, $a2, $a1
+boot	low	/usr/bin/X11/xfs	n32	0x1005bd30	t1_PathDelta	0x1005c724	slt	delta	time()	untainted-reg	slt $t2, $a3, $t2
+boot	low	/usr/bin/X11/xfwp	n32	0x10007da0	doSetupRemClientListen	0x10008b54	slt	delta	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t4, $t0, $t3
+boot	low	/usr/bin/X11/xfwp	n32	0x10007da0	doSetupRemClientListen	0x10008b68	slt	delta	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t5, $a0, $t2
+boot	low	/usr/bin/X11/xfwp	n32	0x10007da0	doSetupRemClientListen	0x10008e24	slt	delta	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t5, $t3, $t4
+boot	low	/usr/bin/X11/xfwp	n32	0x10007da0	doSetupRemClientListen	0x10008e38	slt	delta	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t6, $a0, $t2
+boot	low	/usr/bin/X11/xfwp	n32	0x10007da0	doSetupRemClientListen	0x10008fc4	slt	delta	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t5, $t3, $t4
+boot	low	/usr/bin/X11/xfwp	n32	0x10007da0	doSetupRemClientListen	0x10008fd8	slt	delta	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t6, $a0, $t2
+boot	low	/usr/bin/X11/xfwp	n32	0x100148d0	IceLockAuthFile	0x10014998	slt	delta	time()	untainted-reg	slt $v1, $a2, $v1
+boot	low	/usr/bin/admin	n32	0x10009cb4	lockit	0x10009ed8	slti	delta	time()	imm	slti $a2, $a0, 0x3c
+boot	low	/usr/bin/admin	n32	0x10009cb4	lockit	0x10009ee4	branch-bltz	delta	time()	zero	bltz $a0, 0x1000a008
+boot	low	/usr/bin/at	n32	0x7fc02928	main	0x7fc0414c	div	const-only	none	const60	div $zero, $a3, $t0
+boot	low	/usr/bin/at	n32	0x7fc02928	main	0x7fc04160	div	const-only	none	const60	div $zero, $t2, $t0
+boot	low	/usr/bin/at	n32	0x7fc02928	main	0x7fc04190	div	const-only	none	const60	div $zero, $a0, $a3
+boot	low	/usr/bin/at	n32	0x7fc02928	main	0x7fc041a8	div	const-only	none	const60	div $zero, $t2, $a3
+boot	low	/usr/bin/get	n32	0x1000cae8	lockit	0x1000cd0c	slti	delta	time()	imm	slti $a2, $a0, 0x3c
+boot	low	/usr/bin/get	n32	0x1000cae8	lockit	0x1000cd18	branch-bltz	delta	time()	zero	bltz $a0, 0x1000ce3c
+boot	low	/usr/bin/mail	n32	0x100077b4	pipletr	0x10008300	slt	delta	stat-time-field:stat@0x54/lw	untainted-reg	slt $t1, $s2, $t1
+boot	low	/usr/bin/mail.local	n32	0x1000f9e0	sm_io_flush	0x1000fdb4	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t3, 0x10010074
+boot	low	/usr/bin/mail.local	n32	0x10010ab0	sm_snprintf	0x1001129c	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $v0, 0x10011564
+boot	low	/usr/bin/mail.local	n32	0x10010ab0	sm_snprintf	0x10011720	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x10011694
+boot	low	/usr/bin/mail.local	n32	0x10011790	sm_fvwrite	0x10011be8	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t4, 0x10011f9c
+boot	low	/usr/bin/mail.local	n32	0x10011790	sm_fvwrite	0x10012278	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t5, 0x10012758
+boot	low	/usr/bin/mail.local	n32	0x10011790	sm_fvwrite	0x100128cc	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t4, 0x10012960
+boot	low	/usr/bsd/rwho	n32	0x10001238	main	0x100015ec	div	const-only	none	const60	div $zero, $v0, $fp
+boot	low	/usr/bsd/rwho	n32	0x10001238	main	0x10001604	div	const-only	none	const60	div $zero, $t2, $fp
+boot	low	/usr/bsd/rwho	n32	0x10001238	main	0x1000168c	div	const-only	none	const60	div $zero, $a1, $fp
+boot	low	/usr/etc/autofsd	n32	0x100064d0	usage	0x100069a8	slti	delta	time()	imm	slti $t0, $t0, 0x259
+boot	low	/usr/etc/autofsd	n32	0x10010910	nfs_cast	0x10010c0c	branch-bgez	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bgez $v0, 0x10010c24
+boot	low	/usr/etc/autofsd	n32	0x10010910	nfs_cast	0x10011098	branch-bgtz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bgtz $at, 0x10010bf8
+boot	low	/usr/etc/cron	n32	0x7fc04cc8	readcron	0x7fc059d0	div	const-only	none	const60	div $zero, $s3, $ra
+boot	low	/usr/etc/cron	n32	0x7fc04cc8	readcron	0x7fc07158	branch-bgtz	delta	time()	zero	bgtz $s0, 0x7fc06ff4
+boot	low	/usr/etc/gssd	n32	0x1001ef70	krb5_string_to_enctype	0x1001f7ac	div	const-only	none	const86400	div $zero, $a0, $v1
+boot	low	/usr/etc/gssd	n32	0x1001ef70	krb5_string_to_enctype	0x1001f800	div	const-only	none	const3600	div $zero, $s4, $a2
+boot	low	/usr/etc/gssd	n32	0x1001ef70	krb5_string_to_enctype	0x1001f814	div	const-only	none	const60	div $zero, $s3, $v0
+boot	low	/usr/etc/gssd	n32	0x1001ef70	krb5_string_to_enctype	0x1001f874	div	const-only	none	const60	div $zero, $s3, $a2
+boot	low	/usr/etc/gssd	n32	0x1001ef70	krb5_string_to_enctype	0x1001f954	div	const-only	none	const3600	div $zero, $s4, $t1
+boot	low	/usr/etc/gssd	n32	0x1001ef70	krb5_string_to_enctype	0x1001f970	div	const-only	none	const60	div $zero, $a3, $t0
+boot	low	/usr/etc/inetd	n32	0x7fc02ae4	_mcount	0x7fc02b34	slti	delta	gettimeofday.tv_sec:gtod@0x0/lw	imm	slti $v0, $v0, 0x3d
+boot	low	/usr/etc/lmgrd	n32	0x1000e040	ls_statfile	0x1000e0e0	slti	delta	time()	imm	slti $a1, $a1, 0x709
+boot	low	/usr/etc/lmgrd	n32	0x1000e95c	ls_statfile_rm	0x1000ea5c	slt	delta	stat-time-field:stat@0x4c/lw	untainted-reg	slt $a3, $a3, $t0
+boot	low	/usr/etc/lmgrd	n32	0x1001427c	ls_startup	0x10014d58	slti	delta	time()	imm	slti $a1, $a1, 0x79
+boot	low	/usr/etc/lmgrd	n32	0x1001e318	ls_lickey_to_conf	0x1001e37c	slti	delta	time()	imm	slti $a2, $a2, 0xe10
+boot	low	/usr/etc/lmgrd	n32	0x10025850	ls_socket	0x10025b8c	slti	delta	time()	imm	slti $t0, $t0, 0x12d
+boot	low	/usr/etc/lmgrd	n32	0x1003a768	lc_expire_days	0x1003aa3c	div	const-only	none	const86400	div $zero, $t1, $t0
+boot	low	/usr/etc/lmgrd	n32	0x1003b968	l_set_attr	0x1003bb28	div	delta	time()	const60	div $zero, $a0, $v1
+boot	low	/usr/etc/lmgrd	n32	0x100413fc	l_read_borrow	0x1004160c	slt	delta	time()	untainted-reg	slt $t4, $t4, $t5
+boot	low	/usr/etc/lmgrd	n32	0x1004a884	l_auth_data	0x1004a8fc	slti	delta	time()	imm	slti $a3, $a3, 0x14
+boot	low	/usr/etc/lmgrd	n32	0x10075c78	lc_username	0x10075e7c	slt	delta	stat-time-field:stat@0x4c/lw	untainted-reg	slt $t0, $t0, $t1
+boot	low	/usr/etc/miser	n32	0x1000b210	__dt__18miser_job_scheduleGv	0x1000bebc	div	quot	gettimeofday.tv_sec:gtod@0x0/lw	reg	div $zero, $a3, $a1
+boot	low	/usr/etc/miser	n32	0x1000b210	__dt__18miser_job_scheduleGv	0x1000c208	div	quot	gettimeofday.tv_sec:gtod@0x0/lw	reg	div $zero, $s6, $at
+boot	low	/usr/etc/miser	n32	0x1000b210	__dt__18miser_job_scheduleGv	0x1000c21c	div	quot	gettimeofday.tv_sec:gtod@0x0/lw	reg	div $zero, $v0, $a1
+boot	low	/usr/etc/miser	n32	0x1000b210	__dt__18miser_job_scheduleGv	0x1000c4b8	slt	quot	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t3, $a2, $a1
+boot	low	/usr/etc/mrouted	n32	0x10004440	main	0x10004d58	branch-blez	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	blez $s1, 0x10004d68
+boot	low	/usr/etc/mrouted	n32	0x10004440	main	0x10004d68	branch-blez	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	blez $s1, 0x10004da0
+boot	low	/usr/etc/mrouted	n32	0x1000692c	add_table_entry	0x10006a3c	slti	delta	time()	imm	slti $t0, $t0, 6
+boot	low	/usr/etc/pmcd	n64	0x10017a38	__pmGetLicense	0x10017fd4	div	delta	gettimeofday.tv_sec:gtod@0x4/lw	const86400	div $zero, $t2, $t3
+boot	low	/usr/etc/pmcd	n64	0x10018248	license_chk_out	0x100183a8	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v1, $a1, $v1
+boot	low	/usr/etc/pmcd	n64	0x10018248	license_chk_out	0x100183b4	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+boot	low	/usr/etc/pmcd	n64	0x10018248	license_chk_out	0x100183c8	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+boot	low	/usr/etc/pmcd	n64	0x10018248	license_chk_out	0x10018404	div	const-only	none	const86400	div $zero, $a1, $at
+boot	low	/usr/etc/pmcd	n64	0x10018248	license_chk_out	0x10018434	div	const-only	none	const86400	div $zero, $a1, $ra
+boot	low	/usr/etc/pmcd	n64	0x1001af20	lc_check	0x1001afa8	slti	delta	time()	imm	slti $v0, $v0, 0x14
+boot	low	/usr/etc/pmcd	n64	0x10023034	l_read_timeout	0x100230e0	ddiv	abs	gettimeofday.tv_sec:gtod@0x0/ld	const100	ddiv $zero, $a3, $t0
+boot	low	/usr/etc/pmcd	n64	0x10023034	l_read_timeout	0x100232cc	ddiv	abs	gettimeofday.tv_sec:gtod@0x0/ld	const100	ddiv $zero, $a2, $a3
+boot	low	/usr/etc/pmcd	n64	0x10023034	l_read_timeout	0x1002330c	branch-bgez	delta	gettimeofday.tv_sec:gtod@0x0/ld	zero	bgez $a2, 0x1002332c
+boot	low	/usr/etc/pmcd	n64	0x10023034	l_read_timeout	0x10023360	branch-bgtz	delta	gettimeofday.tv_sec:gtod@0x0/ld	zero	bgtz $a2, 0x1002313c
+boot	low	/usr/etc/pmcd	n64	0x10028534	lc_expire_days	0x1002867c	div	const-only	none	const86400	div $zero, $at, $v0
+boot	low	/usr/etc/pmcd	n64	0x100359a0	l_now	0x100359d4	ddiv	abs	gettimeofday.tv_sec:gtod@0x0/ld	const10000	ddiv $zero, $at, $v0
+boot	low	/usr/etc/portmap	n32	0x1000818c	rpcbproc_taddr2uaddr_com	0x10009450	slti	delta	time()	imm	slti $t8, $t8, 0x12d
+boot	low	/usr/etc/ppp	n32	0x1000f464	parse_conf	0x100140cc	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t4, 0x10014194
+boot	low	/usr/etc/ppp	n32	0x1000f464	parse_conf	0x100140d0	slti	delta	gettimeofday.tv_sec:gtod@0x0/lw	imm	slti $a0, $t4, 6
+boot	low	/usr/etc/ppp	n32	0x1002316c	rm_rend	0x10023c10	div	const-only	none	const60	div $zero, $v0, $t1
+boot	low	/usr/etc/ppp	n32	0x1002316c	rm_rend	0x10023c2c	div	const-only	none	const3600	div $zero, $v0, $t4
+boot	low	/usr/etc/ppp	n32	0x1002316c	rm_rend	0x10023c50	div	const-only	none	const60	div $zero, $a3, $t1
+boot	low	/usr/etc/ppp	n32	0x100288e4	chat	0x1002a1b0	div	const-only	none	const60	div $zero, $at, $v0
+boot	low	/usr/etc/proclaim	n32	0x10006ce0	main	0x100079f8	slti	delta	time(&t):time@0x0/lw	imm	slti $t1, $v0, 0x3d
+boot	low	/usr/etc/proclaim	n32	0x10006ce0	main	0x10007c64	slti	delta	time(&t):time@0x0/lw	imm	slti $t0, $a1, 0x3d
+boot	low	/usr/etc/proclaim	n32	0x10006ce0	main	0x10008580	div	const-only	none	const86400	div $zero, $s0, $a3
+boot	low	/usr/etc/proclaim	n32	0x10006ce0	main	0x100085d8	div	const-only	none	const3600	div $zero, $s0, $t0
+boot	low	/usr/etc/proclaim	n32	0x10006ce0	main	0x1000862c	div	const-only	none	const60	div $zero, $s0, $a3
+boot	low	/usr/etc/qpage	n32	0x100034bc	getinput	0x10003d34	div	const-only	none	const3600	div $zero, $t3, $t4
+boot	low	/usr/etc/qpage.d	n32	0x10005910	authorize	0x10006f1c	slt	delta	time()	untainted-reg	slt $a2, $a2, $s0
+boot	low	/usr/etc/qpage.d	n32	0x1000b7e8	getinput	0x1000c0c0	div	const-only	none	const3600	div $zero, $t3, $t4
+boot	low	/usr/etc/rpcbind	n32	0x1000a3c0	create_rmtcall_fd	0x1000b404	slti	delta	time()	imm	slti $t8, $t8, 0x12d
+boot	low	/usr/etc/slip	n32	0x10008a44	rm_rend	0x100094d8	div	const-only	none	const60	div $zero, $v0, $t1
+boot	low	/usr/etc/slip	n32	0x10008a44	rm_rend	0x100094f4	div	const-only	none	const3600	div $zero, $v0, $t4
+boot	low	/usr/etc/slip	n32	0x10008a44	rm_rend	0x10009518	div	const-only	none	const60	div $zero, $a3, $t1
+boot	low	/usr/etc/slip	n32	0x1000cb5c	chat	0x1000e428	div	const-only	none	const60	div $zero, $at, $v0
+boot	low	/usr/etc/snmpd	n32	0x1000dfb4	updateAtTable__Gv	0x1000e0d8	slti	delta	time()	imm	slti $t0, $t0, 0x1e
+boot	low	/usr/etc/snmpd	n32	0x1000dfb4	updateAtTable__Gv	0x1000e0f0	slti	delta	time()	imm	slti $t2, $t2, 6
+boot	low	/usr/etc/snmpd	n32	0x10010190	updateIfTable__Gv	0x10010d8c	slt	delta	time()	untainted-reg	slt $a1, $a1, $a2
+boot	low	/usr/etc/snmpd	n32	0x10012f9c	updateIpRouteTable__Gv	0x10013038	slti	delta	time()	imm	slti $t1, $t1, 0x1e
+boot	low	/usr/etc/snmpd	n32	0x10012f9c	updateIpRouteTable__Gv	0x10013050	slti	delta	time()	imm	slti $t3, $t3, 6
+boot	low	/usr/etc/snmpd	n32	0x10013f34	updateNetToMediaTable__Gv	0x10013fc8	slti	delta	time()	imm	slti $t0, $t0, 0x1e
+boot	low	/usr/etc/snmpd	n32	0x10013f34	updateNetToMediaTable__Gv	0x10013fe0	slti	delta	time()	imm	slti $t2, $t2, 6
+boot	low	/usr/etc/snmpd	n32	0x1001bbc4	updateTcpConnTable__Gv	0x1001bc44	slti	delta	time()	imm	slti $a2, $a2, 5
+boot	low	/usr/etc/snmpd	n32	0x1001bbc4	updateTcpConnTable__Gv	0x1001bc5c	slti	delta	time()	imm	slti $t0, $t0, 3
+boot	low	/usr/etc/snmpd	n32	0x1001d4bc	updateUdpLisTable__Gv	0x1001d53c	slti	delta	time()	imm	slti $a2, $a2, 5
+boot	low	/usr/etc/snmpd	n32	0x1001d4bc	updateUdpLisTable__Gv	0x1001d554	slti	delta	time()	imm	slti $t0, $t0, 3
+boot	low	/usr/etc/talkd	n32	0x100020c0	process_request	0x100026e0	slti	delta	gettimeofday.tv_sec:gtod@0x0/lw	imm	slti $a3, $a3, 0x3d
+boot	low	/usr/etc/talkd	n32	0x1000277c	find_request	0x1000285c	slti	delta	gettimeofday.tv_sec:gtod@0x0/lw	imm	slti $a3, $a3, 0x3d
+boot	low	/usr/etc/timed	n32	0x10002800	measure	0x10002d10	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a0, 0x10002b28
+boot	low	/usr/etc/timed	n32	0x10002800	measure	0x10002d6c	mult-timeconst	quot	gettimeofday.tv_sec:gtod@0x0/lw	const1000	mult $t2, $t3
+boot	low	/usr/etc/timed	n32	0x10003b14	slave	0x10003c48	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t0, 0x10003f34
+boot	low	/usr/etc/timed	n32	0x10003b14	slave	0x10004810	mult-timeconst	abs	gettimeofday.tv_sec:gtod@0x0/lw	const1000	mult $v0, $a2
+boot	low	/usr/etc/timed	n32	0x10009194	spreadtime	0x10009434	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t9, 0x100094c4
+boot	low	/usr/etc/timeslave	n32	0x10002400	secdiff	0x100025d8	mult-timeconst	quot	gettimeofday.tv_sec:gtod@0x0/lw	const1000	mult $v1, $a0
+boot	low	/usr/etc/timeslave	n32	0x10002400	secdiff	0x100026b8	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $v0, 0x100028f0
+boot	low	/usr/etc/timeslave	n32	0x10002400	secdiff	0x100035dc	slti	quot	gettimeofday.tv_sec:gtod@0x0/lw	imm	slti $v0, $v0, 0x384
+boot	low	/usr/etc/timeslave	n32	0x1000456c	drift	0x100052f8	div	const-only	none	const86400	div $zero, $a2, $a3
+boot	low	/usr/etc/timeslave	n32	0x1000456c	drift	0x1000629c	slti	delta	gettimeofday.tv_sec:gtod@0x0/lw	imm	slti $t1, $v0, -0x13
+boot	low	/usr/etc/timeslave	n32	0x1000456c	drift	0x100062ac	slti	delta	gettimeofday.tv_sec:gtod@0x0/lw	imm	slti $a0, $v0, 0x14
+boot	low	/usr/lib/libpthread.so	o32	0xc004b00	_SGIPT_pt_crt0	0xc007dc8	branch-bgez	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bgez $v0, 0xc007dd8
+boot	low	/usr/lib/sa/sadc	n64	0x10001e38	main	0x10001fc4	slt	delta	time()	untainted-reg	slt $t1, $t1, $t2
+boot	low	/usr/lib/sendmail	n32	0x100943d0	sm_signal	0x10094dbc	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $v0, 0x10095084
+boot	low	/usr/lib/sendmail	n32	0x100943d0	sm_signal	0x10095240	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x100951b4
+boot	low	/usr/lib/sendmail	n32	0x1009c840	sm_io_reopen	0x1009d5a4	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t3, 0x1009d864
+boot	low	/usr/lib/sendmail	n32	0x1009dc40	sm_io_fgets	0x1009e738	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t4, 0x1009eaec
+boot	low	/usr/lib/sendmail	n32	0x1009dc40	sm_io_fgets	0x1009edc8	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t5, 0x1009f2a8
+boot	low	/usr/lib/sendmail	n32	0x1009dc40	sm_io_fgets	0x1009f41c	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t4, 0x1009f4b0
+boot	low	/usr/lib/uucp/uugetty	n32	0x10008f04	chat	0x1000a7d0	div	const-only	none	const60	div $zero, $at, $v0
+boot	low	/usr/lib32/cluster/cbe/fs2d	n32	0x10024e90	fs2d_log_time	0x10024f24	div	abs	clock_gettime.tv_sec:cgt@0x4/lw	const1000000	div $zero, $a2, $v1
+boot	low	/usr/lib32/cluster/cbe/fs2d	n32	0x10033250	fs2d_CBELog	0x10033354	div	abs	clock_gettime.tv_sec:cgt@0x4/lw	const1000000	div $zero, $at, $ra
+boot	low	/usr/lib32/cluster/cbe/fs2d	n32	0x100339d0	CBELogV	0x10033ac8	div	abs	clock_gettime.tv_sec:cgt@0x4/lw	const1000000	div $zero, $at, $ra
+boot	low	/usr/lib32/cluster/cbe/fs2d	n32	0x10034080	CBELogV	0x10034374	div	abs	clock_gettime.tv_sec:cgt@0x4/lw	const1000000	div $zero, $a2, $v1
+boot	low	/usr/lib32/cluster/cbe/fs2d	n32	0x10068d18	l_auth_data	0x10068d90	slti	delta	time()	imm	slti $a3, $a3, 0x14
+boot	low	/usr/lib32/cluster/cbe/fs2d	n32	0x10075e7c	l_set_attr	0x1007603c	div	delta	time()	const60	div $zero, $a0, $v1
+boot	low	/usr/lib32/cluster/cbe/fs2d	n32	0x1007f394	l_read_borrow	0x1007f5a4	slt	delta	time()	untainted-reg	slt $t4, $t4, $t5
+boot	low	/usr/lib32/cluster/cbe/fs2d	n32	0x1008ecb0	lc_expire_days	0x1008ef84	div	const-only	none	const86400	div $zero, $t1, $t0
+boot	low	/usr/lib32/cluster/cbe/fs2d	n32	0x100b3ad4	lc_username	0x100b3cd8	slt	delta	stat-time-field:stat@0x4c/lw	untainted-reg	slt $t0, $t0, $t1
+boot	low	/usr/lib32/libcp21_javascript.so	n32	0x7bf0874	CPPR_mktime	0x7bf0a04	ddiv	const-only	none	const86400	ddiv $zero, $s2, $at
+boot	low	/usr/lib32/libcp21_javascript.so	n32	0x7bf0874	CPPR_mktime	0x7bf0b20	ddiv	const-only	none	const60	ddiv $zero, $s2, $a0
+boot	low	/usr/lib32/libnsl.so	n32	0xb419db0	_svc_vc_destroy_private	0xb41a108	slti	delta	gettimeofday.tv_sec:gtod@0x0/lw	imm	slti $v1, $v0, 0x23
+boot	low	/usr/lib32/libnsl.so	n32	0xb419db0	_svc_vc_destroy_private	0xb41a10c	slt	delta	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t2, $s6, $v0
+boot	low	/usr/lib32/libnsl.so	n32	0xb41ecbc	_svcauth_des	0xb41ef90	slt	delta	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a1, $a0, $t2
+boot	low	/usr/lib32/libpcp.so.2	n32	0x422848	__pmLogRead	0x424824	div	const-only	none	const3600	div $zero, $s2, $t6
+boot	low	/usr/lib32/libpcp.so.2	n32	0x422848	__pmLogRead	0x424840	div	const-only	none	const60	div $zero, $t4, $t5
+boot	low	/usr/lib64/libpcp.so.2	n64	0x2026ab4	__pmLogRead	0x2028d2c	div	const-only	none	const3600	div $zero, $s2, $a3
+boot	low	/usr/lib64/libpcp.so.2	n64	0x2026ab4	__pmLogRead	0x2028d48	div	const-only	none	const60	div $zero, $a1, $a2
+boot	low	/usr/lib64/mips3/libc.so.1	n64	0xda0e834	waitpid	0xda0f088	ddiv	const-only	none	const86400	ddiv $zero, $t4, $t2
+boot	low	/usr/lib64/mips3/libc.so.1	n64	0xda0e834	waitpid	0xda0f0e0	ddiv	const-only	none	const86400	ddiv $zero, $t0, $t2
+boot	low	/usr/lib64/mips3/libc.so.1	n64	0xda0e834	waitpid	0xda0f140	ddiv	const-only	none	const3600	ddiv $zero, $a3, $t6
+boot	low	/usr/lib64/mips3/libc.so.1	n64	0xda0e834	waitpid	0xda0f158	ddiv	const-only	none	const60	ddiv $zero, $at, $t7
+boot	low	/usr/lib64/mips3/libc.so.1	n64	0xda8a3a0	pmap_getport	0xda8aa48	mult-timeconst	abs	gettimeofday.tv_sec:gtod@0x4/lw	const1000	mult $t8, $t7
+boot	low	/usr/lib64/mips3/libc.so.1	n64	0xdad0860	xdr_rpcb_stat_byvers	0xdad0fb4	slti	delta	gettimeofday.tv_sec:gtod@0x4/lw	imm	slti $t4, $t1, 0x23
+boot	low	/usr/lib64/mips3/libc.so.1	n64	0xdad0860	xdr_rpcb_stat_byvers	0xdad0fb8	slt	delta	gettimeofday.tv_sec:gtod@0x4/lw	untainted-reg	slt $t2, $s6, $t1
+boot	low	/usr/lib64/mips4/libc.so.1	n64	0xda0da28	waitpid	0xda0e824	ddiv	const-only	none	const86400	ddiv $zero, $t5, $t2
+boot	low	/usr/lib64/mips4/libc.so.1	n64	0xda0da28	waitpid	0xda0e868	ddiv	const-only	none	const86400	ddiv $zero, $t0, $t2
+boot	low	/usr/lib64/mips4/libc.so.1	n64	0xda0da28	waitpid	0xda0e8bc	ddiv	const-only	none	const3600	ddiv $zero, $a3, $t6
+boot	low	/usr/lib64/mips4/libc.so.1	n64	0xda0da28	waitpid	0xda0e8d4	ddiv	const-only	none	const60	ddiv $zero, $t9, $t5
+boot	low	/usr/lib64/mips4/libc.so.1	n64	0xda83da4	pmap_getport	0xda84450	mult-timeconst	abs	gettimeofday.tv_sec:gtod@0x4/lw	const1000	mult $t7, $t6
+boot	low	/usr/lib64/mips4/libc.so.1	n64	0xdac6cc4	xdr_rpcb_stat_byvers	0xdac7450	slti	delta	gettimeofday.tv_sec:gtod@0x4/lw	imm	slti $t4, $t1, 0x23
+boot	low	/usr/lib64/mips4/libc.so.1	n64	0xdac6cc4	xdr_rpcb_stat_byvers	0xdac7454	slt	delta	gettimeofday.tv_sec:gtod@0x4/lw	untainted-reg	slt $t2, $s6, $t1
+boot	low	/usr/sbin/Mail	n32	0x100156c0	makelock	0x10015ac4	slt	delta	stat-time-field:stat@0x54/lw	untainted-reg	slt $t1, $s4, $t1
+boot	low	/usr/sbin/clock	n32	0x100041d0	__std__needed_destruction_list	0x100043b8	div	const-only	none	const60	div $zero, $t0, $t1
+boot	low	/usr/sbin/cupsd	n32	0x100268c0	DeletePrinterFromClass	0x10027f8c	slti	delta	time()	imm	slti $a3, $a3, 0x3c
+boot	low	/usr/sbin/cupsd	n32	0x10028240	CloseClient	0x10033d4c	slt	delta	time()	untainted-reg	slt $a0, $a0, $s2
+boot	low	/usr/sbin/cupsd	n32	0x10036220	main	0x1003671c	slti	delta	time()	imm	slti $t4, $t4, 0xa
+boot	low	/usr/sbin/cupsd	n32	0x10036220	main	0x10036744	slt	delta	time()	untainted-reg	slt $t5, $t5, $a1
+boot	low	/usr/sbin/cupsd	n32	0x10036220	main	0x1003687c	slt	delta	time()	untainted-reg	slt $a1, $a1, $a2
+boot	low	/usr/sbin/cupsd	n32	0x10036220	main	0x10036cc0	slt	delta	time()	untainted-reg	slt $t6, $t6, $t7
+boot	low	/usr/sbin/cupsd	n32	0x10037a40	SetStringf	0x10038044	branch-blez	delta	time()	zero	blez $s0, 0x10038088
+boot	low	/usr/sbin/cupsd	n32	0x10037a40	SetStringf	0x10038048	slt	delta	time()	untainted-reg	slt $t8, $t4, $s0
+boot	low	/usr/sbin/cupsd	n32	0x1004a5c0	NetIFFree	0x1004a650	slti	delta	time()	imm	slti $v0, $v0, 0x3c
+boot	low	/usr/sbin/cupsd	n32	0x100f9160	KnownDAFromCache	0x100f91cc	slti	delta	time()	imm	slti $v1, $v1, 0x12d
+boot	low	/usr/sbin/dump	n32	0x10003518	main	0x10004ee0	div	delta	time(&t):time@0x0/lw	const3600	div $zero, $t0, $t1
+boot	low	/usr/sbin/dump	n32	0x10003518	main	0x10004efc	div	quot	time(&t):time@0x0/lw	const60	div $zero, $a1, $a3
+boot	low	/usr/sbin/dump	n32	0x10005028	msgtail	0x1000554c	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t9, $t9, $ra
+boot	low	/usr/sbin/espadmin	n32	0x10008ea0	-	0x10009038	branch-bgtz	delta	time()	zero	bgtz $s1, 0x10008fdc
+boot	low	/usr/sbin/espisamchk	n32	0x1002b6e0	get_date	0x1002b89c	slt	delta	time()	untainted-reg	slt $a3, $s2, $a3
+boot	low	/usr/sbin/ggd	n32	0x100394ec	license_chk_out	0x10039644	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t0, $a1, $t0
+boot	low	/usr/sbin/ggd	n32	0x100394ec	license_chk_out	0x10039650	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+boot	low	/usr/sbin/ggd	n32	0x100394ec	license_chk_out	0x10039664	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+boot	low	/usr/sbin/ggd	n32	0x100394ec	license_chk_out	0x100396a0	div	const-only	none	const86400	div $zero, $a1, $at
+boot	low	/usr/sbin/ggd	n32	0x100394ec	license_chk_out	0x100396d0	div	const-only	none	const86400	div $zero, $a1, $ra
+boot	low	/usr/sbin/ggd2	n32	0x10011f2c	license_check	0x100121b8	div	delta	gettimeofday.tv_sec:gtod@0x0/lw	const86400	div $zero, $t3, $t2
+boot	low	/usr/sbin/ggd2	n32	0x1001e4d4	license_chk_out	0x1001e62c	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t0, $a1, $t0
+boot	low	/usr/sbin/ggd2	n32	0x1001e4d4	license_chk_out	0x1001e638	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+boot	low	/usr/sbin/ggd2	n32	0x1001e4d4	license_chk_out	0x1001e64c	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+boot	low	/usr/sbin/ggd2	n32	0x1001e4d4	license_chk_out	0x1001e688	div	const-only	none	const86400	div $zero, $a1, $at
+boot	low	/usr/sbin/ggd2	n32	0x1001e4d4	license_chk_out	0x1001e6b8	div	const-only	none	const86400	div $zero, $a1, $ra
+boot	low	/usr/sbin/merge	n32	0x10015e54	date2str	0x10016050	div	const-only	none	const3600	div $zero, $s0, $a2
+boot	low	/usr/sbin/merge	n32	0x10015e54	date2str	0x100160b4	div	const-only	none	const60	div $zero, $s3, $a3
+boot	low	/usr/sbin/ntpd	n32	0x100259f0	-	0x10025b78	slti	delta	time(&t):time@0x0/lw	imm	slti $t8, $t8, 0xe11
+boot	low	/usr/sbin/ntpd	n32	0x100259f0	-	0x10025b98	slti	delta	time(&t):time@0x0/lw	imm	slti $ra, $ra, 0xe11
+boot	low	/usr/sbin/ntpd	n32	0x1002ec24	init_recvbuff	0x1002f354	div	abs	clock_gettime.tv_sec:cgt@0x4/lw	const1000	div $zero, $t9, $ra
+boot	low	/usr/sbin/ntpd	n32	0x1002ec24	init_recvbuff	0x1002f3b8	branch-bltz	delta	clock_gettime.tv_sec:cgt@0x4/lw	zero	bltz $v0, 0x1002f47c
+boot	low	/usr/sbin/ntpdate	n32	0x10006e60	authusekey	0x10007174	div	abs	clock_gettime.tv_sec:cgt@0x4/lw	const1000	div $zero, $t9, $ra
+boot	low	/usr/sbin/ntpdate	n32	0x10006e60	authusekey	0x100071d8	branch-bltz	delta	clock_gettime.tv_sec:cgt@0x4/lw	zero	bltz $v0, 0x1000729c
+boot	low	/usr/sbin/pmie	n32	0x10022428	__pmGetLicense	0x10022948	div	delta	gettimeofday.tv_sec:gtod@0x0/lw	const86400	div $zero, $t2, $t3
+boot	low	/usr/sbin/pmie	n32	0x10022b78	license_chk_out	0x10022cd0	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t0, $a1, $t0
+boot	low	/usr/sbin/pmie	n32	0x10022b78	license_chk_out	0x10022cdc	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+boot	low	/usr/sbin/pmie	n32	0x10022b78	license_chk_out	0x10022cf0	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+boot	low	/usr/sbin/pmie	n32	0x10022b78	license_chk_out	0x10022d2c	div	const-only	none	const86400	div $zero, $a1, $at
+boot	low	/usr/sbin/pmie	n32	0x10022b78	license_chk_out	0x10022d5c	div	const-only	none	const86400	div $zero, $a1, $ra
+login	high	/sbin/su	n32	0x10003020	main	0x100047e4	div	abs	time()	const86400	div $zero, $t1, $a3
+login	high	/sbin/su	n32	0x10003020	main	0x1000486c	div	abs	time()	const86400	div $zero, $t1, $a3
+login	high	/usr/bin/passwd	n32	0x10002650	main	0x10002d00	div	abs	time()	const86400	div $zero, $v0, $a1
+login	high	/usr/bin/passwd	n32	0x10002650	main	0x10003438	div	abs	time()	const86400	div $zero, $v0, $s2
+login	high	/usr/bin/passwd	n32	0x10002650	main	0x10003464	div	abs	time()	const86400	div $zero, $v0, $s2
+login	high	/usr/bin/passwd	n32	0x10002650	main	0x100034b0	div	abs	time()	const86400	div $zero, $v0, $s2
+login	high	/usr/bin/passwd	n32	0x10002650	main	0x100034d0	div	abs	time()	const86400	div $zero, $v0, $s2
+login	high	/usr/bin/passwd	n32	0x10002650	main	0x1000359c	div	abs	time()	const86400	div $zero, $v0, $s2
+login	high	/usr/bin/passwd	n32	0x10002650	main	0x100035b4	div	abs	time()	const86400	div $zero, $v0, $s2
+login	high	/usr/bin/passwd	n32	0x10004c68	display_one_entry	0x10005828	div	abs	time()	const604800	div $zero, $v0, $a1
+login	high	/usr/bin/passwd	n32	0x10004c68	display_one_entry	0x100058a0	div	abs	time()	const604800	div $zero, $v0, $a1
+login	high	/usr/bin/passwd	n32	0x10004c68	display_one_entry	0x10005938	div	abs	time()	const604800	div $zero, $v0, $a2
+login	high	/usr/bin/passwd	n32	0x100061dc	display_one_entry	0x10006514	div	abs	time()	const86400	div $zero, $s0, $a1
+login	high	/usr/etc/ftpd	n32	0x10005bb8	user	0x10005f8c	div	abs	time()	const86400	div $zero, $v0, $a2
+login	high	/usr/etc/rpc.passwd	n32	0x10002d58	main	0x10003afc	div	abs	time()	const86400	div $zero, $v0, $v1
+login	high	/usr/etc/rshd	n32	0x7fc029d8	main	0x7fc03a68	div	abs	time()	const86400	div $zero, $v0, $a2
+login	high	/usr/lib/iaf/scheme	n32	0x10008738	-	0x100089dc	div	abs	time()	const86400	div $zero, $v0, $t1
+login	high	/usr/lib/iaf/scheme	n32	0x10008738	-	0x10009c4c	div	abs	time()	const86400	div $zero, $s1, $a0
+login	high	/usr/lib32/security/pam_ldap.so	n32	0x4052a8	pam_sm_authenticate	0x4063cc	div	abs	time()	const86400	div $zero, $v0, $t8
+login	high	/usr/lib32/security/pam_ldap.so	n32	0x4052a8	pam_sm_authenticate	0x406874	div	abs	time(&t):time@0x0/lw	const86400	div $zero, $at, $s6
+login	high	/usr/lib32/security/pam_unix.so	n32	0x4028d8	pam_sm_acct_mgmt	0x402a14	div	abs	time()	const86400	div $zero, $v0, $a3
+login	high	/usr/lib32/security/pam_unix.so	n32	0x4028d8	pam_sm_acct_mgmt	0x403e2c	div	abs	time()	const86400	div $zero, $v0, $t0
+login	high	/usr/lib64/security/pam_unix.so	n64	0x403034	pam_sm_acct_mgmt	0x40316c	div	abs	time()	const86400	div $zero, $v0, $a3
+login	high	/usr/lib64/security/pam_unix.so	n64	0x403034	pam_sm_acct_mgmt	0x40461c	div	abs	time()	const86400	div $zero, $v0, $t2
+login	medium	/lib32/libpam_misc.so	n32	0x401484	pam_misc_setenv	0x401550	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $v0, $v0, $a3
+login	medium	/lib32/libpam_misc.so	n32	0x401484	pam_misc_setenv	0x401568	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $v1, $a3, $a2
+login	medium	/usr/etc/fam	n32	0x10014580	defer_scan__10ServerHostGiN21PCc	0x10014654	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t8, $t8, $s0
+login	medium	/usr/etc/fam	n32	0x10014580	defer_scan__10ServerHostGiN21PCc	0x10014688	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $ra, $ra, $s0
+login	medium	/usr/etc/fam	n32	0x10014580	defer_scan__10ServerHostGiN21PCc	0x100146a8	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $at, $s0
+login	medium	/usr/etc/fam	n32	0x10014580	defer_scan__10ServerHostGiN21PCc	0x100146c4	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $v0, $s0, $a1
+login	medium	/usr/etc/fam	n32	0x10014a5c	event_handler__10ServerHostSGPC5EventiPCcPv	0x10014c14	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $v1, $v1, $a0
+login	medium	/usr/etc/fam	n32	0x1001f3a4	handle_io__9SchedulerSGPC6fd_setMQ2_9Scheduler6FDInfoQ3_9Scheduler6FDInfo7handler	0x1001f508	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $ra, $a3, $t0
+login	medium	/usr/etc/fam	n32	0x1001f3a4	handle_io__9SchedulerSGPC6fd_setMQ2_9Scheduler6FDInfoQ3_9Scheduler6FDInfo7handler	0x1001f5ec	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t2, $a0, $a3
+login	medium	/usr/lib64/libpam_misc.so	n64	0x401814	pam_misc_setenv	0x4018e8	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $v0, $v0, $a3
+login	medium	/usr/lib64/libpam_misc.so	n64	0x401814	pam_misc_setenv	0x401900	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $v1, $a3, $a2
+login	low	/sbin/su	n32	0x10003020	main	0x100047ec	slt	quot	time()	untainted-reg	slt $t0, $t2, $a2
+login	low	/sbin/su	n32	0x10003020	main	0x10004804	slt	quot	time()	untainted-reg	slt $t0, $t0, $t2
+login	low	/sbin/su	n32	0x10003020	main	0x10004874	slt	quot	time()	untainted-reg	slt $t0, $a2, $t0
+login	low	/usr/bin/passwd	n32	0x10002650	main	0x10002d10	slt	quot	time()	untainted-reg	slt $a2, $a0, $t2
+login	low	/usr/bin/passwd	n32	0x100061dc	display_one_entry	0x1000639c	div	const-only	none	const86400	div $zero, $t1, $t2
+login	low	/usr/bin/passwd	n32	0x100061dc	display_one_entry	0x10006680	slt	delta	time()	untainted-reg	slt $t4, $t3, $t4
+login	low	/usr/etc/ftpd	n32	0x10005bb8	user	0x10005fac	slt	quot	time()	untainted-reg	slt $t0, $a3, $a0
+login	low	/usr/etc/ftpd	n32	0x10005bb8	user	0x10005fc0	slt	quot	time()	untainted-reg	slt $v1, $a0, $v0
+login	low	/usr/etc/rshd	n32	0x7fc029d8	main	0x7fc03a74	slt	quot	time()	untainted-reg	slt $a3, $a3, $t0
+login	low	/usr/lib/iaf/scheme	n32	0x10008738	-	0x100089cc	div	const-only	none	const86400	div $zero, $t2, $t1
+login	low	/usr/lib/iaf/scheme	n32	0x10008738	-	0x100089ec	slt	quot	time()	untainted-reg	slt $a3, $a3, $t0
+login	low	/usr/lib/iaf/scheme	n32	0x10008738	-	0x10009c84	slt	quot	time()	untainted-reg	slt $a1, $s0, $v0
+login	low	/usr/lib/iaf/scheme	n32	0x10008738	-	0x10009c98	slt	quot	time()	untainted-reg	slt $a2, $a2, $s0
+login	low	/usr/lib/iaf/scheme	n32	0x10008738	-	0x10009ce8	slt	quot	time()	tainted	slt $t2, $t2, $a0
+login	low	/usr/lib/iaf/scheme	n32	0x10008738	-	0x10009e0c	div	const-only	none	const86400	div $zero, $s1, $s2
+login	low	/usr/lib/iaf/scheme	n32	0x10008738	-	0x10009e28	div	const-only	none	const86400	div $zero, $s1, $s2
+login	low	/usr/lib32/security/pam_ldap.so	n32	0x4052a8	pam_sm_authenticate	0x40688c	slt	quot	time(&t):time@0x0/lw	untainted-reg	slt $t8, $s2, $v0
+login	low	/usr/lib32/security/pam_ldap.so	n32	0x4052a8	pam_sm_authenticate	0x4068c8	slt	quot	time(&t):time@0x0/lw	untainted-reg	slt $t9, $s2, $t9
+login	low	/usr/lib32/security/pam_ldap.so	n32	0x4052a8	pam_sm_authenticate	0x4068d0	slt	quot	time(&t):time@0x0/lw	untainted-reg	slt $ra, $s2, $a0
+login	low	/usr/lib32/security/pam_ldap.so	n32	0x4052a8	pam_sm_authenticate	0x406ae8	div	const-only	none	const86400	div $zero, $a3, $s6
+login	low	/usr/lib32/security/pam_unix.so	n32	0x4028d8	pam_sm_acct_mgmt	0x402a20	slt	quot	time()	untainted-reg	slt $t0, $a0, $t3
+login	low	/usr/lib32/security/pam_unix.so	n32	0x4028d8	pam_sm_acct_mgmt	0x4043e8	div	const-only	none	const86400	div $zero, $v0, $a3
+login	low	/usr/lib64/security/pam_unix.so	n64	0x403034	pam_sm_acct_mgmt	0x403178	slt	quot	time()	untainted-reg	slt $t0, $a0, $t3
+login	low	/usr/lib64/security/pam_unix.so	n64	0x403034	pam_sm_acct_mgmt	0x404bcc	div	const-only	none	const86400	div $zero, $v0, $t2
+login	low	/usr/sbin/sshd	n32	0x10039610	get_local_port	0x10039d00	slt	delta	time()	untainted-reg	slt $v1, $t0, $t3
+rare	high	/usr/Cadmin/bin/clogin	n32	0x1000ee28	pwd0_isPasswdAged	0x1000ee60	div	abs	time()	const86400	div $zero, $v0, $v1
+rare	high	/usr/Cadmin/bin/clogin	n32	0x1000f724	pwd0_encryptNewPwd	0x1000f894	div	abs	time()	const604800	div $zero, $v0, $a1
+rare	high	/usr/Cadmin/bin/clogin	n32	0x1000fa84	pwd0_update	0x1000fd58	div	abs	time()	const86400	div $zero, $v0, $v1
+rare	high	/usr/Cadmin/bin/clogin	n32	0x10018950	pwd0_isInactive	0x10018984	div	abs	time()	const86400	div $zero, $v0, $v1
+rare	high	/usr/etc/LicenseManager	n32	0x100a1840	nls_date_stamp	0x100a1894	div	abs	gettimeofday.tv_sec:gtod@0x0/lw	const60	div $zero, $a2, $a3
+rare	high	/usr/etc/timedc	n32	0x10003824	measure	0x10003cfc	div	abs	gettimeofday.tv_sec:gtod@0x0/lw	const86400	div $zero, $s2, $a0
+rare	high	/usr/etc/timedc	n32	0x10003824	measure	0x10003d80	div	abs	gettimeofday.tv_sec:gtod@0x0/lw	const86400	div $zero, $t4, $s2
+rare	high	/usr/lib32/internal/libsaUserAcct.so	n32	0x9555dbc	SaGetRawNisAccount	0x9556888	div	abs	time()	const86400	div $zero, $v0, $a3
+rare	high	/usr/lib32/internal/libsaUserAcct.so	n32	0x95577f4	SaIsPasswordAged	0x955782c	div	abs	time()	const86400	div $zero, $v0, $v1
+rare	high	/usr/lib32/internal/libsaUserAcct.so	n32	0x9558034	SaEncryptNewPwd	0x95581a4	div	abs	time()	const604800	div $zero, $v0, $a1
+rare	high	/usr/pcp/bin/pmlogger	n32	0x10004a24	run_done	0x10004f50	div	abs	time(&t):time@0x0/lw	const60	div $zero, $a0, $t9
+rare	high	/usr/sysadm/services/authScheme/unixServer.so	n32	0x4036e0	CreateAuthenticator	0x4037b8	div	abs	time()	const86400	div $zero, $v0, $t3
+rare	medium	/etc/cups/ssl/openssl	n32	0x1004d840	-	0x1004dfb4	slt	abs	time()	tainted	slt $t0, $t0, $v0
+rare	medium	/etc/cups/ssl/openssl	n32	0x1004d840	-	0x1004e20c	slt	abs	time()	tainted	slt $t8, $t8, $v0
+rare	medium	/etc/cups/ssl/openssl	n32	0x100695a0	ssl_get_new_session	0x10069b6c	slt	abs	time()	untainted-reg	slt $a3, $a3, $v0
+rare	medium	/usr/Imgtcl/lib/libtclx7.6.0.so	n32	0x5ffd38c0	Tcl_KeylsetCmd	0x5ffd395c	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $v1, $v1, $a3
+rare	medium	/usr/OnRamp/bin/sdpd	n32	0x10003c98	do_select	0x10004bc0	slt	abs	time()	untainted-reg	slt $a1, $s3, $v0
+rare	medium	/usr/OpenOffice/program/libni641im.so	n32	0x5ff40a04	lookup__Q24inet17INetDNSCache_ImplRCQ23rtl8OUStringP20INetCoreDNSHostEntry	0x5ff40be4	slt	abs	time()	untainted-reg	slt $v1, $v1, $v0
+rare	medium	/usr/OpenOffice/program/libpsp641im.so	n32	0x5ff35ddc	read__Q23psp9FontCacheRCQ23rtl7OString	0x5ff368dc	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $v0, $s0, $v0
+rare	medium	/usr/OpenOffice/program/libvcl641im.so	n32	0x5feb1528	Yield__7SalXLibUc	0x5feb19ac	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $v0, $v0, $v1
+rare	medium	/usr/OpenOffice/program/libvcl641im.so	n32	0x5feb1e48	Start__8SalTimerUl	0x5feb1f3c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $v0, $v0, $a0
+rare	medium	/usr/OpenOffice/program/libzip641im.so	n32	0x5ffccdf0	check_for_newer	0x5ffcce44	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $s0, $s0, $v0
+rare	medium	/usr/bin/X11/xbiff	n32	0x100025e0	main	0x100026bc	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $a0, $a0, $a1
+rare	medium	/usr/bin/X11/xlock	n32	0x1000f850	main	0x10010c5c	slt	abs	time()	untainted-reg	slt $t4, $t4, $v0
+rare	medium	/usr/bin/openssl	n32	0x10033430	-	0x10033ba4	slt	abs	time()	tainted	slt $t1, $t1, $v0
+rare	medium	/usr/bin/openssl	n32	0x10033430	-	0x10033e04	slt	abs	time()	tainted	slt $t8, $t8, $v0
+rare	medium	/usr/bin/rmail	n32	0x10008f40	sm_io_close	0x10009354	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t5, $t5, $t1
+rare	medium	/usr/bin/rmail	n32	0x10008f40	sm_io_close	0x100097d8	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $at, $v0
+rare	medium	/usr/bin/rmail	n32	0x10008f40	sm_io_close	0x100099a0	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t4, $a0, $t4
+rare	medium	/usr/bin/rmail	n32	0x10008f40	sm_io_close	0x10009b00	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t3, $t3, $t4
+rare	medium	/usr/bin/smrsh	n32	0x1000d720	sm_snprintf	0x1000dc44	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t5, $t5, $t1
+rare	medium	/usr/bin/smrsh	n32	0x1000d720	sm_snprintf	0x1000e0c8	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $at, $v0
+rare	medium	/usr/bin/smrsh	n32	0x1000d720	sm_snprintf	0x1000e290	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t4, $a0, $t4
+rare	medium	/usr/bin/smrsh	n32	0x1000d720	sm_snprintf	0x1000e3f0	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t3, $t3, $t4
+rare	medium	/usr/bin/snoop	n32	0x10009104	snoop_alarm	0x100093ec	slt	abs	time()	untainted-reg	slt $v1, $v1, $a0
+rare	medium	/usr/bin/snoop	n32	0x10009104	snoop_alarm	0x10009470	branch-blez	abs	time()	zero	blez $t5, 0x100094b4
+rare	medium	/usr/bin/snoop	n32	0x10009104	snoop_alarm	0x10009484	slt	abs	time()	untainted-reg	slt $t6, $t6, $t7
+rare	medium	/usr/bin/snoop	n32	0x100095b0	snoop_sigrecover	0x1000966c	slt	abs	time()	untainted-reg	slt $t2, $t2, $t3
+rare	medium	/usr/bin/ssh-keyscan	n32	0x10008d60	_mcount	0x100092e0	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $v0, $a1
+rare	medium	/usr/bin/ssh-keyscan	n32	0x10008d60	_mcount	0x100094b8	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t8, $a0, $v0
+rare	medium	/usr/bin/ssh-keyscan	n32	0x10008d60	_mcount	0x1000950c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t8, $a0, $v0
+rare	medium	/usr/bin/tcsh	n32	0x10016a14	setalarm	0x10016b3c	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $a3, $v0, $s1
+rare	medium	/usr/bin/tcsh	n32	0x10016bd4	flush	0x10016f2c	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $v0, $v0, $v1
+rare	medium	/usr/bin/tcsh	n32	0x10016bd4	flush	0x10016f58	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $a1, $a1, $a2
+rare	medium	/usr/bin/tcsh	n32	0x10016bd4	flush	0x10017068	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t0, $t0, $t1
+rare	medium	/usr/bin/tcsh	n32	0x10016bd4	flush	0x100178e4	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t8, $v0, $t8
+rare	medium	/usr/bin/tcsh	n32	0x10016bd4	flush	0x100179ac	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $v1, $a1, $a2
+rare	medium	/usr/bin/tcsh	n32	0x10016bd4	flush	0x100179b0	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $t1, $a0, $a1
+rare	medium	/usr/bin/tcsh	n32	0x10016bd4	flush	0x100179bc	slt	abs	stat-time-field:stat@0x44/lw	untainted-reg	slt $t0, $a0, $a2
+rare	medium	/usr/bin/tcsh	n32	0x10016bd4	flush	0x100179c4	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $t2, $v0, $a1
+rare	medium	/usr/bin/tcsh	n32	0x10016bd4	flush	0x100179d4	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $a0, $v0, $a1
+rare	medium	/usr/bin/tcsh	n32	0x10016bd4	flush	0x100179dc	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $a0, $v0, $a1
+rare	medium	/usr/bin/tcsh	n32	0x10016bd4	flush	0x10017a14	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $t4, $t4, $a1
+rare	medium	/usr/bin/tcsh	n32	0x10016bd4	flush	0x10017a20	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $a0, $a2, $a1
+rare	medium	/usr/bsd/editmap	n32	0x10009ed0	sm_io_reopen	0x1000a424	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t5, $t5, $t1
+rare	medium	/usr/bsd/editmap	n32	0x10009ed0	sm_io_reopen	0x1000a8a8	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $at, $v0
+rare	medium	/usr/bsd/editmap	n32	0x10009ed0	sm_io_reopen	0x1000aa70	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t4, $a0, $t4
+rare	medium	/usr/bsd/editmap	n32	0x10009ed0	sm_io_reopen	0x1000abd0	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t3, $t3, $t4
+rare	medium	/usr/bsd/finger	n32	0x100061a0	phone	0x10006220	slt	abs	time(&t):time@0x0/lw	tainted	slt $t0, $t0, $t1
+rare	medium	/usr/bsd/mailstats	n32	0x10008ea0	sm_io_close	0x100092b4	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t5, $t5, $t1
+rare	medium	/usr/bsd/mailstats	n32	0x10008ea0	sm_io_close	0x10009738	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $at, $v0
+rare	medium	/usr/bsd/mailstats	n32	0x10008ea0	sm_io_close	0x10009900	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t4, $a0, $t4
+rare	medium	/usr/bsd/mailstats	n32	0x10008ea0	sm_io_close	0x10009a60	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t3, $t3, $t4
+rare	medium	/usr/bsd/makemap	n32	0x1000e070	sm_io_close	0x1000e484	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t5, $t5, $t1
+rare	medium	/usr/bsd/makemap	n32	0x1000e070	sm_io_close	0x1000e908	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $at, $v0
+rare	medium	/usr/bsd/makemap	n32	0x1000e070	sm_io_close	0x1000ead0	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t4, $a0, $t4
+rare	medium	/usr/bsd/makemap	n32	0x1000e070	sm_io_close	0x1000ec30	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t3, $t3, $t4
+rare	medium	/usr/bsd/praliases	n32	0x1000de80	sm_io_close	0x1000e294	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t5, $t5, $t1
+rare	medium	/usr/bsd/praliases	n32	0x1000de80	sm_io_close	0x1000e718	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $at, $v0
+rare	medium	/usr/bsd/praliases	n32	0x1000de80	sm_io_close	0x1000e8e0	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t4, $a0, $t4
+rare	medium	/usr/bsd/praliases	n32	0x1000de80	sm_io_close	0x1000ea40	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t3, $t3, $t4
+rare	medium	/usr/bsd/quota	n32	0x10001f80	main	0x10002a0c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a1, $a3, $t1
+rare	medium	/usr/bsd/quota	n32	0x10001f80	main	0x10002ad8	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $v0, $a3, $a2
+rare	medium	/usr/bsd/quota	n32	0x10001f80	main	0x1000300c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t1, $a3, $t0
+rare	medium	/usr/bsd/quota	n32	0x10001f80	main	0x10003060	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t2, $a3, $t0
+rare	medium	/usr/bsd/w	n32	0x100021d0	main	0x100024a8	slt	abs	stat-time-field:stat@0x44/lw	untainted-reg	slt $a1, $a2, $s0
+rare	medium	/usr/cluster/bin/cad	n32	0x1002a3e0	l_set_attr	0x1002a574	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t9, $t9, $ra
+rare	medium	/usr/cluster/bin/cad	n32	0x1002dbbc	l_set_registry	0x1002df6c	slt	abs	time()	untainted-reg	slt $a1, $a1, $a2
+rare	medium	/usr/cluster/bin/cad	n32	0x10031c3c	l_ckout_borrow	0x10032614	slt	abs	time()	untainted-reg	slt $t5, $t5, $v0
+rare	medium	/usr/cluster/bin/cad	n32	0x10031c3c	l_ckout_borrow	0x10032638	slt	abs	time()	untainted-reg	slt $t6, $v0, $t6
+rare	medium	/usr/cluster/bin/cad	n32	0x10032e24	l_read_borrow	0x100335b4	slt	abs	time()	untainted-reg	slt $t4, $t4, $v0
+rare	medium	/usr/cluster/bin/cad	n32	0x10032e24	l_read_borrow	0x100335d8	slt	abs	time()	untainted-reg	slt $t5, $v0, $t5
+rare	medium	/usr/cluster/bin/cad	n32	0x100352cc	l_borrow_stat	0x100354e4	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t5, $t5, $t6
+rare	medium	/usr/cpu/sysgen/root/usr/bin/cc	n32	0x1002ffc0	main	0x10030af8	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $t0, $t0, $t1
+rare	medium	/usr/diags/IR/bin/irsaudit	n32	0x1016cb10	jt_zopen	0x1016cbd4	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $a2, $a2, $a3
+rare	medium	/usr/dt/bin/dtksh	n32	0x100169b0	main	0x100179e8	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $t9, $t1, $t9
+rare	medium	/usr/dt/bin/dtksh	n32	0x100169b0	main	0x100179fc	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $ra, $t1, $ra
+rare	medium	/usr/dt/bin/dtksh	n32	0x1003d880	b_umask	0x1003dc90	slt	abs	time()	untainted-reg	slt $t0, $a0, $v0
+rare	medium	/usr/dt/bin/dtwm	n32	0x10027680	F_Exec	0x10028760	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t4, $v0, $t1
+rare	medium	/usr/dt/bin/rpc.cmsd	n32	0x10033160	initrtable4	0x10033c8c	slt	abs	time()	untainted-reg	slt $at, $v0, $s0
+rare	medium	/usr/dt/lib32/libDtLogin.so.1	n32	0x5ffc7e90	DtLoginEntryStatus	0x5ffc8320	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $at, $at, $a0
+rare	medium	/usr/dt/lib32/libDtLogin.so.1	n32	0x5ffc8360	DtLoginNISPasswordAged	0x5ffc8670	slt	abs	time()	untainted-reg	slt $t0, $a2, $t0
+rare	medium	/usr/dt/lib32/libDtLogin.so.1	n32	0x5ffcf110	DtLoginUnixAuthenticate	0x5ffcf34c	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $a1, $a1, $a2
+rare	medium	/usr/dt/lib32/libDtMail.so.1	n32	0x5ffc28e0	ExpungeEvent__10RFCMailBoxG13DtMailBoolean	0x5ffc2b60	slt	abs	time()	untainted-reg	slt $a1, $a1, $s5
+rare	medium	/usr/etc/LicenseManager	n32	0x1009c870	cqQkw6	0x1009c898	slt	abs	time()	untainted-reg	slt $at, $at, $v0
+rare	medium	/usr/etc/appletalk/imagetops	o32	0x4369c4	ImPCDinput_open	0x437010	slt	abs	stat-time-field:stat@0x40/lw	untainted-reg	slt $at, $t9, $v1
+rare	medium	/usr/etc/dhcp_bootp	n32	0x1000cf64	loc0_remove_entry	0x1000d78c	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t0, $a2, $a0
+rare	medium	/usr/etc/dhcp_bootp	n32	0x1000cf64	loc0_remove_entry	0x1000e04c	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t0, $t0, $s6
+rare	medium	/usr/etc/fsr	n32	0x10001218	main	0x10001594	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $a2, $a2, $a3
+rare	medium	/usr/etc/fsr_efs	n32	0x1000317c	main	0x100032e0	slt	abs	time()	untainted-reg	slt $t8, $v0, $t8
+rare	medium	/usr/etc/fsr_efs	n32	0x1000317c	main	0x10003330	slt	abs	time()	untainted-reg	slt $v0, $v0, $v1
+rare	medium	/usr/etc/fsr_efs	n32	0x1000317c	main	0x10003430	slt	abs	time()	untainted-reg	slt $a0, $v0, $a0
+rare	medium	/usr/etc/fsr_efs	n32	0x10004d28	-	0x10005440	slt	abs	time()	untainted-reg	slt $v0, $v1, $v0
+rare	medium	/usr/etc/fsr_xfs	n32	0x10002278	aborter	0x10002e98	slt	abs	time()	untainted-reg	slt $a2, $v0, $a2
+rare	medium	/usr/etc/fsr_xfs	n32	0x10002278	aborter	0x10002f2c	slt	abs	time()	untainted-reg	slt $t4, $v0, $t4
+rare	medium	/usr/etc/fsr_xfs	n32	0x10002278	aborter	0x10002fb0	slt	abs	time()	untainted-reg	slt $a0, $v0, $a0
+rare	medium	/usr/etc/fsr_xfs	n32	0x10002278	aborter	0x10003664	slt	abs	time()	untainted-reg	slt $a0, $a0, $v0
+rare	medium	/usr/etc/mount_iso9660	n32	0x10005a50	cd_open	0x10006868	slt	abs	time()	untainted-reg	slt $v0, $v0, $v1
+rare	medium	/usr/etc/repquota	n32	0x1000246c	main	0x10002500	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a1, $a2, $v0
+rare	medium	/usr/etc/repquota	n32	0x1000246c	main	0x10002554	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t2, $a2, $t1
+rare	medium	/usr/etc/rqsall	o32	0x4071b0	get_so_from_version	0x40f134	slti	abs	time()	imm	slti $at, $t6, 2
+rare	medium	/usr/etc/rqsall	o32	0x4071b0	get_so_from_version	0x40f284	slti	abs	time()	imm	slti $at, $t4, 2
+rare	medium	/usr/etc/rqsall	o32	0x4071b0	get_so_from_version	0x40f304	slti	abs	time()	imm	slti $at, $t5, 2
+rare	medium	/usr/etc/rqsall	o32	0x4071b0	get_so_from_version	0x40f3cc	slti	abs	time()	imm	slti $at, $t8, 2
+rare	medium	/usr/etc/rqsall	o32	0x4071b0	get_so_from_version	0x40f444	slti	abs	time()	imm	slti $at, $t9, 2
+rare	medium	/usr/etc/rqsprint	o32	0x40a770	get_so_from_version	0x4126e4	slti	abs	time()	imm	slti $at, $t6, 2
+rare	medium	/usr/etc/rqsprint	o32	0x40a770	get_so_from_version	0x412834	slti	abs	time()	imm	slti $at, $t4, 2
+rare	medium	/usr/etc/rqsprint	o32	0x40a770	get_so_from_version	0x4128b4	slti	abs	time()	imm	slti $at, $t5, 2
+rare	medium	/usr/etc/rqsprint	o32	0x40a770	get_so_from_version	0x41297c	slti	abs	time()	imm	slti $at, $t8, 2
+rare	medium	/usr/etc/rqsprint	o32	0x40a770	get_so_from_version	0x4129f4	slti	abs	time()	imm	slti $at, $t9, 2
+rare	medium	/usr/etc/rqsread	o32	0x406030	get_so_from_version	0x40dfb4	slti	abs	time()	imm	slti $at, $t6, 2
+rare	medium	/usr/etc/rqsread	o32	0x406030	get_so_from_version	0x40e104	slti	abs	time()	imm	slti $at, $t4, 2
+rare	medium	/usr/etc/rqsread	o32	0x406030	get_so_from_version	0x40e184	slti	abs	time()	imm	slti $at, $t5, 2
+rare	medium	/usr/etc/rqsread	o32	0x406030	get_so_from_version	0x40e24c	slti	abs	time()	imm	slti $at, $t8, 2
+rare	medium	/usr/etc/rqsread	o32	0x406030	get_so_from_version	0x40e2c4	slti	abs	time()	imm	slti $at, $t9, 2
+rare	medium	/usr/etc/rtquery	n32	0x100017c8	main	0x10002244	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a0, $a0, $a1
+rare	medium	/usr/etc/sgifd	n32	0x10028f68	jtJBrS	0x10029270	div	abs	time()	reg	div $zero, $v1, $v0
+rare	medium	/usr/etc/sgifd	n32	0x10028f68	jtJBrS	0x10029460	slt	abs	time()	untainted-reg	slt $t3, $t3, $t4
+rare	medium	/usr/etc/sgifd	n32	0x10028f68	jtJBrS	0x10029fb0	slt	abs	time()	untainted-reg	slt $at, $at, $v0
+rare	medium	/usr/etc/sgifd	n32	0x1005ddf0	mkvlI6	0x1005df84	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t9, $t9, $ra
+rare	medium	/usr/etc/sgifd	n32	0x100615cc	oxKawR	0x1006197c	slt	abs	time()	untainted-reg	slt $a1, $a1, $a2
+rare	medium	/usr/etc/sgifd	n32	0x1006b34c	l_ckout_borrow	0x1006bd24	slt	abs	time()	untainted-reg	slt $t5, $t5, $v0
+rare	medium	/usr/etc/sgifd	n32	0x1006b34c	l_ckout_borrow	0x1006bd48	slt	abs	time()	untainted-reg	slt $t6, $v0, $t6
+rare	medium	/usr/etc/sgifd	n32	0x1006c534	l_read_borrow	0x1006ccc4	slt	abs	time()	untainted-reg	slt $t4, $t4, $v0
+rare	medium	/usr/etc/sgifd	n32	0x1006c534	l_read_borrow	0x1006cce8	slt	abs	time()	untainted-reg	slt $t5, $v0, $t5
+rare	medium	/usr/etc/sgifd	n32	0x1006e9dc	l_borrow_stat	0x1006ebf4	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t5, $t5, $t6
+rare	medium	/usr/etc/smtstat	n32	0x10004870	main	0x100048a4	slt	abs	time()	untainted-reg	slt $t3, $a0, $t0
+rare	medium	/usr/etc/smtstat	n32	0x10004870	main	0x100048b0	slt	abs	time()	untainted-reg	slt $t2, $a0, $a3
+rare	medium	/usr/etc/timedc	n32	0x10003824	measure	0x10003b60	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t1, $a1, $t4
+rare	medium	/usr/etc/videod	n32	0x10009140	enableControlWarnings	0x10009408	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $a2, $a2, $a3
+rare	medium	/usr/etc/videod	n32	0x10009460	restoreFactoryControls	0x100095c4	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $a2, $a2, $v0
+rare	medium	/usr/gfx/KONA/bin/kpm	n32	0x10039440	jt_zopen	0x10039504	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $a2, $a2, $a3
+rare	medium	/usr/gfx/arch/GENERIC/Xsgi	n32	0x101093a0	sgiCapPolyText16..LCE	0x10109624	slt	abs	time()	untainted-reg	slt $t4, $t0, $v0
+rare	medium	/usr/gfx/arch/IP22NG1/Xsgi	n32	0x101b7610	ProcSetSelectionOwner	0x101b7d74	slt	abs	time()	untainted-reg	slt $t4, $t0, $v0
+rare	medium	/usr/java2/lib32/sgi/native_threads/libhpi.so	n32	0x8fe7e40	multiThreadHelper	0x8fe87bc	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t3, 0x8fe88b8
+rare	medium	/usr/java2/lib32/sgi/native_threads/libhpi.so	n32	0x8feaaf0	sysMalloc	0x8feaf5c	branch-bgez	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bgez $v1, 0x8feaf74
+rare	medium	/usr/lib/libXt.so	o32	0xf46a978	-	0xf46b79c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $v1, $t6
+rare	medium	/usr/lib/libXt.so	o32	0xf46a978	-	0xf46b860	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $v1, $t6
+rare	medium	/usr/lib/libXt.so	o32	0xf46a978	-	0xf46b9e0	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $v1, $t3
+rare	medium	/usr/lib/print/modelinfo	n32	0x10005d84	newestFileMtimeInDirectory	0x10005e74	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $a3, $a3, $v0
+rare	medium	/usr/lib/print/modelinfo.66019fd4	n32	0x1000649c	newestFileMtimeInDirectory	0x100065c4	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $a0, $a0, $v0
+rare	medium	/usr/lib/sysmon/errhook	n32	0x10005214	execCommand__G5OkStr	0x100058e0	slt	abs	time()	tainted	slt $at, $v0, $at
+rare	medium	/usr/lib/sysmon/errhook	n32	0x1000679c	runit__7HandlerGPcN31P12ConfigRecord	0x10006980	slt	abs	time()	untainted-reg	slt $t2, $t2, $at
+rare	medium	/usr/lib/sysmon/errhook.GFXBOARD-VOYAGER	n32	0x100057b4	execCommand__G5OkStr	0x10005a10	slt	abs	time()	tainted	slt $a3, $v0, $a3
+rare	medium	/usr/lib/sysmon/errhook.GFXBOARD-VOYAGER	n32	0x10006aec	runit__7HandlerGPcN31P12ConfigRecord	0x10006cf4	slt	abs	time()	untainted-reg	slt $a2, $s7, $a2
+rare	medium	/usr/lib/uucp/uusched	n32	0x100025ec	main	0x100029b4	div	abs	time()	reg	div $zero, $v0, $s0
+rare	medium	/usr/lib32/cups/filter/pstops	n32	0x10007760	is_licensed2	0x10007874	slt	abs	time()	untainted-reg	slt $a2, $v0, $a1
+rare	medium	/usr/lib32/cups/filter/rastertoalps	n32	0x10006240	is_licensed2	0x10006354	slt	abs	time()	untainted-reg	slt $a2, $v0, $a1
+rare	medium	/usr/lib32/cups/filter/rastertoapdk	n32	0x1004a790	is_licensed2	0x1004a8a4	slt	abs	time()	untainted-reg	slt $a2, $v0, $a1
+rare	medium	/usr/lib32/cups/filter/rastertobj	n32	0x10005bb0	is_licensed2	0x10005cc4	slt	abs	time()	untainted-reg	slt $a2, $v0, $a1
+rare	medium	/usr/lib32/cups/filter/rastertoescp	n32	0x10006220	is_licensed2	0x10006334	slt	abs	time()	untainted-reg	slt $a2, $v0, $a1
+rare	medium	/usr/lib32/cups/filter/rastertoescp2	n32	0x10011b40	is_licensed2	0x10011c54	slt	abs	time()	untainted-reg	slt $a2, $v0, $a1
+rare	medium	/usr/lib32/cups/filter/rastertopcl	n32	0x1000ab50	is_licensed2	0x1000ac64	slt	abs	time()	untainted-reg	slt $a2, $v0, $a1
+rare	medium	/usr/lib32/cups/filter/texttopcl	n32	0x10005d40	is_licensed2	0x10005e54	slt	abs	time()	untainted-reg	slt $a2, $v0, $a1
+rare	medium	/usr/lib32/debug/libwebviewer.so.3	n32	0x597760	isExpired__8DocumentGv	0x5977d4	slt	abs	time()	untainted-reg	slt $a1, $v0, $a1
+rare	medium	/usr/lib32/debug/libwebviewer.so.3	n32	0x5e43e0	dump__13CookieManagerSGP8__file_sPCcbT3	0x5e4844	slt	abs	time()	untainted-reg	slt $t0, $t0, $t1
+rare	medium	/usr/lib32/debug/libwebviewer.so.3	n32	0x609d20	checkLimits__13CookieManagerSGb	0x609e54	slt	abs	time()	untainted-reg	slt $a1, $v0, $a1
+rare	medium	/usr/lib32/debug/libwebviewer.so.4	n32	0x58e660	isExpired__8DocumentGv	0x58e6d4	slt	abs	time()	untainted-reg	slt $a1, $v0, $a1
+rare	medium	/usr/lib32/debug/libwebviewer.so.4	n32	0x5db310	dump__13CookieManagerSGP8__file_sPCcbT3	0x5db774	slt	abs	time()	untainted-reg	slt $t0, $t0, $t1
+rare	medium	/usr/lib32/debug/libwebviewer.so.4	n32	0x600c80	checkLimits__13CookieManagerSGb	0x600db4	slt	abs	time()	untainted-reg	slt $a1, $v0, $a1
+rare	medium	/usr/lib32/internal/amrserver.so	n32	0x40fd40	rgpgSetAttribute	0x40febc	branch-bgez	abs	time()	zero	bgez $v0, 0x40fed8
+rare	medium	/usr/lib32/internal/amrserver.so	n32	0x40fd40	rgpgSetAttribute	0x40ff3c	branch-bgez	abs	time()	zero	bgez $v0, 0x40ff58
+rare	medium	/usr/lib32/internal/amrserver.so	n32	0x40fd40	rgpgSetAttribute	0x40ff7c	branch-bgez	abs	time()	zero	bgez $v0, 0x40ff98
+rare	medium	/usr/lib32/internal/cm_plugin.so	n32	0x410a60	print_report	0x410c48	branch-bgez	abs	time()	zero	bgez $a3, 0x410c70
+rare	medium	/usr/lib32/internal/cm_plugin.so	n32	0x410a60	print_report	0x410c74	branch-bgez	abs	time()	zero	bgez $t0, 0x410c9c
+rare	medium	/usr/lib32/internal/cm_plugin.so	n32	0x410a60	print_report	0x410ca4	slt	abs	time()	tainted	slt $t1, $t1, $t2
+rare	medium	/usr/lib32/internal/cm_plugin.so	n32	0x4124fc	get_ctime	0x412aa8	slt	abs	time()	untainted-reg	slt $a2, $v0, $a2
+rare	medium	/usr/lib32/internal/cm_plugin.so	n32	0x422f28	get_sysconfigs	0x422fa0	slt	abs	time()	untainted-reg	slt $a3, $v0, $a3
+rare	medium	/usr/lib32/internal/cm_plugin.so	n32	0x422f28	get_sysconfigs	0x4231a0	slt	abs	time()	untainted-reg	slt $v1, $v1, $a0
+rare	medium	/usr/lib32/internal/libespconfig.so	n32	0x42af68	ackSimpleCallBack	0x42be88	slt	abs	time()	untainted-reg	slt $t0, $t6, $a3
+rare	medium	/usr/lib32/internal/libespconfig.so	n32	0x42af68	ackSimpleCallBack	0x42be94	slt	abs	time()	untainted-reg	slt $t1, $t2, $t6
+rare	medium	/usr/lib32/internal/libimdIconPanel.so	n32	0xd559ec0	getIconRect__15ImdIconRendererGR11ImdIconViewRlN32	0xd55a120	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $at, $at, $v0
+rare	medium	/usr/lib32/internal/libimdModel.so	n32	0xd52aed0	registerFactory__9ImdBrokerGRC9ImdStringP10ImdFactory	0xd52b4d4	slt	abs	time()	untainted-reg	slt $at, $s2, $t1
+rare	medium	/usr/lib32/internal/libimdXutil.so	n32	0xd539580	setReplyErrors__8fiFileOpGP20fiErrorListSummary52	0xd53966c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $v1, $a3, $v0
+rare	medium	/usr/lib32/internal/libinst.so	n32	0x5d5f6c	absoluteHistLocation__5iTargCGv	0x5d8358	slt	abs	time()	untainted-reg	slt $a0, $a2, $v0
+rare	medium	/usr/lib32/internal/libiscgi.so.1	n32	0x415a40	init__5GusDBGv	0x415dc4	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $a1, $a1, $a2
+rare	medium	/usr/lib32/internal/libsaComm.so	n32	0x9518e8c	write__9SaInittabGPCc	0x9519198	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $t0, $t0, $t2
+rare	medium	/usr/lib32/internal/libsaComm.so.81fcb86d	n32	0x2008fc0	write__9SaInittabGPCc	0x20092c8	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $a1, $a1, $a2
+rare	medium	/usr/lib32/internal/libsysadmUtil.so.1	n32	0x409e70	run__Q2_6sysadm10AppContextGv	0x409f44	slt	abs	time()	untainted-reg	slt $a1, $s2, $a1
+rare	medium	/usr/lib32/internal/mozilla/libgtk-1.2.so.1	n32	0x5ff5c208	gtk_rc_reparse_all	0x5ff5c26c	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $v1, $v1, $a0
+rare	medium	/usr/lib32/libXt.so	n32	0xf4242f0	XtAppMainLoop	0xf4245e8	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t0, $v1, $v0
+rare	medium	/usr/lib32/libXt.so	n32	0xf4242f0	XtAppMainLoop	0xf424d3c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t0, $a2, $a0
+rare	medium	/usr/lib32/libXt.so	n32	0xf4242f0	XtAppMainLoop	0xf424d5c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t1, $a2, $a0
+rare	medium	/usr/lib32/libXt.so	n32	0xf4242f0	XtAppMainLoop	0xf425088	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t2, $t1, $t0
+rare	medium	/usr/lib32/libXt.so	n32	0xf4282b0	XtAppPeekEvent	0xf4285a8	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a3, $a0, $t0
+rare	medium	/usr/lib32/libXt.so	n32	0xf4282b0	XtAppPeekEvent	0xf4286b8	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t7, $a0, $t0
+rare	medium	/usr/lib32/libXt.so	n32	0xf4282b0	XtAppPeekEvent	0xf42876c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t1, $a0, $t0
+rare	medium	/usr/lib32/liblp.so	n32	0x9df6de4	SelectLoop	0x9df6e38	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a1, $a1, $a2
+rare	medium	/usr/lib32/liblp.so	n32	0x9df6de4	SelectLoop	0x9df6ee0	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a3, $a3, $t0
+rare	medium	/usr/lib32/liblp.so.58b1f214	n32	0x409770	AddTimeout	0x409848	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t9, $t9, $ra
+rare	medium	/usr/lib32/liblp.so.58b1f214	n32	0x409770	AddTimeout	0x4098b8	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a0, $a0, $a1
+rare	medium	/usr/lib32/liblp.so.58b1f214	n32	0x409af0	SelectLoop	0x409b44	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a1, $a1, $a2
+rare	medium	/usr/lib32/liblp.so.58b1f214	n32	0x409af0	SelectLoop	0x409bec	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a3, $a3, $t0
+rare	medium	/usr/lib32/libssl.so.0.9.6	n32	0x7ac640c	ssl_get_new_session	0x7ac6974	slt	abs	time()	untainted-reg	slt $t0, $t0, $v0
+rare	medium	/usr/lib32/libssl.so.0.9.7	n32	0x428b40	ssl_get_new_session	0x42910c	slt	abs	time()	untainted-reg	slt $a3, $a3, $v0
+rare	medium	/usr/lib32/libwebviewer.so.3	n32	0x5febff2c	get__13CookieManagerSGPCcT1b	0x5fec10f0	slt	abs	time()	untainted-reg	slt $t4, $s1, $s5
+rare	medium	/usr/lib32/libwebviewer.so.3	n32	0x5fec1388	scheduleDump__13CookieManagerSGPvPUl	0x5fec1708	slt	abs	time()	untainted-reg	slt $t3, $v0, $t3
+rare	medium	/usr/lib32/libwebviewer.so.3	n32	0x5fec7038	isExpired__8DocumentGv	0x5fec7094	slt	abs	time()	untainted-reg	slt $v0, $v0, $v1
+rare	medium	/usr/lib32/libwebviewer.so.3.633796ed	n32	0x4bf9c8	satisfyClear__9ContainerGi9ClearInfo	0x4bfe14	slt	abs	time()	untainted-reg	slt $a1, $v0, $a1
+rare	medium	/usr/lib32/libwebviewer.so.3.633796ed	n32	0x51ef80	changingPage__9wvBrowserGv	0x51f1b4	slt	abs	time()	untainted-reg	slt $a3, $v0, $a3
+rare	medium	/usr/lib32/libwebviewer.so.3.633796ed	n32	0x53638c	dump__13CookieManagerSGP8__file_sPCcbT3	0x5364b0	slt	abs	time()	untainted-reg	slt $a1, $v0, $s6
+rare	medium	/usr/lib32/libwebviewer.so.3.633796ed	n32	0x536a98	set__13CookieManagerSGP5wvPenPCcN42blT7	0x536cac	slt	abs	time()	untainted-reg	slt $at, $at, $v0
+rare	medium	/usr/lib32/libwebviewer.so.4	n32	0x4bbdb0	satisfyClear__9ContainerGi9ClearInfo	0x4bc1fc	slt	abs	time()	untainted-reg	slt $a1, $v0, $a1
+rare	medium	/usr/lib32/libwebviewer.so.4	n32	0x519eb8	changingPage__9wvBrowserGv	0x51a230	slt	abs	time()	untainted-reg	slt $a3, $v0, $a3
+rare	medium	/usr/lib32/libwebviewer.so.4	n32	0x52fe3c	dump__13CookieManagerSGP8__file_sPCcbT3	0x52ff60	slt	abs	time()	untainted-reg	slt $a1, $v0, $s6
+rare	medium	/usr/lib32/libwebviewer.so.4	n32	0x530548	set__13CookieManagerSGP5wvPenPCcN42blT7	0x53075c	slt	abs	time()	untainted-reg	slt $at, $at, $v0
+rare	medium	/usr/lib32/mips4/libcpr.so	n32	0x411de0	ckpt_dump_one_ofile	0x411e8c	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $a2, $a0, $v0
+rare	medium	/usr/lib64/abi/libXt.so.3	n64	0x426ef0	XtAppPeekEvent	0x4277c0	slt	abs	gettimeofday.tv_sec:gtod@0x4/lw	untainted-reg	slt $a3, $v0, $a0
+rare	medium	/usr/lib64/abi/libXt.so.3	n64	0x477d70	-	0x477fc0	slt	abs	gettimeofday.tv_sec:gtod@0x4/lw	untainted-reg	slt $t1, $a3, $v0
+rare	medium	/usr/lib64/libssl.so.0.9.7	n64	0x42c570	SSL_SESSION_new	0x42cc10	slt	abs	time()	untainted-reg	slt $a3, $a3, $v0
+rare	medium	/usr/openldap/bin/slapd	n32	0x100202e0	slapd_daemon_destroy	0x10020cd4	slt	abs	time()	untainted-reg	slt $v0, $v0, $t1
+rare	medium	/usr/openldap/bin/slapd	n32	0x100202e0	slapd_daemon_destroy	0x10020e54	slt	abs	time()	untainted-reg	slt $ra, $ra, $t1
+rare	medium	/usr/openldap/bin/slapd	n32	0x100786a0	ldbm_back_modrdn	0x1007a528	slt	abs	time()	untainted-reg	slt $t1, $t1, $v0
+rare	medium	/usr/openldap/bin/slapd	n32	0x1009e070	lutil_csnstr	0x1009e0b8	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $v0, $v0, $a0
+rare	medium	/usr/openldap/bin/slurpd	n32	0x10012ac0	Ri_init	0x1001305c	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $v0, $v0, $v1
+rare	medium	/usr/pcp/bin/pmlogger	n32	0x10004a24	run_done	0x10004f34	slti	abs	time(&t):time@0x0/lw	imm	slti $t8, $a0, 0xf0
+rare	medium	/usr/pcp/bin/pmtime	n32	0x10015530	tickCallback__10VkPCPtimerSGPvPUl	0x10015d9c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	tainted	slt $a2, $a0, $v0
+rare	medium	/usr/sbin/bongo.1f678417	n32	0x10009790	__glutFatalError	0x10009ad0	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $a2, $a0
+rare	medium	/usr/sbin/bongo.1f678417	n32	0x10009790	__glutFatalError	0x10009af0	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $v1, $a2, $a0
+rare	medium	/usr/sbin/bongo.1f678417	n32	0x10009790	__glutFatalError	0x10009c20	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $v0, $a1, $a3
+rare	medium	/usr/sbin/bongo.1f678417	n32	0x10009790	__glutFatalError	0x10009c7c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $v0, $a1, $a3
+rare	medium	/usr/sbin/bongo.1f678417	n32	0x1000a000	__glutRegisterEventParser	0x1000aa90	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $a2, $a1
+rare	medium	/usr/sbin/dig	n32	0x100df284	isc_time_now	0x100df2d8	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x100df31c
+rare	medium	/usr/sbin/dig	n32	0x100df284	isc_time_now	0x100df414	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a0, 0x100df550
+rare	medium	/usr/sbin/dig	n32	0x100df284	isc_time_now	0x100df438	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a3, $a3, $t4
+rare	medium	/usr/sbin/dnssec-keygen	n32	0x1004f7f0	isc_time_now	0x1004f844	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x1004f888
+rare	medium	/usr/sbin/dnssec-keygen	n32	0x1004f7f0	isc_time_now	0x1004f980	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a0, 0x1004fabc
+rare	medium	/usr/sbin/dnssec-keygen	n32	0x1004f7f0	isc_time_now	0x1004f9a4	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a3, $a3, $t4
+rare	medium	/usr/sbin/dnssec-makekeyset	n32	0x100d5748	isc_time_now	0x100d579c	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x100d57e0
+rare	medium	/usr/sbin/dnssec-makekeyset	n32	0x100d5748	isc_time_now	0x100d58d8	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a0, 0x100d5a14
+rare	medium	/usr/sbin/dnssec-makekeyset	n32	0x100d5748	isc_time_now	0x100d58fc	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a3, $a3, $t4
+rare	medium	/usr/sbin/dnssec-signkey	n32	0x100d5578	isc_time_now	0x100d55cc	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x100d5610
+rare	medium	/usr/sbin/dnssec-signkey	n32	0x100d5578	isc_time_now	0x100d5708	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a0, 0x100d5844
+rare	medium	/usr/sbin/dnssec-signkey	n32	0x100d5578	isc_time_now	0x100d572c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a3, $a3, $t4
+rare	medium	/usr/sbin/dnssec-signzone	n32	0x100db7f0	isc_time_now	0x100db844	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x100db888
+rare	medium	/usr/sbin/dnssec-signzone	n32	0x100db7f0	isc_time_now	0x100db980	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a0, 0x100dbabc
+rare	medium	/usr/sbin/dnssec-signzone	n32	0x100db7f0	isc_time_now	0x100db9a4	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a3, $a3, $t4
+rare	medium	/usr/sbin/dtl2sgft	n32	0x10002fac	main	0x1000384c	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $t0, $t0, $t1
+rare	medium	/usr/sbin/espcall	n32	0x1001ddc4	get_sysconfigs	0x1001de3c	slt	abs	time()	untainted-reg	slt $a3, $v0, $a3
+rare	medium	/usr/sbin/espcall	n32	0x1001ddc4	get_sysconfigs	0x1001e03c	slt	abs	time()	untainted-reg	slt $v1, $v1, $a0
+rare	medium	/usr/sbin/esplicense	n32	0x100025c0	is_licensed2	0x100026d4	slt	abs	time()	untainted-reg	slt $a2, $v0, $a1
+rare	medium	/usr/sbin/esplm	n32	0x10016240	make_windows__Gv	0x10016598	slt	abs	time()	untainted-reg	slt $a1, $a0, $v0
+rare	medium	/usr/sbin/esplm	n32	0x1001a680	is_licensed2	0x1001a794	slt	abs	time()	untainted-reg	slt $a2, $v0, $a1
+rare	medium	/usr/sbin/glfalls	n32	0x1000dd78	__glutFreeColormap	0x1000e1c0	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $a2, $a0
+rare	medium	/usr/sbin/glfalls	n32	0x1000dd78	__glutFreeColormap	0x1000e1e0	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $v1, $a2, $a0
+rare	medium	/usr/sbin/glfalls	n32	0x1000dd78	__glutFreeColormap	0x1000e310	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $v0, $a1, $a3
+rare	medium	/usr/sbin/glfalls	n32	0x1000dd78	__glutFreeColormap	0x1000e36c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $v0, $a1, $a3
+rare	medium	/usr/sbin/glfalls	n32	0x1000e6f0	__glutRegisterEventParser	0x1000f180	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $a2, $a1
+rare	medium	/usr/sbin/gmemusage	n32	0x7fc07740	InodeInit	0x7fc077ac	slt	abs	stat-time-field:stat@0x4c/lw	tainted	slt $a0, $a0, $a1
+rare	medium	/usr/sbin/grio_bandwidth	n32	0x10003354	get_size_of_device	0x10003ae0	slt	abs	time()	tainted	slt $a0, $v0, $a0
+rare	medium	/usr/sbin/grio_bandwidth	n32	0x10003354	get_size_of_device	0x10003b4c	slt	abs	time()	tainted	slt $t0, $v0, $t0
+rare	medium	/usr/sbin/lmnewlog	n32	0x1001d41c	l_strlwr	0x1001d774	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $a1, $a1, $a2
+rare	medium	/usr/sbin/lmnewlog	n32	0x100254d4	l_set_registry	0x10025884	slt	abs	time()	untainted-reg	slt $a1, $a1, $a2
+rare	medium	/usr/sbin/lmnewlog	n32	0x1002cc34	l_ckout_borrow	0x1002d60c	slt	abs	time()	untainted-reg	slt $t5, $t5, $v0
+rare	medium	/usr/sbin/lmnewlog	n32	0x1002cc34	l_ckout_borrow	0x1002d630	slt	abs	time()	untainted-reg	slt $t6, $v0, $t6
+rare	medium	/usr/sbin/lmnewlog	n32	0x1002de1c	l_read_borrow	0x1002e5ac	slt	abs	time()	untainted-reg	slt $t4, $t4, $v0
+rare	medium	/usr/sbin/lmnewlog	n32	0x1002de1c	l_read_borrow	0x1002e5d0	slt	abs	time()	untainted-reg	slt $t5, $v0, $t5
+rare	medium	/usr/sbin/lmnewlog	n32	0x100302c4	l_borrow_stat	0x100304dc	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t5, $t5, $t6
+rare	medium	/usr/sbin/lmnewlog	n32	0x1004fcd0	l_set_attr	0x1004fe64	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t9, $t9, $ra
+rare	medium	/usr/sbin/lmutil	n32	0x1001d41c	l_strlwr	0x1001d774	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $a1, $a1, $a2
+rare	medium	/usr/sbin/lmutil	n32	0x100254d4	l_set_registry	0x10025884	slt	abs	time()	untainted-reg	slt $a1, $a1, $a2
+rare	medium	/usr/sbin/lmutil	n32	0x1002cc34	l_ckout_borrow	0x1002d60c	slt	abs	time()	untainted-reg	slt $t5, $t5, $v0
+rare	medium	/usr/sbin/lmutil	n32	0x1002cc34	l_ckout_borrow	0x1002d630	slt	abs	time()	untainted-reg	slt $t6, $v0, $t6
+rare	medium	/usr/sbin/lmutil	n32	0x1002de1c	l_read_borrow	0x1002e5ac	slt	abs	time()	untainted-reg	slt $t4, $t4, $v0
+rare	medium	/usr/sbin/lmutil	n32	0x1002de1c	l_read_borrow	0x1002e5d0	slt	abs	time()	untainted-reg	slt $t5, $v0, $t5
+rare	medium	/usr/sbin/lmutil	n32	0x100302c4	l_borrow_stat	0x100304dc	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t5, $t5, $t6
+rare	medium	/usr/sbin/lmutil	n32	0x1004fcd0	l_set_attr	0x1004fe64	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t9, $t9, $ra
+rare	medium	/usr/sbin/mailbox	n32	0x10005eb8	announceMail__Gv	0x10006874	slt	abs	stat-time-field:stat@0x54/lw	tainted	slt $a2, $a2, $at
+rare	medium	/usr/sbin/mailbox.0f4cb0a4	n32	0x1000f250	rotate__Gic	0x1000f3c4	slt	abs	stat-time-field:stat@0x54/lw	tainted	slt $a2, $a2, $a3
+rare	medium	/usr/sbin/mailx	n32	0x10018a00	makelock	0x10018df4	slt	abs	stat-time-field:stat@0x54/lw	untainted-reg	slt $t0, $v0, $s1
+rare	medium	/usr/sbin/named-checkconf	n32	0x100221a0	isc_time_now	0x100221f4	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x10022238
+rare	medium	/usr/sbin/named-checkconf	n32	0x100221a0	isc_time_now	0x10022330	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a0, 0x1002246c
+rare	medium	/usr/sbin/named-checkconf	n32	0x100221a0	isc_time_now	0x10022354	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a3, $a3, $t4
+rare	medium	/usr/sbin/named-checkzone	n32	0x100d4054	isc_time_now	0x100d40a8	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x100d40ec
+rare	medium	/usr/sbin/named-checkzone	n32	0x100d4054	isc_time_now	0x100d41e4	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a0, 0x100d4320
+rare	medium	/usr/sbin/named-checkzone	n32	0x100d4054	isc_time_now	0x100d4208	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a3, $a3, $t4
+rare	medium	/usr/sbin/nedit	n32	0x100a317c	PopDownBugPatch	0x100a31c0	slt	abs	time()	tainted	slt $v0, $s0, $v0
+rare	medium	/usr/sbin/nedit	n32	0x100a317c	PopDownBugPatch	0x100a3218	slt	abs	time()	tainted	slt $a1, $s0, $v0
+rare	medium	/usr/sbin/netsnoop	n32	0x1000bc6c	pv_exception	0x1000be5c	branch-bltz	abs	time()	zero	bltz $v0, 0x1000bea0
+rare	medium	/usr/sbin/netsnoop	n32	0x1000bc6c	pv_exception	0x1000be84	slt	abs	time(&t):time@0x0/lw	tainted	slt $a3, $a3, $t0
+rare	medium	/usr/sbin/netsnoop	n32	0x10069678	sunrpc_getmaps	0x10069720	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a0, $a0, $a1
+rare	medium	/usr/sbin/noof	n32	0x100083ac	__glutFatalError	0x100086ec	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $a2, $a0
+rare	medium	/usr/sbin/noof	n32	0x100083ac	__glutFatalError	0x1000870c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $v1, $a2, $a0
+rare	medium	/usr/sbin/noof	n32	0x100083ac	__glutFatalError	0x1000883c	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $v0, $a1, $a3
+rare	medium	/usr/sbin/noof	n32	0x100083ac	__glutFatalError	0x10008898	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $v0, $a1, $a3
+rare	medium	/usr/sbin/noof	n32	0x10008c1c	__glutRegisterEventParser	0x100096ac	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $a2, $a1
+rare	medium	/usr/sbin/nsupdate	n32	0x100da3f0	isc_time_now	0x100da444	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x100da488
+rare	medium	/usr/sbin/nsupdate	n32	0x100da3f0	isc_time_now	0x100da580	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a0, 0x100da6bc
+rare	medium	/usr/sbin/nsupdate	n32	0x100da3f0	isc_time_now	0x100da5a4	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a3, $a3, $t4
+rare	medium	/usr/sbin/pax	n32	0x10006b50	copy	0x10006ecc	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $a0, $a0, $a1
+rare	medium	/usr/sbin/pax	n32	0x10006b50	copy	0x10006ee0	slt	abs	stat-time-field:stat@0x54/lw	untainted-reg	slt $a2, $a2, $a3
+rare	medium	/usr/sbin/pax	n32	0x10006b50	copy	0x10006f40	slt	abs	stat-time-field:stat@0x54/lw	untainted-reg	slt $t3, $t3, $t6
+rare	medium	/usr/sbin/pax	n32	0x10006b50	copy	0x10006f54	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $t4, $t4, $t6
+rare	medium	/usr/sbin/pax	n32	0x10006b50	copy	0x10007158	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $a2, $a2, $a3
+rare	medium	/usr/sbin/pax	n32	0x10006b50	copy	0x10007168	slt	abs	stat-time-field:stat@0x54/lw	untainted-reg	slt $t0, $t0, $t2
+rare	medium	/usr/sbin/pax	n32	0x10006b50	copy	0x10007284	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $t1, $t1, $t2
+rare	medium	/usr/sbin/pax	n32	0x1000c344	set_crc	0x1000cfc8	slt	abs	time()	untainted-reg	slt $a1, $v0, $a1
+rare	medium	/usr/sbin/pax	n32	0x10010540	trng_add	0x100107cc	slt	abs	time()	tainted	slt $at, $at, $v0
+rare	medium	/usr/sbin/printers.98bd4f9c	n32	0x100f1e20	is_licensed2	0x100f1f34	slt	abs	time()	untainted-reg	slt $a2, $v0, $a1
+rare	medium	/usr/sbin/rbview	n32	0x100077a8	__glutFatalError	0x10007ae8	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $a2, $a0
+rare	medium	/usr/sbin/rbview	n32	0x100077a8	__glutFatalError	0x10007b08	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $v1, $a2, $a0
+rare	medium	/usr/sbin/rbview	n32	0x100077a8	__glutFatalError	0x10007c38	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $v0, $a1, $a3
+rare	medium	/usr/sbin/rbview	n32	0x100077a8	__glutFatalError	0x10007c94	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $v0, $a1, $a3
+rare	medium	/usr/sbin/rbview	n32	0x10008018	__glutRegisterEventParser	0x10008aa8	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $a2, $a1
+rare	medium	/usr/sbin/rndc	n32	0x10026594	isc_time_now	0x100265e8	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x1002662c
+rare	medium	/usr/sbin/rndc	n32	0x10026594	isc_time_now	0x10026724	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a0, 0x10026860
+rare	medium	/usr/sbin/rndc	n32	0x10026594	isc_time_now	0x10026748	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a3, $a3, $t4
+rare	medium	/usr/sbin/rndc-confgen	n32	0x100501b0	isc_time_now	0x10050204	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x10050248
+rare	medium	/usr/sbin/rndc-confgen	n32	0x100501b0	isc_time_now	0x10050340	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a0, 0x1005047c
+rare	medium	/usr/sbin/rndc-confgen	n32	0x100501b0	isc_time_now	0x10050364	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a3, $a3, $t4
+rare	medium	/usr/sbin/slapadd	n32	0x100202e0	slapd_daemon_destroy	0x10020cd4	slt	abs	time()	untainted-reg	slt $v0, $v0, $t1
+rare	medium	/usr/sbin/slapadd	n32	0x100202e0	slapd_daemon_destroy	0x10020e54	slt	abs	time()	untainted-reg	slt $ra, $ra, $t1
+rare	medium	/usr/sbin/slapadd	n32	0x100786a0	ldbm_back_modrdn	0x1007a528	slt	abs	time()	untainted-reg	slt $t1, $t1, $v0
+rare	medium	/usr/sbin/slapadd	n32	0x1009e070	lutil_csnstr	0x1009e0b8	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $v0, $v0, $a0
+rare	medium	/usr/sbin/slapcat	n32	0x100202e0	slapd_daemon_destroy	0x10020cd4	slt	abs	time()	untainted-reg	slt $v0, $v0, $t1
+rare	medium	/usr/sbin/slapcat	n32	0x100202e0	slapd_daemon_destroy	0x10020e54	slt	abs	time()	untainted-reg	slt $ra, $ra, $t1
+rare	medium	/usr/sbin/slapcat	n32	0x100786a0	ldbm_back_modrdn	0x1007a528	slt	abs	time()	untainted-reg	slt $t1, $t1, $v0
+rare	medium	/usr/sbin/slapcat	n32	0x1009e070	lutil_csnstr	0x1009e0b8	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $v0, $v0, $a0
+rare	medium	/usr/sbin/slapindex	n32	0x100202e0	slapd_daemon_destroy	0x10020cd4	slt	abs	time()	untainted-reg	slt $v0, $v0, $t1
+rare	medium	/usr/sbin/slapindex	n32	0x100202e0	slapd_daemon_destroy	0x10020e54	slt	abs	time()	untainted-reg	slt $ra, $ra, $t1
+rare	medium	/usr/sbin/slapindex	n32	0x100786a0	ldbm_back_modrdn	0x1007a528	slt	abs	time()	untainted-reg	slt $t1, $t1, $v0
+rare	medium	/usr/sbin/slapindex	n32	0x1009e070	lutil_csnstr	0x1009e0b8	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $v0, $v0, $a0
+rare	medium	/usr/sbin/slappasswd	n32	0x100202e0	slapd_daemon_destroy	0x10020cd4	slt	abs	time()	untainted-reg	slt $v0, $v0, $t1
+rare	medium	/usr/sbin/slappasswd	n32	0x100202e0	slapd_daemon_destroy	0x10020e54	slt	abs	time()	untainted-reg	slt $ra, $ra, $t1
+rare	medium	/usr/sbin/slappasswd	n32	0x100786a0	ldbm_back_modrdn	0x1007a528	slt	abs	time()	untainted-reg	slt $t1, $t1, $v0
+rare	medium	/usr/sbin/slappasswd	n32	0x1009e070	lutil_csnstr	0x1009e0b8	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $v0, $v0, $a0
+rare	medium	/usr/sbin/vacation	n32	0x10005010	main	0x1000665c	slt	abs	time()	untainted-reg	slt $t1, $v0, $t1
+rare	medium	/usr/sbin/vacation	n32	0x1000f7d0	sm_io_close	0x1000fbe4	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t5, $t5, $t1
+rare	medium	/usr/sbin/vacation	n32	0x1000f7d0	sm_io_close	0x10010068	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $at, $at, $v0
+rare	medium	/usr/sbin/vacation	n32	0x1000f7d0	sm_io_close	0x10010230	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t4, $a0, $t4
+rare	medium	/usr/sbin/vacation	n32	0x1000f7d0	sm_io_close	0x10010390	slt	abs	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t3, $t3, $t4
+rare	medium	/usr/sbin/xfsdump	n64	0x1001755c	HsmEndRestoreFile	0x1001878c	slt	abs	time()	untainted-reg	slt $t4, $v0, $t4
+rare	medium	/usr/sbin/xfsdump	n64	0x1001755c	HsmEndRestoreFile	0x10018c64	slt	abs	time()	untainted-reg	slt $a1, $s6, $v0
+rare	medium	/usr/sbin/xfsdump	n64	0x1001755c	HsmEndRestoreFile	0x10018c78	slt	abs	time()	untainted-reg	slt $a2, $s6, $v0
+rare	medium	/usr/sbin/xfsdump	n64	0x1001755c	HsmEndRestoreFile	0x100192f4	slt	abs	time()	untainted-reg	slt $v1, $v0, $a3
+rare	medium	/usr/sbin/xfsdump	n64	0x1001755c	HsmEndRestoreFile	0x10019304	slt	abs	time()	untainted-reg	slt $a0, $v0, $a3
+rare	medium	/usr/sbin/xfsdump	n64	0x10019cd4	preemptchk	0x1001ad2c	slt	abs	time()	untainted-reg	slt $t1, $v0, $t1
+rare	medium	/usr/sbin/xfsdump.MODE-32bit	n32	0x100151c8	HsmEndRestoreFile	0x100162d0	slt	abs	time()	untainted-reg	slt $a3, $v0, $a3
+rare	medium	/usr/sbin/xfsdump.MODE-32bit	n32	0x100151c8	HsmEndRestoreFile	0x10016758	slt	abs	time()	untainted-reg	slt $t0, $s6, $v0
+rare	medium	/usr/sbin/xfsdump.MODE-32bit	n32	0x100151c8	HsmEndRestoreFile	0x1001676c	slt	abs	time()	untainted-reg	slt $t1, $s6, $v0
+rare	medium	/usr/sbin/xfsdump.MODE-32bit	n32	0x100151c8	HsmEndRestoreFile	0x10016cd4	slt	abs	time()	untainted-reg	slt $v1, $v0, $a3
+rare	medium	/usr/sbin/xfsdump.MODE-32bit	n32	0x100151c8	HsmEndRestoreFile	0x10016ce4	slt	abs	time()	untainted-reg	slt $a0, $v0, $a3
+rare	medium	/usr/sbin/xfsdump.MODE-32bit	n32	0x100175f4	preemptchk	0x10018470	slt	abs	time()	untainted-reg	slt $a3, $v0, $a3
+rare	medium	/var/ns/lib/libns_dns.so	n32	0x403830	dns_in6_qry	0x404a98	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $a1, $a0, $a1
+rare	medium	/var/ns/lib/libns_files.so	n32	0x40f36c	file_services_list	0x40f69c	slt	abs	time()	tainted	slt $t2, $s3, $t2
+rare	medium	/var/ns/lib/libns_ndbm.so	n32	0x401238	init	0x401584	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $v1, $v0, $a0
+rare	medium	/var/ns/lib/libns_nis.so	n32	0x402c68	nis_bind_broadcast	0x4039e0	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $t1, $t1, $a3
+rare	medium	/var/ns/lib/libns_nis.so	n32	0x405e90	shake	0x4073e4	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $ra, $ra, $at
+rare	medium	/var/ns/lib/libns_nis.so	n32	0x408b00	nis_match_timeout	0x40931c	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $ra, $ra, $a3
+rare	medium	/var/ns/lib/libns_openldap.so	n32	0x4033bc	initialise_server	0x403428	slt	abs	time()	untainted-reg	slt $a0, $a0, $a1
+rare	medium	/var/pcp/pmdas/espping/pmdaespping	n32	0x1000196c	logmessage	0x1000220c	branch-bgez	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bgez $t0, 0x10002224
+rare	medium	/var/pcp/pmdas/espping/pmdaespping	n32	0x1000196c	logmessage	0x10002218	branch-bltz	abs	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a0, 0x10002214
+rare	medium	/var/rfindd/fsdump	n32	0x10007a90	time_to_garbage_collect	0x10008d10	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $v0, $v0, $v1
+rare	medium	/var/rfindd/fsdump.MODE-64bit	n64	0x100085d0	time_to_garbage_collect	0x10009870	slt	abs	time(&t):time@0x0/lw	untainted-reg	slt $v0, $v0, $v1
+rare	medium	/var/sgi_apache/server/libexec/mod_ssl.so	n32	0x419850	ssl_scache_dbm_store	0x419bb0	slt	abs	time()	untainted-reg	slt $a2, $v0, $a2
+rare	medium	/var/sgi_apache/server/libexec/mod_ssl.so	n32	0x419e00	ssl_scache_dbm_expire	0x419e70	slt	abs	time()	untainted-reg	slt $t9, $v0, $t9
+rare	medium	/var/sgi_apache/server/libexec/mod_ssl.so	n32	0x41a7e0	ssl_scache_shmht_store	0x41aa4c	slt	abs	time()	untainted-reg	slt $a2, $v0, $a2
+rare	medium	/var/sgi_apache/server/libexec/mod_ssl.so	n32	0x41ab60	ssl_scache_shmht_expire	0x41abd4	slt	abs	time()	untainted-reg	slt $t9, $v0, $t9
+rare	medium	/var/sgi_apache/server/libexec/mod_ssl.so	n32	0x41b5d0	ssl_scache_shmcb_status	0x41b77c	slt	abs	time()	untainted-reg	slt $at, $at, $v0
+rare	medium	/var/sgi_apache/server/libexec/mod_ssl.so	n32	0x41b5d0	ssl_scache_shmcb_status	0x41b788	slt	abs	time()	untainted-reg	slt $a0, $v0, $s5
+rare	medium	/var/sgi_apache/server/libexec/mod_ssl.so	n32	0x41b5d0	ssl_scache_shmcb_status	0x41b8e8	slt	abs	time()	untainted-reg	slt $a2, $a2, $t3
+rare	medium	/var/sgi_apache/server/libexec/mod_ssl.so	n32	0x41c610	ssl_scache_shmcb_status	0x41c6ec	slt	abs	time()	tainted	slt $t8, $s7, $v0
+rare	medium	/var/sgi_apache/server/libexec/mod_ssl.so	n32	0x41cf30	ssl_scache_shmcb_status	0x41d0f4	slt	abs	time()	untainted-reg	slt $ra, $ra, $v0
+rare	medium	/var/sgi_apache/server/sbin/httpd	n32	0x10011d40	ap_proxy_ftp_canon	0x10015960	slt	abs	time()	untainted-reg	slt $a2, $v0, $a2
+rare	medium	/var/sgi_apache/server/sbin/httpd	n32	0x10011d40	ap_proxy_ftp_canon	0x100159d4	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $t1, $t1, $t2
+rare	medium	/var/sgi_apache/server/sbin/httpd	n32	0x10015e80	ap_proxy_garbage_coll	0x100160b8	slt	abs	stat-time-field:stat@0x44/lw	untainted-reg	slt $a3, $t1, $a3
+rare	medium	/var/sgi_apache/server/sbin/httpd	n32	0x10015e80	ap_proxy_garbage_coll	0x100160c0	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $t2, $t1, $t2
+rare	medium	/var/sgi_apache/server/sbin/httpd	n32	0x10015e80	ap_proxy_garbage_coll	0x100161a8	slt	abs	stat-time-field:stat@0x44/lw	untainted-reg	slt $t2, $t2, $t1
+rare	medium	/var/sgi_apache/server/sbin/httpd	n32	0x10015e80	ap_proxy_garbage_coll	0x100161b8	slt	abs	stat-time-field:stat@0x4c/lw	untainted-reg	slt $t2, $t2, $t1
+rare	medium	/var/sgi_apache/server/sbin/httpd	n32	0x10052100	ap_start_restart	0x10053af0	slt	abs	time()	tainted	slt $t9, $t9, $s4
+rare	medium	/var/sgi_apache/server/sbin/httpd	n32	0x10069530	ap_set_keepalive	0x10069ba4	slt	abs	time()	untainted-reg	slt $a2, $v0, $a2
+rare	low	/usr/Cadmin/bin/clogin	n32	0x1000ee28	pwd0_isPasswdAged	0x1000ee9c	slt	quot	time()	untainted-reg	slt $a1, $a0, $s7
+rare	low	/usr/Cadmin/bin/clogin	n32	0x1000ee28	pwd0_isPasswdAged	0x1000eee0	slt	quot	time()	untainted-reg	slt $at, $s7, $a0
+rare	low	/usr/Cadmin/bin/clogin	n32	0x1000ee28	pwd0_isPasswdAged	0x1000eef4	slt	quot	time()	untainted-reg	slt $v0, $v0, $s7
+rare	low	/usr/Cadmin/bin/clogin	n32	0x10018950	pwd0_isInactive	0x100189e0	slt	delta	time()	untainted-reg	slt $a1, $a0, $a1
+rare	low	/usr/Imgtcl/lib/libtcl7.6.so	n32	0x5ffdd5d8	TclpGetTimeZone	0x5ffdd600	div	const-only	none	const60	div $zero, $a0, $v1
+rare	low	/usr/OnRamp/bin/sdpd	n32	0x10003c98	do_select	0x10003f0c	branch-blez	delta	time()	zero	blez $t5, 0x10004068
+rare	low	/usr/OnRamp/bin/sdpd	n32	0x10003c98	do_select	0x10004e84	slti	delta	time()	imm	slti $t9, $t9, 0x4b1
+rare	low	/usr/OnRamp/bin/sdpd	n32	0x10003c98	do_select	0x10004f1c	slti	delta	time()	imm	slti $t0, $t0, 0x4b1
+rare	low	/usr/OpenOffice/program/libdb-3.2.so	n32	0x5ffbed40	txn_checkpoint	0x5ffbef04	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v1, $v1, $v0
+rare	low	/usr/OpenOffice/program/libdb_cxx-3.2.so	n32	0x5fef7670	txn_checkpoint	0x5fef7834	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v1, $v1, $v0
+rare	low	/usr/OpenOffice/program/libdb_java-3.2.so	n32	0x5fe1fdf0	txn_checkpoint	0x5fe1ffb4	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v1, $v1, $v0
+rare	low	/usr/OpenOffice/program/libdtransX11641im.so	n32	0x5ffbbb2c	getPasteData__Q23x1116SelectionManagerUlUlRQ53com3sun4star3unot8Sequence1ZSc	0x5ffbbe70	slti	delta	time()	imm	slti $v0, $v0, 3
+rare	low	/usr/OpenOffice/program/libdtransX11641im.so	n32	0x5ffbcab4	getPasteDataTypes__Q23x1116SelectionManagerUlRQ53com3sun4star3unot8Sequence1ZQ53com3sun4star12datatransfer10DataFlavor	0x5ffbcbe8	branch-bltzl	delta	time()	zero	bltzl $v1, 0x5ffbcbf0
+rare	low	/usr/OpenOffice/program/libdtransX11641im.so	n32	0x5ffc033c	handleSendPropertyNotify__Q23x1116SelectionManagerR14XPropertyEvent	0x5ffc0520	slti	delta	time()	imm	slti $v0, $v0, 6
+rare	low	/usr/OpenOffice/program/libdtransX11641im.so	n32	0x5ffc6a38	dragDoDispatch__Q23x1116SelectionManager	0x5ffc6ad8	slti	delta	time()	imm	slti $v0, $v0, 5
+rare	low	/usr/OpenOffice/program/libdtransX11641im.so	n32	0x5ffc7b70	run__Q23x1116SelectionManagerPv	0x5ffc7be4	branch-blez	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	blez $v1, 0x5ffc7e90
+rare	low	/usr/OpenOffice/program/libldap50.so	n32	0x5ffcbb58	nsldapi_result_nolock	0x5ffcc8e4	branch-blez	delta	time()	zero	blez $v1, 0x5ffcc000
+rare	low	/usr/OpenOffice/program/libmozjs.so	n32	0x5ffee498	PRMJ_Now	0x5ffee4d0	mult-timeconst	abs	gettimeofday.tv_sec:gtod@0x0/lw	const1000000	dmult $v0, $v1
+rare	low	/usr/OpenOffice/program/libnspr4.so	n32	0x5ffcd2a0	PR_Now	0x5ffcd2d8	mult-timeconst	abs	gettimeofday.tv_sec:gtod@0x0/lw	const1000000	dmult $v0, $v1
+rare	low	/usr/OpenOffice/program/libsb641im.so	n32	0x5ffb04b4	SbRtl_Wait__FP9StarBASICR8SbxArrayUc	0x5ffb0598	slt	delta	time()	untainted-reg	slt $v0, $v0, $s0
+rare	low	/usr/OpenOffice/program/libsbl641im.so	n32	0x5fe5cfe4	SbRtl_Wait__FP9StarBASICR8SbxArrayUc	0x5fe5d0c8	slt	delta	time()	untainted-reg	slt $v0, $v0, $s0
+rare	low	/usr/ToolTalk/lib32/libtt.so	n32	0xd489bc0	read_auth_entries__8_Tt_authGP8__file_sPP21_tt_AuthFileEntryList	0xd489f1c	slt	delta	time()	untainted-reg	slt $t0, $a2, $t0
+rare	low	/usr/ToolTalk/lib64/libtt.so	n64	0x20a2b50	read_auth_entries__8_Tt_authGP8__file_sPP21_tt_AuthFileEntryList	0x20a2f08	slt	delta	time()	untainted-reg	slt $t0, $a2, $t0
+rare	low	/usr/bin/X11/puzzle	n32	0x10006870	Reset	0x10006e88	branch-bgtz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bgtz $a1, 0x10006da0
+rare	low	/usr/bin/X11/puzzle	n32	0x10006870	Reset	0x10006fe4	branch-blez	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	blez $a1, 0x10007050
+rare	low	/usr/bin/X11/puzzle	n32	0x10006870	Reset	0x10007004	div	delta	gettimeofday.tv_sec:gtod@0x0/lw	reg	div $zero, $t5, $a1
+rare	low	/usr/bin/X11/puzzle	n32	0x10006870	Reset	0x10007010	branch-blez	quot	gettimeofday.tv_sec:gtod@0x0/lw	zero	blez $a2, 0x10007034
+rare	low	/usr/bin/X11/xauth	n32	0x10005bf0	XauLockAuth	0x10005cb8	slt	delta	time()	untainted-reg	slt $v1, $a2, $v1
+rare	low	/usr/bin/X11/xterm	n32	0x1000e040	DeleteChar	0x1000e668	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t2, 0x1000e680
+rare	low	/usr/bin/X11/xterm	n32	0x1000e040	DeleteChar	0x1000e674	slt	delta	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t6, $t2, $t6
+rare	low	/usr/bin/X11/xuctblgen	n32	0x10004bc0	put_time	0x10004c54	mult-timeconst	delta	gettimeofday.tv_sec:gtod@0x0/lw	const1000000	mult $a1, $a2
+rare	low	/usr/bin/cdc	n32	0x10009394	lockit	0x100095b8	slti	delta	time()	imm	slti $a2, $a0, 0x3c
+rare	low	/usr/bin/cdc	n32	0x10009394	lockit	0x100095c4	branch-bltz	delta	time()	zero	bltz $a0, 0x100096e8
+rare	low	/usr/bin/csacom	n32	0x100073bc	convtime	0x10007d88	div	const-only	none	const86400	div $zero, $v1, $a2
+rare	low	/usr/bin/csacom	n32	0x100073bc	convtime	0x10007da0	div	const-only	none	const86400	div $zero, $a3, $a2
+rare	low	/usr/bin/delta	n32	0x1000d288	lockit	0x1000d4ac	slti	delta	time()	imm	slti $a2, $a0, 0x3c
+rare	low	/usr/bin/delta	n32	0x1000d288	lockit	0x1000d4b8	branch-bltz	delta	time()	zero	bltz $a0, 0x1000d5dc
+rare	low	/usr/bin/gsview	n32	0x10048918	do_img_message	0x10048c58	slt	delta	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t5, $t5, $t6
+rare	low	/usr/bin/gsview	n32	0x10048918	do_img_message	0x10048d84	slt	delta	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t5, $t5, $t6
+rare	low	/usr/bin/ldapcompare	n32	0x10014460	ldap_compare_ext	0x10014e98	branch-blez	delta	time()	zero	blez $a3, 0x10015040
+rare	low	/usr/bin/ldapdelete	n32	0x1000b750	ldap_result	0x1000bc88	branch-blez	delta	time()	zero	blez $a3, 0x1000be30
+rare	low	/usr/bin/ldapmodify	n32	0x1000f020	ldap_result	0x1000f558	branch-blez	delta	time()	zero	blez $a3, 0x1000f700
+rare	low	/usr/bin/ldapmodrdn	n32	0x1000b6c0	ldap_result	0x1000bbf8	branch-blez	delta	time()	zero	blez $a3, 0x1000bda0
+rare	low	/usr/bin/ldappasswd	n32	0x1000b500	lutil_localtime	0x1000bd58	branch-blez	delta	time()	zero	blez $a3, 0x1000bf00
+rare	low	/usr/bin/ldapsearch	n32	0x10010e20	ldap_result	0x10011358	branch-blez	delta	time()	zero	blez $a3, 0x10011500
+rare	low	/usr/bin/ldapwhoami	n32	0x10016680	ldap_result	0x10016bb8	branch-blez	delta	time()	zero	blez $a3, 0x10016d60
+rare	low	/usr/bin/rmail	n32	0x10008f40	sm_io_close	0x1000981c	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $v0, 0x10009ae4
+rare	low	/usr/bin/rmail	n32	0x10008f40	sm_io_close	0x10009ca0	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x10009c14
+rare	low	/usr/bin/rmail	n32	0x1000ebb0	sm_io_flush	0x1000ef84	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t3, 0x1000f244
+rare	low	/usr/bin/rmail	n32	0x1000fea0	sm_io_fputs	0x10010758	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t4, 0x10010b0c
+rare	low	/usr/bin/rmail	n32	0x1000fea0	sm_io_fputs	0x10010de8	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t5, 0x100112c8
+rare	low	/usr/bin/rmail	n32	0x1000fea0	sm_io_fputs	0x1001143c	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t4, 0x100114d0
+rare	low	/usr/bin/rmdel	n32	0x10009394	lockit	0x100095b8	slti	delta	time()	imm	slti $a2, $a0, 0x3c
+rare	low	/usr/bin/rmdel	n32	0x10009394	lockit	0x100095c4	branch-bltz	delta	time()	zero	bltz $a0, 0x100096e8
+rare	low	/usr/bin/sact	n32	0x10004f70	lockit	0x10005194	slti	delta	time()	imm	slti $a2, $a0, 0x3c
+rare	low	/usr/bin/sact	n32	0x10004f70	lockit	0x100051a0	branch-bltz	delta	time()	zero	bltz $a0, 0x100052c4
+rare	low	/usr/bin/sftp	n32	0x1000af80	ls_file	0x1000b038	slt	delta	time()	untainted-reg	slt $v0, $v0, $v1
+rare	low	/usr/bin/sftp-server	n32	0x100056a0	ls_file	0x10005758	slt	delta	time()	untainted-reg	slt $v0, $v0, $v1
+rare	low	/usr/bin/smrsh	n32	0x1000c730	sm_io_flush	0x1000cb04	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t3, 0x1000cdc4
+rare	low	/usr/bin/smrsh	n32	0x1000d720	sm_snprintf	0x1000e10c	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $v0, 0x1000e3d4
+rare	low	/usr/bin/smrsh	n32	0x1000d720	sm_snprintf	0x1000e590	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x1000e504
+rare	low	/usr/bin/smrsh	n32	0x1000e600	sm_fvwrite	0x1000ea58	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t4, 0x1000ee0c
+rare	low	/usr/bin/smrsh	n32	0x1000e600	sm_fvwrite	0x1000f0e8	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t5, 0x1000f5c8
+rare	low	/usr/bin/smrsh	n32	0x1000e600	sm_fvwrite	0x1000f73c	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t4, 0x1000f7d0
+rare	low	/usr/bin/snoop	n32	0x100095b0	snoop_sigrecover	0x10009634	branch-blez	delta	time()	zero	blez $a3, 0x100096a0
+rare	low	/usr/bin/snoop	n32	0x100095b0	snoop_sigrecover	0x10009730	branch-bltz	delta	time()	zero	bltz $t4, 0x10009760
+rare	low	/usr/bin/ssh	n32	0x100261f0	buffer_append_space	0x100267a0	slt	delta	time()	untainted-reg	slt $v1, $t0, $t3
+rare	low	/usr/bin/ssh-keyscan	n32	0x10011450	ssh_rsa_sign	0x10011f30	slt	delta	time()	untainted-reg	slt $v1, $t0, $t3
+rare	low	/usr/bin/ssh-keysign	n32	0x10014180	packet_set_idletimeout	0x100142c0	slt	delta	time()	untainted-reg	slt $v1, $t0, $t3
+rare	low	/usr/bin/tcsh	n32	0x10016bd4	flush	0x10016e94	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $a2, $a2, $a3
+rare	low	/usr/bin/tcsh	n32	0x10016bd4	flush	0x10017258	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t8, $t8, $s0
+rare	low	/usr/bin/tcsh	n32	0x1003e010	dolog	0x1003e680	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $a1, $a0, $a1
+rare	low	/usr/bin/unget	n32	0x10004f70	lockit	0x10005194	slti	delta	time()	imm	slti $a2, $a0, 0x3c
+rare	low	/usr/bin/unget	n32	0x10004f70	lockit	0x100051a0	branch-bltz	delta	time()	zero	bltz $a0, 0x100052c4
+rare	low	/usr/bin/uucp	n32	0x1000a4e8	systat	0x1000a85c	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $a3, $a3, $a2
+rare	low	/usr/bin/uustat	n32	0x10004460	systat	0x100047ac	branch-blez	delta	time(&t):time@0x0/lw	zero	blez $t0, 0x100047e8
+rare	low	/usr/bin/uustat	n32	0x10004460	systat	0x100047bc	div	delta	time(&t):time@0x0/lw	const60	div $zero, $a3, $a2
+rare	low	/usr/bin/uustat	n32	0x10004460	systat	0x100047cc	div	quot	time(&t):time@0x0/lw	const60	div $zero, $a1, $a2
+rare	low	/usr/bin/uustat	n32	0x10004460	systat	0x10004c58	div	delta	stat-time-field:stat@0x4c/lw	reg	div $zero, $a3, $a2
+rare	low	/usr/bin/uux	n32	0x1000ab74	systat	0x1000aee8	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $a3, $a3, $a2
+rare	low	/usr/bsd/editmap	n32	0x10009ed0	sm_io_reopen	0x1000a8ec	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $v0, 0x1000abb4
+rare	low	/usr/bsd/editmap	n32	0x10009ed0	sm_io_reopen	0x1000ad70	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x1000ace4
+rare	low	/usr/bsd/editmap	n32	0x100135e0	sm_io_flush	0x100139b4	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t3, 0x10013c74
+rare	low	/usr/bsd/editmap	n32	0x10013f70	sm_io_fputs	0x10014828	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t4, 0x10014bdc
+rare	low	/usr/bsd/editmap	n32	0x10013f70	sm_io_fputs	0x10014eb8	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t5, 0x10015398
+rare	low	/usr/bsd/editmap	n32	0x10013f70	sm_io_fputs	0x1001550c	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t4, 0x100155a0
+rare	low	/usr/bsd/mailstats	n32	0x10008ea0	sm_io_close	0x1000977c	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $v0, 0x10009a44
+rare	low	/usr/bsd/mailstats	n32	0x10008ea0	sm_io_close	0x10009c00	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x10009b74
+rare	low	/usr/bsd/mailstats	n32	0x1000e8d0	sm_io_flush	0x1000eca4	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t3, 0x1000ef64
+rare	low	/usr/bsd/mailstats	n32	0x1000f610	sm_refill	0x10010758	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t4, 0x10010b0c
+rare	low	/usr/bsd/mailstats	n32	0x1000f610	sm_refill	0x10010de8	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t5, 0x100112c8
+rare	low	/usr/bsd/mailstats	n32	0x1000f610	sm_refill	0x1001143c	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t4, 0x100114d0
+rare	low	/usr/bsd/makemap	n32	0x1000e070	sm_io_close	0x1000e94c	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $v0, 0x1000ec14
+rare	low	/usr/bsd/makemap	n32	0x1000e070	sm_io_close	0x1000edd0	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x1000ed44
+rare	low	/usr/bsd/makemap	n32	0x10013aa0	sm_io_flush	0x10013e74	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t3, 0x10014134
+rare	low	/usr/bsd/makemap	n32	0x10014d90	sm_io_fputs	0x10015658	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t4, 0x10015a0c
+rare	low	/usr/bsd/makemap	n32	0x10014d90	sm_io_fputs	0x10015ce8	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t5, 0x100161c8
+rare	low	/usr/bsd/makemap	n32	0x10014d90	sm_io_fputs	0x1001633c	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t4, 0x100163d0
+rare	low	/usr/bsd/praliases	n32	0x1000de80	sm_io_close	0x1000e75c	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $v0, 0x1000ea24
+rare	low	/usr/bsd/praliases	n32	0x1000de80	sm_io_close	0x1000ebe0	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x1000eb54
+rare	low	/usr/bsd/praliases	n32	0x100138c0	sm_io_flush	0x10013c94	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t3, 0x10013f54
+rare	low	/usr/bsd/praliases	n32	0x10014c90	sm_io_fputs	0x10015558	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t4, 0x1001590c
+rare	low	/usr/bsd/praliases	n32	0x10014c90	sm_io_fputs	0x10015be8	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t5, 0x100160c8
+rare	low	/usr/bsd/praliases	n32	0x10014c90	sm_io_fputs	0x1001623c	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t4, 0x100162d0
+rare	low	/usr/bsd/ruptime	n32	0x10001308	main	0x10001718	slti	delta	time(&t):time@0x0/lw	imm	slti $t6, $a0, 0x295
+rare	low	/usr/bsd/ruptime	n32	0x10001308	main	0x100018d4	div	const-only	none	const60	div $zero, $t4, $t0
+rare	low	/usr/bsd/ruptime	n32	0x10001308	main	0x100018e4	div	const-only	none	const60	div $zero, $a3, $t0
+rare	low	/usr/bsd/w	n32	0x1000183c	main	0x10001abc	div	const-only	none	const86400	div $zero, $s0, $t4
+rare	low	/usr/bsd/w	n32	0x1000183c	main	0x10001ad8	div	const-only	none	const3600	div $zero, $t6, $t7
+rare	low	/usr/bsd/w	n32	0x1000183c	main	0x10001af4	div	const-only	none	const60	div $zero, $t3, $t5
+rare	low	/usr/bsd/w	n32	0x100021d0	main	0x100024c8	div	const-only	none	const60	div $zero, $t2, $t3
+rare	low	/usr/bsd/w	n32	0x10002500	main	0x1000255c	div	const-only	none	const60	div $zero, $a0, $v1
+rare	low	/usr/cluster/bin/cad	n32	0x10014470	main	0x10014680	ddiv	delta	gettimeofday.tv_sec:gtod@0x0/lw	const1000	ddiv $zero, $t1, $t2
+rare	low	/usr/cluster/bin/cad	n32	0x10014470	main	0x10016388	ddiv	delta	gettimeofday.tv_sec:gtod@0x0/lw	const1000	ddiv $zero, $t3, $t4
+rare	low	/usr/cluster/bin/cad	n32	0x1001e07c	l_auth_data	0x1001e0f4	slti	delta	time()	imm	slti $a3, $a3, 0x14
+rare	low	/usr/cluster/bin/cad	n32	0x1002a3e0	l_set_attr	0x1002a5a0	div	delta	time()	const60	div $zero, $a0, $v1
+rare	low	/usr/cluster/bin/cad	n32	0x100338fc	l_read_borrow	0x10033b0c	slt	delta	time()	untainted-reg	slt $t4, $t4, $t5
+rare	low	/usr/cluster/bin/cad	n32	0x1004321c	lc_expire_days	0x100434f0	div	const-only	none	const86400	div $zero, $t1, $t0
+rare	low	/usr/cluster/bin/cad	n32	0x1006801c	lc_username	0x10068220	slt	delta	stat-time-field:stat@0x4c/lw	untainted-reg	slt $t0, $t0, $t1
+rare	low	/usr/diags/SG/bin/olsg	n64	0x101b5050	dl_output_exit_crashlog	0x101b5ec4	div	delta	gettimeofday.tv_sec:gtod@0x4/lw	const3600	div $zero, $s1, $t2
+rare	low	/usr/diags/SG/bin/olsg	n64	0x101b5050	dl_output_exit_crashlog	0x101b5ed8	div	delta	gettimeofday.tv_sec:gtod@0x4/lw	const60	div $zero, $s1, $t3
+rare	low	/usr/diags/SG/bin/olsgsys	n32	0x10017358	dl_output_exit_crashlog	0x10018158	div	delta	gettimeofday.tv_sec:gtod@0x0/lw	const3600	div $zero, $s1, $t2
+rare	low	/usr/diags/SG/bin/olsgsys	n32	0x10017358	dl_output_exit_crashlog	0x1001816c	div	delta	gettimeofday.tv_sec:gtod@0x0/lw	const60	div $zero, $s1, $t3
+rare	low	/usr/diags/compositor/bin/sting	n32	0x1001b31c	dl_output_rslt	0x1001b720	div	delta	gettimeofday.tv_sec:gtod@0x0/lw	const3600	div $zero, $s1, $t2
+rare	low	/usr/diags/compositor/bin/sting	n32	0x1001b31c	dl_output_rslt	0x1001b734	div	delta	gettimeofday.tv_sec:gtod@0x0/lw	const60	div $zero, $s1, $t1
+rare	low	/usr/dt/bin/dtexec	n32	0x10002cb0	dtexec_tttk_message_abandon	0x100030e4	slt	delta	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t0, $t0, $t1
+rare	low	/usr/dt/bin/dtfile	n32	0x100270d0	ReadFileData	0x1002840c	slti	delta	gettimeofday.tv_sec:gtod@0x0/lw	imm	slti $a2, $a2, 0x190
+rare	low	/usr/dt/bin/dtfile	n32	0x1003e430	FileOpError	0x10041bb8	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a1, 0x10041d08
+rare	low	/usr/dt/bin/dtksh	n32	0x100169b0	main	0x100175cc	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $a2, $a2, $a3
+rare	low	/usr/dt/bin/dtksh	n32	0x100273a0	path_join	0x100286c0	slti	delta	time()	imm	slti $at, $at, 0x258
+rare	low	/usr/dt/bin/tedscape	n32	0x10012c00	AddBaseHref	0x10012c70	slti	delta	time()	imm	slti $a0, $a0, 2
+rare	low	/usr/dt/lib32/libDtLogin.so.1	n32	0x5ffba800	CloseOnFork	0x5ffbb49c	slti	delta	stat-time-field:stat@0x44/lw	imm	slti $a2, $a1, 1
+rare	low	/usr/dt/lib32/libDtLogin.so.1	n32	0x5ffba800	CloseOnFork	0x5ffbb4bc	branch-blez	delta	stat-time-field:stat@0x44/lw	zero	blez $a1, 0x5ffbb458
+rare	low	/usr/dt/lib32/libDtLogin.so.1	n32	0x5ffc7370	IsIndirectClient	0x5ffc7554	slti	delta	time()	imm	slti $a1, $a1, 0x10
+rare	low	/usr/dt/lib32/libDtLogin.so.1	n32	0x5ffd3b98	XauGetBestAuthByAddr	0x5ffd3f30	slt	delta	time()	untainted-reg	slt $t0, $a1, $t0
+rare	low	/usr/dt/lib32/libDtMail.so.1	n32	0x5ffa59e0	__dt__9FileShareGv	0x5ffa5bc8	slt	delta	time()	untainted-reg	slt $t8, $s1, $t8
+rare	low	/usr/dt/lib32/libDtMail.so.1	n32	0x5ffaf250	transportConstruct__7SessionGR9DtMailEnvPCcPGPvR9DtMailEnvT1_vPv	0x5ffaf4cc	slt	delta	time()	untainted-reg	slt $a0, $a0, $a1
+rare	low	/usr/dt/lib32/libDtMail.so.1	n32	0x5ffb0f10	targetTagName__7SessionGPc	0x5ffb146c	slt	delta	time()	untainted-reg	slt $v0, $a2, $s0
+rare	low	/usr/dt/lib32/libDtMail.so.1	n32	0x5ffc1ca0	prevNotDel__10RFCMailBoxGi	0x5ffc237c	slt	delta	time()	untainted-reg	slt $t3, $t3, $s2
+rare	low	/usr/dt/lib32/libDtTerm.so.1	n32	0x5ffa2b80	_DtTermPrimActionLeave	0x5ffa2f80	slt	delta	time()	untainted-reg	slt $a3, $a0, $a3
+rare	low	/usr/dt/lib32/libcsa.so.0	n32	0x5ffc61f0	_DtCm_clntstat_to_csastat	0x5ffc63c0	slt	delta	time()	untainted-reg	slt $v0, $v0, $v1
+rare	low	/usr/etc/LicenseManager	n32	0x10068f80	Parsedatetime__GPCcPl	0x100695bc	div	const-only	none	const60	div $zero, $t1, $t2
+rare	low	/usr/etc/LicenseManager	n32	0x10068f80	Parsedatetime__GPCcPl	0x100695e4	div	const-only	none	const60	div $zero, $t4, $t5
+rare	low	/usr/etc/LicenseManager	n32	0x10068f80	Parsedatetime__GPCcPl	0x10069614	div	const-only	none	const3600	div $zero, $t6, $t7
+rare	low	/usr/etc/LicenseManager	n32	0x100a1840	nls_date_stamp	0x100a18b0	div	delta	gettimeofday.tv_sec:gtod@0x0/lw	const1440	div $zero, $v1, $a0
+rare	low	/usr/etc/cachefs_replacement	n32	0x10002db8	replace_files	0x10003454	slt	delta	time()	untainted-reg	slt $a3, $a3, $t0
+rare	low	/usr/etc/dhcp_bootp	n32	0x100076e8	execute_script	0x1000b7f8	branch-bgez	delta	time(&t):time@0x0/lw	zero	bgez $v0, 0x1000b7d8
+rare	low	/usr/etc/mtrace	n32	0x10003790	send_recv	0x10003a18	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $v0, 0x10003b6c
+rare	low	/usr/etc/mtrace	n32	0x10003790	send_recv	0x10004380	slti	delta	gettimeofday.tv_sec:gtod@0x0/lw	imm	slti $t3, $a2, 0x1f5
+rare	low	/usr/etc/pmcd.MODE-32bit	n32	0x100154d0	__pmGetLicense	0x100159f0	div	delta	gettimeofday.tv_sec:gtod@0x0/lw	const86400	div $zero, $t2, $t3
+rare	low	/usr/etc/pmcd.MODE-32bit	n32	0x10015c20	license_chk_out	0x10015d78	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t0, $a1, $t0
+rare	low	/usr/etc/pmcd.MODE-32bit	n32	0x10015c20	license_chk_out	0x10015d84	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+rare	low	/usr/etc/pmcd.MODE-32bit	n32	0x10015c20	license_chk_out	0x10015d98	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+rare	low	/usr/etc/pmcd.MODE-32bit	n32	0x10015c20	license_chk_out	0x10015dd4	div	const-only	none	const86400	div $zero, $a1, $at
+rare	low	/usr/etc/pmcd.MODE-32bit	n32	0x10015c20	license_chk_out	0x10015e04	div	const-only	none	const86400	div $zero, $a1, $ra
+rare	low	/usr/etc/sgifd	n32	0x10028f68	jtJBrS	0x10029528	slt	delta	time()	untainted-reg	slt $t1, $t1, $t2
+rare	low	/usr/etc/sgifd	n32	0x1004b4c0	dJYdpN	0x1004b524	slti	delta	time()	imm	slti $a2, $a2, 0xe10
+rare	low	/usr/etc/sgifd	n32	0x10054c58	aLul7n	0x10054f94	slti	delta	time()	imm	slti $t0, $t0, 0x12d
+rare	low	/usr/etc/sgifd	n32	0x1005ddf0	mkvlI6	0x1005dfb0	div	delta	time()	const60	div $zero, $a0, $v1
+rare	low	/usr/etc/sgifd	n32	0x1006d00c	l_read_borrow	0x1006d21c	slt	delta	time()	untainted-reg	slt $t4, $t4, $t5
+rare	low	/usr/etc/sgifd	n32	0x100749dc	hh_jcI	0x10074cb0	div	const-only	none	const86400	div $zero, $t1, $t0
+rare	low	/usr/etc/sgifd	n32	0x1007ea14	e0V55b	0x1007ea8c	slti	delta	time()	imm	slti $a3, $a3, 0x14
+rare	low	/usr/etc/sgifd	n32	0x100a8d34	x9idVd	0x100a8f38	slt	delta	stat-time-field:stat@0x4c/lw	untainted-reg	slt $t0, $t0, $t1
+rare	low	/usr/etc/snmpd.MODE-64bit	n64	0x1001109c	getIfName__10ifSubAgentGUi	0x10012140	slti	delta	time()	imm	slti $a2, $a2, 0x1e
+rare	low	/usr/etc/snmpd.MODE-64bit	n64	0x1001109c	getIfName__10ifSubAgentGUi	0x10012158	slti	delta	time()	imm	slti $a3, $a3, 6
+rare	low	/usr/etc/snmpd.MODE-64bit	n64	0x1001109c	getIfName__10ifSubAgentGUi	0x10012cf0	slti	delta	time()	imm	slti $a2, $a2, 0x1e
+rare	low	/usr/etc/snmpd.MODE-64bit	n64	0x1001109c	getIfName__10ifSubAgentGUi	0x10012d08	slti	delta	time()	imm	slti $a3, $a3, 6
+rare	low	/usr/etc/snmpd.MODE-64bit	n64	0x10017694	readCfg__21remoteSubAgentHandlerGv	0x10017b9c	slti	delta	time()	imm	slti $a1, $a1, 5
+rare	low	/usr/etc/snmpd.MODE-64bit	n64	0x10017694	readCfg__21remoteSubAgentHandlerGv	0x10017bac	slti	delta	time()	imm	slti $a0, $a0, 3
+rare	low	/usr/etc/snmpd.MODE-64bit	n64	0x10018334	__dt__11tcpSubAgentGv	0x10018b78	slti	delta	time()	imm	slti $a1, $a1, 5
+rare	low	/usr/etc/snmpd.MODE-64bit	n64	0x10018334	__dt__11tcpSubAgentGv	0x10018b88	slti	delta	time()	imm	slti $a0, $a0, 3
+rare	low	/usr/etc/sysctlrd	n32	0x10002ae8	power_down	0x10002cb8	slti	delta	time()	imm	slti $a2, $a2, 0x4650
+rare	low	/usr/etc/sysctlrd	n32	0x10004824	getenvinfo	0x10004a90	div	abs	time()	const100	div $zero, $v0, $a2
+rare	low	/usr/etc/timedc	n32	0x10003824	measure	0x10003d34	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a0, 0x10003b4c
+rare	low	/usr/etc/timedc	n32	0x10003824	measure	0x10003d90	mult-timeconst	quot	gettimeofday.tv_sec:gtod@0x0/lw	const1000	mult $t2, $t3
+rare	low	/usr/etc/ttcp	n32	0x10002060	main	0x10003bc8	div	const-only	none	const3600	div $zero, $a0, $at
+rare	low	/usr/etc/ttcp	n32	0x10002060	main	0x10003c1c	div	const-only	none	const60	div $zero, $s1, $a2
+rare	low	/usr/etc/ttcp	n32	0x10002060	main	0x10003c68	div	const-only	none	const60	div $zero, $s1, $t4
+rare	low	/usr/etc/ttcp	n32	0x10002060	main	0x10003cb4	div	const-only	none	const60	div $zero, $a0, $t5
+rare	low	/usr/gfx/arch/GENERIC/Xsgi	n32	0x100c8030	glxWrapRealizeWindow	0x100c85dc	branch-blez	delta	time()	zero	blez $at, 0x100c85c4
+rare	low	/usr/gfx/arch/GENERIC/Xsgi	n32	0x101093a0	sgiCapPolyText16..LCE	0x10109658	slt	delta	time()	untainted-reg	slt $t3, $t2, $t3
+rare	low	/usr/gfx/arch/IP22NG1/Xsgi	n32	0x10140e40	TellClip..PAF	0x101416ac	branch-blez	delta	time()	zero	blez $at, 0x10141694
+rare	low	/usr/gfx/arch/IP22NG1/Xsgi	n32	0x101b7610	ProcSetSelectionOwner	0x101b7da8	slt	delta	time()	untainted-reg	slt $t3, $t2, $t3
+rare	low	/usr/java2/lib32/sgi/libj3daudio.so	n32	0x5ffce580	predictor_pole	0x5ffcf844	mult-timeconst	delta	gettimeofday.tv_sec:gtod@0x0/lw	const1000000	mult $a1, $a2
+rare	low	/usr/java2/lib32/sgi/libjsound.so	n32	0x8eac4f0	PV_ServeStereoInterp2FilterPartialBufferNewReverb16	0x8eb0624	mult-timeconst	delta	gettimeofday.tv_sec:gtod@0x0/lw	const1000000	mult $a1, $a2
+rare	low	/usr/java2/lib32/sgi/libnet.so	n32	0x8efc6b0	NET_Read	0x8efd2f0	mult-timeconst	abs	gettimeofday.tv_sec:gtod@0x0/lw	const1000	mult $a2, $a3
+rare	low	/usr/java2/lib32/sgi/libnet.so	n32	0x8efc6b0	NET_Read	0x8efd414	branch-blez	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	blez $s0, 0x8efd480
+rare	low	/usr/lib/infosearch/bin/booksAdmin	n32	0x10003fcc	main	0x100044c8	div	delta	time()	const60	div $zero, $a2, $a3
+rare	low	/usr/lib/infosearch/bin/manAdmin	n32	0x10002d1c	main	0x100032e4	div	delta	time()	const60	div $zero, $a1, $a2
+rare	low	/usr/lib/print/chkimprlicense	n32	0x1002ce0c	license_chk_out	0x1002cf7c	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $at, $v0, $at
+rare	low	/usr/lib/print/chkimprlicense	n32	0x1002ce0c	license_chk_out	0x1002cf98	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $v0, $ra
+rare	low	/usr/lib/print/chkimprlicense	n32	0x1002ce0c	license_chk_out	0x1002d000	div	const-only	none	const86400	div $zero, $v0, $ra
+rare	low	/usr/lib/print/chkimprlicense	n32	0x1002ce0c	license_chk_out	0x1002d040	div	const-only	none	const86400	div $zero, $v0, $ra
+rare	low	/usr/lib/print/chkimprlicense.0a025e66	n32	0x10035514	license_chk_out	0x1003566c	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t0, $a1, $t0
+rare	low	/usr/lib/print/chkimprlicense.0a025e66	n32	0x10035514	license_chk_out	0x10035678	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+rare	low	/usr/lib/print/chkimprlicense.0a025e66	n32	0x10035514	license_chk_out	0x1003568c	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+rare	low	/usr/lib/print/chkimprlicense.0a025e66	n32	0x10035514	license_chk_out	0x100356c8	div	const-only	none	const86400	div $zero, $a1, $at
+rare	low	/usr/lib/print/chkimprlicense.0a025e66	n32	0x10035514	license_chk_out	0x100356f8	div	const-only	none	const86400	div $zero, $a1, $ra
+rare	low	/usr/lib/print/modelinfo	n32	0x10027648	license_chk_out	0x100277b8	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $at, $v0, $at
+rare	low	/usr/lib/print/modelinfo	n32	0x10027648	license_chk_out	0x100277d4	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $v0, $ra
+rare	low	/usr/lib/print/modelinfo	n32	0x10027648	license_chk_out	0x1002783c	div	const-only	none	const86400	div $zero, $v0, $ra
+rare	low	/usr/lib/print/modelinfo	n32	0x10027648	license_chk_out	0x1002787c	div	const-only	none	const86400	div $zero, $v0, $ra
+rare	low	/usr/lib/print/modelinfo.66019fd4	n32	0x1002f890	license_chk_out	0x1002f9e8	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t0, $a1, $t0
+rare	low	/usr/lib/print/modelinfo.66019fd4	n32	0x1002f890	license_chk_out	0x1002f9f4	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+rare	low	/usr/lib/print/modelinfo.66019fd4	n32	0x1002f890	license_chk_out	0x1002fa08	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+rare	low	/usr/lib/print/modelinfo.66019fd4	n32	0x1002f890	license_chk_out	0x1002fa44	div	const-only	none	const86400	div $zero, $a1, $at
+rare	low	/usr/lib/print/modelinfo.66019fd4	n32	0x1002f890	license_chk_out	0x1002fa74	div	const-only	none	const86400	div $zero, $a1, $ra
+rare	low	/usr/lib/sa/sadc.MODE-32bit	n32	0x1000193c	main	0x10001ab8	slt	delta	time()	untainted-reg	slt $t3, $t3, $t4
+rare	low	/usr/lib/uucp/uucico	n32	0x100075cc	chat	0x10008e98	div	const-only	none	const60	div $zero, $at, $v0
+rare	low	/usr/lib/uucp/uucico	n32	0x1000c4f0	cntrl	0x1000c780	div	delta	time(&t):time@0x0/lw	const60	div $zero, $t0, $a3
+rare	low	/usr/lib/uucp/uucico	n32	0x1000c4f0	cntrl	0x1000c798	div	quot	time(&t):time@0x0/lw	const60	div $zero, $a2, $a3
+rare	low	/usr/lib/uucp/uucico	n32	0x10016f64	systat	0x100172d8	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $a3, $a3, $a2
+rare	low	/usr/lib/uucp/uucleanup	n32	0x100029d0	main	0x10004710	div	delta	stat-time-field:stat@0x4c/lw	reg	div $zero, $a0, $t0
+rare	low	/usr/lib/uucp/uusched	n32	0x10004470	ultouch	0x10004bec	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $a3, $a3, $a2
+rare	low	/usr/lib/uucp/uuxqt	n32	0x1000ba44	systat	0x1000bdb8	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $a3, $a3, $a2
+rare	low	/usr/lib32/InventorDebug/libInventor.so.3	n32	0x4f78ac	setHSVValue__7SbColorGfN21	0x4f7fcc	div	const-only	none	const86400	div $zero, $s6, $t3
+rare	low	/usr/lib32/InventorDebug/libInventor.so.3	n32	0x4f78ac	setHSVValue__7SbColorGfN21	0x4f7fdc	div	const-only	none	const3600	div $zero, $s6, $t4
+rare	low	/usr/lib32/InventorDebug/libInventor.so.3	n32	0x4f78ac	setHSVValue__7SbColorGfN21	0x4f8000	div	const-only	none	const60	div $zero, $s6, $s0
+rare	low	/usr/lib32/cluster/cbe/libcdb_fs2.so	n32	0x408990	CBELog	0x408a94	div	abs	clock_gettime.tv_sec:cgt@0x4/lw	const1000000	div $zero, $at, $ra
+rare	low	/usr/lib32/debug/libwebviewer.so.3	n32	0x625770	Lookup__7HistoryGPCc	0x6259b0	slt	delta	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a2, $a2, $a3
+rare	low	/usr/lib32/debug/libwebviewer.so.4	n32	0x61c6f0	Lookup__7HistoryGPCc	0x61c930	slt	delta	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a2, $a2, $a3
+rare	low	/usr/lib32/internal/amrserver.so	n32	0x40804c	calculate_unsubscribedtime	0x4081d8	div	const-only	none	const60	div $zero, $t2, $t3
+rare	low	/usr/lib32/internal/amrserver.so	n32	0x40804c	calculate_unsubscribedtime	0x408284	div	delta	time()	const60	div $zero, $v1, $a0
+rare	low	/usr/lib32/internal/amrserver.so	n32	0x43e5dc	license_chk_out	0x43e734	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t0, $a1, $t0
+rare	low	/usr/lib32/internal/amrserver.so	n32	0x43e5dc	license_chk_out	0x43e740	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+rare	low	/usr/lib32/internal/amrserver.so	n32	0x43e5dc	license_chk_out	0x43e754	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+rare	low	/usr/lib32/internal/amrserver.so	n32	0x43e5dc	license_chk_out	0x43e790	div	const-only	none	const86400	div $zero, $a1, $at
+rare	low	/usr/lib32/internal/amrserver.so	n32	0x43e5dc	license_chk_out	0x43e7c0	div	const-only	none	const86400	div $zero, $a1, $ra
+rare	low	/usr/lib32/internal/cm_plugin.so	n32	0x409f64	display_error	0x40a190	slti	delta	time()	imm	slti $a1, $a1, 0x3841
+rare	low	/usr/lib32/internal/libespconfig.so	n32	0x42af68	ackSimpleCallBack	0x42bec8	slt	delta	time()	tainted	slt $t4, $t0, $t7
+rare	low	/usr/lib32/internal/libespconfig.so	n32	0x466ea4	license_chk_out	0x466ffc	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t0, $a1, $t0
+rare	low	/usr/lib32/internal/libespconfig.so	n32	0x466ea4	license_chk_out	0x467008	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+rare	low	/usr/lib32/internal/libespconfig.so	n32	0x466ea4	license_chk_out	0x46701c	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+rare	low	/usr/lib32/internal/libespconfig.so	n32	0x466ea4	license_chk_out	0x467058	div	const-only	none	const86400	div $zero, $a1, $at
+rare	low	/usr/lib32/internal/libespconfig.so	n32	0x466ea4	license_chk_out	0x467088	div	const-only	none	const86400	div $zero, $a1, $ra
+rare	low	/usr/lib32/internal/libespdso.so	n32	0x4047bc	DoEspEventProcessing	0x404d88	slt	delta	time()	untainted-reg	slt $a3, $a3, $t0
+rare	low	/usr/lib32/internal/libsaUserAcct.so	n32	0x95577f4	SaIsPasswordAged	0x9557870	slt	quot	time()	untainted-reg	slt $at, $a0, $s0
+rare	low	/usr/lib32/internal/libsaUserAcct.so	n32	0x95577f4	SaIsPasswordAged	0x95578c0	slt	quot	time()	untainted-reg	slt $at, $s0, $a0
+rare	low	/usr/lib32/internal/libsaUserAcct.so	n32	0x95577f4	SaIsPasswordAged	0x95578d4	slt	quot	time()	untainted-reg	slt $v0, $v0, $s0
+rare	low	/usr/lib32/internal/libsgmserver.so	n32	0x408394	ShowResponseFile	0x40b65c	div	abs	clock_gettime.tv_sec:cgt@0x4/lw	const1000000	div $zero, $a0, $a1
+rare	low	/usr/lib32/internal/libsgmserver.so	n32	0x434d50	license_chk_out	0x434ea8	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t0, $a1, $t0
+rare	low	/usr/lib32/internal/libsgmserver.so	n32	0x434d50	license_chk_out	0x434eb4	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+rare	low	/usr/lib32/internal/libsgmserver.so	n32	0x434d50	license_chk_out	0x434ec8	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+rare	low	/usr/lib32/internal/libsgmserver.so	n32	0x434d50	license_chk_out	0x434f04	div	const-only	none	const86400	div $zero, $a1, $at
+rare	low	/usr/lib32/internal/libsgmserver.so	n32	0x434d50	license_chk_out	0x434f34	div	const-only	none	const86400	div $zero, $a1, $ra
+rare	low	/usr/lib32/internal/libssdb.so	n32	0x40fa50	ssdbthread_done_critical_section	0x40fbe8	branch-bgtz	delta	time()	zero	bgtz $s1, 0x40fb8c
+rare	low	/usr/lib32/internal/mozilla/libgdk-1.2.so.1	n32	0x5ffc04ac	gdk_colormap_sync	0x5ffc04f8	slti	delta	time()	imm	slti $a0, $a0, 2
+rare	low	/usr/lib32/libInventor.so.3	n32	0xc763bb4	setHSVValue__7SbColorGfN21	0xc7642d0	div	const-only	none	const86400	div $zero, $s6, $t3
+rare	low	/usr/lib32/libInventor.so.3	n32	0xc763bb4	setHSVValue__7SbColorGfN21	0xc7642e0	div	const-only	none	const3600	div $zero, $s6, $t4
+rare	low	/usr/lib32/libInventor.so.3	n32	0xc763bb4	setHSVValue__7SbColorGfN21	0xc764304	div	const-only	none	const60	div $zero, $s6, $s0
+rare	low	/usr/lib32/libXt.so	n32	0xf45c010	IceAcceptConnection	0xf45c6f4	slt	delta	time()	untainted-reg	slt $t0, $a2, $t0
+rare	low	/usr/lib32/libldap_r-2.2.so.8.16	n32	0x40c100	ldap_pvt_thread_create	0x40d638	branch-blez	delta	time()	zero	blez $a3, 0x40d838
+rare	low	/usr/lib32/libldap_r.so.3.122	n32	0xa53bb10	ldap_pvt_thread_create	0xa53cf9c	branch-blez	delta	time()	zero	blez $a3, 0xa53d2b8
+rare	low	/usr/lib32/liblp.so	n32	0x9df4f38	lock	0x9df4ff0	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $a1, $a1, $a2
+rare	low	/usr/lib32/liblp.so.58b1f214	n32	0x404190	lock	0x404248	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $a1, $a1, $a2
+rare	low	/usr/lib32/libxnet.so	n32	0xb41abc8	_svc_vc_destroy_private	0xb41af20	slti	delta	gettimeofday.tv_sec:gtod@0x0/lw	imm	slti $v1, $v0, 0x23
+rare	low	/usr/lib32/libxnet.so	n32	0xb41abc8	_svc_vc_destroy_private	0xb41af24	slt	delta	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $t2, $s6, $v0
+rare	low	/usr/lib32/libxnet.so	n32	0xb41fac8	_svcauth_des	0xb41fd9c	slt	delta	gettimeofday.tv_sec:gtod@0x0/lw	untainted-reg	slt $a1, $a0, $t2
+rare	low	/usr/lib32/mips3/dmedia/audioconverters/debug/libmultirate.so	n32	0xc85da14	license_chk_out	0xc85db6c	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t0, $a1, $t0
+rare	low	/usr/lib32/mips3/dmedia/audioconverters/debug/libmultirate.so	n32	0xc85da14	license_chk_out	0xc85db78	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+rare	low	/usr/lib32/mips3/dmedia/audioconverters/debug/libmultirate.so	n32	0xc85da14	license_chk_out	0xc85db8c	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+rare	low	/usr/lib32/mips3/dmedia/audioconverters/debug/libmultirate.so	n32	0xc85da14	license_chk_out	0xc85dbc8	div	const-only	none	const86400	div $zero, $a1, $at
+rare	low	/usr/lib32/mips3/dmedia/audioconverters/debug/libmultirate.so	n32	0xc85da14	license_chk_out	0xc85dbf8	div	const-only	none	const86400	div $zero, $a1, $ra
+rare	low	/usr/lib32/mips3/dmedia/audioconverters/debug/libmultirate.so	n32	0xc85da14	license_chk_out	0xc85dc58	slti	delta	time()	imm	slti $v1, $v1, 0x12d
+rare	low	/usr/lib32/mips3/dmedia/audioconverters/libmultirate.so	n32	0xc8526cc	license_chk_out	0xc852824	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t0, $a1, $t0
+rare	low	/usr/lib32/mips3/dmedia/audioconverters/libmultirate.so	n32	0xc8526cc	license_chk_out	0xc852830	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+rare	low	/usr/lib32/mips3/dmedia/audioconverters/libmultirate.so	n32	0xc8526cc	license_chk_out	0xc852844	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+rare	low	/usr/lib32/mips3/dmedia/audioconverters/libmultirate.so	n32	0xc8526cc	license_chk_out	0xc852880	div	const-only	none	const86400	div $zero, $a1, $at
+rare	low	/usr/lib32/mips3/dmedia/audioconverters/libmultirate.so	n32	0xc8526cc	license_chk_out	0xc8528b0	div	const-only	none	const86400	div $zero, $a1, $ra
+rare	low	/usr/lib32/mips3/dmedia/audioconverters/libmultirate.so	n32	0xc8526cc	license_chk_out	0xc852910	slti	delta	time()	imm	slti $v1, $v1, 0x12d
+rare	low	/usr/lib32/mips4/dmedia/audioconverters/debug/libmultirate.so	n32	0xc85d138	license_chk_out	0xc85d290	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t0, $a1, $t0
+rare	low	/usr/lib32/mips4/dmedia/audioconverters/debug/libmultirate.so	n32	0xc85d138	license_chk_out	0xc85d29c	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+rare	low	/usr/lib32/mips4/dmedia/audioconverters/debug/libmultirate.so	n32	0xc85d138	license_chk_out	0xc85d2b0	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+rare	low	/usr/lib32/mips4/dmedia/audioconverters/debug/libmultirate.so	n32	0xc85d138	license_chk_out	0xc85d2ec	div	const-only	none	const86400	div $zero, $a1, $at
+rare	low	/usr/lib32/mips4/dmedia/audioconverters/debug/libmultirate.so	n32	0xc85d138	license_chk_out	0xc85d31c	div	const-only	none	const86400	div $zero, $a1, $ra
+rare	low	/usr/lib32/mips4/dmedia/audioconverters/debug/libmultirate.so	n32	0xc85d138	license_chk_out	0xc85d37c	slti	delta	time()	imm	slti $v1, $v1, 0x12d
+rare	low	/usr/lib32/mips4/dmedia/audioconverters/libmultirate.so	n32	0xc851f2c	license_chk_out	0xc852084	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t0, $a1, $t0
+rare	low	/usr/lib32/mips4/dmedia/audioconverters/libmultirate.so	n32	0xc851f2c	license_chk_out	0xc852090	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+rare	low	/usr/lib32/mips4/dmedia/audioconverters/libmultirate.so	n32	0xc851f2c	license_chk_out	0xc8520a4	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+rare	low	/usr/lib32/mips4/dmedia/audioconverters/libmultirate.so	n32	0xc851f2c	license_chk_out	0xc8520e0	div	const-only	none	const86400	div $zero, $a1, $at
+rare	low	/usr/lib32/mips4/dmedia/audioconverters/libmultirate.so	n32	0xc851f2c	license_chk_out	0xc852110	div	const-only	none	const86400	div $zero, $a1, $ra
+rare	low	/usr/lib32/mips4/dmedia/audioconverters/libmultirate.so	n32	0xc851f2c	license_chk_out	0xc852170	slti	delta	time()	imm	slti $v1, $v1, 0x12d
+rare	low	/usr/lib32/rpcsec.so.1	n32	0x414364	__rpc_gss_is_installed	0x414588	slt	delta	time()	untainted-reg	slt $t8, $t8, $t9
+rare	low	/usr/lib32/rpcsec.so.1	n32	0x414364	__rpc_gss_is_installed	0x4145bc	slt	delta	time()	untainted-reg	slt $ra, $ra, $at
+rare	low	/usr/lib32/rpcsec.so.1	n32	0x468880	krb5_rd_req_decoded_anyflag	0x46b4a4	div	const-only	none	const86400	div $zero, $a0, $v1
+rare	low	/usr/lib32/rpcsec.so.1	n32	0x468880	krb5_rd_req_decoded_anyflag	0x46b4f8	div	const-only	none	const3600	div $zero, $s4, $a2
+rare	low	/usr/lib32/rpcsec.so.1	n32	0x468880	krb5_rd_req_decoded_anyflag	0x46b50c	div	const-only	none	const60	div $zero, $s3, $v0
+rare	low	/usr/lib32/rpcsec.so.1	n32	0x468880	krb5_rd_req_decoded_anyflag	0x46b56c	div	const-only	none	const60	div $zero, $s3, $a2
+rare	low	/usr/lib32/rpcsec.so.1	n32	0x468880	krb5_rd_req_decoded_anyflag	0x46b64c	div	const-only	none	const3600	div $zero, $s4, $t1
+rare	low	/usr/lib32/rpcsec.so.1	n32	0x468880	krb5_rd_req_decoded_anyflag	0x46b668	div	const-only	none	const60	div $zero, $a3, $t0
+rare	low	/usr/lib64/abi/libXt.so.3	n64	0x44c420	IceAcceptConnection	0x44cad4	slt	delta	time()	untainted-reg	slt $t0, $a2, $t0
+rare	low	/usr/lib64/abi/libc.so	n64	0x435820	waitpid	0x436030	ddiv	const-only	none	const86400	ddiv $zero, $t4, $t2
+rare	low	/usr/lib64/abi/libc.so	n64	0x435820	waitpid	0x436088	ddiv	const-only	none	const86400	ddiv $zero, $t0, $t2
+rare	low	/usr/lib64/abi/libc.so	n64	0x435820	waitpid	0x4360e8	ddiv	const-only	none	const3600	ddiv $zero, $a3, $t6
+rare	low	/usr/lib64/abi/libc.so	n64	0x435820	waitpid	0x436100	ddiv	const-only	none	const60	ddiv $zero, $at, $t7
+rare	low	/usr/lib64/libldap_r-2.2.so.8.16	n64	0x40dc20	ldap_pvt_thread_create	0x40f178	branch-blez	delta	time()	zero	blez $a3, 0x40f368
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/debug/libmultirate.so	n64	0x2156298	lc_check	0x2156320	slti	delta	time()	imm	slti $v0, $v0, 0x14
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/debug/libmultirate.so	n64	0x215983c	lc_expire_days	0x2159984	div	const-only	none	const86400	div $zero, $at, $v0
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/debug/libmultirate.so	n64	0x2163acc	l_now	0x2163b00	ddiv	abs	gettimeofday.tv_sec:gtod@0x0/ld	const10000	ddiv $zero, $at, $v0
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/debug/libmultirate.so	n64	0x2168a24	l_read_timeout	0x2168ad0	ddiv	abs	gettimeofday.tv_sec:gtod@0x0/ld	const100	ddiv $zero, $a3, $t0
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/debug/libmultirate.so	n64	0x2168a24	l_read_timeout	0x2168cbc	ddiv	abs	gettimeofday.tv_sec:gtod@0x0/ld	const100	ddiv $zero, $a2, $a3
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/debug/libmultirate.so	n64	0x2168a24	l_read_timeout	0x2168cfc	branch-bgez	delta	gettimeofday.tv_sec:gtod@0x0/ld	zero	bgez $a2, 0x2168d1c
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/debug/libmultirate.so	n64	0x2168a24	l_read_timeout	0x2168d50	branch-bgtz	delta	gettimeofday.tv_sec:gtod@0x0/ld	zero	bgtz $a2, 0x2168b2c
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/debug/libmultirate.so	n64	0x219018c	license_chk_out	0x21902ec	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v1, $a1, $v1
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/debug/libmultirate.so	n64	0x219018c	license_chk_out	0x21902f8	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/debug/libmultirate.so	n64	0x219018c	license_chk_out	0x219030c	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/debug/libmultirate.so	n64	0x219018c	license_chk_out	0x2190348	div	const-only	none	const86400	div $zero, $a1, $at
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/debug/libmultirate.so	n64	0x219018c	license_chk_out	0x2190378	div	const-only	none	const86400	div $zero, $a1, $ra
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/debug/libmultirate.so	n64	0x219018c	license_chk_out	0x21903dc	slti	delta	time()	imm	slti $v1, $v1, 0x12d
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/libmultirate.so	n64	0x214b390	lc_check	0x214b418	slti	delta	time()	imm	slti $v0, $v0, 0x14
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/libmultirate.so	n64	0x214e934	lc_expire_days	0x214ea7c	div	const-only	none	const86400	div $zero, $at, $v0
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/libmultirate.so	n64	0x2158bc4	l_now	0x2158bf8	ddiv	abs	gettimeofday.tv_sec:gtod@0x0/ld	const10000	ddiv $zero, $at, $v0
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/libmultirate.so	n64	0x215db1c	l_read_timeout	0x215dbc8	ddiv	abs	gettimeofday.tv_sec:gtod@0x0/ld	const100	ddiv $zero, $a3, $t0
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/libmultirate.so	n64	0x215db1c	l_read_timeout	0x215ddb4	ddiv	abs	gettimeofday.tv_sec:gtod@0x0/ld	const100	ddiv $zero, $a2, $a3
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/libmultirate.so	n64	0x215db1c	l_read_timeout	0x215ddf4	branch-bgez	delta	gettimeofday.tv_sec:gtod@0x0/ld	zero	bgez $a2, 0x215de14
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/libmultirate.so	n64	0x215db1c	l_read_timeout	0x215de48	branch-bgtz	delta	gettimeofday.tv_sec:gtod@0x0/ld	zero	bgtz $a2, 0x215dc24
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/libmultirate.so	n64	0x2185284	license_chk_out	0x21853e4	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v1, $a1, $v1
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/libmultirate.so	n64	0x2185284	license_chk_out	0x21853f0	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/libmultirate.so	n64	0x2185284	license_chk_out	0x2185404	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/libmultirate.so	n64	0x2185284	license_chk_out	0x2185440	div	const-only	none	const86400	div $zero, $a1, $at
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/libmultirate.so	n64	0x2185284	license_chk_out	0x2185470	div	const-only	none	const86400	div $zero, $a1, $ra
+rare	low	/usr/lib64/mips4/dmedia/audioconverters/libmultirate.so	n64	0x2185284	license_chk_out	0x21854d4	slti	delta	time()	imm	slti $v1, $v1, 0x12d
+rare	low	/usr/openldap/bin/slapd	n32	0x10068d60	limits_check	0x10069328	branch-blez	delta	time()	zero	blez $t0, 0x100695f0
+rare	low	/usr/openldap/bin/slapd	n32	0x100b15d0	ldap_result	0x100b1b08	branch-blez	delta	time()	zero	blez $a3, 0x100b1d08
+rare	low	/usr/openldap/bin/slurpd	n32	0x1001d6f0	ldap_result	0x1001dc28	branch-blez	delta	time()	zero	blez $a3, 0x1001de28
+rare	low	/usr/pcp/bin/pmbrand	n32	0x10006080	license_chk_out	0x100061d8	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t0, $a1, $t0
+rare	low	/usr/pcp/bin/pmbrand	n32	0x10006080	license_chk_out	0x100061e4	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+rare	low	/usr/pcp/bin/pmbrand	n32	0x10006080	license_chk_out	0x100061f8	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+rare	low	/usr/pcp/bin/pmbrand	n32	0x10006080	license_chk_out	0x10006234	div	const-only	none	const86400	div $zero, $a1, $at
+rare	low	/usr/pcp/bin/pmbrand	n32	0x10006080	license_chk_out	0x10006264	div	const-only	none	const86400	div $zero, $a1, $ra
+rare	low	/usr/sbin/astat	n32	0x10001188	main	0x1000170c	div	const-only	none	const86400	div $zero, $a2, $ra
+rare	low	/usr/sbin/astat	n32	0x10001188	main	0x10001728	div	const-only	none	const3600	div $zero, $v1, $a1
+rare	low	/usr/sbin/astat	n32	0x10001188	main	0x10001744	div	const-only	none	const60	div $zero, $at, $v0
+rare	low	/usr/sbin/astat	n32	0x10001188	main	0x10001960	div	const-only	none	const86400	div $zero, $a2, $ra
+rare	low	/usr/sbin/astat	n32	0x10001188	main	0x1000197c	div	const-only	none	const3600	div $zero, $v1, $a1
+rare	low	/usr/sbin/astat	n32	0x10001188	main	0x10001998	div	const-only	none	const60	div $zero, $at, $v0
+rare	low	/usr/sbin/astat	n32	0x10001188	main	0x10001a08	div	const-only	none	const86400	div $zero, $ra, $t5
+rare	low	/usr/sbin/astat	n32	0x10001188	main	0x10001a24	div	const-only	none	const3600	div $zero, $t8, $t9
+rare	low	/usr/sbin/astat	n32	0x10001188	main	0x10001a40	div	const-only	none	const60	div $zero, $t4, $t7
+rare	low	/usr/sbin/ci	n32	0x10017034	date2str	0x10017230	div	const-only	none	const3600	div $zero, $s0, $a2
+rare	low	/usr/sbin/ci	n32	0x10017034	date2str	0x10017294	div	const-only	none	const60	div $zero, $s3, $a3
+rare	low	/usr/sbin/co	n32	0x100165c8	date2str	0x100167c4	div	const-only	none	const3600	div $zero, $s0, $a2
+rare	low	/usr/sbin/co	n32	0x100165c8	date2str	0x10016828	div	const-only	none	const60	div $zero, $s3, $a3
+rare	low	/usr/sbin/distcp	n32	0x1000a068	vclose	0x1000a324	slt	delta	time()	untainted-reg	slt $a1, $a1, $a2
+rare	low	/usr/sbin/espcall	n32	0x1000db00	acl_slow_down	0x1000dfd0	slt	delta	time()	untainted-reg	slt $a1, $a1, $a2
+rare	low	/usr/sbin/espcall	n32	0x1000db00	acl_slow_down	0x1000dfe0	branch-bgez	delta	time()	zero	bgez $t1, 0x1000e044
+rare	low	/usr/sbin/gendist	n32	0x10019318	vclose	0x100195d4	slt	delta	time()	untainted-reg	slt $a1, $a1, $a2
+rare	low	/usr/sbin/gsscred	n32	0x100153b8	krb5_string_to_enctype	0x10015bf4	div	const-only	none	const86400	div $zero, $a0, $v1
+rare	low	/usr/sbin/gsscred	n32	0x100153b8	krb5_string_to_enctype	0x10015c48	div	const-only	none	const3600	div $zero, $s4, $a2
+rare	low	/usr/sbin/gsscred	n32	0x100153b8	krb5_string_to_enctype	0x10015c5c	div	const-only	none	const60	div $zero, $s3, $v0
+rare	low	/usr/sbin/gsscred	n32	0x100153b8	krb5_string_to_enctype	0x10015cbc	div	const-only	none	const60	div $zero, $s3, $a2
+rare	low	/usr/sbin/gsscred	n32	0x100153b8	krb5_string_to_enctype	0x10015d9c	div	const-only	none	const3600	div $zero, $s4, $t1
+rare	low	/usr/sbin/gsscred	n32	0x100153b8	krb5_string_to_enctype	0x10015db8	div	const-only	none	const60	div $zero, $a3, $t0
+rare	low	/usr/sbin/lmnewlog	n32	0x1002e8f4	l_read_borrow	0x1002eb04	slt	delta	time()	untainted-reg	slt $t4, $t4, $t5
+rare	low	/usr/sbin/lmnewlog	n32	0x1004159c	lc_expire_days	0x10041870	div	const-only	none	const86400	div $zero, $t1, $t0
+rare	low	/usr/sbin/lmnewlog	n32	0x100448c0	l_auth_data	0x10044938	slti	delta	time()	imm	slti $a3, $a3, 0x14
+rare	low	/usr/sbin/lmnewlog	n32	0x1004fcd0	l_set_attr	0x1004fe90	div	delta	time()	const60	div $zero, $a0, $v1
+rare	low	/usr/sbin/lmnewlog	n32	0x10073aec	l_make_udp_socket	0x10073cf0	slt	delta	stat-time-field:stat@0x4c/lw	untainted-reg	slt $t0, $t0, $t1
+rare	low	/usr/sbin/lmutil	n32	0x1002e8f4	l_read_borrow	0x1002eb04	slt	delta	time()	untainted-reg	slt $t4, $t4, $t5
+rare	low	/usr/sbin/lmutil	n32	0x1004159c	lc_expire_days	0x10041870	div	const-only	none	const86400	div $zero, $t1, $t0
+rare	low	/usr/sbin/lmutil	n32	0x100448c0	l_auth_data	0x10044938	slti	delta	time()	imm	slti $a3, $a3, 0x14
+rare	low	/usr/sbin/lmutil	n32	0x1004fcd0	l_set_attr	0x1004fe90	div	delta	time()	const60	div $zero, $a0, $v1
+rare	low	/usr/sbin/lmutil	n32	0x10073aec	l_make_udp_socket	0x10073cf0	slt	delta	stat-time-field:stat@0x4c/lw	untainted-reg	slt $t0, $t0, $t1
+rare	low	/usr/sbin/mailx	n32	0x10018a00	makelock	0x10018e04	slt	delta	stat-time-field:stat@0x54/lw	untainted-reg	slt $t1, $s4, $t1
+rare	low	/usr/sbin/mam	n32	0x1003135c	license_chk_out	0x100314b4	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $t0, $a1, $t0
+rare	low	/usr/sbin/mam	n32	0x1003135c	license_chk_out	0x100314c0	slt	delta	time(&t):time@0x0/lw	untainted-reg	slt $v0, $a1, $v0
+rare	low	/usr/sbin/mam	n32	0x1003135c	license_chk_out	0x100314d4	div	delta	time(&t):time@0x0/lw	const86400	div $zero, $a1, $a2
+rare	low	/usr/sbin/mam	n32	0x1003135c	license_chk_out	0x10031510	div	const-only	none	const86400	div $zero, $a1, $at
+rare	low	/usr/sbin/mam	n32	0x1003135c	license_chk_out	0x10031540	div	const-only	none	const86400	div $zero, $a1, $ra
+rare	low	/usr/sbin/nslookup	n32	0x1000e38c	__p_option	0x1000f3fc	div	const-only	none	const60	div $zero, $t5, $a1
+rare	low	/usr/sbin/nslookup	n32	0x1000e38c	__p_option	0x1000f414	div	const-only	none	const60	div $zero, $t4, $a1
+rare	low	/usr/sbin/nslookup	n32	0x1000e38c	__p_option	0x1000f448	div	const-only	none	const60	div $zero, $ra, $a1
+rare	low	/usr/sbin/nslookup	n32	0x1000e38c	__p_option	0x1000f460	div	const-only	none	const60	div $zero, $t9, $a1
+rare	low	/usr/sbin/ntpdc	n32	0x1000b450	authusekey	0x1000b764	div	abs	clock_gettime.tv_sec:cgt@0x4/lw	const1000	div $zero, $t9, $ra
+rare	low	/usr/sbin/ntpdc	n32	0x1000b450	authusekey	0x1000b7c8	branch-bltz	delta	clock_gettime.tv_sec:cgt@0x4/lw	zero	bltz $v0, 0x1000b88c
+rare	low	/usr/sbin/ntpq	n32	0x1000cd94	mfptoms	0x1000d090	div	abs	clock_gettime.tv_sec:cgt@0x4/lw	const1000	div $zero, $t9, $ra
+rare	low	/usr/sbin/ntpq	n32	0x1000cd94	mfptoms	0x1000d0f4	branch-bltz	delta	clock_gettime.tv_sec:cgt@0x4/lw	zero	bltz $v0, 0x1000d1b8
+rare	low	/usr/sbin/ntptrace	n32	0x100036c4	init_recvbuff	0x10004230	div	abs	clock_gettime.tv_sec:cgt@0x4/lw	const1000	div $zero, $t9, $ra
+rare	low	/usr/sbin/ntptrace	n32	0x100036c4	init_recvbuff	0x10004294	branch-bltz	delta	clock_gettime.tv_sec:cgt@0x4/lw	zero	bltz $v0, 0x10004358
+rare	low	/usr/sbin/rcs	n32	0x10018204	date2str	0x10018400	div	const-only	none	const3600	div $zero, $s0, $a2
+rare	low	/usr/sbin/rcs	n32	0x10018204	date2str	0x10018464	div	const-only	none	const60	div $zero, $s3, $a3
+rare	low	/usr/sbin/rcsclean	n32	0x100168fc	date2str	0x10016af8	div	const-only	none	const3600	div $zero, $s0, $a2
+rare	low	/usr/sbin/rcsclean	n32	0x100168fc	date2str	0x10016b5c	div	const-only	none	const60	div $zero, $s3, $a3
+rare	low	/usr/sbin/rcsdiff	n32	0x10015b08	date2str	0x10015d04	div	const-only	none	const3600	div $zero, $s0, $a2
+rare	low	/usr/sbin/rcsdiff	n32	0x10015b08	date2str	0x10015d68	div	const-only	none	const60	div $zero, $s3, $a3
+rare	low	/usr/sbin/rcsmerge	n32	0x100161bc	date2str	0x100163b8	div	const-only	none	const3600	div $zero, $s0, $a2
+rare	low	/usr/sbin/rcsmerge	n32	0x100161bc	date2str	0x1001641c	div	const-only	none	const60	div $zero, $s3, $a3
+rare	low	/usr/sbin/rlog	n32	0x10015d40	date2str	0x10015f3c	div	const-only	none	const3600	div $zero, $s0, $a2
+rare	low	/usr/sbin/rlog	n32	0x10015d40	date2str	0x10015fa0	div	const-only	none	const60	div $zero, $s3, $a3
+rare	low	/usr/sbin/slapadd	n32	0x10068d60	limits_check	0x10069328	branch-blez	delta	time()	zero	blez $t0, 0x100695f0
+rare	low	/usr/sbin/slapadd	n32	0x100b15d0	ldap_result	0x100b1b08	branch-blez	delta	time()	zero	blez $a3, 0x100b1d08
+rare	low	/usr/sbin/slapcat	n32	0x10068d60	limits_check	0x10069328	branch-blez	delta	time()	zero	blez $t0, 0x100695f0
+rare	low	/usr/sbin/slapcat	n32	0x100b15d0	ldap_result	0x100b1b08	branch-blez	delta	time()	zero	blez $a3, 0x100b1d08
+rare	low	/usr/sbin/slapindex	n32	0x10068d60	limits_check	0x10069328	branch-blez	delta	time()	zero	blez $t0, 0x100695f0
+rare	low	/usr/sbin/slapindex	n32	0x100b15d0	ldap_result	0x100b1b08	branch-blez	delta	time()	zero	blez $a3, 0x100b1d08
+rare	low	/usr/sbin/slappasswd	n32	0x10068d60	limits_check	0x10069328	branch-blez	delta	time()	zero	blez $t0, 0x100695f0
+rare	low	/usr/sbin/slappasswd	n32	0x100b15d0	ldap_result	0x100b1b08	branch-blez	delta	time()	zero	blez $a3, 0x100b1d08
+rare	low	/usr/sbin/topsys	n32	0x10001be4	_mcount	0x100026c8	ddiv	const-only	none	const60	ddiv $zero, $t6, $a3
+rare	low	/usr/sbin/topsys	n32	0x10001be4	_mcount	0x100026ec	ddiv	const-only	none	const60	ddiv $zero, $t5, $a3
+rare	low	/usr/sbin/vacation	n32	0x1000f7d0	sm_io_close	0x100100ac	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $v0, 0x10010374
+rare	low	/usr/sbin/vacation	n32	0x1000f7d0	sm_io_close	0x10010530	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $a3, 0x100104a4
+rare	low	/usr/sbin/vacation	n32	0x10015900	sm_io_flush	0x10015cd4	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t3, 0x10015f94
+rare	low	/usr/sbin/vacation	n32	0x10017420	sm_fvwrite	0x10017878	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t4, 0x10017c2c
+rare	low	/usr/sbin/vacation	n32	0x10017420	sm_fvwrite	0x10017f08	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t5, 0x100183e8
+rare	low	/usr/sbin/vacation	n32	0x10017420	sm_fvwrite	0x1001855c	branch-bltz	delta	gettimeofday.tv_sec:gtod@0x0/lw	zero	bltz $t4, 0x100185f0
+rare	low	/usr/sbin/xfs_quota	n32	0x100099c0	time_to_string	0x100099fc	div	const-only	none	const86400	div $zero, $t5, $a0
+rare	low	/usr/sbin/xfs_quota	n32	0x100099c0	time_to_string	0x10009a1c	div	const-only	none	const3600	div $zero, $t5, $a2
+rare	low	/usr/sbin/xfs_quota	n32	0x100099c0	time_to_string	0x10009aa8	div	const-only	none	const60	div $zero, $t5, $t1
+rare	low	/usr/sbin/xfs_quota	n32	0x100099c0	time_to_string	0x10009b34	div	const-only	none	const60	div $zero, $t5, $a2
+rare	low	/usr/sbin/xfs_quota	n32	0x100099c0	time_to_string	0x10009bbc	div	const-only	none	const60	div $zero, $t5, $a1
+rare	low	/usr/sbin/xlv_make	n32	0x100199f8	Tcl_FlushCmd	0x1001b304	mult-timeconst	delta	gettimeofday.tv_sec:gtod@0x0/lw	const1000000	mult $t5, $t6
+rare	low	/usr/sysadm/adminclass/SaSchedBackupClass.so	n32	0x9137d9c	parseAtJob__22SaSchedBackupClassImplGRC9ImdStringlPCcPcP46ImdOrderedCollectionOf__pt__16_13SaAdminObject	0x9137fe0	div	const-only	none	const60	div $zero, $t7, $a3
+rare	low	/usr/sysadm/adminclass/SaSchedBackupClass.so	n32	0x9137d9c	parseAtJob__22SaSchedBackupClassImplGRC9ImdStringlPCcPcP46ImdOrderedCollectionOf__pt__16_13SaAdminObject	0x9137ff0	div	const-only	none	const60	div $zero, $t0, $a3
+rare	low	/usr/sysadm/adminclass/SaSchedBackupClass.so	n32	0x9137d9c	parseAtJob__22SaSchedBackupClassImplGRC9ImdStringlPCcPcP46ImdOrderedCollectionOf__pt__16_13SaAdminObject	0x9138050	div	const-only	none	const60	div $zero, $t7, $a2
+rare	low	/usr/sysadm/adminclass/SaSchedBackupClass.so	n32	0x9137d9c	parseAtJob__22SaSchedBackupClassImplGRC9ImdStringlPCcPcP46ImdOrderedCollectionOf__pt__16_13SaAdminObject	0x9138060	div	const-only	none	const60	div $zero, $a3, $a2
+rare	low	/usr/sysadm/paneldso/SaSchedBackupPanel.so	n32	0x6b8417c	setUpCatalogArea__18SaSchedBackupPanelGv	0x6b8450c	div	const-only	none	const3600	div $zero, $t1, $a3
+rare	low	/usr/sysadm/paneldso/SaSchedBackupPanel.so	n32	0x6b8417c	setUpCatalogArea__18SaSchedBackupPanelGv	0x6b84530	div	const-only	none	const60	div $zero, $t1, $t0
+rare	low	/usr/sysadm/taskdso/SaMountFsTask.so	n32	0x8b15b58	atpreceive	0x8b16500	slt	delta	time()	untainted-reg	slt $a1, $a1, $a2
+rare	low	/usr/sysadm/taskdso/SaMountFsTask.so.cc29fe4b	n32	0x425b30	atpreceive	0x4264d8	slt	delta	time()	untainted-reg	slt $a1, $a1, $a2
+rare	low	/usr/sysadm/taskdso/SaMountMacLprTask.so	n32	0x891b820	atpreceive	0x891c1c8	slt	delta	time()	untainted-reg	slt $a1, $a1, $a2
+rare	low	/usr/sysadm/taskdso/SaMountMacLprTask.so.1317204a	n32	0x41b8f8	atpreceive	0x41c2a0	slt	delta	time()	untainted-reg	slt $a1, $a1, $a2
+rare	low	/var/netscape/communicator/lib32/libcp21_javascript.so	n32	0x7bfe1f8	CPPR_mktime	0x7bfe388	ddiv	const-only	none	const86400	ddiv $zero, $s2, $at
+rare	low	/var/netscape/communicator/lib32/libcp21_javascript.so	n32	0x7bfe1f8	CPPR_mktime	0x7bfe4a4	ddiv	const-only	none	const60	ddiv $zero, $s2, $a0
+rare	low	/var/netscape/mozilla/libldap50.so	n32	0x5ffcd960	nsldapi_connection_lost_nolock	0x5ffce5d4	branch-blez	delta	time()	zero	blez $t8, 0x5ffce8e8
+rare	low	/var/ns/lib/libns_ldap.so	n32	0x407ce0	open_callback	0x4080d0	slt	delta	time()	untainted-reg	slt $a0, $a0, $a1
+rare	low	/var/ns/lib/libns_nis.so	n32	0x40a59c	nis_netgroup_clear	0x40a67c	slti	delta	time(&t):time@0x0/lw	imm	slti $v0, $v0, 0x3c
