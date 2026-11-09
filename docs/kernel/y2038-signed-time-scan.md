@@ -163,6 +163,26 @@ Caveats from the re-pin:
   and syslogd are byte-identical to media. Routine names (su/passwd/ftpd/rshd/cron/syslogd stripped to
   `.dynsym`) come from the checklist; the sites were found by `ori 0x5180` search and `slt` context.
 
+### Kernel offsets (installed `/unix`)
+
+The kernel rows were read on the unlinked IP35boot `.o`/`.a` objects (addresses were offsets in each
+object). Re-pinned against the installed linked kernel `/unix` on the same golden disk: ELF64 MSB
+MIPS-IV, sha256 `412a1aae553a348376bc30cacbaf65044de1745d30222f02ec5f88297dcb1dfa`. A kernel text VMA
+maps to a file offset as VMA − 0xc000000000040000. The timespec these compare is `tv_sec` at +0 (a
+32-bit `sw` field, the y2038 field) with a 64-bit `tv_nsec` at +8, established from `nanotime` itself;
+each site has a 64-bit nsec-companion `slt` that is not a patch target.
+
+| Target | Where | VMA | file offset | word | patch byte | sltu correct? |
+|---|---|---|---|---|---|---|
+| `bdflush_wake_proc` | `/unix` | 0xc0000000001e2d68 | 0x1a2d68 | `0107082a` | 0x1a2d6b | YES — stored last-wake `tv_sec` vs now (`nanotime`), both absolute seconds. Every boot. |
+| `devpoll_scan` | `/unix` (static; name stripped from symtab, code linked in) | 0xc0000000000db9f4 | 0x09b9f4 | `0147102a` | 0x09b9f7 | YES — deadline = now + poll-timeout vs now, same-kind seconds |
+| `syssgi` | `/unix` | 0xc0000000002e0944 | 0x2a0944 | `00a4402a` | 0x2a0947 | YES — stored now+interval rate-limit vs now |
+| `xvm_ve_collect` | — | — | — | — | — | ABSENT — XVM is not configured into this diagnostics disk (IP35boot has only `xvmstubs.a`); pin on a disk that installs XVM |
+| `second_thread` (clock.o) | `/unix` | 0xc0000000002609bc | 0x2209bc | `19200015` (`blez`) | — | NO — leave alone. The seconds test is a `blez` on a `timespec_sub` result (now − stored), a wrap-safe elapsed difference; `blez` is a sign-branch with no funct byte and no unsigned form. The earlier "`ld` 64-bit" reading was wrong; it is a 32-bit `lw`, but width is moot for a difference. |
+
+All four words were re-read from the raw `/unix` bytes. Three of the four live rows are correct
+`slt`→`sltu` fixes; `second_thread` is not a bug; `xvm_ve_collect` cannot be pinned here.
+
 ## Counts
 
 - Userland: 5898 MIPS ELF files enumerated, 2068 reference a time source, 7743 candidate windows
