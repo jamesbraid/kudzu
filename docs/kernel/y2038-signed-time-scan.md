@@ -132,12 +132,45 @@ time value is spilled through a 64-bit stack slot (`sd`/`ld`), so the arithmetic
 | libc gmtime core | `/lib32/libc.so.1` | `e774e2fb…311953b` | `div` 0x76154/0x76198, `slt` 0x761b4 | 0x75d08 | SHIFTED +0x44c — and a different build (see below) |
 | pam_unix `pam_sm_acct_mgmt` | `/usr/lib32/security/pam_unix.so` (n32) and `/usr/lib64/security/pam_unix.so` (n64) | — | — | 0x402a14 / 0x40316c | ABSENT — not installed on this disk |
 
-Patch bytes (installed file offsets, slt→sltu / div→divu): su `div` 0x47e7, 0x486f and `slt` 0x47ef,
-0x4807, 0x4877; passwd `div` 0x2d03, 0x639f and `slt` 0x2d13, 0x2d2b, 0x63ab; ftpd `div` 0x5f8f and
-`slt` 0x5faf, 0x5fc3; rshd `div` 0x3a6b and `slt` 0x3a77; cron `slt` 0x7073, 0x713b; syslogd `slt`
-0x5117; libc `div` 0x76157, 0x7619b and `slt` 0x761b7. The re-pin recorded instruction positions
-only; it did not prove `sltu` is right for each `slt` (that needs each compared day count to be
-non-negative), so confirm that per site before patching.
+**Live guest verdicts (2038 boot test).** A guest test at the 2038 clock settled which byte to flip at
+each ageing site, and it is the **divide**, not the compare. The login-ageing shape is
+`days = time() / 86400` (signed) then a signed compare of `days` against an ageing field. The divide is
+the bug: at 2038 a signed `div` of the negative 32-bit `time()` gives a negative day number. Once the
+divide is unsigned (`div`→`divu`, funct 1a→1b) the day number is small and positive, and the original
+**signed** compare is then correct — an unset ageing field is -1, and the signed compare reads that as
+"no limit". Making that compare unsigned (`slt`→`sltu`) is **harmful**: it reads the -1 field as a huge
+number, so even at a 2026 clock a non-root `su`/`ftp` of an account with no ageing fields was wrongly
+refused as "expired" (the unpatched binaries admitted it). For the ageing sites, patch the `div` only.
+This is the opposite of the absolute-timestamp compares (the nsd libc fix and the kernel rows below),
+where both sides are real seconds and `slt`→`sltu` is the correct fix.
+
+Per-site verdicts (installed file offsets):
+
+| Site | byte(s) | verdict |
+|---|---|---|
+| su `div` | 0x47e7, 0x486f | **`divu` needed** (1a→1b) |
+| su `slt` | 0x47ef, 0x4807, 0x4877 | **`sltu` harmful — do not apply** |
+| passwd `div` | 0x2d03, 0x639f | **`divu` needed** |
+| passwd `slt` | 0x2d13, 0x63ab | **`sltu` harmful** |
+| passwd 0x2d28 | 0x2d2b | not a time compare — leave alone |
+| ftpd `div` | 0x5f8f | **`divu` needed** |
+| ftpd `slt` | 0x5faf, 0x5fc3 | **`sltu` harmful** |
+| rshd `div` | 0x3a6b | **`divu` needed** |
+| rshd `slt` | 0x3a77 | **`sltu` harmful** (same mechanism; not separately exercised) |
+| cron `slt` | 0x7073, 0x713b | `sltu` harmless — a `time()`-vs-`time()` compare, so only a ~2-minute window at the crossing is affected (inferred); the patch made no observable difference |
+| syslogd `slt` | 0x5117 | `sltu` harmless (same) |
+| libc gmtime `div` | 0x76157, 0x7619b | `divu` needed, but NOT a one-byte fix — the `bgez` sign fix-up at 0x76180 must also be handled, or the core still prints 1901 dates at 2038 |
+
+With `divu` at su/passwd/ftpd/rshd plus the three iaf/scheme divides, su, ftp, rsh, passwd minimum-age
+and login behave at 2038 as at 2026 (guest-confirmed).
+
+**Still open (not a one-byte fix, or not yet resolved):**
+- passwd's day-count × 86400 multiply (0x46d4, and the CDE pam's `__get_authtoken_attr` 0x3e6c) is a
+  32-bit `mult`, so it writes an empty last-change field at 2038 — needs a 64-bit multiply (code growth).
+- libc gmtime still prints 1901 dates at 2038: the divide and the `bgez` sign fix-up both need handling.
+
+Evidence for these verdicts: the live 2038 guest boot test (the irix-containers y2038 research notes,
+section 13).
 
 Caveats from the re-pin:
 
@@ -181,7 +214,9 @@ each site has a 64-bit nsec-companion `slt` that is not a patch target.
 | `second_thread` (clock.o) | `/unix` | 0xc0000000002609bc | 0x2209bc | `19200015` (`blez`) | — | NO — leave alone. The seconds test is a `blez` on a `timespec_sub` result (now − stored), a wrap-safe elapsed difference; `blez` is a sign-branch with no funct byte and no unsigned form. The earlier "`ld` 64-bit" reading was wrong; it is a 32-bit `lw`, but width is moot for a difference. |
 
 All four words were re-read from the raw `/unix` bytes. Three of the four live rows are correct
-`slt`→`sltu` fixes; `second_thread` is not a bug; `xvm_ve_collect` cannot be pinned here.
+`slt`→`sltu` fixes; `second_thread` is not a bug; `xvm_ve_collect` cannot be pinned here. Live 2038
+guest test: `bdflush_wake_proc`'s fix is confirmed real — a 10 MB write that sat unflushed ~200 s at
+2038 flushed in ~20 s with the patch. `devpoll_scan` and `syssgi` are patched but not yet exercised.
 
 ## Counts
 
