@@ -79,7 +79,7 @@ output only. Addresses are virtual addresses in the named binary (kernel: offset
 
 | # | Binary | Function | Address | Pattern | Confidence | Boot/login |
 |---|---|---|---|---|---|---|
-| 1 | `/usr/lib32/security/pam_unix.so` (also n64 `/usr/lib64/security/pam_unix.so`, o32 `/usr/dt/lib/security/pam_unix.so.1`) | `pam_sm_acct_mgmt` | n32 `0x402a14`, `0x403e2c`; n64 `0x40316c`, `0x40461c`; o32 ~`0x5ffe2278` | `time()` -> signed `div` by 86400 -> `slt` against the account record's change/max/expire day fields; a negative day count makes every account look not-yet-expired or never-changed | high: read (n32 `0x402a14`), same shape as the scheme exemplar | login (every PAM account check: sshd, ftpd, rsh, dtlogin) |
+| 1 | `/usr/lib32/security/pam_unix.so` (also n64 `/usr/lib64/security/pam_unix.so`, o32 `/usr/dt/lib/security/pam_unix.so.1`) | `pam_sm_acct_mgmt` | n32 `0x402a14`, `0x403e2c`; n64 `0x40316c`, `0x40461c`; o32 ~`0x5ffe2278` | `time()` -> signed `div` by 86400 -> `slt` against the account record's change/max/expire day fields; a negative day count makes every account look not-yet-expired or never-changed | high: read (n32 `0x402a14`), same shape as the scheme exemplar; but NOT installed on the golden diagnostics disk — see "Installed-build offsets" below | login (PAM account check) where installed |
 | 2 | `/sbin/su` | `main` window | `0x100047e4`, `0x1000486c` | `time()` to stack, signed `div` by 0x15180, `slt` vs `ia_get_logchg`/`logmax`/`logmin`, `bltz` on logmax | high: read | login (su; `sulogin` shares libia) |
 | 3 | `/usr/lib/iaf/scheme` | three local sites `0x10009c4c` (fixed), `0x100052f4`, `0x100089dc`/`0x100089cc` | as listed | THREE signed `div` by 86400 in one binary; only `0x10009c4c` was patched. `0x100052f4` and `0x100089dc`/`0x100089cc` sit behind a `limit > 0` test, so they bite only for accounts with ageing set | high: read; live-confirmed which site was patched | login |
 | 4 | `/usr/etc/ftpd` | `user` | `0x10005f8c` | `time()` / 86400 to global `now`, `slt ia_expire, now`, `slt now, ia_lstchg` | high: read | login (ftp) |
@@ -108,6 +108,60 @@ output only. Addresses are virtual addresses in the named binary (kernel: offset
 
 Kernel items in rows 11, 12, 21, 22 come from only 79 scanned functions; the rest of the kernel
 (XFS/EFS inode time updates, `time` variable readers, NFS/lock managers) is unscanned.
+
+## Installed-build offsets (golden IP35 diagnostics disk)
+
+The ranked table's addresses were read on the install-media binaries under `refs/irix-media/6.5.30`.
+Those are not always the builds that actually run: the nsd/libc fix in
+[boot-time-nsd-getpwuid.md](boot-time-nsd-getpwuid.md) sat 0x480 off between media and installed
+libc. The top login/boot rows were therefore re-pinned against the binaries on the golden IP35
+diagnostics disk `irix/6.5.30/root-diags-origin300.qcow2`, pulled read-only (no guest boot) with
+`origami disk get`. Patch byte = the funct byte (file offset + 3 of the big-endian word): `slt`→`sltu`
+is 2a→2b, `div`→`divu` is 1a→1b. Every divide found is the 32-bit form (funct 1a), even where the
+time value is spilled through a 64-bit stack slot (`sd`/`ld`), so the arithmetic is on the low 32 bits.
+
+| Target | Installed path | sha256 | Instruction @ installed file offset | Media offset | Status |
+|---|---|---|---|---|---|
+| su `main` ageing | `/sbin/su` | `f055bdec…a74704` | `div` 0x47e4, `slt` 0x47ec/0x4804/0x4874, 2nd `div` 0x486c | same | CONFIRMED (`.text` identical to media; file hash differs in data/header only) |
+| passwd ageing | `/usr/bin/passwd` | `d61dbffe…84d4257` | `div` 0x2d00/0x639c, `slt` 0x2d10/0x2d28/0x63a8 | same | CONFIRMED (same note) |
+| passwd day×86400 | `/usr/bin/passwd` | same | `mult` 0x46d4 then `sw` | same | CONFIRMED — NOT a funct-byte fix (see below) |
+| ftpd `user` | `/usr/etc/ftpd` | `cd2487f3…2ac63c` | `div` 0x5f8c, `slt` 0x5fac/0x5fc0 | same | CONFIRMED (same note) |
+| rshd `main` | `/usr/etc/rshd` | `97084ccb…7ca1d96` | `div` 0x3a68, `slt` 0x3a74 | same | CONFIRMED (byte-identical to media) |
+| cron `readcron` | `/usr/etc/cron` | `052b1d95…4739d270` | `slt` 0x7070, `slt` 0x7138 | same | CONFIRMED (byte-identical) |
+| syslogd `filtermsg` | `/usr/etc/syslogd` | `ad3f4221…2cadebf3` | `slt` 0x5114 | same | CONFIRMED (byte-identical) |
+| libc gmtime core | `/lib32/libc.so.1` | `e774e2fb…311953b` | `div` 0x76154/0x76198, `slt` 0x761b4 | 0x75d08 | SHIFTED +0x44c — and a different build (see below) |
+| pam_unix `pam_sm_acct_mgmt` | `/usr/lib32/security/pam_unix.so` (n32) and `/usr/lib64/security/pam_unix.so` (n64) | — | — | 0x402a14 / 0x40316c | ABSENT — not installed on this disk |
+
+Patch bytes (installed file offsets, slt→sltu / div→divu): su `div` 0x47e7, 0x486f and `slt` 0x47ef,
+0x4807, 0x4877; passwd `div` 0x2d03, 0x639f and `slt` 0x2d13, 0x2d2b, 0x63ab; ftpd `div` 0x5f8f and
+`slt` 0x5faf, 0x5fc3; rshd `div` 0x3a6b and `slt` 0x3a77; cron `slt` 0x7073, 0x713b; syslogd `slt`
+0x5117; libc `div` 0x76157, 0x7619b and `slt` 0x761b7. The re-pin recorded instruction positions
+only; it did not prove `sltu` is right for each `slt` (that needs each compared day count to be
+non-negative), so confirm that per site before patching.
+
+Caveats from the re-pin:
+
+- **pam_unix is not installed on this disk.** `/usr/lib32/security` and `/usr/lib64/security` do not
+  exist, and there is no `/etc/pam.conf`. The only `pam_unix` present is the CDE build
+  `/usr/dt/lib32/security/pam_unix.so.1` (sha256 `7d511652…c89e67`), a different build whose
+  `pam_sm_acct_mgmt` (VMA 0x5ffe26a0) has **no** `div` by 86400 — it computes days with a
+  reciprocal `multu` and still ends in a signed `slt $t2,$t2,$t3` at file 0x2944 (word `014b502a`,
+  patch byte 0x2947). Whether any guest loads it depends on PAM config the disk lacks. So row 1's
+  "every PAM account check" overstates this disk; the installed login-ageing exposure runs through
+  `su`, `ftpd`, `rshd` and `passwd` (libia ageing directly), not PAM. (Independently re-read: the
+  standard path returns "No such file or directory"; the CDE copy's `slt` and absent 86400 confirmed.)
+- **The installed libc is a MIPS-IV build** (ELF flags 0x30000022) versus the media MIPS-III
+  (0x20000022), so it differs in code shape, not only offset (the gmtime core uses `slt`+`movz` where
+  media uses `slt`+`bnez`). The per-site shift across the file is non-uniform (+0x44c, +0x44c, +0x444,
+  +0x9c, −0xd84, −0xd78 at the six 86400 sites); only the gmtime core (+0x44c) was checked
+  instruction by instruction. Making it unsigned also needs the `bgez` sign fix-up at 0x76180 handled,
+  so it is more than a funct-byte patch.
+- **The `×86400` overflow sites are not funct-byte fixes.** passwd 0x46d4 (and the CDE pam's
+  `__get_authtoken_attr` 0x3e6c) are 32-bit `mult`+store; `mult` and `multu` give the same low word,
+  so flipping the funct bit does nothing. These need a 64-bit multiply and store, i.e. code growth.
+- su, passwd and ftpd have different file hashes from media but byte-identical `.text`; rshd, cron
+  and syslogd are byte-identical to media. Routine names (su/passwd/ftpd/rshd/cron/syslogd stripped to
+  `.dynsym`) come from the checklist; the sites were found by `ori 0x5180` search and `slt` context.
 
 ## Counts
 

@@ -263,7 +263,7 @@ The routine is at a different address in two distinct `lib32/libc.so.1` builds (
 
 | Build | sha256 | `slt` VMA | file offset | patch byte (2a→2b) |
 |---|---|---|---|---|
-| **Installed golden disk** (the one that runs; live-patched) | `e774e2fb…` | 0xfa4e748 | **0x6e748** | 0x6e74b |
+| **Installed golden disk** (the one that runs; live-patched) | `e774e2fb081ab653b22a9b633eae4904dd3df3ea58ca3430e9e511cd5311953b` | 0xfa4e748 | **0x6e748** | 0x6e74b |
 | Install media (`refs/irix-media/6.5.30/lib32/libc.so.1`, first read here) | `3fe29d6e191a3fe62969d46ffa1088fc7fb7029ccc57006072ae7cb357f93362` | 0xfa4e2c8 | 0x6e2c8 | 0x6e2cb |
 
 Patch the installed build. Live result (confirmed on a guest): the fix takes a 2038 boot from ~12
