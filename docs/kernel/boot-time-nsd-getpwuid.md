@@ -235,8 +235,8 @@ rather than a bad hit) is the live regression: a *permanent* client-cache miss i
 The live site is the libc `ns_lookup` freshness check from section 1 step 3 and section 3:
 
 * binary `lib32/libc.so.1` (n32), function `ns_lookup`/`_ns_lookup` (0xfa4e05c).
-* instruction `slt $t0, $t0, $t3` at **VMA 0xfa4e2c8 / file offset 0x6e2c8**, word `010b402a`
-  (independently re-read on the shipped media: the 4 bytes at 0x6e2c8 are `01 0b 40 2a`). `t0` =
+* instruction `slt $t0, $t0, $t3`, word `010b402a` — its offset is build-specific (see "Which libc
+  build, which offset" below; the install-media and installed-disk builds differ). `t0` =
   `handle[0]` = `/etc/passwd` `st_mtime`; `t3` = cache record bytes 4..7 = `created`. A cache hit
   requires `mtime < created` **signed**; the `beqz` at 0xfa4e2d8 skips the cache (falls through to the
   `/ns` NFS path, i.e. nsd) when the compare is false.
@@ -247,12 +247,31 @@ The live site is the libc `ns_lookup` freshness check from section 1 step 3 and 
   per lookup (the "bget: not found" flood, itself 2038-independent) then re-runs the slow backend each
   time. Fixing the compare lets the client cache absorb repeat lookups and stops the nsd traffic.
 
-**One-word fix:** `slt` → `sltu` at file offset 0x6e2c8, word `010b402a` → `010b402b` (only the funct
-field changes, 0x2a→0x2b). Both operands are genuine Unix timestamps; across 1970..2106 every value
-fits unsigned 32-bit, so unsigned order is the true wall-clock order across 2038. The paired expiry
-test at 0xfa4e314 is already `sltu`, so this makes the pair consistent. No negative-sentinel caveat:
-`created` is a timestamp, not a flag (the flag is the separate status byte 8), and `created == 0`
-gives `mtime <u 0` = false = a benign miss, as today.
+**One-word fix:** `slt` → `sltu`, word `010b402a` → `010b402b` (only the funct field changes,
+0x2a→0x2b), at the offset for the libc build you are patching (see below — patch the build that is
+actually installed). Both operands are genuine Unix timestamps; across 1970..2106 every value fits
+unsigned 32-bit, so unsigned order is the true wall-clock order across 2038. The paired expiry test
+(at `0xfa4e314` in the media build) is already `sltu`, so this makes the pair consistent. No
+negative-sentinel caveat: `created` is a timestamp, not a flag (the flag is the separate status byte
+8), and `created == 0` gives `mtime <u 0` = false = a benign miss, as today.
+
+### Which libc build, which offset
+
+The routine is at a different address in two distinct `lib32/libc.so.1` builds (the installed one sits
+0x480 above the media one), so patching by offset needs the right build. Confirm the 4 bytes read
+`01 0b 40 2a` before writing `2b` to the funct byte.
+
+| Build | sha256 | `slt` VMA | file offset | patch byte (2a→2b) |
+|---|---|---|---|---|
+| **Installed golden disk** (the one that runs; live-patched) | `e774e2fb…` | 0xfa4e748 | **0x6e748** | 0x6e74b |
+| Install media (`refs/irix-media/6.5.30/lib32/libc.so.1`, first read here) | `3fe29d6e191a3fe62969d46ffa1088fc7fb7029ccc57006072ae7cb357f93362` | 0xfa4e2c8 | 0x6e2c8 | 0x6e2cb |
+
+Patch the installed build. Live result (confirmed on a guest): the fix takes a 2038 boot from ~12
+minutes to 39 seconds, with the `nsd` "bget" count dropping from 69,501 to 80. The media-build offsets
+(0x6e2c8 and the `0xfa4e...` addresses in sections 0-4 above) are this note's original read and apply
+only to that build. Live `nsd` log-string addresses for reference: "bget: not found" at 0x10005354,
+"not found 2" at 0x1000539c, "bget: empty" at 0x100053b8 (an earlier working note mislabelled
+0x100053b8 as the "not found" site).
 
 Ruled out as the live driver (checked, not assumed):
 
@@ -264,9 +283,10 @@ Ruled out as the live driver (checked, not assumed):
   safe; it is not on the hot read path.
 
 Caveats: the patch target is the n32 `lib32/libc.so.1`; other on-media libc copies are separate builds,
-so confirm the word `010b402a` at the corresponding offset before patching any of them (0x6e2c8 is
-build-specific). The 10-70 s/lookup cost is a property of the resolver backend, not a 2038 compare; the
+so confirm the word `010b402a` at the offset for that build before patching any of them (the offset is
+build-specific: the installed disk and the install media already differ, see the table above). The
+10-70 s/lookup cost is a property of the resolver backend, not a 2038 compare; the
 2038 regression is only that libc stops absorbing repeat lookups and exposes that cost on every call.
-Still static: the miss → flood chain is inferred from code and consistent with the measurement, not
-traced live. The companion whole-binary scan is in
+The miss → flood chain was found statically and is now confirmed live: patching the installed build's
+compare took a guest's 2038 boot from ~12 minutes to 39 seconds. The companion whole-binary scan is in
 [y2038-signed-time-scan.md](y2038-signed-time-scan.md).

@@ -68,7 +68,7 @@ Blind spots, worst first:
 | kernel `nfs_getattr_cache` (`nfs3.a:nfs_client.o`) | attribute-cache age: signed compare of `tv_sec` against cached expiry |
 | `libpthread` timeout-queue insert (n32/n64/o32) | signed compare of two timespec seconds to order the queue |
 | `libpthread` timespec-subtract helper (n32/n64/o32) | signed borrow/compare of seconds |
-| `/usr/lib/iaf/scheme` login ageing | `time()` signed-divided by 86400 then `slt` against lstchg + max; the scan reproduces this at `0x100089dc` (n32) |
+| `/usr/lib/iaf/scheme` login ageing | `time()` signed-divided by 86400 then `slt` against lstchg + max; the scan reproduces this shape at three sites (n32 `0x10009c4c`, `0x100052f4`, `0x100089dc`) |
 
 The remaining rows reproduce the last exemplar's shape (`div <time>, 0x15180; mflo; slt ... lstchg/max/expire`) or the first four (a stored time compared against `time()`/`tv_sec`).
 
@@ -81,7 +81,7 @@ output only. Addresses are virtual addresses in the named binary (kernel: offset
 |---|---|---|---|---|---|---|
 | 1 | `/usr/lib32/security/pam_unix.so` (also n64 `/usr/lib64/security/pam_unix.so`, o32 `/usr/dt/lib/security/pam_unix.so.1`) | `pam_sm_acct_mgmt` | n32 `0x402a14`, `0x403e2c`; n64 `0x40316c`, `0x40461c`; o32 ~`0x5ffe2278` | `time()` -> signed `div` by 86400 -> `slt` against the account record's change/max/expire day fields; a negative day count makes every account look not-yet-expired or never-changed | high: read (n32 `0x402a14`), same shape as the scheme exemplar | login (every PAM account check: sshd, ftpd, rsh, dtlogin) |
 | 2 | `/sbin/su` | `main` window | `0x100047e4`, `0x1000486c` | `time()` to stack, signed `div` by 0x15180, `slt` vs `ia_get_logchg`/`logmax`/`logmin`, `bltz` on logmax | high: read | login (su; `sulogin` shares libia) |
-| 3 | `/usr/lib/iaf/scheme` | local fns at `0x100052f4`, `0x10009c4c` (fixed site `0x100089dc`) | as listed | THREE signed `div` by 86400 in one binary; `0x100089dc` is the fixed exemplar, the other two share the shape | high: read (`0x100052f4`); `0x10009c4c` partial | login |
+| 3 | `/usr/lib/iaf/scheme` | three local sites `0x10009c4c` (fixed), `0x100052f4`, `0x100089dc`/`0x100089cc` | as listed | THREE signed `div` by 86400 in one binary; only `0x10009c4c` was patched. `0x100052f4` and `0x100089dc`/`0x100089cc` sit behind a `limit > 0` test, so they bite only for accounts with ageing set | high: read; live-confirmed which site was patched | login |
 | 4 | `/usr/etc/ftpd` | `user` | `0x10005f8c` | `time()` / 86400 to global `now`, `slt ia_expire, now`, `slt now, ia_lstchg` | high: read | login (ftp) |
 | 5 | `/usr/etc/rshd` | `main` window | `0x7fc03a68` | `time()` / 86400 `slt` against a stored day value (ageing field) | high: read | login (rsh) |
 | 6 | `/usr/bin/passwd` | `main` window `0x10002650` | 11 divs from `0x10002d00`; 604800 divs `0x10005828`; `mult` days*86400 at `0x100046d4` -> `gmtime` | signed `div` of `time()` into days for ageing; separately lstchg-days * 86400 overflows 32 bits at day 24855 (2038-01-19) before `gmtime` | high for the divs (scan); medium for the `mult` overflow (read) | login (password change) |
@@ -121,8 +121,9 @@ Kernel items in rows 11, 12, 21, 22 come from only 79 scanned functions; the res
 
 ## Act on these first
 
-- **`iaf/scheme` has three signed day-divides, not one.** The fixed site is `0x100089dc`; the other
-  two (`0x100052f4`, `0x10009c4c`) share the shape. Confirm the earlier fix covered all three.
+- **`iaf/scheme` has three signed day-divides, and only one is patched.** The earlier fix covered
+  `0x10009c4c`. The other two (`0x100052f4` and `0x100089dc`/`0x100089cc`) sit behind a `limit > 0`
+  test, so they bite only for accounts that have ageing configured — patch them too for completeness.
 - **`passwd` multiplies a shadow day count by 86400** (`0x100046d4`) before `gmtime`; that overflows
   32 bits at day 24855 = 2038-01-19, independent of any `div`.
 - **N64 `time_t` is 32-bit here.** The n64 `pam_unix` path signed-divides the 32-bit `time()`
