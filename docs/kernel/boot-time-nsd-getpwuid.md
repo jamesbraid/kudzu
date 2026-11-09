@@ -223,3 +223,50 @@ Checks that would confirm or reject it without a guess (not run, need a guest wi
   (checked by dynsym), so they cannot hold a time compare; only `libns_files` and `libns_mdbm` do.
 * Scratch disassembly and scripts are in `/storage/nvme/origami/tmp/irix-kernel-re/work-nsd/`
   (`nsd.a`, `ns_files.a`, `ns_mdbm.a`, `libc.a`, `ar/nfs_client.s`).
+
+## 9. Update (2026-11-09): the boot flood is the libc client-cache permanent miss
+
+After the kernel `nfs_getattr_cache` fix in section 6/7 landed, a guest booting at 2038-02-01 still
+degrades: `nsd` logs ~531,000 lines and ~22,900 "bget: not found" (vs ~990 lines and zero at 2026 and
+at 2037-06-01), and every `canonhost`/`emgrlogger` lookup takes 10-70 s, so boot takes ~11 minutes.
+That measurement settles which of the userland compares this document dismissed on correctness (a miss
+rather than a bad hit) is the live regression: a *permanent* client-cache miss is exactly a boot flood.
+
+The live site is the libc `ns_lookup` freshness check from section 1 step 3 and section 3:
+
+* binary `lib32/libc.so.1` (n32), function `ns_lookup`/`_ns_lookup` (0xfa4e05c).
+* instruction `slt $t0, $t0, $t3` at **VMA 0xfa4e2c8 / file offset 0x6e2c8**, word `010b402a`
+  (independently re-read on the shipped media: the 4 bytes at 0x6e2c8 are `01 0b 40 2a`). `t0` =
+  `handle[0]` = `/etc/passwd` `st_mtime`; `t3` = cache record bytes 4..7 = `created`. A cache hit
+  requires `mtime < created` **signed**; the `beqz` at 0xfa4e2d8 skips the cache (falls through to the
+  `/ns` NFS path, i.e. nsd) when the compare is false.
+* At a clean 2038 boot `/etc/passwd` `mtime` is pre-2038 (positive as a signed word) and every record
+  nsd writes that boot is stamped `created = now` which is negative as a signed word. Signed `slt`:
+  positive < negative is false for every key on every lookup, so libc never serves from
+  `/var/ns/cache` and goes to nsd on every `getpwuid`/`canonhost`. nsd's in-memory node cache missing
+  per lookup (the "bget: not found" flood, itself 2038-independent) then re-runs the slow backend each
+  time. Fixing the compare lets the client cache absorb repeat lookups and stops the nsd traffic.
+
+**One-word fix:** `slt` → `sltu` at file offset 0x6e2c8, word `010b402a` → `010b402b` (only the funct
+field changes, 0x2a→0x2b). Both operands are genuine Unix timestamps; across 1970..2106 every value
+fits unsigned 32-bit, so unsigned order is the true wall-clock order across 2038. The paired expiry
+test at 0xfa4e314 is already `sltu`, so this makes the pair consistent. No negative-sentinel caveat:
+`created` is a timestamp, not a flag (the flag is the separate status byte 8), and `created == 0`
+gives `mtime <u 0` = false = a benign miss, as today.
+
+Ruled out as the live driver (checked, not assumed):
+
+* nsd serve-path address 0x1000c348 is the NFS reply-transmit stub (its real call is `tsix_sendto_mac`)
+  — no `mdbm_fetch`, no time compare.
+* `libmdbm.so` is a pure hash database: its dynsym imports no `time`/`gettimeofday`/`clock` and it
+  defines no expiry function. No freshness logic lives there.
+* nsd `nsd_map_update` `slt` at 0x10008d18 is the write-side overwrite decision (section 3) and fails
+  safe; it is not on the hot read path.
+
+Caveats: the patch target is the n32 `lib32/libc.so.1`; other on-media libc copies are separate builds,
+so confirm the word `010b402a` at the corresponding offset before patching any of them (0x6e2c8 is
+build-specific). The 10-70 s/lookup cost is a property of the resolver backend, not a 2038 compare; the
+2038 regression is only that libc stops absorbing repeat lookups and exposes that cost on every call.
+Still static: the miss → flood chain is inferred from code and consistent with the measurement, not
+traced live. The companion whole-binary scan is in
+[y2038-signed-time-scan.md](y2038-signed-time-scan.md).
