@@ -151,7 +151,26 @@ A loopback file system exists: `lofs`. `lofs_init` (0xc0000000003c38a0, 68 bytes
 
 There is no mount flag for a bind or move and no per-process mount table. No routine, string or structure field in the kernel's symbols or strings names a mount namespace; the process records above carry no mount-view pointer; `lookuppn` crosses mounts from the vnode. The only per-process root is `ut_rdir`. Inferred from the absence; the kernel's strings were searched for "namespace" and "bind" and only unrelated disk and network routines matched.
 
-`mount` (call 1021) goes through `cmount` (0xc000000000289eac, 348 bytes), which has no capability check of its own; `lofs_mount` has one. Whether other file systems' mount routines check a capability or only the credential was not read. Unknown.
+`mount` (call 1021) goes through `cmount` (0xc000000000289eac, 348 bytes), which has no capability check of its own; `lofs_mount` has one. Every file system that has a mount routine checks a capability inside it, and the mask is `1 << 29` (mount management) in all of them; see the table below. Established.
+
+The mount routine of each entry of the file-system switch `vfssw` (0xc00000000154a798, 16 filled slots; the routine is the word at +8 of the entry's operations table), read in `6.5.30/unix.IP35`:
+
+| Type | Mount routine | Privilege test | Failure value |
+|---|---|---|---|
+| `xfs` | 0xc0000000003917dc, via the argument parser at 0xc00000000039154c | `cap_able_cred(1 << 29)` at 0xc000000000391574, before anything else; a refusal returns 1 | 1 |
+| `lofs` | `lofs_mount`, 0xc0000000003c38e4 | `1 << 29` at 0xc0000000003c3904 | 1 |
+| `autofs` | 0xc0000000003c8cb8, via 0xc0000000003c883c | `1 << 29` at 0xc0000000003c8860 | 1 |
+| `nfs` | 0xc0000000003caa3c (`nfs_processargs`) | `1 << 29` at 0xc0000000003caa6c | 1 |
+| `nfs3` | 0xc0000000003edde0 | `1 << 29` at 0xc0000000003ede24 | 1 |
+| `udf` | 0xc000000000414c3c, via 0xc000000000414aa0 | `1 << 29` at 0xc000000000414ad8 | 1 |
+| `efs` | 0xc000000000423d90, via 0xc000000000423bdc | `1 << 29` at 0xc000000000423c04 | 1 |
+| `namefs` | `nm_mount`, 0xc000000000426bd4 | `1 << 29` only when the caller's effective user id (credential +8) differs from the user id in the object being attached (compare at 0xc000000000426d6c, test at 0xc000000000426de0); the same user needs no capability | 1 |
+| `fd` | 0xc000000000427ff8 | `1 << 29` at 0xc000000000428014 | 1 |
+| `hwgfs` | 0xc00000000042a364 | `1 << 29` at 0xc00000000042a384 and then `1 << 37` (device management) at 0xc00000000042a398; both are required | 1 |
+| `proc` | 0xc00000000042f05c | `1 << 29` at 0xc00000000042f078 | 1 |
+| `umfs`, `fifofs`, `pipefs`, `specfs` | `umfs`'s eleven operation slots and the other three's mount slot all return 89 without a test (`umfs` through its own stubs, the others through the shared `fs_nosys`) | none | 89 |
+
+So `cmount` leaves the privilege decision to the file system, and none of the file systems that can be mounted from user space skips it, except that `namefs` waives it for an attach of the caller's own object. A caller that is user id 0 passes every test when `cap_enabled` is not 2 (see the capability check). The four types that return 89 cannot be mounted by a system call at all; whether the kernel mounts `specfs` and `fifofs` itself at start-up through another path was not read here. Established for the tests and call sites (the mask is the immediate loaded in the delay slot of each call). The `IP27` and 6.5.22 kernels were not read. `xfs_mountargs` (0xc000000000391378) calls the same test again at 0xc000000000391858 and 0xc000000000391ef0 (before specific option handling, not read further).
 
 ## Privilege model
 
@@ -178,7 +197,18 @@ So with the default `cap_enabled` the superuser id needs no capabilities at all,
 
 `cap_able_any` (0xc000000000332d78, 64 bytes) returns 1 if the credential has any effective capability, or if `cap_enabled` is not 2 and the user id is 0. Established.
 
-There are 274 direct call sites of `cap_able` and 202 of `cap_able_cred`. Which bit means what is not recorded in the kernel, which carries no capability names: the masks seen so far are `1 << 6` (`procblk` on another process), `1 << 28` (`cap_style`), `1 << 29` (loopback mount), `1 << 33` (setting scheduling parameters in `nsproc`), `1 << 37` (the device-management ioctls in [driver-ioctls.md](driver-ioctls.md) and the front-panel selector in [syssgi.md](syssgi.md)) and `1 << 40` (`chroot`). Established as masks; the meanings are unknown.
+There are 274 direct call sites of `cap_able` and 202 of `cap_able_cred`. The kernel carries no capability names, but the names and the numbers are published: the IRIX System Security guide (007-2862-008, "Enhanced Security Features", printed pages 113 to 118) describes each capability by name, and the `sys/capability.h` header shipped on the 6.5.30 media gives its position in the mask (bit n of the 64-bit mask, 1 to 45, bit 0 reserved as the invalid marker). The masks seen in the kernel text so far, with their meaning from that guide:
+
+| Mask | Capability | Where the kernel asks for it | What the guide says it allows |
+|---|---|---|---|
+| `1 << 6` | kill | `procblk` on another process | signalling a process the caller does not own; the process-synchronisation calls on a process |
+| `1 << 28` | system information management | `cap_style`, `sethostname` | host name, host id, domain name, the superuser mode (the three-way setting that `cap_enabled` holds), tunables, the machine serial number |
+| `1 << 29` | mount management | the mount routine of every file system that has one, `mount` and `umount` (next section) | the `mount` and `umount` calls |
+| `1 << 33` | scheduler management | scheduling parameters in `nsproc`, `cpuset_create`/`cpuset_destroy`, the buffer-cache flush rate | the real-time and processor-association scheduling interfaces and resource-limit changes |
+| `1 << 37` | device management | the device ioctls in [driver-ioctls.md](driver-ioctls.md), the front-panel selector in [syssgi.md](syssgi.md), `hwperf_enable_counters` | restricted device-management calls and ioctls (logical-volume definition, bulk file-system queries and similar) |
+| `1 << 40` | chroot | `chroot`, `ckpt_chroot` | the `chroot` call |
+
+Established for the mask-to-name pairing: each kernel use matches the guide's description of that capability (`cap_style` changes exactly the superuser setting the guide lists under system information; `procblk` is named in the guide under the kill capability). The numbers come from the shipped header and were not cross-checked against a second source; the guide lists names only. The remaining bits (the other 39 of the 45) are described by the guide but were not looked for in the kernel text: whether each is asked for anywhere is unknown, and is settled by listing the immediate operands loaded before every `cap_able` and `cap_able_cred` call.
 
 ### How a credential gets its capabilities
 
@@ -221,7 +251,7 @@ Global. Established.
 
 The one path-name hook the walk has, `mac_moldy_path` behind `mac_enabled` in `lookuppn`, is a stub in the shipped kernel and redirects walks inside a shared tree; see [trusted-irix.md](trusted-irix.md), "The multilevel-directory hook". It does not change the mount table.
 
-Per-container mount view reachable without new kernel code: **no**. What is reachable is a static tree: a supervisor builds a directory tree, mounts (`lofs`, capability `1 << 29`; other types unknown, see the open question above) on directories inside it, and `chroot`s the container into it. The mounts are global and appear in the host's view at the host path. Inferred.
+Per-container mount view reachable without new kernel code: **no**. What is reachable is a static tree: a supervisor builds a directory tree, mounts (`lofs`, capability `1 << 29`; every other mountable type tests the same capability, see the mount table above) on directories inside it, and `chroot`s the container into it. The mounts are global and appear in the host's view at the host path. Inferred.
 
 ### Host name and domain name
 
