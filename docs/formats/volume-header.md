@@ -5,6 +5,8 @@ reverse engineering of shipped IRIX 6.5.30 and from one real block 0 written by 
 No vendor source, headers or source-derived notes were read. Field names below are our own
 descriptive names, not vendor identifiers. Byte order is big-endian throughout.
 
+Companion: `VOLHDR_DECODE.h` (repository root) states the layout in the publish-safe decode-header form, with generated Rust under `generated/disk-formats/`. `defs.toml` ties its constants and field positions to the tables on this page.
+
 Grades: **established** = observed directly in more than one binary and/or a real block 0;
 **inferred** = follows from one binary or from layout arithmetic; **unknown** = not exercised
 by anything examined.

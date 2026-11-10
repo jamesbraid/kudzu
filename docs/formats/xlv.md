@@ -5,6 +5,7 @@ The label that SGI's XLV logical volume manager keeps on each member disk, recov
 Companion files, same directory:
 
 - `xlv-disk.h`: the structures below as a C header (compiles with `gcc -std=c11 -fsyntax-only`; every stated offset and size is asserted).
+- `XLV_DECODE.h` (repository root): the same structures in the publish-safe decode-header form, with generated Rust under `generated/disk-formats/`. `defs.toml` ties its constants and field positions to the tables on this page, so the two cannot drift apart.
 - `xlv-check.py`: re-derives the checkable facts from the binaries (`uv run --script xlv-check.py refs/irix-media/6.5.30`). 23 checks, all pass on the 6.5.30 media.
 
 ## Grades

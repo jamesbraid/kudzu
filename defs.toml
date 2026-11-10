@@ -1,0 +1,196 @@
+[project]
+name = "kudzu"
+root = "."
+plugin = "scripts/disk_format_checks.py"
+regenerate = "retools/tools/defs/gen_decode_rust.py --config defs.toml"
+
+[rust]
+out_dir = "generated/disk-formats"
+
+[banned]
+# Routine and tool names that belong to the shipped software, not to the format.
+[[banned.extra]]
+label = "shipped routine name"
+regex = '\b(?:efs|xfs|xlv|xvm)_[a-z]\w*'
+
+[[banned.extra]]
+label = "shipped tool name"
+regex = '\b(?:mkfs_\w+|dvhtool|prtvtoc|xlv_labd|xfs_db|xfs_repair)\b'
+
+[[headers]]
+file = "XVM_DECODE.h"
+prefix = "XVM"
+group = "xvm"
+notes_corpus = ["docs/formats/xvm.md"]
+module = "xvm"
+rust_prefix = "XVM_"
+register_doc = "Constant"
+description = ["XVM volume manager on-disk label structures: the", "physical label, label sector header, element and attribute entries."]
+
+[[headers]]
+file = "XLV_DECODE.h"
+prefix = "XLV"
+group = "xlv"
+notes_corpus = ["docs/formats/xlv.md"]
+module = "xlv"
+rust_prefix = "XLV_"
+register_doc = "Constant"
+description = ["XLV logical volume manager on-disk label: master block,", "label slot header and per-partition entry."]
+
+[[headers]]
+file = "EFS_DECODE.h"
+prefix = "EFS"
+group = "efs"
+notes_corpus = ["docs/formats/efs.md"]
+module = "efs"
+rust_prefix = "EFS_"
+register_doc = "Constant"
+description = ["Extent File System on-disk structures: superblock, inode,", "extent and directory block."]
+
+[[headers]]
+file = "VOLHDR_DECODE.h"
+prefix = "DVH"
+group = "volhdr"
+notes_corpus = ["docs/formats/volume-header.md"]
+module = "volhdr"
+rust_prefix = "DVH_"
+register_doc = "Constant"
+description = ["SGI disk volume header: magic, drive parameters, volume", "directory and partition table."]
+
+[[headers]]
+file = "XFS_DECODE.h"
+prefix = "XFS"
+group = "xfs"
+notes_corpus = ["docs/formats/xfs.md"]
+module = "xfs"
+rust_prefix = "XFS_"
+register_doc = "Constant"
+description = ["XFS superblock and inode core as the shipped release", "writes them."]
+
+# Claims tie the header constants to the prose notes: if either side changes
+# without the other, the check fails.
+[[claims]]
+group = "xvm"
+label = "physical label magic and size"
+doc = "docs/formats/xvm.md"
+regex = '`pl_magic` \| `(0x[0-9a-f]+)`'
+binds = [["DEFN", "XVM_PHYSLAB_MAGIC", 1]]
+
+[[claims]]
+group = "xvm"
+label = "label sector header magic"
+doc = "docs/formats/xvm.md"
+regex = '`lh_magic` \| `(0x[0-9a-f]+)`'
+binds = [["DEFN", "XVM_LABELHDR_MAGIC", 1]]
+
+[[claims]]
+group = "xvm"
+label = "physical label size"
+doc = "docs/formats/xvm.md"
+regex = '\(`xvm_physlab`, (\d+) bytes'
+binds = [["DEF", "XVM_PL_SIZE", 1]]
+
+[[claims]]
+group = "xvm"
+label = "label sector header size"
+doc = "docs/formats/xvm.md"
+regex = '\(`xvm_labelhdr`, (\d+) bytes\)'
+binds = [["DEF", "XVM_LH_SIZE", 1]]
+
+[[claims]]
+group = "xvm"
+label = "element entry size"
+doc = "docs/formats/xvm.md"
+regex = '\(`xvm_disk_ve`, (\d+) bytes'
+binds = [["DEF", "XVM_VE_SIZE", 1]]
+
+[[claims]]
+group = "xvm"
+label = "attribute entry size"
+doc = "docs/formats/xvm.md"
+regex = '\(`xvm_disk_attr`, (\d+) bytes'
+binds = [["DEF", "XVM_ATTR_SIZE", 1]]
+
+[[claims]]
+group = "xlv"
+label = "label magic"
+doc = "docs/formats/xlv.md"
+regex = '`magic` \| `(0x11201989)`'
+binds = [["DEFN", "XLV_LABEL_MAGIC", 1]]
+
+[[claims]]
+group = "xlv"
+label = "slot, header and entry sizes"
+doc = "docs/formats/xlv.md"
+regex = 'Label slot \(`(0x12a0)` bytes\).*?Header \(`(0x120)` bytes\).*?Entry \(`(0x118)` bytes\)'
+binds = [["DEFN", "XLV_LABEL_BYTES", 1], ["DEFN", "XLV_HDR_SIZE", 2], ["DEFN", "XLV_ENTRY_SIZE", 3]]
+
+[[claims]]
+group = "efs"
+label = "superblock magic values"
+doc = "docs/formats/efs.md"
+regex = '`0x00072959` \(old\) or `(0x0007295a)` \(new\)'
+binds = [["DEFN", "EFS_MAGIC_NEW", 1]]
+
+[[claims]]
+group = "efs"
+label = "old superblock magic"
+doc = "docs/formats/efs.md"
+regex = '`(0x00072959)` \(old\)'
+binds = [["DEFN", "EFS_MAGIC_OLD", 1]]
+
+[[claims]]
+group = "efs"
+label = "directory block magic"
+doc = "docs/formats/efs.md"
+regex = 'halfword \*\*`(0xbeef)`\*\*'
+binds = [["DEFN", "EFS_DIRBLK_MAGIC", 1]]
+
+[[claims]]
+group = "efs"
+label = "maximum extent length"
+doc = "docs/formats/efs.md"
+regex = 'Maximum length is (\d+) blocks'
+binds = [["DEF", "EFS_EX_MAXLEN", 1]]
+
+[[claims]]
+group = "volhdr"
+label = "header magic"
+doc = "docs/formats/volume-header.md"
+regex = 'magic = `(0x0BE5A941)`'
+binds = [["DEFN", "DVH_MAGIC", 1]]
+
+[[claims]]
+group = "volhdr"
+label = "volume directory shape"
+doc = "docs/formats/volume-header.md"
+regex = 'Volume directory \((0x048), (\d+) entries, (\d+) bytes each\)'
+binds = [["DEFN", "DVH_DIR_OFF", 1], ["DEF", "DVH_DIR_COUNT", 2], ["DEF", "DVH_DIR_STRIDE", 3]]
+
+[[claims]]
+group = "volhdr"
+label = "partition table shape"
+doc = "docs/formats/volume-header.md"
+regex = 'Partition table \((0x138), (\d+) entries, (\d+) bytes each\)'
+binds = [["DEFN", "DVH_PART_OFF", 1], ["DEF", "DVH_PART_COUNT", 2], ["DEF", "DVH_PART_STRIDE", 3]]
+
+[[claims]]
+group = "volhdr"
+label = "partition type numbers"
+doc = "docs/formats/volume-header.md"
+regex = '\| (\d+) \| xfs \|.*?\| (\d+) \| xfslog \|.*?\| (\d+) \| xlv \|.*?\| (\d+) \| xvm \|'
+binds = [["EN", "PART_W2.type", "xfs", 1], ["EN", "PART_W2.type", "xfslog", 2], ["EN", "PART_W2.type", "xlv", 3], ["EN", "PART_W2.type", "xvm", 4]]
+
+[[claims]]
+group = "xfs"
+label = "superblock magic"
+doc = "docs/formats/xfs.md"
+regex = 'Magic: (0x58465342)'
+binds = [["DEFN", "XFS_SB_MAGIC", 1]]
+
+[[claims]]
+group = "xfs"
+label = "inode magic"
+doc = "docs/formats/xfs.md"
+regex = '`magic` \| \| \| (0x494e)'
+binds = [["DEFN", "XFS_INO_MAGIC", 1]]

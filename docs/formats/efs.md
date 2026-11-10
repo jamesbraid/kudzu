@@ -5,6 +5,7 @@ The Extent File System, IRIX's filesystem before XFS: superblock, bitmap, cylind
 Companion files, same directory:
 
 - `efs-disk.h`: the structures below as a C header (`gcc -std=c11 -fsyntax-only` passes; sizes and key offsets are asserted; `efs_checksum()` reproduces the stored checksum of a real image).
+- `EFS_DECODE.h` (repository root): the same structures in the publish-safe decode-header form, with generated Rust under `generated/disk-formats/`. `defs.toml` ties its constants and field positions to the tables on this page, so the two cannot drift apart.
 - `efs-check.py`: re-derives the checkable facts (`uv run --script efs-check.py IMAGE [EFS_A_MEMBER_DIR]`). With an image alone it checks the superblock, bitmap, inode and directory invariants over the whole reachable tree; with a directory of `efs.a` members it also checks the instruction-level facts. All checks pass on the five fully walked images and, for the instruction-level part, on the `efs.a` members of the IP27, IP30, IP35 and IP32 kernels.
 
 **Premise correction.** An EFS extent is **8 bytes**, not 12. The number 12 is the count of extents that fit in the inode (12 × 8 = 96 bytes, offset 0x20 to 0x7f). Details in [Extents](#extents).
