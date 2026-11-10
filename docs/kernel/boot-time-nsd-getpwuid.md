@@ -2,16 +2,41 @@
 
 Method: binary RE only, shipped 6.5.30 media under `refs/irix-media/6.5.30`. No IRIX source or headers opened
 (the shipped `usr/include/ns_*.h` were deliberately not read). Own-words notes; symbol names come from each
-binary's own symbol table. Disassembly is capstone (mips64, big-endian) with a local GOT-slot annotator.
+binary's own symbol table where it has one (`nsd` has a full one; `libc.so.1` has only its exported dynamic
+symbols, so internal functions there are unnamed). Disassembly is capstone (mips64, big-endian) with a local GOT-slot annotator.
 Nothing here was run on a guest: every conclusion is static.
 
 Objects examined:
 * `usr/etc/nsd` (n32, not stripped, has a symtab)
 * `var/ns/lib/libns_files.so`, `libns_mdbm.so` (nsd plug-in modules)
-* `lib32/libc.so.1` (n32, not stripped): `getpwuid`, `ns_lookup` (= `_ns_lookup`), `__ns_cache_open`
+* `lib32/libc.so.1` (n32; dynamic symbols and debug sections only, no full symbol table): `getpwuid`, `ns_lookup` (= `_ns_lookup`), `__ns_cache_open`
 * kernel NFS client: `usr/cpu/sysgen/IP27boot/nfs.a` and `nfs3.a`, member `nfs_client.o` (n64 relocatable)
 
 Cross-release check against another `refs/irix-media/<version>` was not done.
+
+## Corrections (2026-11-10)
+
+An independent re-check against the shipped binaries changed the following. Readers who relied on the
+earlier text should note:
+
+* **The headline answer was superseded by section 9 and not updated.** Section 0 and section 5 below graded
+  the libc `ns_lookup` signed compare as "fails safe" (a harmless miss) and named the kernel
+  `nfs_getattr_cache` compare as the best first patch. Section 9 shows that a permanent client-cache miss is
+  itself the boot regression (about 12 minutes at a 2038 clock, fixed by the one-word libc change). The libc
+  compare is the primary userland fix; the kernel compare remains a real, separate signed-time bug. Sections 0,
+  3 and 5 are annotated in place.
+* **`nsd` log-site addresses in section 9 were swapped and mislabelled.** They are call sites, not string
+  addresses. Corrected there: the call at `0x1000539c` logs "bget: not found", the call at `0x10005354` logs
+  "bget: not found 2", and `0x100053b8` logs "bget: empty". The strings themselves are at `0x1001c158`,
+  `0x1001c170` and `0x1001c148`.
+* **`nsd_file_timeout` (section 2) does have callers.** Two direct calls (at `0x1000b5c0` and `0x1000efe0`),
+  both passing a zero "now", which skips the one time compare. The conclusion (not exercised, not the cause)
+  stands; "dead/unreachable" was wrong.
+* **libc symbol source.** `lib32/libc.so.1` is not a symtab-bearing binary; the header wording was
+  corrected. The quoted function addresses and sizes are unchanged and were re-verified.
+* Re-verified unchanged: the `ns_lookup` signed compare word `010b402a` at `0xfa4e2c8` with the `beqz` miss branch
+  at `0xfa4e2d8`. Not re-checked here: the installed-disk build offsets and hashes, and every live guest result
+  in section 9 (they come from guest runs this check had no logs for).
 
 ## 0. Answer first
 
@@ -21,8 +46,9 @@ of nsd and survives setting a sane date" behaviour. What I can establish:
 1. The name-service path has three layers that each hold times: kernel NFS client (nsd is the NFS server of the
    `/ns` mount), nsd (in-memory file objects and on-disk cache), libc `ns_lookup` (reads the on-disk cache
    directly). The signed/unsigned usage differs between them, and one of them is a real signed-time bug.
-2. The one clear bug, and the best single candidate: kernel NFS client `nfs_getattr_cache` in `nfs_client.o`
-   (offset 0xb74) tests attribute-cache validity as `slt time, r_attrtime`, signed, where `time` is the 4-byte
+2. A clear bug in the kernel, originally ranked best candidate (section 9 supersedes the ranking: the libc
+   `ns_lookup` compare in item 4 is the one measured as the 2038 boot flood): kernel NFS client
+   `nfs_getattr_cache` in `nfs_client.o` (offset 0xb74) tests attribute-cache validity as `slt time, r_attrtime`, signed, where `time` is the 4-byte
    kernel global. The client invalidates by storing 0 in `r_attrtime` (`nfs_purge_caches` at 0x60; new/zeroed
    rnodes are also 0). With `time` >= 2^31 (negative as a signed 32-bit word), `time < 0` is true, so an
    invalidated or brand-new rnode looks permanently valid. Stale attributes are then served without contacting
@@ -33,11 +59,13 @@ of nsd and survives setting a sane date" behaviour. What I can establish:
    a persisted value that explains that (section 5 lists what I checked and why each one self-heals). Either the
    later date-set was not seen by this path, or a second persistent element exists that static reading did not
    reveal. Flagged unresolved, not papered over.
-4. In userland there is no other signed compare that fails on a negative "now" in a way that poisons state.
-   The two userland compares that are signed against a persisted time (libc `ns_lookup` at 0xfa4e2c8, nsd
-   `nsd_map_update` at 0x10008d18) both fail safe (they cause a cache miss or an overwrite, not a bad hit).
+4. In userland there is no other signed compare that fails on a negative "now" by serving a *bad hit*. The two
+   userland compares that are signed against a persisted time (libc `ns_lookup` at 0xfa4e2c8, nsd
+   `nsd_map_update` at 0x10008d18) fail towards a miss or an overwrite, not a bad hit. "Fail safe" was too
+   generous for the libc one: a miss on every lookup is a performance collapse (section 9), which is the
+   observed 2038 regression. The nsd one is a write-side decision and is not on the hot path.
 
-Suggested single site to patch first: `nfs_getattr_cache` +0xb74 (`slt v0,v0,v1`; treat as unsigned, i.e. `sltu`,
+Original suggestion, superseded by section 9 (patch the libc `ns_lookup` compare first): `nfs_getattr_cache` +0xb74 (`slt v0,v0,v1`; treat as unsigned, i.e. `sltu`,
 or additionally require `r_attrtime != 0`). Verify by observing, not by assuming (see section 7).
 
 ## 1. Call chain from getpwuid down
@@ -90,8 +118,10 @@ nsd is an N32 binary; `time_t` is 32 bits; every time access is `lw`/`sw`.
   attribute "timeout", default `nsd_timeout/1000`; `ttl < 0` stores bare `time()` instead). Sign is irrelevant to
   its only use: `nsd_dispatch` (at 0x10011818) treats any non-zero +0x5c on a non-directory object as
   "temporary, delete from parent after first handle operation", with no time compare at all.
-* `nsd_file_timeout` (0x10006744) does contain `slt [file+0x5c], now` (signed) but I found no caller outside its
-  own recursion (no direct call, no GOT-slot load from another function). Treated as dead/unreachable; not a cause.
+* `nsd_file_timeout` (0x10006744) does contain `slt [file+0x5c], now` (signed). It has two external callers
+  (direct calls at 0x1000b5c0 and 0x1000efe0), and both pass a zero "now" in a1, which skips that compare
+  (the entry code tests the argument and branches over it). So the time-bearing compare is not exercised; not a
+  cause. (The first read missed these callers because each loads its target through a GOT slot just before the call.)
 * Creation stamp: `nsd_file_init` (0x10005cd8) calls `gettimeofday` into file +0x54/+0x58 and copies it to
   +0x44/+0x48 (atime) and +0x4c/+0x50 (mtime). The NFS attribute encoder (0x1000c244 range, unnamed static)
   calls `gettimeofday` into +0x44 again on every GETATTR (atime = now) and ships atime/mtime/ctime as three raw
@@ -121,7 +151,7 @@ nsd is an N32 binary; `time_t` is 32 bits; every time access is `lw`/`sw`.
     overwritten. Safe direction.
 * libc reader of the same file: see section 1 step 3. For an entry written with clock >= 2^31:
   `created` is negative, so `handle[0] (positive file mtime) < created` is false and the cache is **missed**,
-  not hit. Safe direction again. The expiry's unsigned compare is the opposite choice from nsd's and is the only
+  not hit. Wrong-hit-safe, but a permanent miss: this is the boot flood of section 9. The expiry's unsigned compare is the opposite choice from nsd's and is the only
   way an entry could outlive a clock correction (see section 5 for the one case).
 
 ## 4. libns_files (the passwd/group file source)
@@ -152,7 +182,7 @@ Persisted/long-lived values I looked for, and what each does with a negative clo
 
 | value | where | compare | result |
 |---|---|---|---|
-| cache entry expiry/created | `/var/ns/cache/*` mdbm | libc: created signed, expiry unsigned; nsd: expiry signed | cache miss at boot; overwritten on next write. Survives restart (on disk) but is never wrongly hit by the compares above. |
+| cache entry expiry/created | `/var/ns/cache/*` mdbm | libc: created signed, expiry unsigned; nsd: expiry signed | libc: permanent cache miss at a 2038 boot (the live regression, section 9); nsd: overwritten on next write. Survives restart (on disk) but is never wrongly hit by the compares above. |
 | libc handle[0] = `/etc/passwd` mtime | static libc data, refreshed per call | signed vs created | positive mtime vs negative created: miss. |
 | nsd file object stamps | nsd memory | verify (signed, future bit) | heals. Gone on nsd restart anyway. |
 | nsd timers | nsd memory | differences only | fine. |
@@ -269,9 +299,11 @@ The routine is at a different address in two distinct `lib32/libc.so.1` builds (
 Patch the installed build. Live result (confirmed on a guest): the fix takes a 2038 boot from ~12
 minutes to 39 seconds, with the `nsd` "bget" count dropping from 69,501 to 80. The media-build offsets
 (0x6e2c8 and the `0xfa4e...` addresses in sections 0-4 above) are this note's original read and apply
-only to that build. Live `nsd` log-string addresses for reference: "bget: not found" at 0x10005354,
-"not found 2" at 0x1000539c, "bget: empty" at 0x100053b8 (an earlier working note mislabelled
-0x100053b8 as the "not found" site).
+only to that build. Live `nsd` log call sites in `nsd_bget` (0x100052a0), for reference: the call at 0x1000539c logs
+"bget: not found: %u", the call at 0x10005354 logs "bget: not found 2: %u", and the call at 0x100053b8
+logs "bget: empty" (an earlier working note mislabelled 0x100053b8 as the "not found" site, and a first
+correction of it swapped the other two). The format strings sit in nsd's data at 0x1001c158, 0x1001c170
+and 0x1001c148 respectively.
 
 Ruled out as the live driver (checked, not assumed):
 

@@ -1,5 +1,32 @@
 # Year-2038 signed 32-bit time scan across the shipped IRIX 6.5.30 binaries
 
+## Corrections (2026-11-10)
+
+An independent re-check against the shipped binaries changed this note. Readers who relied on the old text
+should note:
+
+* **The TSV is userland only.** It holds 1264 userland rows and no kernel rows (checked: every binary column
+  entry is a path, none names a kernel object). The 11 kernel hits are listed only in the ranked table below
+  (rows 11, 12, 21, 22) and in the kernel-offsets section. The intro, counts and provenance wording said
+  otherwise and were fixed.
+* **The scan did not report all three `iaf/scheme` sites.** The scanner reported `0x100089dc` and `0x10009c4c`
+  (high) and `0x100089cc` (low, const-only). The divide at `0x100052f4` is a real signed divide (re-read; the divisor
+  is a register, not an immediate) but was found by hand and has no TSV row, so the TSV is not a
+  complete patch-all checklist for that binary. Wording corrected.
+* **Row 13 named the wrong function.** The two compare sites (`0xfb0a28c`, `0xfb0a2b4`) are inside `_yellowup`
+  (`0xfb0a19c`, 356 bytes), not `_yp_dobind` (`0xfb09ea8`, 500 bytes). The scanner labelled them with the window
+  start. The addresses and instruction words are right. Every TSV row labelled `_yp_dobind` in the libc copies
+  (n32, mips3, mips4, CPUARCH) carries the same window-start mislabel; the TSV itself was not edited here.
+* **Stripped-binary caveat applies to function names generally.** The "function" column is the scanner's nearest
+  preceding dynamic symbol and can be wrong when the window start is used; treat the address as the identifier.
+* The `passwd` divide at `0x1000639c`/`0x100063a8` is listed in the TSV as low, const-only, in
+  `display_one_entry`. Re-read: it divides a 64-bit stack slot that was filled from the return of a call made
+  with a zero argument at function entry (the `time(NULL)` shape, call target not resolved by name), subtracts a
+  value, and `slt`s the result. It is an ageing-shaped site, so the "divu needed" entry stands, but the TSV
+  grade (low) understates it.
+* Not re-checked: installed-disk hashes and offsets, the live guest verdicts, and the kernel rows (the
+  installed-kernel offsets were not re-read; only the media `nfs_client.o` compare was).
+
 Method: binary RE only of the shipped ELF objects under `refs/irix-media/6.5.30`. No IRIX source
 tree or header was opened. Symbol names come from each binary's own symbol table. Disassembly is
 capstone (mips64, big-endian). Nothing was run on a guest; every row here is static.
@@ -8,7 +35,7 @@ This turns boot-by-boot discovery of signed 32-bit time bugs into a patch-and-te
 a companion to the hand-done readings in [2106-core-time.md](2106-core-time.md),
 [boot-time-nsd-getpwuid.md](boot-time-nsd-getpwuid.md) and [xfs-timestamps.md](xfs-timestamps.md).
 The full machine-readable hit list is [`y2038-signed-time-hits.tsv`](y2038-signed-time-hits.tsv) in
-this directory (1264 userland + 11 kernel rows).
+this directory (1264 userland rows; the 11 kernel hits are not in it, see the kernel rows below).
 
 ## What it looks for
 
@@ -52,8 +79,8 @@ Blind spots, worst first:
   scanned. There is no combined `unix` image in the media, only `.o`/`.a`, so kernel addresses are
   offsets in each object's `.text`.
 - **Duplicates.** The same code ships as o32, n32 (`/lib32`, `mips3`, `mips4`, `CPUARCH` variants),
-  n64 and hashed copies; the table names one representative and its siblings. The TSV carries every
-  distinct site, deduplicated by basename/abi/address.
+  n64 and hashed copies; the table names one representative and its siblings. The TSV carries every distinct
+  site the scanner reported (not sites found only by hand), deduplicated by basename/abi/address.
 - **Stripped userland.** Almost all binaries have only `.dynsym`; "function" is the nearest preceding
   dynamic symbol (often `main`) — treat the address as the identifier.
 - `nsd` is covered separately ([boot-time-nsd-getpwuid.md](boot-time-nsd-getpwuid.md)); its hits are
@@ -68,7 +95,7 @@ Blind spots, worst first:
 | kernel `nfs_getattr_cache` (`nfs3.a:nfs_client.o`) | attribute-cache age: signed compare of `tv_sec` against cached expiry |
 | `libpthread` timeout-queue insert (n32/n64/o32) | signed compare of two timespec seconds to order the queue |
 | `libpthread` timespec-subtract helper (n32/n64/o32) | signed borrow/compare of seconds |
-| `/usr/lib/iaf/scheme` login ageing | `time()` signed-divided by 86400 then `slt` against lstchg + max; the scan reproduces this shape at three sites (n32 `0x10009c4c`, `0x100052f4`, `0x100089dc`) |
+| `/usr/lib/iaf/scheme` login ageing | `time()` signed-divided by 86400 then `slt` against lstchg + max; the scan reproduced this shape at `0x10009c4c` and `0x100089dc` (high) and `0x100089cc` (low); a third divide at `0x100052f4` was found by hand and is not in the TSV |
 
 The remaining rows reproduce the last exemplar's shape (`div <time>, 0x15180; mflo; slt ... lstchg/max/expire`) or the first four (a stored time compared against `time()`/`tv_sec`).
 
@@ -81,7 +108,7 @@ output only. Addresses are virtual addresses in the named binary (kernel: offset
 |---|---|---|---|---|---|---|
 | 1 | `/usr/lib32/security/pam_unix.so` (also n64 `/usr/lib64/security/pam_unix.so`, o32 `/usr/dt/lib/security/pam_unix.so.1`) | `pam_sm_acct_mgmt` | n32 `0x402a14`, `0x403e2c`; n64 `0x40316c`, `0x40461c`; o32 ~`0x5ffe2278` | `time()` -> signed `div` by 86400 -> `slt` against the account record's change/max/expire day fields; a negative day count makes every account look not-yet-expired or never-changed | high: read (n32 `0x402a14`), same shape as the scheme exemplar; but NOT installed on the golden diagnostics disk — see "Installed-build offsets" below | login (PAM account check) where installed |
 | 2 | `/sbin/su` | `main` window | `0x100047e4`, `0x1000486c` | `time()` to stack, signed `div` by 0x15180, `slt` vs `ia_get_logchg`/`logmax`/`logmin`, `bltz` on logmax | high: read | login (su; `sulogin` shares libia) |
-| 3 | `/usr/lib/iaf/scheme` | three local sites `0x10009c4c` (fixed), `0x100052f4`, `0x100089dc`/`0x100089cc` | as listed | THREE signed `div` by 86400 in one binary; only `0x10009c4c` was patched. `0x100052f4` and `0x100089dc`/`0x100089cc` sit behind a `limit > 0` test, so they bite only for accounts with ageing set | high: read; live-confirmed which site was patched | login |
+| 3 | `/usr/lib/iaf/scheme` | three local sites `0x10009c4c` (fixed), `0x100052f4` (hand-found, no TSV row), `0x100089dc`/`0x100089cc` | as listed | THREE signed `div` by 86400 in one binary; only `0x10009c4c` was patched. `0x100052f4` and `0x100089dc`/`0x100089cc` sit behind a `limit > 0` test, so they bite only for accounts with ageing set | high: read; live-confirmed which site was patched | login |
 | 4 | `/usr/etc/ftpd` | `user` | `0x10005f8c` | `time()` / 86400 to global `now`, `slt ia_expire, now`, `slt now, ia_lstchg` | high: read | login (ftp) |
 | 5 | `/usr/etc/rshd` | `main` window | `0x7fc03a68` | `time()` / 86400 `slt` against a stored day value (ageing field) | high: read | login (rsh) |
 | 6 | `/usr/bin/passwd` | `main` window `0x10002650` | 11 divs from `0x10002d00`; 604800 divs `0x10005828`; `mult` days*86400 at `0x100046d4` -> `gmtime` | signed `div` of `time()` into days for ageing; separately lstchg-days * 86400 overflows 32 bits at day 24855 (2038-01-19) before `gmtime` | high for the divs (scan); medium for the `mult` overflow (read) | login (password change) |
@@ -91,7 +118,7 @@ output only. Addresses are virtual addresses in the named binary (kernel: offset
 | 10 | `/usr/etc/syslogd` | `filtermsg` window | `0x7fc05114` | `time()` `slt` against a global repeat-suppression deadline that is cleared after expiry: suppression never expires | medium: read | boot |
 | 11 | kernel `sgi.a:fs_bio.o` | `bdflush_wake_proc` | `0x3ecc` (and `0x3eec`) | `nanotime(&ts)`; `lw ts.tv_sec` signed `slt` against saved 32-bit last-wake seconds | medium-high: read | boot (buffer-flush daemon from early boot) |
 | 12 | kernel `xvm.a:xvm_garbage.o` | `xvm_ve_collect` | `0x5b0` | `nanotime`; `lw tv_sec` `slt` against `ve->time + 60` (60 s garbage collect) | medium: read | boot (XVM volumes) |
-| 13 | `/lib32/libc.so.1` (+ copies) | `_yp_dobind` | `0xfb0a28c`, `0xfb0a2b4` | `time()` `slt` against a NIS bind-retry deadline and `time()+25` | medium: read | boot/login when NIS is configured |
+| 13 | `/lib32/libc.so.1` (+ copies) | `_yellowup` (TSV says `_yp_dobind`; wrong, see corrections) | `0xfb0a28c`, `0xfb0a2b4` | `time()` `slt` against a NIS bind-retry deadline and `time()+25` | medium: read | boot/login when NIS is configured |
 | 14 | `/usr/etc/portmap`, `/usr/etc/rpcbind` | `pmap_service` window | portmap `0x10005a60`, rpcbind `0x10007e14` | `gettimeofday` `tv_sec` `slt` against (global last + 0x3c): 60-second cache; and `time()` vs fd-age | medium: read (`0x10005a60`) | boot |
 | 15 | `/usr/etc/timed`; `/usr/etc/timeslave`; `/usr/sbin/ntpd` | timed `slave`/`measure`; timeslave `secdiff`; ntpd date | timed `0x10003ca8`, `0x10002cd8` div 86400; timeslave `0x100025c8`; ntpd `0x1001f9a8` div 86400 | `BSDgettimeofday` seconds vs each other and slave deadlines; day splits for logging | medium (timed read); ntpd/timeslave divs high by rubric, not read | boot when time sync is enabled |
 | 16 | `/usr/etc/lmgrd` (FlexLM; also `fs2d`, `ggd`, `ggd2`, `mam`, `lmutil`) | `lc_expire_days`, `l_ckout_borrow`, `l_read_borrow`, `l_borrow_stat` | div `0x1003aa3c` (lmgrd); slt `0x10029038`, `0x1003bafc`, `0x100410b4` | license expiry/borrow compares against `time()` and days-to-expiry via 86400 divide; "permanent" licenses encode 0x7fffffff-class dates | medium: scan | boot (`S45flexlm`), license check in licensed tools |
@@ -106,7 +133,7 @@ output only. Addresses are virtual addresses in the named binary (kernel: offset
 | 25 | `/sbin/csh`, `find`, `pwconv`, `passmgmt`, `zdump`/`zic`, `acctcom`, `/usr/lib/acct/*` | date math in tools | csh `0xe0128f8`, pwconv `0x10001944`, passmgmt `0x10002ee4` | signed divide of a time or day value by 86400; `pwconv`/`passmgmt` handle shadow day counts | low-medium: const-only scan | login admin / periodic (accounting) |
 | 26 | `/sbin/ps`, `make`, `restore`, `/usr/bin/more`, `icrash`, `X11/xfs` | `ps` tty mtime/ctime vs `time`, `make doname`, `restore extractfile` | as listed | `st_mtime`/`st_ctime` signed vs another time word | medium: scan | rare / periodic |
 
-Kernel items in rows 11, 12, 21, 22 come from only 79 scanned functions; the rest of the kernel
+Kernel items in rows 11, 12, 21, 22 come from only 79 scanned functions and are not in the TSV; the rest of the kernel
 (XFS/EFS inode time updates, `time` variable readers, NFS/lock managers) is unscanned.
 
 ## Installed-build offsets (golden IP35 diagnostics disk)
@@ -223,7 +250,7 @@ guest test: `bdflush_wake_proc`'s fix is confirmed real — a 10 MB write that s
 - Userland: 5898 MIPS ELF files enumerated, 2068 reference a time source, 7743 candidate windows
   scanned. Kernel: 79 `microtime`/`nanotime` callers. Raw 86400-divide scan: 333 sites in 152 files.
 - Scanner hits, deduplicated across arch/hash copies: 1264 userland (45 high, 528 medium, 691 low)
-  plus 11 kernel. By likelihood (userland): login 24 high / 11 medium / 25 low; boot 9 / 148 / 240;
+  plus 11 kernel (not in the TSV). By likelihood (userland): login 24 high / 11 medium / 25 low; boot 9 / 148 / 240;
   rare 12 / 369 / 426.
 - Hand-read (chain confirmed in disassembly): rows 1 (n32), 2, 3 (`0x100052f4`), 4, 5, 8 (gmtime
   core), 9, 10, 11, 12, 13, 14, 15 (timed), 17, 18, 24 (n32).
@@ -244,4 +271,4 @@ Scripts and the full hit list are under `/scratch/origami/graphics/y2038-scan/` 
 `hits.tsv`); the TSV is copied here as [`y2038-signed-time-hits.tsv`](y2038-signed-time-hits.tsv)
 (columns: likelihood, confidence, binary, abi, window start, nearest dynsym, address, op, taint kind,
 source, other operand, instruction). All addresses are virtual addresses in the named binary; kernel
-addresses are offsets in the object's `.text`.
+addresses are offsets in the object's `.text` (kernel rows appear only in this note, not in the TSV).
