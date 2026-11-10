@@ -103,6 +103,31 @@ Linked virtual addresses, size in bytes. `loop` is the polling routine (no symbo
 
 The 6.5.22 images use the same offsets as the same platform in 6.5.30.
 
+## Stores in one pass of the polling loop (IP35)
+
+Question: does one pass of `wait_for_interrupt` with its `local_idle` and `idler` calls write anything besides loads? Read from the disassembly of every store instruction in `idler` and `local_idle`, then confirmed by running the loop through a small interpreter with synthetic per-CPU state (empty queues, one cpuset, another CPU holding the primary-idle word, so `idler` returns 0 and the loop repeats). The interpreter's memory contents are invented; the control flow and the store list come from the binary. Grade: established for the store sites; inferred for which of them a real idle CPU reaches, because that depends on live state.
+
+**6.5.30 IP35 steady pass (non-primary idle CPU): four stores, all to the stack, none to shared or per-CPU data.**
+
+| Store | Address | Target |
+|---|---|---|
+| `sd` | 0xc00000000023f824 (`idler`) | stack slot sp+8, the CPU's cpuset index |
+| `sd` | 0xc00000000023f830 (`idler`) | stack slot sp+0, the CPU number |
+| `sd` | 0xc00000000023f83c (`idler`) | stack slot sp+0x18, return address |
+| `sd` | 0xc00000000023f8b4 (`idler`, in a branch delay slot, so it runs whether or not the branch is taken) | stack slot sp+0x10, the CPU's cpuset record offset |
+
+`wait_for_interrupt` itself stores one more value, the return address at sp+0, in its prologue at 0xc0000000002affc4. That is once per entry to the function, not per pass: the loop branches back to 0xc0000000002affc8, after the prologue. `local_idle` stores nothing in this pass.
+
+Not reached in this pass, but present as stores in the two routines:
+
+* `local_idle` 0xc00000000023f958: `sb zero` to the per-CPU "queued for this CPU" byte (offset -0x3bde). It runs only when that byte was set; the same call then clears it, so the next pass loads zero and skips the store. A one-shot, not a cycle.
+* `idler` claim and release paths: byte stores to the "resume idle on interrupt" byte (-0x3fb0) at 0xc00000000023f86c, 0xc00000000023f884, 0xc00000000023f8b8, 0xc00000000023f8e4, 0xc00000000023f908 and 0xc00000000023f938; halfword stores to the idler field (-0x3fac) at 0xc00000000023f87c, 0xc00000000023f8dc and 0xc00000000023f928; a word store of -1 into the cpuset's idler slot at 0xc00000000023f878; and two calls to `compare_and_swap_int` (an `ll`/`sc` pair) at 0xc00000000023f8c8 and 0xc00000000023f918. They run when a CPU gives up or takes the primary-idle or cpuset-idler role (conditions are the compares in `idler`), not on every pass. In the synthetic run none executed.
+* No spl change, counter, statistic, lock take or release, or Count read occurs in the loop.
+
+**Fixed point or cycle.** In the steady pass every one of the four stores writes the same value each time, because each is a copy of CPU-number-derived values or the return address. No store depends on a counter, so memory reaches a fixed point after the first pass: period 1. The instruction trace is also periodic with period 1 at 68 instructions per pass (the figure from section 1). The only way the trace changes is when the loaded state changes (a wakeup, or the idler role moving), not by anything the loop writes.
+
+**6.5.22 IP35.** Same result by the same method (loop at 0xc000000000271e78, `idler` 0xc000000000209fd4, `local_idle` 0xc00000000020a17c). The steady pass stores only to the stack: `idler` 0xc000000000209fe4 (s1), 0xc00000000020a004 (s0), 0xc00000000020a024 (CPU number), and the return address at 0xc00000000020a070 or 0xc00000000020a120 depending on the exit taken. The `local_idle` one-shot clear of the queued byte is at 0xc00000000020a188. The claim and release stores are byte stores to the resume-idle byte (-0x3fb0) and to a byte at -0x3a98, which in 6.5.22 holds the idler field (a byte there, a halfword at -0x3fac in 6.5.30), plus two `compare_and_swap_int` calls at 0xc00000000020a0ec and 0xc00000000020a144. None ran in the synthetic pass; all repeated stack values were identical, so it is also a fixed point of period 1. The saved values of the callee-saved registers on the stack are whatever the caller held, and the loop does not change them. The memory offsets used for the synthetic state were read from the disassembly and are not a check against live data.
+
 ## 2. How an idle CPU is woken
 
 Three routes, all established unless marked.
