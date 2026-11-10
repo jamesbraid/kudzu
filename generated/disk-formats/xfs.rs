@@ -1,4 +1,4 @@
-// generated from kudzu cc47e37a230e XFS_DECODE.h - do not edit, regenerate in kudzu
+// generated from kudzu 5468a0cc81b8 XFS_DECODE.h - do not edit, regenerate in kudzu
 //!
 //! XFS superblock and inode core as the shipped release
 //! writes them.

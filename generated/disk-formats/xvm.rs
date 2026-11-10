@@ -1,4 +1,4 @@
-// generated from kudzu cc47e37a230e XVM_DECODE.h - do not edit, regenerate in kudzu
+// generated from kudzu 5468a0cc81b8 XVM_DECODE.h - do not edit, regenerate in kudzu
 //!
 //! XVM volume manager on-disk label structures: the
 //! physical label, label sector header, element and attribute entries.

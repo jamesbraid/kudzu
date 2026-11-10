@@ -1,4 +1,4 @@
-// generated from kudzu cc47e37a230e VOLHDR_DECODE.h - do not edit, regenerate in kudzu
+// generated from kudzu 5468a0cc81b8 VOLHDR_DECODE.h - do not edit, regenerate in kudzu
 //!
 //! SGI disk volume header: magic, drive parameters, volume
 //! directory and partition table.

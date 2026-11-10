@@ -1,4 +1,4 @@
-// generated from kudzu cc47e37a230e XLV_DECODE.h - do not edit, regenerate in kudzu
+// generated from kudzu 5468a0cc81b8 XLV_DECODE.h - do not edit, regenerate in kudzu
 //!
 //! XLV logical volume manager on-disk label: master block,
 //! label slot header and per-partition entry.
