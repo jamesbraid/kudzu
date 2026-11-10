@@ -28,11 +28,12 @@ Package `eoe.sw.base`, product `eoe_6530m`. Command. N32 ELF32, 77064 bytes, `sh
 Package `eoe.sw.base`, product `eoe_6530m`. Command. N32 ELF32, 41768 bytes. Established.
 
 - Reads the configuration file `/etc/ioconfig.conf` and the directory `/var/sysgen/ioconfig`, and names the file `/etc/ioperms`. Established from the strings.
-- Its error text gives the line format `<class> <type> <state> <case> <suffix> <pattern> <start_num> <ioctl>`, and a message prints `ioctl=0x%x` for each device vertex it processes. Established.
+- Its error text gives a line format that lists a `<case>` column (`<class> <type> <state> <case> <suffix> <pattern> <start_num> <ioctl>`) but the parser scans seven fields and has no case column, and a message prints `ioctl=0x%x` for each device vertex it processes. Established.
 - Imports `ioctl` and `syssgi`, the tree walk `nftw`, `fnmatch` for the name patterns, `filename_to_devname`, `chown`, `chmod`, `getpwnam` and `getgrnam`. Established.
 - The strings name the hardware-graph directories `/hw/scsi_ctlr`, `/hw/input*`, `/hw/xvm`, `/hw/.invent` and `/hw/hw`. Established.
-- Role: reads one line per device class, and for each matching device vertex sends the configured ioctl and names the device from the suffix, pattern and start number. Inferred from the message formats and the imports.
-- Unknown: the request value each class sends, which is in the configuration file and not in the program. The program's own numbering rule is not read.
+- Role: numbers hardware-graph devices (controller and unit numbers) and applies `/etc/ioperms`. Established; see [ioconfig.md](ioconfig.md).
+- Numbering, walk and ownership logic read: [ioconfig.md](ioconfig.md) (section "The user-space program"). The request values come from ten built-in rows and the configuration files; the program sets a vertex's number through the `_controller_name` attribute, not through a control request. Established.
+- Unknown: what requests `0x642e` and `0xc0044470` do on disk nodes, and the default `/var/sysgen/ioconfig` contents of 6.5.30 (not held).
 
 ### `6.5.30/usr/etc/mediad`
 

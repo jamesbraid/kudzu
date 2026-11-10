@@ -55,9 +55,9 @@ The hinv image was disassembled, but the references to these strings did not res
 
 ## ioconfig
 
-The user-space `ioconfig` program is not in `root/`. Its numbering rules are known only from the configuration files, and those are 6.5.22 files (`6.5.22/var/sysgen.IP27`, `IP30` and `IP35` `ioconfig/`). The README in those directories defines the line format, the `-1` wildcards, the rule that a more specific line follows a more general one, and the start number. The fragments `dmedia`, `ifcl`, `usb` and `vme` give the class, type, start number and driver request for each device family. See [ioconfig.md](ioconfig.md) for the kernel side (the controller-number inventory record) and the grades of those files.
+The user-space program is `6.5.30/sbin/ioconfig`, read in [ioconfig.md](ioconfig.md): it takes its rules from the files in `/var/sysgen/ioconfig` (the 6.5.22 copies are in `6.5.22/var/sysgen.IP27`, `IP30` and `IP35` `ioconfig/`), from ten built-in rows, and from `/etc/ioconfig.conf`, where it records the numbers it handed out as `<number> <path>` lines. It reads each vertex's inventory records through the `_inventory` attribute and writes a number through the `_controller_name` attribute of the vertex path. The README in the shipped directories defines the line format, the `-1` wildcards, the rule that a more specific line follows a more general one, and the start number. The fragments `dmedia`, `ifcl`, `usb` and `vme` give the class, type, start number and driver request for each device family.
 
-The 6.5.30 kernel side and the 6.5.30 ioconfig program are not read, so the numbering rules here are 6.5.22 facts, not 6.5.30 facts.
+The 6.5.30 program and the 6.5.30 IP35 kernel's attribute operation are read; the shipped fragments are 6.5.22 files, and the 6.5.30 `/var/sysgen/ioconfig` fragments are not held.
 
 ## Not established
 
@@ -65,4 +65,3 @@ The 6.5.30 kernel side and the 6.5.30 ioconfig program are not read, so the numb
 - The 285 of 613 add sites whose name is not a literal in straight-line code (94 in IP27, 73 in IP30, 118 in IP35). Each table row says which scan step lost the value. In the rows read, the name is text the routine formats into a stack buffer with `sprintf` (for example `dk_add_hw_disk_alias`, `klhwg_add_cpu` and `io_xswitch_widget_init`), so the format string and its arguments are what is left to read.
 - Objects under `usr/cpu/sysgen/*boot` that are not linked into the three kernels are not scanned.
 - The hinv routines that use the format strings above.
-- The 6.5.30 `ioconfig` program and its numbering code.
