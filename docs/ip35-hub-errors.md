@@ -243,7 +243,7 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   (0xc000000001527ae0) and `kl_panic("Hub Register Access Permission error")` (0xc000000001527b40). Only registers a2
   to a6 are loaded for those calls; the format has six conversions. Neither `kl_panic` call is expected to return. If
   one does, the first path falls into the second report, and the routine returns the last `kl_panic` result at
-  0xc000000000077aac. Which Hub register the bit at +0 of that doubleword guards: unknown here. Established.
+  0xc000000000077aac. Which Hub register the bit at +0 of that doubleword guards: unknown here. Established. The offset is the first register of the processor interface in the public SN1 register header (`PI_CPU_PROTECT`); that this is the one the routine tests is inferred from the offset alone. A bus error on a doubleword load in the node-named register window reaches this routine through `dobuserre` and `handle_io_buserr`; docs/ip35-crash-dump.md follows that path for the crash dump's Hub register walk.
 - `huberror_process_stack_entry` (`6.5.30/unix.IP35`, address 0xc00000000005a88c, 248 bytes, 48-byte frame): decodes
   one saved Hub request-buffer error record and hands it to the write-side or read-side error routine. Callers are
   `process_error_spool` and `get_matching_spool_addr`. `a0` is the record's first word, `a1` its second word, `a2` the
