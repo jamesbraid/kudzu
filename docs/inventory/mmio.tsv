@@ -91,9 +91,9 @@ HEART-PIU	0x40008		w8	2	2	MgrasGeneralInterrupt	PIU register block	6.5.22/usr/cp
 HEART-PIU	0x50000		r8	88	4	VEC_dbe;VEC_ibe;_ecc_errorvec;badaddr;badaddr_val;baerror;+7 more	PIU register block	6.5.22/unix.IP30:VEC_dbe	undocumented		
 HEART-PIU	0x60000		r8	24	4	dobuserr_common	PIU register block	6.5.22/unix.IP30:dobuserr_common	undocumented		
 HEART-W8	0x100000		r8	68	4	VEC_dbe;VEC_ibe;badaddr;badaddr_val;baerror;earlybadaddr;+4 more	widget 8 block	6.5.22/unix.IP30:VEC_dbe	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-HEART-W8	0x100004		r4	4	4	heart_rev	widget 8 block	6.5.22/unix.IP30:heart_rev	named-only	docs/interrupts.md#routines	Routines
+HEART-W8	0x100004		r4	4	4	heart_rev	widget 8 block	6.5.22/unix.IP30:heart_rev	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 HEART-W8	0x100014		r4	4	4	dobuserr_common	widget 8 block	6.5.22/unix.IP30:dobuserr_common	undocumented		
-HEART-W8	0x10001c		r4	4	4	dobuserr_common	widget 8 block	6.5.22/unix.IP30:dobuserr_common	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+HEART-W8	0x10001c		r4	4	4	dobuserr_common	widget 8 block	6.5.22/unix.IP30:dobuserr_common	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 HEART-W8	0x10002c		r4,w4	16	6	giobr_attach;heart_startup	widget 8 block	6.5.22/unix.IP30:giobr_attach	undocumented		
 HEART-W8	0x100040		w8	28	4	badaddr;badaddr_val;baerror;earlybadaddr;earlybaerror;wbadaddr;+1 more	widget 8 block	6.5.22/unix.IP30:badaddr	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
 HEART-W8	0x100044		r4,w4	12	6	dobuserr_common;heart_mlreset	widget 8 block	6.5.22/unix.IP30:dobuserr_common	named-only	docs/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
@@ -169,7 +169,7 @@ IOC4	0x28		w4	4	4	ioc4_eiattach	return of ioc4_mem_ptr	6.5.22/unix.IP35:ioc4_eia
 IOC4	0x30		w4	8	4	ioc4_eiattach	return of ioc4_mem_ptr	6.5.22/unix.IP35:ioc4_eiattach	named-only	docs/ip35-ioc3.md#ioc3-driver-routines-of-the-ip35-kernel	IOC3 driver routines of the IP35 kernel
 IOC4	0x34		w4	4	4	ioc4_eiattach	return of ioc4_mem_ptr	6.5.22/unix.IP35:ioc4_eiattach	named-only	docs/ip35-ioc3.md#ioc3-driver-routines-of-the-ip35-kernel	IOC3 driver routines of the IP35 kernel
 IOC4	0x200		w4	4	4	ioc4_pckm_attach	return of ioc4_mem_ptr	6.5.22/unix.IP35:ioc4_pckm_attach	undocumented		
-XBOW	0x4		r4	22	9	heart_startup;ip30_early_piotrans_addr;odsyLowLevelReset;syssgi	widget 0 window	6.5.22/unix.IP30:heart_startup	named-only	docs/ip35-xtalk.md#crosstalk-layer-entry-points-of-the-ip35-kernel	Crosstalk layer entry points of the IP35 kernel
+XBOW	0x4		r4	22	9	heart_startup;ip30_early_piotrans_addr;odsyLowLevelReset;syssgi	widget 0 window	6.5.22/unix.IP30:heart_startup	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 XBOW	0x24		r4,w4	12	3	odsyLowLevelReset	widget 0 window	6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_init.o):odsyLowLevelReset	undocumented		
 XBOW	0x34		w4	12	12	xbow_intr_preset	Crossbow register pointer argument	6.5.22/unix.IP27:xbow_intr_preset	undocumented		
 XBOW	0x3c		w4	12	12	xbow_intr_preset	Crossbow register pointer argument	6.5.22/unix.IP27:xbow_intr_preset	undocumented		

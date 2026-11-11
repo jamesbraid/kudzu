@@ -1128,7 +1128,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP27boot/kona.a(kona_timeout.o)	kernel-other-objects	shared-kernel	object	n64	12932	2cfa567a0e709a7c		10	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kona.a(kona_video.o)	kernel-other-objects	shared-kernel	object	n64	26980	dd79d0e18087404d		21	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kona.a(kona_tport.o)	kernel-other-objects	shared-kernel	object	n64	24852	dd86dacecb679289		19	symtab	4	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/kona.a(kona_edtinit_hip2.o)	kernel-other-objects	shared-kernel	object	n64	22324	0f0090ff5404d943		9	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/kona.a(kona_edtinit_hip2.o)	kernel-other-objects	shared-kernel	object	n64	22324	0f0090ff5404d943		9	symtab	0	0	named-only	docs/nic.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.22/usr/cpu/sysgen/IP27boot/kona.a(kona_intr_hip2.o)	kernel-other-objects	shared-kernel	object	n64	8244	4e10704b8fb08f03		3	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/kona.a(kona_mapram_hip2.o)	kernel-other-objects	shared-kernel	object	n64	7604	ee4f84b500ef6627		5	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/ksync.a(mutex.o)	kernel-other-objects	shared-kernel	object	n64	41684	db9b37f18bdad0e6		57	symtab	0	0	undocumented		
@@ -3358,7 +3358,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/kona.a(kona_timeout.o)	kernel-other-objects	shared-kernel	object	n64	12836	8b71a2c9639a141b		10	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kona.a(kona_video.o)	kernel-other-objects	shared-kernel	object	n64	26900	002ec091a5bad499		21	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kona.a(kona_tport.o)	kernel-other-objects	shared-kernel	object	n64	24420	774242d0284997a4		19	symtab	4	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/kona.a(kona_edtinit_hip2.o)	kernel-other-objects	shared-kernel	object	n64	22132	21bf0142e510f314		9	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/kona.a(kona_edtinit_hip2.o)	kernel-other-objects	shared-kernel	object	n64	22132	21bf0142e510f314		9	symtab	0	0	named-only	docs/nic.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.22/usr/cpu/sysgen/IP35boot/kona.a(kona_intr_hip2.o)	kernel-other-objects	shared-kernel	object	n64	8164	5c39e1bf3cc95c1b		3	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/kona.a(kona_mapram_hip2.o)	kernel-other-objects	shared-kernel	object	n64	7524	41e7da5f5aa55a56		5	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/ksync.a(mutex.o)	kernel-other-objects	shared-kernel	object	n64	41604	54a3e7e16c6f606f		57	symtab	0	0	undocumented		
@@ -4285,7 +4285,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP27boot/kona.a(kona_timeout.o)	kernel-other-objects	shared-kernel	object	n64	12836	592bba0c041e0d85		10	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kona.a(kona_video.o)	kernel-other-objects	shared-kernel	object	n64	26916	9dba4b43c75421d3		21	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kona.a(kona_tport.o)	kernel-other-objects	shared-kernel	object	n64	24756	18136860332faa57		19	symtab	4	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/kona.a(kona_edtinit_hip2.o)	kernel-other-objects	shared-kernel	object	n64	22228	6601b45a863a2be9		9	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/kona.a(kona_edtinit_hip2.o)	kernel-other-objects	shared-kernel	object	n64	22228	6601b45a863a2be9		9	symtab	0	0	named-only	docs/nic.md#other-builds	Other builds
 6.5.30/usr/cpu/sysgen/IP27boot/kona.a(kona_intr_hip2.o)	kernel-other-objects	shared-kernel	object	n64	8148	3b5293ce5fd89f64		3	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/kona.a(kona_mapram_hip2.o)	kernel-other-objects	shared-kernel	object	n64	7492	a1c62957a81158d7		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/ksync.a(mutex.o)	kernel-other-objects	shared-kernel	object	n64	42196	2989c2bb0e7af5cd		58	symtab	0	0	undocumented		
@@ -6703,7 +6703,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/kona.a(kona_timeout.o)	kernel-other-objects	shared-kernel	object	n64	12740	86d948058c5563ef		10	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kona.a(kona_video.o)	kernel-other-objects	shared-kernel	object	n64	26836	31ebede97fc0663e		21	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kona.a(kona_tport.o)	kernel-other-objects	shared-kernel	object	n64	24324	10b9a948c8087221		19	symtab	4	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/kona.a(kona_edtinit_hip2.o)	kernel-other-objects	shared-kernel	object	n64	22036	387a5f25e1abc8f2		9	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/kona.a(kona_edtinit_hip2.o)	kernel-other-objects	shared-kernel	object	n64	22036	387a5f25e1abc8f2		9	symtab	0	0	named-only	docs/nic.md#other-builds	Other builds
 6.5.30/usr/cpu/sysgen/IP35boot/kona.a(kona_intr_hip2.o)	kernel-other-objects	shared-kernel	object	n64	8068	8af55035550b9e02		3	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/kona.a(kona_mapram_hip2.o)	kernel-other-objects	shared-kernel	object	n64	7412	d3526393bde60851		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ksync.a(mutex.o)	kernel-other-objects	shared-kernel	object	n64	42100	6058a980c33b23c7		58	symtab	0	0	undocumented		
