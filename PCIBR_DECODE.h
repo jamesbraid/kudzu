@@ -11,15 +11,26 @@
  *   ENUM:  <target> <value> <label> <grade>             target is a FIELD key
  *
  * The widget identification word is the 32-bit word at byte 4 of the window.
+ * View: that is the low half of the 8-byte register slot at byte 0. The
+ * machine is big-endian, so a 32-bit load at +4 reads bits 31:0 of the 64-bit
+ * register at 0. A register list that counts slots shows it as a 4-byte access
+ * at 0x0; it is the same word. The chip registers of the 32-bit layout are all
+ * reached this way, each one slot apart, and only the two translation arrays
+ * are used as doublewords.
  * The kernel selects one of three register layouts from the part number and
  * the 11-bit field together: a 32-bit layout with eight device slots and two
  * 64-bit layouts with four. Any other pair makes the register accessors panic.
  * The names of the layouts are positions, not product names.
  *
  * Derivation. Every value comes from reading the bridge register accessors and
- * the bridge driver registration routine of the shipped kernel. The role of the
- * 11-bit field is not read: only the values that accompany each part number
- * are. Whether the same pairs are what the widgets themselves report is
+ * the bridge driver registration routine of the shipped kernel. The kernel
+ * never names the 11-bit field; only the values that accompany each part
+ * number are read. The public Linux crosstalk widget header (v5.3) puts a
+ * manufacturer number in exactly bits 11:1 and gives 36 to the later bridge
+ * and 54 to the first one, which matches the pairs, so the field is the
+ * manufacturer number (inferred). Another widget uses the same field with
+ * another value (the Odyssey graphics board is 35 in the sibling decode
+ * header). Whether the same pairs are what the widgets themselves report is
  * unknown here.
  */
 #ifndef PCIBR_DECODE_H
@@ -51,7 +62,7 @@
 #define PCIBR_WID_PART_LAYOUT64A 0xe000u
 /* ENUM: WID.part 0xe010 layout64ax established */
 #define PCIBR_WID_PART_LAYOUT64AX 0xe010u
-/* field11: 11-bit field the kernel pairs with the part number; its role is not read */
+/* field11: manufacturer number, bits 11:1 of the identification word; inferred from the public Linux widget header, the kernel does not name it */
 /* FIELD: WID.field11 11:1 established */
 #define PCIBR_WID_FIELD11_SHIFT 1
 #define PCIBR_WID_FIELD11_MASK  0x7ffu
@@ -72,6 +83,9 @@
 #define PCIBR_INTR_STRIDE 8 /* established: byte stride of the interrupt address registers on every layout */
 #define PCIBR_INTR_ADDR64_OFFSET 304 /* established: first interrupt address register, 64-bit layouts; its low 48 bits hold the address */
 #define PCIBR_INTR_ADDR32_OFFSET 308 /* established: first interrupt address register, 32-bit layout; a 32-bit word */
+/* View: both are the same slot of eight bytes at 304 + 8n. The 64-bit layouts
+ * use the doubleword at the slot; the 32-bit layout uses its low half at +4,
+ * which a slot-counting register list shows as a 4-byte access at 304. */
 #define PCIBR_INTR_ADDR32_HI 17 /* established: the 32-bit layout replaces bits 17:8 of the word */
 #define PCIBR_INTR_ADDR32_LO 8 /* established */
 #define PCIBR_INTR_ADDR32_SRC_HI 47 /* established: the 32-bit layout keeps source address bits 47:38 */
