@@ -33,6 +33,20 @@
 #define KLCONFIG_BRD_STRIDE_COMPTS 4 /* established */
 
 /*
+ * Per-node directory. The board list is reached through a directory at a fixed
+ * offset of each node's memory. The kernel reads the doubleword at byte 72 of
+ * that directory (the second 64-byte entry, offset field 8 bytes in), masks it
+ * to 40 bits, and adds the result to the node base to find the configuration
+ * header; the board list offset is the word at byte 20 of that header (zero
+ * means no boards). The 64-byte entry size is not read as a constant: it is
+ * the sum 64 + 8 = 72 that the routines load.
+ */
+#define KLCONFIG_DIR_OFF 0x2000u /* established: directory offset from the node base */
+#define KLCONFIG_DIR_OFF_CONFIG_OFFSET 72 /* established: byte of the doubleword that gives the configuration header offset */
+#define KLCONFIG_DIR_CONFIG_OFFSET_MASK 0xffffffffffull /* established: 40 bits are kept */
+#define KLCONFIG_HDR_OFF_BOARD_INFO 20 /* established: word giving the offset of the first board record */
+
+/*
  * Board class and component. The serial-number routine of both platforms picks
  * the component to search from the class: node searches component type 2, I/O
  * type 5, router type 9 and graphics type 10 (established). Only the class value
@@ -198,5 +212,25 @@
 /* FIELD: PEPAIR_W0.host_nasid 15:0 established */
 #define KLCONFIG_PEPAIR_W0_HOST_NASID_SHIFT 0
 #define KLCONFIG_PEPAIR_W0_HOST_NASID_MASK  0xffffu
+
+/*
+ * Node class register (Origin 300/350 kernels). One doubleword of the node's
+ * local register space, read uncached with a 64-bit load. The kernel keeps
+ * only bits 15:12 of it. Two aliases of the same register are read: the local
+ * one, and the node-indexed one, which adds the node number shifted left 33.
+ * The offset below is relative to a node's register space; the two space
+ * constants are the bases of the local and the node-indexed alias.
+ */
+#define KLCONFIG_NODECLASS_OFF 0x4000000u /* established: offset of the register in the node's local register space */
+#define KLCONFIG_NODECLASS_SPACE_LOCAL 0x10000000u /* established: added to the offset for the local alias */
+#define KLCONFIG_NODECLASS_SPACE_REMOTE 0x30000000u /* established: added to the offset, with the node number, for the node-indexed alias */
+
+/* NODECLASS_W1: the 32-bit big-endian word at byte 4 of the doubleword (its low half) */
+/* class: the kernel branches on 4, 8 and 12 and never examines another bit; what drives the bits on hardware is unknown */
+/* FIELD: NODECLASS_W1.class 15:12 established */
+#define KLCONFIG_NODECLASS_W1_CLASS_SHIFT 12
+#define KLCONFIG_NODECLASS_W1_CLASS_MASK  0xfu
+/* ENUM: NODECLASS_W1.class 12 pebrick established */
+#define KLCONFIG_NODECLASS_W1_CLASS_PEBRICK 12
 
 #endif

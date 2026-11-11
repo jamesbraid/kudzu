@@ -25,6 +25,10 @@ public Linux `tg3` names for the offsets the code reaches. Grades: established (
   with Broadcom's own ids and no SGI subsystem pair is refused. Unknown: which of the three 0x1645 rows a Tezro's
   controller carries; a configuration dump of a real board's function 0 offsets 0x2c to 0x2f would settle it.
 
+  The match table is in `TG_DECODE.h`. Re-read from `if_tg.o` (sha256 `0dec82e929558ac27fa2a9fdc826db90f6dabd4142fa07dd8a7bc95233d92bce`)
+  `.data` +0x170: five 16-byte rows with the values above (the `tg_devids` symbol is 80 bytes); the loop compares the four halfwords at
+  row +0, +2, +4 and +6 (loads at 0x91c4 to 0x91f0).
+
 ## What attach does
 
 - Established: maps a 64 KiB window (`pciio_pio_addr` with size 0x10000, 0x9288), reads configuration dwords 0x68

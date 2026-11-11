@@ -1,8 +1,9 @@
 /*
  * HUBIO_DECODE.h - Origin 300 hub crosstalk-side register window
  *
- * Publish-safe contract for two parts of the hub's crosstalk-side window: the
- * one register the kernel's error path tests before it goes on to the widget
+ * Publish-safe contract for parts of the hub's crosstalk-side window: the
+ * link control and status doubleword the widget probe tests, the one register
+ * the kernel's error path tests before it goes on to the widget
  * error handler, and the table of request-buffer entries its I/O error scan
  * reads. Register offsets are relative to the window. A node's copy is
  * reached at the window base plus the node number shifted left by the node
@@ -27,6 +28,21 @@
 
 #define HUBIO_WINDOW_BASE 0x1c00000u /* established: physical base of the window for node 0 */
 #define HUBIO_NODE_SHIFT 33 /* established: node number shift */
+
+/*
+ * Widget part numbers the Origin 300/350 kernel compares by value, read from
+ * the identification word of a widget. The kernel's per-widget set-up routine takes the same programmed-I/O
+ * mode call for both of these as for its graphics parts. No driver registers
+ * either part; what the cards are is unknown.
+ */
+#define HUBIO_WIDGET_PART_C104 0xc104u /* established: compared in the Origin 300/350 kernels of both releases read, and in no Origin 200/2000 kernel; role unknown */
+#define HUBIO_WIDGET_PART_C105 0xc105u /* established: as above */
+
+/* REG: HUBIO.llp_csr 0x128 r64 reset=unknown established */
+/* bit13: the early widget probe reads the doubleword and tests this bit; with it clear the probe returns -1 for the part, revision and manufacturer without touching the widget, and the I/O error interrupt setup tests it before choosing a handler path. Whether it means link up is inferred from that use */
+/* FIELD: HUBIO.llp_csr.bit13 13:13 established */
+#define HUBIO_LLP_CSR_BIT13_SHIFT 13
+#define HUBIO_LLP_CSR_BIT13_MASK  0x1u
 
 /* REG: HUBIO.flags 0x1e8 r64 reset=unknown established */
 /* bit0: tested with bit 4; the error routine continues only when one of the two is set; role unknown */

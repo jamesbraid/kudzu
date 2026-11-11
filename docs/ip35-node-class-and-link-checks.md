@@ -13,7 +13,10 @@ what it does not.
 (`0xf000`) and the same three comparisons, plus `0x2000`, so the register is the same.
 
 - **Established.** The address is offset `0x4000000` of the node's local register space, under the local-versus-node
-  alias that the other hub registers use (the register space is at `+0x10000000`, the remote alias at `+0x30000000`).
+  alias that the other hub registers use (the register space is at `+0x10000000`, the remote alias at `+0x30000000`). The offset,
+  both alias bases and the bits 15:12 field are in `KLCONFIG_DECODE.h` (`KLCONFIG_NODECLASS_*`). Re-read in `get_module_id` and
+  `cpu_node_probe` of `6.5.30/unix.IP35` (sha256 `412a1aae553a348376bc30cacbaf65044de1745d30222f02ec5f88297dcb1dfa`): the node-indexed
+  load from the 0x9000000034000000 pool word, the local load from 0x9000000014000000, and the 0xf000 mask with a compare against 0xc000 and 0x8000.
   The PROM's own use of it is in the chips page above: only bits 15:12 select a class, and bits 3:0 (bits 7:0 for class
   `0x8`) then pick a row of a processor-configuration table.
 - **Established, by the shipped kernel's own census.** The kernel never examines any other bit of it (klconfig.md).

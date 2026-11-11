@@ -116,6 +116,16 @@ register_doc = "Constant"
 description = ["Bit-serial control word for the one-wire identity parts and", "the hub address that reaches the same bus."]
 
 [[headers]]
+file = "TG_DECODE.h"
+prefix = "TG"
+group = "tg"
+notes_corpus = ["docs/ip35-tg-driver.md"]
+module = "tg"
+rust_prefix = "TG_"
+register_doc = "Constant"
+description = ["Gigabit Ethernet controller match table: the PCI vendor, device", "and subsystem ids the Origin 300/350 driver accepts."]
+
+[[headers]]
 file = "HUBIO_DECODE.h"
 block = "HUBIO"
 prefix = "HUBIO"
@@ -123,7 +133,7 @@ group = "hubio"
 module = "hubio"
 rust_prefix = "HUBIO_"
 register_doc = "Register"
-description = ["Origin 300 hub crosstalk-side window: the register tested by", "the error path and the request-buffer table the I/O error scan reads."]
+description = ["Origin 300 hub crosstalk-side window: the link status doubleword,", "the register tested by the error path, the request-buffer table the", "I/O error scan reads and the widget part numbers the kernel compares."]
 
 [[headers]]
 file = "HUBNI_DECODE.h"
