@@ -81,6 +81,7 @@ Every hand-written document under `docs/` and the top-level Markdown files, grou
 - [docs/ip35-pcibr-registers.md](docs/ip35-pcibr-registers.md): Bridge register accessors in the IP35 pcibr object
 - [docs/ip35-pciio.md](docs/ip35-pciio.md): Generic PCI layer routines of the IP35 kernel
 - [docs/ip35-router.md](docs/ip35-router.md): Router driver routines of the IP35 kernel
+- [docs/ip35-rtc-and-cycle-counter.md](docs/ip35-rtc-and-cycle-counter.md): How the IP35 kernel reads the real-time counter's period and exposes the cycle counter
 - [docs/ip35-tg-driver.md](docs/ip35-tg-driver.md): What the gigabit Ethernet tg driver expects of its controller
 - [docs/ip35-xtalk.md](docs/ip35-xtalk.md): Crosstalk layer entry points of the IP35 kernel
 

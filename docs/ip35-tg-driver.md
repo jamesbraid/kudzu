@@ -72,6 +72,25 @@ public Linux `tg3` names for the offsets the code reaches. Grades: established (
   64 x 1000 x 100 microseconds, about 6.4 seconds of delay, at every attach.
 - Unknown: the VPD contents of a real board. A dump of the 256 bytes would settle it.
 
+## Receive and send coalescing
+
+- Established: `tg_init_card` (0xaff0 to 0xb140 for this part) first waits for HOSTCC_MODE (BAR + 0x3c00) to read zero, 20 tries of
+  1 ms (0xaff0 to 0xb018). It zeroes the during-interrupt registers 0x3c18, 0x3c1c, 0x3c20 and 0x3c24 (0xb0a8 to 0xb0bc), writes the
+  statistics tick register 0x3c28 as 1,000,000 (0xb118 to 0xb120), and finally writes HOSTCC_MODE = 0x402 (0xb134 to 0xb138): enable and
+  the public "clear ticks on send BD events" bit (0x400); the receive clear-tick bit (0x200) is not set. `tg_set_coal` (0xb85c to 0xb878)
+  writes the receive tick register 0x3c08 from record +0xd0, the receive max-frames register 0x3c10 from +0xcc and the send max-frames
+  register 0x3c14 from +0x14c; the send tick register 0x3c0c takes an argument.
+- Established: on the path taken when the record byte at +0x3b is 1 (0xb3a4 to 0xb3fc; the byte is stored at 0xaadc from a flag test whose
+  source was not traced, so which path a given board takes is unknown) the initial receive ticks are 28 (0x1c, microseconds in the
+  controller's unit), the receive max frames 2, the adaptive bounds 28 to 896 ticks (record +0xc0, +0xc4) and a first step of 14 (record +0xa4
+  starts at 14): `tg_rx_coal_incr` (0xd678 to 0xd71c) adds a step to the ticks within bounds held in the record,
+  and `tg_recv` (0xce44 to 0xceb4) lowers them. A lone frame after a quiet period therefore waits at most 28 microseconds; under load
+  the first rise is to 42. The progression after the first step was not worked out (unknown). The other path takes the starting
+  values from record words +0x75c to +0x77c, which were not traced (unknown).
+- Inferred: with those settings a frame on an idle ring is reported as soon as its DMA ends, because the controller's tick timer restarts
+  only after a status-block update (Broadcom 57XX-PG105-R, printed pages 62 to 63 and 453; see chips
+  `docs/questions/ip35-bcm5701-completion-latency.md`).
+
 ## Station address and EEPROM
 
 - Established: `tg_get_macaddr` (0xc674, 244 bytes), called from `tg_open` (0x990c), copies 8 bytes from BAR + 0x410
