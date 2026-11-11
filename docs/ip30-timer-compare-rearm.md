@@ -68,3 +68,18 @@ So the gap does not need a stall the hardware could not have, and does not need 
 | Whether the early-Compare mechanism above is the source in the observed run. | software-now | In the emulated run, read the HEART value stored by the tick handler, the tick period (gp-0x1214), the programmed deadline and the Compare at `0xa800000020005700` return, and check that the Count-domain time of Compare is earlier than the deadline by the observed amount. |
 | In which release between 6.5.13f and 6.5.30 the subtraction operand was corrected, and whether 6.5.22 has it. | missing-input | The `IP30boot/kernel.o` of 6.5.22 and of the intermediate maintenance releases: compare the word at `trimcompare+0x20`. |
 | Whether the Count rate word (gp-0x1218) is in units of 100 kHz. | software-now | Read the word from a running kernel on a 195 MHz CPU (expect 975) and the code that stores it. |
+
+## The trimcompare operand by release
+
+The word at `trimcompare+0x20` in each IP30 kernel that could be read. `13f` is `018e4023` (`subu t0,Count,Compare`, the operand order that arms the wrap). `fixed` is `01cc4023` (`subu t0,Compare,Count`). The sha256 prefix is of the file named in the row; for linked images it is of the whole `/unix` file.
+
+| release | file | sha256 prefix | word | form |
+|---|---|---|---|---|
+| 6.5 base (June 1998 media) | `refs/irix-media/6.5-base/usr/cpu/sysgen/IP30boot/kernel.o` | `5d6eba62f3e0` | `018e4023` | 13f |
+| 6.5.22 | `kona-scaffold/kudzu/root/6.5.22/usr/cpu/sysgen/IP30boot/kernel.o` (origami scaffold; no disc or manifest recorded alongside it) | `05ed66e3d9d4` | `01cc4023` | fixed |
+| 6.5.30 | `refs/irix-media/6.5.30/usr/cpu/sysgen/IP30boot/kernel.o` (same bytes as the kudzu and chips copies) | `32d900592e14` | `01cc4023` | fixed |
+| 6.5.30m | `/unix` on `evidence/old-root-salvage-20261110/disks/octane2-vpro-disk-20261002/octane2-vpro.qcow2` (banner 6.5.30m; same bytes as the `scratch/octane2-vpro-sdk-recovered-20261002.qcow2` copy) | `3ac07f94bd51` | `01cc4023` | fixed |
+| 6.5.30m | `/unix` on `evidence/old-root-salvage-20261110/disks/mgras-completion-evidence-20261002/octane-mgras-base-install-20261003.qcow2` | `c2414ec0a4b0` | `01cc4023` | fixed |
+| 6.5.30m | `/unix` on `evidence/old-root-salvage-20261110/disks/octane-flash-ab-20261003/irix-device-only/root.qcow2` | `1b89ea691fd0` | `01cc4023` | fixed |
+
+Not held, so not checked: 6.5.13f, 6.5.14 through 6.5.21 (including 6.5.21f, the Flame 8.3.4 release), 6.5.23 through 6.5.29, the 6.5.29 tarballs listed in the media inventory, and any maintenance or feature release not in the table. The release trees extracted under `scratch/irix-debug-survey-20261029/rel/` carry only the IP30 `gfx.o` and `odyssey.a` overlays, with no `kernel.o` or `unix`. The disk search covered only the Octane- and IP30-named images, so an installed IP30 disk on another release may exist unrecorded.
