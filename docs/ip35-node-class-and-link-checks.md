@@ -23,8 +23,19 @@ what it does not.
   for the Origin 300 and reads bits 15:12 of the same register; and the kernel's `0x4` effects (keyboard and mouse
   attach, graphics console start skipped, the narrower IOC3 sub-device mask) fit a one-node workstation. The kernel
   itself never names the platform.
+- **Established.** The kernel's Chimera brick-type path is gated by the class. `set_sn12_type` (`0xc000000000041550`) asks the system
+  controller for the brick-type character only when the class is none of `0x4`, `0x8`, `0xc`, and maps '7' to 1, '8' to 2, '9' to 3,
+  '0' to 4 and 'Q' to 5; `get_chimera_type` returns that number. The IP35 CPU PROM has the same gate and the same mapping (chips page
+  `docs/questions/ip35-board-class-and-flash-record.md`, routine at outer `0x1fc68ba0`). So a node for which the kernel can ever see
+  Chimera type 3 (the workstation branch in `sc_command_interp`) is not class `0x4`, `0x8` or `0xc`: the IP53 and IP59 node boards, whose
+  controller reports the Chimera server, blade and workstation brick types, belong to the remaining classes.
+  The Fuel-only effects listed in [klconfig.md](klconfig.md) (keyboard and mouse attach through IOC3, graphics console start skipped,
+  SCSI controller numbering, the narrower IOC3 sub-device mask) are therefore not taken on those boards.
+- **Inferred.** The class of IP53 boards is `0x2`: OpenBSD's IP35 subtype list names 2 for the Origin 350 (and the PROM's pin report labels
+  class `0x2000` with the IP53-family codename). The kernel has no compare with `0x2`, so for the kernel class 2 is just "default".
 - **Unknown.** What drives the four bits on the hardware (the PROM's table treats bits 3:0 as the processor module's
-  own code), and class `0xc` beyond the kernel's PE-brick use.
+  own code), the IP59 class and the low bits of an IP53 or IP59 word (route: one raw 64-bit read of `0x9000000014000000`), and class
+  `0xc` beyond the kernel's PE-brick use.
 
 ## The 80-byte block that `syssgi` copies out
 
