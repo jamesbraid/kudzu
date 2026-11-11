@@ -126,8 +126,8 @@ Union at offset 56, by type. The IRIX routine writes the bytes of each case at t
 | mirror | 8 | 2 | `vm_logfreq` | | established offset |
 | mirror | 10 | 1 | `vm_policy` | 0 round-robin, 1 sequential | established |
 | mirror | 11 | 1 | `vm_config` | bit 0 is stored only on the primary piece's record: the routine clears it on any other position | bit 0 inferred |
-| raid | 0 | 4 | `vr_susize` | stripe unit | Linux DWARF only; IRIX writes nothing for type 4 (`xvm_mem2dsk_ve` case 4 is empty) |
-| raid | 4 | 1 | `vr_layout` | | as above |
+| raid | 0 | 4 | `vr_susize` | stripe unit | Established that IRIX writes nothing for type 4: entry 4 of the jump table in `xvm_mem2dsk_ve` (`.rodata` +0x158 of `xvm_label.o`, 6.5.30 IP35boot `xvm.a`, sha256 `0b940b1e...f037456`) targets 0x29a0, the same exit the free, concat and snapshot entries use. Name, offset and width come only from the Linux module's structure (a hint, not evidence for IRIX); the role is inferred from the name |
+| raid | 4 | 1 | `vr_layout` | layout of the raid set | Same as `vr_susize`: nothing is written by IRIX (established), offset and width from the Linux structure only (hint), role inferred |
 | copy-on-write | 0 | 16 | `vcw_ruuid` | UUID of the repository object | offsets established; role inferred |
 | subvolume | 0 | 1 | `vsv_svtype` | 0 all, 1 log, 2 data, 3 realtime, 4 swap, 16 user | established (Linux enum; IRIX stores the byte unchanged, +0x2998) |
 | volume | 0 | 1 | `vv_repfull` | replication-full flag | offset established; role inferred |

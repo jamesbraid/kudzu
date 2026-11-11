@@ -20,6 +20,8 @@ Grades: **established** = read directly in instructions or in a tool's own data 
 
 Method. `xfs_db` carries its structure descriptions as data: arrays of 24-byte records `{name pointer, type code, bit offset, count, flags, aux}`. I parsed those arrays directly from the executable image (non-PIC, absolute pointers), so field names, offsets and widths below come from the tool's tables, not from guessing at load/store patterns. Where the table gives a bit offset it is counted from the most significant bit of the storage unit. The kernel objects carry no usable struct debug info (only function names), so every kernel offset is derived from access patterns and is labelled by position. In-core `xfs_mount` offsets quoted below are in-core only; the in-core superblock starts at mount+0x40, so `mount+0x40+x` is on-disk superblock offset `x`. In-core inode core starts at inode+0x278, so `inode+0x278+x` is on-disk inode offset `x`. There is no endian swap anywhere in the kernel module, so on-disk, in-core and in-log core bytes are identical (see also `xfs-timestamps.md`, `xfs-mount-blockio.md`).
 
+The inode rows in 2.1 were re-read against `usr/sbin/xfs_db` (sha256 `d02f7cbc9029e8954973792228c019bf16cef197067dcdd727e3a914e57fc193`) and, for the kernel statements, against `usr/cpu/sysgen/IP27boot/xfs.a` (sha256 `6f38630b1d591266a0de66feedf52bfcd8ab3d7c0238e87078ec16aa1071ddca`), both 6.5.30. Field widths are the gaps between successive table offsets.
+
 Public Linux XFS was used only to orient which structures to look for. Nothing here is graded from Linux.
 
 Boards. Kernel statements are from the IP27boot archive. The IP35boot archive was compared for `xfs_mount_validate_sb` and the timestamp code in the earlier notes and matched; the other kernel statements here were not repeated on IP35boot, IP30boot or IP32boot. `xfs_db64`, `xfs_repair64` and `xfs_check64` were not read; `xfs_check` is a shell wrapper.
@@ -166,28 +168,28 @@ Offsets and widths from the `xfs_db` inode table; presence by version is from th
 | 0x04 | 1 | `version` | 1 | 2 | Established |
 | 0x05 | 1 | `format` | | | data fork format: 0 dev, 1 local, 2 extents, 3 btree, 4 uuid. Names are the `xfs_db` enum. The kernel's `xfs_iformat` accepts 0 for char/block/fifo/socket, and 1, 2, 3 for regular, directory and symlink; **format 4 is not accepted by the kernel read path** (falls through to the corruption error). Established |
 | 0x06 | 2 | `onlink` / `nlinkv1` | link count (16 bit) | zero | Established |
-| 0x08 | 4 | `uid` | | | |
-| 0x0c | 4 | `gid` | | | |
+| 0x08 | 4 | `uid` | | | Established (32-bit field at bit 64 of the `xfs_db` inode table) |
+| 0x0c | 4 | `gid` | | | Established (32-bit field at bit 96 of the `xfs_db` inode table) |
 | 0x10 | 4 | `nlinkv2` | ignored on read | link count (32 bit) | Established (see 2.2 for what v1 writeback leaves here) |
 | 0x14 | 2 | `projid` | ignored on read, treated 0 | project id | Established |
 | 0x16 | 8 | pad | | zeroed by the kernel when it makes an inode v2 | Established that the kernel zeroes 8 bytes at 0x16; `xfs_db` has no name for them |
-| 0x1e | 2 | `flushiter` | | | incremented on every inode flush; wraps and resets at 0xffff (kernel: flush path tests for 0xffff) |
+| 0x1e | 2 | `flushiter` | | | incremented on every inode flush; wraps and resets at 0xffff. Offset established (`xfs_db` table, bit 240). Counter behaviour established: `xfs_iflush_int` adds one to the in-core halfword and stores zero when the result equals 0xffff (6.5.30 IP27boot `xfs.a(xfs_inode.o)` +0x3510 and +0x3628) |
 | 0x20 | 4+4 | `atime` sec, nsec | | | seconds then nanoseconds (earlier timestamp note). Established |
-| 0x28 | 8 | `mtime` | | | |
-| 0x30 | 8 | `ctime` | | | |
-| 0x38 | 8 | `size` | | | |
-| 0x40 | 8 | `nblocks` | | | |
-| 0x48 | 4 | `extsize` | | | extent size hint |
-| 0x4c | 4 | `nextents` | | | data-fork extent count |
-| 0x50 | 2 | `naextents` | | | attribute-fork extent count |
+| 0x28 | 8 | `mtime` | | | Established offset and encoding: bit 320 in the `xfs_db` table, the same two-word type code as `atime` (seconds then nanoseconds) |
+| 0x30 | 8 | `ctime` | | | Established offset and encoding: bit 384, same type code as `atime` |
+| 0x38 | 8 | `size` | | | Established offset and 64-bit width (bit 448 to the `nblocks` field at bit 512); that it is the file size in bytes is inferred from the name |
+| 0x40 | 8 | `nblocks` | | | Established offset and 64-bit width (bit 512 to bit 576); that it counts filesystem blocks is inferred from the name |
+| 0x48 | 4 | `extsize` | | | extent size hint. Established offset and 32-bit width (bit 576 to bit 608); the hint role is inferred from the name |
+| 0x4c | 4 | `nextents` | | | data-fork extent count. Established offset and 32-bit width (bit 608 to bit 640); role inferred from the name |
+| 0x50 | 2 | `naextents` | | | attribute-fork extent count. Established offset and 16-bit width (bit 640 to bit 656, the `forkoff` byte); role inferred from the name |
 | 0x52 | 1 | `forkoff` | | | attribute fork starts at `0x64 + forkoff*8`; 0 means no attribute fork. Established |
-| 0x53 | 1 | `aformat` | | | attribute fork format: 1 local, 2 extents, 3 btree (the only values `xfs_iformat` accepts for the attribute fork) |
-| 0x54 | 4 | `dmevmask` | | | |
-| 0x58 | 2 | `dmstate` | | | |
-| 0x5a | 2 | `flags` | | | bits below |
-| 0x5c | 4 | `gen` | | | generation |
-| 0x60 | 4 | `next_unlinked` | | | AGI unlinked-list link |
-| 0x64 | to end of inode | data fork `u` (and attribute fork) | | | |
+| 0x53 | 1 | `aformat` | | | attribute fork format: 1 local, 2 extents, 3 btree (the only values `xfs_iformat` accepts for the attribute fork). Established: offset 0x53 from the `xfs_db` table (bit 664); the kernel's attribute-fork switch compares the byte at +0x53 against 1, 2 and 3 and any other value takes the error exit (6.5.30 IP27boot `xfs.a(xfs_inode.o)`, `xfs_iformat` 0x5e0 to 0x600) |
+| 0x54 | 4 | `dmevmask` | | | Established offset and 32-bit width (bit 672 to bit 704); role (the data-management event mask) is inferred from the name |
+| 0x58 | 2 | `dmstate` | | | Established offset and 16-bit width (bit 704 to bit 720); role inferred from the name |
+| 0x5a | 2 | `flags` | | | bits below. Established (16-bit field at bit 720; the nine flag bits are table entries at bits 727 to 735) |
+| 0x5c | 4 | `gen` | | | generation. Established offset and 32-bit width (bit 736 to the next table entry at bit 768); role inferred from the name |
+| 0x60 | 4 | `next_unlinked` | | | AGI unlinked-list link. Established offset (a separate `xfs_db` entry beside the core, at bit 768); the list role is inferred from the name |
+| 0x64 | to end of inode | data fork `u` (and attribute fork) | | | Established start: the `xfs_db` table places `u` at bit 800 and `a` after it; the attribute fork start is given by `forkoff` above |
 
 `flags` bits (from the `xfs_db` table; the 16-bit word is at 0x5a, bit values below are as a 16-bit integer): 0x0001 realtime, 0x0002 prealloc, 0x0004 newrtbm, 0x0008 immutable, 0x0010 append, 0x0020 sync, 0x0040 noatime, 0x0080 nodump, 0x0100 rtinherit. Established.
 
