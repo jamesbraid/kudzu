@@ -49,7 +49,7 @@ decoder (`tools/hostfacts.py`) over the linked image.
   pin's enable bit once under the lock before it starts (0xc00000000009e3b0 to 0xc00000000009e404). What sets soft +120
   is a stack argument of `pic_attach2` (0xc000000000093f84); its value was not traced: **unknown**. Route: read the
   caller of `pic_attach2` and its stack frame. Whether the hardware raises an interrupt on an enable-bit set while the pin
-  is high is **unknown** from software.
+  is high is **unknown** from software. Settling test: the bridge chip's published programming description of its interrupt enable and status registers (look it up by the chip's name and revision first), which states whether the pending state is level or edge sensitive; if it does not say, only a bench measurement on a real Origin 350 base-I/O bridge answers it (write the enable bit with a slot's pin held asserted and watch for an interrupt packet), and that is a last resort because it needs the hardware.
 
 ## What follows for a model
 

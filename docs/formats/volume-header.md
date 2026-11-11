@@ -83,15 +83,15 @@ graded by layout arithmetic and by agreement with the real block.
 | dp offset | vh offset | Size | Meaning | Grade |
 |---|---|---|---|---|
 | +4 | 0x1C | u16 | cylinder count | inferred (real block 0x4104 = 16644; 16644*16*63 = 16 777 152, within 64 of capacity) |
-| +6 | 0x1E | u16 | head offset of volume 0 | unknown (zero) |
+| +6 | 0x1E | u16 | head offset of volume 0 | unknown (zero). Settling test: search the kernel disk driver's label code (the routine that writes the drive parameters, including the capacity routine named below), sash, fx and dvhtool for a halfword load or store at drive-parameter +6 (volume header 0x1e); a hit's use gives the meaning, no hit means no software dependency |
 | +8 | 0x20 | u16 | tracks (heads) per cylinder | inferred (real block 16) |
 | +10 | 0x22 | u8 | command-tag-queue depth | established as a field: kernel stores 0x10 here when the drive supports tagged queuing; real block 0 (untagged emulated disk) |
-| +11 | 0x23 | u8 | high cylinder bits | unknown (zero) |
+| +11 | 0x23 | u8 | high cylinder bits | unknown (zero). Settling test: the same search at drive-parameter +11 (0x23), and in fx's geometry display and compare code for a cylinder count wider than 16 bits |
 | +14 | 0x26 | u16 | sectors per track | inferred (real block 63) |
 | +16 | 0x28 | u16 | **bytes per sector** | established: kernel stores block size here, sash `dopart` stores 0x200, fx compares it to the drive's value and prints "bytes/sec" on mismatch; real block 0x0200 |
 | +20 | 0x2C | u32 | flags | inferred: kernel sets 0x40 together with the tag depth; fx's compare routine tests it when nonzero |
 | +44 | 0x44 | u32 | **drive capacity in blocks** | established: kernel `dk_chkptsize` writes the READ CAPACITY result here; sash writes capacity here when it synthesises a header; fx compares it ("drive capacity") against the drive when nonzero; real block 0x01000000 = 16 777 216 blocks = 8 GiB, equal to the qcow2 virtual size |
-| others (+0..+3, +12, +18, +22..+43) | | | skew/gap/interleave/retry/data-rate-style legacy fields | unknown; no examined binary reads or writes them, all zero in the real block |
+| others (+0..+3, +12, +18, +22..+43) | | | skew/gap/interleave/retry/data-rate-style legacy fields | unknown; no examined binary reads or writes them, all zero in the real block. Settling test: the same search in the kernel, sash, fx and dvhtool for any access to drive-parameter bytes +0 to +3, +12, +18 and +22 to +43 (volume header 0x18 to 0x1b, 0x24, 0x2a and 0x2e to 0x41); fx's drive-parameter prompt strings are the first place a named field would show |
 
 Notes:
 - fx copies exactly 0x30 bytes from `vh+0x18` into its own parameter copy, then compares the
