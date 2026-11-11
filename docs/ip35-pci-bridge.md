@@ -1052,3 +1052,33 @@ The routines below are in `6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o`, a relocatabl
   The routine uses the revision selector only as a bit mask.
   **Inferred.**
 
+
+## BAR reserve in slot set-up (6.5.21 IP30 kernel versus the 6.5.30 IP30 object)
+
+Read from the 6.5.21 IP30 `/unix` (function `pcibr_slot_info_init` at 0xa80000002008f3b0, frame 0x280)
+and the 6.5.30 `usr/cpu/sysgen/IP30boot/pcibr.o` (SHA-256 `57403fc7…`, same function at text offset
+0xb768, frame 0x270). Address-space sets in both: `pcibr_attach2` calls `pcibr_slot_info_init` for every
+slot, then `pcibr_slot_addr_space_init` for every slot (6.5.21 calls at 0x84740 and 0x84770).
+
+**What the routine does for a BAR a firmware already placed.** It reads the BAR, masks the low two bits,
+zeroes the address if the command word's I/O-decode bit is clear (a flag kept at frame +0x188 in 6.5.21),
+takes the lowest set bit of the address as the size, and calls `pcibr_bus_addr_alloc` with that address
+and size so the pool reserves the range. A zero address skips the call. The result of the call is not
+tested. **Established.**
+
+**The 6.5.21 defect.** The space code passed to that call is read from frame +0x1b8. On the I/O-BAR path
+the routine has stored the right code (2) in a different slot (+0x238, 0x8f8dc) but never in +0x1b8. +0x1b8
+is initialised once per function, before the BAR loop, from the 32-bit word at frame +0x38 (0x8f620 to
+0x8f628), which no instruction in the routine writes; it is stack residue. The only other store to +0x1b8 is
+the constant 5 at 0x8fa34, on the path for a 64-bit memory BAR, so a device that has such a BAR sets it for the
+remaining BARs. The reserve of an I/O BAR therefore lands in whichever pool the residue or the last such BAR
+names: `pcibr_bus_addr_alloc` (0x91928) maps 2 to the I/O pool, 4 to the 16 KB-unit memory pool, 5 to the second
+memory pool, and anything else to no pool. A breakpoint on that routine shows the value 5 for the onboard
+Octane Bridge and 0xffffffffa8000000 (the high word of a kernel pointer left at +0x38) for the Bridge of a
+board with only I/O BARs. In both cases the I/O BAR's reserve misses the I/O pool, so a firmware-placed I/O BAR
+is not protected from a later I/O allocation. **Established** by the disassembly and the breakpoint.
+Which earlier call left the pointer at +0x38 was not identified; a write watchpoint on that stack address settles it.
+
+**The 6.5.30 change.** The 6.5.30 object has no read of an uninitialised slot: the space code is the one
+recorded for the BAR (2 on the I/O path), copied to frame +0x1c0 (0xbc70, 0xbca4) and passed as the third argument
+(0xbcdc to 0xbce4). The reserve therefore targets the I/O pool. **Established** (disassembly of the 6.5.30 object).
