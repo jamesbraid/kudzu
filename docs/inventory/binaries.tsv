@@ -1924,7 +1924,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/hitachi.o	kernel-other-objects	shared-kernel	object	n64	26392	148cb97eb1eba559		9	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/hwgfs.a(hwgvnops.o)	kernel-platform-drivers	shared-kernel	object	n64	25812	85fed8f1e63a5497		21	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP30boot/idbg.o	kernel-platform-objects	shared-kernel	object	n64	944976	210fccb4ebb9fadb		295	symtab+dwarf	1	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP30boot/idev.o	kernel-other-objects	shared-kernel	object	n64	25992	63fad93d69ef4c9f		22	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/idev.o	kernel-other-objects	shared-kernel	object	n64	25992	63fad93d69ef4c9f		22	symtab	0	0	named-only	docs/input-path.md#evidence-and-its-limits	Evidence and its limits
 6.5.22/usr/cpu/sysgen/IP30boot/if_ef.o	kernel-other-objects	shared-kernel	object	n64	49584	acd80f34898ada53		47	symtab	1	5	named-only	docs/routines/t1-kudzu-b015.md#routine-role-statements-from-the-6522-ip30-kernel-and-boot-objects	Routine role statements from the 6.5.22 IP30 kernel and boot objects
 6.5.22/usr/cpu/sysgen/IP30boot/if_eg.o	kernel-other-objects	shared-kernel	object	n64	77024	39e8fad26c7e1887		55	symtab	1	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/if_ppp.o	kernel-other-objects	shared-kernel	object	n64	53464	b5f226c5adee25d7		25	symtab	0	0	undocumented		
@@ -1943,7 +1943,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/io.a(hwcopy.o)	kernel-platform-drivers	shared-kernel	object	n64	4404	725f5cdc92e3d670		2	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP30boot/io6.o	kernel-platform-drivers	shared-kernel	object	n64	6688	65941b2b967914f2		2	symtab	0	4	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP30boot/ioc3.o	kernel-platform-drivers	shared-kernel	object	n64	24960	e8a6e778bad68ce5		24	symtab	0	6	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP30boot/ioc3_pckm.o	kernel-other-objects	shared-kernel	object	n64	35696	d09d9f074579c1e9		34	symtab	1	0	named-only	docs/routines/t1-kudzu-b015.md#routine-role-statements-from-the-6522-ip30-kernel-and-boot-objects	Routine role statements from the 6.5.22 IP30 kernel and boot objects
+6.5.22/usr/cpu/sysgen/IP30boot/ioc3_pckm.o	kernel-other-objects	shared-kernel	object	n64	35696	d09d9f074579c1e9		34	symtab	1	0	named-only	docs/input-path.md#evidence-and-its-limits	Evidence and its limits
 6.5.22/usr/cpu/sysgen/IP30boot/ip_mroute.o	kernel-other-objects	shared-kernel	object	n64	41304	0d5d1b87befde1b0		34	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/ipfilter.o	kernel-other-objects	shared-kernel	object	n64	18960	34c853e1366eff57		9	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/ipv6.a(dest6.o)	kernel-other-objects	shared-kernel	object	n64	5444	90f331c4cf189b76		1	symtab	0	0	undocumented		
