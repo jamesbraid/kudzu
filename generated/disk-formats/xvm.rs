@@ -1,4 +1,4 @@
-// generated from kudzu 5468a0cc81b8 XVM_DECODE.h - do not edit, regenerate in kudzu
+// generated from kudzu 460c8a2ecf06 XVM_DECODE.h - do not edit, regenerate in kudzu
 //!
 //! XVM volume manager on-disk label structures: the
 //! physical label, label sector header, element and attribute entries.
@@ -18,6 +18,10 @@ pub const PHYSLAB_VERSION: u32 = 2;
 pub const PHYSLAB_VERSION_LEGACY: u32 = 1;
 /// established: device block holding the label on a disk with an SGI volume header.
 pub const PHYSLAB_START_BLOCK: u32 = 1;
+/// established: on a GPT disk the label is at the first LBA of the first partition-list entry, in units of the device block size.
+pub const PHYSLAB_GPT_FIRST_PARTITION_INDEX: u32 = 0;
+/// established: the GPT placement is tried only when the partition list has a second entry; with one entry no label is found.
+pub const PHYSLAB_GPT_MIN_PARTITIONS: u32 = 2;
 /// established: bytes 6c 64 68 72.
 pub const LABELHDR_MAGIC: u32 = 0x6c646872;
 /// established.
