@@ -8,25 +8,25 @@ Grades follow [AGENTS.md](../AGENTS.md): **established** is read in the binary a
 
 Field names and offsets are from the debug records of both kernels (dwarfdump, member names and offsets only). Established.
 
-| Record | Field | IP35 | IP27 |
-|---|---|---|---|
-| `uthread_s` (a kernel thread of a process; 1592 bytes on IP35, 1584 on IP27) | `ut_proc` | +0x300 | +0x2f0 |
-| | `ut_vproc` | +0x308 | +0x2f8 |
-| | `ut_pproxy` | +0x328 | +0x318 |
-| | `ut_flags`, `ut_update` | +0x340, +0x344 | +0x330, +0x334 |
-| | `ut_job` | +0x358 | not read |
-| | `ut_cdir`, `ut_rdir` (current and root directory) | +0x470, +0x478 | +0x468, +0x470 |
-| `proc` (3072 bytes on both) | `p_proxy` (a `proc_proxy_s` at +0) | +0 | +0 |
-| | `p_pgid`, `p_pid`, `p_ppid`, `p_sid` | +0x298, +0x29c, +0x2a0, +0x2a4 | same |
-| | `p_shaddr` (share group record) | +0x990 | same |
-| | `p_who` (lock taken by `setsid`) | +0x998 | same |
-| | `p_cred` | +0xa80 | same |
-| `proc_proxy_s` (656 bytes) | `prxy_utshare` (a `pshare_s`) | +0x8 | same |
-| | `prxy_flags`, `prxy_shmask` (share mask of the process) | +0x94, +0xa0 | same |
-| `pshare_s` (96 bytes; state the threads of one process share) | `ps_cdir`, `ps_rdir`, `ps_cmask`, `ps_cred`, `ps_sighold` | +0x10, +0x18, +0x24, +0x28, +0x30 | same |
-| `shaddr_s` (160 bytes; the share group record) | `s_fdt`, `s_cdir`, `s_rdir`, `s_cmask`, `s_limit`, `s_cred` | +0x40, +0x48, +0x50, +0x5a, +0x60, +0x68 | same |
-| `cred` (72 bytes) | `cr_uid`, `cr_gid`, `cr_ruid`, `cr_rgid`, `cr_suid`, `cr_sgid`, `cr_mac`, `cr_cap`, `cr_groups` | +0x8, +0xc, +0x10, +0x14, +0x18, +0x1c, +0x20, +0x28, +0x44 | same |
-| `cap_set` (24 bytes, at `cr_cap`) | effective, permitted, inheritable (64-bit masks) | +0, +8, +0x10 | same |
+| Record | Field | IP35 | IP27 | Grade |
+|---|---|---|---|---|
+| `uthread_s` (a kernel thread of a process; 1592 bytes on IP35, 1584 on IP27) | `ut_proc` | +0x300 | +0x2f0 | established |
+| | `ut_vproc` | +0x308 | +0x2f8 | established |
+| | `ut_pproxy` | +0x328 | +0x318 | established |
+| | `ut_flags`, `ut_update` | +0x340, +0x344 | +0x330, +0x334 | established |
+| | `ut_job` | +0x358 | not read | established |
+| | `ut_cdir`, `ut_rdir` (current and root directory) | +0x470, +0x478 | +0x468, +0x470 | established |
+| `proc` (3072 bytes on both) | `p_proxy` (a `proc_proxy_s` at +0) | +0 | +0 | established |
+| | `p_pgid`, `p_pid`, `p_ppid`, `p_sid` | +0x298, +0x29c, +0x2a0, +0x2a4 | same | established |
+| | `p_shaddr` (share group record) | +0x990 | same | established |
+| | `p_who` (lock taken by `setsid`) | +0x998 | same | established |
+| | `p_cred` | +0xa80 | same | established |
+| `proc_proxy_s` (656 bytes) | `prxy_utshare` (a `pshare_s`) | +0x8 | same | established |
+| | `prxy_flags`, `prxy_shmask` (share mask of the process) | +0x94, +0xa0 | same | established |
+| `pshare_s` (96 bytes; state the threads of one process share) | `ps_cdir`, `ps_rdir`, `ps_cmask`, `ps_cred`, `ps_sighold` | +0x10, +0x18, +0x24, +0x28, +0x30 | same | established |
+| `shaddr_s` (160 bytes; the share group record) | `s_fdt`, `s_cdir`, `s_rdir`, `s_cmask`, `s_limit`, `s_cred` | +0x40, +0x48, +0x50, +0x5a, +0x60, +0x68 | same | established |
+| `cred` (72 bytes) | `cr_uid`, `cr_gid`, `cr_ruid`, `cr_rgid`, `cr_suid`, `cr_sgid`, `cr_mac`, `cr_cap`, `cr_groups` | +0x8, +0xc, +0x10, +0x14, +0x18, +0x1c, +0x20, +0x28, +0x44 | same | established |
+| `cap_set` (24 bytes, at `cr_cap`) | effective, permitted, inheritable (64-bit masks) | +0, +8, +0x10 | same | established |
 
 The first operation table of the process object (`vproc` operations, the table `pproc_set_dir` sits in, at 0xc000000001597e28 on IP35) names its slots by function: +40 `pproc_set_dir`, +168 `pproc_setpgid`, +208 `pproc_setsid`, +216 `pproc_setpgrp`, +184 `pproc_setuid`, +504 `pproc_procblk`, +512 `pproc_prctl`, +600 `pproc_getjob`, +608 `pproc_accumjob`, +616 `pproc_isinjob`. Established (the pointers in the table).
 
@@ -416,20 +416,20 @@ The question: is there a separate per-candidate routine between entering `waitsy
 
 `prgetstatus` (`6.5.30/unix.IP35`, 0xc000000000436900, 1484 bytes), `prgetpsinfo` (`6.5.30/unix.IP35`, 0xc000000000437fcc, 1076 bytes) and `irix5_prgetpsinfo` (`6.5.30/unix.IP35`, 0xc000000000438b44, 1084 bytes) copy identifiers from the process record into the status structure they fill. Each is a plain load from the process record followed by a store, read at the instructions shown. Established.
 
-| Writer | Output offset | From process record | Field |
-|---|---|---|---|
-| `prgetstatus` | +0x148 (store 0xc000000000436cac) | +0x29c (load 0xc000000000436ca8) | process id |
-| `prgetstatus` | +0x14c (0xc000000000436cb4) | +0x2a0 (0xc000000000436cb0) | parent process id |
-| `prgetstatus` | +0x150 (0xc000000000436cbc) | +0x298 (0xc000000000436cb8) | process group id |
-| `prgetstatus` | +0x154 (0xc000000000436cc4) | +0x2a4 (0xc000000000436cc0) | session id |
-| `prgetpsinfo` | +0x18 (0xc000000000438078) and +0x114 (0xc000000000438080) | +0x29c (0xc000000000438074, 0xc00000000043807c) | process id, written twice |
-| `prgetpsinfo` | +0x1c (0xc000000000438090) | +0x2a0 (0xc00000000043808c) | parent process id |
-| `prgetpsinfo` | +0x20 (store in the delay slot at 0xc0000000004380a0) | +0x298 (0xc000000000438094) | process group id |
-| `prgetpsinfo` | +0x24 (0xc0000000004380f8) | +0x2a4 (0xc0000000004380f4) | session id |
-| `irix5_prgetpsinfo` | +0x10 (0xc000000000438bf0) and +0xdc (0xc000000000438bf8) | +0x29c (0xc000000000438bec, 0xc000000000438bf4) | process id, written twice |
-| `irix5_prgetpsinfo` | +0x14 (0xc000000000438c08) | +0x2a0 (0xc000000000438c04) | parent process id |
-| `irix5_prgetpsinfo` | +0x18 (store in the delay slot at 0xc000000000438c18) | +0x298 (0xc000000000438c0c) | process group id |
-| `irix5_prgetpsinfo` | +0x1c (0xc000000000438c70) | +0x2a4 (0xc000000000438c6c) | session id |
+| Writer | Output offset | From process record | Field | Grade |
+|---|---|---|---|---|
+| `prgetstatus` | +0x148 (store 0xc000000000436cac) | +0x29c (load 0xc000000000436ca8) | process id | established |
+| `prgetstatus` | +0x14c (0xc000000000436cb4) | +0x2a0 (0xc000000000436cb0) | parent process id | established |
+| `prgetstatus` | +0x150 (0xc000000000436cbc) | +0x298 (0xc000000000436cb8) | process group id | established |
+| `prgetstatus` | +0x154 (0xc000000000436cc4) | +0x2a4 (0xc000000000436cc0) | session id | established |
+| `prgetpsinfo` | +0x18 (0xc000000000438078) and +0x114 (0xc000000000438080) | +0x29c (0xc000000000438074, 0xc00000000043807c) | process id, written twice | established |
+| `prgetpsinfo` | +0x1c (0xc000000000438090) | +0x2a0 (0xc00000000043808c) | parent process id | established |
+| `prgetpsinfo` | +0x20 (store in the delay slot at 0xc0000000004380a0) | +0x298 (0xc000000000438094) | process group id | established |
+| `prgetpsinfo` | +0x24 (0xc0000000004380f8) | +0x2a4 (0xc0000000004380f4) | session id | established |
+| `irix5_prgetpsinfo` | +0x10 (0xc000000000438bf0) and +0xdc (0xc000000000438bf8) | +0x29c (0xc000000000438bec, 0xc000000000438bf4) | process id, written twice | established |
+| `irix5_prgetpsinfo` | +0x14 (0xc000000000438c08) | +0x2a0 (0xc000000000438c04) | parent process id | established |
+| `irix5_prgetpsinfo` | +0x18 (store in the delay slot at 0xc000000000438c18) | +0x298 (0xc000000000438c0c) | process group id | established |
+| `irix5_prgetpsinfo` | +0x1c (0xc000000000438c70) | +0x2a4 (0xc000000000438c6c) | session id | established |
 
 In `prgetstatus` the process record is the thread's `ut_proc` (+0x300 of the thread record, load at 0xc000000000436914); in the two info routines it is the word at +0x38 of the second argument. The two info routines also store the halfword at process +0x88 (0xc000000000438084, 0xc000000000438bfc) at +0x138 and +0xf8, and the controlling terminal through `cttydev` (0xc000000000318020), which names a device, not a process. The names of the output fields were not taken from any header; the roles come from the source offsets, which `pproc_get_attr` (0xc0000000002d4e0c) labels the same way (+0x2a0 parent in buffer +0, +0x298 group in +4, +0x2a4 session in +8). Established for the offsets; inferred for the role of the second process-id copy (it is the same load, so it is a second field that carries the same number).
 

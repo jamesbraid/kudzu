@@ -145,12 +145,12 @@ The loader file itself is not found through the program's `PT_INTERP`: that name
 
 Established by the loader's strings and routines for which variable names exist, and by the `rld(5)` page for the search order.
 
-| Variable | o32 | n32 | n64 |
-|---|---|---|---|
-| Search-path variable | `LD_LIBRARY_PATH` | `LD_LIBRARYN32_PATH`, then `LD_LIBRARY_PATH` | `LD_LIBRARY64_PATH`, then `LD_LIBRARY_PATH` |
-| Root prefix list | `_RLD_ROOT` | `_RLDN32_ROOT` (and `_RLD_ROOT`) | `_RLD64_ROOT` (and `_RLD_ROOT`) |
-| Object-list override | `_RLD_LIST` | `_RLDN32_LIST`, then `_RLD_LIST` | `_RLD64_LIST`, then `_RLD_LIST` |
-| Alternate loader | `_RLD_PATH` | `_RLDN32_PATH` | `_RLD64_PATH` |
+| Variable | o32 | n32 | n64 | Grade |
+|---|---|---|---|---|
+| Search-path variable | `LD_LIBRARY_PATH` | `LD_LIBRARYN32_PATH`, then `LD_LIBRARY_PATH` | `LD_LIBRARY64_PATH`, then `LD_LIBRARY_PATH` | established |
+| Root prefix list | `_RLD_ROOT` | `_RLDN32_ROOT` (and `_RLD_ROOT`) | `_RLD64_ROOT` (and `_RLD_ROOT`) | established |
+| Object-list override | `_RLD_LIST` | `_RLDN32_LIST`, then `_RLD_LIST` | `_RLD64_LIST`, then `_RLD_LIST` | established |
+| Alternate loader | `_RLD_PATH` | `_RLDN32_PATH` | `_RLD64_PATH` | established |
 
 The common variables are `LD_BIND_NOW`, `_RLD_ARGS`, `_RLD_ARGS_BIG_PAGES` and `_DYNAMIC_LINK` (strings in all three loaders). Default directories (strings): n32 `/lib32`, `/opt/lib32`, `/usr/lib32`, `/usr/lib32/internal`; n64 the same with `64`; o32 `/lib`, `/opt/lib`, `/usr/lib`, `/usr/lib/internal`, `/lib/cmplrs/cc`, `/usr/lib/cmplrs/cc`. The search order for a library is, per the manual: a path in the liblist entry, then `DT_RPATH` of the executable and every library already opened, then `LD_LIBRARY_PATH`-style variable, then the defaults; the root list is prepended to the run-time path list. `DT_RPATH` is set in 40 n32, 1 o32 and 11 n64 files, for example `/lib32` in `hinv`, `ioconfig`, `mediad` and `mmscd`. `LD_BIND_NOW` set to 1 or on makes every relocation resolve before the program runs (manual); the binary shows only the name. Variables other than the loader override are ignored for setuid, setgid or capability-gaining programs, and `RHF_NO_LIBRARY_REPLACE` can turn them off for non-root users (manual only; the binary was not read for either statement, and the argument of the `syssgi` 92 call is not decoded, so the binary gives no support for the rule). Which variables are ignored beyond the loader override was not read.
 

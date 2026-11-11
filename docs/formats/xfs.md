@@ -102,12 +102,12 @@ The low nibble is the **version**; above it are **feature bits**. The kernel che
 
 What each version means (established from `xfs_db`'s `version` printer and from the kernel's upgrade code; the printer names a version "V1".."V4"):
 
-| Version | Attribute forks | 32-bit link counts (v2 inodes) | Feature bits |
-|---|---|---|---|
-| 1 | not supported | not supported | none; any bits ignored |
-| 2 | implied present (printer shows ATTR) | no | none |
-| 3 | implied present | implied present (printer shows ATTR, NLINK) | none |
-| 4 | bit 0x0010 | bit 0x0020 | bits below |
+| Version | Attribute forks | 32-bit link counts (v2 inodes) | Feature bits | Grade |
+|---|---|---|---|---|
+| 1 | not supported | not supported | none; any bits ignored | established |
+| 2 | implied present (printer shows ATTR) | no | none | established |
+| 3 | implied present | implied present (printer shows ATTR, NLINK) | none | established |
+| 4 | bit 0x0010 | bit 0x0020 | bits below | established |
 
 Established: for versions 2 and 3 the printer lists the implied ATTR (and for 3, NLINK) without any bit test. For version 4 each is a bit test.
 

@@ -73,12 +73,12 @@ Limits of the image evidence: all held images were written with the older magic,
 
 `fs_dirty` is a four-valued mount marker. Established from four routines:
 
-| Value | Meaning | Set by |
-|---:|---|---|
-| `0x0000` | unmounted cleanly | `efs_cleanfs` when the value was 0x7777; `mkfs_efs` |
-| `0x7777` | mounted read-write, was clean at mount | `efs_mountfs` (+0x890, +0xa6c): the in-memory copy is 0x7777 if the on-disk value was 0, then `efs_sbupdate` writes it |
-| `0x0bad` | mounted read-write and the filesystem was already dirty, or a corruption was detected | `efs_mountfs` (nonzero on-disk value); `efs_sbupdate` writes 0xbad whenever the in-memory corrupt flag (mount structure byte 0x5e, set by `efs_setcorrupt`) is set |
-| `0x1234` | unmounted without having been clean at mount; needs fsck | `efs_cleanfs` for any value other than 0x7777; `mkfs_efs -r` ("recover option") writes it into a new filesystem |
+| Value | Meaning | Set by | Grade |
+|---:|---|---|---|
+| `0x0000` | unmounted cleanly | `efs_cleanfs` when the value was 0x7777; `mkfs_efs` | established |
+| `0x7777` | mounted read-write, was clean at mount | `efs_mountfs` (+0x890, +0xa6c): the in-memory copy is 0x7777 if the on-disk value was 0, then `efs_sbupdate` writes it | established |
+| `0x0bad` | mounted read-write and the filesystem was already dirty, or a corruption was detected | `efs_mountfs` (nonzero on-disk value); `efs_sbupdate` writes 0xbad whenever the in-memory corrupt flag (mount structure byte 0x5e, set by `efs_setcorrupt`) is set | established |
+| `0x1234` | unmounted without having been clean at mount; needs fsck | `efs_cleanfs` for any value other than 0x7777; `mkfs_efs -r` ("recover option") writes it into a new filesystem | established |
 
 `efs_cleanfs` does nothing for a read-only mount. A normal mount (`efs_mount`, which passes mode 2) runs `efs_checksb`, which rejects any nonzero `fs_dirty`, so a dirty filesystem needs fsck before it mounts. The root-mount path takes its own mode value and does not always run the check; which values skip it was not worked out. **Unknown** for the root path.
 

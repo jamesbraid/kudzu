@@ -85,19 +85,19 @@ The registry is a generic "part/mfgr" store (`cdl.o`, the Connection Point and D
 
 `xwidget_register(hwid, vertex, widget_number, master_vertex, master_widget_number, async_info)` (`xtalk.o+0x8f8`, 0x124 bytes; `unix.IP27` 0xc00000000006c6f0) creates the record every other `xwidget_info_*` accessor reads. Established, read in full.
 
-| Offset | Size | Contents |
-|---:|---:|---|
-| 0 | 8 | fingerprint: the address of the string "widget_info" (the global `widget_info_fingerprint`, `xtalk.o` `.sdata`) |
-| 8 | 4 | the widget's vertex |
-| 12 | 1 | the widget number (0..15) |
-| 16 | 4 | part number (copied from the first word of the hardware-id structure) |
-| 20 | 4 | revision |
-| 24 | 4 | manufacturer |
-| 28 | 4 | the master's vertex |
-| 32 | 1 | the master's widget number |
-| 40 | 8 | error handler function (zeroed) |
-| 48 | 8 | error handler argument (zeroed) |
-| 56 | 8 | pointer to a private copy of the canonical name of the vertex (`dev_to_name`, then `strlen` + 1 bytes copied) |
+| Offset | Size | Contents | Grade |
+|---:|---:|---|---|
+| 0 | 8 | fingerprint: the address of the string "widget_info" (the global `widget_info_fingerprint`, `xtalk.o` `.sdata`) | established |
+| 8 | 4 | the widget's vertex | established |
+| 12 | 1 | the widget number (0..15) | established |
+| 16 | 4 | part number (copied from the first word of the hardware-id structure) | established |
+| 20 | 4 | revision | established |
+| 24 | 4 | manufacturer | established |
+| 28 | 4 | the master's vertex | established |
+| 32 | 1 | the master's widget number | established |
+| 40 | 8 | error handler function (zeroed) | established |
+| 48 | 8 | error handler argument (zeroed) | established |
+| 56 | 8 | pointer to a private copy of the canonical name of the vertex (`dev_to_name`, then `strlen` + 1 bytes copied) | established |
 
 The record is 64 bytes (`kmem_alloc(64)`). After filling it the routine calls `xwidget_info_set`, which stores the record in the vertex's fast-info slot and also adds it as the label "_xwidget" (`xtalk.o+0x5c8`), calls `device_master_set(vertex, master)`, adds the async-attach info to the vertex when one was passed, and finishes with `cdl_add_connpt(registry, part, mfg, vertex, 0)`, which is what triggers driver attach. `xwidget_info_get` panics with "%v bad xwidget_info" when the fingerprint of a non-null record does not match (`xtalk.o+0x570`); `xwidget_info_chk` answers "is this vertex a widget" by looking for the "_xwidget" label. `xwidget_unregister` removes the inventory entries, deletes the connection point, frees the name and the record. The accessors `xwidget_info_dev_get/id_get/master_get/masterid_get/part_num_get/mfg_num_get/name_get` each panic with a "null xwidget_info" message on a null pointer. `xwidget_name_get(-1)` returns the constant "No Name". All established. Layout offsets are from the instructions; the field names are mine.
 

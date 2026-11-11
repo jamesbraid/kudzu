@@ -88,29 +88,29 @@ Device ioctl. `xvmioctl` (`xvm.o`, 0xc54, 624 bytes) hands requests on the API n
 
 `xvm_ioctl_config` (`xvm_user.o`, 0x39cc, 740 bytes) is the configuration command dispatcher. The 16-byte block is: version halfword (+0, must be 24, except for the get-version command), command halfword (+2), status word (+4, written back), user pointer to the payload (+8). A wrong version leaves status 0xbe05001f; an out-of-range command (23 or more) leaves 0xbe070007 and returns 22. The command is the index of a table of 23 handlers; a kernel buffer of the handler's size is allocated, the payload copied in, the handler called, its result stored as the status word and the buffer copied out. Established. The command table, with the buffer size in bytes and whether a privilege check (`xvm_privleged_user`) runs first:
 
-| Cmd | Handler | Payload | Privileged | Notes |
-|---:|---|---:|---|---|
-| 0, 19 | none | | | return 22 |
-| 1 | `xvm_create` | 0x470 | yes | build a volume element from parameters |
-| 2 | `xvm_attach` | 0x3e8 | yes | |
-| 3 | `xvm_insert` | 0x3e0 | yes | |
-| 4 | `xvm_remake` | 0x378 | yes | |
-| 5 | `xvm_probe` | 0x2f8 | yes | |
-| 6 | `xvm_unlabel` | 0x18 | yes | |
-| 7 | `xvm_getparent` | 0xf0 | no | |
-| 8 | `xvm_detach` | 0x370 | yes | |
-| 9 | `xvm_collapse` | 0x80 | yes | |
-| 10 | `xvm_delete` | 0x80 | yes | calls `xvm_delete_snapshot` for snapshot elements |
-| 11 | `xvm_change` | 0x3a8 | yes | |
-| 12 | `xvm_getinfo` | 0x98 | no | |
-| 13 | `xvm_getpieces` | 0x88 | no | |
-| 14 | `xvm_getversion` | 8 | no | no version check |
-| 15 | none | | | return 22 |
-| 16 | `xvm_cow` | 0x100 | yes | snapshot create or remove, below |
-| 17 | `xvm_repository` | 0x7c | yes | looks up an element by id |
-| 18 | `xvm_getinfolist` | 0x20 | no | |
-| 20 | `xvm_reprobe` | 0x6c | yes | |
-| 21, 22 | none | 0x20 | yes | privilege check only; zeroed reply |
+| Cmd | Handler | Payload | Privileged | Notes | Grade |
+|---:|---|---:|---|---|---|
+| 0, 19 | none | | | return 22 | established |
+| 1 | `xvm_create` | 0x470 | yes | build a volume element from parameters | established |
+| 2 | `xvm_attach` | 0x3e8 | yes | | established |
+| 3 | `xvm_insert` | 0x3e0 | yes | | established |
+| 4 | `xvm_remake` | 0x378 | yes | | established |
+| 5 | `xvm_probe` | 0x2f8 | yes | | established |
+| 6 | `xvm_unlabel` | 0x18 | yes | | established |
+| 7 | `xvm_getparent` | 0xf0 | no | | established |
+| 8 | `xvm_detach` | 0x370 | yes | | established |
+| 9 | `xvm_collapse` | 0x80 | yes | | established |
+| 10 | `xvm_delete` | 0x80 | yes | calls `xvm_delete_snapshot` for snapshot elements | established |
+| 11 | `xvm_change` | 0x3a8 | yes | | established |
+| 12 | `xvm_getinfo` | 0x98 | no | | established |
+| 13 | `xvm_getpieces` | 0x88 | no | | established |
+| 14 | `xvm_getversion` | 8 | no | no version check | established |
+| 15 | none | | | return 22 | established |
+| 16 | `xvm_cow` | 0x100 | yes | snapshot create or remove, below | established |
+| 17 | `xvm_repository` | 0x7c | yes | looks up an element by id | established |
+| 18 | `xvm_getinfolist` | 0x20 | no | | established |
+| 20 | `xvm_reprobe` | 0x6c | yes | | established |
+| 21, 22 | none | 0x20 | yes | privilege check only; zeroed reply | established |
 
 The jump table is in `xvm_user.o`'s `.rodata` at 0x1e8; the buffer sizes and handlers are read from the table and the stubs at each target. Established. The status codes are packed values (0xbe00 in the top half); their meanings are unknown.
 

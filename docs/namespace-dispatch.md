@@ -71,11 +71,11 @@ Established.
 
 Established.
 
-| Symbols | Archive member | Linked | Referenced from other members |
-| --- | --- | --- | --- |
-| `lookupname`, `lookuppn`, `traverse`, `lookup_init` | `os.a(lookup.o)` (4 functions, 4 of 4 linked) | yes | `lookupname` from about thirty members (file systems, loaders, NUMA and others); `lookuppn` from 4 (`exec.o`, `intp.o`, `vncalls.o`, `vnode.o`); `traverse` from `lofs.a(lofs_vnops.o)` and `snfs.a(nfs_server.o)` |
-| `mount`, `cmount`, `vfs_add`, `vfs_remove`, `rootvfs` and 62 other global entries | `os.a(vfs.o)` | yes | `cmount` from `eag.a`; `vfs_add` from 5; `mount` from the syscall-table member; many of the rest from file-system members |
-| `fs_cover` and 33 other global entries (`fs_nosys`, `fs_noerr`, `fs_dounmount`, ...) | `os.a(fs_subr.o)` | yes | `fs_cover` from the ten file-system members above; the others from nearly every file-system member |
+| Symbols | Archive member | Linked | Referenced from other members | Grade |
+| --- | --- | --- | --- |---|
+| `lookupname`, `lookuppn`, `traverse`, `lookup_init` | `os.a(lookup.o)` (4 functions, 4 of 4 linked) | yes | `lookupname` from about thirty members (file systems, loaders, NUMA and others); `lookuppn` from 4 (`exec.o`, `intp.o`, `vncalls.o`, `vnode.o`); `traverse` from `lofs.a(lofs_vnops.o)` and `snfs.a(nfs_server.o)` | established |
+| `mount`, `cmount`, `vfs_add`, `vfs_remove`, `rootvfs` and 62 other global entries | `os.a(vfs.o)` | yes | `cmount` from `eag.a`; `vfs_add` from 5; `mount` from the syscall-table member; many of the rest from file-system members | established |
+| `fs_cover` and 33 other global entries (`fs_nosys`, `fs_noerr`, `fs_dounmount`, ...) | `os.a(fs_subr.o)` | yes | `fs_cover` from the ten file-system members above; the others from nearly every file-system member | established |
 
 - None is in `kernel.o`; all are in `os.a`, so the always-linked code is in an archive, not a stand-alone object. Read directly.
 - Placement of a replacement, reasoned under the standard archive rule: the crossing walk is replaceable by supplying `lookup.o`'s four functions from another object (three are referenced from outside; `lookup_init` has no outside reference in the boot objects). That member is small. `vfs.o` (67 global entries) and `fs_subr.o` (34) are wide: they are the interface every file system links against, so replacing `fs_cover` or `cmount` as a whole member is not a small change. A per-container mount list therefore looks like a replacement of the crossing in `lookup.o` over the existing global cover words, not a replacement of mount placement.
@@ -96,13 +96,13 @@ Established.
 
 Established.
 
-| Symbols | Member | Linked | Referenced from other members |
-| --- | --- | --- | --- |
-| `vshm_lookup_key`, `vshmtab`, `vshmtabsz` and 22 other globals | `os.a(vshm_mgr.o)` | yes | `vshm_lookup_key` from the system-call member (2 sites); 14 symbols in all from `shm_syscalls.o`, `pshm.o`, `vshm_mgr_lp.o`, `swapalloc.o`, `main.o` and `cpr.a`; `vshmtab` only within this member |
-| `shmsys` and 5 other globals | `os.a(shm_syscalls.o)` | yes | `shmsys` from the syscall-table member |
-| `pshm_ops` | `os.a(pshm.o)` | yes | from `vshm_mgr_lp.o` |
-| `vsem_lookup_key`, `vsemtab`, `psem_ops`, `semsys` and 53 other globals | stand-alone `sem.o` (57 globals) | yes | **`semsys` only** among its code and data symbols, from the syscall-table member (`idbg.o` also names its absolute `mac_enabled` and `sat_enabled`, which about a hundred members define alike and which are not links into it) |
-| `ipcget`, `msgque` and `msgsys` | stand-alone `msg.o` (20 globals), `ipcget` in stand-alone `ipc.o` (6 globals) | yes | `msgsys` from the syscall-table member and `uncintf.o`; `ipcget` from `msg.o` only; the other `ipc.o` symbols (`ipcaccess`, `ipc_init`, the two permission converters) from `msg.o`, `sem.o`, `pshm.o`, `shm_syscalls.o`, `xpmem.o` |
+| Symbols | Member | Linked | Referenced from other members | Grade |
+| --- | --- | --- | --- |---|
+| `vshm_lookup_key`, `vshmtab`, `vshmtabsz` and 22 other globals | `os.a(vshm_mgr.o)` | yes | `vshm_lookup_key` from the system-call member (2 sites); 14 symbols in all from `shm_syscalls.o`, `pshm.o`, `vshm_mgr_lp.o`, `swapalloc.o`, `main.o` and `cpr.a`; `vshmtab` only within this member | established |
+| `shmsys` and 5 other globals | `os.a(shm_syscalls.o)` | yes | `shmsys` from the syscall-table member | established |
+| `pshm_ops` | `os.a(pshm.o)` | yes | from `vshm_mgr_lp.o` | established |
+| `vsem_lookup_key`, `vsemtab`, `psem_ops`, `semsys` and 53 other globals | stand-alone `sem.o` (57 globals) | yes | **`semsys` only** among its code and data symbols, from the syscall-table member (`idbg.o` also names its absolute `mac_enabled` and `sat_enabled`, which about a hundred members define alike and which are not links into it) | established |
+| `ipcget`, `msgque` and `msgsys` | stand-alone `msg.o` (20 globals), `ipcget` in stand-alone `ipc.o` (6 globals) | yes | `msgsys` from the syscall-table member and `uncintf.o`; `ipcget` from `msg.o` only; the other `ipc.o` symbols (`ipcaccess`, `ipc_init`, the two permission converters) from `msg.o`, `sem.o`, `pshm.o`, `shm_syscalls.o`, `xpmem.o` | established |
 
 - None is in `kernel.o`. Shared memory is in the required archive; `sem.o`, `msg.o` and `ipc.o` are separate objects that `irix.sm` names on `USE:` lines and whose master files list stubs for the case that they are absent (`semsys`, `semexit`; `msgsys`; `ipc_init`, `ipcaccess`, the two converters; all "not installed"). Read directly.
 - Consequence, reasoned under the standard rule: the semaphore and message modules are whole modules whose only outside entry points are the syscall functions `semsys` and `msgsys`, which the syscall table points at. A replacement object that defines those two and its own key space, and uses the existing `ipc.o` for permissions, replaces them completely. This is the module-level substitution the configuration language is built for. Shared memory is different: its lookup is in `vshm_mgr.o`, which has 14 symbols used from other members, so it is a replacement of one archive member of the required module (with the local-provider member that calls it).
@@ -172,15 +172,15 @@ Established. `vproc_lookup` (0xc0000000002d2150, 28 bytes) is a direct call to `
 
 Established.
 
-| Symbols | Archive member | Linked | Referenced from other members |
-| --- | --- | --- | --- |
-| `vproc_lookup`, `vproc_lookup_prevent`, `vproc_init`, `vproc_exec`, `idbg_vproc_lookup` (5 global entries) | `os.a(vproc_mgmt_lp.o)`, text 0xc0000000002d2134 to 0xc0000000002d21d8 | yes (sizes equal) | `vproc_lookup` from 57 routines (93 call sites); `vproc_lookup_prevent` from `pproc_exit` and `pproc_reap` |
-| `pid_to_vproc`, `procscan`, `pid_op`, `pid_alloc`, `pid_associate`, `pid_getlist_local`, `pidtab`, `pidtabsz`, `pid_base`, `pid_active_list` and 10 more (20 global entries) | `os.a(pid.o)`, text 0xc0000000002da52c to 0xc0000000002db574 | yes | `pid_to_vproc` only from `vproc_lookup`; `procscan` from 23 sites; `pid_op` from the group and session code, `sprocsp`, `p0exit` and `miser`; the tables by no other member |
-| `vpgrp_lookup`, `vpgrp_create`, `vpgrp_remove`, `vpgrptab`, `pgrp_zone` and 8 more (13 global entries) | `os.a(vpgrp.o)`, text 0xc00000000030b89c to 0xc00000000030bcf0 | yes | `vpgrp_lookup` from 16 sites (kill, signal, wait, setpgid, setsid, cpuset, miser, schedctl, STREAMS) |
-| `kill`, `sigsendsys`, `sigqueue_sys`, `signal`, `sigtopid` and 57 more (62 global entries) | `os.a(sig.o)` | yes | |
-| `waitsys_wrapper`, `waitsys` | `os.a(exit.o)` | yes | |
-| `BSDgetpgrp`, `BSDsetpgrp`, `setpgrp`, `setpgid` | `os.a(scalls.o)` | yes | |
-| `checkprocset`, `procinset`, `getmyid` | `os.a(procset.o)` | yes | `kill`/`sigsendsys` |
+| Symbols | Archive member | Linked | Referenced from other members | Grade |
+| --- | --- | --- | --- |---|
+| `vproc_lookup`, `vproc_lookup_prevent`, `vproc_init`, `vproc_exec`, `idbg_vproc_lookup` (5 global entries) | `os.a(vproc_mgmt_lp.o)`, text 0xc0000000002d2134 to 0xc0000000002d21d8 | yes (sizes equal) | `vproc_lookup` from 57 routines (93 call sites); `vproc_lookup_prevent` from `pproc_exit` and `pproc_reap` | established |
+| `pid_to_vproc`, `procscan`, `pid_op`, `pid_alloc`, `pid_associate`, `pid_getlist_local`, `pidtab`, `pidtabsz`, `pid_base`, `pid_active_list` and 10 more (20 global entries) | `os.a(pid.o)`, text 0xc0000000002da52c to 0xc0000000002db574 | yes | `pid_to_vproc` only from `vproc_lookup`; `procscan` from 23 sites; `pid_op` from the group and session code, `sprocsp`, `p0exit` and `miser`; the tables by no other member | established |
+| `vpgrp_lookup`, `vpgrp_create`, `vpgrp_remove`, `vpgrptab`, `pgrp_zone` and 8 more (13 global entries) | `os.a(vpgrp.o)`, text 0xc00000000030b89c to 0xc00000000030bcf0 | yes | `vpgrp_lookup` from 16 sites (kill, signal, wait, setpgid, setsid, cpuset, miser, schedctl, STREAMS) | established |
+| `kill`, `sigsendsys`, `sigqueue_sys`, `signal`, `sigtopid` and 57 more (62 global entries) | `os.a(sig.o)` | yes | | established |
+| `waitsys_wrapper`, `waitsys` | `os.a(exit.o)` | yes | | established |
+| `BSDgetpgrp`, `BSDsetpgrp`, `setpgrp`, `setpgid` | `os.a(scalls.o)` | yes | | established |
+| `checkprocset`, `procinset`, `getmyid` | `os.a(procset.o)` | yes | `kill`/`sigsendsys` | established |
 
 - No definition of any of these is in `kernel.o` or in a second archive: `kernel.o` is the only mandatory core, and every symbol above has exactly one defining member in the 353 link inputs. Member extents come from the symbol addresses of each member's global functions; they bound where the member's code lies and were not cross-checked against section headers (a member with only local routines past its last global would extend further).
 - Placement of a replacement, reasoned under the standard archive rule: the group lookup is `vpgrp.o` (13 symbols, 5 of them used outside); the process-id lookup and the enumerator are in two members, `vproc_mgmt_lp.o` (small) and `pid.o` (20 symbols, the process table). A filter on the process-id lookup alone is `vproc_mgmt_lp.o` and nothing else, because `pid_to_vproc` has no other caller. The enumerator needs `pid.o`, which holds the table, so replacing it means supplying the table and allocator too (`pid_op` alone has callers in the group and session code, `sprocsp`, `p0exit` and `miser`).

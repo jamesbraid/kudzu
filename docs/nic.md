@@ -263,27 +263,27 @@ The IP30 object has no `nic_get_phase_bits`, `nic_access_hub` or `nic_hub_vertex
 
 The linked IP30 and IP35 kernels carry these routines at the addresses below (from their symbol tables; the static routines have none). These rows are located by symbol only; their linked instructions were not compared with the objects.
 
-| Routine | `6.5.30/unix.IP30` | `6.5.30/unix.IP35` |
-|---|---|---|
-| `nic_get_phase_bits` | none | `0xc000000000093fa8` |
-| `nic_setup` | `0xa800000020039218` | `0xc000000000094334` |
-| `nic_next` | `0xa800000020039240` | `0xc00000000009435c` |
-| `nic_read_one_page` | `0xa80000002003950c` | `0xc000000000094628` |
-| `nic_read_mfg` | `0xa80000002003969c` | `0xc0000000000947b8` |
-| `nic_eaddr` | `0xa800000020039bc8` | `0xc000000000094ce4` |
-| `nic_access_mcr32` | `0xa800000020039e3c` | `0xc000000000094f58` |
-| `nic_get_eaddr` | `0xa800000020039ec4` | `0xc000000000094fe0` |
-| `nic_info_get` | `0xa80000002003a420` | `0xc000000000095538` |
-| `nic_vertex_info_get` | `0xa80000002003a478` | `0xc000000000095590` |
-| `nic_vertex_info_set` | `0xa80000002003a4a4` | `0xc0000000000955bc` |
-| `nic_vertex_info_match` | `0xa80000002003a5b0` | `0xc0000000000956c8` |
-| `nic_hub_vertex_info` | none | `0xc000000000095808` |
-| `nic_bridge_vertex_info` | `0xa80000002003a5ec` | `0xc00000000009582c` |
-| `nic_hq4_vertex_info` | `0xa80000002003a60c` | `0xc00000000009584c` |
-| `nic_ioc3_vertex_info` | `0xa80000002003a62c` | `0xc00000000009586c` |
-| `nic_vmc_add` | `0xa80000002003a65c` | `0xc00000000009589c` |
-| `nic_vmc_del` | `0xa80000002003a6b4` | `0xc0000000000958f4` |
-| `nic_vmc_check` | `0xa80000002003a6c0` | `0xc000000000095900` |
+| Routine | `6.5.30/unix.IP30` | `6.5.30/unix.IP35` | Grade |
+|---|---|---|---|
+| `nic_get_phase_bits` | none | `0xc000000000093fa8` | located |
+| `nic_setup` | `0xa800000020039218` | `0xc000000000094334` | located |
+| `nic_next` | `0xa800000020039240` | `0xc00000000009435c` | located |
+| `nic_read_one_page` | `0xa80000002003950c` | `0xc000000000094628` | located |
+| `nic_read_mfg` | `0xa80000002003969c` | `0xc0000000000947b8` | located |
+| `nic_eaddr` | `0xa800000020039bc8` | `0xc000000000094ce4` | located |
+| `nic_access_mcr32` | `0xa800000020039e3c` | `0xc000000000094f58` | located |
+| `nic_get_eaddr` | `0xa800000020039ec4` | `0xc000000000094fe0` | located |
+| `nic_info_get` | `0xa80000002003a420` | `0xc000000000095538` | located |
+| `nic_vertex_info_get` | `0xa80000002003a478` | `0xc000000000095590` | located |
+| `nic_vertex_info_set` | `0xa80000002003a4a4` | `0xc0000000000955bc` | located |
+| `nic_vertex_info_match` | `0xa80000002003a5b0` | `0xc0000000000956c8` | located |
+| `nic_hub_vertex_info` | none | `0xc000000000095808` | located |
+| `nic_bridge_vertex_info` | `0xa80000002003a5ec` | `0xc00000000009582c` | located |
+| `nic_hq4_vertex_info` | `0xa80000002003a60c` | `0xc00000000009584c` | located |
+| `nic_ioc3_vertex_info` | `0xa80000002003a62c` | `0xc00000000009586c` | located |
+| `nic_vmc_add` | `0xa80000002003a65c` | `0xc00000000009589c` | located |
+| `nic_vmc_del` | `0xa80000002003a6b4` | `0xc0000000000958f4` | located |
+| `nic_vmc_check` | `0xa80000002003a6c0` | `0xc000000000095900` | located |
 
 ### The same routines in the 6.5.22 builds
 

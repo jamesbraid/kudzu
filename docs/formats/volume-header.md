@@ -119,12 +119,12 @@ type == 0` (the volhdr partition); sash `dump_vh` prints entry i as `(i, +0 nblk
 Conventional slots (established by fx's validation messages, sash's header builder and the
 kernel's default-label builder, not by the format itself):
 
-| Slot | Use | Type |
-|---|---|---|
-| 0 | root (default `root partition` = 0) | efs/xfs |
-| 1 | swap (default `swap partition` = 1) | raw |
-| 8 | volume header: first block 0, type volhdr; fx errors "volhdr doesn't start at 0", "not of type volhdr", "volhdr is too small", "volhdr is too big -- must be less than 2GB" | 0 |
-| 10 | whole disk: first block 0, count = capacity, type volume; fx errors "not of type volume" | 6 |
+| Slot | Use | Type | Grade |
+|---|---|---|---|
+| 0 | root (default `root partition` = 0) | efs/xfs | established |
+| 1 | swap (default `swap partition` = 1) | raw | established |
+| 8 | volume header: first block 0, type volhdr; fx errors "volhdr doesn't start at 0", "not of type volhdr", "volhdr is too small", "volhdr is too big -- must be less than 2GB" | 0 | established |
+| 10 | whole disk: first block 0, count = capacity, type volume; fx errors "not of type volume" | 6 | established |
 
 The other slots are free for user layouts; slot 7 and the rest have no fixed meaning in the
 tools examined. Partitions may overlap (slot 10 overlaps everything by design); fx warns about

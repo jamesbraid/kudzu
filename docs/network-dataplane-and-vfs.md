@@ -14,23 +14,23 @@ The IP35 kernel carries a BSD-style socket and protocol stack in the kernel prop
 
 `ifnet` is 240 bytes, identical in all three 6.5.30 kernels (debug record). Established.
 
-| Offset | Size | Member | Note |
-|---:|---:|---|---|
-| 0 | 8 | `if_name` | pointer to the name string, for example "lo" |
-| 8 | 8 | `if_next` | list of all interfaces; the list head is the global `ifnet` (0xc000000001646d10) |
-| 16 | 8 | `in_ifaddr` | |
-| 24 / 26 / 28 | 2 / 2 / 2 | `if_index`, `if_unit`, `if_timer` | `ifindex2ifnet` (0xc00000000163ce60) maps an index back |
-| 32 | 4 | `if_flags` | |
-| 36 | 68 | `if_data` | type byte at +0, header length +2, MTU +4, metric +8, speed +12, then counters: in/out packets, errors, collisions, bytes, multicasts, input queue drops, output drops, unknown-protocol drops, last change |
-| 104 | 8 | `if_output` | transmit entry |
-| 112 | 8 | `if_ioctl` | |
-| 120 / 128 / 136 / 144 | 8 each | `if_reset`, `if_watchdog`, `if_rtrequest`, `if_findaddr` | |
-| 152 | 32 | `if_snd` | an `ifqueue`: head, tail, length, maximum length, drops, lock |
-| 184 | 8 | `if_sec` | security attributes |
-| 192 / 200 | 8 each | `if_sendspace`, `if_recvspace` | |
-| 208 | 16 | `if_mutex` | |
-| 224 | 4 | `ipalias_count` | |
-| 232 | 8 | `if_ext` | a 104-byte extension record with the IPv6 state |
+| Offset | Size | Member | Note | Grade |
+|---:|---:|---|---|---|
+| 0 | 8 | `if_name` | pointer to the name string, for example "lo" | established |
+| 8 | 8 | `if_next` | list of all interfaces; the list head is the global `ifnet` (0xc000000001646d10) | established |
+| 16 | 8 | `in_ifaddr` | | established |
+| 24 / 26 / 28 | 2 / 2 / 2 | `if_index`, `if_unit`, `if_timer` | `ifindex2ifnet` (0xc00000000163ce60) maps an index back | established |
+| 32 | 4 | `if_flags` | | established |
+| 36 | 68 | `if_data` | type byte at +0, header length +2, MTU +4, metric +8, speed +12, then counters: in/out packets, errors, collisions, bytes, multicasts, input queue drops, output drops, unknown-protocol drops, last change | established |
+| 104 | 8 | `if_output` | transmit entry | established |
+| 112 | 8 | `if_ioctl` | | established |
+| 120 / 128 / 136 / 144 | 8 each | `if_reset`, `if_watchdog`, `if_rtrequest`, `if_findaddr` | | established |
+| 152 | 32 | `if_snd` | an `ifqueue`: head, tail, length, maximum length, drops, lock | established |
+| 184 | 8 | `if_sec` | security attributes | established |
+| 192 / 200 | 8 each | `if_sendspace`, `if_recvspace` | | established |
+| 208 | 16 | `if_mutex` | | established |
+| 224 | 4 | `ipalias_count` | | established |
+| 232 | 8 | `if_ext` | a 104-byte extension record with the IPv6 state | established |
 
 Driver records embed the `ifnet` at offset 0 and are larger: `ether_attach` (0xc0000000001c2778, 432 bytes) writes the station address at +0xf0 to +0xf5 and two driver callbacks at +0x110 and +0x118 of the record it is given. Established for the stores; that +0x118 is the driver's transmit-start routine rests on `ether_output` calling through it (section 1.4). Inferred.
 
@@ -78,13 +78,13 @@ There are four hooks, three of them for observing or filtering and one for addin
 
 The cdevsw table (`cdevsw`, 0xc000000001542f78, 103 slots of 152 bytes, `d_str` at +128) separates the two kinds. Established.
 
-| Driver | Kind | Evidence |
-|---|---|---|
-| `if_ef` (IOC3 Ethernet), `if_eg` (Gigabit), `if_tg` (Tigon), `if_xframe` (10 Gigabit) | BSD `ifnet`; character device with open routine, no stream table | slots 66, 65, 64, 63 have `d_str` zero and open routines `if_efopen`, `if_egopen`, `if_tgopen`, `if_xframeopen`; each attach calls `ether_attach` |
-| `if_ptr` (token ring), `if_rns` (FDDI), `if_cl` (cluster link) | BSD `ifnet` | each of `if_ptr.o`, `if_rns.o` and `if_cl.o` imports `if_attach`, `rawif_attach` and `snoop_input`, and none imports a STREAMS routine |
-| `snif`, `llc2` | STREAMS drivers (DLPI) | slots 53 and 52 point `d_str` at `snifinfo` and `llc2info` |
-| `if_sl`, `if_ppp`, `ppp_fram` | STREAMS modules that also hold an `ifnet` (hybrid) | section 1.7 |
-| `clone`, `pts`/`ptc`, `sad`, `log`, `tp` and similar | STREAMS, not network | slots 2, 3, 39, 50, 51, 70 |
+| Driver | Kind | Evidence | Grade |
+|---|---|---|---|
+| `if_ef` (IOC3 Ethernet), `if_eg` (Gigabit), `if_tg` (Tigon), `if_xframe` (10 Gigabit) | BSD `ifnet`; character device with open routine, no stream table | slots 66, 65, 64, 63 have `d_str` zero and open routines `if_efopen`, `if_egopen`, `if_tgopen`, `if_xframeopen`; each attach calls `ether_attach` | established |
+| `if_ptr` (token ring), `if_rns` (FDDI), `if_cl` (cluster link) | BSD `ifnet` | each of `if_ptr.o`, `if_rns.o` and `if_cl.o` imports `if_attach`, `rawif_attach` and `snoop_input`, and none imports a STREAMS routine | established |
+| `snif`, `llc2` | STREAMS drivers (DLPI) | slots 53 and 52 point `d_str` at `snifinfo` and `llc2info` | established |
+| `if_sl`, `if_ppp`, `ppp_fram` | STREAMS modules that also hold an `ifnet` (hybrid) | section 1.7 | established |
+| `clone`, `pts`/`ptc`, `sad`, `log`, `tp` and similar | STREAMS, not network | slots 2, 3, 39, 50, 51, 70 | established |
 
 `if_ptr.o` also imports `ipintrq` and `schednetisr`, which none of the three linked kernels defines; how that object resolves them was not followed. The three objects are not linked into the installed kernel.
 
@@ -136,26 +136,26 @@ A file system type can also be added at run time. The module loader has a file s
 
 `vfsops` is 152 bytes (debug record). Established.
 
-| Offset | Slot | `xfs` | `nfs3` | `lofs` | `autofs` |
-|---:|---|---|---|---|---|
-| 0 | position record (4 bytes, padded) | 0x00040101 | 0x00000101 | 0x00000101 | 0x00000101 |
-| 8 | `vfs_mount` | `xfs_vfsmount` | `nfs3_mount` | `lofs_mount` | `auto_vfsmount` |
-| 16 | `vfs_rootinit` | `xfs_rootinit` | `fs_nosys` | `fs_nosys` | `fs_nosys` |
-| 24 | `vfs_mntupdate` | `xfs_mntupdate` | `fs_nosys` | `fs_nosys` | `auto_mntupdate` |
-| 32 | `vfs_dounmount` | `fs_dounmount` | `fs_dounmount` | `fs_dounmount` | `fs_dounmount` |
-| 40 | `vfs_unmount` | `xfs_unmount` | `nfs3_unmount` | `lofs_unmount` | `auto_unmount` |
-| 48 | `vfs_root` | `xfs_root` | `nfs3_root` | `lofs_root` | `auto_root` |
-| 56 | `vfs_statvfs` | `xfs_statvfs` | `nfs3_statvfs` | `lofs_statvfs` | `auto_statvfs` |
-| 64 | `vfs_sync` | `xfs_sync` | `nfs_sync` | `lofs_sync` | `fs_noerr` |
-| 72 | `vfs_vget` | `xfs_vget` | `nfs3_vget` | `fs_nosys` | `fs_nosys` |
-| 80 | `vfs_mountroot` | `xfs_vfsmountroot` | `fs_nosys` | `fs_nosys` | `fs_nosys` |
-| 88 | `vfs_realvfsops` | `fs_realvfsops` | `fs_noerr` | `fs_noerr` | `fs_realvfsops` |
-| 96 | `vfs_import` | `fs_noerr` | `fs_noerr` | `fs_noerr` | `fs_noerr` |
-| 104 | `vfs_quotactl` | `xfs_quotactl` | `fs_noerr` | `fs_noerr` | `fs_noerr` |
-| 112 | `vfs_force_pinned` | `xfs_force_pinned` | 0 | 0 | 0 |
-| 120 | `vfs_ops_magic` (int) | 0x18732739 | 0 | 0 | 0 |
-| 128 / 136 | `vfs_ops_version`, `vfs_ops_flags` | 1, 2 | 0 | 0 | 0 |
-| 144 | `vfs_init_vnode` | 0 | 0 | 0 | 0 |
+| Offset | Slot | `xfs` | `nfs3` | `lofs` | `autofs` | Grade |
+|---:|---|---|---|---|---|---|
+| 0 | position record (4 bytes, padded) | 0x00040101 | 0x00000101 | 0x00000101 | 0x00000101 | established |
+| 8 | `vfs_mount` | `xfs_vfsmount` | `nfs3_mount` | `lofs_mount` | `auto_vfsmount` | established |
+| 16 | `vfs_rootinit` | `xfs_rootinit` | `fs_nosys` | `fs_nosys` | `fs_nosys` | established |
+| 24 | `vfs_mntupdate` | `xfs_mntupdate` | `fs_nosys` | `fs_nosys` | `auto_mntupdate` | established |
+| 32 | `vfs_dounmount` | `fs_dounmount` | `fs_dounmount` | `fs_dounmount` | `fs_dounmount` | established |
+| 40 | `vfs_unmount` | `xfs_unmount` | `nfs3_unmount` | `lofs_unmount` | `auto_unmount` | established |
+| 48 | `vfs_root` | `xfs_root` | `nfs3_root` | `lofs_root` | `auto_root` | established |
+| 56 | `vfs_statvfs` | `xfs_statvfs` | `nfs3_statvfs` | `lofs_statvfs` | `auto_statvfs` | established |
+| 64 | `vfs_sync` | `xfs_sync` | `nfs_sync` | `lofs_sync` | `fs_noerr` | established |
+| 72 | `vfs_vget` | `xfs_vget` | `nfs3_vget` | `fs_nosys` | `fs_nosys` | established |
+| 80 | `vfs_mountroot` | `xfs_vfsmountroot` | `fs_nosys` | `fs_nosys` | `fs_nosys` | established |
+| 88 | `vfs_realvfsops` | `fs_realvfsops` | `fs_noerr` | `fs_noerr` | `fs_realvfsops` | established |
+| 96 | `vfs_import` | `fs_noerr` | `fs_noerr` | `fs_noerr` | `fs_noerr` | established |
+| 104 | `vfs_quotactl` | `xfs_quotactl` | `fs_noerr` | `fs_noerr` | `fs_noerr` | established |
+| 112 | `vfs_force_pinned` | `xfs_force_pinned` | 0 | 0 | 0 | established |
+| 120 | `vfs_ops_magic` (int) | 0x18732739 | 0 | 0 | 0 | established |
+| 128 / 136 | `vfs_ops_version`, `vfs_ops_flags` | 1, 2 | 0 | 0 | 0 | established |
+| 144 | `vfs_init_vnode` | 0 | 0 | 0 | 0 | established |
 
 The first word reads as the `bhv_identity` record (a 2-byte id, a version byte and a position byte; id 4 for `xfs`, version 1, position 1). Inferred from the matching debug record. `vfs` itself is 184 bytes and carries a behaviour head (`vfs_bh`) at +104; the covered vnode is at +16, the flag word at +28, the device at +32, the block size at +48, the type index at +52 and the id at +56. Established.
 
@@ -163,27 +163,27 @@ The first word reads as the `bhv_identity` record (a 2-byte id, a version byte a
 
 The debug records declare `vnodeops` only as an incomplete type, so the layout is read from the tables themselves: every table is 456 bytes, a position word at +0 and 56 function pointers at +8 to +448. The order is that of the pass-through table `vn_passthru_ops` (0xc00000000158f898), whose entries are the 56 routines `vn_passthru_vop_NAME`; the `xfs_vnodeops` table (0xc0000000015ea818) agrees with the slots [syscalls.md](syscalls.md) names (+24 read, +32 write, +56 getattr, +72 access, +208 seek). Established; the slot names are the routine names.
 
-| Slot | Operation | Slot | Operation | Slot | Operation |
-|---:|---|---:|---|---:|---|
-| +8 | open | +160 | fsync | +312 | fcntl |
-| +16 | close | +168 | inactive | +320 | reclaim |
-| +24 | read | +176 | fid | +328 | attr_get |
-| +32 | write | +184 | fid2 | +336 | attr_set |
-| +40 | ioctl | +192 | rwlock | +344 | attr_remove |
-| +48 | setfl | +200 | rwunlock | +352 | attr_list |
-| +56 | getattr | +208 | seek | +360 | cover |
-| +64 | setattr | +216 | cmp | +368 | link removed |
-| +72 | access | +224 | frlock | +376 | vnode change |
-| +80 | lookup | +232 | realvp | +384 | tosspages |
-| +88 | create | +240 | bmap | +392 | flushinval_pages |
-| +96 | remove | +248 | strategy | +400 | flush_pages |
-| +104 | link | +256 | map | +408 | invalfree_pages |
-| +112 | rename | +264 | addmap | +416 | pages_sethole |
-| +120 | mkdir | +272 | delmap | +424 | commit |
-| +128 | rmdir | +280 | poll | +432 | readbuf |
-| +136 | readdir | +288 | dump | +440 | strgetmsg |
-| +144 | symlink | +296 | pathconf | +448 | strputmsg |
-| +152 | readlink | +304 | allocstore | | |
+| Slot | Operation | Slot | Operation | Slot | Operation | Grade |
+|---:|---|---:|---|---:|---|---|
+| +8 | open | +160 | fsync | +312 | fcntl | established |
+| +16 | close | +168 | inactive | +320 | reclaim | established |
+| +24 | read | +176 | fid | +328 | attr_get | established |
+| +32 | write | +184 | fid2 | +336 | attr_set | established |
+| +40 | ioctl | +192 | rwlock | +344 | attr_remove | established |
+| +48 | setfl | +200 | rwunlock | +352 | attr_list | established |
+| +56 | getattr | +208 | seek | +360 | cover | established |
+| +64 | setattr | +216 | cmp | +368 | link removed | established |
+| +72 | access | +224 | frlock | +376 | vnode change | established |
+| +80 | lookup | +232 | realvp | +384 | tosspages | established |
+| +88 | create | +240 | bmap | +392 | flushinval_pages | established |
+| +96 | remove | +248 | strategy | +400 | flush_pages | established |
+| +104 | link | +256 | map | +408 | invalfree_pages | established |
+| +112 | rename | +264 | addmap | +416 | pages_sethole | established |
+| +120 | mkdir | +272 | delmap | +424 | commit | established |
+| +128 | rmdir | +280 | poll | +432 | readbuf | established |
+| +136 | readdir | +288 | dump | +440 | strgetmsg | established |
+| +144 | symlink | +296 | pathconf | +448 | strputmsg | established |
+| +152 | readlink | +304 | allocstore | | | established |
 
 The slot names are the pass-through routine names without their prefix ("link removed" and "vnode change" are spelled with underscores there). The tables of IP27 and IP30 have the same 56 routine names in the same order. Established.
 

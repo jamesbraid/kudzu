@@ -41,14 +41,14 @@ Established from the file list and the dynamic symbol tables.
 
 Defined, non-local `.dynsym` entries. Established.
 
-| Library | ABI | 6.5.30 | 6.5.22 |
-|---|---|---:|---:|
-| libc | n32 | 4737 | 4608 |
-| libc | n64 | 4775 | 4646 |
-| libpthread | n32 and n64 | 219 each | 207 each |
-| libm | n32 and n64 | 755 each | 755 each |
-| abi `libc.so` (n64) | n64 | 1554 | 1554 |
-| abi `libdl.so` (n64) | n64 | 11 | 11 |
+| Library | ABI | 6.5.30 | 6.5.22 | Grade |
+|---|---|---:|---:|---|
+| libc | n32 | 4737 | 4608 | established |
+| libc | n64 | 4775 | 4646 | established |
+| libpthread | n32 and n64 | 219 each | 207 each | established |
+| libm | n32 and n64 | 755 each | 755 each | established |
+| abi `libc.so` (n64) | n64 | 1554 | 1554 | established |
+| abi `libdl.so` (n64) | n64 | 11 | 11 | established |
 
 n32 and n64 differ little. In 6.5.30 libc, n32 has one name n64 lacks (`_finddatum64`) and n64 has 39 that n32 lacks: `aio_init`, `_aio_init`, the `_old_aio_*` and `old_aio_*` set, `dbm_nextkey64` and the `_*_compat` dbm names. libpthread and libm export the same names in both ABIs. Established from the tables.
 
@@ -109,12 +109,12 @@ The ELF header `e_flags` top nibble is the architecture level. Both releases: n6
 
 The counts below are for the 6.5.30 set (the 6.5.22 set has the same pattern; its numbers are in `isa-6.5.22.tsv`). "Lowest ISA" is the highest class present in the file. Established by the scan.
 
-| ABI | `e_flags` level | Files | Use a MIPS IV-only encoding | Lowest ISA III | Lowest ISA below III |
-|---|---|---:|---:|---:|---:|
-| n32 | MIPS III | 3187 | 0 | 3173 | 14 |
-| n32 | MIPS IV | 403 | 214 | 189 | 0 |
-| n64 | MIPS III | 721 | 0 | 716 | 5 |
-| n64 | MIPS IV | 179 | 158 | 20 | 1 |
+| ABI | `e_flags` level | Files | Use a MIPS IV-only encoding | Lowest ISA III | Lowest ISA below III | Grade |
+|---|---|---:|---:|---:|---:|---|
+| n32 | MIPS III | 3187 | 0 | 3173 | 14 | established |
+| n32 | MIPS IV | 403 | 214 | 189 | 0 | established |
+| n64 | MIPS III | 721 | 0 | 716 | 5 | established |
+| n64 | MIPS IV | 179 | 158 | 20 | 1 | established |
 
 - No file flagged MIPS III contains a MIPS IV-only encoding. A file flagged MIPS IV may contain none: 189 n32 and 21 n64 MIPS IV-flagged files use no MIPS IV encoding and need only MIPS III. Of the 14 n32 and 5 n64 MIPS III files that reach no further than MIPS I or II, the sweep finds no doubleword instruction in them (examples: `libsocket.so`, `libCsup.so`, `pam_deny.so`, the `cmplrs` helper libraries, `libGLcore.so`). The other n32 MIPS III files all use doubleword instructions.
 
