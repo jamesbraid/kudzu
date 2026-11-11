@@ -142,6 +142,8 @@ The `hardwired_intr` table in `6.5.30/unix.IP27` (read from `.data` at `0xc00000
 | 105 | `0x4` | "LLP Pfail WAR" |
 | 106 | `0x4` | "LLP Pfail WAR" |
 
+Grades. The table's contents are established: all 21 entries (level byte, flags word, name pointer; a level byte of -1 ends it) were read from `.data` of the linked 6.5.30 IP27 kernel, and the level, flags and name of each row above are the bytes found there. That a level is also a bit number of the hub's interrupt-pending space, so that "IO Error" at 121 is bit 57 of the second register, is inferred and holds only for the hardware-wired levels: `intr_clear_all` above writes level `a2 + i` for bit `i`, which ties the numbering for the registers it clears, and the per-name hardware assignment rests on the Linux hint below, not on a read of the hub. Levels 7, 8 and 9 are software-chosen (see below), and no Linux entry corroborates levels 103 to 106 and "Hub I2C" at 4.
+
 The second-block levels agree with the hardware bit list in Linux 2.4's `include/asm-mips64/sn/intr.h` (IO error 57, clock error 58, correctable errors 59 and 60, memory correctable error 61, NI error 62, MSC panic 63 of `INT_PEND1`), and so do levels 0 to 3 and the crosscalls at 5 and 6 (Linux `CC_PEND_A` and `CC_PEND_B`). Linux names level 4 `UART_INTR` where the IRIX table says "Hub I2C". The software-chosen levels differ: IRIX 6.5.30 puts the processor actions at 7 and 8 and the MSC message at 9, where Linux uses 10, 11 and 13. Established for the table.
 
 ## Hub interrupt handles

@@ -795,12 +795,14 @@ The 6.5.22 and 6.5.30 `kernel.o` objects for IP27 and for IP35 hold these routin
 
 The kernels find a board's serial number in the manufacturing NIC string the PROM copies into KLCONFIG: a text of `name:value;` pairs. The kernel builds the same text itself when it reads a part directly; [nic.md](nic.md#manufacturing-text) gives the fields and the page bytes they come from. Each board class keeps the offset of that string in its main component; Linux names those fields `hub_mfg_nic`, `bri_mfg_nic`, `rou_mfg_nic` and `gfx_mfg_nic`, and component types 2, 5, 9 and 10 `KLSTRUCT_HUB`, `KLSTRUCT_BRI`, `KLSTRUCT_ROU` and `KLSTRUCT_GFX`.
 
-| Board class | Component type | NIC string offset (IP27) | NIC string offset (IP35) | Part names tried first |
-|---|---|---|---|---|
-| `0x10` node | 2 | word at +80 | word at +80 | IP27: "IP27", then "IP31"; IP35: "IP35", "IP39", "IP45", "IP34", "IP53", "IP59" |
-| `0x20` I/O | 5 | word at +136 | word at +136 | none |
-| `0x30` router | 9 | word at +128 | word at +144 | none |
-| `0x50` graphics | 10 | word at +92 | word at +92 | none |
+| Board class | Component type | NIC string offset (IP27) | NIC string offset (IP35) | Part names tried first | Grade |
+|---|---|---|---|---|---|
+| `0x10` node | 2 | word at +80 | word at +80 | IP27: "IP27", then "IP31"; IP35: "IP35", "IP39", "IP45", "IP34", "IP53", "IP59" | established |
+| `0x20` I/O | 5 | word at +136 | word at +136 | none | established |
+| `0x30` router | 9 | word at +128 | word at +144 | none | established |
+| `0x50` graphics | 10 | word at +92 | word at +92 | none | established |
+
+Grades. The class values, the component type each one selects, the NIC string offsets and the part-name strings were read from `board_serial_number_get` in the linked 6.5.30 IP27 and IP35 kernels: the class byte is compared against `0x10`, `0x20`, `0x30` and `0x50`; each branch calls `find_first_component` with 2, 5, 9 and 10; the loads are at +80, +136, +128 (IP27) or +144 (IP35) and +92; and the strings at the pointers passed to the serial-number routine read "IP27", "IP31" on IP27 and "IP35", "IP39", "IP45", "IP34", "IP53", "IP59" on IP35. The words "I/O", "router" and "graphics" are labels for the role of the component each class selects, taken from the table's use and Linux's class names, and are inferred; "node" is tied to the node board type 17 that `get_module_id` passes. Class `0x40` is not handled by either routine.
 
 - `sub_c00000000001e924` (`6.5.30/unix.IP27` `0xc00000000001e924`, 316 bytes)
   is unsymbolled in the linked kernel; the `kernel.o` DWARF names it `component_serial_number_get`.
