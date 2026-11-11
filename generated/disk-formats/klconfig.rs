@@ -1,4 +1,4 @@
-// generated from kudzu 113eeaa39a64 KLCONFIG_DECODE.h - do not edit, regenerate in kudzu
+// generated from kudzu fdb059d4cbe7 KLCONFIG_DECODE.h - do not edit, regenerate in kudzu
 //!
 //! Hardware configuration records: the board, component, console,
 //! memory and global-data fields the kernel reads to find boards, slots, modules and components.
@@ -14,6 +14,12 @@
 pub const BRD_OFF_COMPTS: u32 = 36;
 /// established.
 pub const BRD_STRIDE_COMPTS: u32 = 4;
+/// established: directory offset from the node base.
+pub const DIR_OFF: u32 = 0x2000;
+/// established: byte of the doubleword that gives the configuration header offset.
+pub const DIR_OFF_CONFIG_OFFSET: u32 = 72;
+/// established: word giving the offset of the first board record.
+pub const HDR_OFF_BOARD_INFO: u32 = 20;
 /// established: bank sizes in megabytes, signed halfwords.
 pub const MEM_OFF_BNKSZ: u32 = 60;
 /// established.
@@ -36,6 +42,12 @@ pub const GDA_STRIDE_PEBRICK: u32 = 4;
 pub const GDA_COUNT_PEBRICK: u32 = 4;
 /// established: the word at byte 388 equals this when the pair table follows.
 pub const GDA_PEBRICK_MAGIC: u32 = 0x5045626b;
+/// established: offset of the register in the node's local register space.
+pub const NODECLASS_OFF: u32 = 0x4000000;
+/// established: added to the offset for the local alias.
+pub const NODECLASS_SPACE_LOCAL: u32 = 0x10000000;
+/// established: added to the offset, with the node number, for the node-indexed alias.
+pub const NODECLASS_SPACE_REMOTE: u32 = 0x30000000;
 
 /// Values of `class` in `BrdW1` that the header names.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -110,6 +122,31 @@ impl CompW0StructType {
             Self::Io => 0x5,
             Self::Router => 0x9,
             Self::Graphics => 0xa,
+            Self::Other(v) => v as u32,
+        }
+    }
+}
+
+/// Values of `class` in `NodeclassW1` that the header names.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum NodeclassW1Class {
+    /// established.
+    Pebrick,
+    /// A value the notes do not name.
+    Other(u8),
+}
+
+impl NodeclassW1Class {
+    pub const fn from_bits(v: u32) -> Self {
+        match v {
+            0xc => Self::Pebrick,
+            _ => Self::Other(v as u8),
+        }
+    }
+
+    pub const fn bits(self) -> u32 {
+        match self {
+            Self::Pebrick => 0xc,
             Self::Other(v) => v as u32,
         }
     }
@@ -446,5 +483,24 @@ impl PepairW0 {
     /// Bits 15:0, established.
     pub const fn host_nasid(self) -> u32 {
         self.0 & 0xffff
+    }
+}
+
+/// The `NODECLASS_W1` word.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct NodeclassW1(u32);
+
+impl NodeclassW1 {
+    pub const fn new(word: u32) -> Self {
+        Self(word)
+    }
+
+    pub const fn raw(self) -> u32 {
+        self.0
+    }
+
+    /// Bits 15:12, established.
+    pub const fn class(self) -> NodeclassW1Class {
+        NodeclassW1Class::from_bits((self.0 >> 12) & 0xf)
     }
 }

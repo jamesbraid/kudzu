@@ -1,7 +1,8 @@
-// generated from kudzu 113eeaa39a64 HUBIO_DECODE.h - do not edit, regenerate in kudzu
+// generated from kudzu fdb059d4cbe7 HUBIO_DECODE.h - do not edit, regenerate in kudzu
 //!
-//! Origin 300 hub crosstalk-side window: the register tested by
-//! the error path and the request-buffer table the I/O error scan reads.
+//! Origin 300 hub crosstalk-side window: the link status doubleword,
+//! the register tested by the error path, the request-buffer table the
+//! I/O error scan reads and the widget part numbers the kernel compares.
 //!
 //! Grades on each item say what is known about it: `established` is what the
 //! shipped driver software does, read in full; `inferred` is a reasoned
@@ -12,11 +13,18 @@
 
 /// established: physical base of the window for node 0.
 pub const WINDOW_BASE: u32 = 0x1c00000;
+/// established: compared in the Origin 300/350 kernels of both releases read, and in no Origin 200/2000 kernel; role unknown.
+pub const WIDGET_PART_C104: u32 = 0xc104;
+/// established: as above.
+pub const WIDGET_PART_C105: u32 = 0xc105;
 /// established: bytes between entries.
 pub const CRB_STRIDE: u32 = 32;
 /// established: entries the scan reads.
 pub const CRB_COUNT: u32 = 15;
 
+/// Register `llp_csr`: read, 64-bit; reset unknown; established.
+pub const REG_LLP_CSR: u32 = 0x0128;
+pub const REG_LLP_CSR_WIDTH: u32 = 64;
 /// Register `flags`: read, 64-bit; reset unknown; established.
 pub const REG_FLAGS: u32 = 0x01e8;
 pub const REG_FLAGS_WIDTH: u32 = 64;
@@ -29,6 +37,25 @@ pub const REG_CRB_B_WIDTH: u32 = 64;
 /// Register `crb_c`: read, 64-bit; reset unknown; established.
 pub const REG_CRB_C: u32 = 0x0410;
 pub const REG_CRB_C_WIDTH: u32 = 64;
+
+/// The `llp_csr` register word.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct LlpCsr(u32);
+
+impl LlpCsr {
+    pub const fn new(word: u32) -> Self {
+        Self(word)
+    }
+
+    pub const fn raw(self) -> u32 {
+        self.0
+    }
+
+    /// Bit 13, established.
+    pub const fn bit13(self) -> bool {
+        (self.0 >> 13) & 1 != 0
+    }
+}
 
 /// The `flags` register word.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
