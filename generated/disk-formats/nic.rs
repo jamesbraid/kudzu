@@ -1,4 +1,4 @@
-// generated from kudzu 393674ed2650 NIC_DECODE.h - do not edit, regenerate in kudzu
+// generated from kudzu 206217216d09 NIC_DECODE.h - do not edit, regenerate in kudzu
 //!
 //! Bit-serial control word for the one-wire identity parts and
 //! the hub address that reaches the same bus.

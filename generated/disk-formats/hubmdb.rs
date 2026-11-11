@@ -1,4 +1,4 @@
-// generated from kudzu cf9066ddaf69 HUBMDB_DECODE.h - do not edit, regenerate in kudzu
+// generated from kudzu 206217216d09 HUBMDB_DECODE.h - do not edit, regenerate in kudzu
 //!
 //! Origin 300 hub memory-directory migration registers.
 //!
