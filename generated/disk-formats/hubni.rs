@@ -1,4 +1,4 @@
-// generated from kudzu aa90cb88b76b HUBNI_DECODE.h - do not edit, regenerate in kudzu
+// generated from kudzu 5dfc29d967c9 HUBNI_DECODE.h - do not edit, regenerate in kudzu
 //!
 //! Node hub network interface words: node number, link state,
 //! link reset and port error.
