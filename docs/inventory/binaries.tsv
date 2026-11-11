@@ -86,7 +86,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP22boot/capability.a(cap_able.o)	kernel-other-objects	shared-kernel	object	n32	4548	ae1515c2145aa328		3	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/cdl.o	kernel-other-objects	shared-kernel	object	n32	19936	0d00b3d815645bf5		23	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/cellstubs.a(cellstubs.o)	kernel-other-objects	shared-kernel	object	n32	3716	c7ab78fe52c00dd1		2	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/cn.o	kernel-other-objects	shared-kernel	object	n32	15376	49c7352892f3003e		19	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/cn.o	kernel-other-objects	shared-kernel	object	n32	15376	49c7352892f3003e		19	symtab	0	0	named-only	docs/routines/t1-kudzu-b009.md#routine-readings-kudzu-reading-round-1-batch-9	Routine readings, kudzu reading round 1, batch 9
 6.5.22/usr/cpu/sysgen/IP22boot/compression.a(compression.o)	kernel-other-objects	shared-kernel	object	n32	5188	8b07ad3d5010f189	6.5.22/usr/cpu/sysgen/IP32boot/compression.a(compression.o)	5	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/compression.a(rle1.o)	kernel-other-objects	shared-kernel	object	n32	4292	c79245a9b78e8864	6.5.22/usr/cpu/sysgen/IP32boot/compression.a(rle1.o)	2	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/compression.a(zp.o)	kernel-other-objects	shared-kernel	object	n32	2740	9de717b057853f8d	6.5.22/usr/cpu/sysgen/IP32boot/compression.a(zp.o)	2	symtab	0	0	undocumented		
@@ -278,7 +278,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP22boot/ksync.a(sema.o)	kernel-other-objects	shared-kernel	object	n32	43156	0d6815916847a0a3		96	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/ksync.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n32	4196	b640d413d5139860		8	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/ksync_metered.a(mutex.o)	kernel-other-objects	shared-kernel	object	n32	36452	2d3fe57af3b9ccbb		61	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/ksync_metered.a(sema.o)	kernel-other-objects	shared-kernel	object	n32	59556	f92e6b6ff3c09ec3		108	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/ksync_metered.a(sema.o)	kernel-other-objects	shared-kernel	object	n32	59556	f92e6b6ff3c09ec3		108	symtab	0	0	named-only	docs/routines/t1-kudzu-b010.md#routine-role-statements-tier-1-batch-10	Routine role statements: tier-1 batch 10
 6.5.22/usr/cpu/sysgen/IP22boot/ksync_metered.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n32	4084	16e982ddf5bc58cb		5	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/ksync_named.a(mutex.o)	kernel-other-objects	shared-kernel	object	n32	32692	a9741f2670e6fa79		59	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/ksync_named.a(sema.o)	kernel-other-objects	shared-kernel	object	n32	46612	4ef1ed6c4ed8f8a3		99	symtab	0	0	undocumented		
@@ -304,7 +304,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP22boot/macstubs.a(macstubs.o)	kernel-other-objects	shared-kernel	object	n32	16532	d97e00556b544dab	6.5.22/usr/cpu/sysgen/IP32boot/macstubs.a(macstubs.o)	83	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/magellan.o	kernel-other-objects	shared-kernel	object	n32	17688	74a323e34d514ab5		16	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/mem.o	kernel-platform-objects	shared-kernel	object	n32	10920	15d0dbd752577664		12	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/mgras.a(mgras.o)	kernel-other-objects	shared-kernel	object	n32	72948	542ea9cfcaed3e28		62	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/mgras.a(mgras.o)	kernel-other-objects	shared-kernel	object	n32	72948	542ea9cfcaed3e28		62	symtab	0	0	named-only	docs/routines/t1-kudzu-b010.md#routine-role-statements-tier-1-batch-10	Routine role statements: tier-1 batch 10
 6.5.22/usr/cpu/sysgen/IP22boot/mgras.a(mgras_ccv.o)	kernel-other-objects	shared-kernel	object	n32	8452	e612255337439d90		10	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/mgras.a(mgras_dma.o)	kernel-other-objects	shared-kernel	object	n32	24356	c2b858cd3dd4e95f		25	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/mgras.a(mgras_init.o)	kernel-other-objects	shared-kernel	object	n32	49012	515786bf54bb74f0		43	symtab	0	0	undocumented		
@@ -512,7 +512,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(name.o)	kernel-other-objects	shared-kernel	object	n32	17684	6c4602e80fcf4a37		14	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(page.o)	kernel-other-objects	shared-kernel	object	n32	56084	e261399b12e271cf		60	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(pathname.o)	kernel-other-objects	shared-kernel	object	n32	7540	67cf8db4f588d958	6.5.22/usr/cpu/sysgen/IP32boot/os.a(pathname.o)	13	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(pda.o)	kernel-other-objects	shared-kernel	object	n32	38868	2c97ec296a8b101a		40	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(pda.o)	kernel-other-objects	shared-kernel	object	n32	38868	2c97ec296a8b101a		40	symtab	0	0	named-only	docs/routines/t1-kudzu-b010.md#routine-role-statements-tier-1-batch-10	Routine role statements: tier-1 batch 10
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(physio.o)	kernel-other-objects	shared-kernel	object	n32	12004	45043538f0be8f7c		4	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(pipe.o)	kernel-other-objects	shared-kernel	object	n32	6324	5bfc6f613284ba0d		1	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(printf.o)	kernel-other-objects	shared-kernel	object	n32	38788	fe77a5342d6834cd		41	symtab	0	0	undocumented		
@@ -536,10 +536,10 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(sysget.o)	kernel-other-objects	shared-kernel	object	n32	29732	af5823b3cfc606d8		18	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(sysmips.o)	kernel-other-objects	shared-kernel	object	n32	5236	5f1393380170128f		1	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(sysmp.o)	kernel-other-objects	shared-kernel	object	n32	25300	89d4beca92d75f78		10	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(syssgi.o)	kernel-other-objects	shared-kernel	object	n32	64324	c1b3ef1fcd04b5ef		18	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(syssgi.o)	kernel-other-objects	shared-kernel	object	n32	64324	c1b3ef1fcd04b5ef		18	symtab	0	0	named-only	docs/routines/t1-kudzu-b010.md#routine-role-statements-tier-1-batch-10	Routine role statements: tier-1 batch 10
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(thread.o)	kernel-other-objects	shared-kernel	object	n32	15220	be3cc129c1efe3e1		7	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(tile.o)	kernel-other-objects	shared-kernel	object	n32	948	ff1a5d1bf41d0b5b		0	none	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(time.o)	kernel-other-objects	shared-kernel	object	n32	14612	1c8399a03627ded9		17	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(time.o)	kernel-other-objects	shared-kernel	object	n32	14612	1c8399a03627ded9		17	symtab	0	0	named-only	docs/routines/t1-kudzu-b011.md#routine-roles-tier-1-batch-11	Routine roles: tier-1 batch 11
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(timers.o)	kernel-other-objects	shared-kernel	object	n32	5236	5768b48546b97410		6	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(tlbmgr.o)	kernel-other-objects	shared-kernel	object	n32	18164	a0d8c33983a55567		29	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	kernel-other-objects	shared-kernel	object	n32	56308	b8fd05d96145b939		45	symtab	0	0	undocumented		
@@ -592,7 +592,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP22boot/satstubs.a(satstubs.o)	kernel-other-objects	shared-kernel	object	n32	18484	8dd45fa4efa9e808		96	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/sball.o	kernel-other-objects	shared-kernel	object	n32	21272	95542fefc30b39ab		15	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/scsi.o	kernel-other-objects	shared-kernel	object	n32	47272	6d8a00b5c76a8a18	6.5.22/usr/cpu/sysgen/IP32boot/scsi.o	69	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP22boot/scsiha.o	kernel-other-objects	shared-kernel	object	n32	5720	550acfe094fab48e	6.5.22/usr/cpu/sysgen/IP32boot/scsiha.o	3	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP22boot/scsiha.o	kernel-other-objects	shared-kernel	object	n32	5720	550acfe094fab48e	6.5.22/usr/cpu/sysgen/IP32boot/scsiha.o	3	symtab	0	0	named-only	docs/routines/t1-kudzu-b011.md#routine-roles-tier-1-batch-11	Routine roles: tier-1 batch 11
 6.5.22/usr/cpu/sysgen/IP22boot/sduart.a(zduart.o)	kernel-other-objects	shared-kernel	object	n32	48484	07a8e35913d03f8d		51	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/sem.o	kernel-other-objects	shared-kernel	object	n32	33728	cc065ab9c0e2b036		48	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/sesmgrstubs.a(sesmgrstubs.o)	kernel-other-objects	shared-kernel	object	n32	12452	58146f9f5ba853ba	6.5.22/usr/cpu/sysgen/IP32boot/sesmgrstubs.a(sesmgrstubs.o)	59	symtab	0	0	undocumented		
@@ -883,7 +883,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP27boot/cl.o	kernel-other-objects	shared-kernel	object	n64	17472	3c2298a85065bf85		14	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/clone.o	kernel-other-objects	shared-kernel	object	n64	7896	7cac73fbdf27e864		2	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/clshm.o	kernel-other-objects	shared-kernel	object	n64	46968	f5dc473dd6af95c6		36	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/cn.o	kernel-other-objects	shared-kernel	object	n64	25296	0e47630848438e7f		29	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/cn.o	kernel-other-objects	shared-kernel	object	n64	25296	0e47630848438e7f		29	symtab	0	0	named-only	docs/routines/t1-kudzu-b011.md#routine-roles-tier-1-batch-11	Routine roles: tier-1 batch 11
 6.5.22/usr/cpu/sysgen/IP27boot/compression.a(compression.o)	kernel-other-objects	shared-kernel	object	n64	7060	89c46726ef5d7da8	6.5.22/usr/cpu/sysgen/IP35boot/compression.a(compression.o)	5	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/compression.a(rle1.o)	kernel-other-objects	shared-kernel	object	n64	5140	583c46f19f5ebd93	6.5.22/usr/cpu/sysgen/IP30boot/compression.a(rle1.o);6.5.22/usr/cpu/sysgen/IP35boot/compression.a(rle1.o)	2	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/compression.a(zp.o)	kernel-other-objects	shared-kernel	object	n64	3588	532d7b50296b0014	6.5.22/usr/cpu/sysgen/IP30boot/compression.a(zp.o);6.5.22/usr/cpu/sysgen/IP35boot/compression.a(zp.o)	2	symtab	0	0	undocumented		
@@ -900,7 +900,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP27boot/cserialio.o	kernel-other-objects	shared-kernel	object	n64	21888	868e45847ea9986d		22	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/cxfsstubs.a(cxfsstubs.o)	kernel-other-objects	shared-kernel	object	n64	12916	ba6386c37d21f695	6.5.22/usr/cpu/sysgen/IP30boot/cxfsstubs.a(cxfsstubs.o);6.5.22/usr/cpu/sysgen/IP35boot/cxfsstubs.a(cxfsstubs.o)	33	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/devpoll.o	kernel-other-objects	shared-kernel	object	n64	32040	ec772c4033f2c5f3		27	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/dhardlocks.a(dhardlocks.o)	kernel-other-objects	shared-kernel	object	n64	42004	bda50826daa36871		63	symtab	11	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/dhardlocks.a(dhardlocks.o)	kernel-other-objects	shared-kernel	object	n64	42004	bda50826daa36871		63	symtab	11	0	named-only	docs/routines/t1-kudzu-b011.md#routine-roles-tier-1-batch-11	Routine roles: tier-1 batch 11
 6.5.22/usr/cpu/sysgen/IP27boot/dhardlocks.a(dhardlocksasm.o)	kernel-other-objects	shared-kernel	object	n64	4580	ac4b911dfd16e3e3		3	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/dial.o	kernel-other-objects	shared-kernel	object	n64	30024	8aad3dd180ebdf38		14	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/dialbox.o	kernel-other-objects	shared-kernel	object	n64	27552	f62852a9c641bdc5		14	symtab	0	0	undocumented		
@@ -980,7 +980,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP27boot/fsctl.o	kernel-other-objects	shared-kernel	object	n64	18336	2ede11b4e3b21503		13	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/gentty.o	kernel-other-objects	shared-kernel	object	n64	11720	1dba13de7af81902		8	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/gfx.o	kernel-other-objects	shared-kernel	object	n64	53912	51a877a930d668f8		62	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/gfxs.a(gfx_flow.o)	kernel-other-objects	shared-kernel	object	n64	17908	f646a1a214751e52		19	symtab	5	5	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/gfxs.a(gfx_flow.o)	kernel-other-objects	shared-kernel	object	n64	17908	f646a1a214751e52		19	symtab	5	5	named-only	docs/routines/t1-kudzu-b011.md#routine-roles-tier-1-batch-11	Routine roles: tier-1 batch 11
 6.5.22/usr/cpu/sysgen/IP27boot/gfxs.a(klconfig.o)	kernel-other-objects	shared-kernel	object	n64	5844	a3ef2bbef090ab82		1	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/gfxs.a(gfx.o)	kernel-other-objects	shared-kernel	object	n64	53924	d9288736e43a34fe		62	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/gfxs.a(gfx_debug.o)	kernel-other-objects	shared-kernel	object	n64	1268	a5c59b1bac88af70	6.5.22/usr/cpu/sysgen/IP30boot/gfxs.a(gfx_debug.o);6.5.22/usr/cpu/sysgen/IP35boot/gfxs.a(gfx_debug.o)	0	none	0	0	undocumented		
@@ -1027,7 +1027,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP27boot/idev.o	kernel-other-objects	shared-kernel	object	n64	26008	b93b5176d335a8c0		22	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/if_cl.o	kernel-other-objects	shared-kernel	object	n64	49120	086a90e9f1ba0779		35	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/if_clstubs.a(if_clstubs.o)	kernel-other-objects	shared-kernel	object	n64	3220	51b30ae63c8a3dfa	6.5.22/usr/cpu/sysgen/IP30boot/if_clstubs.a(if_clstubs.o);6.5.22/usr/cpu/sysgen/IP35boot/if_clstubs.a(if_clstubs.o)	1	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/if_ef.o	kernel-other-objects	shared-kernel	object	n64	49920	320ebda84451a0bd		47	symtab	1	5	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/if_ef.o	kernel-other-objects	shared-kernel	object	n64	49920	320ebda84451a0bd		47	symtab	1	5	named-only	docs/routines/t1-kudzu-b011.md#routine-roles-tier-1-batch-11	Routine roles: tier-1 batch 11
 6.5.22/usr/cpu/sysgen/IP27boot/if_eg.o	kernel-other-objects	shared-kernel	object	n64	77248	e464afbbf38f2d65		55	symtab	1	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/if_ppp.o	kernel-other-objects	shared-kernel	object	n64	53480	a4fe00d0c489bcc0		25	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/if_ptr.o	kernel-other-objects	shared-kernel	object	n64	129544	3e6791c5f8906900		69	symtab	0	0	undocumented		
@@ -1054,8 +1054,8 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP27boot/io.a(hwcopy.o)	kernel-platform-drivers	shared-kernel	object	n64	4404	9cc1ce595b628a3a		2	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP27boot/io6.o	kernel-platform-drivers	shared-kernel	object	n64	7016	cd6cb0b4882522a4		2	symtab	0	4	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP27boot/ioc3.o	kernel-platform-drivers	shared-kernel	object	n64	27192	0b73be06244af95e		27	symtab	0	6	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP27boot/ioc3_pckm.o	kernel-other-objects	shared-kernel	object	n64	35840	b406416cf8894d73		34	symtab	1	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/ioc3ei.o	kernel-other-objects	shared-kernel	object	n64	21352	394cf9f0ee7485b8		19	symtab	3	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/ioc3_pckm.o	kernel-other-objects	shared-kernel	object	n64	35840	b406416cf8894d73		34	symtab	1	0	named-only	docs/routines/t1-kudzu-b011.md#routine-roles-tier-1-batch-11	Routine roles: tier-1 batch 11
+6.5.22/usr/cpu/sysgen/IP27boot/ioc3ei.o	kernel-other-objects	shared-kernel	object	n64	21352	394cf9f0ee7485b8		19	symtab	3	0	named-only	docs/routines/t1-kudzu-b011.md#routine-roles-tier-1-batch-11	Routine roles: tier-1 batch 11
 6.5.22/usr/cpu/sysgen/IP27boot/ip_mroute.o	kernel-other-objects	shared-kernel	object	n64	41328	1773f9a46daf7810		34	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/ipc.o	kernel-other-objects	shared-kernel	object	n64	6680	9d18a78c97fe26c0	6.5.22/usr/cpu/sysgen/IP30boot/ipc.o;6.5.22/usr/cpu/sysgen/IP35boot/ipc.o	5	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/ipfilter.o	kernel-other-objects	shared-kernel	object	n64	18984	f460831483df4201		9	symtab	0	0	undocumented		
@@ -1135,7 +1135,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP27boot/ksync.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	59044	7de5310116deabb7		98	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/ksync.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n64	6308	398e41ae2853b226		8	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/ksync_metered.a(mutex.o)	kernel-other-objects	shared-kernel	object	n64	48916	c3083f5684505a6c		62	symtab	5	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/ksync_metered.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	78932	6a85940df779f102		110	symtab	10	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/ksync_metered.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	78932	6a85940df779f102		110	symtab	10	0	named-only	docs/routines/t1-kudzu-b014.md#routine-role-statements-kudzu-batch-14	Routine role statements, kudzu batch 14
 6.5.22/usr/cpu/sysgen/IP27boot/ksync_metered.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n64	6164	73798318655dd1a1		5	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/ksync_named.a(mutex.o)	kernel-other-objects	shared-kernel	object	n64	44788	12ba504316086de2		60	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/ksync_named.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	63140	f75c939346da95e3		101	symtab	0	0	undocumented		
@@ -1164,7 +1164,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP27boot/mem.o	kernel-platform-objects	shared-kernel	object	n64	15192	46c0d1791704a546		12	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/mem_alloc.o	kernel-other-objects	shared-kernel	object	n64	59984	a28fb348c12f1ae7		23	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/menet.o	kernel-other-objects	shared-kernel	object	n64	6864	db733bfe2863662e		2	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/mgras.a(mgras.o)	kernel-other-objects	shared-kernel	object	n64	106244	050a55bc8aa168ff		78	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/mgras.a(mgras.o)	kernel-other-objects	shared-kernel	object	n64	106244	050a55bc8aa168ff		78	symtab	0	0	named-only	docs/routines/t1-kudzu-b014.md#routine-role-statements-kudzu-batch-14	Routine role statements, kudzu batch 14
 6.5.22/usr/cpu/sysgen/IP27boot/mgras.a(mgras_ccv.o)	kernel-other-objects	shared-kernel	object	n64	12580	29746e76ff3896d2		10	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/mgras.a(mgras_dma.o)	kernel-other-objects	shared-kernel	object	n64	32996	2be1f7d2f461ff9d		28	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/mgras.a(mgras_init.o)	kernel-other-objects	shared-kernel	object	n64	80420	7ae4696ead731989		44	symtab	0	2	undocumented		
@@ -1414,7 +1414,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(name.o)	kernel-other-objects	shared-kernel	object	n64	22260	98057c79a352ef78		14	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(page.o)	kernel-other-objects	shared-kernel	object	n64	83364	8f7e744c63eef301		69	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(pathname.o)	kernel-other-objects	shared-kernel	object	n64	10372	648ce980f7291978	6.5.22/usr/cpu/sysgen/IP30boot/os.a(pathname.o);6.5.22/usr/cpu/sysgen/IP35boot/os.a(pathname.o)	13	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(pda.o)	kernel-other-objects	shared-kernel	object	n64	58948	b81f68171c14540d		42	symtab	1	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(pda.o)	kernel-other-objects	shared-kernel	object	n64	58948	b81f68171c14540d		42	symtab	1	0	named-only	docs/routines/t1-kudzu-b014.md#routine-role-statements-kudzu-batch-14	Routine role statements, kudzu batch 14
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(physio.o)	kernel-other-objects	shared-kernel	object	n64	12308	9f5c4a9e5380fb5b		4	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(pipe.o)	kernel-other-objects	shared-kernel	object	n64	8308	a76e07925628cdd5		1	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(printf.o)	kernel-other-objects	shared-kernel	object	n64	55492	9852df83c938373e		44	symtab	2	0	undocumented		
@@ -1438,10 +1438,10 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(sysget.o)	kernel-other-objects	shared-kernel	object	n64	37428	bc2ae7d436409fba		18	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(sysmips.o)	kernel-other-objects	shared-kernel	object	n64	7684	92381f84d4b6db8e		1	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(sysmp.o)	kernel-other-objects	shared-kernel	object	n64	35348	8bb819199c10a105		10	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(syssgi.o)	kernel-other-objects	shared-kernel	object	n64	100740	57fc75fcffdc1576		23	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(syssgi.o)	kernel-other-objects	shared-kernel	object	n64	100740	57fc75fcffdc1576		23	symtab	0	0	named-only	docs/routines/t1-kudzu-b014.md#routine-role-statements-kudzu-batch-14	Routine role statements, kudzu batch 14
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(thread.o)	kernel-other-objects	shared-kernel	object	n64	19652	0c43207b8c67bcd4		7	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(tile.o)	kernel-other-objects	shared-kernel	object	n64	1204	ef780bf112224208	6.5.22/usr/cpu/sysgen/IP30boot/os.a(tile.o);6.5.22/usr/cpu/sysgen/IP35boot/os.a(tile.o);6.5.30/usr/cpu/sysgen/IP27boot/os.a(tile.o);6.5.30/usr/cpu/sysgen/IP30boot/os.a(tile.o);6.5.30/usr/cpu/sysgen/IP35boot/os.a(tile.o)	0	none	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(time.o)	kernel-other-objects	shared-kernel	object	n64	21108	7c740cbad3bf76f1		21	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(time.o)	kernel-other-objects	shared-kernel	object	n64	21108	7c740cbad3bf76f1		21	symtab	0	0	named-only	docs/routines/t1-kudzu-b014.md#routine-role-statements-kudzu-batch-14	Routine role statements, kudzu batch 14
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(timers.o)	kernel-other-objects	shared-kernel	object	n64	6372	533bb93789635232		5	symtab	5	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(tlbmgr.o)	kernel-other-objects	shared-kernel	object	n64	33588	6eb3ddfa09e68f72		35	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	kernel-other-objects	shared-kernel	object	n64	68996	61dd81f84677c90a		41	symtab	0	0	undocumented		
@@ -1460,7 +1460,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(xthread.o)	kernel-other-objects	shared-kernel	object	n64	16484	a6ae321016549d33		15	symtab	1	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(xthread_table.o)	kernel-other-objects	shared-kernel	object	n64	14420	6ae3692c86277109		10	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(mtext.o)	kernel-other-objects	shared-kernel	object	n64	1204	5ef49fb88a63b17c	6.5.22/usr/cpu/sysgen/IP30boot/os.a(mtext.o);6.5.22/usr/cpu/sysgen/IP35boot/os.a(mtext.o);6.5.30/usr/cpu/sysgen/IP27boot/os.a(mtext.o);6.5.30/usr/cpu/sysgen/IP30boot/os.a(mtext.o);6.5.30/usr/cpu/sysgen/IP35boot/os.a(mtext.o)	0	none	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/partition.o	kernel-other-objects	shared-kernel	object	n64	70568	49f670573708d6e4		70	symtab	2	4	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/partition.o	kernel-other-objects	shared-kernel	object	n64	70568	49f670573708d6e4		70	symtab	2	4	named-only	docs/routines/t1-kudzu-b014.md#routine-role-statements-kudzu-batch-14	Routine role statements, kudzu batch 14
 6.5.22/usr/cpu/sysgen/IP27boot/partitionstubs.a(partitionstubs.o)	kernel-other-objects	shared-kernel	object	n64	13796	655b6436bc541d6e	6.5.22/usr/cpu/sysgen/IP30boot/partitionstubs.a(partitionstubs.o);6.5.22/usr/cpu/sysgen/IP35boot/partitionstubs.a(partitionstubs.o)	33	symtab	0	0	named-only	docs/syssgi.md#the-same-routines-in-the-6522-builds	The same routines in the 6.5.22 builds
 6.5.22/usr/cpu/sysgen/IP27boot/pciba.o	kernel-other-objects	shared-kernel	object	n64	52192	79b46e980f02f571		25	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/pcibr.o	kernel-platform-drivers	shared-kernel	object	n64	292272	3e367d03b3e994df		259	symtab+dwarf	6	4	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -1514,7 +1514,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP27boot/satstubs.a(satstubs.o)	kernel-other-objects	shared-kernel	object	n64	27908	f454a0a05fa5c8f1		96	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/sball.o	kernel-other-objects	shared-kernel	object	n64	34768	bbc930acacdec4f1		15	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/scsi.o	kernel-other-objects	shared-kernel	object	n64	59024	8818f7d06290cd86	6.5.22/usr/cpu/sysgen/IP30boot/scsi.o;6.5.22/usr/cpu/sysgen/IP35boot/scsi.o	69	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP27boot/scsiha.o	kernel-other-objects	shared-kernel	object	n64	7560	781cfe5f31f89ab7	6.5.22/usr/cpu/sysgen/IP30boot/scsiha.o;6.5.22/usr/cpu/sysgen/IP35boot/scsiha.o	3	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/scsiha.o	kernel-other-objects	shared-kernel	object	n64	7560	781cfe5f31f89ab7	6.5.22/usr/cpu/sysgen/IP30boot/scsiha.o;6.5.22/usr/cpu/sysgen/IP35boot/scsiha.o	3	symtab	0	0	named-only	docs/routines/t1-kudzu-b014.md#routine-role-statements-kudzu-batch-14	Routine role statements, kudzu batch 14
 6.5.22/usr/cpu/sysgen/IP27boot/sduart.a(serialio.o)	kernel-other-objects	shared-kernel	object	n64	64228	2056ad118c7fd005		64	symtab	1	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/sduart.a(sio_ioc3.o)	kernel-other-objects	shared-kernel	object	n64	40532	1fcab6c6c7b091aa		35	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/sem.o	kernel-other-objects	shared-kernel	object	n64	45976	2135f3173a331bb7		50	symtab	0	0	undocumented		
@@ -1652,7 +1652,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP27boot/wacom.o	kernel-other-objects	shared-kernel	object	n64	174872	bc9ab99dead101b4		95	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/xbmon.o	kernel-other-objects	shared-kernel	object	n64	20064	88e31210e9c54edd		18	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/xbow.o	kernel-platform-drivers	shared-kernel	object	n64	38216	759c4dd830dc4e38		33	symtab	6	9	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP27boot/xbridge.o	kernel-platform-drivers	shared-kernel	object	n64	18760	7e535cc5fbb8b26a		2	symtab	4	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP27boot/xbridge.o	kernel-platform-drivers	shared-kernel	object	n64	18760	7e535cc5fbb8b26a		2	symtab	4	0	named-only	docs/routines/t1-kudzu-b014.md#routine-role-statements-kudzu-batch-14	Routine role statements, kudzu batch 14
 6.5.22/usr/cpu/sysgen/IP27boot/xconn.o	kernel-platform-drivers	shared-kernel	object	n64	13776	408495e08116f1d4		9	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP27boot/xfs.a(xfs_alloc.o)	kernel-other-objects	shared-kernel	object	n64	39092	5798bc8b07a07f0b		24	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/xfs.a(xfs_alloc_btree.o)	kernel-other-objects	shared-kernel	object	n64	30036	130bf6eae278627b		21	symtab	0	0	undocumented		
@@ -1840,7 +1840,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/cdl.o	kernel-other-objects	shared-kernel	object	n64	24616	d12b8bfda5e889fd		23	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/cellstubs.a(cellstubs.o)	kernel-other-objects	shared-kernel	object	n64	12020	c70d706ee251584d		26	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/clone.o	kernel-other-objects	shared-kernel	object	n64	7880	4d4e0455137f4de5		2	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/cn.o	kernel-other-objects	shared-kernel	object	n64	25224	596d4ffc98fe317c		29	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/cn.o	kernel-other-objects	shared-kernel	object	n64	25224	596d4ffc98fe317c		29	symtab	0	0	named-only	docs/routines/t1-kudzu-b014.md#routine-role-statements-kudzu-batch-14	Routine role statements, kudzu batch 14
 6.5.22/usr/cpu/sysgen/IP30boot/compression.a(compression.o)	kernel-other-objects	shared-kernel	object	n64	6964	05025312f3902b66		5	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/connld.o	kernel-other-objects	shared-kernel	object	n64	12960	af1a92b9ffbb6593		4	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/cpr.a(ckpt_procfs.o)	kernel-other-objects	shared-kernel	object	n64	53796	3f5e6e1a335c2cb4		50	symtab	0	0	undocumented		
@@ -1848,7 +1848,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/cpr.a(ckpt_util.o)	kernel-other-objects	shared-kernel	object	n64	11028	b79b7a13ee8a9d08		9	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/cserialio.o	kernel-other-objects	shared-kernel	object	n64	21864	37fa0f33918f86fc		22	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/devpoll.o	kernel-other-objects	shared-kernel	object	n64	32016	42fbaf1a4a92b265		27	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/dhardlocks.a(dhardlocks.o)	kernel-other-objects	shared-kernel	object	n64	41652	5730d23ec44374d4		63	symtab	11	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/dhardlocks.a(dhardlocks.o)	kernel-other-objects	shared-kernel	object	n64	41652	5730d23ec44374d4		63	symtab	11	0	named-only	docs/routines/t1-kudzu-b014.md#routine-role-statements-kudzu-batch-14	Routine role statements, kudzu batch 14
 6.5.22/usr/cpu/sysgen/IP30boot/dhardlocks.a(dhardlocksasm.o)	kernel-other-objects	shared-kernel	object	n64	4116	0e47fba6c4eb416a		3	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/dial.o	kernel-other-objects	shared-kernel	object	n64	30000	9e6eaf6edd33a9c9		14	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/dialbox.o	kernel-other-objects	shared-kernel	object	n64	27528	a904bc12167654ad		14	symtab	0	0	undocumented		
@@ -1893,7 +1893,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/fsctl.o	kernel-other-objects	shared-kernel	object	n64	18208	a5e6fba11f4905e0		13	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/gentty.o	kernel-other-objects	shared-kernel	object	n64	11704	11573e07a06c90f6		8	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/gfx.o	kernel-other-objects	shared-kernel	object	n64	53808	5e362ea6abc44199		62	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/gfxs.a(gfx_flow.o)	kernel-other-objects	shared-kernel	object	n64	16516	7b01f0c0dc44b486		22	symtab	15	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/gfxs.a(gfx_flow.o)	kernel-other-objects	shared-kernel	object	n64	16516	7b01f0c0dc44b486		22	symtab	15	0	named-only	docs/routines/t1-kudzu-b014.md#routine-role-statements-kudzu-batch-14	Routine role statements, kudzu batch 14
 6.5.22/usr/cpu/sysgen/IP30boot/gfxs.a(gfx.o)	kernel-other-objects	shared-kernel	object	n64	53812	2b6726418c85826b		62	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/giobr.o	kernel-platform-drivers	shared-kernel	object	n64	43560	3173544aae587259		55	symtab	2	8	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP30boot/gioio.o	kernel-platform-drivers	shared-kernel	object	n64	24720	4b82dee218b2bae3		53	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -1925,7 +1925,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/hwgfs.a(hwgvnops.o)	kernel-platform-drivers	shared-kernel	object	n64	25812	85fed8f1e63a5497		21	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP30boot/idbg.o	kernel-platform-objects	shared-kernel	object	n64	944976	210fccb4ebb9fadb		295	symtab+dwarf	1	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP30boot/idev.o	kernel-other-objects	shared-kernel	object	n64	25992	63fad93d69ef4c9f		22	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/if_ef.o	kernel-other-objects	shared-kernel	object	n64	49584	acd80f34898ada53		47	symtab	1	5	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/if_ef.o	kernel-other-objects	shared-kernel	object	n64	49584	acd80f34898ada53		47	symtab	1	5	named-only	docs/routines/t1-kudzu-b015.md#routine-role-statements-from-the-6522-ip30-kernel-and-boot-objects	Routine role statements from the 6.5.22 IP30 kernel and boot objects
 6.5.22/usr/cpu/sysgen/IP30boot/if_eg.o	kernel-other-objects	shared-kernel	object	n64	77024	39e8fad26c7e1887		55	symtab	1	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/if_ppp.o	kernel-other-objects	shared-kernel	object	n64	53464	b5f226c5adee25d7		25	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/if_ptr.o	kernel-other-objects	shared-kernel	object	n64	129384	52b03a9d3a0a8b53		69	symtab	0	0	undocumented		
@@ -1943,7 +1943,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/io.a(hwcopy.o)	kernel-platform-drivers	shared-kernel	object	n64	4404	725f5cdc92e3d670		2	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP30boot/io6.o	kernel-platform-drivers	shared-kernel	object	n64	6688	65941b2b967914f2		2	symtab	0	4	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP30boot/ioc3.o	kernel-platform-drivers	shared-kernel	object	n64	24960	e8a6e778bad68ce5		24	symtab	0	6	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP30boot/ioc3_pckm.o	kernel-other-objects	shared-kernel	object	n64	35696	d09d9f074579c1e9		34	symtab	1	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/ioc3_pckm.o	kernel-other-objects	shared-kernel	object	n64	35696	d09d9f074579c1e9		34	symtab	1	0	named-only	docs/routines/t1-kudzu-b015.md#routine-role-statements-from-the-6522-ip30-kernel-and-boot-objects	Routine role statements from the 6.5.22 IP30 kernel and boot objects
 6.5.22/usr/cpu/sysgen/IP30boot/ip_mroute.o	kernel-other-objects	shared-kernel	object	n64	41304	0d5d1b87befde1b0		34	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/ipfilter.o	kernel-other-objects	shared-kernel	object	n64	18960	34c853e1366eff57		9	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/ipv6.a(dest6.o)	kernel-other-objects	shared-kernel	object	n64	5444	90f331c4cf189b76		1	symtab	0	0	undocumented		
@@ -1989,7 +1989,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/ksync.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	59028	60a823563f1ff628		98	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/ksync.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n64	5844	c42f4203b1372907		8	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/ksync_metered.a(mutex.o)	kernel-other-objects	shared-kernel	object	n64	48724	e7d12f9d09150842		62	symtab	5	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/ksync_metered.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	78628	2b91d8d59b6bc950		110	symtab	10	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/ksync_metered.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	78628	2b91d8d59b6bc950		110	symtab	10	0	named-only	docs/routines/t1-kudzu-b016.md#routine-role-statements-kudzu-batch-16	Routine role statements, kudzu batch 16
 6.5.22/usr/cpu/sysgen/IP30boot/ksync_metered.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n64	5700	a980324b39a2579e		5	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/ksync_named.a(mutex.o)	kernel-other-objects	shared-kernel	object	n64	44756	159966da4152a568		60	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/ksync_named.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	63124	e552b594e8485a80		101	symtab	0	0	undocumented		
@@ -2008,10 +2008,10 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/magellan.o	kernel-other-objects	shared-kernel	object	n64	30808	d5b1b6bdfef1b54e		16	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/mem.o	kernel-platform-objects	shared-kernel	object	n64	14536	f1ca58c6d1a9000b		12	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/menet.o	kernel-other-objects	shared-kernel	object	n64	6688	4d2c7849c5bf1f05		2	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/mgras.a(mgras.o)	kernel-other-objects	shared-kernel	object	n64	102708	5d0073257c510b74		80	symtab	13	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/mgras.a(mgras.o)	kernel-other-objects	shared-kernel	object	n64	102708	5d0073257c510b74		80	symtab	13	0	named-only	docs/routines/t1-kudzu-b016.md#routine-role-statements-kudzu-batch-16	Routine role statements, kudzu batch 16
 6.5.22/usr/cpu/sysgen/IP30boot/mgras.a(mgras_ccv.o)	kernel-other-objects	shared-kernel	object	n64	12420	8830b312c4d94fa8		10	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/mgras.a(mgras_dma.o)	kernel-other-objects	shared-kernel	object	n64	31524	01bc2351cf6e2d95		28	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/mgras.a(mgras_init.o)	kernel-other-objects	shared-kernel	object	n64	81316	7c5c9f77c4f877f1		46	symtab	2	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/mgras.a(mgras_init.o)	kernel-other-objects	shared-kernel	object	n64	81316	7c5c9f77c4f877f1		46	symtab	2	0	named-only	docs/routines/t1-kudzu-b016.md#routine-role-statements-kudzu-batch-16	Routine role statements, kudzu batch 16
 6.5.22/usr/cpu/sysgen/IP30boot/mgras.a(mgras_retrace.o)	kernel-other-objects	shared-kernel	object	n64	26212	28eb75d19a99ac57		19	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/mgras.a(mgras_timing.o)	kernel-other-objects	shared-kernel	object	n64	14788	10c6e4f957baa3be		1	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/mgras.a(mgras_tport.o)	kernel-other-objects	shared-kernel	object	n64	14292	29deaee80473ced1		10	symtab	0	0	undocumented		
@@ -2081,13 +2081,13 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/numa.a(pm_policy_stubs.o)	kernel-platform-drivers	shared-kernel	object	n64	6164	c578639133c6c9e3		1	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy.o)	kernel-other-objects	shared-kernel	object	n64	13604	5a5d7753f933a1aa		4	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_adt.o)	kernel-other-objects	shared-kernel	object	n64	16036	e58c75d8941b0e17		18	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_attach.o)	kernel-other-objects	shared-kernel	object	n64	7652	97757675a5fd9484		3	symtab	2	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_attach.o)	kernel-other-objects	shared-kernel	object	n64	7652	97757675a5fd9484		3	symtab	2	0	named-only	docs/routines/t1-kudzu-b017.md#routine-role-statements-kudzu-batch-17	Routine role statements, kudzu batch 17
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_brdmgr.o)	kernel-other-objects	shared-kernel	object	n64	60436	0c54be2dac33113c		21	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_clip.o)	kernel-other-objects	shared-kernel	object	n64	15844	dceb7f48bdb57ac1		8	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_ctxsw.o)	kernel-other-objects	shared-kernel	object	n64	49428	c5e8890aeae88197		26	symtab	2	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_ctxsw.o)	kernel-other-objects	shared-kernel	object	n64	49428	c5e8890aeae88197		26	symtab	2	0	named-only	docs/routines/t1-kudzu-b017.md#routine-role-statements-kudzu-batch-17	Routine role statements, kudzu batch 17
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_compositor.o)	kernel-other-objects	shared-kernel	object	n64	14260	e095b347139f2d4f		8	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_ddc.o)	kernel-other-objects	shared-kernel	object	n64	42036	0046dab39c597bc8		25	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_ddrn.o)	kernel-other-objects	shared-kernel	object	n64	10356	20e3c34a6a78f3d7		3	symtab	1	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_ddrn.o)	kernel-other-objects	shared-kernel	object	n64	10356	20e3c34a6a78f3d7		3	symtab	1	0	named-only	docs/routines/t1-kudzu-b017.md#routine-role-statements-kudzu-batch-17	Routine role statements, kudzu batch 17
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_denali.o)	kernel-other-objects	shared-kernel	object	n64	7044	857e5e5d1abb82bb		2	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_diag.o)	kernel-other-objects	shared-kernel	object	n64	13348	5e95421165b98edf		8	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_dma.o)	kernel-other-objects	shared-kernel	object	n64	34884	5b3ff900d43e66e0		20	symtab	1	0	undocumented		
@@ -2097,7 +2097,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_hpipe.o)	kernel-other-objects	shared-kernel	object	n64	26372	82f35cc2efe19cdf		19	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_i2c.o)	kernel-other-objects	shared-kernel	object	n64	69460	81bac26e77f8d9ac		19	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_idbg.o)	kernel-other-objects	shared-kernel	object	n64	1236	67dd60f94fc96a2f	6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_idbg.o);6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_idbg.o);6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_idbg.o)	0	none	0	0	named-only	docs/kernel-optional-subsystems.md#built-empty	Built empty
-6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_init.o)	kernel-other-objects	shared-kernel	object	n64	81668	44bff5391b5515a3		29	symtab	16	1	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_init.o)	kernel-other-objects	shared-kernel	object	n64	81668	44bff5391b5515a3		29	symtab	16	1	named-only	docs/routines/t1-kudzu-b017.md#routine-role-statements-kudzu-batch-17	Routine role statements, kudzu batch 17
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_intr.o)	kernel-other-objects	shared-kernel	object	n64	20580	182cd87e4ca23759		5	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_map.o)	kernel-other-objects	shared-kernel	object	n64	14708	9ae09eda68481088		13	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_retrace.o)	kernel-other-objects	shared-kernel	object	n64	19876	47a9e9b9d2d17edf		13	symtab	1	0	undocumented		
@@ -2215,7 +2215,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(move.o)	kernel-other-objects	shared-kernel	object	n64	10756	2cbca986dadd49a5		11	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(name.o)	kernel-other-objects	shared-kernel	object	n64	21812	4b457c3496899502		14	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(page.o)	kernel-other-objects	shared-kernel	object	n64	59380	22feff0d80666154		53	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(pda.o)	kernel-other-objects	shared-kernel	object	n64	57364	368f16bd88bebcc9		42	symtab	1	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(pda.o)	kernel-other-objects	shared-kernel	object	n64	57364	368f16bd88bebcc9		42	symtab	1	0	named-only	docs/routines/t1-kudzu-b017.md#routine-role-statements-kudzu-batch-17	Routine role statements, kudzu batch 17
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(physio.o)	kernel-other-objects	shared-kernel	object	n64	12116	8bb1ad6fa3e84978		4	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(pipe.o)	kernel-other-objects	shared-kernel	object	n64	8276	71f28aa2aca4f1f9		1	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(printf.o)	kernel-other-objects	shared-kernel	object	n64	52148	56459be7cedd6005		41	symtab	2	0	undocumented		
@@ -2238,9 +2238,9 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(sysget.o)	kernel-other-objects	shared-kernel	object	n64	37092	2cbe98666d2291a1		18	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(sysmips.o)	kernel-other-objects	shared-kernel	object	n64	7668	9ea7b0c4b8d2f617		1	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(sysmp.o)	kernel-other-objects	shared-kernel	object	n64	33300	0762e0e236de4c3b		10	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(syssgi.o)	kernel-other-objects	shared-kernel	object	n64	97892	ce7ea59ba9c24894		22	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(syssgi.o)	kernel-other-objects	shared-kernel	object	n64	97892	ce7ea59ba9c24894		22	symtab	0	0	named-only	docs/routines/t1-kudzu-b017.md#routine-role-statements-kudzu-batch-17	Routine role statements, kudzu batch 17
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(thread.o)	kernel-other-objects	shared-kernel	object	n64	19492	f889f3f3c7f618bc		7	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(time.o)	kernel-other-objects	shared-kernel	object	n64	21076	0a85109daa9f5d5c		21	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(time.o)	kernel-other-objects	shared-kernel	object	n64	21076	0a85109daa9f5d5c		21	symtab	0	0	named-only	docs/routines/t1-kudzu-b017.md#routine-role-statements-kudzu-batch-17	Routine role statements, kudzu batch 17
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(timers.o)	kernel-other-objects	shared-kernel	object	n64	6132	fb392a9e577a1afc		5	symtab	5	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(tlbmgr.o)	kernel-other-objects	shared-kernel	object	n64	32596	9eae4a39aeaacc38		35	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	kernel-other-objects	shared-kernel	object	n64	68580	f9fdd762d0c85bde		41	symtab	0	0	undocumented		
@@ -2400,7 +2400,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP30boot/wacom.o	kernel-other-objects	shared-kernel	object	n64	174848	03c587c361c94122		95	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/xbmon.o	kernel-other-objects	shared-kernel	object	n64	19776	197e2b5c2312d60d		18	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/xbow.o	kernel-platform-drivers	shared-kernel	object	n64	34824	a3c98960e22d1b25		30	symtab	6	9	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP30boot/xbridge.o	kernel-platform-drivers	shared-kernel	object	n64	18288	b6b4ae0967861595		2	symtab	4	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP30boot/xbridge.o	kernel-platform-drivers	shared-kernel	object	n64	18288	b6b4ae0967861595		2	symtab	4	0	named-only	docs/routines/t1-kudzu-b017.md#routine-role-statements-kudzu-batch-17	Routine role statements, kudzu batch 17
 6.5.22/usr/cpu/sysgen/IP30boot/xconn.o	kernel-platform-drivers	shared-kernel	object	n64	13760	8cca5339462b466d		9	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP30boot/xfs.a(xfs_alloc.o)	kernel-other-objects	shared-kernel	object	n64	39076	5dabaa32d95f3058		24	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/xfs.a(xfs_alloc_btree.o)	kernel-other-objects	shared-kernel	object	n64	30004	4dcf578d103297d0		21	symtab	0	0	undocumented		
@@ -2551,7 +2551,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP32boot/capability.a(cap_able.o)	kernel-other-objects	shared-kernel	object	n32	4580	ab4278ddcf86b44b		3	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/cdl.o	kernel-other-objects	shared-kernel	object	n32	19960	a571358d1d8ff6ea		23	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/cellstubs.a(cellstubs.o)	kernel-other-objects	shared-kernel	object	n32	3780	991f62e8a210783b		2	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/cn.o	kernel-other-objects	shared-kernel	object	n32	15320	d650ec3124e8a38a		19	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/cn.o	kernel-other-objects	shared-kernel	object	n32	15320	d650ec3124e8a38a		19	symtab	0	0	named-only	docs/routines/t1-kudzu-b017.md#routine-role-statements-kudzu-batch-17	Routine role statements, kudzu batch 17
 6.5.22/usr/cpu/sysgen/IP32boot/cpr.a(ckpt_procfs.o)	kernel-other-objects	shared-kernel	object	n32	41172	0cf86922d8db1fec		49	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/cpr.a(ckpt_sys.o)	kernel-other-objects	shared-kernel	object	n32	16036	6ecd26bec2535a0f		21	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/cpr.a(ckpt_util.o)	kernel-other-objects	shared-kernel	object	n32	7716	2b2c9f3f51ecebb1		9	symtab	0	0	undocumented		
@@ -2698,7 +2698,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP32boot/ksync.a(sema.o)	kernel-other-objects	shared-kernel	object	n32	43204	6ff0542630f1a078		96	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/ksync.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n32	4212	7e39b6343d86a736		8	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/ksync_metered.a(mutex.o)	kernel-other-objects	shared-kernel	object	n32	36500	b2c3deac7a3226fa		61	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/ksync_metered.a(sema.o)	kernel-other-objects	shared-kernel	object	n32	59604	1c914ab4676b50c5		108	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/ksync_metered.a(sema.o)	kernel-other-objects	shared-kernel	object	n32	59604	1c914ab4676b50c5		108	symtab	0	0	named-only	docs/routines/t1-kudzu-b018.md#routine-role-statements-tier-1-batch-18	Routine role statements, tier-1 batch 18
 6.5.22/usr/cpu/sysgen/IP32boot/ksync_metered.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n32	4116	5b2113d43b3f7aef		5	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/ksync_named.a(mutex.o)	kernel-other-objects	shared-kernel	object	n32	32740	c400a1f8d0022b1b		59	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/ksync_named.a(sema.o)	kernel-other-objects	shared-kernel	object	n32	46676	6fd4aad4c6547720		99	symtab	0	0	undocumented		
@@ -2716,7 +2716,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP32boot/mace.o	kernel-other-objects	shared-kernel	object	n32	9592	292f01d2e5705553		12	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/magellan.o	kernel-other-objects	shared-kernel	object	n32	17720	24214a0ff3631ec3		16	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/mem.o	kernel-platform-objects	shared-kernel	object	n32	11640	736e72fbfdd4e0cc		12	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/mhpckm.o	kernel-other-objects	shared-kernel	object	n32	21960	7c9fdbbac5e53706		24	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/mhpckm.o	kernel-other-objects	shared-kernel	object	n32	21960	7c9fdbbac5e53706		24	symtab	0	0	named-only	docs/routines/t1-kudzu-b018.md#routine-role-statements-tier-1-batch-18	Routine role statements, tier-1 batch 18
 6.5.22/usr/cpu/sysgen/IP32boot/mloadidbg.o	kernel-other-objects	shared-kernel	object	n32	23072	a13a3e171543b39a		10	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/mouse.a(pcmouse.o)	kernel-other-objects	shared-kernel	object	n32	12004	21e47b28995b11f6		5	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/msg.o	kernel-other-objects	shared-kernel	object	n32	17872	471284c27b42dcd6		11	symtab	0	0	undocumented		
@@ -2879,7 +2879,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(move.o)	kernel-other-objects	shared-kernel	object	n32	10020	dd98e85ffae8e3c0		12	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(name.o)	kernel-other-objects	shared-kernel	object	n32	17716	ee637aac3c7683aa		14	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(page.o)	kernel-other-objects	shared-kernel	object	n32	75348	a029da07f8f7dcc5		70	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(pda.o)	kernel-other-objects	shared-kernel	object	n32	39300	31459d4a977f0cc6		41	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(pda.o)	kernel-other-objects	shared-kernel	object	n32	39300	31459d4a977f0cc6		41	symtab	0	0	named-only	docs/routines/t1-kudzu-b018.md#routine-role-statements-tier-1-batch-18	Routine role statements, tier-1 batch 18
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(physio.o)	kernel-other-objects	shared-kernel	object	n32	14356	2deeb6f82ce78cc7		5	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(pipe.o)	kernel-other-objects	shared-kernel	object	n32	6356	9db3741922785c04		1	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(printf.o)	kernel-other-objects	shared-kernel	object	n32	39012	2a7c717c586a1879		41	symtab	0	0	undocumented		
@@ -2902,10 +2902,10 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(sysget.o)	kernel-other-objects	shared-kernel	object	n32	29876	a5c10c03232bb8ae		18	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(sysmips.o)	kernel-other-objects	shared-kernel	object	n32	5284	dccde76dcf71d1ed		1	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(sysmp.o)	kernel-other-objects	shared-kernel	object	n32	25332	558219cdd66cc8c0		10	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(syssgi.o)	kernel-other-objects	shared-kernel	object	n32	68260	dea8b6c84ecc16b6		20	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(syssgi.o)	kernel-other-objects	shared-kernel	object	n32	68260	dea8b6c84ecc16b6		20	symtab	0	0	named-only	docs/routines/t1-kudzu-b018.md#routine-role-statements-tier-1-batch-18	Routine role statements, tier-1 batch 18
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(thread.o)	kernel-other-objects	shared-kernel	object	n32	15252	2055efc27eef0702		7	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(tile.o)	kernel-other-objects	shared-kernel	object	n32	31124	27880f7505955fed		24	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(time.o)	kernel-other-objects	shared-kernel	object	n32	14660	cac594a29168f04a		17	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(time.o)	kernel-other-objects	shared-kernel	object	n32	14660	cac594a29168f04a		17	symtab	0	0	named-only	docs/routines/t1-kudzu-b018.md#routine-role-statements-tier-1-batch-18	Routine role statements, tier-1 batch 18
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(timers.o)	kernel-other-objects	shared-kernel	object	n32	5268	2e6e25c1887bfd41		6	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(tlbmgr.o)	kernel-other-objects	shared-kernel	object	n32	18740	f67836a735bf8f1a		29	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	kernel-other-objects	shared-kernel	object	n32	54740	6a391171d17f7e11		43	symtab	0	0	undocumented		
@@ -3164,7 +3164,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/cl.o	kernel-other-objects	shared-kernel	object	n64	17400	b09376b3d8ccf404	6.5.22/usr/cpu/sysgen/IP35boot/cl_part.o	14	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/clone.o	kernel-other-objects	shared-kernel	object	n64	7816	bb77a40243e4126a		2	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/clshm.o	kernel-other-objects	shared-kernel	object	n64	46888	c66b1b3bc46aa587		36	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/cn.o	kernel-other-objects	shared-kernel	object	n64	25416	7a2fe11e0d476142		29	symtab	0	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/cn.o	kernel-other-objects	shared-kernel	object	n64	25416	7a2fe11e0d476142		29	symtab	0	0	named-only	docs/routines/t1-kudzu-b018.md#routine-role-statements-tier-1-batch-18	Routine role statements, tier-1 batch 18
 6.5.22/usr/cpu/sysgen/IP35boot/connld.o	kernel-other-objects	shared-kernel	object	n64	12896	0c0da40cc8186221		4	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/cpr.a(ckpt_procfs.o)	kernel-other-objects	shared-kernel	object	n64	53732	0c4f8046de540743		50	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/cpr.a(ckpt_sys.o)	kernel-other-objects	shared-kernel	object	n64	21300	857d448dea144672		21	symtab	0	0	undocumented		
@@ -3174,7 +3174,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/devicestubs.a(devicestubs.o)	kernel-other-objects	shared-kernel	object	n64	3156	ec70d6dfded7b498		2	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/devpoll.o	kernel-other-objects	shared-kernel	object	n64	31952	6baa502f66fa4b1e		27	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/dfsstubs.a(dfsstubs.o)	kernel-other-objects	shared-kernel	object	n64	3348	1e11a0b35f8dfdee		1	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/dhardlocks.a(dhardlocks.o)	kernel-other-objects	shared-kernel	object	n64	41908	afe92648d8375a25		63	symtab	11	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/dhardlocks.a(dhardlocks.o)	kernel-other-objects	shared-kernel	object	n64	41908	afe92648d8375a25		63	symtab	11	0	named-only	docs/routines/t1-kudzu-b018.md#routine-role-statements-tier-1-batch-18	Routine role statements, tier-1 batch 18
 6.5.22/usr/cpu/sysgen/IP35boot/dhardlocks.a(dhardlocksasm.o)	kernel-other-objects	shared-kernel	object	n64	4836	f21f86212f1beaa7		3	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/dial.o	kernel-other-objects	shared-kernel	object	n64	29936	5918292995fd5dba		14	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/dialbox.o	kernel-other-objects	shared-kernel	object	n64	27464	aa737b6308c24198		14	symtab	0	0	undocumented		
@@ -3203,7 +3203,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/ds.a(dsglue.o)	kernel-other-objects	shared-kernel	object	n64	10500	8ebfd52c989b653c		7	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/eag.a(eag.o)	kernel-other-objects	shared-kernel	object	n64	10612	0d61a7b6ad3f4582		6	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/ecpplp.o	kernel-other-objects	shared-kernel	object	n64	57376	51577c34eb7aeb91		33	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o	kernel-other-objects	shared-kernel	object	n64	44392	0512df40119130ca		42	symtab	13	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/eeprom.o	kernel-other-objects	shared-kernel	object	n64	44392	0512df40119130ca		42	symtab	13	0	named-only	docs/routines/t1-kudzu-b018.md#routine-role-statements-tier-1-batch-18	Routine role statements, tier-1 batch 18
 6.5.22/usr/cpu/sysgen/IP35boot/efs.a(efs_bitmap.o)	kernel-other-objects	shared-kernel	object	n64	8644	6a0abce30fbbab42		4	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/efs.a(efs_bmap.o)	kernel-other-objects	shared-kernel	object	n64	15316	14b1c9a166915fe1		6	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/efs.a(efs_dalloc.o)	kernel-other-objects	shared-kernel	object	n64	13140	57648ab35d84c5f3		5	symtab	0	0	undocumented		
@@ -3226,8 +3226,8 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/fsctl.o	kernel-other-objects	shared-kernel	object	n64	18512	2b59c807442c61fa		13	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/gentty.o	kernel-other-objects	shared-kernel	object	n64	11640	b63585705efa3590		8	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/gfx.o	kernel-other-objects	shared-kernel	object	n64	53824	30e1106823877e9e		62	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/gfxs.a(gfx_flow.o)	kernel-other-objects	shared-kernel	object	n64	14932	d92b68943a4c825a		16	symtab	3	4	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/gfxs.a(klconfig.o)	kernel-other-objects	shared-kernel	object	n64	11220	5618bd6f01c69ccb		5	symtab	2	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/gfxs.a(gfx_flow.o)	kernel-other-objects	shared-kernel	object	n64	14932	d92b68943a4c825a		16	symtab	3	4	named-only	docs/routines/t1-kudzu-b019.md#routine-role-statements-reading-batch-19	Routine role statements, reading batch 19
+6.5.22/usr/cpu/sysgen/IP35boot/gfxs.a(klconfig.o)	kernel-other-objects	shared-kernel	object	n64	11220	5618bd6f01c69ccb		5	symtab	2	0	named-only	docs/routines/t1-kudzu-b019.md#routine-role-statements-reading-batch-19	Routine role statements, reading batch 19
 6.5.22/usr/cpu/sysgen/IP35boot/gfxs.a(gfx.o)	kernel-other-objects	shared-kernel	object	n64	53828	559442fb02aae496		62	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/gfxstubs.a(gfxstubs.o)	kernel-other-objects	shared-kernel	object	n64	7300	c9cb8814ba32a034		18	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/gr2stubs.a(gr2stubs.o)	kernel-other-objects	shared-kernel	object	n64	2916	16cf891014b6d275		1	symtab	0	0	undocumented		
@@ -3263,7 +3263,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/ide_idbg.o	kernel-other-objects	shared-kernel	object	n64	20224	56b4c5ff137cfe55		10	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/idev.o	kernel-other-objects	shared-kernel	object	n64	25928	fa823b9ff0159d4a		22	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/if_cl.o	kernel-other-objects	shared-kernel	object	n64	49040	19ee53e84713ae88	6.5.22/usr/cpu/sysgen/IP35boot/if_cl_part.o	35	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/if_ef.o	kernel-other-objects	shared-kernel	object	n64	51112	55565276ef94b16d		47	symtab	3	5	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/if_ef.o	kernel-other-objects	shared-kernel	object	n64	51112	55565276ef94b16d		47	symtab	3	5	named-only	docs/routines/t1-kudzu-b019.md#routine-role-statements-reading-batch-19	Routine role statements, reading batch 19
 6.5.22/usr/cpu/sysgen/IP35boot/if_eg.o	kernel-other-objects	shared-kernel	object	n64	77136	45568715ae26b971		55	symtab	1	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/if_ppp.o	kernel-other-objects	shared-kernel	object	n64	53400	fe5667039d4a996d		25	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/if_ptr.o	kernel-other-objects	shared-kernel	object	n64	129480	7c970fd82ffe46bf		69	symtab	0	0	undocumented		
@@ -3281,11 +3281,11 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/io.a(hwcopy.o)	kernel-platform-drivers	shared-kernel	object	n64	4404	8563e44d820435ad		2	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP35boot/io6.o	kernel-platform-drivers	shared-kernel	object	n64	6776	3cedb33a6900cfd6		2	symtab	0	4	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP35boot/ioc3.o	kernel-platform-drivers	shared-kernel	object	n64	27656	c787b0a166c4c26b		27	symtab	3	6	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP35boot/ioc3_pckm.o	kernel-other-objects	shared-kernel	object	n64	37480	cdd0210d93c6d395		36	symtab	1	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/ioc3ei.o	kernel-other-objects	shared-kernel	object	n64	21264	776d07dd1b0a117e		19	symtab	3	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/ioc3_pckm.o	kernel-other-objects	shared-kernel	object	n64	37480	cdd0210d93c6d395		36	symtab	1	0	named-only	docs/routines/t1-kudzu-b019.md#routine-role-statements-reading-batch-19	Routine role statements, reading batch 19
+6.5.22/usr/cpu/sysgen/IP35boot/ioc3ei.o	kernel-other-objects	shared-kernel	object	n64	21264	776d07dd1b0a117e		19	symtab	3	0	named-only	docs/routines/t1-kudzu-b019.md#routine-role-statements-reading-batch-19	Routine role statements, reading batch 19
 6.5.22/usr/cpu/sysgen/IP35boot/ioc4.o	kernel-other-objects	shared-kernel	object	n64	23944	3a6842ff574f231b		21	symtab	0	9	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/ioc4_ei.o	kernel-other-objects	shared-kernel	object	n64	21608	d8271e12925bb461		19	symtab	5	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/ioc4_pckm.o	kernel-other-objects	shared-kernel	object	n64	36408	c87050a9e8669e1c		35	symtab	1	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/ioc4_ei.o	kernel-other-objects	shared-kernel	object	n64	21608	d8271e12925bb461		19	symtab	5	0	named-only	docs/routines/t1-kudzu-b019.md#routine-role-statements-reading-batch-19	Routine role statements, reading batch 19
+6.5.22/usr/cpu/sysgen/IP35boot/ioc4_pckm.o	kernel-other-objects	shared-kernel	object	n64	36408	c87050a9e8669e1c		35	symtab	1	0	named-only	docs/routines/t1-kudzu-b019.md#routine-role-statements-reading-batch-19	Routine role statements, reading batch 19
 6.5.22/usr/cpu/sysgen/IP35boot/ip_mroute.o	kernel-other-objects	shared-kernel	object	n64	41240	3a6775667a882f3e		34	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/ipfilter.o	kernel-other-objects	shared-kernel	object	n64	18896	2ce0b0c7a2b41e95		9	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/ipv6.a(dest6.o)	kernel-other-objects	shared-kernel	object	n64	5380	d962b1d853b6ea4b		1	symtab	0	0	undocumented		
@@ -3365,7 +3365,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/ksync.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	58964	e0faa50fe06db652		98	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/ksync.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n64	6244	0e7e749ea991e55a		8	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/ksync_metered.a(mutex.o)	kernel-other-objects	shared-kernel	object	n64	48836	15c4b15ab6521ebd		62	symtab	5	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/ksync_metered.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	78852	ca84608a807efebb		110	symtab	10	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/ksync_metered.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	78852	ca84608a807efebb		110	symtab	10	0	named-only	docs/routines/t1-kudzu-b022.md#routine-role-statements-for-25-kudzu-routines	Routine role statements for 25 kudzu routines
 6.5.22/usr/cpu/sysgen/IP35boot/ksync_metered.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n64	6100	b75959bcdfbc5db4		5	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/ksync_named.a(mutex.o)	kernel-other-objects	shared-kernel	object	n64	44692	4f06be287cca5037		60	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/ksync_named.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	63060	33ca7931cbf4f0d7		101	symtab	0	0	undocumented		
@@ -3374,7 +3374,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/ksync_statistics.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	61252	3f971ad454ee9b8a		97	symtab	8	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/ksync_statistics.a(klstat.o)	kernel-other-objects	shared-kernel	object	n64	10676	d3fb70a5b1baf7a6		7	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/ksync_statistics.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n64	6260	227b46b1b9fa8c4c		8	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/l1.o	kernel-other-objects	shared-kernel	object	n64	54536	70ae26e99b6e6930		60	symtab	17	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/l1.o	kernel-other-objects	shared-kernel	object	n64	54536	70ae26e99b6e6930		60	symtab	17	0	named-only	docs/routines/t1-kudzu-b022.md#routine-role-statements-for-25-kudzu-routines	Routine role statements for 25 kudzu routines
 6.5.22/usr/cpu/sysgen/IP35boot/l1_command.o	kernel-other-objects	shared-kernel	object	n64	59552	13ebae9509165591		85	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/llc2.a(llc2.o)	kernel-other-objects	shared-kernel	object	n64	33028	955e4b3e728589dd		23	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/llc2.a(llc2dlpi.o)	kernel-other-objects	shared-kernel	object	n64	41636	a497c575228c86d3		40	symtab	0	0	undocumented		
@@ -3489,13 +3489,13 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/numa_idbg.a(numa_idbg.o)	kernel-other-objects	shared-kernel	object	n64	38564	40995a2c045fc2ce		23	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy.o)	kernel-other-objects	shared-kernel	object	n64	13620	6da7021fd87031e9		4	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_adt.o)	kernel-other-objects	shared-kernel	object	n64	16244	a83cf148e45d0e30		18	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_attach.o)	kernel-other-objects	shared-kernel	object	n64	7780	6a7a83fbfb1e667a		3	symtab	2	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_attach.o)	kernel-other-objects	shared-kernel	object	n64	7780	6a7a83fbfb1e667a		3	symtab	2	0	named-only	docs/routines/t1-kudzu-b022.md#routine-role-statements-for-25-kudzu-routines	Routine role statements for 25 kudzu routines
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_brdmgr.o)	kernel-other-objects	shared-kernel	object	n64	61140	ae0ac078408c5b11		21	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_clip.o)	kernel-other-objects	shared-kernel	object	n64	16628	4ed5b1b47e1276df		8	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_ctxsw.o)	kernel-other-objects	shared-kernel	object	n64	49716	8d7782a006b24759		26	symtab	2	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_ctxsw.o)	kernel-other-objects	shared-kernel	object	n64	49716	8d7782a006b24759		26	symtab	2	0	named-only	docs/routines/t1-kudzu-b022.md#routine-role-statements-for-25-kudzu-routines	Routine role statements for 25 kudzu routines
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_compositor.o)	kernel-other-objects	shared-kernel	object	n64	14228	6ea0e4a9458f238c		8	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_ddc.o)	kernel-other-objects	shared-kernel	object	n64	42004	c97839530e3705a3		25	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_ddrn.o)	kernel-other-objects	shared-kernel	object	n64	10916	fd287c87f246dbc2		3	symtab	1	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_ddrn.o)	kernel-other-objects	shared-kernel	object	n64	10916	fd287c87f246dbc2		3	symtab	1	0	named-only	docs/routines/t1-kudzu-b022.md#routine-role-statements-for-25-kudzu-routines	Routine role statements for 25 kudzu routines
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_denali.o)	kernel-other-objects	shared-kernel	object	n64	7028	3312f684a54d22a6		2	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_diag.o)	kernel-other-objects	shared-kernel	object	n64	13316	0507a676f1166a7e		8	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_dma.o)	kernel-other-objects	shared-kernel	object	n64	34532	5562cd4a5fea40b2		20	symtab	1	0	undocumented		
@@ -3504,7 +3504,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_flow.o)	kernel-other-objects	shared-kernel	object	n64	12324	28e3299020f6e420		9	symtab	2	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_hpipe.o)	kernel-other-objects	shared-kernel	object	n64	26340	0321b46a4e37fee7		19	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_i2c.o)	kernel-other-objects	shared-kernel	object	n64	69428	c958a0bd48eb339c		19	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_init.o)	kernel-other-objects	shared-kernel	object	n64	88820	daad6f1681406325		32	symtab	8	1	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_init.o)	kernel-other-objects	shared-kernel	object	n64	88820	daad6f1681406325		32	symtab	8	1	named-only	docs/routines/t1-kudzu-b022.md#routine-role-statements-for-25-kudzu-routines	Routine role statements for 25 kudzu routines
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_intr.o)	kernel-other-objects	shared-kernel	object	n64	20548	5d7827ebe9606fac		5	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_map.o)	kernel-other-objects	shared-kernel	object	n64	15540	5d38f752d6e7febb		13	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_retrace.o)	kernel-other-objects	shared-kernel	object	n64	20500	340d56443f17a18a		13	symtab	1	0	undocumented		
@@ -3623,7 +3623,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(move.o)	kernel-other-objects	shared-kernel	object	n64	11060	9926d60b294f2173		11	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(name.o)	kernel-other-objects	shared-kernel	object	n64	22276	d51244e856213ecb		14	symtab	1	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(page.o)	kernel-other-objects	shared-kernel	object	n64	83636	e3a467c4e7bb0f3a		69	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(pda.o)	kernel-other-objects	shared-kernel	object	n64	58756	da5d66d0f6fe4603		42	symtab	2	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(pda.o)	kernel-other-objects	shared-kernel	object	n64	58756	da5d66d0f6fe4603		42	symtab	2	0	named-only	docs/routines/t1-kudzu-b022.md#routine-role-statements-for-25-kudzu-routines	Routine role statements for 25 kudzu routines
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(physio.o)	kernel-other-objects	shared-kernel	object	n64	12164	b79134ac88ad3885		4	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(pipe.o)	kernel-other-objects	shared-kernel	object	n64	8212	fec278ed4efbac18		1	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(printf.o)	kernel-other-objects	shared-kernel	object	n64	54644	87ff499fe0d36142		43	symtab	2	0	undocumented		
@@ -3646,9 +3646,9 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(sysget.o)	kernel-other-objects	shared-kernel	object	n64	37332	b366e536f3781a56		18	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(sysmips.o)	kernel-other-objects	shared-kernel	object	n64	7604	73efcfa70069d102		1	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(sysmp.o)	kernel-other-objects	shared-kernel	object	n64	35412	eafc7446478af621		10	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(syssgi.o)	kernel-other-objects	shared-kernel	object	n64	75204	e310c4a52cb7fc5d		23	symtab	2	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(syssgi.o)	kernel-other-objects	shared-kernel	object	n64	75204	e310c4a52cb7fc5d		23	symtab	2	0	named-only	docs/routines/t1-kudzu-b022.md#routine-role-statements-for-25-kudzu-routines	Routine role statements for 25 kudzu routines
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(thread.o)	kernel-other-objects	shared-kernel	object	n64	19428	87ac44e9908d6917		7	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(time.o)	kernel-other-objects	shared-kernel	object	n64	21204	10c64b88438bc019		21	symtab	1	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(time.o)	kernel-other-objects	shared-kernel	object	n64	21204	10c64b88438bc019		21	symtab	1	0	named-only	docs/routines/t1-kudzu-b022.md#routine-role-statements-for-25-kudzu-routines	Routine role statements for 25 kudzu routines
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(timers.o)	kernel-other-objects	shared-kernel	object	n64	6276	b1228639bed19795		5	symtab	5	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(tlbmgr.o)	kernel-other-objects	shared-kernel	object	n64	34644	dbe1a56e9b12eb76		35	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	kernel-other-objects	shared-kernel	object	n64	67140	7725dfff9f67957e		40	symtab	0	0	undocumented		
@@ -3665,14 +3665,14 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(watchpoints.o)	kernel-other-objects	shared-kernel	object	n64	12388	98a35c4f8feed71c		10	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(xthread.o)	kernel-other-objects	shared-kernel	object	n64	16388	1ec7071e3928ba84		15	symtab	1	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(xthread_table.o)	kernel-other-objects	shared-kernel	object	n64	14340	7daffe2896e599bd		10	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/partition.o	kernel-other-objects	shared-kernel	object	n64	76448	709ccb2a4d18fc8f	6.5.22/usr/cpu/sysgen/IP35boot/partition_part.o	72	symtab	1	28	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/partition.o	kernel-other-objects	shared-kernel	object	n64	76448	709ccb2a4d18fc8f	6.5.22/usr/cpu/sysgen/IP35boot/partition_part.o	72	symtab	1	28	named-only	docs/routines/t1-kudzu-b022.md#routine-role-statements-for-25-kudzu-routines	Routine role statements for 25 kudzu routines
 6.5.22/usr/cpu/sysgen/IP35boot/pciba.o	kernel-other-objects	shared-kernel	object	n64	52112	484e4826a5c3a062		25	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/pcibr.o	kernel-platform-drivers	shared-kernel	object	n64	301824	a4bae55fc107c7a1		265	symtab+dwarf	6	4	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP35boot/pciio.o	kernel-platform-drivers	shared-kernel	object	n64	47992	757d03ffbcd662d2		108	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP35boot/pciio_ppb.o	kernel-platform-drivers	shared-kernel	object	n64	28008	7e10f59ad6d24cb3		19	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP35boot/pciiox.o	kernel-platform-drivers	shared-kernel	object	n64	6120	13345822aa97e3d9		2	symtab	0	2	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP35boot/pgrpidbg.a(pgrpidbg.o)	kernel-other-objects	shared-kernel	object	n64	10820	d8c4d966e631e852		5	symtab	0	0	undocumented		
-6.5.22/usr/cpu/sysgen/IP35boot/pic.o	kernel-other-objects	shared-kernel	object	n64	32024	c7c4fd13aef0c8d2		13	symtab	6	6	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/pic.o	kernel-other-objects	shared-kernel	object	n64	32024	c7c4fd13aef0c8d2		13	symtab	6	6	named-only	docs/routines/t1-kudzu-b022.md#routine-role-statements-for-25-kudzu-routines	Routine role statements for 25 kudzu routines
 6.5.22/usr/cpu/sysgen/IP35boot/pipefs.a(pipevnops.o)	kernel-other-objects	shared-kernel	object	n64	23428	c5e2fdc2c1bfb9ac		21	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/pipefsstubs.a(pipefsstubs.o)	kernel-other-objects	shared-kernel	object	n64	2916	4532d1a1288cf85e		1	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/pipemod.o	kernel-other-objects	shared-kernel	object	n64	5656	786fe0fd76ebcb1f		3	symtab	0	0	undocumented		
@@ -3861,7 +3861,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/wacom.o	kernel-other-objects	shared-kernel	object	n64	174784	b7c311fe889133a1		95	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/xbmon.o	kernel-other-objects	shared-kernel	object	n64	20288	36625e7d3596367f		18	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/xbow.o	kernel-platform-drivers	shared-kernel	object	n64	34880	43d7cf8eae3be4db		30	symtab	6	9	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP35boot/xbridge.o	kernel-platform-drivers	shared-kernel	object	n64	22808	0353af78bfc72aec		2	symtab	4	0	undocumented		
+6.5.22/usr/cpu/sysgen/IP35boot/xbridge.o	kernel-platform-drivers	shared-kernel	object	n64	22808	0353af78bfc72aec		2	symtab	4	0	named-only	docs/routines/t1-kudzu-b022.md#routine-role-statements-for-25-kudzu-routines	Routine role statements for 25 kudzu routines
 6.5.22/usr/cpu/sysgen/IP35boot/xconn.o	kernel-platform-drivers	shared-kernel	object	n64	13696	b12ca5ce7f13ca68		9	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP35boot/xfs.a(xfs_alloc.o)	kernel-other-objects	shared-kernel	object	n64	39012	4a6e5c268be2689f		24	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/xfs.a(xfs_alloc_btree.o)	kernel-other-objects	shared-kernel	object	n64	29940	512db0eac1d0b062		21	symtab	0	0	undocumented		
@@ -4046,7 +4046,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP27boot/cl.o	kernel-other-objects	shared-kernel	object	n64	17376	6841b05d0bfa845c		14	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/clone.o	kernel-other-objects	shared-kernel	object	n64	7800	ba0140519ef80877		2	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/clshm.o	kernel-other-objects	shared-kernel	object	n64	46864	04fec86f781a1843		36	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/cn.o	kernel-other-objects	shared-kernel	object	n64	25200	9dd3428026886c98		29	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/cn.o	kernel-other-objects	shared-kernel	object	n64	25200	9dd3428026886c98		29	symtab	0	0	named-only	docs/routines/t1-kudzu-b031.md#tier-1-routine-readings-kudzu-batch-31	Tier-1 routine readings, kudzu batch 31
 6.5.30/usr/cpu/sysgen/IP27boot/compression.a(compression.o)	kernel-other-objects	shared-kernel	object	n64	7060	2b70a8121fa01d23	6.5.30/usr/cpu/sysgen/IP35boot/compression.a(compression.o)	5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/compression.a(rle1.o)	kernel-other-objects	shared-kernel	object	n64	5140	7d93d9b88c34234a	6.5.30/usr/cpu/sysgen/IP30boot/compression.a(rle1.o);6.5.30/usr/cpu/sysgen/IP35boot/compression.a(rle1.o)	2	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/compression.a(zp.o)	kernel-other-objects	shared-kernel	object	n64	3588	83a25faa74c20163	6.5.30/usr/cpu/sysgen/IP30boot/compression.a(zp.o);6.5.30/usr/cpu/sysgen/IP35boot/compression.a(zp.o)	2	symtab	0	0	undocumented		
@@ -4063,7 +4063,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP27boot/cserialio.o	kernel-other-objects	shared-kernel	object	n64	21768	6a5a462f0c7e9a61		22	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/cxfsstubs.a(cxfsstubs.o)	kernel-other-objects	shared-kernel	object	n64	13476	010b1dfe4329a0df	6.5.30/usr/cpu/sysgen/IP30boot/cxfsstubs.a(cxfsstubs.o);6.5.30/usr/cpu/sysgen/IP35boot/cxfsstubs.a(cxfsstubs.o)	35	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/devpoll.o	kernel-other-objects	shared-kernel	object	n64	31936	f12a1cca32aabddc		27	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/dhardlocks.a(dhardlocks.o)	kernel-other-objects	shared-kernel	object	n64	41892	0f4db2e173eb1108		63	symtab	11	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/dhardlocks.a(dhardlocks.o)	kernel-other-objects	shared-kernel	object	n64	41892	0f4db2e173eb1108		63	symtab	11	0	named-only	docs/routines/t1-kudzu-b031.md#tier-1-routine-readings-kudzu-batch-31	Tier-1 routine readings, kudzu batch 31
 6.5.30/usr/cpu/sysgen/IP27boot/dhardlocks.a(dhardlocksasm.o)	kernel-other-objects	shared-kernel	object	n64	4580	e7a6b156f60f18ee		3	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/dial.o	kernel-other-objects	shared-kernel	object	n64	29928	cb564ab048963698		14	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/dialbox.o	kernel-other-objects	shared-kernel	object	n64	27448	eadff62b0ff0a5a3		14	symtab	0	0	undocumented		
@@ -4141,7 +4141,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP27boot/fsctl.o	kernel-other-objects	shared-kernel	object	n64	18336	626186ffc40e4a58		13	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/gentty.o	kernel-other-objects	shared-kernel	object	n64	11944	139bdc040addfcf1		8	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/gfx.o	kernel-other-objects	shared-kernel	object	n64	53816	28186f9362dcd19e		62	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/gfxs.a(gfx_flow.o)	kernel-other-objects	shared-kernel	object	n64	17812	70f668a5a117d389		19	symtab	5	5	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/gfxs.a(gfx_flow.o)	kernel-other-objects	shared-kernel	object	n64	17812	70f668a5a117d389		19	symtab	5	5	named-only	docs/routines/t1-kudzu-b031.md#tier-1-routine-readings-kudzu-batch-31	Tier-1 routine readings, kudzu batch 31
 6.5.30/usr/cpu/sysgen/IP27boot/gfxs.a(klconfig.o)	kernel-other-objects	shared-kernel	object	n64	5844	d56b66fd1e680c4a		1	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/gfxs.a(gfx.o)	kernel-other-objects	shared-kernel	object	n64	53828	690a5f9776008c1e		62	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/gfxs.a(gfx_debug.o)	kernel-other-objects	shared-kernel	object	n64	1220	5db884a0a151483d	6.5.30/usr/cpu/sysgen/IP30boot/gfxs.a(gfx_debug.o);6.5.30/usr/cpu/sysgen/IP35boot/gfxs.a(gfx_debug.o)	0	none	0	0	undocumented		
@@ -4187,7 +4187,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP27boot/idev.o	kernel-other-objects	shared-kernel	object	n64	25896	1f3d93b2c33ae3dd		22	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/if_cl.o	kernel-other-objects	shared-kernel	object	n64	49024	f1c0f0c8ea19ab78		35	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/if_clstubs.a(if_clstubs.o)	kernel-other-objects	shared-kernel	object	n64	3220	9575f060ec82a79d	6.5.30/usr/cpu/sysgen/IP30boot/if_clstubs.a(if_clstubs.o);6.5.30/usr/cpu/sysgen/IP35boot/if_clstubs.a(if_clstubs.o)	1	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/if_ef.o	kernel-other-objects	shared-kernel	object	n64	50288	d4acc2e8f87a4d22		47	symtab	1	5	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/if_ef.o	kernel-other-objects	shared-kernel	object	n64	50288	d4acc2e8f87a4d22		47	symtab	1	5	named-only	docs/routines/t1-kudzu-b031.md#tier-1-routine-readings-kudzu-batch-31	Tier-1 routine readings, kudzu batch 31
 6.5.30/usr/cpu/sysgen/IP27boot/if_eg.o	kernel-other-objects	shared-kernel	object	n64	77856	ea32e15258ef4ee2		55	symtab	1	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/if_ppp.o	kernel-other-objects	shared-kernel	object	n64	53480	8dfad381a4766ba6		25	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/if_ptr.o	kernel-other-objects	shared-kernel	object	n64	129544	fea544dd2746dcb7		69	symtab	0	0	undocumented		
@@ -4211,8 +4211,8 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP27boot/io.a(hwcopy.o)	kernel-platform-drivers	shared-kernel	object	n64	4404	6d703d9439b816af		2	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP27boot/io6.o	kernel-platform-drivers	shared-kernel	object	n64	7016	1593cd3e6572ed28		2	symtab	0	4	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP27boot/ioc3.o	kernel-platform-drivers	shared-kernel	object	n64	27232	c5505138ceec0c6d		27	symtab	0	6	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/usr/cpu/sysgen/IP27boot/ioc3_pckm.o	kernel-other-objects	shared-kernel	object	n64	35840	159a1304d5d86fd0		34	symtab	1	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/ioc3ei.o	kernel-other-objects	shared-kernel	object	n64	21248	4441b50f9c67412e		19	symtab	3	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/ioc3_pckm.o	kernel-other-objects	shared-kernel	object	n64	35840	159a1304d5d86fd0		34	symtab	1	0	named-only	docs/routines/t1-kudzu-b031.md#tier-1-routine-readings-kudzu-batch-31	Tier-1 routine readings, kudzu batch 31
+6.5.30/usr/cpu/sysgen/IP27boot/ioc3ei.o	kernel-other-objects	shared-kernel	object	n64	21248	4441b50f9c67412e		19	symtab	3	0	named-only	docs/routines/t1-kudzu-b031.md#tier-1-routine-readings-kudzu-batch-31	Tier-1 routine readings, kudzu batch 31
 6.5.30/usr/cpu/sysgen/IP27boot/ip_mroute.o	kernel-other-objects	shared-kernel	object	n64	41232	4b687e356cc9e76d		34	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/ipc.o	kernel-other-objects	shared-kernel	object	n64	6680	42cc3529a73945fa	6.5.30/usr/cpu/sysgen/IP30boot/ipc.o;6.5.30/usr/cpu/sysgen/IP35boot/ipc.o	5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/ipfilter.o	kernel-other-objects	shared-kernel	object	n64	18880	a2c4abf4f210c027		9	symtab	0	0	undocumented		
@@ -4292,7 +4292,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP27boot/ksync.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	58948	cf0c75424f1b8009		98	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/ksync.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n64	6308	97edb3b15ed63eda		8	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/ksync_metered.a(mutex.o)	kernel-other-objects	shared-kernel	object	n64	49412	1b9e3e33d48d746d		63	symtab	5	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/ksync_metered.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	78836	900e38eac4fd9d4e		110	symtab	10	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/ksync_metered.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	78836	900e38eac4fd9d4e		110	symtab	10	0	named-only	docs/routines/t1-kudzu-b034.md#routine-role-statements-kudzu-ip30-kernel-and-boot-objects	Routine role statements: kudzu IP30 kernel and boot objects
 6.5.30/usr/cpu/sysgen/IP27boot/ksync_metered.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n64	6164	13cb78289c056d7a		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/ksync_named.a(mutex.o)	kernel-other-objects	shared-kernel	object	n64	45284	0454c5194117f945		61	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/ksync_named.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	63044	4121fa7f4e693736		101	symtab	0	0	undocumented		
@@ -4319,7 +4319,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP27boot/mem.o	kernel-platform-objects	shared-kernel	object	n64	15088	72c3627ae740c81c		12	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/mem_alloc.o	kernel-other-objects	shared-kernel	object	n64	59880	50ba445471e7c2af		23	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/menet.o	kernel-other-objects	shared-kernel	object	n64	6864	cb10fe2ed5c89988		2	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/mgras.a(mgras.o)	kernel-other-objects	shared-kernel	object	n64	106548	6a65e70d3cdcb982		78	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/mgras.a(mgras.o)	kernel-other-objects	shared-kernel	object	n64	106548	6a65e70d3cdcb982		78	symtab	0	0	named-only	docs/routines/t1-kudzu-b034.md#routine-role-statements-kudzu-ip30-kernel-and-boot-objects	Routine role statements: kudzu IP30 kernel and boot objects
 6.5.30/usr/cpu/sysgen/IP27boot/mgras.a(mgras_ccv.o)	kernel-other-objects	shared-kernel	object	n64	12580	9517757c2e8b4459		10	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/mgras.a(mgras_dma.o)	kernel-other-objects	shared-kernel	object	n64	32996	dd1a27508048acf7		28	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/mgras.a(mgras_init.o)	kernel-other-objects	shared-kernel	object	n64	80420	4444ffdb6ee5e4be		44	symtab	0	2	undocumented		
@@ -4558,7 +4558,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(name.o)	kernel-other-objects	shared-kernel	object	n64	22260	a75944dfc18ebe26		14	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(page.o)	kernel-other-objects	shared-kernel	object	n64	87028	75fc3333728a319b		72	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(pathname.o)	kernel-other-objects	shared-kernel	object	n64	10372	cbc4d64725d6bbf5	6.5.30/usr/cpu/sysgen/IP30boot/os.a(pathname.o);6.5.30/usr/cpu/sysgen/IP35boot/os.a(pathname.o)	13	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(pda.o)	kernel-other-objects	shared-kernel	object	n64	59444	546dcc9e14be42dc		42	symtab	1	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(pda.o)	kernel-other-objects	shared-kernel	object	n64	59444	546dcc9e14be42dc		42	symtab	1	0	named-only	docs/routines/t1-kudzu-b034.md#routine-role-statements-kudzu-ip30-kernel-and-boot-objects	Routine role statements: kudzu IP30 kernel and boot objects
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(physio.o)	kernel-other-objects	shared-kernel	object	n64	12212	40746933107705a0		4	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(pipe.o)	kernel-other-objects	shared-kernel	object	n64	8212	eaed841126fb1fa1		1	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(printf.o)	kernel-other-objects	shared-kernel	object	n64	55396	62a02884e1875e70		44	symtab	2	0	undocumented		
@@ -4582,9 +4582,9 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(sysget.o)	kernel-other-objects	shared-kernel	object	n64	37412	d6948d8d6c422e9d		18	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(sysmips.o)	kernel-other-objects	shared-kernel	object	n64	7588	d968f61de365f30e		1	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(sysmp.o)	kernel-other-objects	shared-kernel	object	n64	35716	c3e2da7c0d96a4bf		10	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(syssgi.o)	kernel-other-objects	shared-kernel	object	n64	102740	129b4c0a78a8510c		23	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(syssgi.o)	kernel-other-objects	shared-kernel	object	n64	102740	129b4c0a78a8510c		23	symtab	0	0	named-only	docs/routines/t1-kudzu-b034.md#routine-role-statements-kudzu-ip30-kernel-and-boot-objects	Routine role statements: kudzu IP30 kernel and boot objects
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(thread.o)	kernel-other-objects	shared-kernel	object	n64	19668	a026be80b37e004f		7	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(time.o)	kernel-other-objects	shared-kernel	object	n64	21188	b1dfe68ceb754b73		21	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(time.o)	kernel-other-objects	shared-kernel	object	n64	21188	b1dfe68ceb754b73		21	symtab	0	0	named-only	docs/routines/t1-kudzu-b034.md#routine-role-statements-kudzu-ip30-kernel-and-boot-objects	Routine role statements: kudzu IP30 kernel and boot objects
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(timers.o)	kernel-other-objects	shared-kernel	object	n64	6260	5b4dbc3f63745af6		5	symtab	5	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(tlbmgr.o)	kernel-other-objects	shared-kernel	object	n64	33492	af7072bd94661069		35	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	kernel-other-objects	shared-kernel	object	n64	68916	3681064629f7e846		41	symtab	0	0	undocumented		
@@ -4602,7 +4602,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(watchpoints.o)	kernel-other-objects	shared-kernel	object	n64	12484	ae236c74a56d5bfb		10	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(xthread.o)	kernel-other-objects	shared-kernel	object	n64	16820	72a054f22b67472b		15	symtab	1	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(xthread_table.o)	kernel-other-objects	shared-kernel	object	n64	14948	3c986c5edaac4a21		10	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/partition.o	kernel-other-objects	shared-kernel	object	n64	70472	015d3886d676869b		70	symtab	2	4	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/partition.o	kernel-other-objects	shared-kernel	object	n64	70472	015d3886d676869b		70	symtab	2	4	named-only	docs/routines/t1-kudzu-b034.md#routine-role-statements-kudzu-ip30-kernel-and-boot-objects	Routine role statements: kudzu IP30 kernel and boot objects
 6.5.30/usr/cpu/sysgen/IP27boot/partitionstubs.a(partitionstubs.o)	kernel-other-objects	shared-kernel	object	n64	13796	39e9ad21b6c564bc	6.5.30/usr/cpu/sysgen/IP30boot/partitionstubs.a(partitionstubs.o);6.5.30/usr/cpu/sysgen/IP35boot/partitionstubs.a(partitionstubs.o)	33	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/pciba.o	kernel-other-objects	shared-kernel	object	n64	52096	b08d9d9bc49a9db0		25	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/pcibr.o	kernel-platform-drivers	shared-kernel	object	n64	291328	9076f781d14016f4		259	symtab+dwarf	6	4	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -4656,7 +4656,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP27boot/satstubs.a(satstubs.o)	kernel-other-objects	shared-kernel	object	n64	27796	48d674074b5ce579		96	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/sball.o	kernel-other-objects	shared-kernel	object	n64	34656	33a5948eae8667ca		15	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/scsi.o	kernel-other-objects	shared-kernel	object	n64	59912	dc6378cd99c835a2	6.5.30/usr/cpu/sysgen/IP30boot/scsi.o;6.5.30/usr/cpu/sysgen/IP35boot/scsi.o	70	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/scsiha.o	kernel-other-objects	shared-kernel	object	n64	7728	e235b891fb8bffbc	6.5.30/usr/cpu/sysgen/IP30boot/scsiha.o;6.5.30/usr/cpu/sysgen/IP35boot/scsiha.o	3	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/scsiha.o	kernel-other-objects	shared-kernel	object	n64	7728	e235b891fb8bffbc	6.5.30/usr/cpu/sysgen/IP30boot/scsiha.o;6.5.30/usr/cpu/sysgen/IP35boot/scsiha.o	3	symtab	0	0	named-only	docs/routines/t1-kudzu-b034.md#routine-role-statements-kudzu-ip30-kernel-and-boot-objects	Routine role statements: kudzu IP30 kernel and boot objects
 6.5.30/usr/cpu/sysgen/IP27boot/sduart.a(serialio.o)	kernel-other-objects	shared-kernel	object	n64	64260	c5e4f8047760c0c2		64	symtab	1	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/sduart.a(sio_ioc3.o)	kernel-other-objects	shared-kernel	object	n64	40532	c4ccd623bab32f3f		35	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/sem.o	kernel-other-objects	shared-kernel	object	n64	45872	622bcabcdd400366		50	symtab	0	0	undocumented		
@@ -4793,7 +4793,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP27boot/wacom.o	kernel-other-objects	shared-kernel	object	n64	174776	e7a46650d1ebcce3		95	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/xbmon.o	kernel-other-objects	shared-kernel	object	n64	20064	11990c65cee98201		18	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/xbow.o	kernel-platform-drivers	shared-kernel	object	n64	38112	2cf831cc85047975		33	symtab	6	9	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/usr/cpu/sysgen/IP27boot/xbridge.o	kernel-platform-drivers	shared-kernel	object	n64	18648	a75cdb5762ff5550		2	symtab	4	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/xbridge.o	kernel-platform-drivers	shared-kernel	object	n64	18648	a75cdb5762ff5550		2	symtab	4	0	named-only	docs/routines/t1-kudzu-b034.md#routine-role-statements-kudzu-ip30-kernel-and-boot-objects	Routine role statements: kudzu IP30 kernel and boot objects
 6.5.30/usr/cpu/sysgen/IP27boot/xconn.o	kernel-platform-drivers	shared-kernel	object	n64	13680	ef14dfd8a45d96ee		9	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_alloc.o)	kernel-other-objects	shared-kernel	object	n64	39892	17c370f6a884a388		24	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_alloc_btree.o)	kernel-other-objects	shared-kernel	object	n64	30084	1ff36426e3f2c43d		21	symtab	0	0	undocumented		
@@ -4989,7 +4989,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP30boot/cdl.o	kernel-other-objects	shared-kernel	object	n64	24520	093ed50b6d42c137		23	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/cellstubs.a(cellstubs.o)	kernel-other-objects	shared-kernel	object	n64	11780	8f1f43a10646acd2		25	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/clone.o	kernel-other-objects	shared-kernel	object	n64	7776	ce389a80232576aa		2	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/cn.o	kernel-other-objects	shared-kernel	object	n64	25128	f2e6a4daba733d51		29	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/cn.o	kernel-other-objects	shared-kernel	object	n64	25128	f2e6a4daba733d51		29	symtab	0	0	named-only	docs/routines/t1-kudzu-b034.md#routine-role-statements-kudzu-ip30-kernel-and-boot-objects	Routine role statements: kudzu IP30 kernel and boot objects
 6.5.30/usr/cpu/sysgen/IP30boot/compression.a(compression.o)	kernel-other-objects	shared-kernel	object	n64	6964	abacd480e8c0ef21		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/connld.o	kernel-other-objects	shared-kernel	object	n64	12864	f75b199926da3605		4	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/cpr.a(ckpt_procfs.o)	kernel-other-objects	shared-kernel	object	n64	53700	376fee889bf47e0b		50	symtab	0	0	undocumented		
@@ -4997,7 +4997,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP30boot/cpr.a(ckpt_util.o)	kernel-other-objects	shared-kernel	object	n64	10932	f1e0c0bbaad87aa0		9	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/cserialio.o	kernel-other-objects	shared-kernel	object	n64	21752	ed14f73400e10b1b		22	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/devpoll.o	kernel-other-objects	shared-kernel	object	n64	31912	a9ce981b3bfa2984		27	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/dhardlocks.a(dhardlocks.o)	kernel-other-objects	shared-kernel	object	n64	41556	27d70c5e9cd55c9e		63	symtab	11	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/dhardlocks.a(dhardlocks.o)	kernel-other-objects	shared-kernel	object	n64	41556	27d70c5e9cd55c9e		63	symtab	11	0	named-only	docs/routines/t1-kudzu-b034.md#routine-role-statements-kudzu-ip30-kernel-and-boot-objects	Routine role statements: kudzu IP30 kernel and boot objects
 6.5.30/usr/cpu/sysgen/IP30boot/dhardlocks.a(dhardlocksasm.o)	kernel-other-objects	shared-kernel	object	n64	4116	8792bf4e95be5668		3	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/dial.o	kernel-other-objects	shared-kernel	object	n64	29904	2ce8485cdc56f189		14	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/dialbox.o	kernel-other-objects	shared-kernel	object	n64	27432	d90c9248cc43bf46		14	symtab	0	0	undocumented		
@@ -5045,7 +5045,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP30boot/fsctl.o	kernel-other-objects	shared-kernel	object	n64	18208	5f046fa9adecd4ec		13	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/gentty.o	kernel-other-objects	shared-kernel	object	n64	11920	c1c269be87fb8b05		8	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/gfx.o	kernel-other-objects	shared-kernel	object	n64	53712	73041c9bcd3351fc		62	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/gfxs.a(gfx_flow.o)	kernel-other-objects	shared-kernel	object	n64	16516	c637564e7dc7a6d8		22	symtab	15	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/gfxs.a(gfx_flow.o)	kernel-other-objects	shared-kernel	object	n64	16516	c637564e7dc7a6d8		22	symtab	15	0	named-only	docs/routines/t1-kudzu-b035.md#routine-role-statements-kudzu-6530-ip30-boot-objects	Routine role statements: kudzu 6.5.30 IP30 boot objects
 6.5.30/usr/cpu/sysgen/IP30boot/gfxs.a(gfx.o)	kernel-other-objects	shared-kernel	object	n64	53716	2a9821583c887b17		62	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/giobr.o	kernel-platform-drivers	shared-kernel	object	n64	43560	b120a72d0b021296		55	symtab	2	8	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP30boot/gioio.o	kernel-platform-drivers	shared-kernel	object	n64	24600	687b22c7c5c0036d		53	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -5079,7 +5079,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP30boot/hwgfs.a(hwgvnops.o)	kernel-platform-drivers	shared-kernel	object	n64	25812	b028bacb55fe271f		21	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP30boot/idbg.o	kernel-platform-objects	shared-kernel	object	n64	961880	daccfdbb78270fc5		298	symtab+dwarf	1	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP30boot/idev.o	kernel-other-objects	shared-kernel	object	n64	25872	ab1e8520f962f0f7		22	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/if_ef.o	kernel-other-objects	shared-kernel	object	n64	49920	fea4df21fb80f8d7		47	symtab	1	5	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/if_ef.o	kernel-other-objects	shared-kernel	object	n64	49920	fea4df21fb80f8d7		47	symtab	1	5	named-only	docs/routines/t1-kudzu-b035.md#routine-role-statements-kudzu-6530-ip30-boot-objects	Routine role statements: kudzu 6.5.30 IP30 boot objects
 6.5.30/usr/cpu/sysgen/IP30boot/if_eg.o	kernel-other-objects	shared-kernel	object	n64	77632	a88d78d7424f03ad		55	symtab	1	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/if_ppp.o	kernel-other-objects	shared-kernel	object	n64	53464	7c06696aa39ed248		25	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/if_ptr.o	kernel-other-objects	shared-kernel	object	n64	129384	73d38b991dace9d0		69	symtab	0	0	undocumented		
@@ -5097,7 +5097,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP30boot/io.a(hwcopy.o)	kernel-platform-drivers	shared-kernel	object	n64	4404	274b59ffd12c808e		2	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP30boot/io6.o	kernel-platform-drivers	shared-kernel	object	n64	6688	43d84f1c329d1e35		2	symtab	0	4	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP30boot/ioc3.o	kernel-platform-drivers	shared-kernel	object	n64	25000	97c1ade3287ad903		24	symtab	0	6	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/usr/cpu/sysgen/IP30boot/ioc3_pckm.o	kernel-other-objects	shared-kernel	object	n64	35696	17511cb33d8fe72c		34	symtab	1	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/ioc3_pckm.o	kernel-other-objects	shared-kernel	object	n64	35696	17511cb33d8fe72c		34	symtab	1	0	named-only	docs/routines/t1-kudzu-b035.md#routine-role-statements-kudzu-6530-ip30-boot-objects	Routine role statements: kudzu 6.5.30 IP30 boot objects
 6.5.30/usr/cpu/sysgen/IP30boot/ip_mroute.o	kernel-other-objects	shared-kernel	object	n64	41208	270bda9bd915f599		34	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/ipfilter.o	kernel-other-objects	shared-kernel	object	n64	18864	782adb65d414c5a9		9	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/ipv6.a(dest6.o)	kernel-other-objects	shared-kernel	object	n64	5444	7f265ad61aed8ac5		1	symtab	0	0	undocumented		
@@ -5143,7 +5143,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP30boot/ksync.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	58932	ad3cefe8be04756b		98	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/ksync.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n64	5844	9e2a29e0dc272587		8	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/ksync_metered.a(mutex.o)	kernel-other-objects	shared-kernel	object	n64	49220	e29d6e02b155a7ad		63	symtab	5	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/ksync_metered.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	78532	a752473a3208a006		110	symtab	10	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/ksync_metered.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	78532	a752473a3208a006		110	symtab	10	0	named-only	docs/routines/t1-kudzu-b037.md#routine-role-statements-6530-ip30-and-ip32-boot-objects	Routine role statements: 6.5.30 IP30 and IP32 boot objects
 6.5.30/usr/cpu/sysgen/IP30boot/ksync_metered.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n64	5700	0b85d9581cb0542e		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/ksync_named.a(mutex.o)	kernel-other-objects	shared-kernel	object	n64	45268	346ea2491f593e0a		61	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/ksync_named.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	63028	6c4c03c8a87ae629		101	symtab	0	0	undocumented		
@@ -5162,7 +5162,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP30boot/magellan.o	kernel-other-objects	shared-kernel	object	n64	30696	d40d2a407d0b426f		16	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/mem.o	kernel-platform-objects	shared-kernel	object	n64	14432	9c3be97e43cab74d		12	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/menet.o	kernel-other-objects	shared-kernel	object	n64	6688	d92b204e8dd27415		2	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/mgras.a(mgras.o)	kernel-other-objects	shared-kernel	object	n64	103012	af04a6bac1c408a0		80	symtab	13	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/mgras.a(mgras.o)	kernel-other-objects	shared-kernel	object	n64	103012	af04a6bac1c408a0		80	symtab	13	0	named-only	docs/routines/t1-kudzu-b037.md#routine-role-statements-6530-ip30-and-ip32-boot-objects	Routine role statements: 6.5.30 IP30 and IP32 boot objects
 6.5.30/usr/cpu/sysgen/IP30boot/mgras.a(mgras_ccv.o)	kernel-other-objects	shared-kernel	object	n64	12420	c951b6925155801a		10	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/mgras.a(mgras_dma.o)	kernel-other-objects	shared-kernel	object	n64	31524	ff13b61214353a46		28	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/mgras.a(mgras_init.o)	kernel-other-objects	shared-kernel	object	n64	81316	ceb56765bf164654		46	symtab	2	0	undocumented		
@@ -5235,13 +5235,13 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP30boot/numa.a(pm_policy_stubs.o)	kernel-platform-drivers	shared-kernel	object	n64	5956	78563a1e6f4e0104		1	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy.o)	kernel-other-objects	shared-kernel	object	n64	13588	0ed05985a3cc7b81		4	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_adt.o)	kernel-other-objects	shared-kernel	object	n64	16004	d6346dc0f54a1287		18	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_attach.o)	kernel-other-objects	shared-kernel	object	n64	7620	08d45543f8dc353f		3	symtab	2	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_attach.o)	kernel-other-objects	shared-kernel	object	n64	7620	08d45543f8dc353f		3	symtab	2	0	named-only	docs/routines/t1-kudzu-b037.md#routine-role-statements-6530-ip30-and-ip32-boot-objects	Routine role statements: 6.5.30 IP30 and IP32 boot objects
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_brdmgr.o)	kernel-other-objects	shared-kernel	object	n64	60580	72373a9173c6ede8		21	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_clip.o)	kernel-other-objects	shared-kernel	object	n64	15844	7dde76b945c93030		8	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_ctxsw.o)	kernel-other-objects	shared-kernel	object	n64	49476	ef6293d41342364d		26	symtab	2	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_ctxsw.o)	kernel-other-objects	shared-kernel	object	n64	49476	ef6293d41342364d		26	symtab	2	0	named-only	docs/routines/t1-kudzu-b037.md#routine-role-statements-6530-ip30-and-ip32-boot-objects	Routine role statements: 6.5.30 IP30 and IP32 boot objects
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_compositor.o)	kernel-other-objects	shared-kernel	object	n64	14292	d02595bb463fc6ab		8	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_ddc.o)	kernel-other-objects	shared-kernel	object	n64	42852	f3121efbc77e0634		25	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_ddrn.o)	kernel-other-objects	shared-kernel	object	n64	10372	e77a019f939b2e5b		3	symtab	1	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_ddrn.o)	kernel-other-objects	shared-kernel	object	n64	10372	e77a019f939b2e5b		3	symtab	1	0	named-only	docs/routines/t1-kudzu-b037.md#routine-role-statements-6530-ip30-and-ip32-boot-objects	Routine role statements: 6.5.30 IP30 and IP32 boot objects
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_denali.o)	kernel-other-objects	shared-kernel	object	n64	8084	2cc83c1b99481e65		2	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_diag.o)	kernel-other-objects	shared-kernel	object	n64	13348	703816000a8e8108		8	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_dma.o)	kernel-other-objects	shared-kernel	object	n64	36020	4f17430bb0f90d67		22	symtab	1	0	undocumented		
@@ -5249,7 +5249,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_flow.o)	kernel-other-objects	shared-kernel	object	n64	9556	eb6715ae894da81c		6	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_hpipe.o)	kernel-other-objects	shared-kernel	object	n64	26356	b3b966ce401f8ca4		19	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_i2c.o)	kernel-other-objects	shared-kernel	object	n64	74308	24e95c84974c272d		20	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_init.o)	kernel-other-objects	shared-kernel	object	n64	81796	3a57d1f9c48c2b32		29	symtab	16	1	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_init.o)	kernel-other-objects	shared-kernel	object	n64	81796	3a57d1f9c48c2b32		29	symtab	16	1	named-only	docs/routines/t1-kudzu-b037.md#routine-role-statements-6530-ip30-and-ip32-boot-objects	Routine role statements: 6.5.30 IP30 and IP32 boot objects
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_intr.o)	kernel-other-objects	shared-kernel	object	n64	20628	d0b9363bb76221e6		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_map.o)	kernel-other-objects	shared-kernel	object	n64	14756	96b854b83451467a		13	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/odyssey.a(odsy_rainier.o)	kernel-other-objects	shared-kernel	object	n64	8228	5f980b3d068f89c7		6	symtab	0	0	undocumented		
@@ -5369,7 +5369,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(move.o)	kernel-other-objects	shared-kernel	object	n64	10756	44c9cfc54235b7ba		11	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(name.o)	kernel-other-objects	shared-kernel	object	n64	21812	af7c1eca0ebc0f63		14	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(page.o)	kernel-other-objects	shared-kernel	object	n64	62532	d0871c444b4ed440		54	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(pda.o)	kernel-other-objects	shared-kernel	object	n64	57812	809d442d8b679d3f		42	symtab	1	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(pda.o)	kernel-other-objects	shared-kernel	object	n64	57812	809d442d8b679d3f		42	symtab	1	0	named-only	docs/routines/t1-kudzu-b037.md#routine-role-statements-6530-ip30-and-ip32-boot-objects	Routine role statements: 6.5.30 IP30 and IP32 boot objects
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(physio.o)	kernel-other-objects	shared-kernel	object	n64	12020	75b90a67d43b52a6		4	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(pipe.o)	kernel-other-objects	shared-kernel	object	n64	8180	e431a0fea8b40b5d		1	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(printf.o)	kernel-other-objects	shared-kernel	object	n64	52052	d9595e4df622fddb		41	symtab	2	0	undocumented		
@@ -5392,9 +5392,9 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(sysget.o)	kernel-other-objects	shared-kernel	object	n64	37076	2b210bc770934fa9		18	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(sysmips.o)	kernel-other-objects	shared-kernel	object	n64	7572	18d479e88c8e4505		1	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(sysmp.o)	kernel-other-objects	shared-kernel	object	n64	33684	5cb640e1f9ce9200		10	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(syssgi.o)	kernel-other-objects	shared-kernel	object	n64	99732	45ea2c1b7c003b76		22	symtab	1	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(syssgi.o)	kernel-other-objects	shared-kernel	object	n64	99732	45ea2c1b7c003b76		22	symtab	1	0	named-only	docs/routines/t1-kudzu-b037.md#routine-role-statements-6530-ip30-and-ip32-boot-objects	Routine role statements: 6.5.30 IP30 and IP32 boot objects
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(thread.o)	kernel-other-objects	shared-kernel	object	n64	19508	4f1be443c049a33c		7	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(time.o)	kernel-other-objects	shared-kernel	object	n64	21172	330adcb9c83f4553		21	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(time.o)	kernel-other-objects	shared-kernel	object	n64	21172	330adcb9c83f4553		21	symtab	0	0	named-only	docs/routines/t1-kudzu-b037.md#routine-role-statements-6530-ip30-and-ip32-boot-objects	Routine role statements: 6.5.30 IP30 and IP32 boot objects
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(timers.o)	kernel-other-objects	shared-kernel	object	n64	6036	a1e475889a335a7e		5	symtab	5	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(tlbmgr.o)	kernel-other-objects	shared-kernel	object	n64	32500	a434b970ab47768a		35	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	kernel-other-objects	shared-kernel	object	n64	68516	7886d006a6fe02e5		41	symtab	0	0	undocumented		
@@ -5558,7 +5558,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP30boot/wacom.o	kernel-other-objects	shared-kernel	object	n64	174752	004d8a277dc30de0		95	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/xbmon.o	kernel-other-objects	shared-kernel	object	n64	19776	91e6a2ed0aa63b67		18	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/xbow.o	kernel-platform-drivers	shared-kernel	object	n64	34824	6b3358aed976cd4d		30	symtab	6	9	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/usr/cpu/sysgen/IP30boot/xbridge.o	kernel-platform-drivers	shared-kernel	object	n64	18168	d0820152ac029db9		2	symtab	4	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/xbridge.o	kernel-platform-drivers	shared-kernel	object	n64	18168	d0820152ac029db9		2	symtab	4	0	named-only	docs/routines/t1-kudzu-b037.md#routine-role-statements-6530-ip30-and-ip32-boot-objects	Routine role statements: 6.5.30 IP30 and IP32 boot objects
 6.5.30/usr/cpu/sysgen/IP30boot/xconn.o	kernel-platform-drivers	shared-kernel	object	n64	13656	5cfda0d1dff36ef0		9	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP30boot/xfs.a(xfs_alloc.o)	kernel-other-objects	shared-kernel	object	n64	39876	328da22c808e9c1e		24	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/xfs.a(xfs_alloc_btree.o)	kernel-other-objects	shared-kernel	object	n64	30068	450937e956008846		21	symtab	0	0	undocumented		
@@ -5730,7 +5730,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP32boot/capability.a(cap_able.o)	kernel-other-objects	shared-kernel	object	n32	4580	4c5f4f11aeabf984		3	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/cdl.o	kernel-other-objects	shared-kernel	object	n32	19960	c7f7d0425e9dc168		23	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/cellstubs.a(cellstubs.o)	kernel-other-objects	shared-kernel	object	n32	3780	3499b67fe2de72cd		2	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/cn.o	kernel-other-objects	shared-kernel	object	n32	15320	09f9df616ef65391		19	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/cn.o	kernel-other-objects	shared-kernel	object	n32	15320	09f9df616ef65391		19	symtab	0	0	named-only	docs/routines/t1-kudzu-b037.md#routine-role-statements-6530-ip30-and-ip32-boot-objects	Routine role statements: 6.5.30 IP30 and IP32 boot objects
 6.5.30/usr/cpu/sysgen/IP32boot/compression.a(compression.o)	kernel-other-objects	shared-kernel	object	n32	5188	4fe703c1cec98114		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/compression.a(rle1.o)	kernel-other-objects	shared-kernel	object	n32	4292	80643fbf53244cae		2	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/compression.a(zp.o)	kernel-other-objects	shared-kernel	object	n32	2740	ffd7fca250cd76ac		2	symtab	0	0	undocumented		
@@ -5925,7 +5925,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP32boot/ksync.a(sema.o)	kernel-other-objects	shared-kernel	object	n32	43204	adc81604ad02fe83		96	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/ksync.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n32	4212	5a2175b7ff848f97		8	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/ksync_metered.a(mutex.o)	kernel-other-objects	shared-kernel	object	n32	36964	1a9e587beb2b7512		62	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/ksync_metered.a(sema.o)	kernel-other-objects	shared-kernel	object	n32	59604	cdd5261c679037e8		108	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/ksync_metered.a(sema.o)	kernel-other-objects	shared-kernel	object	n32	59604	cdd5261c679037e8		108	symtab	0	0	named-only	docs/routines/t1-kudzu-b038.md#routine-role-statements-tier-1-batch-38	Routine role statements, tier-1 batch 38
 6.5.30/usr/cpu/sysgen/IP32boot/ksync_metered.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n32	4116	9e49af5688d33a5c		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/ksync_named.a(mutex.o)	kernel-other-objects	shared-kernel	object	n32	33188	8df271c45cd4ad9c		60	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/ksync_named.a(sema.o)	kernel-other-objects	shared-kernel	object	n32	46676	e2c34980f17a302c		99	symtab	0	0	undocumented		
@@ -5951,7 +5951,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP32boot/magellan.o	kernel-other-objects	shared-kernel	object	n32	17720	c81fc7a55e994397		16	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mem.o	kernel-platform-objects	shared-kernel	object	n32	11640	2b35f014642b5c47		12	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mgvstubs.a(mgvstubs.o)	kernel-other-objects	shared-kernel	object	n32	2564	8e5274ddef97040f		1	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/mhpckm.o	kernel-other-objects	shared-kernel	object	n32	21960	fd0938e2ac2241d2		24	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/mhpckm.o	kernel-other-objects	shared-kernel	object	n32	21960	fd0938e2ac2241d2		24	symtab	0	0	named-only	docs/routines/t1-kudzu-b038.md#routine-role-statements-tier-1-batch-38	Routine role statements, tier-1 batch 38
 6.5.30/usr/cpu/sysgen/IP32boot/mloadidbg.o	kernel-other-objects	shared-kernel	object	n32	23072	40bdb1c199507d70		10	symtab	0	0	named-only	docs/kernel-debug-signatures.md#6530usrcpusysgenip32bootmloadidbgo	`6.5.30/usr/cpu/sysgen/IP32boot/mloadidbg.o`
 6.5.30/usr/cpu/sysgen/IP32boot/mouse.a(pcmouse.o)	kernel-other-objects	shared-kernel	object	n32	12004	43be2695e227e3ea		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/msg.o	kernel-other-objects	shared-kernel	object	n32	17872	84b59b6cd0e6d237		11	symtab	0	0	undocumented		
@@ -6138,7 +6138,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(name.o)	kernel-other-objects	shared-kernel	object	n32	17716	c8b7046a25471625		14	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(page.o)	kernel-other-objects	shared-kernel	object	n32	77620	2686f550828cbdd6		71	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(pathname.o)	kernel-other-objects	shared-kernel	object	n32	7540	1ff96fc684e707fb		13	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(pda.o)	kernel-other-objects	shared-kernel	object	n32	39652	fde03da2f4f3e186		41	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(pda.o)	kernel-other-objects	shared-kernel	object	n32	39652	fde03da2f4f3e186		41	symtab	0	0	named-only	docs/routines/t1-kudzu-b038.md#routine-role-statements-tier-1-batch-38	Routine role statements, tier-1 batch 38
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(physio.o)	kernel-other-objects	shared-kernel	object	n32	14324	6faa9c346334c648		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(pipe.o)	kernel-other-objects	shared-kernel	object	n32	6356	8a73660b586f85aa		1	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(printf.o)	kernel-other-objects	shared-kernel	object	n32	39012	0690b528e6fa9aa5		41	symtab	0	0	undocumented		
@@ -6161,10 +6161,10 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(sysget.o)	kernel-other-objects	shared-kernel	object	n32	29940	e37c430116bd8b27		18	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(sysmips.o)	kernel-other-objects	shared-kernel	object	n32	5284	72ee61394d5ae932		1	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(sysmp.o)	kernel-other-objects	shared-kernel	object	n32	25812	15d99688531afca4		10	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(syssgi.o)	kernel-other-objects	shared-kernel	object	n32	70020	c024a2b3d23f3030		20	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(syssgi.o)	kernel-other-objects	shared-kernel	object	n32	70020	c024a2b3d23f3030		20	symtab	0	0	named-only	docs/routines/t1-kudzu-b038.md#routine-role-statements-tier-1-batch-38	Routine role statements, tier-1 batch 38
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(thread.o)	kernel-other-objects	shared-kernel	object	n32	15332	0eee88880c823821		7	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(tile.o)	kernel-other-objects	shared-kernel	object	n32	31124	dbe331ca2334e1f6		24	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(time.o)	kernel-other-objects	shared-kernel	object	n32	14836	05799a0575b12e3d		17	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(time.o)	kernel-other-objects	shared-kernel	object	n32	14836	05799a0575b12e3d		17	symtab	0	0	named-only	docs/routines/t1-kudzu-b038.md#routine-role-statements-tier-1-batch-38	Routine role statements, tier-1 batch 38
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(timers.o)	kernel-other-objects	shared-kernel	object	n32	5268	ab02e9de67343e56		6	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(tlbmgr.o)	kernel-other-objects	shared-kernel	object	n32	18740	737f6367053f50e5		29	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	kernel-other-objects	shared-kernel	object	n32	54788	2bca21aad304483a		43	symtab	0	0	undocumented		
@@ -6227,7 +6227,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP32boot/sbp2.o	kernel-other-objects	shared-kernel	object	n32	72504	9a59469f92775bed		76	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/sbp2idbg.o	kernel-other-objects	shared-kernel	object	n32	15488	e0d267b211171fda		10	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/scsi.o	kernel-other-objects	shared-kernel	object	n32	48024	89045b3e60705069		70	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/scsiha.o	kernel-other-objects	shared-kernel	object	n32	5864	ff23c97f0d48d7e3		3	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/scsiha.o	kernel-other-objects	shared-kernel	object	n32	5864	ff23c97f0d48d7e3		3	symtab	0	0	named-only	docs/routines/t1-kudzu-b039.md#tier-1-routine-readings-kudzu-batch-39	Tier-1 routine readings, kudzu batch 39
 6.5.30/usr/cpu/sysgen/IP32boot/sduart.a(serialio.o)	kernel-other-objects	shared-kernel	object	n32	45636	88ab646a512c5354		59	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/sduart.a(sio_ti16550.o)	kernel-other-objects	shared-kernel	object	n32	21956	3434df1da2ebbdee		33	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/sem.o	kernel-other-objects	shared-kernel	object	n32	33776	570f3f96543897bf		48	symtab	0	0	undocumented		
@@ -6506,7 +6506,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/cl.o	kernel-other-objects	shared-kernel	object	n64	17296	79f48c2bfdb04671	6.5.30/usr/cpu/sysgen/IP35boot/cl_part.o	14	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/clone.o	kernel-other-objects	shared-kernel	object	n64	7712	a88ac44e533a4b81		2	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/clshm.o	kernel-other-objects	shared-kernel	object	n64	46784	d125682c4f3f136a		36	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/cn.o	kernel-other-objects	shared-kernel	object	n64	25752	9e3e6d2abe8aaa06		29	symtab	1	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/cn.o	kernel-other-objects	shared-kernel	object	n64	25752	9e3e6d2abe8aaa06		29	symtab	1	0	named-only	docs/routines/t1-kudzu-b039.md#tier-1-routine-readings-kudzu-batch-39	Tier-1 routine readings, kudzu batch 39
 6.5.30/usr/cpu/sysgen/IP35boot/connld.o	kernel-other-objects	shared-kernel	object	n64	12800	7148c1e8f57f3a69		4	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/cpr.a(ckpt_procfs.o)	kernel-other-objects	shared-kernel	object	n64	53636	394625b9522360a6		50	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/cpr.a(ckpt_sys.o)	kernel-other-objects	shared-kernel	object	n64	21860	13f942cc21211b9b		22	symtab	0	0	undocumented		
@@ -6516,7 +6516,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/devicestubs.a(devicestubs.o)	kernel-other-objects	shared-kernel	object	n64	3156	0ef7f25d954ec8c2		2	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/devpoll.o	kernel-other-objects	shared-kernel	object	n64	31848	9c4d1dd198dde1c3		27	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/dfsstubs.a(dfsstubs.o)	kernel-other-objects	shared-kernel	object	n64	3348	27cb9e72c8861525		1	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/dhardlocks.a(dhardlocks.o)	kernel-other-objects	shared-kernel	object	n64	41812	55dfac27c1a06cf4		63	symtab	11	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/dhardlocks.a(dhardlocks.o)	kernel-other-objects	shared-kernel	object	n64	41812	55dfac27c1a06cf4		63	symtab	11	0	named-only	docs/routines/t1-kudzu-b039.md#tier-1-routine-readings-kudzu-batch-39	Tier-1 routine readings, kudzu batch 39
 6.5.30/usr/cpu/sysgen/IP35boot/dhardlocks.a(dhardlocksasm.o)	kernel-other-objects	shared-kernel	object	n64	4836	abe4e10b11f5ecac		3	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/dial.o	kernel-other-objects	shared-kernel	object	n64	29840	6ebd976d61b29ab7		14	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/dialbox.o	kernel-other-objects	shared-kernel	object	n64	27368	3b5c3ac3da66ab48		14	symtab	0	0	undocumented		
@@ -6545,7 +6545,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/ds.a(dsglue.o)	kernel-other-objects	shared-kernel	object	n64	10388	ec4f92f302364497		7	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/eag.a(eag.o)	kernel-other-objects	shared-kernel	object	n64	10500	e426d45372fc7e48		6	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ecpplp.o	kernel-other-objects	shared-kernel	object	n64	57232	ce5fcac545bae5eb		33	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o	kernel-other-objects	shared-kernel	object	n64	44384	968fe5a88d27c279		42	symtab	13	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/eeprom.o	kernel-other-objects	shared-kernel	object	n64	44384	968fe5a88d27c279		42	symtab	13	0	named-only	docs/routines/t1-kudzu-b039.md#tier-1-routine-readings-kudzu-batch-39	Tier-1 routine readings, kudzu batch 39
 6.5.30/usr/cpu/sysgen/IP35boot/efs.a(efs_bitmap.o)	kernel-other-objects	shared-kernel	object	n64	8644	7b1564a782fc1999		4	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/efs.a(efs_bmap.o)	kernel-other-objects	shared-kernel	object	n64	15204	16b19f581a5cdce0		6	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/efs.a(efs_dalloc.o)	kernel-other-objects	shared-kernel	object	n64	13044	a9cab3b7004aa03d		5	symtab	0	0	undocumented		
@@ -6569,8 +6569,8 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/fsctl.o	kernel-other-objects	shared-kernel	object	n64	18512	f6d3612597fab165		13	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/gentty.o	kernel-other-objects	shared-kernel	object	n64	11856	b58249b0aa44abf0		8	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/gfx.o	kernel-other-objects	shared-kernel	object	n64	53720	a42762015aa4c9ed		62	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/gfxs.a(gfx_flow.o)	kernel-other-objects	shared-kernel	object	n64	14836	2908dd361cfa0ac9		16	symtab	3	4	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/gfxs.a(klconfig.o)	kernel-other-objects	shared-kernel	object	n64	11492	e0766b2bbeb929c9		5	symtab	2	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/gfxs.a(gfx_flow.o)	kernel-other-objects	shared-kernel	object	n64	14836	2908dd361cfa0ac9		16	symtab	3	4	named-only	docs/routines/t1-kudzu-b039.md#tier-1-routine-readings-kudzu-batch-39	Tier-1 routine readings, kudzu batch 39
+6.5.30/usr/cpu/sysgen/IP35boot/gfxs.a(klconfig.o)	kernel-other-objects	shared-kernel	object	n64	11492	e0766b2bbeb929c9		5	symtab	2	0	named-only	docs/routines/t1-kudzu-b039.md#tier-1-routine-readings-kudzu-batch-39	Tier-1 routine readings, kudzu batch 39
 6.5.30/usr/cpu/sysgen/IP35boot/gfxs.a(gfx.o)	kernel-other-objects	shared-kernel	object	n64	53732	4d6ae8238fd650db		62	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/gfxstubs.a(gfxstubs.o)	kernel-other-objects	shared-kernel	object	n64	7300	92a8e73ac592455b		18	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/gr2stubs.a(gr2stubs.o)	kernel-other-objects	shared-kernel	object	n64	2916	05d4f5596b8b1619		1	symtab	0	0	undocumented		
@@ -6607,7 +6607,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/ide_idbg.o	kernel-other-objects	shared-kernel	object	n64	20104	525922cbdc84aaae		10	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/idev.o	kernel-other-objects	shared-kernel	object	n64	25808	95261f60f2333df0		22	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/if_cl.o	kernel-other-objects	shared-kernel	object	n64	48944	3b269259a1d9ab75	6.5.30/usr/cpu/sysgen/IP35boot/if_cl_part.o	35	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/if_ef.o	kernel-other-objects	shared-kernel	object	n64	51464	a774c88129088821		47	symtab	3	5	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/if_ef.o	kernel-other-objects	shared-kernel	object	n64	51464	a774c88129088821		47	symtab	3	5	named-only	docs/routines/t1-kudzu-b039.md#tier-1-routine-readings-kudzu-batch-39	Tier-1 routine readings, kudzu batch 39
 6.5.30/usr/cpu/sysgen/IP35boot/if_eg.o	kernel-other-objects	shared-kernel	object	n64	77752	1709305ad09ba880		55	symtab	1	0	named-only	docs/ioconfig.md#who-reads-it-and-the-two-messages	Who reads it, and the two messages
 6.5.30/usr/cpu/sysgen/IP35boot/if_ppp.o	kernel-other-objects	shared-kernel	object	n64	53400	44cb49b119fb6dab		25	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/if_ptr.o	kernel-other-objects	shared-kernel	object	n64	129480	34ed14a5789c01b8		69	symtab	0	0	undocumented		
@@ -6626,11 +6626,11 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/io.a(hwcopy.o)	kernel-platform-drivers	shared-kernel	object	n64	4404	4f853ebb024d72f3		2	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP35boot/io6.o	kernel-platform-drivers	shared-kernel	object	n64	6776	db2d77d5fa31ce4c		2	symtab	0	4	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP35boot/ioc3.o	kernel-platform-drivers	shared-kernel	object	n64	27688	5e69438504a0ae29		27	symtab	3	6	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/usr/cpu/sysgen/IP35boot/ioc3_pckm.o	kernel-other-objects	shared-kernel	object	n64	37480	307a39f751ae13a4		36	symtab	1	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/ioc3ei.o	kernel-other-objects	shared-kernel	object	n64	21168	bdfefd9773253391		19	symtab	3	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/ioc3_pckm.o	kernel-other-objects	shared-kernel	object	n64	37480	307a39f751ae13a4		36	symtab	1	0	named-only	docs/routines/t1-kudzu-b039.md#tier-1-routine-readings-kudzu-batch-39	Tier-1 routine readings, kudzu batch 39
+6.5.30/usr/cpu/sysgen/IP35boot/ioc3ei.o	kernel-other-objects	shared-kernel	object	n64	21168	bdfefd9773253391		19	symtab	3	0	named-only	docs/routines/t1-kudzu-b039.md#tier-1-routine-readings-kudzu-batch-39	Tier-1 routine readings, kudzu batch 39
 6.5.30/usr/cpu/sysgen/IP35boot/ioc4.o	kernel-other-objects	shared-kernel	object	n64	23976	e15e32c04c326024		21	symtab	0	9	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/ioc4_ei.o	kernel-other-objects	shared-kernel	object	n64	21512	d1296012cdbeec0d		19	symtab	5	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/ioc4_pckm.o	kernel-other-objects	shared-kernel	object	n64	36408	c2d08701d772ec62		35	symtab	1	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/ioc4_ei.o	kernel-other-objects	shared-kernel	object	n64	21512	d1296012cdbeec0d		19	symtab	5	0	named-only	docs/routines/t1-kudzu-b039.md#tier-1-routine-readings-kudzu-batch-39	Tier-1 routine readings, kudzu batch 39
+6.5.30/usr/cpu/sysgen/IP35boot/ioc4_pckm.o	kernel-other-objects	shared-kernel	object	n64	36408	c2d08701d772ec62		35	symtab	1	0	named-only	docs/routines/t1-kudzu-b039.md#tier-1-routine-readings-kudzu-batch-39	Tier-1 routine readings, kudzu batch 39
 6.5.30/usr/cpu/sysgen/IP35boot/ip_mroute.o	kernel-other-objects	shared-kernel	object	n64	41144	86743841a0450c23		34	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ipfilter.o	kernel-other-objects	shared-kernel	object	n64	18800	1eef1c1b78008594		9	symtab	0	0	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/cpu/sysgen/IP35boot/ipv6.a(dest6.o)	kernel-other-objects	shared-kernel	object	n64	5380	6aeb0b91e82dbd85		1	symtab	0	0	undocumented		
@@ -6710,7 +6710,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/ksync.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	58868	5e5925672f53c8ec		98	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ksync.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n64	6244	ec146aaf3e072369		8	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ksync_metered.a(mutex.o)	kernel-other-objects	shared-kernel	object	n64	49316	afcaf0a223907fcf		63	symtab	5	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/ksync_metered.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	78756	2853a8d396d56523		110	symtab	10	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/ksync_metered.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	78756	2853a8d396d56523		110	symtab	10	0	named-only	docs/routines/t1-kudzu-b042.md#routine-role-statements-tier-1-batch-42	Routine role statements, tier-1 batch 42
 6.5.30/usr/cpu/sysgen/IP35boot/ksync_metered.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n64	6100	158abbec687be177		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ksync_named.a(mutex.o)	kernel-other-objects	shared-kernel	object	n64	45204	dd19bf187eca3982		61	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ksync_named.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	62964	a2ad782dbc9c9162		101	symtab	0	0	undocumented		
@@ -6719,7 +6719,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/ksync_statistics.a(sema.o)	kernel-other-objects	shared-kernel	object	n64	61140	27a33eca8ebf6a84		97	symtab	8	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ksync_statistics.a(klstat.o)	kernel-other-objects	shared-kernel	object	n64	10676	15bff1086695505c		7	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ksync_statistics.a(mrlock.o)	kernel-other-objects	shared-kernel	object	n64	6260	f074b7566fe5c0a1		8	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/l1.o	kernel-other-objects	shared-kernel	object	n64	55640	cf461fa67eb3150e		61	symtab	17	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/l1.o	kernel-other-objects	shared-kernel	object	n64	55640	cf461fa67eb3150e		61	symtab	17	0	named-only	docs/routines/t1-kudzu-b042.md#routine-role-statements-tier-1-batch-42	Routine role statements, tier-1 batch 42
 6.5.30/usr/cpu/sysgen/IP35boot/l1_command.o	kernel-other-objects	shared-kernel	object	n64	60216	ab5c3f4dce4eda0b		86	symtab	1	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/llc2.a(llc2.o)	kernel-other-objects	shared-kernel	object	n64	32916	9c0b72fd2dce806b		23	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/llc2.a(llc2dlpi.o)	kernel-other-objects	shared-kernel	object	n64	41636	e96c1d973dbbc038		40	symtab	0	0	undocumented		
@@ -6827,13 +6827,13 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/numa_idbg.a(numa_idbg.o)	kernel-other-objects	shared-kernel	object	n64	37428	64687c0450b83305		22	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy.o)	kernel-other-objects	shared-kernel	object	n64	13620	c1e5a85bee26f8b1		4	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_adt.o)	kernel-other-objects	shared-kernel	object	n64	16228	fa079f9475f5fefa		18	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_attach.o)	kernel-other-objects	shared-kernel	object	n64	7748	73931bda92cf6333		3	symtab	2	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_attach.o)	kernel-other-objects	shared-kernel	object	n64	7748	73931bda92cf6333		3	symtab	2	0	named-only	docs/routines/t1-kudzu-b042.md#routine-role-statements-tier-1-batch-42	Routine role statements, tier-1 batch 42
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_brdmgr.o)	kernel-other-objects	shared-kernel	object	n64	61364	2f77d298650a7f4b		21	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_clip.o)	kernel-other-objects	shared-kernel	object	n64	16596	2a7e731b243ae3cd		8	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_ctxsw.o)	kernel-other-objects	shared-kernel	object	n64	49732	f1f36796b3b562c8		26	symtab	2	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_ctxsw.o)	kernel-other-objects	shared-kernel	object	n64	49732	f1f36796b3b562c8		26	symtab	2	0	named-only	docs/routines/t1-kudzu-b042.md#routine-role-statements-tier-1-batch-42	Routine role statements, tier-1 batch 42
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_compositor.o)	kernel-other-objects	shared-kernel	object	n64	14260	9a2e70adc6f1562c		8	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_ddc.o)	kernel-other-objects	shared-kernel	object	n64	42820	f4287f15bdf94e9a		25	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_ddrn.o)	kernel-other-objects	shared-kernel	object	n64	10932	3eba17fd2b1dbff0		3	symtab	1	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_ddrn.o)	kernel-other-objects	shared-kernel	object	n64	10932	3eba17fd2b1dbff0		3	symtab	1	0	named-only	docs/routines/t1-kudzu-b042.md#routine-role-statements-tier-1-batch-42	Routine role statements, tier-1 batch 42
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_denali.o)	kernel-other-objects	shared-kernel	object	n64	8052	529f62f5d023adc6		2	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_diag.o)	kernel-other-objects	shared-kernel	object	n64	13316	eaa00f3516f88664		8	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_dma.o)	kernel-other-objects	shared-kernel	object	n64	35716	f331b8ce559f5893		22	symtab	1	0	undocumented		
@@ -6842,7 +6842,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_flow.o)	kernel-other-objects	shared-kernel	object	n64	12324	c4c87485c608dea4		9	symtab	2	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_hpipe.o)	kernel-other-objects	shared-kernel	object	n64	26324	e0b44ca930a6855e		19	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_i2c.o)	kernel-other-objects	shared-kernel	object	n64	74276	a2e274202900aba6		20	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_init.o)	kernel-other-objects	shared-kernel	object	n64	89076	ff0614b46114a3a1		32	symtab	8	1	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_init.o)	kernel-other-objects	shared-kernel	object	n64	89076	ff0614b46114a3a1		32	symtab	8	1	named-only	docs/routines/t1-kudzu-b042.md#routine-role-statements-tier-1-batch-42	Routine role statements, tier-1 batch 42
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_intr.o)	kernel-other-objects	shared-kernel	object	n64	20596	5b2ae25836595905		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_map.o)	kernel-other-objects	shared-kernel	object	n64	15572	c0d00cfc3c703194		13	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_rainier.o)	kernel-other-objects	shared-kernel	object	n64	8228	9f002f8b9dfe9f23		6	symtab	0	0	undocumented		
@@ -6961,7 +6961,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(move.o)	kernel-other-objects	shared-kernel	object	n64	11060	a42e0312ca281367		11	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(name.o)	kernel-other-objects	shared-kernel	object	n64	22276	4994c75db4644d15		14	symtab	1	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(page.o)	kernel-other-objects	shared-kernel	object	n64	87348	239fa91aa8b5c45a		72	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(pda.o)	kernel-other-objects	shared-kernel	object	n64	59220	39e7213af937a350		42	symtab	2	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(pda.o)	kernel-other-objects	shared-kernel	object	n64	59220	39e7213af937a350		42	symtab	2	0	named-only	docs/routines/t1-kudzu-b042.md#routine-role-statements-tier-1-batch-42	Routine role statements, tier-1 batch 42
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(physio.o)	kernel-other-objects	shared-kernel	object	n64	12068	29fa53e5467fa8de		4	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(pipe.o)	kernel-other-objects	shared-kernel	object	n64	8116	ec2fd37159406815		1	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(printf.o)	kernel-other-objects	shared-kernel	object	n64	54740	7c985caeef7b0402		43	symtab	2	0	undocumented		
@@ -6984,9 +6984,9 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(sysget.o)	kernel-other-objects	shared-kernel	object	n64	37332	012eb1820dbefef4		18	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(sysmips.o)	kernel-other-objects	shared-kernel	object	n64	7508	2bee355239be3eaa		1	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(sysmp.o)	kernel-other-objects	shared-kernel	object	n64	35812	1a87f1dd52da5114		10	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(syssgi.o)	kernel-other-objects	shared-kernel	object	n64	76884	5fe908fc2e7213f4		23	symtab	2	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(syssgi.o)	kernel-other-objects	shared-kernel	object	n64	76884	5fe908fc2e7213f4		23	symtab	2	0	named-only	docs/routines/t1-kudzu-b042.md#routine-role-statements-tier-1-batch-42	Routine role statements, tier-1 batch 42
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(thread.o)	kernel-other-objects	shared-kernel	object	n64	19444	df1f4a5429e37fc3		7	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(time.o)	kernel-other-objects	shared-kernel	object	n64	21284	d8b186a5e9a0ffe4		21	symtab	1	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(time.o)	kernel-other-objects	shared-kernel	object	n64	21284	d8b186a5e9a0ffe4		21	symtab	1	0	named-only	docs/routines/t1-kudzu-b042.md#routine-role-statements-tier-1-batch-42	Routine role statements, tier-1 batch 42
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(timers.o)	kernel-other-objects	shared-kernel	object	n64	6180	4d6c776102c06378		5	symtab	5	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(tlbmgr.o)	kernel-other-objects	shared-kernel	object	n64	34548	104932bc5092ad13		35	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	kernel-other-objects	shared-kernel	object	n64	66996	03c9360bc534b075		40	symtab	0	0	undocumented		
@@ -7010,7 +7010,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/pciio_ppb.o	kernel-platform-drivers	shared-kernel	object	n64	27528	aadca7cfd050b4f2		18	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP35boot/pciiox.o	kernel-platform-drivers	shared-kernel	object	n64	6120	bc9406dffebc6428		2	symtab	0	2	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP35boot/pgrpidbg.a(pgrpidbg.o)	kernel-other-objects	shared-kernel	object	n64	10724	987ce2fa3e8bcc60		5	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/pic.o	kernel-other-objects	shared-kernel	object	n64	32656	4ccc69e42c0fde78		13	symtab	6	6	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/pic.o	kernel-other-objects	shared-kernel	object	n64	32656	4ccc69e42c0fde78		13	symtab	6	6	named-only	docs/routines/t1-kudzu-b042.md#routine-role-statements-tier-1-batch-42	Routine role statements, tier-1 batch 42
 6.5.30/usr/cpu/sysgen/IP35boot/pipefs.a(pipevnops.o)	kernel-other-objects	shared-kernel	object	n64	23332	2f0d0d7e3624700a		21	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/pipefsstubs.a(pipefsstubs.o)	kernel-other-objects	shared-kernel	object	n64	2916	f5e35432c13651aa		1	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/pipemod.o	kernel-other-objects	shared-kernel	object	n64	5656	c00b0aebd600bac7		3	symtab	0	0	undocumented		
@@ -7201,7 +7201,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/wacom.o	kernel-other-objects	shared-kernel	object	n64	174688	798b6741b485ced8		95	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xbmon.o	kernel-other-objects	shared-kernel	object	n64	20288	40ba5ced03728511		18	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xbow.o	kernel-platform-drivers	shared-kernel	object	n64	34880	717deeb2f45581ea		30	symtab	6	9	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/usr/cpu/sysgen/IP35boot/xbridge.o	kernel-platform-drivers	shared-kernel	object	n64	22768	c782e88889d3306a		2	symtab	4	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/xbridge.o	kernel-platform-drivers	shared-kernel	object	n64	22768	c782e88889d3306a		2	symtab	4	0	named-only	docs/routines/t1-kudzu-b042.md#routine-role-statements-tier-1-batch-42	Routine role statements, tier-1 batch 42
 6.5.30/usr/cpu/sysgen/IP35boot/xconn.o	kernel-platform-drivers	shared-kernel	object	n64	13592	8b67ca4d1f1f94e4		9	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP35boot/xfs.a(xfs_alloc.o)	kernel-other-objects	shared-kernel	object	n64	39812	abb5dacb3d9d2d4b		24	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xfs.a(xfs_alloc_btree.o)	kernel-other-objects	shared-kernel	object	n64	30004	073844298ff99aae		21	symtab	0	0	undocumented		

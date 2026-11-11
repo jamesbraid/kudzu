@@ -4,5 +4,5 @@ number	hex	table	handler	evidence	senders	binaries	example	status	doc	section
 28673	0x7001		pcibr_ioctl	handled		1	6.5.30/unix.IP27:pcibr_ioctl	located	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 28674	0x7002		pcibr_ioctl	handled		1	6.5.30/unix.IP27:pcibr_ioctl	located	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 28675	0x7003		pcibr_ioctl	handled		1	6.5.30/unix.IP27:pcibr_ioctl	located	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-29446	0x7306		scsiha_ioctl	handled		1	6.5.30/unix.IP27:scsiha_ioctl	located	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-29473	0x7321		scsiha_ioctl	handled		1	6.5.30/unix.IP27:scsiha_ioctl	located	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
+29446	0x7306		scsiha_ioctl	handled		1	6.5.30/unix.IP27:scsiha_ioctl	understood	docs/routines/t1-kudzu-b011.md#routine-roles-tier-1-batch-11	Routine roles: tier-1 batch 11
+29473	0x7321		scsiha_ioctl	handled		1	6.5.30/unix.IP27:scsiha_ioctl	understood	docs/routines/t1-kudzu-b011.md#routine-roles-tier-1-batch-11	Routine roles: tier-1 batch 11
