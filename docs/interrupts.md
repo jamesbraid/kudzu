@@ -371,7 +371,10 @@ An IP35 node has up to four processors behind two processor interfaces. The kern
   in these routines shows software relying on the first-interface write to clear a second-interface level.
   Inferred, from the accesses listed. The hardware behaviour itself: unknown: no shipped software or published
   source depends on it. Routes tried: every user of the pool words in both IP35 kernels; the node controller's
-  own description is in no binary.
+  own description is in no binary. Test that settles it: on a node with both processor interfaces, assert a level
+  that is routed to the second interface, write the first interface's pending-modify register with that level to clear it, then read the pending words of both
+  interfaces; the level still pending at the second interface means the first interface's write does not reach it. A document
+  route is the processor-interface chapter of the node controller specification (not held).
 - `intr_reserve_hardwired` (`6.5.30/unix.IP35` `0xc000000000060f04`, 348 bytes)
   differs from the IP27 routine in whom it reserves for: it keeps a two-byte flag on the stack, one per
   interface, and walks the node's processors from `cnodetocpu` while they are below `maxcpus`

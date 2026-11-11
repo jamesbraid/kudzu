@@ -33,7 +33,7 @@ Boards. Kernel statements are from the IP27boot archive. The IP35boot archive wa
 ### 1.1 Location and size
 
 - Sector 0 of the data device holds the primary superblock. The kernel reads exactly one 512-byte block there (`xfs_readsb`), validates it, and copies exactly 0xd0 bytes into the in-core copy. Established (earlier note, re-checked).
-- `xfs_db` knows fields up to and including `features2` at 0xc8 (4 bytes), so the structure it describes ends at 0xcc. Bytes 0xcc to 0xcf are copied by the kernel but have no name in `xfs_db`. Contents unknown (assume zero).
+- `xfs_db` knows fields up to and including `features2` at 0xc8 (4 bytes), so the structure it describes ends at 0xcc. Bytes 0xcc to 0xcf are copied by the kernel but have no name in `xfs_db`. Contents unknown (assume zero). Test that settles it: read bytes 0xcc to 0xcf of sector 0 of a filesystem made by the shipped `mkfs_xfs` (not held in `root/`; obtain it from the XFS package of the installation media), or read that tool's superblock initialiser for any store at or beyond offset 0xcc and whether the sector buffer is zeroed first. The kernel routines in `xfs_mount.o` only copy these bytes, so they do not settle it.
 - Every allocation group begins with a copy of the superblock. `xfs_db`'s `version` command writes the changed word "into all AGs" (string: "failed to set versionnum in AG %d"). Established. Per-AG copies of the counters (icount, ifree, fdblocks, frextents) are not kept in step; the kernel only uses the AG 0 copy for counts and recounts from the AGF/AGI at mount (not traced here). Inferred.
 - Magic: 0x58465342 (`XFSB`). Established (validate_sb loads and compares).
 
