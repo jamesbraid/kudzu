@@ -28,6 +28,7 @@ Every hand-written document under `docs/` and the top-level Markdown files, grou
 - [docs/hwgraph-paths.md](docs/hwgraph-paths.md): Hardware-graph path and edge names in the 6.5.30 kernels
 - [docs/interrupts.md](docs/interrupts.md): Hub interrupt routing as the kernel programs it
 - [docs/ioconfig.md](docs/ioconfig.md): Device unit numbers and the ioconfig file
+- [docs/input-path.md](docs/input-path.md): Input events from a serial tablet module through the shared-memory queue to Xsgi
 - [docs/nic.md](docs/nic.md): Board identity read from Dallas 1-Wire number-in-a-can parts
 - [docs/pci-intr-pin.md](docs/pci-intr-pin.md): PCI interrupt pins on the IP35 bridges
 - [docs/sysgen.md](docs/sysgen.md): Kernel configuration tables: driver files, tunables and link directives
