@@ -39,6 +39,9 @@
 #define HUBMDA_MIG_VALUE_THRESH_VALID_BIT 63 /* established: set to arm, cleared to disarm */
 
 /* REG: HUBMDA.mig_candidate 0x48 r64 reset=unknown established */
+/* Name: a role label. The public Linux hub header calls 0x40 the candidate register and 0x48 its read-to-clear
+ * alias; the kernel reads only 0x48 (the loop below), so this is that alias, and that a read consumes the
+ * candidate is inferred from the name and the loop. Nothing accesses 0x40. */
 /* The kernel reads it in a loop until the valid bit is clear. The field positions are a reading of how the handler decodes each value. */
 /* FIELD: HUBMDA.mig_candidate.page 17:0 inferred */
 #define HUBMDA_MIG_CANDIDATE_PAGE_SHIFT 0
