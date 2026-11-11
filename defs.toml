@@ -74,7 +74,7 @@ group = "klconfig"
 module = "klconfig"
 rust_prefix = "KLCONFIG_"
 register_doc = "Constant"
-description = ["Hardware configuration board record: the fields the", "kernel reads to find boards, slots, modules and components."]
+description = ["Hardware configuration records: the board, component, console,", "memory and global-data fields the kernel reads to find boards, slots, modules and components."]
 
 [[headers]]
 file = "HUBPI_DECODE.h"
@@ -123,7 +123,7 @@ group = "hubio"
 module = "hubio"
 rust_prefix = "HUBIO_"
 register_doc = "Register"
-description = ["Origin 300 hub crosstalk-side window register tested by", "the error path."]
+description = ["Origin 300 hub crosstalk-side window: the register tested by", "the error path and the request-buffer table the I/O error scan reads."]
 
 [[headers]]
 file = "HUBNI_DECODE.h"

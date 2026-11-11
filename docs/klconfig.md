@@ -30,7 +30,7 @@ On IP35 this path is taken only after a check: `get_module_id` and `is_master_ba
 
 ## Board record
 
-Offsets as the 6.5.30 IP27 and IP35 kernels read them. "Readers" names the routines on this page that load the field.
+Offsets as the 6.5.30 IP27 and IP35 kernels read them. "Readers" names the routines on this page that load the field. `KLCONFIG_DECODE.h` carries the words of this table and of the component header, global data area, console and memory component tables below, and the board-class values from the serial-number table.
 
 | Offset | Width | Linux name | Kernel use | Readers | Grade |
 |---|---|---|---|---|---|
