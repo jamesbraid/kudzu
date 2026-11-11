@@ -7,19 +7,19 @@ BEDROCK-IO	0x4001f8		w8	8	4	bte_init	local alias	6.5.22/unix.IP35:bte_init	named
 BEDROCK-LB	0x600000		r8	24	4	bootstrap;get_nasid;is_fine_dirmode;start;stop_all_cpus	local alias	6.5.22/unix.IP35:bootstrap	named-only	docs/page-migration.md#routines	Routines
 BEDROCK-LB	0x604020		r8	4	4	stop_all_cpus	local alias	6.5.22/unix.IP35:stop_all_cpus	undocumented		
 BEDROCK-LB	0x604028		r8	4	4	stop_all_cpus	local alias	6.5.22/unix.IP35:stop_all_cpus	undocumented		
-BEDROCK-LB	0x604200		r8	250	20	__nanotime;bte_init;counter_intr;doadjtime;dogetitimer;findcpufreq_cycles;+33 more	local alias	6.5.22/unix.IP35:__nanotime	undocumented		
+BEDROCK-LB	0x604200		r8	250	20	__nanotime;bte_init;counter_intr;doadjtime;dogetitimer;findcpufreq_cycles;+33 more	local alias	6.5.22/unix.IP35:__nanotime	named-only	docs/syssgi.md#timers-clocks-and-the-front-panel-leds	Timers, clocks and the front-panel LEDs
 BEDROCK-MD	0x780000		r8	4	4	stop_all_cpus	local alias	6.5.22/unix.IP35:stop_all_cpus	named-only	docs/page-migration.md#routines	Routines
 BEDROCK-MD	0x780008		r8	12	4	mdir_xlate_addr_mem;mdir_xlate_addr_pdir;mdir_xlate_addr_sdir	local alias	6.5.22/unix.IP35:mdir_xlate_addr_mem	named-only	docs/interrupts.md#routines	Routines
 BEDROCK-MD	0x7a0038		r8	4	4	doacvec	local alias	6.5.22/unix.IP35:doacvec	undocumented		
 BEDROCK-NI	0x680000		r8	6	6	net_link_up;part_discovery	local alias	6.5.22/unix.IP35:net_link_up	named-only	docs/ip35-halt-and-reset.md#link-errors-at-run-time	Link errors at run time
 BEDROCK-NI	0x680008		w8	8	4	ni_reset_port;restart	local alias	6.5.22/unix.IP35:ni_reset_port	named-only	docs/interrupts.md#routines	Routines
 BEDROCK-NI	0x680010		w8	8	4	ni_reset_port;restart	local alias	6.5.22/unix.IP35:ni_reset_port	named-only	docs/ip35-halt-and-reset.md#reboot-and-port-reset	Reboot and port reset
-BEDROCK-NI	0x680108		r8	4	4	check_ni_errors_nasid	local alias	6.5.22/unix.IP35:check_ni_errors_nasid	named-only	docs/page-migration.md#hub-window-read-and-clear-sequence-acknowledge-and-re-arm	Hub window: read and clear sequence, acknowledge and re-arm
+BEDROCK-NI	0x680108		r8	4	4	check_ni_errors_nasid	local alias	6.5.22/unix.IP35:check_ni_errors_nasid	named-only	docs/ip35-hub-errors.md#what-clears-the-ni-error-interrupt-after-a-tolerated-link-reset	What clears the NI error interrupt after a tolerated link reset
 BEDROCK-NI	0x680110		r8	4	4	check_ni_errors_nasid	local alias	6.5.22/unix.IP35:check_ni_errors_nasid	named-only	docs/ip35-hub-errors.md#hub-programmed-io-windows	Hub programmed-I/O windows
 BEDROCK-NI	0x680118		r8	4	4	check_ni_errors_nasid	local alias	6.5.22/unix.IP35:check_ni_errors_nasid	named-only	docs/ip35-hub-errors.md#hub-widget-shutdown	Hub widget shutdown
 BEDROCK-NI	0x680120		r8	4	4	ni_llp_error_monitor	local alias	6.5.22/unix.IP35:ni_llp_error_monitor	named-only	docs/ip35-halt-and-reset.md#link-errors-at-run-time	Link errors at run time
 BEDROCK-PI0	0x18		r8	4	4	handle_cac_buserr	local alias	6.5.22/unix.IP35:handle_cac_buserr	named-only	docs/ip35-halt-and-reset.md#what-decides-between-the-local-and-the-controller-form	What decides between the local and the controller form
-BEDROCK-PI0	0x20		r8	46	7	get_myid;get_slice;getcpuid;hubpi_eint_handler;klsave_spool_registers;save_cache_error;+3 more	local alias	6.5.22/unix.IP35:get_myid	named-only	docs/interrupts.md#ip35-differences	IP35 differences
+BEDROCK-PI0	0x20		r8	46	7	get_myid;get_slice;getcpuid;hubpi_eint_handler;klsave_spool_registers;save_cache_error;+3 more	local alias	6.5.22/unix.IP35:get_myid	understood	docs/page-migration.md#hub-window-read-and-clear-sequence-acknowledge-and-re-arm	Hub window: read and clear sequence, acknowledge and re-arm
 BEDROCK-PI0	0x28		r8	8	4	memory_iscalias;page_local_calias	local alias	6.5.22/unix.IP35:memory_iscalias	named-only	docs/ip35-hub-errors.md#hub-programmed-io-windows	Hub programmed-I/O windows
 BEDROCK-PI0	0x90		w8	34	8	cpuintr;dbgintr;gfx_flow_detach_me;intpend0;intpend1;intr_clear_bits;+2 more	local alias	6.5.22/unix.IP35:cpuintr	named-only	docs/interrupts.md#hub-interrupt-routing-as-the-kernel-programs-it	Hub interrupt routing as the kernel programs it
 BEDROCK-PI0	0x98		r8	42	8	cpuintr;dbgintr;gfx_flow_detach_me;intpend0;intpend1;intr_clear_bits;+2 more	local alias	6.5.22/unix.IP35:cpuintr	named-only	docs/interrupts.md#hub-interrupt-routing-as-the-kernel-programs-it	Hub interrupt routing as the kernel programs it
@@ -119,7 +119,7 @@ HUB-II	0x420010		r8	4	4	save_hub_io_error	node register pointer argument	6.5.22/
 HUB-MD	0x200018		r8	12	4	mdir_xlate_addr_mem;mdir_xlate_addr_pdir;mdir_xlate_addr_sdir	local alias	6.5.22/unix.IP27:mdir_xlate_addr_mem	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
 HUB-MD	0x200050		r8	4	4	save_hub_md_error	node register pointer argument	6.5.22/unix.IP27:save_hub_md_error	named-only	docs/ip27-driver-attach-interrupts.md#ioc3-ethernet-ip27-ef-driver	IOC3 Ethernet (IP27 `ef` driver)
 HUB-MD	0x200060		r8	4	4	save_hub_md_error	node register pointer argument	6.5.22/unix.IP27:save_hub_md_error	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-HUB-MD	0x200070		r8	4	4	save_hub_md_error	node register pointer argument	6.5.22/unix.IP27:save_hub_md_error	named-only	docs/page-migration.md#policy-interfaces	Policy interfaces
+HUB-MD	0x200070		r8	4	4	save_hub_md_error	node register pointer argument	6.5.22/unix.IP27:save_hub_md_error	named-only	docs/kernel-tracing-and-modules.md#hooks-on-the-system-call-path	Hooks on the system call path
 HUB-MD	0x200080		r8	4	4	save_hub_md_error	node register pointer argument	6.5.22/unix.IP27:save_hub_md_error	named-only	docs/interrupts.md#choosing-a-target-processor	Choosing a target processor
 HUB-MD	0x220048		r8	4	4	get_my_slotid	local alias	6.5.22/unix.IP27:get_my_slotid	named-only	docs/klconfig.md#hub-slot-numbers-ip27	Hub slot numbers (IP27)
 HUB-MD	0x220050		w8	16	4	sn00_vmc	local alias	6.5.22/unix.IP27:sn00_vmc	undocumented		
@@ -131,7 +131,7 @@ HUB-NI	0x600300		r8	4	4	save_hub_ni_error	node register pointer argument	6.5.22/
 HUB-NI	0x608008		r8	16	4	check_ni_errors;hubni_error_handler;ni_llp_error_monitor;save_hub_ni_error	local alias;node register pointer argument	6.5.22/unix.IP27:check_ni_errors	named-only	docs/ip27-driver-attach-interrupts.md#qlogic-scsi-controller	QLogic SCSI controller
 HUB-NI	0x608088		r8	40	4	check_ni_errors;hubni_error_handler;llp_pfail_intr;ni_llp_error_monitor	local alias	6.5.22/unix.IP27:check_ni_errors	undocumented		
 HUB-PI	0x18		r8	4	4	handle_cac_buserr	local alias	6.5.22/unix.IP27:handle_cac_buserr	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
-HUB-PI	0x20		r8	24	6	get_myid;get_slice;getcpuid;hub_error_status_war;klsave_spool_registers;save_cache_error	local alias	6.5.22/unix.IP27:get_myid	named-only	docs/interrupts.md#ip35-differences	IP35 differences
+HUB-PI	0x20		r8	24	6	get_myid;get_slice;getcpuid;hub_error_status_war;klsave_spool_registers;save_cache_error	local alias	6.5.22/unix.IP27:get_myid	understood	docs/page-migration.md#hub-window-read-and-clear-sequence-acknowledge-and-re-arm	Hub window: read and clear sequence, acknowledge and re-arm
 HUB-PI	0x28		r8	8	4	memory_iscalias;page_local_calias	local alias	6.5.22/unix.IP27:memory_iscalias	named-only	docs/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
 HUB-PI	0x40		r8	4	4	hub_error_init	local alias	6.5.22/unix.IP27:hub_error_init	named-only	docs/ip27-driver-attach-interrupts.md#qlogic-scsi-controller	QLogic SCSI controller
 HUB-PI	0x48		r8	8	4	hub_error_init	local alias	6.5.22/unix.IP27:hub_error_init	named-only	docs/ip27-kernel-io.md#crossbar-pci-window-and-router-state-helpers	Crossbar, PCI window and router state helpers

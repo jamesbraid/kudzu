@@ -4828,7 +4828,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_log.o)	kernel-other-objects	shared-kernel	object	n64	50308	81229b6d82b71728		50	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_log_recover.o)	kernel-other-objects	shared-kernel	object	n64	52532	770270adab4d61e5	6.5.30/usr/cpu/sysgen/IP30boot/xfs.a(xfs_log_recover.o);6.5.30/usr/cpu/sysgen/IP35boot/xfs.a(xfs_log_recover.o)	50	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_misc.o)	kernel-other-objects	shared-kernel	object	n64	5684	a9b8581b23e4d777	6.5.30/usr/cpu/sysgen/IP30boot/xfs.a(xfs_misc.o);6.5.30/usr/cpu/sysgen/IP35boot/xfs.a(xfs_misc.o)	4	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_mount.o)	kernel-other-objects	shared-kernel	object	n64	39812	adc287f7f7dcfb37	6.5.30/usr/cpu/sysgen/IP30boot/xfs.a(xfs_mount.o);6.5.30/usr/cpu/sysgen/IP35boot/xfs.a(xfs_mount.o)	27	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_mount.o)	kernel-other-objects	shared-kernel	object	n64	39812	adc287f7f7dcfb37	6.5.30/usr/cpu/sysgen/IP30boot/xfs.a(xfs_mount.o);6.5.30/usr/cpu/sysgen/IP35boot/xfs.a(xfs_mount.o)	27	symtab	0	0	named-only	docs/network-and-snapshots.md#project-identifiers-and-project-quotas	Project identifiers and project quotas
 6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_parent.o)	kernel-other-objects	shared-kernel	object	n64	15268	61f9af8f820b47cd		9	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_rename.o)	kernel-other-objects	shared-kernel	object	n64	21156	b86ab3510491a94e	6.5.30/usr/cpu/sysgen/IP30boot/xfs.a(xfs_rename.o);6.5.30/usr/cpu/sysgen/IP35boot/xfs.a(xfs_rename.o)	8	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/xfs.a(xfs_rw.o)	kernel-other-objects	shared-kernel	object	n64	102548	7bc1290f2454b182		69	symtab	0	0	undocumented		
@@ -6729,7 +6729,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/lofs.a(lofs_icrash.o)	kernel-other-objects	shared-kernel	object	n64	12372	98cdf2ae9575b326		1	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/log.o	kernel-other-objects	shared-kernel	object	n64	18824	8991eacf457db2b2		12	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ls.o	kernel-other-objects	shared-kernel	object	n64	202896	dbd69055f358bdd3		126	symtab	0	32	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/lsidbg.o	kernel-other-objects	shared-kernel	object	n64	28720	5deb1c9f0b3d7d4d		21	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/lsidbg.o	kernel-other-objects	shared-kernel	object	n64	28720	5deb1c9f0b3d7d4d		21	symtab	0	0	named-only	docs/kernel-debugger-commands.md#commands-per-object	Commands per object
 6.5.30/usr/cpu/sysgen/IP35boot/mad_dd.o	kernel-other-objects	shared-kernel	object	n64	61800	905a72a73b035137		61	symtab	0	0	named-only	docs/ioconfig.md#who-reads-it-and-the-two-messages	Who reads it, and the two messages
 6.5.30/usr/cpu/sysgen/IP35boot/magellan.o	kernel-other-objects	shared-kernel	object	n64	30632	4a2fd4a502103fd8		16	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/mem.o	kernel-platform-objects	shared-kernel	object	n64	15032	1c82fc37a65a3330		12	symtab	0	0	undocumented		
@@ -7233,7 +7233,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/xfsdmapi.a(xfs_dmapi.o)	kernel-other-objects	shared-kernel	object	n64	49636	fcd233a5503e453b		54	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xfsidbg.o	kernel-other-objects	shared-kernel	object	n64	156256	df8e7605999e1190		100	symtab+dwarf	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xfsquotas.a(xfs_dquot.o)	kernel-other-objects	shared-kernel	object	n64	29620	4747bcf1000c96b9		27	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP35boot/xfsquotas.a(xfs_qm.o)	kernel-other-objects	shared-kernel	object	n64	49652	ef8731ae0f41c8bc		49	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP35boot/xfsquotas.a(xfs_qm.o)	kernel-other-objects	shared-kernel	object	n64	49652	ef8731ae0f41c8bc		49	symtab	0	0	named-only	docs/network-and-snapshots.md#project-identifiers-and-project-quotas	Project identifiers and project quotas
 6.5.30/usr/cpu/sysgen/IP35boot/xfsquotas.a(xfs_qm_syscalls.o)	kernel-other-objects	shared-kernel	object	n64	24756	198262c940288ad3		17	symtab	0	0	named-only	docs/network-and-snapshots.md#project-identifiers-and-project-quotas	Project identifiers and project quotas
 6.5.30/usr/cpu/sysgen/IP35boot/xfsrt.a(xfs_grio.o)	kernel-other-objects	shared-kernel	object	n64	9444	e3f8c7b9c2a5e11b		5	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xiovme.o	kernel-other-objects	shared-kernel	object	n64	6896	a7bbfbe18a390b42		3	symtab	0	3	undocumented		

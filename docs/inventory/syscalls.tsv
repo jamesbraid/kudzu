@@ -169,7 +169,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP27	sysent	1167	167	swapctl	2	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP27	sysent	1168	168	getcontext	1	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP27	sysent	1169	169	setcontext	1	10000000000000	0x0	in	undocumented
-6.5.22/unix.IP27	sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc0000000014ca822	in	undocumented
+6.5.22/unix.IP27	sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc0000000014ca822	in	documented
 6.5.22/unix.IP27	sysent	1171	171	sigstack	2	00000000000000	0x0	in	documented
 6.5.22/unix.IP27	sysent	1172	172	_sigaltstack	2	00000000000000	0x0	in	documented
 6.5.22/unix.IP27	sysent	1173	173	sigsendsys	2	00000000000000	0xc0000000014ca7d4	in	documented
@@ -190,7 +190,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP27	sysent	1188	188	pwrite	6	08000000000000	0xc0000000014ca7c8	in	undocumented
 6.5.22/unix.IP27	sysent	1189	189	fdatasync	1	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP27	sysent	1190	190	nosys	6	00000000000000	0x0	in	documented
-6.5.22/unix.IP27	sysent	1191	191	attr_get	5	00000000000000	0xc00000000146a078	in	undocumented
+6.5.22/unix.IP27	sysent	1191	191	attr_get	5	00000000000000	0xc00000000146a078	in	documented
 6.5.22/unix.IP27	sysent	1192	192	attr_getf	5	00000000000000	0xc0000000014ca840	in	undocumented
 6.5.22/unix.IP27	sysent	1193	193	attr_set	5	00000000000000	0xc00000000146a088	in	undocumented
 6.5.22/unix.IP27	sysent	1194	194	attr_setf	5	00000000000000	0xc0000000014ca848	in	undocumented
@@ -406,7 +406,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP27	irix5_64_sysent	1167	167	swapctl	2	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP27	irix5_64_sysent	1168	168	getcontext	1	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP27	irix5_64_sysent	1169	169	setcontext	1	10000000000000	0x0	in	undocumented
-6.5.22/unix.IP27	irix5_64_sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc0000000014ca862	in	undocumented
+6.5.22/unix.IP27	irix5_64_sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc0000000014ca862	in	documented
 6.5.22/unix.IP27	irix5_64_sysent	1171	171	sigstack	2	00000000000000	0x0	in	documented
 6.5.22/unix.IP27	irix5_64_sysent	1172	172	_sigaltstack	2	00000000000000	0x0	in	documented
 6.5.22/unix.IP27	irix5_64_sysent	1173	173	sigsendsys	2	00000000000000	0xc0000000014ca7d4	in	documented
@@ -427,7 +427,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP27	irix5_64_sysent	1188	188	pwrite	4	00000000000000	0xc0000000014ca7c8	in	undocumented
 6.5.22/unix.IP27	irix5_64_sysent	1189	189	fdatasync	1	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP27	irix5_64_sysent	1190	190	nosys	6	00000000000000	0x0	in	documented
-6.5.22/unix.IP27	irix5_64_sysent	1191	191	attr_get	5	00000000000000	0xc00000000146a078	in	undocumented
+6.5.22/unix.IP27	irix5_64_sysent	1191	191	attr_get	5	00000000000000	0xc00000000146a078	in	documented
 6.5.22/unix.IP27	irix5_64_sysent	1192	192	attr_getf	5	00000000000000	0xc0000000014ca840	in	undocumented
 6.5.22/unix.IP27	irix5_64_sysent	1193	193	attr_set	5	00000000000000	0xc00000000146a088	in	undocumented
 6.5.22/unix.IP27	irix5_64_sysent	1194	194	attr_setf	5	00000000000000	0xc0000000014ca848	in	undocumented
@@ -643,7 +643,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP30	sysent	1167	167	swapctl	2	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP30	sysent	1168	168	getcontext	1	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP30	sysent	1169	169	setcontext	1	10000000000000	0x0	in	undocumented
-6.5.22/unix.IP30	sysent	1170	170	waitsys_wrapper	5	00000000000000	0xa8000000203dbcfa	in	undocumented
+6.5.22/unix.IP30	sysent	1170	170	waitsys_wrapper	5	00000000000000	0xa8000000203dbcfa	in	documented
 6.5.22/unix.IP30	sysent	1171	171	sigstack	2	00000000000000	0x0	in	documented
 6.5.22/unix.IP30	sysent	1172	172	_sigaltstack	2	00000000000000	0x0	in	documented
 6.5.22/unix.IP30	sysent	1173	173	sigsendsys	2	00000000000000	0xa8000000203dbcac	in	documented
@@ -664,7 +664,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP30	sysent	1188	188	pwrite	6	08000000000000	0xa8000000203dbca0	in	undocumented
 6.5.22/unix.IP30	sysent	1189	189	fdatasync	1	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP30	sysent	1190	190	nosys	6	00000000000000	0x0	in	documented
-6.5.22/unix.IP30	sysent	1191	191	attr_get	5	00000000000000	0xa8000000203c7250	in	undocumented
+6.5.22/unix.IP30	sysent	1191	191	attr_get	5	00000000000000	0xa8000000203c7250	in	documented
 6.5.22/unix.IP30	sysent	1192	192	attr_getf	5	00000000000000	0xa8000000203dbd18	in	undocumented
 6.5.22/unix.IP30	sysent	1193	193	attr_set	5	00000000000000	0xa8000000203c7260	in	undocumented
 6.5.22/unix.IP30	sysent	1194	194	attr_setf	5	00000000000000	0xa8000000203dbd20	in	undocumented
@@ -880,7 +880,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP30	irix5_64_sysent	1167	167	swapctl	2	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP30	irix5_64_sysent	1168	168	getcontext	1	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP30	irix5_64_sysent	1169	169	setcontext	1	10000000000000	0x0	in	undocumented
-6.5.22/unix.IP30	irix5_64_sysent	1170	170	waitsys_wrapper	5	00000000000000	0xa8000000203dbd3a	in	undocumented
+6.5.22/unix.IP30	irix5_64_sysent	1170	170	waitsys_wrapper	5	00000000000000	0xa8000000203dbd3a	in	documented
 6.5.22/unix.IP30	irix5_64_sysent	1171	171	sigstack	2	00000000000000	0x0	in	documented
 6.5.22/unix.IP30	irix5_64_sysent	1172	172	_sigaltstack	2	00000000000000	0x0	in	documented
 6.5.22/unix.IP30	irix5_64_sysent	1173	173	sigsendsys	2	00000000000000	0xa8000000203dbcac	in	documented
@@ -901,7 +901,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP30	irix5_64_sysent	1188	188	pwrite	4	00000000000000	0xa8000000203dbca0	in	undocumented
 6.5.22/unix.IP30	irix5_64_sysent	1189	189	fdatasync	1	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP30	irix5_64_sysent	1190	190	nosys	6	00000000000000	0x0	in	documented
-6.5.22/unix.IP30	irix5_64_sysent	1191	191	attr_get	5	00000000000000	0xa8000000203c7250	in	undocumented
+6.5.22/unix.IP30	irix5_64_sysent	1191	191	attr_get	5	00000000000000	0xa8000000203c7250	in	documented
 6.5.22/unix.IP30	irix5_64_sysent	1192	192	attr_getf	5	00000000000000	0xa8000000203dbd18	in	undocumented
 6.5.22/unix.IP30	irix5_64_sysent	1193	193	attr_set	5	00000000000000	0xa8000000203c7260	in	undocumented
 6.5.22/unix.IP30	irix5_64_sysent	1194	194	attr_setf	5	00000000000000	0xa8000000203dbd20	in	undocumented
@@ -1117,7 +1117,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP35	sysent	1167	167	swapctl	2	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP35	sysent	1168	168	getcontext	1	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP35	sysent	1169	169	setcontext	1	10000000000000	0x0	in	undocumented
-6.5.22/unix.IP35	sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc000000001593ba2	in	undocumented
+6.5.22/unix.IP35	sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc000000001593ba2	in	documented
 6.5.22/unix.IP35	sysent	1171	171	sigstack	2	00000000000000	0x0	in	documented
 6.5.22/unix.IP35	sysent	1172	172	_sigaltstack	2	00000000000000	0x0	in	documented
 6.5.22/unix.IP35	sysent	1173	173	sigsendsys	2	00000000000000	0xc000000001593b54	in	documented
@@ -1138,7 +1138,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP35	sysent	1188	188	pwrite	6	08000000000000	0xc000000001593b48	in	undocumented
 6.5.22/unix.IP35	sysent	1189	189	fdatasync	1	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP35	sysent	1190	190	nosys	6	00000000000000	0x0	in	documented
-6.5.22/unix.IP35	sysent	1191	191	attr_get	5	00000000000000	0xc000000001507b18	in	undocumented
+6.5.22/unix.IP35	sysent	1191	191	attr_get	5	00000000000000	0xc000000001507b18	in	documented
 6.5.22/unix.IP35	sysent	1192	192	attr_getf	5	00000000000000	0xc000000001593bc0	in	undocumented
 6.5.22/unix.IP35	sysent	1193	193	attr_set	5	00000000000000	0xc000000001507b28	in	undocumented
 6.5.22/unix.IP35	sysent	1194	194	attr_setf	5	00000000000000	0xc000000001593bc8	in	undocumented
@@ -1354,7 +1354,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP35	irix5_64_sysent	1167	167	swapctl	2	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP35	irix5_64_sysent	1168	168	getcontext	1	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP35	irix5_64_sysent	1169	169	setcontext	1	10000000000000	0x0	in	undocumented
-6.5.22/unix.IP35	irix5_64_sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc000000001593be2	in	undocumented
+6.5.22/unix.IP35	irix5_64_sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc000000001593be2	in	documented
 6.5.22/unix.IP35	irix5_64_sysent	1171	171	sigstack	2	00000000000000	0x0	in	documented
 6.5.22/unix.IP35	irix5_64_sysent	1172	172	_sigaltstack	2	00000000000000	0x0	in	documented
 6.5.22/unix.IP35	irix5_64_sysent	1173	173	sigsendsys	2	00000000000000	0xc000000001593b54	in	documented
@@ -1375,7 +1375,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP35	irix5_64_sysent	1188	188	pwrite	4	00000000000000	0xc000000001593b48	in	undocumented
 6.5.22/unix.IP35	irix5_64_sysent	1189	189	fdatasync	1	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP35	irix5_64_sysent	1190	190	nosys	6	00000000000000	0x0	in	documented
-6.5.22/unix.IP35	irix5_64_sysent	1191	191	attr_get	5	00000000000000	0xc000000001507b18	in	undocumented
+6.5.22/unix.IP35	irix5_64_sysent	1191	191	attr_get	5	00000000000000	0xc000000001507b18	in	documented
 6.5.22/unix.IP35	irix5_64_sysent	1192	192	attr_getf	5	00000000000000	0xc000000001593bc0	in	undocumented
 6.5.22/unix.IP35	irix5_64_sysent	1193	193	attr_set	5	00000000000000	0xc000000001507b28	in	undocumented
 6.5.22/unix.IP35	irix5_64_sysent	1194	194	attr_setf	5	00000000000000	0xc000000001593bc8	in	undocumented
@@ -1591,7 +1591,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP27	sysent	1167	167	swapctl	2	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP27	sysent	1168	168	getcontext	1	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP27	sysent	1169	169	setcontext	1	10000000000000	0x0	in	undocumented
-6.5.30/unix.IP27	sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc0000000014cbad2	in	undocumented
+6.5.30/unix.IP27	sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc0000000014cbad2	in	documented
 6.5.30/unix.IP27	sysent	1171	171	sigstack	2	00000000000000	0x0	in	documented
 6.5.30/unix.IP27	sysent	1172	172	_sigaltstack	2	00000000000000	0x0	in	documented
 6.5.30/unix.IP27	sysent	1173	173	sigsendsys	2	00000000000000	0xc0000000014cba84	in	documented
@@ -1612,7 +1612,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP27	sysent	1188	188	pwrite	6	08000000000000	0xc0000000014cba78	in	undocumented
 6.5.30/unix.IP27	sysent	1189	189	fdatasync	1	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP27	sysent	1190	190	nosys	6	00000000000000	0x0	in	documented
-6.5.30/unix.IP27	sysent	1191	191	attr_get	5	00000000000000	0xc000000001469248	in	undocumented
+6.5.30/unix.IP27	sysent	1191	191	attr_get	5	00000000000000	0xc000000001469248	in	documented
 6.5.30/unix.IP27	sysent	1192	192	attr_getf	5	00000000000000	0xc0000000014cbaf0	in	undocumented
 6.5.30/unix.IP27	sysent	1193	193	attr_set	5	00000000000000	0xc000000001469258	in	undocumented
 6.5.30/unix.IP27	sysent	1194	194	attr_setf	5	00000000000000	0xc0000000014cbaf8	in	undocumented
@@ -1828,7 +1828,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP27	irix5_64_sysent	1167	167	swapctl	2	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP27	irix5_64_sysent	1168	168	getcontext	1	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP27	irix5_64_sysent	1169	169	setcontext	1	10000000000000	0x0	in	undocumented
-6.5.30/unix.IP27	irix5_64_sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc0000000014cbb12	in	undocumented
+6.5.30/unix.IP27	irix5_64_sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc0000000014cbb12	in	documented
 6.5.30/unix.IP27	irix5_64_sysent	1171	171	sigstack	2	00000000000000	0x0	in	documented
 6.5.30/unix.IP27	irix5_64_sysent	1172	172	_sigaltstack	2	00000000000000	0x0	in	documented
 6.5.30/unix.IP27	irix5_64_sysent	1173	173	sigsendsys	2	00000000000000	0xc0000000014cba84	in	documented
@@ -1849,7 +1849,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP27	irix5_64_sysent	1188	188	pwrite	4	00000000000000	0xc0000000014cba78	in	undocumented
 6.5.30/unix.IP27	irix5_64_sysent	1189	189	fdatasync	1	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP27	irix5_64_sysent	1190	190	nosys	6	00000000000000	0x0	in	documented
-6.5.30/unix.IP27	irix5_64_sysent	1191	191	attr_get	5	00000000000000	0xc000000001469248	in	undocumented
+6.5.30/unix.IP27	irix5_64_sysent	1191	191	attr_get	5	00000000000000	0xc000000001469248	in	documented
 6.5.30/unix.IP27	irix5_64_sysent	1192	192	attr_getf	5	00000000000000	0xc0000000014cbaf0	in	undocumented
 6.5.30/unix.IP27	irix5_64_sysent	1193	193	attr_set	5	00000000000000	0xc000000001469258	in	undocumented
 6.5.30/unix.IP27	irix5_64_sysent	1194	194	attr_setf	5	00000000000000	0xc0000000014cbaf8	in	undocumented
@@ -2065,7 +2065,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP30	sysent	1167	167	swapctl	2	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP30	sysent	1168	168	getcontext	1	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP30	sysent	1169	169	setcontext	1	10000000000000	0x0	in	undocumented
-6.5.30/unix.IP30	sysent	1170	170	waitsys_wrapper	5	00000000000000	0xa8000000204a8182	in	undocumented
+6.5.30/unix.IP30	sysent	1170	170	waitsys_wrapper	5	00000000000000	0xa8000000204a8182	in	documented
 6.5.30/unix.IP30	sysent	1171	171	sigstack	2	00000000000000	0x0	in	documented
 6.5.30/unix.IP30	sysent	1172	172	_sigaltstack	2	00000000000000	0x0	in	documented
 6.5.30/unix.IP30	sysent	1173	173	sigsendsys	2	00000000000000	0xa8000000204a8134	in	documented
@@ -2086,7 +2086,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP30	sysent	1188	188	pwrite	6	08000000000000	0xa8000000204a8128	in	undocumented
 6.5.30/unix.IP30	sysent	1189	189	fdatasync	1	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP30	sysent	1190	190	nosys	6	00000000000000	0x0	in	documented
-6.5.30/unix.IP30	sysent	1191	191	attr_get	5	00000000000000	0xa80000002046c048	in	undocumented
+6.5.30/unix.IP30	sysent	1191	191	attr_get	5	00000000000000	0xa80000002046c048	in	documented
 6.5.30/unix.IP30	sysent	1192	192	attr_getf	5	00000000000000	0xa8000000204a81a0	in	undocumented
 6.5.30/unix.IP30	sysent	1193	193	attr_set	5	00000000000000	0xa80000002046c058	in	undocumented
 6.5.30/unix.IP30	sysent	1194	194	attr_setf	5	00000000000000	0xa8000000204a81a8	in	undocumented
@@ -2302,7 +2302,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP30	irix5_64_sysent	1167	167	swapctl	2	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP30	irix5_64_sysent	1168	168	getcontext	1	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP30	irix5_64_sysent	1169	169	setcontext	1	10000000000000	0x0	in	undocumented
-6.5.30/unix.IP30	irix5_64_sysent	1170	170	waitsys_wrapper	5	00000000000000	0xa8000000204a81c2	in	undocumented
+6.5.30/unix.IP30	irix5_64_sysent	1170	170	waitsys_wrapper	5	00000000000000	0xa8000000204a81c2	in	documented
 6.5.30/unix.IP30	irix5_64_sysent	1171	171	sigstack	2	00000000000000	0x0	in	documented
 6.5.30/unix.IP30	irix5_64_sysent	1172	172	_sigaltstack	2	00000000000000	0x0	in	documented
 6.5.30/unix.IP30	irix5_64_sysent	1173	173	sigsendsys	2	00000000000000	0xa8000000204a8134	in	documented
@@ -2323,7 +2323,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP30	irix5_64_sysent	1188	188	pwrite	4	00000000000000	0xa8000000204a8128	in	undocumented
 6.5.30/unix.IP30	irix5_64_sysent	1189	189	fdatasync	1	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP30	irix5_64_sysent	1190	190	nosys	6	00000000000000	0x0	in	documented
-6.5.30/unix.IP30	irix5_64_sysent	1191	191	attr_get	5	00000000000000	0xa80000002046c048	in	undocumented
+6.5.30/unix.IP30	irix5_64_sysent	1191	191	attr_get	5	00000000000000	0xa80000002046c048	in	documented
 6.5.30/unix.IP30	irix5_64_sysent	1192	192	attr_getf	5	00000000000000	0xa8000000204a81a0	in	undocumented
 6.5.30/unix.IP30	irix5_64_sysent	1193	193	attr_set	5	00000000000000	0xa80000002046c058	in	undocumented
 6.5.30/unix.IP30	irix5_64_sysent	1194	194	attr_setf	5	00000000000000	0xa8000000204a81a8	in	undocumented
@@ -2539,7 +2539,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP35	sysent	1167	167	swapctl	2	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP35	sysent	1168	168	getcontext	1	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP35	sysent	1169	169	setcontext	1	10000000000000	0x0	in	undocumented
-6.5.30/unix.IP35	sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc00000000163d4d2	in	undocumented
+6.5.30/unix.IP35	sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc00000000163d4d2	in	documented
 6.5.30/unix.IP35	sysent	1171	171	sigstack	2	00000000000000	0x0	in	documented
 6.5.30/unix.IP35	sysent	1172	172	_sigaltstack	2	00000000000000	0x0	in	documented
 6.5.30/unix.IP35	sysent	1173	173	sigsendsys	2	00000000000000	0xc00000000163d484	in	documented
@@ -2560,7 +2560,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP35	sysent	1188	188	pwrite	6	08000000000000	0xc00000000163d478	in	undocumented
 6.5.30/unix.IP35	sysent	1189	189	fdatasync	1	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP35	sysent	1190	190	nosys	6	00000000000000	0x0	in	documented
-6.5.30/unix.IP35	sysent	1191	191	attr_get	5	00000000000000	0xc0000000015940b0	in	undocumented
+6.5.30/unix.IP35	sysent	1191	191	attr_get	5	00000000000000	0xc0000000015940b0	in	documented
 6.5.30/unix.IP35	sysent	1192	192	attr_getf	5	00000000000000	0xc00000000163d4f0	in	undocumented
 6.5.30/unix.IP35	sysent	1193	193	attr_set	5	00000000000000	0xc0000000015940c0	in	undocumented
 6.5.30/unix.IP35	sysent	1194	194	attr_setf	5	00000000000000	0xc00000000163d4f8	in	undocumented
@@ -2776,7 +2776,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP35	irix5_64_sysent	1167	167	swapctl	2	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP35	irix5_64_sysent	1168	168	getcontext	1	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP35	irix5_64_sysent	1169	169	setcontext	1	10000000000000	0x0	in	undocumented
-6.5.30/unix.IP35	irix5_64_sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc00000000163d512	in	undocumented
+6.5.30/unix.IP35	irix5_64_sysent	1170	170	waitsys_wrapper	5	00000000000000	0xc00000000163d512	in	documented
 6.5.30/unix.IP35	irix5_64_sysent	1171	171	sigstack	2	00000000000000	0x0	in	documented
 6.5.30/unix.IP35	irix5_64_sysent	1172	172	_sigaltstack	2	00000000000000	0x0	in	documented
 6.5.30/unix.IP35	irix5_64_sysent	1173	173	sigsendsys	2	00000000000000	0xc00000000163d484	in	documented
@@ -2797,7 +2797,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP35	irix5_64_sysent	1188	188	pwrite	4	00000000000000	0xc00000000163d478	in	undocumented
 6.5.30/unix.IP35	irix5_64_sysent	1189	189	fdatasync	1	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP35	irix5_64_sysent	1190	190	nosys	6	00000000000000	0x0	in	documented
-6.5.30/unix.IP35	irix5_64_sysent	1191	191	attr_get	5	00000000000000	0xc0000000015940b0	in	undocumented
+6.5.30/unix.IP35	irix5_64_sysent	1191	191	attr_get	5	00000000000000	0xc0000000015940b0	in	documented
 6.5.30/unix.IP35	irix5_64_sysent	1192	192	attr_getf	5	00000000000000	0xc00000000163d4f0	in	undocumented
 6.5.30/unix.IP35	irix5_64_sysent	1193	193	attr_set	5	00000000000000	0xc0000000015940c0	in	undocumented
 6.5.30/unix.IP35	irix5_64_sysent	1194	194	attr_setf	5	00000000000000	0xc00000000163d4f8	in	undocumented
