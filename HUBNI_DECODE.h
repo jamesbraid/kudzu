@@ -15,6 +15,16 @@
  * bits of a field, so the node-number field, which sits in the low half, is a
  * word and the 64-bit error word's latched-error range is a mask constant.
  *
+ * View. These are hub register offsets, independent of how the kernel reaches
+ * them. The kernel uses two aliases: the node-indexed one (a base word plus the
+ * node number shifted left by 33), which carries the status word, the reset
+ * enable word, the port error word and the clear word, and a fixed local one
+ * that carries three more words next to them. The chip register list in the
+ * chips repository keeps an alias bit in each offset, so it lists the same
+ * port error word apart from the local-alias words and has no entry at the
+ * local-alias position of the error word, which nothing stores to. Every word
+ * is a 64-bit register accessed as a doubleword.
+ *
  * Derivation. Offsets, widths and bit ranges come from reading the node-number,
  * link-check, link-reset and error-report routines of the shipped kernels. The
  * Origin 200/2000 offset is the node-number register only. Register roles are
@@ -31,8 +41,11 @@
 #define HUBNI_O300_STATUS_OFFSET 0x680000u /* established: Origin 300 network status word; bits 1:0 are tested as link state, bits 2:1 equal to 2 starts a link-reset wait */
 #define HUBNI_O300_PORT_RESET_OFFSET 0x680008u /* established: Origin 300 port reset word; the kernel writes the value 6 */
 #define HUBNI_O300_RESET_ENABLE_OFFSET 0x680010u /* established: Origin 300 reset enable word; the kernel writes 1; bit 0 is the one that matters (datasheet "reset ok" is inferred) */
-#define HUBNI_O300_ERROR_OFFSET 0x680100u /* established: Origin 300 port error word; bit 52 set with the enable word zero is treated as a tolerated link reset */
+#define HUBNI_O300_ERROR_OFFSET 0x680100u /* established: Origin 300 port error word; bit 52 set with the enable word zero is treated as a tolerated link reset. The node-wide error check reads the clear word and then stores zero here, at three sites; the link interrupt handler only reads it and stores nothing */
 #define HUBNI_O300_ERROR_CLEAR_OFFSET 0x680120u /* established: Origin 300 port error clear word; the kernel reads it, then stores zero to the error word; whether the read clears anything is unknown */
+#define HUBNI_O300_ERROR_REPORT_A_OFFSET 0x680108u /* established: read through the local alias and printed in the link error report; role unknown */
+#define HUBNI_O300_ERROR_REPORT_B_OFFSET 0x680110u /* established: as report word A */
+#define HUBNI_O300_ERROR_REPORT_C_OFFSET 0x680118u /* established: as report word A */
 
 #define HUBNI_O300_ERROR_LATCHED_HI 52 /* established: top bit of the range of latched error bits the kernel tests */
 #define HUBNI_O300_ERROR_LATCHED_LO 24 /* established: bottom bit of that range */
