@@ -78,9 +78,9 @@ The word at `trimcompare+0x20` in each IP30 kernel that could be read. `13f` is 
 | 6.5 base (June 1998 media) | `refs/irix-media/6.5-base/usr/cpu/sysgen/IP30boot/kernel.o` | `5d6eba62f3e0` | `018e4023` | 13f |
 | 6.5.22 | `kona-scaffold/kudzu/root/6.5.22/usr/cpu/sysgen/IP30boot/kernel.o` (origami scaffold; no disc or manifest recorded alongside it) | `05ed66e3d9d4` | `01cc4023` | fixed |
 | 6.5.30 | `refs/irix-media/6.5.30/usr/cpu/sysgen/IP30boot/kernel.o` (same bytes as the kudzu and chips copies) | `32d900592e14` | `01cc4023` | fixed |
-| 6.5.30m | `/unix` on `evidence/old-root-salvage-20261110/disks/octane2-vpro-disk-20261002/octane2-vpro.qcow2` (banner 6.5.30m; same bytes as the `scratch/octane2-vpro-sdk-recovered-20261002.qcow2` copy) | `3ac07f94bd51` | `01cc4023` | fixed |
-| 6.5.30m | `/unix` on `evidence/old-root-salvage-20261110/disks/mgras-completion-evidence-20261002/octane-mgras-base-install-20261003.qcow2` | `c2414ec0a4b0` | `01cc4023` | fixed |
-| 6.5.30m | `/unix` on `evidence/old-root-salvage-20261110/disks/octane-flash-ab-20261003/irix-device-only/root.qcow2` | `1b89ea691fd0` | `01cc4023` | fixed |
+| 6.5.30m | `/unix` on a scratch copy of `octane2-vpro.qcow2` (banner 6.5.30m; same bytes as the `octane2-vpro-sdk-recovered-20261002.qcow2` copy) | `3ac07f94bd51` | `01cc4023` | fixed |
+| 6.5.30m | `/unix` on a scratch copy of `octane-mgras-base-install-20261003.qcow2` | `c2414ec0a4b0` | `01cc4023` | fixed |
+| 6.5.30m | `/unix` on a scratch copy of `root.qcow2` | `1b89ea691fd0` | `01cc4023` | fixed |
 | 6.5.21f | `/unix` on a scratch copy of `octane-6521f-flint834-mxi.qcow2` (banner 6.5.21f) | `c5cb45216232` | `01cc4023` | fixed |
 | 6.5.23m | `/unix` on a scratch copy of `o2-octane2-v12-irix6523m-base-pristine.qcow2` (banner 6.5.23m) | `6ec53d8c3c66` | `01cc4023` | fixed |
 | 6.5.23f | `/unix` on a scratch copy of `o2-octane2-v12-irix6523f-flame9514-ok.qcow2` (banner 6.5.23f) | `9a7f97c0ce63` | `01cc4023` | fixed |
