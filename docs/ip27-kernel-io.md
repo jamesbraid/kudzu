@@ -1019,7 +1019,7 @@ the result in the slot; a null switch information, a vertex of -1 or a failed ma
 pointer in hand it reads the widget identification word at +4: the part number is bits 27 to 12 and the manufacturer bits 11 to 1. A part of 0xc002 with manufacturer 54
 or a part of 0xd002 with manufacturer 36 is accepted; anything else returns 0. For an accepted widget it increments the global word `xbow_xmit_retry_errors` (at
 0xc0000000014cb0c0, the gp-28848 slot), reads the word at +36 of the widget's registers and writes the same value back unchanged, reads it once more (the value is not
-used) and returns 1. Why the value is written back, which matters only if the register reacts to a write, is unknown.
+used) and returns 1. Why the value is written back, which matters only if the register reacts to a write, is unknown. Settling test: the crossbar widget register document's entry for offset 0x24 (the widget control register in public Linux names, a hint only), looking for write-one-to-clear or latched bits; or a capture of the register before and after the write-back on hardware that has logged a retry error.
 - `xbow_reset_link` (`6.5.30/unix.IP27`, address 0xc00000000006eefc, 260 bytes, 48-byte frame): **established.**
 Resets one crossbar link after a widget error and waits for the link to come back, for a bounded time. `a0` (`s2`) is the vertex of the widget on the failing port. Two
 timing words are involved: `xbow_reset_delay` (the word at gp-28844, the pause between polls in microseconds) and a calibration word at 0xc0000000014cb0c8 (the gp-28840
