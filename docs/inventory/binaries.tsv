@@ -5165,7 +5165,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP30boot/mgras.a(mgras.o)	kernel-other-objects	shared-kernel	object	n64	103012	af04a6bac1c408a0		80	symtab	13	0	named-only	docs/routines/t1-kudzu-b037.md#routine-role-statements-6530-ip30-and-ip32-boot-objects	Routine role statements: 6.5.30 IP30 and IP32 boot objects
 6.5.30/usr/cpu/sysgen/IP30boot/mgras.a(mgras_ccv.o)	kernel-other-objects	shared-kernel	object	n64	12420	c951b6925155801a		10	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/mgras.a(mgras_dma.o)	kernel-other-objects	shared-kernel	object	n64	31524	ff13b61214353a46		28	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP30boot/mgras.a(mgras_init.o)	kernel-other-objects	shared-kernel	object	n64	81316	ceb56765bf164654		46	symtab	2	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP30boot/mgras.a(mgras_init.o)	kernel-other-objects	shared-kernel	object	n64	81316	ceb56765bf164654		46	symtab	2	0	named-only	docs/routines/kept-kudzu-b037.md#tier-1-routine-readings-kept-from-t1kudzu-b37	Tier-1 routine readings kept from t1/kudzu-b37
 6.5.30/usr/cpu/sysgen/IP30boot/mgras.a(mgras_retrace.o)	kernel-other-objects	shared-kernel	object	n64	26180	8027933ad163508c		19	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/mgras.a(mgras_timing.o)	kernel-other-objects	shared-kernel	object	n64	14788	b250203a68668dd1		1	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/mgras.a(mgras_tport.o)	kernel-other-objects	shared-kernel	object	n64	14292	861dd8bfc441fa35		10	symtab	0	0	undocumented		
