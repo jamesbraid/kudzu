@@ -1,4 +1,4 @@
-// generated from kudzu 460c8a2ecf06 HUBPI_DECODE.h - do not edit, regenerate in kudzu
+// generated from kudzu c64e3113d062 HUBPI_DECODE.h - do not edit, regenerate in kudzu
 //!
 //! Node hub interrupt pending and mask registers.
 //!
@@ -13,6 +13,8 @@
 pub const LOCAL_WINDOW_BASE: u32 = 0x1000000;
 /// established: physical base of a named node's window.
 pub const NODE_WINDOW_BASE: u32 = 0x1800000;
+/// established.
+pub const INT_PEND_MOD_ALT_OFFSET: u32 = 0x200090;
 
 /// Register `int_pend_mod`: write, 64-bit; reset unknown; inferred.
 pub const REG_INT_PEND_MOD: u32 = 0x0090;

@@ -1,4 +1,4 @@
-// generated from kudzu 460c8a2ecf06 NIC_DECODE.h - do not edit, regenerate in kudzu
+// generated from kudzu c64e3113d062 NIC_DECODE.h - do not edit, regenerate in kudzu
 //!
 //! Bit-serial control word for the one-wire identity parts and
 //! the hub address that reaches the same bus.
@@ -12,6 +12,8 @@
 
 /// established: physical address of the register for node 0.
 pub const HUB_ACCESS_PHYS_LOW: u32 = 0x1e04030;
+/// established: offset of the register from the hub's local-window base.
+pub const HUB_ACCESS_OFFSET: u32 = 0xe04030;
 
 /// The `MCR` word.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
