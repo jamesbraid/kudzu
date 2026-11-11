@@ -1,14 +1,14 @@
 table	rows	out_of_scope	understood	understood_with_open	understood_distinct	templated	located	named_only	undocumented	no_software_dependency	pct_understood	pct_located_or_better	pct_mentioned	pct_done	unresolved_sites	truncated	audited_real_pct	audited_sample	audited_date	computes	reused	multi_unit	shared_address	address_unknown	input
 binaries	7317	0	1	0	1	1	1	774	6541	0	0.0	0.0	10.6	0.0							0				
-functions	242516	3706	3024	171	1980	27267	29540	144493	65459	0	1.2	13.4	73.0	1.2			100.0	6	2026-11-02		0	163	2722	0	
-functions (distinct names)	24898	2829	917	47	880	6962	7321	7007	9653	0	3.7	33.1	61.2	3.7							0				
+functions	242516	3706	3064	171	2020	27267	29549	144444	65459	0	1.3	13.4	73.0	1.3			100.0	6	2026-11-02		0	163	2722	0	
+functions (distinct names)	24898	2829	931	45	894	6948	7307	7007	9653	0	3.7	33.1	61.2	3.7							0				
 mmio	176	0	2	0	1	0	0	103	71	0	1.1	1.1	59.7	1.1	2099						0				
 tokens	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 ioctls	7	0	2	0	1	5	5	0	0	0	28.6	100.0	100.0	28.6							0				
 ucode	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0						0	0				
 spec-registers	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 input root manifest	2525																								3b8822e5a57ec1e1d442684bd304fa05bea5031e47ecc970dce74574e05f864a
-functions in 6.5.22/unix.IP27	13658	0	435	2	422	5733	5778	5309	2136	0	3.2	45.5	84.4	3.2							0	13	148	0	
+functions in 6.5.22/unix.IP27	13658	0	475	2	462	5733	5787	5260	2136	0	3.5	45.8	84.4	3.5							0	13	148	0	
 functions in 6.5.22/unix.IP30	12214	0	120	2	119	1278	1311	8678	2105	0	1.0	11.7	82.8	1.0							0	10	170	0	
 functions in 6.5.22/unix.IP35	14511	0	135	2	134	1412	1456	10343	2577	0	0.9	11.0	82.2	0.9							0	55	148	0	
 functions in 6.5.22/usr/cpu/sysgen/IP22boot/acl.a(acl.o)	16	0	0	0	0	0	0	3	13	0	0.0	0.0	18.8	0.0							0	0	0	0	
