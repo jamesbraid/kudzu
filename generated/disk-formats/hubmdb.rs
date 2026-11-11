@@ -1,4 +1,4 @@
-// generated from kudzu d0569cd5ad8f HUBMDB_DECODE.h - do not edit, regenerate in kudzu
+// generated from kudzu cf9066ddaf69 HUBMDB_DECODE.h - do not edit, regenerate in kudzu
 //!
 //! Origin 300 hub memory-directory migration registers.
 //!
@@ -17,6 +17,8 @@ pub const MIG_CANDIDATE_OFFSET: u32 = 48;
 pub const MIG_CANDIDATE_CLR_OFFSET: u32 = 56;
 /// unknown: access and width; named only by a public vendor header, no shipped kernel accesses it. The Origin 200/2000 block reads its candidate register at this offset in a loop; the two layouts differ, so that does not carry over.
 pub const MIG_VALUE_THRESH_OFFSET: u32 = 72;
+/// inferred: offset from the hub-local register base, by subtraction against a public vendor header; unknown: access, width and fields, no shipped kernel accesses it.
+pub const MIG_CONFIG_LOCAL_OFFSET: u32 = 0x780018;
 /// established: set to arm, cleared to disarm.
 pub const MIG_DIFF_THRESH_VALID_BIT: u32 = 63;
 

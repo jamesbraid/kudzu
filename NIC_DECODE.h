@@ -49,4 +49,25 @@
 #define NIC_MCR_RESULT_SHIFT 0
 #define NIC_MCR_RESULT_MASK  0x1u
 
+/* The Ethernet-address part is recognised from the first bytes of a 14-byte
+ * record read from it. The record's byte 0 and byte 1 must be these two values,
+ * and a CRC-16 folded over bytes 1 to 13 must come out as the residue below. The
+ * six address bytes are record bytes 11 down to 6. */
+#define NIC_MAC_RECORD_LEN 14 /* established: bytes read from the part */
+#define NIC_MAC_ID_BYTE0 0x8du /* established: required value of record byte 0 */
+#define NIC_MAC_ID_BYTE1 0x0au /* established: required value of record byte 1 */
+#define NIC_MAC_CRC16_RESIDUE 0xb001u /* established: CRC-16 residue over record bytes 1 to 13 */
+
+/* GPCR_S: the I/O controller's general-purpose control word, in its set
+ * alias. Before reading the address part the routine stores 0x200000 to the
+ * register address its caller passes, when that address is not null; with a
+ * null address it prints that it is bypassing the enable and goes on. The word
+ * is written whole, so bit 21 is the only bit the routine sets. That the store
+ * enables the one-wire path to the part is read from the routine's own message,
+ * and that a set alias leaves other bits alone is inferred from its name. */
+/* FIELD: GPCR_S.nic_enable 21:21 inferred */
+#define NIC_GPCR_S_NIC_ENABLE_SHIFT 21
+#define NIC_GPCR_S_NIC_ENABLE_MASK  0x1u
+#define NIC_GPCR_S_NIC_ENABLE_WORD 0x200000u /* established: the value stored */
+
 #endif

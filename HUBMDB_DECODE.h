@@ -41,6 +41,12 @@
 #define HUBMDB_MIG_CANDIDATE_CLR_OFFSET 0x38 /* unknown: access and width; the public vendor header names it the read-to-clear candidate register, no shipped kernel accesses it */
 #define HUBMDB_MIG_VALUE_THRESH_OFFSET 0x48 /* unknown: access and width; named only by a public vendor header, no shipped kernel accesses it. The Origin 200/2000 block reads its candidate register at this offset in a loop; the two layouts differ, so that does not carry over */
 
+/* The mode control sits in a different window of the hub, not in the block
+ * above: its offset is the local register base of the public vendor header
+ * subtracted from the address the notes record. No shipped kernel reads or
+ * writes it, so only the offset is stated. */
+#define HUBMDB_MIG_CONFIG_LOCAL_OFFSET 0x780018 /* inferred: offset from the hub-local register base, by subtraction against a public vendor header; unknown: access, width and fields, no shipped kernel accesses it */
+
 /* REG: HUBMDB.mig_diff_thresh 0x40 w64 reset=unknown established */
 /* value: 0x7fff minus the derived count; the width is inferred from the constant. The kernel only stores it: whether it reads back is unknown. */
 /* FIELD: HUBMDB.mig_diff_thresh.value 14:0 inferred */

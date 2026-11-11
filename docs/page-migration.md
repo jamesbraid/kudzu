@@ -158,14 +158,14 @@ The register block that IP27 uses for migration counting is at offsets 0x30, 0x3
 
 | IP35 offset (window `0x9200000001fc0000`, NASID << 33) | Name in the hint | IP35 kernel accesses (all 15122 routines) | Grade |
 |---|---|---|---|
-| +0x30 | MD_MIG_CANDIDATE | none | Established (no access) |
-| +0x38 | MD_MIG_CANDIDATE_CLR (read clears) | none | Established (no access) |
+| +0x30 | MD_MIG_CANDIDATE | none | Established (no access); register access, width and the name's fit unknown |
+| +0x38 | MD_MIG_CANDIDATE_CLR (read clears) | none | Established (no access); register access, width and the name's fit unknown |
 | +0x40 | MD_MIG_DIFF_THRESH | one store: `migr_effthreshold_diff_set`, called only by `migr_init` | Established (access); inferred (name) |
-| +0x48 | MD_MIG_VALUE_THRESH | none | Established (no access) |
+| +0x48 | MD_MIG_VALUE_THRESH | none | Established (no access); register access, width and the name's fit unknown |
 | +0x50 | MD_OUTGOING_RQ_QUEUE_SIZE (not migration) | `set_md_outgoing_rq_queue_size` loads and stores | Established |
-| `0x9200000001f80018` | MD_MIG_CONFIG (page-migration mode control) | none | Established (no access) |
+| `0x9200000001f80018` | MD_MIG_CONFIG (page-migration mode control) | none | Established (no access); address and role inferred from the hint, access and width unknown |
 
-The kernel's access to the +0x40 register is write-only: one 8-byte `sd`, no load, in `6.5.30/unix.IP35` (store at 0xc00000000032b5f0) and in the 6.5.22 `numa.a(numa_hw.o)` object (store at member offset 0x3c). Whether the hardware register reads back is unknown. The chips repository lists the same store as an 8-byte write at the node-indexed alias, with only the low 24 bits of the window address kept; `HUBMDB_DECODE.h` records it as a write-only 64-bit register. Established for the access. The +0x30, +0x38 and +0x48 offsets stay graded unknown there because no held kernel accesses them; the older IP35 archives that carried the migration engine were compared by object size only, so their reads are not read.
+The kernel's access to the +0x40 register is write-only: one 8-byte `sd`, no load, in `6.5.30/unix.IP35` (store at 0xc00000000032b5f0) and in the 6.5.22 `numa.a(numa_hw.o)` object (store at member offset 0x3c). Whether the hardware register reads back is unknown. The chips repository lists the same store as an 8-byte write at the node-indexed alias, with only the low 24 bits of the window address kept; `HUBMDB_DECODE.h` records it as a write-only 64-bit register. Established for the access. The +0x30, +0x38 and +0x48 offsets stay graded unknown there because no held kernel accesses them (the "Established" in the table is for the absence of an access, not for the register); the mode-control address is recorded there as an inferred offset with unknown access; the older IP35 archives that carried the migration engine were compared by object size only, so their reads are not read.
 
 The other accesses to this block are the directory and error routines (`get_dir_ent`, `set_dir_state`, `show_dir_state`, `check_dir_access`, `write_hub_dir_mem`, `log_md_errors`, `memerror_sbe_intr`, `hub_error_clear`, `adjust_nmi_handler`, `handle_cac_buserr`, the `memory_*_accessible` and `memory_set_access` protection routines, `move_buffer`). None reads a candidate or a counter. The only other routine that names a counter store is `migr_pageref_disable`, which has no caller. Established.
 
