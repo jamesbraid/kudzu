@@ -1,4 +1,4 @@
-// generated from kudzu c64e3113d062 PCIBR_DECODE.h - do not edit, regenerate in kudzu
+// generated from kudzu ab466bfe8af8 PCIBR_DECODE.h - do not edit, regenerate in kudzu
 //!
 //! PCI bridge widget identification word, configuration address
 //! layout and interrupt address registers.
