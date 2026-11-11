@@ -37,6 +37,9 @@
 #define HUBPI_INT_PEND_MOD_SET_SHIFT 8
 #define HUBPI_INT_PEND_MOD_SET_MASK  0x1u
 
+/* A processor whose slice number has bit 1 set reaches the same register at this offset in place of 0x90 */
+#define HUBPI_INT_PEND_MOD_ALT_OFFSET 0x200090u /* established */
+
 /* REG: HUBPI.int_pend0 0x98 r64 reset=unknown established */
 /* REG: HUBPI.int_pend1 0xa0 r64 reset=unknown established */
 /* REG: HUBPI.int_mask0_a 0xa8 rw64 reset=unknown established */

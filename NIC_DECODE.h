@@ -29,6 +29,7 @@
  * node shift. */
 #define NIC_HUB_ACCESS_PHYS_LOW 0x1e04030u /* established: physical address of the register for node 0 */
 #define NIC_HUB_ACCESS_NODE_SHIFT 33 /* established: node number shift */
+#define NIC_HUB_ACCESS_OFFSET 0xe04030u /* established: offset of the register from the hub's local-window base */
 
 /* MCR: the 32-bit microlan control word */
 /* pulse: written, starts a bus pulse */

@@ -115,6 +115,52 @@ rust_prefix = "NIC_"
 register_doc = "Constant"
 description = ["Bit-serial control word for the one-wire identity parts and", "the hub address that reaches the same bus."]
 
+[[headers]]
+file = "HUBIO_DECODE.h"
+block = "HUBIO"
+prefix = "HUBIO"
+group = "hubio"
+module = "hubio"
+rust_prefix = "HUBIO_"
+register_doc = "Register"
+description = ["Origin 300 hub crosstalk-side window register tested by", "the error path."]
+
+[[headers]]
+file = "HUBNI_DECODE.h"
+prefix = "HUBNI"
+group = "hubni"
+module = "hubni"
+rust_prefix = "HUBNI_"
+register_doc = "Constant"
+description = ["Node hub network interface words: node number, link state,", "link reset and port error."]
+
+[[headers]]
+file = "PCIBR_DECODE.h"
+prefix = "PCIBR"
+group = "pcibr"
+module = "pcibr"
+rust_prefix = "PCIBR_"
+register_doc = "Constant"
+description = ["PCI bridge widget identification word, configuration address", "layout and interrupt address registers."]
+
+[[headers]]
+file = "SCSI_DECODE.h"
+prefix = "SCSI"
+group = "scsi"
+module = "scsi"
+rust_prefix = "SCSI_"
+register_doc = "Constant"
+description = ["SCSI opcodes the CD-ROM driver picks by drive class."]
+
+[[headers]]
+file = "R10K_TIMER_DECODE.h"
+prefix = "R10K_TIMER"
+group = "r10k_timer"
+module = "r10k_timer"
+rust_prefix = "R10K_"
+register_doc = "Constant"
+description = ["R10000 Count and Compare timer interrupt, from the published", "manual."]
+
 # Claims tie the header constants to the prose notes: if either side changes
 # without the other, the check fails.
 [[claims]]
