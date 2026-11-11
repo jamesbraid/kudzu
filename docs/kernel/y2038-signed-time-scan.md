@@ -267,7 +267,7 @@ guest test: `bdflush_wake_proc`'s fix is confirmed real — a 10 MB write that s
 
 ## Provenance
 
-Scripts and the full hit list are under `/scratch/origami/graphics/y2038-scan/` (`scripts/`,
+Scripts and the full hit list are in a local scan directory (`scripts/`,
 `hits.tsv`); the TSV is copied here as [`y2038-signed-time-hits.tsv`](y2038-signed-time-hits.tsv)
 (columns: likelihood, confidence, binary, abi, window start, nearest dynsym, address, op, taint kind,
 source, other operand, instruction). All addresses are virtual addresses in the named binary; kernel

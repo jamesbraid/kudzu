@@ -7,7 +7,7 @@ the shipped `usr/sbin/lboot` binary, and `var/sysgen/master.d/` config files.
 Disassembled with a local capstone script (relocation-annotated, per symbol) and cross-checked
 with retools `hostfacts.py` on `xfs_mount_validate_sb`. No IRIX source or headers read.
 All prose is my own wording; names are symbols from the objects' own symbol tables.
-Work scratch: `/storage/nvme/origami/tmp/irix-kernel-re/work-xfsmnt/` (extracted members, scripts).
+Work scratch: a local directory holding the extracted members and scripts.
 
 ## Ground rules and limits (read first)
 

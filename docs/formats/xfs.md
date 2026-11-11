@@ -443,4 +443,4 @@ The `mkfs_xfs` summary lines print the chosen attr/parent/naming/log/realtime se
 
 ## Reproduction
 
-Scratch (not part of the findings): `/storage/nvme/origami/tmp/storage-formats/work-xfs/` holds the object extracts, capstone helpers (`tools/odis.py` for relocatable objects, `tools/udis_main.py` for the N32 executables), the `xfs_db` table parser (`tools/ptab.py`) and the raw disassembly (`dis/`, `ud/`).
+Scratch (not part of the findings): a local work directory holds the object extracts, capstone helpers (`tools/odis.py` for relocatable objects, `tools/udis_main.py` for the N32 executables), the `xfs_db` table parser (`tools/ptab.py`) and the raw disassembly (`dis/`, `ud/`).

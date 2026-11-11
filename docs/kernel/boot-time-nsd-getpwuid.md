@@ -251,7 +251,7 @@ Checks that would confirm or reject it without a guess (not run, need a guest wi
 * DNLC lookup path and the NFS vnode `lookup`/`read` ops were not examined.
 * `libns_nis`/`libns_dns`/`libns_ldap`/`libns_db`/`libns_ndbm` import no `time`, `gettimeofday` or `stat`
   (checked by dynsym), so they cannot hold a time compare; only `libns_files` and `libns_mdbm` do.
-* Scratch disassembly and scripts are in `/storage/nvme/origami/tmp/irix-kernel-re/work-nsd/`
+* Scratch disassembly and scripts were kept in a local work directory
   (`nsd.a`, `ns_files.a`, `ns_mdbm.a`, `libc.a`, `ar/nfs_client.s`).
 
 ## 9. Update (2026-11-09): the boot flood is the libc client-cache permanent miss

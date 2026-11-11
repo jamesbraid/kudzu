@@ -210,4 +210,4 @@ Offsets and sizes are **established** from the PP6 DWARF. The version number the
 
 ## Provenance
 
-Clean-room status: binary analysis only. The IRIX kernel archive and the ProPack modules are shipped products; their debug info is the source of field names for the Linux side. No kudzu or IRIX source tree was opened. Extracted copies are in `/storage/nvme/origami/tmp/storage-formats/` (`irix/`, `pp4sp4/`, `pp4ga/`, `pp4sp2/`, `pp6/`), the DWARF dumps `xvm-ko-types.txt`, `xvm-ko-info.txt`, `xvm-kt-macros.txt`, and the throwaway disassembly helpers `dis.py`, `dumpend.py`, `relfn.py` there.
+Clean-room status: binary analysis only. The IRIX kernel archive and the ProPack modules are shipped products; their debug info is the source of field names for the Linux side. No kudzu or IRIX source tree was opened. Extracted copies sit in a local scratch directory (`irix/`, `pp4sp4/`, `pp4ga/`, `pp4sp2/`, `pp6/`), with the DWARF dumps `xvm-ko-types.txt`, `xvm-ko-info.txt`, `xvm-kt-macros.txt`, and the throwaway disassembly helpers `dis.py`, `dumpend.py`, `relfn.py` in the same place.

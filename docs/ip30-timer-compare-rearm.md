@@ -81,8 +81,8 @@ The word at `trimcompare+0x20` in each IP30 kernel that could be read. `13f` is 
 | 6.5.30m | `/unix` on `evidence/old-root-salvage-20261110/disks/octane2-vpro-disk-20261002/octane2-vpro.qcow2` (banner 6.5.30m; same bytes as the `scratch/octane2-vpro-sdk-recovered-20261002.qcow2` copy) | `3ac07f94bd51` | `01cc4023` | fixed |
 | 6.5.30m | `/unix` on `evidence/old-root-salvage-20261110/disks/mgras-completion-evidence-20261002/octane-mgras-base-install-20261003.qcow2` | `c2414ec0a4b0` | `01cc4023` | fixed |
 | 6.5.30m | `/unix` on `evidence/old-root-salvage-20261110/disks/octane-flash-ab-20261003/irix-device-only/root.qcow2` | `1b89ea691fd0` | `01cc4023` | fixed |
-| 6.5.21f | `/unix` on `/scratch/origami/scratch/20261110-discreet-disks-53c7/discreet-rung1-20261109/octane-6521f-flint834-mxi.qcow2` (banner 6.5.21f) | `c5cb45216232` | `01cc4023` | fixed |
-| 6.5.23m | `/unix` on `/scratch/origami/scratch/20261110-discreet-disks-53c7/discreet-rung3-20261109/o2-octane2-v12-irix6523m-base-pristine.qcow2` (banner 6.5.23m) | `6ec53d8c3c66` | `01cc4023` | fixed |
-| 6.5.23f | `/unix` on `/scratch/origami/scratch/20261110-discreet-disks-53c7/discreet-rung3-20261109/o2-octane2-v12-irix6523f-flame9514-ok.qcow2` (banner 6.5.23f) | `9a7f97c0ce63` | `01cc4023` | fixed |
+| 6.5.21f | `/unix` on a scratch copy of `octane-6521f-flint834-mxi.qcow2` (banner 6.5.21f) | `c5cb45216232` | `01cc4023` | fixed |
+| 6.5.23m | `/unix` on a scratch copy of `o2-octane2-v12-irix6523m-base-pristine.qcow2` (banner 6.5.23m) | `6ec53d8c3c66` | `01cc4023` | fixed |
+| 6.5.23f | `/unix` on a scratch copy of `o2-octane2-v12-irix6523f-flame9514-ok.qcow2` (banner 6.5.23f) | `9a7f97c0ce63` | `01cc4023` | fixed |
 
 Not held, so not checked: 6.5.13f, 6.5.14 through 6.5.20, 6.5.21 maintenance, 6.5.24 through 6.5.29, the 6.5.29 tarballs listed in the media inventory, and any other maintenance or feature release not in the table. The 6.5.13f Octane disks (rung 5 and rung 7 of the discreet disk set) exist but the origami disk reader refuses their version 1 directories, so their `/unix` was not read. The release trees extracted under `scratch/irix-debug-survey-20261029/rel/` carry only the IP30 `gfx.o` and `odyssey.a` overlays, with no `kernel.o` or `unix`. The disk search covered only the Octane- and IP30-named images, so an installed IP30 disk on another release may exist unrecorded.

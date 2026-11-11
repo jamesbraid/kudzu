@@ -235,5 +235,4 @@ Notes:
 Disassembly with Capstone (MIPS64 BE) over the ELF and ECOFF files; `stand/fx` was loaded
 with a small ECOFF section reader (its text carries unresolved call targets, so callee names
 inside fx are not recovered; only data references and field offsets were used). Every offset
-above was read from instruction displacements, not from a header file. Scratch work is under
-`/storage/nvme/origami/tmp/storage-formats/vh/` (not for commit).
+above was read from instruction displacements, not from a header file. Scratch work sat in a local extract directory (not for commit).
