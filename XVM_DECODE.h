@@ -46,6 +46,8 @@
 #define XVM_PHYSLAB_VERSION 2 /* established */
 #define XVM_PHYSLAB_VERSION_LEGACY 1 /* established: converted on read */
 #define XVM_PHYSLAB_START_BLOCK 1 /* established: device block holding the label on a disk with an SGI volume header */
+#define XVM_PHYSLAB_GPT_FIRST_PARTITION_INDEX 0 /* established: on a GPT disk the label is at the first LBA of the first partition-list entry, in units of the device block size */
+#define XVM_PHYSLAB_GPT_MIN_PARTITIONS 2 /* established: the GPT placement is tried only when the partition list has a second entry; with one entry no label is found */
 #define XVM_LABELHDR_MAGIC 0x6c646872u /* established: bytes 6c 64 68 72 */
 #define XVM_LABELHDR_VERSION 2 /* established */
 #define XVM_LABELHDR_VERSION_LEGACY 1 /* established: accepted for element sectors only */

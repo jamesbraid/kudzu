@@ -67,6 +67,54 @@ rust_prefix = "XFS_"
 register_doc = "Constant"
 description = ["XFS superblock and inode core as the shipped release", "writes them."]
 
+[[headers]]
+file = "KLCONFIG_DECODE.h"
+prefix = "KLCONFIG"
+group = "klconfig"
+module = "klconfig"
+rust_prefix = "KLCONFIG_"
+register_doc = "Constant"
+description = ["Hardware configuration board record: the fields the", "kernel reads to find boards, slots, modules and components."]
+
+[[headers]]
+file = "HUBPI_DECODE.h"
+block = "HUBPI"
+prefix = "HUBPI"
+group = "hubpi"
+module = "hubpi"
+rust_prefix = "HUBPI_"
+register_doc = "Register"
+description = ["Node hub interrupt pending and mask registers."]
+
+[[headers]]
+file = "HUBMDA_DECODE.h"
+block = "HUBMDA"
+prefix = "HUBMDA"
+group = "hubmda"
+module = "hubmda"
+rust_prefix = "HUBMDA_"
+register_doc = "Register"
+description = ["Origin 200/2000 hub memory-directory migration registers."]
+
+[[headers]]
+file = "HUBMDB_DECODE.h"
+block = "HUBMDB"
+prefix = "HUBMDB"
+group = "hubmdb"
+module = "hubmdb"
+rust_prefix = "HUBMDB_"
+register_doc = "Register"
+description = ["Origin 300 hub memory-directory migration registers."]
+
+[[headers]]
+file = "NIC_DECODE.h"
+prefix = "NIC"
+group = "nic"
+module = "nic"
+rust_prefix = "NIC_"
+register_doc = "Constant"
+description = ["Bit-serial control word for the one-wire identity parts and", "the hub address that reaches the same bus."]
+
 # Claims tie the header constants to the prose notes: if either side changes
 # without the other, the check fails.
 [[claims]]
