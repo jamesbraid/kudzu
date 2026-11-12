@@ -32,6 +32,7 @@ Every hand-written document under `docs/` and the top-level Markdown files, grou
 - [docs/nic.md](docs/nic.md): Board identity read from Dallas 1-Wire number-in-a-can parts
 - [docs/pci-intr-pin.md](docs/pci-intr-pin.md): PCI interrupt pins on the IP35 bridges
 - [docs/pciio-driver-interface.md](docs/pciio-driver-interface.md): PCI driver interface: space codes, flag bits, endianness, interrupt target, id registry
+- [docs/pcibr-multifunction-scan.md](docs/pcibr-multifunction-scan.md): PCI slot scan: multi-function cards, vertex names, PCI-to-PCI bridge functions
 - [docs/sysgen.md](docs/sysgen.md): Kernel configuration tables: driver files, tunables and link directives
 
 ### Generic kernel
