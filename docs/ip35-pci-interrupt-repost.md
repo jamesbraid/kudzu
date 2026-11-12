@@ -18,13 +18,15 @@ here from the held image, routine by routine.
   it the bridge kind). **Established.**
   - Kind nonzero: it calls `pcireg_force_intr_set` (0xc0000000000b3da4) with the soft state and the pin and returns.
     That routine, for kinds 2 and 3, stores the 64-bit value 1 at the bridge's register block + 448 + 8 x pin (offset
-    0x1c0 + 8n); for kind 1 it stores a 32-bit 1 at + 452 + 8 x pin; kinds 0 and -1 go to two further arms that were
-    not read. **Established** for kinds 1 to 3, unread for the rest.
+    0x1c0 + 8n); for kind 1 it stores a 32-bit 1 at + 452 + 8 x pin; kinds 0 and -1 each call `panic` (0xc0000000000b3fa8 and
+    0xc0000000000b3fb4), so no register is written for them. **Established** for every kind.
   - Kind zero: it reads the bridge's interrupt status (`pcireg_intr_status_get`, 0xc0000000000b0fb0), and if the bit for
     this pin is set it asks the crosstalk layer for the interrupt's vector (`xtalk_intr_vector_get`) and target
     processor (`xtalk_intr_cpuid_get`) and stores `vector | 0x100` (bit 8 set: **set** the pending level) to the target
     node's processor-interface pending-modify register through the node window: 0x1800090 for interface 0 or
-    0x1a00090 for interface 1, node number shifted left 33, interface chosen by bit 1 of a byte at +1320 of the
+    0x1a00090 for interface 1 (the routine builds 0x90 or 0x200090, adds the node number shifted left 33 and subtracts
+    the 64-bit constant 0x6dfffffffe800000 held at 0xc000000001644268, so the full address is 0x9200000001800090 or
+    0x9200000001a00090 plus that node offset; the routine's gp is 0xc000000001643770), interface chosen by bit 1 of a byte at +1320 of the
     target processor's per-processor data. The kernel sets the pending bit itself and does not go through the bridge.
     **Established.**
 - The bridge kind is 2 for the PIC: the PIC attach routine `pic_attach2` (0xc00000000009b884) stores 2 at soft +114
