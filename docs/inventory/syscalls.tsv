@@ -217,7 +217,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP27	sysent	1215	215	timer_gettime	2	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP27	sysent	1216	216	timer_getoverrun	1	00000000000000	0x0	in	documented
 6.5.22/unix.IP27	sysent	1217	217	sched_rr_get_interval	2	00000000000000	0xc0000000014ca816	in	undocumented
-6.5.22/unix.IP27	sysent	1218	218	sched_yield	0	00000000000000	0x0	in	undocumented
+6.5.22/unix.IP27	sysent	1218	218	sched_yield	0	00000000000000	0x0	in	documented
 6.5.22/unix.IP27	sysent	1219	219	sched_getscheduler	1	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP27	sysent	1220	220	sched_setscheduler	3	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP27	sysent	1221	221	sched_getparam	2	00000000000000	0x0	in	undocumented
@@ -454,7 +454,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP27	irix5_64_sysent	1215	215	timer_gettime	2	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP27	irix5_64_sysent	1216	216	timer_getoverrun	1	00000000000000	0x0	in	documented
 6.5.22/unix.IP27	irix5_64_sysent	1217	217	sched_rr_get_interval	2	00000000000000	0xc0000000014ca856	in	undocumented
-6.5.22/unix.IP27	irix5_64_sysent	1218	218	sched_yield	0	00000000000000	0x0	in	undocumented
+6.5.22/unix.IP27	irix5_64_sysent	1218	218	sched_yield	0	00000000000000	0x0	in	documented
 6.5.22/unix.IP27	irix5_64_sysent	1219	219	sched_getscheduler	1	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP27	irix5_64_sysent	1220	220	sched_setscheduler	3	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP27	irix5_64_sysent	1221	221	sched_getparam	2	00000000000000	0x0	in	undocumented
@@ -691,7 +691,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP30	sysent	1215	215	timer_gettime	2	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP30	sysent	1216	216	timer_getoverrun	1	00000000000000	0x0	in	documented
 6.5.22/unix.IP30	sysent	1217	217	sched_rr_get_interval	2	00000000000000	0xa8000000203dbcee	in	undocumented
-6.5.22/unix.IP30	sysent	1218	218	sched_yield	0	00000000000000	0x0	in	undocumented
+6.5.22/unix.IP30	sysent	1218	218	sched_yield	0	00000000000000	0x0	in	documented
 6.5.22/unix.IP30	sysent	1219	219	sched_getscheduler	1	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP30	sysent	1220	220	sched_setscheduler	3	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP30	sysent	1221	221	sched_getparam	2	00000000000000	0x0	in	undocumented
@@ -928,7 +928,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP30	irix5_64_sysent	1215	215	timer_gettime	2	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP30	irix5_64_sysent	1216	216	timer_getoverrun	1	00000000000000	0x0	in	documented
 6.5.22/unix.IP30	irix5_64_sysent	1217	217	sched_rr_get_interval	2	00000000000000	0xa8000000203dbd2e	in	undocumented
-6.5.22/unix.IP30	irix5_64_sysent	1218	218	sched_yield	0	00000000000000	0x0	in	undocumented
+6.5.22/unix.IP30	irix5_64_sysent	1218	218	sched_yield	0	00000000000000	0x0	in	documented
 6.5.22/unix.IP30	irix5_64_sysent	1219	219	sched_getscheduler	1	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP30	irix5_64_sysent	1220	220	sched_setscheduler	3	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP30	irix5_64_sysent	1221	221	sched_getparam	2	00000000000000	0x0	in	undocumented
@@ -1165,7 +1165,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP35	sysent	1215	215	timer_gettime	2	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP35	sysent	1216	216	timer_getoverrun	1	00000000000000	0x0	in	documented
 6.5.22/unix.IP35	sysent	1217	217	sched_rr_get_interval	2	00000000000000	0xc000000001593b96	in	undocumented
-6.5.22/unix.IP35	sysent	1218	218	sched_yield	0	00000000000000	0x0	in	undocumented
+6.5.22/unix.IP35	sysent	1218	218	sched_yield	0	00000000000000	0x0	in	documented
 6.5.22/unix.IP35	sysent	1219	219	sched_getscheduler	1	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP35	sysent	1220	220	sched_setscheduler	3	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP35	sysent	1221	221	sched_getparam	2	00000000000000	0x0	in	undocumented
@@ -1402,7 +1402,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.22/unix.IP35	irix5_64_sysent	1215	215	timer_gettime	2	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP35	irix5_64_sysent	1216	216	timer_getoverrun	1	00000000000000	0x0	in	documented
 6.5.22/unix.IP35	irix5_64_sysent	1217	217	sched_rr_get_interval	2	00000000000000	0xc000000001593bd6	in	undocumented
-6.5.22/unix.IP35	irix5_64_sysent	1218	218	sched_yield	0	00000000000000	0x0	in	undocumented
+6.5.22/unix.IP35	irix5_64_sysent	1218	218	sched_yield	0	00000000000000	0x0	in	documented
 6.5.22/unix.IP35	irix5_64_sysent	1219	219	sched_getscheduler	1	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP35	irix5_64_sysent	1220	220	sched_setscheduler	3	00000000000000	0x0	in	undocumented
 6.5.22/unix.IP35	irix5_64_sysent	1221	221	sched_getparam	2	00000000000000	0x0	in	undocumented
@@ -1639,7 +1639,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP27	sysent	1215	215	timer_gettime	2	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP27	sysent	1216	216	timer_getoverrun	1	00000000000000	0x0	in	documented
 6.5.30/unix.IP27	sysent	1217	217	sched_rr_get_interval	2	00000000000000	0xc0000000014cbac6	in	undocumented
-6.5.30/unix.IP27	sysent	1218	218	sched_yield	0	00000000000000	0x0	in	undocumented
+6.5.30/unix.IP27	sysent	1218	218	sched_yield	0	00000000000000	0x0	in	documented
 6.5.30/unix.IP27	sysent	1219	219	sched_getscheduler	1	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP27	sysent	1220	220	sched_setscheduler	3	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP27	sysent	1221	221	sched_getparam	2	00000000000000	0x0	in	undocumented
@@ -1876,7 +1876,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP27	irix5_64_sysent	1215	215	timer_gettime	2	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP27	irix5_64_sysent	1216	216	timer_getoverrun	1	00000000000000	0x0	in	documented
 6.5.30/unix.IP27	irix5_64_sysent	1217	217	sched_rr_get_interval	2	00000000000000	0xc0000000014cbb06	in	undocumented
-6.5.30/unix.IP27	irix5_64_sysent	1218	218	sched_yield	0	00000000000000	0x0	in	undocumented
+6.5.30/unix.IP27	irix5_64_sysent	1218	218	sched_yield	0	00000000000000	0x0	in	documented
 6.5.30/unix.IP27	irix5_64_sysent	1219	219	sched_getscheduler	1	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP27	irix5_64_sysent	1220	220	sched_setscheduler	3	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP27	irix5_64_sysent	1221	221	sched_getparam	2	00000000000000	0x0	in	undocumented
@@ -2113,7 +2113,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP30	sysent	1215	215	timer_gettime	2	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP30	sysent	1216	216	timer_getoverrun	1	00000000000000	0x0	in	documented
 6.5.30/unix.IP30	sysent	1217	217	sched_rr_get_interval	2	00000000000000	0xa8000000204a8176	in	undocumented
-6.5.30/unix.IP30	sysent	1218	218	sched_yield	0	00000000000000	0x0	in	undocumented
+6.5.30/unix.IP30	sysent	1218	218	sched_yield	0	00000000000000	0x0	in	documented
 6.5.30/unix.IP30	sysent	1219	219	sched_getscheduler	1	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP30	sysent	1220	220	sched_setscheduler	3	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP30	sysent	1221	221	sched_getparam	2	00000000000000	0x0	in	undocumented
@@ -2350,7 +2350,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP30	irix5_64_sysent	1215	215	timer_gettime	2	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP30	irix5_64_sysent	1216	216	timer_getoverrun	1	00000000000000	0x0	in	documented
 6.5.30/unix.IP30	irix5_64_sysent	1217	217	sched_rr_get_interval	2	00000000000000	0xa8000000204a81b6	in	undocumented
-6.5.30/unix.IP30	irix5_64_sysent	1218	218	sched_yield	0	00000000000000	0x0	in	undocumented
+6.5.30/unix.IP30	irix5_64_sysent	1218	218	sched_yield	0	00000000000000	0x0	in	documented
 6.5.30/unix.IP30	irix5_64_sysent	1219	219	sched_getscheduler	1	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP30	irix5_64_sysent	1220	220	sched_setscheduler	3	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP30	irix5_64_sysent	1221	221	sched_getparam	2	00000000000000	0x0	in	undocumented
@@ -2587,7 +2587,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP35	sysent	1215	215	timer_gettime	2	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP35	sysent	1216	216	timer_getoverrun	1	00000000000000	0x0	in	documented
 6.5.30/unix.IP35	sysent	1217	217	sched_rr_get_interval	2	00000000000000	0xc00000000163d4c6	in	undocumented
-6.5.30/unix.IP35	sysent	1218	218	sched_yield	0	00000000000000	0x0	in	undocumented
+6.5.30/unix.IP35	sysent	1218	218	sched_yield	0	00000000000000	0x0	in	documented
 6.5.30/unix.IP35	sysent	1219	219	sched_getscheduler	1	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP35	sysent	1220	220	sched_setscheduler	3	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP35	sysent	1221	221	sched_getparam	2	00000000000000	0x0	in	undocumented
@@ -2824,7 +2824,7 @@ binary	table	number	index	handler	nargs	flags	arg_table	scope	status
 6.5.30/unix.IP35	irix5_64_sysent	1215	215	timer_gettime	2	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP35	irix5_64_sysent	1216	216	timer_getoverrun	1	00000000000000	0x0	in	documented
 6.5.30/unix.IP35	irix5_64_sysent	1217	217	sched_rr_get_interval	2	00000000000000	0xc00000000163d506	in	undocumented
-6.5.30/unix.IP35	irix5_64_sysent	1218	218	sched_yield	0	00000000000000	0x0	in	undocumented
+6.5.30/unix.IP35	irix5_64_sysent	1218	218	sched_yield	0	00000000000000	0x0	in	documented
 6.5.30/unix.IP35	irix5_64_sysent	1219	219	sched_getscheduler	1	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP35	irix5_64_sysent	1220	220	sched_setscheduler	3	00000000000000	0x0	in	undocumented
 6.5.30/unix.IP35	irix5_64_sysent	1221	221	sched_getparam	2	00000000000000	0x0	in	undocumented
