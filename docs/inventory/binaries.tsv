@@ -7376,7 +7376,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/etc/cfsstat	userland-base	userland	executable	n32	37648	75a22aab1b9ec79c		9	dynsym	0	0	named-only	docs/userland.md#6530usretccfsstat	`6.5.30/usr/etc/cfsstat`
 6.5.30/usr/etc/eventmond	userland-base	userland	executable	n32	159128	edf94f779e9a580d		130	dynsym	0	0	named-only	docs/userland.md#6530usretceventmond	`6.5.30/usr/etc/eventmond`
 6.5.30/usr/etc/exportfs	userland-base	userland	executable	n32	73192	8edb27d96991ef73		40	dynsym	0	0	understood	docs/userland.md#6530usretcexportfs	`6.5.30/usr/etc/exportfs`
-6.5.30/usr/etc/ipfilterd	userland-base	userland	executable	n32	170040	dfd0928e310bd371		197	dynsym	0	0	named-only	IRIX_FILES.md#1-irix-6530-primary	1. IRIX 6.5.30 (primary)
+6.5.30/usr/etc/ipfilterd	userland-base	userland	executable	n32	170040	dfd0928e310bd371		197	dynsym	0	0	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/etc/mediad	userland-base	userland	executable	n32	222192	d38efd64c2bb819f		438	dynsym	0	0	named-only	docs/open-questions.md#triage-2026-11-01	Triage (2026-11-01)
 6.5.30/usr/etc/miser	userland-base	userland	executable	n32	126940	733a8d13f7e207d1		165	dynsym	0	0	named-only	IRIX_FILES.md#1-irix-6530-primary	1. IRIX 6.5.30 (primary)
 6.5.30/usr/etc/mmscd	userland-base	userland	executable	n32	41672	f670e794ef6faa77		37	dynsym	0	0	named-only	docs/userland-abi-and-loader.md#how-a-program-is-started	How a program is started

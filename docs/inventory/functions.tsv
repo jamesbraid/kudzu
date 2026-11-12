@@ -443,7 +443,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/lib/libc.so.1	userland	o32		0xfa3b640	64	bind	dynsym	ea06fdef0c66	shared-address	out:3	named-only		
 6.5.22/lib/libc.so.1	userland	o32		0xfa3b680	64	_getpid	dynsym+mdebug	a53dbd1fdaf0	shared-address	out:3	undocumented		
 6.5.22/lib/libc.so.1	userland	o32		0xfa3b680	64	getpid	dynsym	a53dbd1fdaf0	shared-address	out:3	named-only		
-6.5.22/lib/libc.so.1	userland	o32		0xfa3b6c0	780	fgets	dynsym+mdebug	dfbbf83c94fe		out:3	undocumented		
+6.5.22/lib/libc.so.1	userland	o32		0xfa3b6c0	780	fgets	dynsym+mdebug	dfbbf83c94fe		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/lib/libc.so.1	userland	o32		0xfa3b9d0	68	_fstat64	dynsym+mdebug	b3e9333de841	shared-address	out:3	undocumented		
 6.5.22/lib/libc.so.1	userland	o32		0xfa3b9d0	80	fstat64	dynsym	76c3126b9dc7	shared-address	out:3	named-only		
 6.5.22/lib/libc.so.1	userland	o32		0xfa3ba20	68	_unlink	dynsym+mdebug	9789823e7683	shared-address	out:3	undocumented		
@@ -457,7 +457,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/lib/libc.so.1	userland	o32		0xfa3c420	64	__recvmsg	dynsym+mdebug	f32f2a1e0006		out:3	undocumented		
 6.5.22/lib/libc.so.1	userland	o32		0xfa3c460	300	_recvmsg	dynsym+mdebug	2a7debab8fac	shared-address	out:3	undocumented		
 6.5.22/lib/libc.so.1	userland	o32		0xfa3c460	304	recvmsg	dynsym	a7522507307b	shared-address	out:3	named-only		
-6.5.22/lib/libc.so.1	userland	o32		0xfa3c590	152	strncmp	dynsym+mdebug	8e93619d6226		out:3	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.22/lib/libc.so.1	userland	o32		0xfa3c590	152	strncmp	dynsym+mdebug	8e93619d6226		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/lib/libc.so.1	userland	o32		0xfa3c630	116	sprintf	dynsym+mdebug	934646530e98		out:3	named-only	docs/hwgraph-names.md#hardware-graph-names-in-the-6530-kernels	Hardware-graph names in the 6.5.30 kernels
 6.5.22/lib/libc.so.1	userland	o32	.text	0xfa3c6b0	228	_lowdigit	mdebug	c7816936d966		out:3	undocumented		
 6.5.22/lib/libc.so.1	userland	o32	.text	0xfa3c794	96	_lowdigit_l	mdebug	37f2e43a8fe0		out:3	undocumented		
@@ -590,7 +590,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/lib/libc.so.1	userland	o32		0xfa46578	120	_gen_digits	dynsym+mdebug	21ee47d74983		out:3	undocumented		
 6.5.22/lib/libc.so.1	userland	o32	.text	0xfa465f0	9556	norm_and_round	mdebug	2127b13e8984		out:3	undocumented		
 6.5.22/lib/libc.so.1	userland	o32		0xfa46784	540	__tenscale	dynsym+mdebug	422b2d16b06a		out:3	undocumented		
-6.5.22/lib/libc.so.1	userland	o32		0xfa469a0	196	strtok	dynsym+mdebug	bcdb02a2c82d		out:3	undocumented		
+6.5.22/lib/libc.so.1	userland	o32		0xfa469a0	196	strtok	dynsym+mdebug	bcdb02a2c82d		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/lib/libc.so.1	userland	o32		0xfa46a64	192	_strtok_r	dynsym+mdebug	3fc86876d478	shared-address	out:3	undocumented		
 6.5.22/lib/libc.so.1	userland	o32		0xfa46a64	204	strtok_r	dynsym	1a18b0adccd8	shared-address	out:3	named-only		
 6.5.22/lib/libc.so.1	userland	o32		0xfa46b30	68	_getegid	dynsym+mdebug	6b221e199b76	shared-address	out:3	undocumented		
@@ -1168,7 +1168,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/lib/libc.so.1	userland	o32		0xfa69cf4	1752	_vsyslog	dynsym+mdebug	e80738243069	shared-address	out:3	undocumented		
 6.5.22/lib/libc.so.1	userland	o32		0xfa69cf4	1752	vsyslog	dynsym	e80738243069	shared-address	out:3	undocumented		
 6.5.22/lib/libc.so.1	userland	o32		0xfa6a3cc	204	_openlog	dynsym+mdebug	9bdd7cc381e6	shared-address	out:3	undocumented		
-6.5.22/lib/libc.so.1	userland	o32		0xfa6a3cc	204	openlog	dynsym	9bdd7cc381e6	shared-address	out:3	named-only		
+6.5.22/lib/libc.so.1	userland	o32		0xfa6a3cc	204	openlog	dynsym	9bdd7cc381e6	shared-address	out:3	undocumented		
 6.5.22/lib/libc.so.1	userland	o32		0xfa6a498	76	_closelog	dynsym+mdebug	15ad24520bf0	shared-address	out:3	undocumented		
 6.5.22/lib/libc.so.1	userland	o32		0xfa6a498	76	closelog	dynsym	15ad24520bf0	shared-address	out:3	undocumented		
 6.5.22/lib/libc.so.1	userland	o32		0xfa6a4e4	40	_setlogmask	dynsym+mdebug	f4a78a88257a	shared-address	out:3	undocumented		
@@ -5610,7 +5610,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/lib/rld	userland	o32	.text	0xfb7f57c	1264	_vsyslog	mdebug+symtab	eb434d7e1943	shared-address	out:3	undocumented		
 6.5.22/lib/rld	userland	o32	.text	0xfb7f57c	1264	vsyslog	symtab	eb434d7e1943	shared-address	out:3	undocumented		
 6.5.22/lib/rld	userland	o32	.text	0xfb7fa6c	224	_openlog	mdebug+symtab	3e07f667c4fd	shared-address	out:3	undocumented		
-6.5.22/lib/rld	userland	o32	.text	0xfb7fa6c	224	openlog	symtab	3e07f667c4fd	shared-address	out:3	named-only		
+6.5.22/lib/rld	userland	o32	.text	0xfb7fa6c	224	openlog	symtab	3e07f667c4fd	shared-address	out:3	undocumented		
 6.5.22/lib/rld	userland	o32	.text	0xfb7fb4c	44	_closelog	mdebug+symtab	6cfa1aeff83c	shared-address	out:3	undocumented		
 6.5.22/lib/rld	userland	o32	.text	0xfb7fb4c	44	closelog	symtab	6cfa1aeff83c	shared-address	out:3	undocumented		
 6.5.22/lib/rld	userland	o32	.text	0xfb7fb78	28	_setlogmask	mdebug+symtab	e78d88abad95	shared-address	out:3	undocumented		
@@ -5763,9 +5763,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/lib/rld	userland	o32	.text	0xfb82a00	56	_blk_init	mdebug+symtab	c92512f8a8bb		out:3	undocumented		
 6.5.22/lib/rld	userland	o32	.text	0xfb82a40	44	strchr	mdebug+symtab	4fbdaaacf173		out:3	named-only	docs/routines/t2-kudzu-r4-b011.md#tier-2-reading-batch-11-of-kudzu	Tier-2 reading batch 11 of kudzu
 6.5.22/lib/rld	userland	o32	.text	0xfb82a70	108	strerror	mdebug+symtab	7444b4d76273		out:3	undocumented		
-6.5.22/lib/rld	userland	o32	.text	0xfb82ae0	152	strncmp	mdebug+symtab	8e93619d6226		out:3	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.22/lib/rld	userland	o32	.text	0xfb82ae0	152	strncmp	mdebug+symtab	8e93619d6226		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/lib/rld	userland	o32	.text	0xfb82b80	40	strrchr	mdebug+symtab	f8f1e16f1f55		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
-6.5.22/lib/rld	userland	o32	.text	0xfb82bb0	156	strtok	mdebug+symtab	0df5789cf94b		out:3	undocumented		
+6.5.22/lib/rld	userland	o32	.text	0xfb82bb0	156	strtok	mdebug+symtab	0df5789cf94b		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/lib/rld	userland	o32	.text	0xfb82c4c	156	_strtok_r	mdebug+symtab	cc4a0dc70e2e	shared-address	out:3	undocumented		
 6.5.22/lib/rld	userland	o32	.text	0xfb82c4c	164	strtok_r	symtab	aac3892dfa7e	shared-address	out:3	named-only		
 6.5.22/lib/rld	userland	o32	.text	0xfb82cf0	40	_alarm	mdebug+symtab	a7524c5321f5	shared-address	out:3	undocumented		
@@ -6288,7 +6288,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/lib32/libc.so.1	userland	n32		0xfa529bc	64	_getpid	dwarf+dynsym	ce027885ab0e	shared-address	out:3	undocumented		
 6.5.22/lib32/libc.so.1	userland	n32		0xfa529bc	64	getpid	dynsym	ce027885ab0e	shared-address	out:3	named-only		
 6.5.22/lib32/libc.so.1	userland	n32		0xfa529fc	320	fclose	dwarf+dynsym	d06276c90ca1		out:3	undocumented		
-6.5.22/lib32/libc.so.1	userland	n32		0xfa52b3c	736	fgets	dwarf+dynsym	235e99ac6522		out:3	undocumented		
+6.5.22/lib32/libc.so.1	userland	n32		0xfa52b3c	736	fgets	dwarf+dynsym	235e99ac6522		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/lib32/libc.so.1	userland	n32		0xfa52e1c	64	_fstat64	dwarf+dynsym	6a23c49c64ba	shared-address	out:3	undocumented		
 6.5.22/lib32/libc.so.1	userland	n32		0xfa52e1c	64	fstat64	dynsym	6a23c49c64ba	shared-address	out:3	named-only		
 6.5.22/lib32/libc.so.1	userland	n32		0xfa52e5c	68	_unlink	dwarf+dynsym	8554ad56ed86	shared-address	out:3	undocumented		
@@ -6303,7 +6303,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/lib32/libc.so.1	userland	n32		0xfa53550	64	__recvmsg	dwarf+dynsym	0541aff32e44		out:3	undocumented		
 6.5.22/lib32/libc.so.1	userland	n32		0xfa53590	304	_recvmsg	dwarf+dynsym	69cd314ae5c9	shared-address	out:3	undocumented		
 6.5.22/lib32/libc.so.1	userland	n32		0xfa53590	304	recvmsg	dynsym	69cd314ae5c9	shared-address	out:3	named-only		
-6.5.22/lib32/libc.so.1	userland	n32		0xfa536c0	88	strncmp	dwarf+dynsym	17ef00757d78		out:3	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.22/lib32/libc.so.1	userland	n32		0xfa536c0	88	strncmp	dwarf+dynsym	17ef00757d78		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/lib32/libc.so.1	userland	n32	.text	0xfa53718	408	t_splay	dwarf+funcnames	c15b6e1b3b67		out:3	undocumented		
 6.5.22/lib32/libc.so.1	userland	n32	.text	0xfa538b0	432	_morecore	dwarf+funcnames	323bdc554b24		out:3	undocumented		
 6.5.22/lib32/libc.so.1	userland	n32		0xfa53a60	128	sprintf	dwarf+dynsym	088eba75c011		out:3	named-only	docs/hwgraph-names.md#hardware-graph-names-in-the-6530-kernels	Hardware-graph names in the 6.5.30 kernels
@@ -6359,7 +6359,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/lib32/libc.so.1	userland	n32		0xfa5907c	536	__tenscale	dwarf+dynsym	977cc9cb0cbb		out:3	undocumented		
 6.5.22/lib32/libc.so.1	userland	n32	.text	0xfa59294	112	norm_and_round	dwarf+funcnames	0271c9bb7ffc		out:3	undocumented		
 6.5.22/lib32/libc.so.1	userland	n32	.text	0xfa59304	472	set_cat	dwarf+funcnames	6aa7b947c203		out:3	undocumented		
-6.5.22/lib32/libc.so.1	userland	n32		0xfa594dc	184	strtok	dwarf+dynsym	608be080f8fc		out:3	undocumented		
+6.5.22/lib32/libc.so.1	userland	n32		0xfa594dc	184	strtok	dwarf+dynsym	608be080f8fc		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/lib32/libc.so.1	userland	n32		0xfa59594	68	_getegid	dwarf+dynsym	abcb6b7fe672	shared-address	out:3	undocumented		
 6.5.22/lib32/libc.so.1	userland	n32		0xfa59594	68	getegid	dynsym	abcb6b7fe672	shared-address	out:3	undocumented		
 6.5.22/lib32/libc.so.1	userland	n32		0xfa595d8	144	_snprintf	dwarf+dynsym	56508b44437f	shared-address	out:3	undocumented		
@@ -6664,7 +6664,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/lib32/libc.so.1	userland	n32		0xfa681dc	88	strcspn	dwarf+dynsym	c55fba88f745		out:3	undocumented		
 6.5.22/lib32/libc.so.1	userland	n32		0xfa68234	928	strtoul	dwarf+dynsym	3f5236d62cb4		out:3	named-only	docs/userland.md#6530usretcnfsdctl	`6.5.30/usr/etc/nfsdctl`
 6.5.22/lib32/libc.so.1	userland	n32		0xfa685d4	156	_openlog	dwarf+dynsym	36a500d283df	shared-address	out:3	undocumented		
-6.5.22/lib32/libc.so.1	userland	n32		0xfa685d4	156	openlog	dynsym	36a500d283df	shared-address	out:3	named-only		
+6.5.22/lib32/libc.so.1	userland	n32		0xfa685d4	156	openlog	dynsym	36a500d283df	shared-address	out:3	undocumented		
 6.5.22/lib32/libc.so.1	userland	n32		0xfa68670	68	_chdir	dwarf+dynsym	3d38d0910dbe	shared-address	out:3	undocumented		
 6.5.22/lib32/libc.so.1	userland	n32		0xfa68670	68	chdir	dynsym	3d38d0910dbe	shared-address	out:3	named-only		
 6.5.22/lib32/libc.so.1	userland	n32		0xfa686b4	156	BSDdup2	dynsym	4ed333c2c943	shared-address	out:3	undocumented		
@@ -12154,7 +12154,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/lib32/rld	userland	n32	.text	0xfb7d35c	1320	_vsyslog	dwarf+symtab	22634bd9941c	shared-address	out:3	undocumented		
 6.5.22/lib32/rld	userland	n32	.text	0xfb7d35c	1320	vsyslog	symtab	22634bd9941c	shared-address	out:3	undocumented		
 6.5.22/lib32/rld	userland	n32	.text	0xfb7d884	184	_openlog	dwarf+symtab	02b8795ee54b	shared-address	out:3	undocumented		
-6.5.22/lib32/rld	userland	n32	.text	0xfb7d884	184	openlog	symtab	02b8795ee54b	shared-address	out:3	named-only		
+6.5.22/lib32/rld	userland	n32	.text	0xfb7d884	184	openlog	symtab	02b8795ee54b	shared-address	out:3	undocumented		
 6.5.22/lib32/rld	userland	n32	.text	0xfb7d93c	40	_closelog	dwarf+symtab	f96747eac05d	shared-address	out:3	undocumented		
 6.5.22/lib32/rld	userland	n32	.text	0xfb7d93c	40	closelog	symtab	f96747eac05d	shared-address	out:3	undocumented		
 6.5.22/lib32/rld	userland	n32	.text	0xfb7d964	24	_setlogmask	dwarf+symtab	95d87968559e	shared-address	out:3	undocumented		
@@ -12218,7 +12218,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/lib32/rld	userland	n32	.text	0xfb814bc	116	_dhcsetlock	dwarf+symtab	d44565a55f00		out:3	undocumented		
 6.5.22/lib32/rld	userland	n32	.text	0xfb81530	220	_dhsetlock	dwarf+symtab	5d5a7dfe2023		out:3	undocumented		
 6.5.22/lib32/rld	userland	n32	.text	0xfb8160c	176	_dhunsetlock	dwarf+symtab	58e4e32b0188		out:3	undocumented		
-6.5.22/lib32/rld	userland	n32	.text	0xfb816bc	144	strncmp	dwarf+symtab	6019bec6cbfe		out:3	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.22/lib32/rld	userland	n32	.text	0xfb816bc	144	strncmp	dwarf+symtab	6019bec6cbfe		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/lib32/rld	userland	n32	.text	0xfb8174c	68	strcmp	dwarf+symtab	09d341a6f9e8		out:3	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.22/lib32/rld	userland	n32	.text	0xfb81790	64	_sysmp	dwarf+symtab	fdf5fb47e456	shared-address	out:3	undocumented		
 6.5.22/lib32/rld	userland	n32	.text	0xfb81790	64	sysmp	symtab	fdf5fb47e456	shared-address	out:3	named-only		
@@ -12295,7 +12295,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/lib32/rld	userland	n32	.text	0xfb83bdc	40	nanosleep	symtab	e5c92792050e	shared-address	out:3	named-only		
 6.5.22/lib32/rld	userland	n32	.text	0xfb83c04	132	_calloc	dwarf+symtab	132f00341d13	shared-address	out:3	undocumented		
 6.5.22/lib32/rld	userland	n32	.text	0xfb83c04	132	calloc	symtab	132f00341d13	shared-address	out:3	named-only		
-6.5.22/lib32/rld	userland	n32	.text	0xfb83c88	160	strtok	dwarf+symtab	65bca4977bd2		out:3	undocumented		
+6.5.22/lib32/rld	userland	n32	.text	0xfb83c88	160	strtok	dwarf+symtab	65bca4977bd2		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/lib32/rld	userland	n32	.text	0xfb83d28	176	_strtok_r	dwarf+symtab	bdfb947f9d89	shared-address	out:3	undocumented		
 6.5.22/lib32/rld	userland	n32	.text	0xfb83d28	176	strtok_r	symtab	bdfb947f9d89	shared-address	out:3	named-only		
 6.5.22/lib32/rld	userland	n32	.text	0xfb83dd8	108	strpbrk	dwarf+symtab	eeac7e17d320		out:3	named-only		
@@ -13287,7 +13287,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/lib64/rld	userland	n64	.text	0xfb7f2b4	1428	_vsyslog	dwarf+symtab	8c03373ee69e	shared-address	out:3	undocumented		
 6.5.22/lib64/rld	userland	n64	.text	0xfb7f2b4	1428	vsyslog	symtab	8c03373ee69e	shared-address	out:3	undocumented		
 6.5.22/lib64/rld	userland	n64	.text	0xfb7f848	184	_openlog	dwarf+symtab	34be9501d007	shared-address	out:3	undocumented		
-6.5.22/lib64/rld	userland	n64	.text	0xfb7f848	184	openlog	symtab	34be9501d007	shared-address	out:3	named-only		
+6.5.22/lib64/rld	userland	n64	.text	0xfb7f848	184	openlog	symtab	34be9501d007	shared-address	out:3	undocumented		
 6.5.22/lib64/rld	userland	n64	.text	0xfb7f900	40	_closelog	dwarf+symtab	b0b1d248b673	shared-address	out:3	undocumented		
 6.5.22/lib64/rld	userland	n64	.text	0xfb7f900	40	closelog	symtab	b0b1d248b673	shared-address	out:3	undocumented		
 6.5.22/lib64/rld	userland	n64	.text	0xfb7f928	24	_setlogmask	dwarf+symtab	175cf4aa3eae	shared-address	out:3	undocumented		
@@ -13351,7 +13351,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/lib64/rld	userland	n64	.text	0xfb83750	116	_dhcsetlock	dwarf+symtab	c4b91e813b75		out:3	undocumented		
 6.5.22/lib64/rld	userland	n64	.text	0xfb837c4	236	_dhsetlock	dwarf+symtab	4f815289b673		out:3	undocumented		
 6.5.22/lib64/rld	userland	n64	.text	0xfb838b0	184	_dhunsetlock	dwarf+symtab	31822b4d904d		out:3	undocumented		
-6.5.22/lib64/rld	userland	n64	.text	0xfb83968	156	strncmp	dwarf+symtab	3dcd9de9889a		out:3	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.22/lib64/rld	userland	n64	.text	0xfb83968	156	strncmp	dwarf+symtab	3dcd9de9889a		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/lib64/rld	userland	n64	.text	0xfb83a04	68	strcmp	dwarf+symtab	1e3f9d2d43e0		out:3	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.22/lib64/rld	userland	n64	.text	0xfb83a48	52	_sysmp	dwarf+symtab	38cd75971e99	shared-address	out:3	undocumented		
 6.5.22/lib64/rld	userland	n64	.text	0xfb83a48	52	sysmp	symtab	38cd75971e99	shared-address	out:3	named-only		
@@ -13432,7 +13432,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/lib64/rld	userland	n64	.text	0xfb85f4c	56	nanosleep	symtab	ea88ba37aaa9	shared-address	out:3	named-only		
 6.5.22/lib64/rld	userland	n64	.text	0xfb85f84	132	_calloc	dwarf+symtab	60505a5a19ca	shared-address	out:3	undocumented		
 6.5.22/lib64/rld	userland	n64	.text	0xfb85f84	132	calloc	symtab	60505a5a19ca	shared-address	out:3	named-only		
-6.5.22/lib64/rld	userland	n64	.text	0xfb86008	164	strtok	dwarf+symtab	f89859af376d		out:3	undocumented		
+6.5.22/lib64/rld	userland	n64	.text	0xfb86008	164	strtok	dwarf+symtab	f89859af376d		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/lib64/rld	userland	n64	.text	0xfb860ac	180	_strtok_r	dwarf+symtab	fd39c0597b49	shared-address	out:3	undocumented		
 6.5.22/lib64/rld	userland	n64	.text	0xfb860ac	180	strtok_r	symtab	fd39c0597b49	shared-address	out:3	named-only		
 6.5.22/lib64/rld	userland	n64	.text	0xfb86160	120	strpbrk	dwarf+symtab	312d3077e17b		out:3	named-only		
@@ -13884,7 +13884,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/sbin/mkfs_xfs	userland	n32		0x1003a384	144	xfs_dir2_isleaf	dynsym	a4e85e792480		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/sbin/mkfs_xfs	userland	n32		0x1003a414	184	xfs_dir2_hashname	dynsym	1ea63efef9be		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/sbin/mkfs_xfs	userland	n32		0x1003a4cc	76	strcmp	dynsym	76504777e7eb		out:2	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
-6.5.22/sbin/mkfs_xfs	userland	n32		0x1003a518	88	strncmp	dynsym	17ef00757d78		out:2	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.22/sbin/mkfs_xfs	userland	n32		0x1003a518	88	strncmp	dynsym	17ef00757d78		out:2	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/sbin/mkfs_xfs	userland	n32		0x1003a570	104	strncpy	dynsym	edeb9bf0ed1f		out:2	named-only	docs/interrupts.md#routines	Routines
 6.5.22/sbin/mkfs_xfs	userland	n32		0x1003a5d8	52	strcpy	dynsym	cc15b5f38355		out:2	named-only	docs/checkpoint-restart.md#the-proc-requests	The `/proc` requests
 6.5.22/sbin/mkfs_xfs	userland	n32		0x1003a60c	36	strchr	dynsym	1c6f9fc70961		out:2	named-only	docs/routines/t2-kudzu-r4-b011.md#tier-2-reading-batch-11-of-kudzu	Tier-2 reading batch 11 of kudzu
@@ -31975,7 +31975,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200e184c	204	socket	dwarf+symtab	811ff400d1e5		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200e1918	200	bind	dwarf+symtab	0b07fe943b03		in	named-only	docs/network-and-snapshots.md#binding-a-process-to-a-source-address	Binding a process to a source address
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200e19e0	84	listen	dwarf+symtab	eef04f6c1f65		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
-6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200e1a34	172	accept	dwarf+symtab	d12f63cc1f8e		in	named-only	docs/syscalls.md#entries	Entries
+6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200e1a34	172	accept	dwarf+symtab	d12f63cc1f8e		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200e1ae0	148	connect	dwarf+symtab	f18442072849		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200e1b74	152	sendto	dwarf+symtab	d74327e1e6f6		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200e1c0c	144	send	dwarf+symtab	d13f1b6bc596		in	named-only	docs/syscalls.md#entries	Entries
@@ -45505,7 +45505,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000188330	204	socket	dwarf+symtab	ec5d127e04ae		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000001883fc	200	bind	dwarf+symtab	343d09c03282		in	named-only	docs/network-and-snapshots.md#binding-a-process-to-a-source-address	Binding a process to a source address
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000001884c4	84	listen	dwarf+symtab	8ab25d1a6f8f		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000188518	172	accept	dwarf+symtab	2d36d18ded9f		in	named-only	docs/syscalls.md#entries	Entries
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000188518	172	accept	dwarf+symtab	2d36d18ded9f		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000001885c4	148	connect	dwarf+symtab	4387619eb30a		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000188658	152	sendto	dwarf+symtab	abf40c2f7724		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000001886f0	144	send	dwarf+symtab	b274f109ab6d		in	named-only	docs/syscalls.md#entries	Entries
@@ -55943,7 +55943,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x0	204	socket	dwarf+symtab	999d491bfe23		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
 6.5.22/usr/cpu/sysgen/IP22boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0xcc	200	bind	dwarf+symtab	e9dd69fa7808		in	named-only	docs/network-and-snapshots.md#binding-a-process-to-a-source-address	Binding a process to a source address
 6.5.22/usr/cpu/sysgen/IP22boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x194	84	listen	dwarf+symtab	4a7622c6aa10		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
-6.5.22/usr/cpu/sysgen/IP22boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x1e8	172	accept	dwarf+symtab	7e6cfa53a73b		in	named-only	docs/syscalls.md#entries	Entries
+6.5.22/usr/cpu/sysgen/IP22boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x1e8	172	accept	dwarf+symtab	7e6cfa53a73b		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/cpu/sysgen/IP22boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x294	148	connect	dwarf+symtab	42371ade15a9		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.22/usr/cpu/sysgen/IP22boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x328	152	sendto	dwarf+symtab	c79de5a02f03		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
 6.5.22/usr/cpu/sysgen/IP22boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x3c0	144	send	dwarf+symtab	680a7147e61a		in	named-only	docs/syscalls.md#entries	Entries
@@ -59007,7 +59007,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/ipc.o	shared-kernel	n32	.text	0x378	44	ipc_init	dwarf+symtab	5ba9f7cdf0fb		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP22boot/ipfilter.o	shared-kernel	n32	.text	0x0	48	ipfilter_kernel_match	dwarf+symtab	836b543fd3d6		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/cpu/sysgen/IP22boot/ipfilter.o	shared-kernel	n32	.text	0x30	1352	ipfilter_kernel	dwarf+symtab	dfe6f45186a3		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP22boot/ipfilter.o	shared-kernel	n32	.text	0x578	1268	ipfilterioctl	dwarf+symtab	8a05d71683fb		in	named-only	docs/network-and-snapshots.md#evidence-and-method	Evidence and method
+6.5.22/usr/cpu/sysgen/IP22boot/ipfilter.o	shared-kernel	n32	.text	0x578	1268	ipfilterioctl	dwarf+symtab	8a05d71683fb		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/cpu/sysgen/IP22boot/ipfilter.o	shared-kernel	n32	.text	0xa6c	228	ipkernelfilter_init	dwarf+symtab	65cbd76278a1		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/ipfilter.o	shared-kernel	n32	.text	0xb50	60	ipfilteropen	dwarf+symtab	5954abe656a3		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/ipfilter.o	shared-kernel	n32	.text	0xb8c	268	ipfilterclose	dwarf+symtab	d6df43efd883		in	undocumented		
@@ -67133,7 +67133,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(fs_bio.o)	shared-kernel	n32	.text	0x59f0	144	buf_avoid_delete	dwarf+symtab	056e550d50a4		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(fs_bio.o)	shared-kernel	n32	.text	0x5a80	136	buf_avoid_search	dwarf+symtab	5192df3c2b00		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x0	72	strcmp	dwarf+symtab	d58298f34bcf		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
-6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x48	84	strncmp	dwarf+symtab	8289031da5f9		in	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x48	84	strncmp	dwarf+symtab	8289031da5f9		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x9c	132	strncpy	dwarf+symtab	7cfa5fbce052		in	named-only	docs/interrupts.md#routines	Routines
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x120	84	strcpy	dwarf+symtab	f7e6e8b86831		in	named-only	docs/checkpoint-restart.md#the-proc-requests	The `/proc` requests
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x174	36	strchr	dwarf+symtab	f33858367dfc		in	named-only	docs/routines/t2-kudzu-r4-b011.md#tier-2-reading-batch-11-of-kudzu	Tier-2 reading batch 11 of kudzu
@@ -71577,7 +71577,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x0	204	socket	dwarf+symtab	841cf9fefbc3		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
 6.5.22/usr/cpu/sysgen/IP27boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0xcc	200	bind	dwarf+symtab	5d0c159233fe		in	named-only	docs/network-and-snapshots.md#binding-a-process-to-a-source-address	Binding a process to a source address
 6.5.22/usr/cpu/sysgen/IP27boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x194	84	listen	dwarf+symtab	2cf534583560		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
-6.5.22/usr/cpu/sysgen/IP27boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x1e8	172	accept	dwarf+symtab	c9a98f93ddea		in	named-only	docs/syscalls.md#entries	Entries
+6.5.22/usr/cpu/sysgen/IP27boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x1e8	172	accept	dwarf+symtab	c9a98f93ddea		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/cpu/sysgen/IP27boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x294	148	connect	dwarf+symtab	881643b5ded2		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.22/usr/cpu/sysgen/IP27boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x328	152	sendto	dwarf+symtab	17235241cc55		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
 6.5.22/usr/cpu/sysgen/IP27boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x3c0	144	send	dwarf+symtab	99c9e0742e41		in	named-only	docs/syscalls.md#entries	Entries
@@ -75605,7 +75605,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/ipc.o	shared-kernel	n64	.text	0x3e0	60	ipc_perm_to_irix5	dwarf+symtab	8368893c2b9b		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP27boot/ipfilter.o	shared-kernel	n64	.text	0x0	40	ipfilter_kernel_match	dwarf+symtab	0870ccebe343		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/cpu/sysgen/IP27boot/ipfilter.o	shared-kernel	n64	.text	0x28	1424	ipfilter_kernel	dwarf+symtab	6f3de96c8f72		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP27boot/ipfilter.o	shared-kernel	n64	.text	0x5b8	1244	ipfilterioctl	dwarf+symtab	25b611c482be		in	named-only	docs/network-and-snapshots.md#evidence-and-method	Evidence and method
+6.5.22/usr/cpu/sysgen/IP27boot/ipfilter.o	shared-kernel	n64	.text	0x5b8	1244	ipfilterioctl	dwarf+symtab	25b611c482be		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/cpu/sysgen/IP27boot/ipfilter.o	shared-kernel	n64	.text	0xa94	208	ipkernelfilter_init	dwarf+symtab	2475cd30e07d		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/ipfilter.o	shared-kernel	n64	.text	0xb64	60	ipfilteropen	dwarf+symtab	913c87e45b09		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP27boot/ipfilter.o	shared-kernel	n64	.text	0xba0	232	ipfilterclose	dwarf+symtab	7ce1a1cefdf6		in	undocumented		
@@ -91069,7 +91069,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x0	204	socket	dwarf+symtab	841cf9fefbc3		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
 6.5.22/usr/cpu/sysgen/IP30boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0xcc	200	bind	dwarf+symtab	5d0c159233fe		in	named-only	docs/network-and-snapshots.md#binding-a-process-to-a-source-address	Binding a process to a source address
 6.5.22/usr/cpu/sysgen/IP30boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x194	84	listen	dwarf+symtab	2cf534583560		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
-6.5.22/usr/cpu/sysgen/IP30boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x1e8	172	accept	dwarf+symtab	c9a98f93ddea		in	named-only	docs/syscalls.md#entries	Entries
+6.5.22/usr/cpu/sysgen/IP30boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x1e8	172	accept	dwarf+symtab	c9a98f93ddea		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/cpu/sysgen/IP30boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x294	148	connect	dwarf+symtab	881643b5ded2		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.22/usr/cpu/sysgen/IP30boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x328	152	sendto	dwarf+symtab	17235241cc55		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
 6.5.22/usr/cpu/sysgen/IP30boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x3c0	144	send	dwarf+symtab	99c9e0742e41		in	named-only	docs/syscalls.md#entries	Entries
@@ -94435,7 +94435,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/ip_mroute.o	shared-kernel	n64	.text	0x2dbc	212	ip_rsvp_force_done	dwarf+symtab	939baac92f34		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP30boot/ipfilter.o	shared-kernel	n64	.text	0x0	40	ipfilter_kernel_match	dwarf+symtab	0870ccebe343		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/cpu/sysgen/IP30boot/ipfilter.o	shared-kernel	n64	.text	0x28	1424	ipfilter_kernel	dwarf+symtab	6f3de96c8f72		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP30boot/ipfilter.o	shared-kernel	n64	.text	0x5b8	1244	ipfilterioctl	dwarf+symtab	25b611c482be		in	named-only	docs/network-and-snapshots.md#evidence-and-method	Evidence and method
+6.5.22/usr/cpu/sysgen/IP30boot/ipfilter.o	shared-kernel	n64	.text	0x5b8	1244	ipfilterioctl	dwarf+symtab	25b611c482be		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/cpu/sysgen/IP30boot/ipfilter.o	shared-kernel	n64	.text	0xa94	208	ipkernelfilter_init	dwarf+symtab	2475cd30e07d		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/ipfilter.o	shared-kernel	n64	.text	0xb64	60	ipfilteropen	dwarf+symtab	913c87e45b09		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP30boot/ipfilter.o	shared-kernel	n64	.text	0xba0	232	ipfilterclose	dwarf+symtab	7ce1a1cefdf6		in	undocumented		
@@ -107315,7 +107315,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x0	204	socket	dwarf+symtab	999d491bfe23		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
 6.5.22/usr/cpu/sysgen/IP32boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0xcc	200	bind	dwarf+symtab	e9dd69fa7808		in	named-only	docs/network-and-snapshots.md#binding-a-process-to-a-source-address	Binding a process to a source address
 6.5.22/usr/cpu/sysgen/IP32boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x194	84	listen	dwarf+symtab	4a7622c6aa10		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
-6.5.22/usr/cpu/sysgen/IP32boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x1e8	172	accept	dwarf+symtab	7e6cfa53a73b		in	named-only	docs/syscalls.md#entries	Entries
+6.5.22/usr/cpu/sysgen/IP32boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x1e8	172	accept	dwarf+symtab	7e6cfa53a73b		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/cpu/sysgen/IP32boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x294	148	connect	dwarf+symtab	42371ade15a9		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.22/usr/cpu/sysgen/IP32boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x328	152	sendto	dwarf+symtab	c79de5a02f03		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
 6.5.22/usr/cpu/sysgen/IP32boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x3c0	144	send	dwarf+symtab	680a7147e61a		in	named-only	docs/syscalls.md#entries	Entries
@@ -110137,7 +110137,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/ip_mroute.o	shared-kernel	n32	.text	0x2ec8	232	ip_rsvp_force_done	dwarf+symtab	b57595411bfb		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP32boot/ipfilter.o	shared-kernel	n32	.text	0x0	48	ipfilter_kernel_match	dwarf+symtab	836b543fd3d6		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/cpu/sysgen/IP32boot/ipfilter.o	shared-kernel	n32	.text	0x30	1352	ipfilter_kernel	dwarf+symtab	dfe6f45186a3		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP32boot/ipfilter.o	shared-kernel	n32	.text	0x578	1268	ipfilterioctl	dwarf+symtab	8a05d71683fb		in	named-only	docs/network-and-snapshots.md#evidence-and-method	Evidence and method
+6.5.22/usr/cpu/sysgen/IP32boot/ipfilter.o	shared-kernel	n32	.text	0x578	1268	ipfilterioctl	dwarf+symtab	8a05d71683fb		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/cpu/sysgen/IP32boot/ipfilter.o	shared-kernel	n32	.text	0xa6c	228	ipkernelfilter_init	dwarf+symtab	65cbd76278a1		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/ipfilter.o	shared-kernel	n32	.text	0xb50	60	ipfilteropen	dwarf+symtab	5954abe656a3		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/ipfilter.o	shared-kernel	n32	.text	0xb8c	268	ipfilterclose	dwarf+symtab	d6df43efd883		in	undocumented		
@@ -121542,7 +121542,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x0	204	socket	dwarf+symtab	841cf9fefbc3		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
 6.5.22/usr/cpu/sysgen/IP35boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0xcc	200	bind	dwarf+symtab	5d0c159233fe		in	named-only	docs/network-and-snapshots.md#binding-a-process-to-a-source-address	Binding a process to a source address
 6.5.22/usr/cpu/sysgen/IP35boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x194	84	listen	dwarf+symtab	2cf534583560		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
-6.5.22/usr/cpu/sysgen/IP35boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x1e8	172	accept	dwarf+symtab	c9a98f93ddea		in	named-only	docs/syscalls.md#entries	Entries
+6.5.22/usr/cpu/sysgen/IP35boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x1e8	172	accept	dwarf+symtab	c9a98f93ddea		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/cpu/sysgen/IP35boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x294	148	connect	dwarf+symtab	881643b5ded2		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.22/usr/cpu/sysgen/IP35boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x328	152	sendto	dwarf+symtab	17235241cc55		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
 6.5.22/usr/cpu/sysgen/IP35boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x3c0	144	send	dwarf+symtab	99c9e0742e41		in	named-only	docs/syscalls.md#entries	Entries
@@ -125635,7 +125635,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/ip_mroute.o	shared-kernel	n64	.text	0x2dbc	212	ip_rsvp_force_done	dwarf+symtab	939baac92f34		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP35boot/ipfilter.o	shared-kernel	n64	.text	0x0	40	ipfilter_kernel_match	dwarf+symtab	0870ccebe343		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/cpu/sysgen/IP35boot/ipfilter.o	shared-kernel	n64	.text	0x28	1424	ipfilter_kernel	dwarf+symtab	6f3de96c8f72		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP35boot/ipfilter.o	shared-kernel	n64	.text	0x5b8	1244	ipfilterioctl	dwarf+symtab	25b611c482be		in	named-only	docs/network-and-snapshots.md#evidence-and-method	Evidence and method
+6.5.22/usr/cpu/sysgen/IP35boot/ipfilter.o	shared-kernel	n64	.text	0x5b8	1244	ipfilterioctl	dwarf+symtab	25b611c482be		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/cpu/sysgen/IP35boot/ipfilter.o	shared-kernel	n64	.text	0xa94	208	ipkernelfilter_init	dwarf+symtab	2475cd30e07d		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/ipfilter.o	shared-kernel	n64	.text	0xb64	60	ipfilteropen	dwarf+symtab	913c87e45b09		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/ipfilter.o	shared-kernel	n64	.text	0xba0	232	ipfilterclose	dwarf+symtab	7ce1a1cefdf6		in	undocumented		
@@ -140639,15 +140639,15 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/etc/ipfilterd	userland	n32		0x10004f84	12	_mcount	dynsym	1c53f0b255e3		out:2	named-only	docs/kernel-tracing-and-modules.md#hooks-on-the-system-call-path	Hooks on the system call path
 6.5.22/usr/etc/ipfilterd	userland	n32		0x10004f90	1048	main	dynsym	9b8f4aeccbf7		out:2	named-only	docs/dmedia-video-drivers.md#start-up	Start-up
 6.5.22/usr/etc/ipfilterd	userland	n32		0x100053a8	36	eatstack	dynsym	39a69ea4e586		out:2	undocumented		
-6.5.22/usr/etc/ipfilterd	userland	n32		0x100053cc	1760	parsefile	dynsym	c855abc828e6		out:2	undocumented		
-6.5.22/usr/etc/ipfilterd	userland	n32		0x10005aac	208	ipfilter_verdict_print	dynsym	387bc1b2a189		out:2	undocumented		
-6.5.22/usr/etc/ipfilterd	userland	n32		0x10005b7c	576	filterpacket	dynsym	c60ef1e72ab2		out:2	undocumented		
+6.5.22/usr/etc/ipfilterd	userland	n32		0x100053cc	1760	parsefile	dynsym	c855abc828e6		out:2	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
+6.5.22/usr/etc/ipfilterd	userland	n32		0x10005aac	208	ipfilter_verdict_print	dynsym	387bc1b2a189		out:2	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
+6.5.22/usr/etc/ipfilterd	userland	n32		0x10005b7c	576	filterpacket	dynsym	c60ef1e72ab2		out:2	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/etc/ipfilterd	userland	n32		0x10005dbc	204	scanprotoname	dynsym	b7d6dcb3c28d		out:2	undocumented		
 6.5.22/usr/etc/ipfilterd	userland	n32		0x10006098	312	tcp_func_badsum	dynsym	0606e0d7a6d4		out:2	undocumented		
 6.5.22/usr/etc/ipfilterd	userland	n32		0x10007f1c	212	syslog_vplog	dynsym	f2ec7516834f		out:2	undocumented		
 6.5.22/usr/etc/ipfilterd	userland	n32		0x10007ff0	68	syslog_vperr	dynsym	569ef876e413		out:2	undocumented		
 6.5.22/usr/etc/ipfilterd	userland	n32		0x10008034	80	exc_openlog	dynsym	aaacaae90e90		out:2	undocumented		
-6.5.22/usr/etc/ipfilterd	userland	n32		0x10008084	296	pr_register	dynsym	1466a7c8121b		out:2	undocumented		
+6.5.22/usr/etc/ipfilterd	userland	n32		0x10008084	296	pr_register	dynsym	1466a7c8121b		out:2	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/etc/ipfilterd	userland	n32		0x100084d8	100	findprotobyname	dynsym	d95d9bc1f306		out:2	undocumented		
 6.5.22/usr/etc/ipfilterd	userland	n32		0x1000853c	52	findprotobyid	dynsym	da79066a4093		out:2	undocumented		
 6.5.22/usr/etc/ipfilterd	userland	n32		0x10008570	492	cache	dynsym	e13452b468f1		out:2	named-only	docs/ip27-kernel-io.md#cache-error-handling	Cache error handling
@@ -140679,7 +140679,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/etc/ipfilterd	userland	n32		0x10009aa4	132	sc_addnumbers	dynsym	5ec08fcca7b7		out:2	undocumented		
 6.5.22/usr/etc/ipfilterd	userland	n32		0x10009b28	296	en_bitset	dynsym	9f7111159285		out:2	undocumented		
 6.5.22/usr/etc/ipfilterd	userland	n32		0x10009c50	224	pr_eval	dynsym	929f66c033a0		out:2	undocumented		
-6.5.22/usr/etc/ipfilterd	userland	n32		0x10009d30	188	pr_test	dynsym	64f2019abc03		out:2	undocumented		
+6.5.22/usr/etc/ipfilterd	userland	n32		0x10009d30	188	pr_test	dynsym	64f2019abc03		out:2	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/etc/ipfilterd	userland	n32		0x1000a658	168	ex_match	dynsym	4dae423f1b92		out:2	undocumented		
 6.5.22/usr/etc/ipfilterd	userland	n32		0x1000a700	244	ds_int	dynsym	0ce976e24ae0		out:2	undocumented		
 6.5.22/usr/etc/ipfilterd	userland	n32		0x1000a84c	344	exc_vraise	dynsym	509ce9d7f6cf		out:2	undocumented		
@@ -140689,10 +140689,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/etc/ipfilterd	userland	n32		0x1000aaf4	232	stdio_vperr	dynsym	4f94102509b5		out:2	undocumented		
 6.5.22/usr/etc/ipfilterd	userland	n32		0x1000abdc	344	stdio_vplog	dynsym	320e96041e5a		out:2	undocumented		
 6.5.22/usr/etc/ipfilterd	userland	n32		0x1000ad34	184	ds_bytes	dynsym	ccb96383081e		out:2	undocumented		
-6.5.22/usr/etc/ipfilterd	userland	n32		0x1000adec	404	sn_compile	dynsym	5da5cfdf214a		out:2	undocumented		
+6.5.22/usr/etc/ipfilterd	userland	n32		0x1000adec	404	sn_compile	dynsym	5da5cfdf214a		out:2	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/etc/ipfilterd	userland	n32		0x1000af80	152	sc_addaddress	dynsym	2586729b7f34		out:2	undocumented		
 6.5.22/usr/etc/ipfilterd	userland	n32		0x1000b018	68	sc_addnumber	dynsym	507643677899		out:2	undocumented		
-6.5.22/usr/etc/ipfilterd	userland	n32		0x1000b05c	268	sc_addmacro	dynsym	046883d5248c		out:2	undocumented		
+6.5.22/usr/etc/ipfilterd	userland	n32		0x1000b05c	268	sc_addmacro	dynsym	046883d5248c		out:2	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/etc/ipfilterd	userland	n32		0x1000b168	112	sc_addfunction	dynsym	7c7c7c5899b8		out:2	undocumented		
 6.5.22/usr/etc/ipfilterd	userland	n32		0x1000b1d8	140	sc_addmacros	dynsym	4e607a11da12		out:2	undocumented		
 6.5.22/usr/etc/ipfilterd	userland	n32		0x1000b264	140	sc_addfunctions	dynsym	5e1da45dd14b		out:2	undocumented		
@@ -156340,7 +156340,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa52fa0	64	_getpid	dwarf+dynsym	f66a9ddbb6b7	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa52fa0	64	getpid	dynsym	f66a9ddbb6b7	shared-address	out:3	named-only		
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa52fe0	320	fclose	dwarf+dynsym	8eea0034d92a		out:3	undocumented		
-6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa53120	736	fgets	dwarf+dynsym	aedf2f96212f		out:3	undocumented		
+6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa53120	736	fgets	dwarf+dynsym	aedf2f96212f		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa53400	64	_fstat64	dwarf+dynsym	f6966dedf3e4	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa53400	64	fstat64	dynsym	f6966dedf3e4	shared-address	out:3	named-only		
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa53440	68	_unlink	dwarf+dynsym	c2f38b187d7e	shared-address	out:3	undocumented		
@@ -156355,7 +156355,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa53b40	64	__recvmsg	dwarf+dynsym	f5558b2c3758		out:3	undocumented		
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa53b80	304	_recvmsg	dwarf+dynsym	9574888fb3ef	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa53b80	304	recvmsg	dynsym	9574888fb3ef	shared-address	out:3	named-only		
-6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa53cb0	88	strncmp	dwarf+dynsym	17ef00757d78		out:3	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa53cb0	88	strncmp	dwarf+dynsym	17ef00757d78		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32	.text	0xfa53d08	408	t_splay	dwarf+funcnames	c15b6e1b3b67		out:3	undocumented		
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32	.text	0xfa53ea0	432	_morecore	dwarf+funcnames	89ee390f00e1		out:3	undocumented		
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa54050	128	sprintf	dwarf+dynsym	8f3767198a66		out:3	named-only	docs/hwgraph-names.md#hardware-graph-names-in-the-6530-kernels	Hardware-graph names in the 6.5.30 kernels
@@ -156411,7 +156411,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa594f8	520	__tenscale	dwarf+dynsym	5bdf8b8298af		out:3	undocumented		
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32	.text	0xfa59700	112	norm_and_round	dwarf+funcnames	0271c9bb7ffc		out:3	undocumented		
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32	.text	0xfa59770	476	set_cat	dwarf+funcnames	db36bcd45ee7		out:3	undocumented		
-6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa5994c	176	strtok	dwarf+dynsym	ac1819c2c2ae		out:3	undocumented		
+6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa5994c	176	strtok	dwarf+dynsym	ac1819c2c2ae		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa59a00	68	_getegid	dwarf+dynsym	49075980d3e3	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa59a00	68	getegid	dynsym	49075980d3e3	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa59a44	144	_snprintf	dwarf+dynsym	83cf8f6dec1b	shared-address	out:3	undocumented		
@@ -156716,7 +156716,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa6868c	88	strcspn	dwarf+dynsym	c55fba88f745		out:3	undocumented		
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa686e4	932	strtoul	dwarf+dynsym	7a4bf7cc55fc		out:3	named-only	docs/userland.md#6530usretcnfsdctl	`6.5.30/usr/etc/nfsdctl`
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa68a88	164	_openlog	dwarf+dynsym	2e428f8df907	shared-address	out:3	undocumented		
-6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa68a88	164	openlog	dynsym	2e428f8df907	shared-address	out:3	named-only		
+6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa68a88	164	openlog	dynsym	2e428f8df907	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa68b30	68	_chdir	dwarf+dynsym	20e24180fd66	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa68b30	68	chdir	dynsym	20e24180fd66	shared-address	out:3	named-only		
 6.5.22/usr/lib32/mips4/libc.so.1	userland	n32		0xfa68b74	156	BSDdup2	dynsym	ae4d34edc1a5	shared-address	out:3	undocumented		
@@ -165776,7 +165776,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fa100	64	_getpid	dwarf+dynsym	7077a23a43ea	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fa100	64	getpid	dynsym	7077a23a43ea	shared-address	out:3	named-only		
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fa140	320	fclose	dwarf+dynsym	169299533f1e		out:3	undocumented		
-6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fa280	760	fgets	dwarf+dynsym	6f02764636ab		out:3	undocumented		
+6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fa280	760	fgets	dwarf+dynsym	6f02764636ab		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fa578	64	_fstat64	dwarf+dynsym	f3ad4f1a8f88	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fa578	64	fstat64	dynsym	f3ad4f1a8f88	shared-address	out:3	named-only		
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fa5b8	68	_unlink	dwarf+dynsym	8c6c42328b4e	shared-address	out:3	undocumented		
@@ -165791,7 +165791,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fad18	64	__recvmsg	dwarf+dynsym	e047b480109a		out:3	undocumented		
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fad58	296	_recvmsg	dwarf+dynsym	bbfabb19826d	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fad58	296	recvmsg	dynsym	bbfabb19826d	shared-address	out:3	named-only		
-6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fae80	104	strncmp	dwarf+dynsym	3c684ec11c1f		out:3	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fae80	104	strncmp	dwarf+dynsym	3c684ec11c1f		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64	.text	0xd9faee8	408	t_splay	dwarf	49f95ac2e19f		out:3	undocumented		
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64	.text	0xd9fb080	472	_morecore	dwarf	788ea91466b9		out:3	undocumented		
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fb258	128	sprintf	dwarf+dynsym	fce69d4e9622		out:3	named-only	docs/hwgraph-names.md#hardware-graph-names-in-the-6530-kernels	Hardware-graph names in the 6.5.30 kernels
@@ -165847,7 +165847,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xda00eb8	572	__tenscale	dwarf+dynsym	b28627bac75d		out:3	undocumented		
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64	.text	0xda010f4	112	norm_and_round	dwarf	0271c9bb7ffc		out:3	undocumented		
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64	.text	0xda01164	484	set_cat	dwarf	9518b54256ac		out:3	undocumented		
-6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xda01348	188	strtok	dwarf+dynsym	8c7d954a7d3c		out:3	undocumented		
+6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xda01348	188	strtok	dwarf+dynsym	8c7d954a7d3c		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xda01404	68	_getegid	dwarf+dynsym	0a489d42332a	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xda01404	68	getegid	dynsym	0a489d42332a	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xda01448	148	_snprintf	dwarf+dynsym	fdbcb13ff091	shared-address	out:3	undocumented		
@@ -166154,7 +166154,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xda10df4	992	strtoul	dwarf+dynsym	e352e8a0e6b8	shared-address	out:3	named-only		
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xda10df4	992	strtoumax	dynsym	e352e8a0e6b8	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xda111d4	160	_openlog	dwarf+dynsym	3b42b01129ce	shared-address	out:3	undocumented		
-6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xda111d4	160	openlog	dynsym	3b42b01129ce	shared-address	out:3	named-only		
+6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xda111d4	160	openlog	dynsym	3b42b01129ce	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xda11274	68	_chdir	dwarf+dynsym	6f4334912ac4	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xda11274	68	chdir	dynsym	6f4334912ac4	shared-address	out:3	named-only		
 6.5.22/usr/lib64/mips3/libc.so.1	userland	n64		0xda112b8	164	BSDdup2	dynsym	44699c0527ca	shared-address	out:3	undocumented		
@@ -171546,7 +171546,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fa5e0	64	_getpid	dwarf+dynsym	f442e1f1f64b	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fa5e0	64	getpid	dynsym	f442e1f1f64b	shared-address	out:3	named-only		
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fa620	320	fclose	dwarf+dynsym	7230389921f4		out:3	undocumented		
-6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fa760	752	fgets	dwarf+dynsym	2d2373cb38bf		out:3	undocumented		
+6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fa760	752	fgets	dwarf+dynsym	2d2373cb38bf		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xd9faa50	64	_fstat64	dwarf+dynsym	502b2eed5fcc	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xd9faa50	64	fstat64	dynsym	502b2eed5fcc	shared-address	out:3	named-only		
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xd9faa90	68	_unlink	dwarf+dynsym	f445152dd8e2	shared-address	out:3	undocumented		
@@ -171561,7 +171561,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fb1d0	64	__recvmsg	dwarf+dynsym	44329f8242ee		out:3	undocumented		
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fb210	296	_recvmsg	dwarf+dynsym	24cca04288dd	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fb210	296	recvmsg	dynsym	24cca04288dd	shared-address	out:3	named-only		
-6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fb338	88	strncmp	dwarf+dynsym	5fe30838e018		out:3	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fb338	88	strncmp	dwarf+dynsym	5fe30838e018		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64	.text	0xd9fb390	408	t_splay	dwarf	49f95ac2e19f		out:3	undocumented		
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64	.text	0xd9fb528	436	_morecore	dwarf	e1d0b52d270a		out:3	undocumented		
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fb6dc	128	sprintf	dwarf+dynsym	9a0f3b391ed6		out:3	named-only	docs/hwgraph-names.md#hardware-graph-names-in-the-6530-kernels	Hardware-graph names in the 6.5.30 kernels
@@ -171617,7 +171617,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xda00ce8	520	__tenscale	dwarf+dynsym	8c0c290f8b28		out:3	undocumented		
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64	.text	0xda00ef0	112	norm_and_round	dwarf	0271c9bb7ffc		out:3	undocumented		
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64	.text	0xda00f60	480	set_cat	dwarf	444ca73e54d6		out:3	undocumented		
-6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xda01140	172	strtok	dwarf+dynsym	a8cd085f3b98		out:3	undocumented		
+6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xda01140	172	strtok	dwarf+dynsym	a8cd085f3b98		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xda011f0	68	_getegid	dwarf+dynsym	d0f3a7bef067	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xda011f0	68	getegid	dynsym	d0f3a7bef067	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xda01234	144	_snprintf	dwarf+dynsym	779928cfa869	shared-address	out:3	undocumented		
@@ -171924,7 +171924,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xda10358	956	strtoul	dwarf+dynsym	7f64f352ddc2	shared-address	out:3	named-only		
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xda10358	956	strtoumax	dynsym	7f64f352ddc2	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xda10714	164	_openlog	dwarf+dynsym	50249a17446f	shared-address	out:3	undocumented		
-6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xda10714	164	openlog	dynsym	50249a17446f	shared-address	out:3	named-only		
+6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xda10714	164	openlog	dynsym	50249a17446f	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xda107c0	68	_chdir	dwarf+dynsym	ff5abc0c6c45	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xda107c0	68	chdir	dynsym	ff5abc0c6c45	shared-address	out:3	named-only		
 6.5.22/usr/lib64/mips4/libc.so.1	userland	n64		0xda10804	164	BSDdup2	dynsym	476ab8b42e37	shared-address	out:3	undocumented		
@@ -177773,7 +177773,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/sbin/scsicontrol	userland	n32		0x10002aa0	160	vpinquiry12	dynsym	86ac5e6bb1eb		out:2	undocumented		
 6.5.22/usr/sbin/scsicontrol	userland	n32		0x10002b40	152	startunit1b	dynsym	b5d3075e0a8a		out:2	undocumented		
 6.5.22/usr/sbin/scsicontrol	userland	n32		0x10002bd8	176	myinquiry12	dynsym	69c39ff30f10		out:2	undocumented		
-6.5.22/usr/sbin/scsicontrol	userland	n32		0x10002c88	172	docmdc9	dynsym	e1694381789b		out:2	undocumented		
+6.5.22/usr/sbin/scsicontrol	userland	n32		0x10002c88	172	docmdc9	dynsym	e1694381789b		out:2	named-only	docs/scsi-cdrom-inquiry.md#the-removable-media-daemon	The removable-media daemon
 6.5.22/usr/sbin/scsicontrol	userland	n32		0x10002d34	212	logsense	dynsym	e6e91b5b3832		out:2	undocumented		
 6.5.22/usr/sbin/scsicontrol	userland	n32		0x10002e08	284	getcap	dynsym	c76e0f279a18		out:2	undocumented		
 6.5.22/usr/sbin/scsicontrol	userland	n32		0x10002f24	472	setbsize	dynsym	4dfdd4d2c001		out:2	undocumented		
@@ -177969,7 +177969,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/sbin/xfs_db	userland	n32		0x1001f2e0	80	uuid_init	dynsym	31a6c7df60f1		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/sbin/xfs_db	userland	n32		0x1001f330	208	main	dynsym	72731f753143		out:2	named-only	docs/dmedia-video-drivers.md#start-up	Start-up
 6.5.22/usr/sbin/xfs_db	userland	n32		0x1001f400	76	strcmp	dynsym	76504777e7eb		out:2	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
-6.5.22/usr/sbin/xfs_db	userland	n32		0x1001f44c	88	strncmp	dynsym	17ef00757d78		out:2	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.22/usr/sbin/xfs_db	userland	n32		0x1001f44c	88	strncmp	dynsym	17ef00757d78		out:2	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/sbin/xfs_db	userland	n32		0x1001f4a4	104	strncpy	dynsym	edeb9bf0ed1f		out:2	named-only	docs/interrupts.md#routines	Routines
 6.5.22/usr/sbin/xfs_db	userland	n32		0x1001f50c	52	strcpy	dynsym	cc15b5f38355		out:2	named-only	docs/checkpoint-restart.md#the-proc-requests	The `/proc` requests
 6.5.22/usr/sbin/xfs_db	userland	n32		0x1001f540	36	strchr	dynsym	1c6f9fc70961		out:2	named-only	docs/routines/t2-kudzu-r4-b011.md#tier-2-reading-batch-11-of-kudzu	Tier-2 reading batch 11 of kudzu
@@ -178617,7 +178617,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/sbin/xfs_repair	userland	n32		0x1004c778	48	xfs_iocore_reset	dynsym	5d837f56dea4		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/sbin/xfs_repair	userland	n32		0x1004c7a8	52	xfs_iocore_destroy	dynsym	73cf2a174a44		out:2	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/sbin/xfs_repair	userland	n32		0x1004c7dc	76	strcmp	dynsym	76504777e7eb		out:2	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
-6.5.22/usr/sbin/xfs_repair	userland	n32		0x1004c828	88	strncmp	dynsym	17ef00757d78		out:2	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.22/usr/sbin/xfs_repair	userland	n32		0x1004c828	88	strncmp	dynsym	17ef00757d78		out:2	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.22/usr/sbin/xfs_repair	userland	n32		0x1004c880	104	strncpy	dynsym	edeb9bf0ed1f		out:2	named-only	docs/interrupts.md#routines	Routines
 6.5.22/usr/sbin/xfs_repair	userland	n32		0x1004c8e8	52	strcpy	dynsym	cc15b5f38355		out:2	named-only	docs/checkpoint-restart.md#the-proc-requests	The `/proc` requests
 6.5.22/usr/sbin/xfs_repair	userland	n32		0x1004c91c	36	strchr	dynsym	1c6f9fc70961		out:2	named-only	docs/routines/t2-kudzu-r4-b011.md#tier-2-reading-batch-11-of-kudzu	Tier-2 reading batch 11 of kudzu
@@ -179462,7 +179462,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/lib/libc.so.1	userland	o32		0xfa31cb0	64	bind	dynsym	3d0c26217c27	shared-address	out:3	named-only		
 6.5.30/lib/libc.so.1	userland	o32		0xfa31cf0	64	_getpid	dynsym+mdebug	e4b0122381e5	shared-address	out:3	undocumented		
 6.5.30/lib/libc.so.1	userland	o32		0xfa31cf0	64	getpid	dynsym	e4b0122381e5	shared-address	out:3	named-only		
-6.5.30/lib/libc.so.1	userland	o32		0xfa31d30	780	fgets	dynsym+mdebug	f2613ff80fb4		out:3	undocumented		
+6.5.30/lib/libc.so.1	userland	o32		0xfa31d30	780	fgets	dynsym+mdebug	f2613ff80fb4		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/lib/libc.so.1	userland	o32		0xfa32040	68	_fstat64	dynsym+mdebug	b06d977e687b	shared-address	out:3	undocumented		
 6.5.30/lib/libc.so.1	userland	o32		0xfa32040	80	fstat64	dynsym	218fa8cc92a5	shared-address	out:3	named-only		
 6.5.30/lib/libc.so.1	userland	o32		0xfa32090	68	_unlink	dynsym+mdebug	c4e9e464644d	shared-address	out:3	undocumented		
@@ -179476,7 +179476,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/lib/libc.so.1	userland	o32		0xfa32a90	64	__recvmsg	dynsym+mdebug	f88d0bc19d2f		out:3	undocumented		
 6.5.30/lib/libc.so.1	userland	o32		0xfa32ad0	300	_recvmsg	dynsym+mdebug	e24297817c57	shared-address	out:3	undocumented		
 6.5.30/lib/libc.so.1	userland	o32		0xfa32ad0	304	recvmsg	dynsym	98ccfcace123	shared-address	out:3	named-only		
-6.5.30/lib/libc.so.1	userland	o32		0xfa32c00	152	strncmp	dynsym+mdebug	8e93619d6226		out:3	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.30/lib/libc.so.1	userland	o32		0xfa32c00	152	strncmp	dynsym+mdebug	8e93619d6226		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/lib/libc.so.1	userland	o32		0xfa32ca0	116	sprintf	dynsym+mdebug	41bdf2c8319c		out:3	named-only	docs/hwgraph-names.md#hardware-graph-names-in-the-6530-kernels	Hardware-graph names in the 6.5.30 kernels
 6.5.30/lib/libc.so.1	userland	o32	.text	0xfa32d20	228	_lowdigit	mdebug	6716002f801d		out:3	undocumented		
 6.5.30/lib/libc.so.1	userland	o32	.text	0xfa32e04	96	_lowdigit_l	mdebug	37f2e43a8fe0		out:3	undocumented		
@@ -179609,7 +179609,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/lib/libc.so.1	userland	o32		0xfa3cbe8	120	_gen_digits	dynsym+mdebug	21ee47d74983		out:3	undocumented		
 6.5.30/lib/libc.so.1	userland	o32	.text	0xfa3cc60	9556	norm_and_round	mdebug	ec956c4dc08e		out:3	undocumented		
 6.5.30/lib/libc.so.1	userland	o32		0xfa3cdf4	540	__tenscale	dynsym+mdebug	4059ddb9c223		out:3	undocumented		
-6.5.30/lib/libc.so.1	userland	o32		0xfa3d010	196	strtok	dynsym+mdebug	79291145e528		out:3	undocumented		
+6.5.30/lib/libc.so.1	userland	o32		0xfa3d010	196	strtok	dynsym+mdebug	79291145e528		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/lib/libc.so.1	userland	o32		0xfa3d0d4	192	_strtok_r	dynsym+mdebug	a03efcff1581	shared-address	out:3	undocumented		
 6.5.30/lib/libc.so.1	userland	o32		0xfa3d0d4	204	strtok_r	dynsym	3d3a848794a5	shared-address	out:3	named-only		
 6.5.30/lib/libc.so.1	userland	o32		0xfa3d1a0	68	_getegid	dynsym+mdebug	afed8eeebf52	shared-address	out:3	undocumented		
@@ -180187,7 +180187,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/lib/libc.so.1	userland	o32		0xfa60484	1824	_vsyslog	dynsym+mdebug	d20c5803a49f	shared-address	out:3	undocumented		
 6.5.30/lib/libc.so.1	userland	o32		0xfa60484	1824	vsyslog	dynsym	d20c5803a49f	shared-address	out:3	undocumented		
 6.5.30/lib/libc.so.1	userland	o32		0xfa60ba4	204	_openlog	dynsym+mdebug	4051f9bc1788	shared-address	out:3	undocumented		
-6.5.30/lib/libc.so.1	userland	o32		0xfa60ba4	204	openlog	dynsym	4051f9bc1788	shared-address	out:3	named-only		
+6.5.30/lib/libc.so.1	userland	o32		0xfa60ba4	204	openlog	dynsym	4051f9bc1788	shared-address	out:3	undocumented		
 6.5.30/lib/libc.so.1	userland	o32		0xfa60c70	76	_closelog	dynsym+mdebug	f531af5dc31e	shared-address	out:3	undocumented		
 6.5.30/lib/libc.so.1	userland	o32		0xfa60c70	76	closelog	dynsym	f531af5dc31e	shared-address	out:3	undocumented		
 6.5.30/lib/libc.so.1	userland	o32		0xfa60cbc	40	_setlogmask	dynsym+mdebug	81be49583c5f	shared-address	out:3	undocumented		
@@ -184662,7 +184662,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/lib/rld	userland	o32	.text	0xfb7f77c	1264	_vsyslog	mdebug+symtab	3faf5f1380aa	shared-address	out:3	undocumented		
 6.5.30/lib/rld	userland	o32	.text	0xfb7f77c	1264	vsyslog	symtab	3faf5f1380aa	shared-address	out:3	undocumented		
 6.5.30/lib/rld	userland	o32	.text	0xfb7fc6c	224	_openlog	mdebug+symtab	19e0d84bae97	shared-address	out:3	undocumented		
-6.5.30/lib/rld	userland	o32	.text	0xfb7fc6c	224	openlog	symtab	19e0d84bae97	shared-address	out:3	named-only		
+6.5.30/lib/rld	userland	o32	.text	0xfb7fc6c	224	openlog	symtab	19e0d84bae97	shared-address	out:3	undocumented		
 6.5.30/lib/rld	userland	o32	.text	0xfb7fd4c	44	_closelog	mdebug+symtab	a75b70f79020	shared-address	out:3	undocumented		
 6.5.30/lib/rld	userland	o32	.text	0xfb7fd4c	44	closelog	symtab	a75b70f79020	shared-address	out:3	undocumented		
 6.5.30/lib/rld	userland	o32	.text	0xfb7fd78	28	_setlogmask	mdebug+symtab	52689d64514f	shared-address	out:3	undocumented		
@@ -184815,9 +184815,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/lib/rld	userland	o32	.text	0xfb82c00	56	_blk_init	mdebug+symtab	3c10cc73b16b		out:3	undocumented		
 6.5.30/lib/rld	userland	o32	.text	0xfb82c40	44	strchr	mdebug+symtab	4fbdaaacf173		out:3	named-only	docs/routines/t2-kudzu-r4-b011.md#tier-2-reading-batch-11-of-kudzu	Tier-2 reading batch 11 of kudzu
 6.5.30/lib/rld	userland	o32	.text	0xfb82c70	108	strerror	mdebug+symtab	b4825671cfd9		out:3	undocumented		
-6.5.30/lib/rld	userland	o32	.text	0xfb82ce0	152	strncmp	mdebug+symtab	8e93619d6226		out:3	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.30/lib/rld	userland	o32	.text	0xfb82ce0	152	strncmp	mdebug+symtab	8e93619d6226		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/lib/rld	userland	o32	.text	0xfb82d80	40	strrchr	mdebug+symtab	f8f1e16f1f55		out:3	named-only	docs/hwgraph.md#ip35-differences	IP35 differences
-6.5.30/lib/rld	userland	o32	.text	0xfb82db0	156	strtok	mdebug+symtab	e20bc7fa8641		out:3	undocumented		
+6.5.30/lib/rld	userland	o32	.text	0xfb82db0	156	strtok	mdebug+symtab	e20bc7fa8641		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/lib/rld	userland	o32	.text	0xfb82e4c	156	_strtok_r	mdebug+symtab	84a55fe46966	shared-address	out:3	undocumented		
 6.5.30/lib/rld	userland	o32	.text	0xfb82e4c	164	strtok_r	symtab	60935e52b601	shared-address	out:3	named-only		
 6.5.30/lib/rld	userland	o32	.text	0xfb82ef0	40	_alarm	mdebug+symtab	4facf2786c53	shared-address	out:3	undocumented		
@@ -185340,7 +185340,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/lib32/libc.so.1	userland	n32		0xfa4575c	64	_getpid	dwarf+dynsym	c4466a7c38c4	shared-address	out:3	undocumented		
 6.5.30/lib32/libc.so.1	userland	n32		0xfa4575c	64	getpid	dynsym	c4466a7c38c4	shared-address	out:3	named-only		
 6.5.30/lib32/libc.so.1	userland	n32		0xfa4579c	320	fclose	dwarf+dynsym	bcb65cac7c85		out:3	undocumented		
-6.5.30/lib32/libc.so.1	userland	n32		0xfa458dc	736	fgets	dwarf+dynsym	c6b2252e8834		out:3	undocumented		
+6.5.30/lib32/libc.so.1	userland	n32		0xfa458dc	736	fgets	dwarf+dynsym	c6b2252e8834		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/lib32/libc.so.1	userland	n32		0xfa45bbc	64	_fstat64	dwarf+dynsym	7ad0a9068973	shared-address	out:3	undocumented		
 6.5.30/lib32/libc.so.1	userland	n32		0xfa45bbc	64	fstat64	dynsym	7ad0a9068973	shared-address	out:3	named-only		
 6.5.30/lib32/libc.so.1	userland	n32		0xfa45bfc	68	_unlink	dwarf+dynsym	cb625894bbc1	shared-address	out:3	undocumented		
@@ -185355,7 +185355,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/lib32/libc.so.1	userland	n32		0xfa462f0	64	__recvmsg	dwarf+dynsym	d8eb9c857417		out:3	undocumented		
 6.5.30/lib32/libc.so.1	userland	n32		0xfa46330	304	_recvmsg	dwarf+dynsym	ba2c6941a0f1	shared-address	out:3	undocumented		
 6.5.30/lib32/libc.so.1	userland	n32		0xfa46330	304	recvmsg	dynsym	ba2c6941a0f1	shared-address	out:3	named-only		
-6.5.30/lib32/libc.so.1	userland	n32		0xfa46460	88	strncmp	dwarf+dynsym	17ef00757d78		out:3	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.30/lib32/libc.so.1	userland	n32		0xfa46460	88	strncmp	dwarf+dynsym	17ef00757d78		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/lib32/libc.so.1	userland	n32	.text	0xfa464b8	408	t_splay	dwarf+funcnames	c15b6e1b3b67		out:3	undocumented		
 6.5.30/lib32/libc.so.1	userland	n32	.text	0xfa46650	432	_morecore	dwarf+funcnames	67f74d25afdb		out:3	undocumented		
 6.5.30/lib32/libc.so.1	userland	n32		0xfa46800	128	sprintf	dwarf+dynsym	156c026f4bc9		out:3	named-only	docs/hwgraph-names.md#hardware-graph-names-in-the-6530-kernels	Hardware-graph names in the 6.5.30 kernels
@@ -185411,7 +185411,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/lib32/libc.so.1	userland	n32		0xfa4be1c	536	__tenscale	dwarf+dynsym	0587dddebc43		out:3	undocumented		
 6.5.30/lib32/libc.so.1	userland	n32	.text	0xfa4c034	112	norm_and_round	dwarf+funcnames	0271c9bb7ffc		out:3	undocumented		
 6.5.30/lib32/libc.so.1	userland	n32	.text	0xfa4c0a4	472	set_cat	dwarf+funcnames	ea9fa4602067		out:3	undocumented		
-6.5.30/lib32/libc.so.1	userland	n32		0xfa4c27c	184	strtok	dwarf+dynsym	df907ed9d8c5		out:3	undocumented		
+6.5.30/lib32/libc.so.1	userland	n32		0xfa4c27c	184	strtok	dwarf+dynsym	df907ed9d8c5		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/lib32/libc.so.1	userland	n32		0xfa4c334	68	_getegid	dwarf+dynsym	817c53ade0ed	shared-address	out:3	undocumented		
 6.5.30/lib32/libc.so.1	userland	n32		0xfa4c334	68	getegid	dynsym	817c53ade0ed	shared-address	out:3	undocumented		
 6.5.30/lib32/libc.so.1	userland	n32		0xfa4c378	144	_snprintf	dwarf+dynsym	ae47e25ae582	shared-address	out:3	undocumented		
@@ -185716,7 +185716,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/lib32/libc.so.1	userland	n32		0xfa5afe4	88	strcspn	dwarf+dynsym	c55fba88f745		out:3	undocumented		
 6.5.30/lib32/libc.so.1	userland	n32		0xfa5b03c	928	strtoul	dwarf+dynsym	64796adbb267		out:3	named-only	docs/userland.md#6530usretcnfsdctl	`6.5.30/usr/etc/nfsdctl`
 6.5.30/lib32/libc.so.1	userland	n32		0xfa5b3dc	156	_openlog	dwarf+dynsym	85d3b93cd202	shared-address	out:3	undocumented		
-6.5.30/lib32/libc.so.1	userland	n32		0xfa5b3dc	156	openlog	dynsym	85d3b93cd202	shared-address	out:3	named-only		
+6.5.30/lib32/libc.so.1	userland	n32		0xfa5b3dc	156	openlog	dynsym	85d3b93cd202	shared-address	out:3	undocumented		
 6.5.30/lib32/libc.so.1	userland	n32		0xfa5b478	68	_chdir	dwarf+dynsym	b049d9631e93	shared-address	out:3	undocumented		
 6.5.30/lib32/libc.so.1	userland	n32		0xfa5b478	68	chdir	dynsym	b049d9631e93	shared-address	out:3	named-only		
 6.5.30/lib32/libc.so.1	userland	n32		0xfa5b4bc	156	BSDdup2	dynsym	a4f35648c87a	shared-address	out:3	undocumented		
@@ -191358,7 +191358,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/lib32/rld	userland	n32	.text	0xfb7d5b0	1320	_vsyslog	dwarf+symtab	3153cfd4a12e	shared-address	out:3	undocumented		
 6.5.30/lib32/rld	userland	n32	.text	0xfb7d5b0	1320	vsyslog	symtab	3153cfd4a12e	shared-address	out:3	undocumented		
 6.5.30/lib32/rld	userland	n32	.text	0xfb7dad8	184	_openlog	dwarf+symtab	19387be5695e	shared-address	out:3	undocumented		
-6.5.30/lib32/rld	userland	n32	.text	0xfb7dad8	184	openlog	symtab	19387be5695e	shared-address	out:3	named-only		
+6.5.30/lib32/rld	userland	n32	.text	0xfb7dad8	184	openlog	symtab	19387be5695e	shared-address	out:3	undocumented		
 6.5.30/lib32/rld	userland	n32	.text	0xfb7db90	40	_closelog	dwarf+symtab	8289d4f5cfad	shared-address	out:3	undocumented		
 6.5.30/lib32/rld	userland	n32	.text	0xfb7db90	40	closelog	symtab	8289d4f5cfad	shared-address	out:3	undocumented		
 6.5.30/lib32/rld	userland	n32	.text	0xfb7dbb8	24	_setlogmask	dwarf+symtab	95d87968559e	shared-address	out:3	undocumented		
@@ -191422,7 +191422,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/lib32/rld	userland	n32	.text	0xfb8170c	116	_dhcsetlock	dwarf+symtab	b010b9c3c832		out:3	undocumented		
 6.5.30/lib32/rld	userland	n32	.text	0xfb81780	220	_dhsetlock	dwarf+symtab	f6d8ccd24284		out:3	undocumented		
 6.5.30/lib32/rld	userland	n32	.text	0xfb8185c	176	_dhunsetlock	dwarf+symtab	52076e57a39a		out:3	undocumented		
-6.5.30/lib32/rld	userland	n32	.text	0xfb8190c	144	strncmp	dwarf+symtab	6019bec6cbfe		out:3	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.30/lib32/rld	userland	n32	.text	0xfb8190c	144	strncmp	dwarf+symtab	6019bec6cbfe		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/lib32/rld	userland	n32	.text	0xfb8199c	68	strcmp	dwarf+symtab	09d341a6f9e8		out:3	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.30/lib32/rld	userland	n32	.text	0xfb819e0	64	_sysmp	dwarf+symtab	6ddb61740c1d	shared-address	out:3	undocumented		
 6.5.30/lib32/rld	userland	n32	.text	0xfb819e0	64	sysmp	symtab	6ddb61740c1d	shared-address	out:3	named-only		
@@ -191499,7 +191499,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/lib32/rld	userland	n32	.text	0xfb83e2c	40	nanosleep	symtab	e661555ff7bf	shared-address	out:3	named-only		
 6.5.30/lib32/rld	userland	n32	.text	0xfb83e54	132	_calloc	dwarf+symtab	737057985f8b	shared-address	out:3	undocumented		
 6.5.30/lib32/rld	userland	n32	.text	0xfb83e54	132	calloc	symtab	737057985f8b	shared-address	out:3	named-only		
-6.5.30/lib32/rld	userland	n32	.text	0xfb83edc	160	strtok	dwarf+symtab	5af747194008		out:3	undocumented		
+6.5.30/lib32/rld	userland	n32	.text	0xfb83edc	160	strtok	dwarf+symtab	5af747194008		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/lib32/rld	userland	n32	.text	0xfb83f7c	176	_strtok_r	dwarf+symtab	9f2e8c7668e4	shared-address	out:3	undocumented		
 6.5.30/lib32/rld	userland	n32	.text	0xfb83f7c	176	strtok_r	symtab	9f2e8c7668e4	shared-address	out:3	named-only		
 6.5.30/lib32/rld	userland	n32	.text	0xfb8402c	108	strpbrk	dwarf+symtab	eeac7e17d320		out:3	named-only		
@@ -192494,7 +192494,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/lib64/rld	userland	n64	.text	0xfb7f53c	1428	_vsyslog	dwarf+symtab	bb74d2fcaa1d	shared-address	out:3	undocumented		
 6.5.30/lib64/rld	userland	n64	.text	0xfb7f53c	1428	vsyslog	symtab	bb74d2fcaa1d	shared-address	out:3	undocumented		
 6.5.30/lib64/rld	userland	n64	.text	0xfb7fad0	184	_openlog	dwarf+symtab	b5ff1fdaeb4d	shared-address	out:3	undocumented		
-6.5.30/lib64/rld	userland	n64	.text	0xfb7fad0	184	openlog	symtab	b5ff1fdaeb4d	shared-address	out:3	named-only		
+6.5.30/lib64/rld	userland	n64	.text	0xfb7fad0	184	openlog	symtab	b5ff1fdaeb4d	shared-address	out:3	undocumented		
 6.5.30/lib64/rld	userland	n64	.text	0xfb7fb88	40	_closelog	dwarf+symtab	8fef5a80e782	shared-address	out:3	undocumented		
 6.5.30/lib64/rld	userland	n64	.text	0xfb7fb88	40	closelog	symtab	8fef5a80e782	shared-address	out:3	undocumented		
 6.5.30/lib64/rld	userland	n64	.text	0xfb7fbb0	24	_setlogmask	dwarf+symtab	175cf4aa3eae	shared-address	out:3	undocumented		
@@ -192558,7 +192558,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/lib64/rld	userland	n64	.text	0xfb839e0	116	_dhcsetlock	dwarf+symtab	5272e86023be		out:3	undocumented		
 6.5.30/lib64/rld	userland	n64	.text	0xfb83a54	236	_dhsetlock	dwarf+symtab	47fd5f6731d5		out:3	undocumented		
 6.5.30/lib64/rld	userland	n64	.text	0xfb83b40	184	_dhunsetlock	dwarf+symtab	5d4b8feeb260		out:3	undocumented		
-6.5.30/lib64/rld	userland	n64	.text	0xfb83bf8	156	strncmp	dwarf+symtab	3dcd9de9889a		out:3	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.30/lib64/rld	userland	n64	.text	0xfb83bf8	156	strncmp	dwarf+symtab	3dcd9de9889a		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/lib64/rld	userland	n64	.text	0xfb83c94	68	strcmp	dwarf+symtab	1e3f9d2d43e0		out:3	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
 6.5.30/lib64/rld	userland	n64	.text	0xfb83cd8	52	_sysmp	dwarf+symtab	39574f3473b0	shared-address	out:3	undocumented		
 6.5.30/lib64/rld	userland	n64	.text	0xfb83cd8	52	sysmp	symtab	39574f3473b0	shared-address	out:3	named-only		
@@ -192639,7 +192639,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/lib64/rld	userland	n64	.text	0xfb861dc	56	nanosleep	symtab	4a85a6ae14e2	shared-address	out:3	named-only		
 6.5.30/lib64/rld	userland	n64	.text	0xfb86214	132	_calloc	dwarf+symtab	4066503a14e8	shared-address	out:3	undocumented		
 6.5.30/lib64/rld	userland	n64	.text	0xfb86214	132	calloc	symtab	4066503a14e8	shared-address	out:3	named-only		
-6.5.30/lib64/rld	userland	n64	.text	0xfb86298	164	strtok	dwarf+symtab	41b4d2f9a791		out:3	undocumented		
+6.5.30/lib64/rld	userland	n64	.text	0xfb86298	164	strtok	dwarf+symtab	41b4d2f9a791		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/lib64/rld	userland	n64	.text	0xfb8633c	180	_strtok_r	dwarf+symtab	054f848d616b	shared-address	out:3	undocumented		
 6.5.30/lib64/rld	userland	n64	.text	0xfb8633c	180	strtok_r	symtab	054f848d616b	shared-address	out:3	named-only		
 6.5.30/lib64/rld	userland	n64	.text	0xfb863f0	120	strpbrk	dwarf+symtab	312d3077e17b		out:3	named-only		
@@ -198297,7 +198297,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000011e868	204	socket	dwarf+symtab	4d91ecf993ba		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000011e934	200	bind	dwarf+symtab	5d66d449decc		in	named-only	docs/network-and-snapshots.md#binding-a-process-to-a-source-address	Binding a process to a source address
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000011e9fc	84	listen	dwarf+symtab	a183272154a6		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000011ea50	172	accept	dwarf+symtab	8eb4ab9a079f		in	named-only	docs/syscalls.md#entries	Entries
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000011ea50	172	accept	dwarf+symtab	8eb4ab9a079f		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000011eafc	148	connect	dwarf+symtab	bb77fb8db213		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000011eb90	152	sendto	dwarf+symtab	91cce618cc23		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000011ec28	144	send	dwarf+symtab	5e444ff028fe		in	named-only	docs/syscalls.md#entries	Entries
@@ -211221,7 +211221,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200f691c	204	socket	dwarf+symtab	123dba9e1e92		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200f69e8	200	bind	dwarf+symtab	606b80d3ac6e		in	named-only	docs/network-and-snapshots.md#binding-a-process-to-a-source-address	Binding a process to a source address
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200f6ab0	84	listen	dwarf+symtab	24c87a915435		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200f6b04	172	accept	dwarf+symtab	801a5277a66e		in	named-only	docs/syscalls.md#entries	Entries
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200f6b04	172	accept	dwarf+symtab	801a5277a66e		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200f6bb0	148	connect	dwarf+symtab	a812a184b6fa		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200f6c44	152	sendto	dwarf+symtab	531d9a468075		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000200f6cdc	144	send	dwarf+symtab	ade0140b6831		in	named-only	docs/syscalls.md#entries	Entries
@@ -225793,7 +225793,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001ba5d8	204	socket	dwarf+symtab	d3ae0c251b93		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001ba6a4	200	bind	dwarf+symtab	67514154f88f		in	named-only	docs/namespace-dispatch.md#5-sockets-and-arp-skimmed	5. Sockets and ARP (skimmed)
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001ba76c	84	listen	dwarf+symtab	421f13602b36		in	named-only	docs/syscalls.md#entries	Entries
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001ba7c0	172	accept	dwarf+symtab	e030557fd191		in	named-only	docs/syscalls.md#entries	Entries
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001ba7c0	172	accept	dwarf+symtab	e030557fd191		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001ba86c	148	connect	dwarf+symtab	78057d7caf94		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001ba900	152	sendto	dwarf+symtab	1c7da34b0229		in	named-only	docs/syscalls.md#entries	Entries
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001ba998	144	send	dwarf+symtab	e89c8fc05b7b		in	named-only	docs/syscalls.md#entries	Entries
@@ -237610,7 +237610,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x0	204	socket	dwarf+symtab	841cf9fefbc3		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
 6.5.30/usr/cpu/sysgen/IP27boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0xcc	200	bind	dwarf+symtab	5d0c159233fe		in	named-only	docs/network-and-snapshots.md#binding-a-process-to-a-source-address	Binding a process to a source address
 6.5.30/usr/cpu/sysgen/IP27boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x194	84	listen	dwarf+symtab	2cf534583560		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
-6.5.30/usr/cpu/sysgen/IP27boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x1e8	172	accept	dwarf+symtab	c9a98f93ddea		in	named-only	docs/syscalls.md#entries	Entries
+6.5.30/usr/cpu/sysgen/IP27boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x1e8	172	accept	dwarf+symtab	c9a98f93ddea		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/cpu/sysgen/IP27boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x294	148	connect	dwarf+symtab	881643b5ded2		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.30/usr/cpu/sysgen/IP27boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x328	152	sendto	dwarf+symtab	17235241cc55		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
 6.5.30/usr/cpu/sysgen/IP27boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x3c0	144	send	dwarf+symtab	99c9e0742e41		in	named-only	docs/syscalls.md#entries	Entries
@@ -241657,7 +241657,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/ipc.o	shared-kernel	n64	.text	0x3e0	60	ipc_perm_to_irix5	dwarf+symtab	8368893c2b9b		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP27boot/ipfilter.o	shared-kernel	n64	.text	0x0	40	ipfilter_kernel_match	dwarf+symtab	0870ccebe343		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/cpu/sysgen/IP27boot/ipfilter.o	shared-kernel	n64	.text	0x28	1424	ipfilter_kernel	dwarf+symtab	6f3de96c8f72		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/usr/cpu/sysgen/IP27boot/ipfilter.o	shared-kernel	n64	.text	0x5b8	1244	ipfilterioctl	dwarf+symtab	25b611c482be		in	named-only	docs/network-and-snapshots.md#evidence-and-method	Evidence and method
+6.5.30/usr/cpu/sysgen/IP27boot/ipfilter.o	shared-kernel	n64	.text	0x5b8	1244	ipfilterioctl	dwarf+symtab	25b611c482be		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/cpu/sysgen/IP27boot/ipfilter.o	shared-kernel	n64	.text	0xa94	208	ipkernelfilter_init	dwarf+symtab	2475cd30e07d		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/ipfilter.o	shared-kernel	n64	.text	0xb64	60	ipfilteropen	dwarf+symtab	913c87e45b09		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/ipfilter.o	shared-kernel	n64	.text	0xba0	232	ipfilterclose	dwarf+symtab	7ce1a1cefdf6		in	undocumented		
@@ -257822,7 +257822,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x0	204	socket	dwarf+symtab	841cf9fefbc3		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
 6.5.30/usr/cpu/sysgen/IP30boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0xcc	200	bind	dwarf+symtab	5d0c159233fe		in	named-only	docs/network-and-snapshots.md#binding-a-process-to-a-source-address	Binding a process to a source address
 6.5.30/usr/cpu/sysgen/IP30boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x194	84	listen	dwarf+symtab	2cf534583560		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
-6.5.30/usr/cpu/sysgen/IP30boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x1e8	172	accept	dwarf+symtab	c9a98f93ddea		in	named-only	docs/syscalls.md#entries	Entries
+6.5.30/usr/cpu/sysgen/IP30boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x1e8	172	accept	dwarf+symtab	c9a98f93ddea		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/cpu/sysgen/IP30boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x294	148	connect	dwarf+symtab	881643b5ded2		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.30/usr/cpu/sysgen/IP30boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x328	152	sendto	dwarf+symtab	17235241cc55		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
 6.5.30/usr/cpu/sysgen/IP30boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x3c0	144	send	dwarf+symtab	99c9e0742e41		in	named-only	docs/syscalls.md#entries	Entries
@@ -261395,7 +261395,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/ip_mroute.o	shared-kernel	n64	.text	0x2dbc	212	ip_rsvp_force_done	dwarf+symtab	939baac92f34		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP30boot/ipfilter.o	shared-kernel	n64	.text	0x0	40	ipfilter_kernel_match	dwarf+symtab	0870ccebe343		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/cpu/sysgen/IP30boot/ipfilter.o	shared-kernel	n64	.text	0x28	1424	ipfilter_kernel	dwarf+symtab	6f3de96c8f72		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/usr/cpu/sysgen/IP30boot/ipfilter.o	shared-kernel	n64	.text	0x5b8	1244	ipfilterioctl	dwarf+symtab	25b611c482be		in	named-only	docs/network-and-snapshots.md#evidence-and-method	Evidence and method
+6.5.30/usr/cpu/sysgen/IP30boot/ipfilter.o	shared-kernel	n64	.text	0x5b8	1244	ipfilterioctl	dwarf+symtab	25b611c482be		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/cpu/sysgen/IP30boot/ipfilter.o	shared-kernel	n64	.text	0xa94	208	ipkernelfilter_init	dwarf+symtab	2475cd30e07d		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/ipfilter.o	shared-kernel	n64	.text	0xb64	60	ipfilteropen	dwarf+symtab	913c87e45b09		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP30boot/ipfilter.o	shared-kernel	n64	.text	0xba0	232	ipfilterclose	dwarf+symtab	7ce1a1cefdf6		in	undocumented		
@@ -275141,7 +275141,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x0	204	socket	dwarf+symtab	999d491bfe23		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
 6.5.30/usr/cpu/sysgen/IP32boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0xcc	200	bind	dwarf+symtab	e9dd69fa7808		in	named-only	docs/network-and-snapshots.md#binding-a-process-to-a-source-address	Binding a process to a source address
 6.5.30/usr/cpu/sysgen/IP32boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x194	84	listen	dwarf+symtab	4a7622c6aa10		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
-6.5.30/usr/cpu/sysgen/IP32boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x1e8	172	accept	dwarf+symtab	7e6cfa53a73b		in	named-only	docs/syscalls.md#entries	Entries
+6.5.30/usr/cpu/sysgen/IP32boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x1e8	172	accept	dwarf+symtab	7e6cfa53a73b		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/cpu/sysgen/IP32boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x294	148	connect	dwarf+symtab	42371ade15a9		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.30/usr/cpu/sysgen/IP32boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x328	152	sendto	dwarf+symtab	c79de5a02f03		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
 6.5.30/usr/cpu/sysgen/IP32boot/bsd.a(uipc_syscalls.o)	shared-kernel	n32	.text	0x3c0	144	send	dwarf+symtab	680a7147e61a		in	named-only	docs/syscalls.md#entries	Entries
@@ -278575,7 +278575,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/ipc.o	shared-kernel	n32	.text	0x378	44	ipc_init	dwarf+symtab	5ba9f7cdf0fb		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP32boot/ipfilter.o	shared-kernel	n32	.text	0x0	48	ipfilter_kernel_match	dwarf+symtab	836b543fd3d6		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/cpu/sysgen/IP32boot/ipfilter.o	shared-kernel	n32	.text	0x30	1352	ipfilter_kernel	dwarf+symtab	dfe6f45186a3		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/usr/cpu/sysgen/IP32boot/ipfilter.o	shared-kernel	n32	.text	0x578	1268	ipfilterioctl	dwarf+symtab	8a05d71683fb		in	named-only	docs/network-and-snapshots.md#evidence-and-method	Evidence and method
+6.5.30/usr/cpu/sysgen/IP32boot/ipfilter.o	shared-kernel	n32	.text	0x578	1268	ipfilterioctl	dwarf+symtab	8a05d71683fb		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/cpu/sysgen/IP32boot/ipfilter.o	shared-kernel	n32	.text	0xa6c	228	ipkernelfilter_init	dwarf+symtab	65cbd76278a1		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/ipfilter.o	shared-kernel	n32	.text	0xb50	60	ipfilteropen	dwarf+symtab	5954abe656a3		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/ipfilter.o	shared-kernel	n32	.text	0xb8c	268	ipfilterclose	dwarf+symtab	d6df43efd883		in	undocumented		
@@ -287657,7 +287657,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(fs_bio.o)	shared-kernel	n32	.text	0x5c70	144	buf_avoid_delete	dwarf+symtab	056e550d50a4		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(fs_bio.o)	shared-kernel	n32	.text	0x5d00	136	buf_avoid_search	dwarf+symtab	5192df3c2b00		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x0	72	strcmp	dwarf+symtab	d58298f34bcf		in	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
-6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x48	84	strncmp	dwarf+symtab	8289031da5f9		in	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x48	84	strncmp	dwarf+symtab	8289031da5f9		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x9c	132	strncpy	dwarf+symtab	7cfa5fbce052		in	named-only	docs/interrupts.md#routines	Routines
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x120	84	strcpy	dwarf+symtab	f7e6e8b86831		in	named-only	docs/checkpoint-restart.md#the-proc-requests	The `/proc` requests
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(libc_src.o)	shared-kernel	n32	.text	0x174	36	strchr	dwarf+symtab	f33858367dfc		in	named-only	docs/routines/t2-kudzu-r4-b011.md#tier-2-reading-batch-11-of-kudzu	Tier-2 reading batch 11 of kudzu
@@ -292246,7 +292246,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x0	204	socket	dwarf+symtab	841cf9fefbc3		in	named-only	docs/panics.md#nic_eaddr	`nic_eaddr`
 6.5.30/usr/cpu/sysgen/IP35boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0xcc	200	bind	dwarf+symtab	5d0c159233fe		in	named-only	docs/network-and-snapshots.md#binding-a-process-to-a-source-address	Binding a process to a source address
 6.5.30/usr/cpu/sysgen/IP35boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x194	84	listen	dwarf+symtab	2cf534583560		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
-6.5.30/usr/cpu/sysgen/IP35boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x1e8	172	accept	dwarf+symtab	c9a98f93ddea		in	named-only	docs/syscalls.md#entries	Entries
+6.5.30/usr/cpu/sysgen/IP35boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x1e8	172	accept	dwarf+symtab	c9a98f93ddea		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/cpu/sysgen/IP35boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x294	148	connect	dwarf+symtab	881643b5ded2		in	named-only	docs/ip27-kernel-io.md#hub-widget-and-error-helpers	Hub widget and error helpers
 6.5.30/usr/cpu/sysgen/IP35boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x328	152	sendto	dwarf+symtab	17235241cc55		in	named-only	docs/userland-libraries-and-isa.md#the-call-families-asked-about	The call families asked about
 6.5.30/usr/cpu/sysgen/IP35boot/bsd.a(uipc_syscalls.o)	shared-kernel	n64	.text	0x3c0	144	send	dwarf+symtab	99c9e0742e41		in	named-only	docs/syscalls.md#entries	Entries
@@ -296737,7 +296737,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/ip_mroute.o	shared-kernel	n64	.text	0x2dbc	212	ip_rsvp_force_done	dwarf+symtab	939baac92f34		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP35boot/ipfilter.o	shared-kernel	n64	.text	0x0	40	ipfilter_kernel_match	dwarf+symtab	0870ccebe343		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/cpu/sysgen/IP35boot/ipfilter.o	shared-kernel	n64	.text	0x28	1424	ipfilter_kernel	dwarf+symtab	6f3de96c8f72		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/usr/cpu/sysgen/IP35boot/ipfilter.o	shared-kernel	n64	.text	0x5b8	1244	ipfilterioctl	dwarf+symtab	25b611c482be		in	named-only	docs/network-and-snapshots.md#evidence-and-method	Evidence and method
+6.5.30/usr/cpu/sysgen/IP35boot/ipfilter.o	shared-kernel	n64	.text	0x5b8	1244	ipfilterioctl	dwarf+symtab	25b611c482be		in	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/cpu/sysgen/IP35boot/ipfilter.o	shared-kernel	n64	.text	0xa94	208	ipkernelfilter_init	dwarf+symtab	2475cd30e07d		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ipfilter.o	shared-kernel	n64	.text	0xb64	60	ipfilteropen	dwarf+symtab	913c87e45b09		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/ipfilter.o	shared-kernel	n64	.text	0xba0	232	ipfilterclose	dwarf+symtab	7ce1a1cefdf6		in	undocumented		
@@ -312649,15 +312649,15 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/etc/ipfilterd	userland	n32		0x10004f8c	12	_mcount	dynsym	1c53f0b255e3		out:2	named-only	docs/kernel-tracing-and-modules.md#hooks-on-the-system-call-path	Hooks on the system call path
 6.5.30/usr/etc/ipfilterd	userland	n32		0x10004f98	1048	main	dynsym	949d8744f9e0		out:2	named-only	docs/dmedia-video-drivers.md#start-up	Start-up
 6.5.30/usr/etc/ipfilterd	userland	n32		0x100053b0	36	eatstack	dynsym	39a69ea4e586		out:2	undocumented		
-6.5.30/usr/etc/ipfilterd	userland	n32		0x100053d4	1760	parsefile	dynsym	b25279a6d6a5		out:2	undocumented		
-6.5.30/usr/etc/ipfilterd	userland	n32		0x10005ab4	208	ipfilter_verdict_print	dynsym	8d3bac00ac38		out:2	undocumented		
-6.5.30/usr/etc/ipfilterd	userland	n32		0x10005b84	576	filterpacket	dynsym	a7a47ee33858		out:2	undocumented		
+6.5.30/usr/etc/ipfilterd	userland	n32		0x100053d4	1760	parsefile	dynsym	b25279a6d6a5		out:2	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
+6.5.30/usr/etc/ipfilterd	userland	n32		0x10005ab4	208	ipfilter_verdict_print	dynsym	8d3bac00ac38		out:2	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
+6.5.30/usr/etc/ipfilterd	userland	n32		0x10005b84	576	filterpacket	dynsym	a7a47ee33858		out:2	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/etc/ipfilterd	userland	n32		0x10005dc4	204	scanprotoname	dynsym	98a0bc553806		out:2	undocumented		
 6.5.30/usr/etc/ipfilterd	userland	n32		0x100060a0	312	tcp_func_badsum	dynsym	993267581d27		out:2	undocumented		
 6.5.30/usr/etc/ipfilterd	userland	n32		0x10007f24	212	syslog_vplog	dynsym	e3a09fc732de		out:2	undocumented		
 6.5.30/usr/etc/ipfilterd	userland	n32		0x10007ff8	68	syslog_vperr	dynsym	3f8de462f89a		out:2	undocumented		
 6.5.30/usr/etc/ipfilterd	userland	n32		0x1000803c	80	exc_openlog	dynsym	0b1c1a33fe69		out:2	undocumented		
-6.5.30/usr/etc/ipfilterd	userland	n32		0x1000808c	296	pr_register	dynsym	d0825f86dd25		out:2	undocumented		
+6.5.30/usr/etc/ipfilterd	userland	n32		0x1000808c	296	pr_register	dynsym	d0825f86dd25		out:2	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/etc/ipfilterd	userland	n32		0x100084e0	100	findprotobyname	dynsym	b566b2f5fa9b		out:2	undocumented		
 6.5.30/usr/etc/ipfilterd	userland	n32		0x10008544	52	findprotobyid	dynsym	23473775fb65		out:2	undocumented		
 6.5.30/usr/etc/ipfilterd	userland	n32		0x10008578	492	cache	dynsym	6558e838a6a5		out:2	named-only	docs/ip27-kernel-io.md#cache-error-handling	Cache error handling
@@ -312689,7 +312689,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/etc/ipfilterd	userland	n32		0x10009aac	132	sc_addnumbers	dynsym	7d6be9ae893f		out:2	undocumented		
 6.5.30/usr/etc/ipfilterd	userland	n32		0x10009b30	296	en_bitset	dynsym	07c3c9b27e62		out:2	undocumented		
 6.5.30/usr/etc/ipfilterd	userland	n32		0x10009c58	224	pr_eval	dynsym	1e8433205c2c		out:2	undocumented		
-6.5.30/usr/etc/ipfilterd	userland	n32		0x10009d38	188	pr_test	dynsym	5d70563316bd		out:2	undocumented		
+6.5.30/usr/etc/ipfilterd	userland	n32		0x10009d38	188	pr_test	dynsym	5d70563316bd		out:2	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/etc/ipfilterd	userland	n32		0x1000a660	168	ex_match	dynsym	dbc95c0e1c50		out:2	undocumented		
 6.5.30/usr/etc/ipfilterd	userland	n32		0x1000a708	244	ds_int	dynsym	aba417915afb		out:2	undocumented		
 6.5.30/usr/etc/ipfilterd	userland	n32		0x1000a854	344	exc_vraise	dynsym	7391ce5c2d71		out:2	undocumented		
@@ -312699,10 +312699,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/etc/ipfilterd	userland	n32		0x1000aafc	232	stdio_vperr	dynsym	793294123f9c		out:2	undocumented		
 6.5.30/usr/etc/ipfilterd	userland	n32		0x1000abe4	344	stdio_vplog	dynsym	24401f278166		out:2	undocumented		
 6.5.30/usr/etc/ipfilterd	userland	n32		0x1000ad3c	184	ds_bytes	dynsym	cf0096f9a399		out:2	undocumented		
-6.5.30/usr/etc/ipfilterd	userland	n32		0x1000adf4	404	sn_compile	dynsym	d34b7e63a916		out:2	undocumented		
+6.5.30/usr/etc/ipfilterd	userland	n32		0x1000adf4	404	sn_compile	dynsym	d34b7e63a916		out:2	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/etc/ipfilterd	userland	n32		0x1000af8c	152	sc_addaddress	dynsym	906905b7669e		out:2	undocumented		
 6.5.30/usr/etc/ipfilterd	userland	n32		0x1000b024	68	sc_addnumber	dynsym	fb41fcf6cb94		out:2	undocumented		
-6.5.30/usr/etc/ipfilterd	userland	n32		0x1000b068	268	sc_addmacro	dynsym	40e0d33fd712		out:2	undocumented		
+6.5.30/usr/etc/ipfilterd	userland	n32		0x1000b068	268	sc_addmacro	dynsym	40e0d33fd712		out:2	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/etc/ipfilterd	userland	n32		0x1000b174	112	sc_addfunction	dynsym	9bc372ee43d0		out:2	undocumented		
 6.5.30/usr/etc/ipfilterd	userland	n32		0x1000b1e4	140	sc_addmacros	dynsym	29d479fa3423		out:2	undocumented		
 6.5.30/usr/etc/ipfilterd	userland	n32		0x1000b270	140	sc_addfunctions	dynsym	fab6b0ad14f9		out:2	undocumented		
@@ -329047,7 +329047,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa45d30	64	_getpid	dwarf+dynsym	d9aa06f77b73	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa45d30	64	getpid	dynsym	d9aa06f77b73	shared-address	out:3	named-only		
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa45d70	320	fclose	dwarf+dynsym	31dedf381553		out:3	undocumented		
-6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa45eb0	736	fgets	dwarf+dynsym	31b321c536bc		out:3	undocumented		
+6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa45eb0	736	fgets	dwarf+dynsym	31b321c536bc		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa46190	64	_fstat64	dwarf+dynsym	971595aa0b02	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa46190	64	fstat64	dynsym	971595aa0b02	shared-address	out:3	named-only		
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa461d0	68	_unlink	dwarf+dynsym	98be4048fb47	shared-address	out:3	undocumented		
@@ -329062,7 +329062,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa468d0	64	__recvmsg	dwarf+dynsym	b76da0c807d0		out:3	undocumented		
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa46910	304	_recvmsg	dwarf+dynsym	632c369ed413	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa46910	304	recvmsg	dynsym	632c369ed413	shared-address	out:3	named-only		
-6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa46a40	88	strncmp	dwarf+dynsym	17ef00757d78		out:3	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa46a40	88	strncmp	dwarf+dynsym	17ef00757d78		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32	.text	0xfa46a98	408	t_splay	dwarf+funcnames	c15b6e1b3b67		out:3	undocumented		
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32	.text	0xfa46c30	432	_morecore	dwarf+funcnames	29b5eac59353		out:3	undocumented		
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa46de0	128	sprintf	dwarf+dynsym	49eaa2f9b4bd		out:3	named-only	docs/hwgraph-names.md#hardware-graph-names-in-the-6530-kernels	Hardware-graph names in the 6.5.30 kernels
@@ -329118,7 +329118,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa4c288	520	__tenscale	dwarf+dynsym	5b31a57935c5		out:3	undocumented		
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32	.text	0xfa4c490	112	norm_and_round	dwarf+funcnames	0271c9bb7ffc		out:3	undocumented		
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32	.text	0xfa4c500	476	set_cat	dwarf+funcnames	5f5339859220		out:3	undocumented		
-6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa4c6dc	176	strtok	dwarf+dynsym	bd24d650c290		out:3	undocumented		
+6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa4c6dc	176	strtok	dwarf+dynsym	bd24d650c290		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa4c790	68	_getegid	dwarf+dynsym	ab8ea6fe427c	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa4c790	68	getegid	dynsym	ab8ea6fe427c	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa4c7d4	144	_snprintf	dwarf+dynsym	cd1af5ca9537	shared-address	out:3	undocumented		
@@ -329423,7 +329423,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa5b48c	88	strcspn	dwarf+dynsym	c55fba88f745		out:3	undocumented		
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa5b4e4	932	strtoul	dwarf+dynsym	34053b8105b3		out:3	named-only	docs/userland.md#6530usretcnfsdctl	`6.5.30/usr/etc/nfsdctl`
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa5b888	164	_openlog	dwarf+dynsym	92f290a89373	shared-address	out:3	undocumented		
-6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa5b888	164	openlog	dynsym	92f290a89373	shared-address	out:3	named-only		
+6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa5b888	164	openlog	dynsym	92f290a89373	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa5b930	68	_chdir	dwarf+dynsym	849911cc2833	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa5b930	68	chdir	dynsym	849911cc2833	shared-address	out:3	named-only		
 6.5.30/usr/lib32/mips4/libc.so.1	userland	n32		0xfa5b974	156	BSDdup2	dynsym	1ff91f958c08	shared-address	out:3	undocumented		
@@ -338644,7 +338644,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fd9e0	64	_getpid	dwarf+dynsym	936621ba42e9	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fd9e0	64	getpid	dynsym	936621ba42e9	shared-address	out:3	named-only		
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fda20	320	fclose	dwarf+dynsym	30ac92d4d292		out:3	undocumented		
-6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fdb60	760	fgets	dwarf+dynsym	3e490949bb85		out:3	undocumented		
+6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fdb60	760	fgets	dwarf+dynsym	3e490949bb85		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fde58	64	_fstat64	dwarf+dynsym	5d27b49c3774	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fde58	64	fstat64	dynsym	5d27b49c3774	shared-address	out:3	named-only		
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fde98	68	_unlink	dwarf+dynsym	4b2365f8956f	shared-address	out:3	undocumented		
@@ -338659,7 +338659,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fe5f8	64	__recvmsg	dwarf+dynsym	d7746e5992f4		out:3	undocumented		
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fe638	296	_recvmsg	dwarf+dynsym	9f77de3eb6d4	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fe638	296	recvmsg	dynsym	9f77de3eb6d4	shared-address	out:3	named-only		
-6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fe760	104	strncmp	dwarf+dynsym	3c684ec11c1f		out:3	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xd9fe760	104	strncmp	dwarf+dynsym	3c684ec11c1f		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64	.text	0xd9fe7c8	408	t_splay	dwarf	49f95ac2e19f		out:3	undocumented		
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64	.text	0xd9fe960	472	_morecore	dwarf	bffb0cf0262a		out:3	undocumented		
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xd9feb38	128	sprintf	dwarf+dynsym	5469996cad11		out:3	named-only	docs/hwgraph-names.md#hardware-graph-names-in-the-6530-kernels	Hardware-graph names in the 6.5.30 kernels
@@ -338715,7 +338715,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xda04798	572	__tenscale	dwarf+dynsym	0f3d06de2e6e		out:3	undocumented		
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64	.text	0xda049d4	112	norm_and_round	dwarf	0271c9bb7ffc		out:3	undocumented		
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64	.text	0xda04a44	484	set_cat	dwarf	e6eabae66d0c		out:3	undocumented		
-6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xda04c28	188	strtok	dwarf+dynsym	ae8f6e8d3171		out:3	undocumented		
+6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xda04c28	188	strtok	dwarf+dynsym	ae8f6e8d3171		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xda04ce4	68	_getegid	dwarf+dynsym	772003fc39ca	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xda04ce4	68	getegid	dynsym	772003fc39ca	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xda04d28	148	_snprintf	dwarf+dynsym	894026531d36	shared-address	out:3	undocumented		
@@ -339022,7 +339022,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xda14768	992	strtoul	dwarf+dynsym	fe85e7c99055	shared-address	out:3	named-only		
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xda14768	992	strtoumax	dynsym	fe85e7c99055	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xda14b48	160	_openlog	dwarf+dynsym	68c26cc66338	shared-address	out:3	undocumented		
-6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xda14b48	160	openlog	dynsym	68c26cc66338	shared-address	out:3	named-only		
+6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xda14b48	160	openlog	dynsym	68c26cc66338	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xda14be8	68	_chdir	dwarf+dynsym	616c693502cf	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xda14be8	68	chdir	dynsym	616c693502cf	shared-address	out:3	named-only		
 6.5.30/usr/lib64/mips3/libc.so.1	userland	n64		0xda14c2c	164	BSDdup2	dynsym	fa9574cc05c2	shared-address	out:3	undocumented		
@@ -344561,7 +344561,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fdeb0	64	_getpid	dwarf+dynsym	6ae32f37c3b5	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fdeb0	64	getpid	dynsym	6ae32f37c3b5	shared-address	out:3	named-only		
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fdef0	320	fclose	dwarf+dynsym	5be0696218b7		out:3	undocumented		
-6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fe030	752	fgets	dwarf+dynsym	7eaee36e2710		out:3	undocumented		
+6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fe030	752	fgets	dwarf+dynsym	7eaee36e2710		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fe320	64	_fstat64	dwarf+dynsym	94ae62f7eeeb	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fe320	64	fstat64	dynsym	94ae62f7eeeb	shared-address	out:3	named-only		
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fe360	68	_unlink	dwarf+dynsym	cb8d741aa113	shared-address	out:3	undocumented		
@@ -344576,7 +344576,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xd9feaa0	64	__recvmsg	dwarf+dynsym	b3c1d62a17f5		out:3	undocumented		
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xd9feae0	296	_recvmsg	dwarf+dynsym	d0d32557c2d6	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xd9feae0	296	recvmsg	dynsym	d0d32557c2d6	shared-address	out:3	named-only		
-6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fec08	88	strncmp	dwarf+dynsym	5fe30838e018		out:3	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fec08	88	strncmp	dwarf+dynsym	5fe30838e018		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64	.text	0xd9fec60	408	t_splay	dwarf	49f95ac2e19f		out:3	undocumented		
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64	.text	0xd9fedf8	436	_morecore	dwarf	4d1fbdacde46		out:3	undocumented		
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xd9fefac	128	sprintf	dwarf+dynsym	ea4fd7740ce8		out:3	named-only	docs/hwgraph-names.md#hardware-graph-names-in-the-6530-kernels	Hardware-graph names in the 6.5.30 kernels
@@ -344632,7 +344632,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xda045b8	520	__tenscale	dwarf+dynsym	7d082debae84		out:3	undocumented		
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64	.text	0xda047c0	112	norm_and_round	dwarf	0271c9bb7ffc		out:3	undocumented		
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64	.text	0xda04830	480	set_cat	dwarf	d46557feb1ec		out:3	undocumented		
-6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xda04a10	172	strtok	dwarf+dynsym	1e5b593a17ba		out:3	undocumented		
+6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xda04a10	172	strtok	dwarf+dynsym	1e5b593a17ba		out:3	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xda04ac0	68	_getegid	dwarf+dynsym	4297e260f780	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xda04ac0	68	getegid	dynsym	4297e260f780	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xda04b04	144	_snprintf	dwarf+dynsym	eb9e1fe7e2f8	shared-address	out:3	undocumented		
@@ -344939,7 +344939,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xda13cb8	956	strtoul	dwarf+dynsym	688001a428d6	shared-address	out:3	named-only		
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xda13cb8	956	strtoumax	dynsym	688001a428d6	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xda14074	164	_openlog	dwarf+dynsym	fefbcb9e9a1c	shared-address	out:3	undocumented		
-6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xda14074	164	openlog	dynsym	fefbcb9e9a1c	shared-address	out:3	named-only		
+6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xda14074	164	openlog	dynsym	fefbcb9e9a1c	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xda14120	68	_chdir	dwarf+dynsym	c1122c219536	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xda14120	68	chdir	dynsym	c1122c219536	shared-address	out:3	named-only		
 6.5.30/usr/lib64/mips4/libc.so.1	userland	n64		0xda14164	164	BSDdup2	dynsym	41703d7450cb	shared-address	out:3	undocumented		
@@ -351255,7 +351255,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/sbin/scsicontrol	userland	n32		0x10002b2c	160	vpinquiry12	dynsym	3853ade0505d		out:2	undocumented		
 6.5.30/usr/sbin/scsicontrol	userland	n32		0x10002bcc	152	startunit1b	dynsym	d951a3787741		out:2	undocumented		
 6.5.30/usr/sbin/scsicontrol	userland	n32		0x10002c64	176	myinquiry12	dynsym	6784a44978d6		out:2	undocumented		
-6.5.30/usr/sbin/scsicontrol	userland	n32		0x10002d14	172	docmdc9	dynsym	c168fcab54fa		out:2	undocumented		
+6.5.30/usr/sbin/scsicontrol	userland	n32		0x10002d14	172	docmdc9	dynsym	c168fcab54fa		out:2	named-only	docs/scsi-cdrom-inquiry.md#the-removable-media-daemon	The removable-media daemon
 6.5.30/usr/sbin/scsicontrol	userland	n32		0x10002dc0	212	logsense	dynsym	c46d5c28e091		out:2	undocumented		
 6.5.30/usr/sbin/scsicontrol	userland	n32		0x10002e94	620	getcap	dynsym	6a6e8820d8b3		out:2	undocumented		
 6.5.30/usr/sbin/scsicontrol	userland	n32		0x10003100	472	setbsize	dynsym	a19b94017a83		out:2	undocumented		
@@ -356122,7 +356122,7 @@ divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw	shared-kernel	o32	.text	0x80026
 divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw	shared-kernel	o32	.text	0x80026828	368	__ll_bit_insert	mdebug+symtab	906473f31503		out:1	undocumented		
 divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw	shared-kernel	o32	.text	0x800269a0	48	sprintf	mdebug+symtab	36becb72b701		out:1	named-only	docs/hwgraph-names.md#hardware-graph-names-in-the-6530-kernels	Hardware-graph names in the 6.5.30 kernels
 divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw	shared-kernel	o32	.text	0x800269d0	128	strcmp	mdebug+symtab	21686ec57eb9		out:1	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
-divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw	shared-kernel	o32	.text	0x80026a50	172	strncmp	mdebug+symtab	c29d307e0d67		out:1	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw	shared-kernel	o32	.text	0x80026a50	172	strncmp	mdebug+symtab	c29d307e0d67		out:1	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw	shared-kernel	o32	.text	0x80026afc	56	strcpy	mdebug+symtab	6601e7271cef		out:1	named-only	docs/checkpoint-restart.md#the-proc-requests	The `/proc` requests
 divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw	shared-kernel	o32	.text	0x80026b34	56	strncpy	mdebug+symtab	94c2947774d7		out:1	named-only	docs/interrupts.md#routines	Routines
 divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw	shared-kernel	o32	.text	0x80026b6c	52	strlen	mdebug+symtab	00c43c67c656		out:1	named-only	docs/dm2-ioctl.md#2-command-table	2. Command table
@@ -356547,7 +356547,7 @@ divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.2925	shared-kernel	o32	.text	0x
 divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.2925	shared-kernel	o32	.text	0x8001d168	368	__ll_bit_insert	mdebug+symtab	fca869234151		out:1	undocumented		
 divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.2925	shared-kernel	o32	.text	0x8001d2e0	48	sprintf	mdebug+symtab	81ecbdfb0453		out:1	named-only	docs/hwgraph-names.md#hardware-graph-names-in-the-6530-kernels	Hardware-graph names in the 6.5.30 kernels
 divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.2925	shared-kernel	o32	.text	0x8001d310	128	strcmp	mdebug+symtab	21686ec57eb9		out:1	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
-divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.2925	shared-kernel	o32	.text	0x8001d390	172	strncmp	mdebug+symtab	c29d307e0d67		out:1	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.2925	shared-kernel	o32	.text	0x8001d390	172	strncmp	mdebug+symtab	c29d307e0d67		out:1	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.2925	shared-kernel	o32	.text	0x8001d43c	56	strcpy	mdebug+symtab	6601e7271cef		out:1	named-only	docs/checkpoint-restart.md#the-proc-requests	The `/proc` requests
 divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.2925	shared-kernel	o32	.text	0x8001d474	56	strncpy	mdebug+symtab	94c2947774d7		out:1	named-only	docs/interrupts.md#routines	Routines
 divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.2925	shared-kernel	o32	.text	0x8001d4ac	52	strlen	mdebug+symtab	00c43c67c656		out:1	named-only	docs/dm2-ioctl.md#2-command-table	2. Command table
@@ -357046,7 +357046,7 @@ divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.dvc.log	shared-kernel	o32	.text
 divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.dvc.log	shared-kernel	o32	.text	0x8002f478	368	__ll_bit_insert	mdebug+symtab	8f190165dc2b		out:1	undocumented		
 divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.dvc.log	shared-kernel	o32	.text	0x8002f5f0	48	sprintf	mdebug+symtab	296259ff1546		out:1	named-only	docs/hwgraph-names.md#hardware-graph-names-in-the-6530-kernels	Hardware-graph names in the 6.5.30 kernels
 divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.dvc.log	shared-kernel	o32	.text	0x8002f620	128	strcmp	mdebug+symtab	21686ec57eb9		out:1	named-only	docs/interrupts.md#hub-interrupt-handles	Hub interrupt handles
-divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.dvc.log	shared-kernel	o32	.text	0x8002f6a0	172	strncmp	mdebug+symtab	c29d307e0d67		out:1	named-only	docs/network-dataplane-and-vfs.md#7-routine-index	7. Routine index
+divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.dvc.log	shared-kernel	o32	.text	0x8002f6a0	172	strncmp	mdebug+symtab	c29d307e0d67		out:1	named-only	docs/network-and-snapshots.md#packet-filtering	Packet filtering
 divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.dvc.log	shared-kernel	o32	.text	0x8002f74c	56	strcpy	mdebug+symtab	6601e7271cef		out:1	named-only	docs/checkpoint-restart.md#the-proc-requests	The `/proc` requests
 divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.dvc.log	shared-kernel	o32	.text	0x8002f784	56	strncpy	mdebug+symtab	94c2947774d7		out:1	named-only	docs/interrupts.md#routines	Routines
 divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.dvc.log	shared-kernel	o32	.text	0x8002f7bc	52	strlen	mdebug+symtab	00c43c67c656		out:1	named-only	docs/dm2-ioctl.md#2-command-table	2. Command table
