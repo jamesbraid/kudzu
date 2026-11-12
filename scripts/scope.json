@@ -2014,17 +2014,17 @@
       "why": "accesses a crosstalk widget through a pointer a crosstalk mapping routine returned, at an address the scan cannot place"
     },
     {
-      "binary": "divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP27boot/divo.a",
+      "binary": "divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP27boot/divo.a(*)",
       "names": ["divo_attach", "divo_init_bridge"],
       "why": "the scan finds it reaching a register window, a token or an ioctl; the object was in scope before the video option trees left the base platform"
     },
     {
-      "binary": "divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP30boot/divo.a",
+      "binary": "divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP30boot/divo.a(*)",
       "names": ["divo_init_bridge"],
       "why": "the scan finds it reaching a register window, a token or an ioctl; the object was in scope before the video option trees left the base platform"
     },
     {
-      "binary": "divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP35boot/divo.a",
+      "binary": "divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP35boot/divo.a(*)",
       "names": ["divo_init_bridge"],
       "why": "the scan finds it reaching a register window, a token or an ioctl; the object was in scope before the video option trees left the base platform"
     },
