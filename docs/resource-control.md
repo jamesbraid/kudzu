@@ -2,7 +2,7 @@
 
 What the IRIX 6.5.30 kernels offer for confining work to processors and nodes (cpusets), for batch scheduling (miser), for per-job limits (job limits), and for placing memory (placement objects, migration). The question behind the page is practical: if something outside the kernel wants to treat a group of processes as one unit with a processor set, a memory budget, a process count and a file count, which of those exist in the shipped kernel, through which entry points, and which are only present as unlinked code.
 
-Evidence is the linked kernels `6.5.30/unix.IP35` (read first) and `6.5.30/unix.IP27`, with `6.5.22/unix.IP35` for one symbol check, plus the kernel object archive `6.5.30/usr/cpu/sysgen/IP35boot/jlimits.a` and the 6.5.22 configuration tree (`var/sysgen.IP35`: `master.d`, `mtune`, `system`, `master.c`). Routine names, sizes and addresses come from the kernels' symbol tables where the routine has an entry there (for example `jlimits_init`, `hub_migrintr_init` on IP27) and otherwise from the debug information the kernels carry (for example `cpumask_to_nodemask`, `generate_schedmasks`, `cpuset_load_volatile` and `cpuset_get_volatile`, which the fact tool resolves from the inventory); instruction facts come from `retools/scripts/hostfacts.py` and a capstone walk of the same images. No source tree and no manual text was used; where a name below has no entry in either, it is said so. The two shipped user-space commands that would sit on top of these calls (the cpuset, miser and placement tools) are not held, so nothing here says how a command forms its arguments.
+Evidence is the linked kernels `6.5.30/unix.IP35` (read first) and `6.5.30/unix.IP27`, with `6.5.22/unix.IP35` for one symbol check, plus the kernel object archive `6.5.30/usr/cpu/sysgen/IP35boot/jlimits.a` and the 6.5.22 configuration tree (`var/sysgen.IP35`: `master.d`, `mtune`, `system`, `master.c`). Routine names, sizes and addresses come from the kernels' symbol tables where the routine has an entry there (for example `jlimits_init`, `hub_migrintr_init` on IP27) and otherwise from the debug information the kernels carry (for example `cpumask_to_nodemask`, `generate_schedmasks`, `cpuset_load_volatile` and `cpuset_get_volatile`, which the fact tool resolves from the inventory); instruction facts come from `retools/scripts/hostfacts.py` and a capstone walk of the same images. No source tree and no manual text was used; where a name below has no entry in either, it is said so. The user-space library `lib32/libcpuset.so` (n32; the 64-bit one is also held) is read for how the cpuset request is formed ([Request layout from the user library](#request-layout-from-the-user-library)). The `cpuset`, `miser_*`, `dplace` and `runon` commands are held too, and were not read.
 
 Conventions are those of [syssgi.md](syssgi.md) and [syscalls.md](syscalls.md): a handler receives a pointer to the argument block in its first register; the selector is the doubleword at +0, `arg1` the doubleword at +8, `arg2` at +16; a 16-bit value in the low half of `arg1` is at +14. The return register carries an errno; a result goes through the second pointer. Numbers are decimal unless written `0x`.
 
@@ -174,13 +174,36 @@ Record sizes: the thread record is 768 bytes on IP35 and 752 on IP27 ([syscalls.
 
 Job-limit stubs: identical on both.
 
+## Request layout from the user library
+
+`cpusetCreate` (`6.5.30/lib32/libcpuset.so`, 0x401ddc, 1000 bytes; the names are in the library's symbol table) fills a static 0x470-byte buffer, which it clears with `memset` (call at 0x40202c, buffer at 0x408100), and calls `sysmp(35, buffer, fd)` (0x4020bc to 0x4020c0), where `fd` is the descriptor of a permission file it opens with `fopen` (the halfword at +0xe of the `FILE`, load at 0x4020c4). Selector 35 is therefore the cpuset call, the buffer is the request the kernel `copyin`s, and the third argument of operations that take one is a permission-file descriptor (the kernel's `getf` call in `cpuset_create`). The offsets it stores are the same twelve that `cpuset_create` reads, once the kernel's body offset is shifted by the 8-byte header:
+
+| Request offset | Width | Held by | Stored at |
+|---|---|---|---|
+| +0x00 | halfword | operation: 2 for create (0x4020a8), 0x15 (21) for get-flags (0x4049a8), matching the table above | |
+| +0x08 | doubleword | the cpuset name, up to 8 bytes of text packed into one doubleword, zero padded; the packing routine at 0x4014cc returns 0 (so the call fails with 22) when the packed value is 0 or 1 | 0x40204c |
+| +0x10 | doubleword | the properties word, copied from the first word of the caller's definition record | 0x4020b8 |
+| +0x18 | word | number of processors | 0x402058 |
+| +0x20 | doubleword | user address of the processor list (an array of halfwords) | 0x40206c |
+| +0x28 | word | number of memory entries | 0x402064 |
+| +0x30 | doubleword | user address of the memory list | 0x402078 |
+| +0x38 | word | number of nodes | 0x402080 |
+| +0x40 | doubleword | user address of the node list | 0x40208c |
+| +0x48, +0x4c, +0x50, +0x58 | word, word, doubleword, doubleword | limits, copied from the definition record's +0x18, +0x1c, +0x20 and +0x28, only when its two marker bytes at +0xc and +0xd are `c` and `s` (0x402190 to 0x4021c0) | |
+
+The kernel's body offsets read by `cpuset_create` (+0x0, +0x8, +0x10, +0x18, +0x20, +0x28, +0x30, +0x38, +0x40, +0x44, +0x48, +0x50) are these offsets minus 8, so every one has a writer in the library. The kernel stores the two words at body +0x40 and +0x44 (request +0x48 and +0x4c) as the record's CPU-limit words; calling the whole group "limits" is Inferred from that and from the names `cpusetSetCPULimits` and `cpusetSetMemLimits` (0x401968, 0x4019b8), whose bodies were not read. Established for the offsets, widths and sources; the reply of get-flags is read from +0x10 (the word loaded at 0x4049d4).
+
+The library checks the properties word before calling the kernel. It rejects with 22 a word with both 0xc000 bits set (0x401fa4), and one with either of those bits but not bit 0x2000 (0x402138); with bit 0x2000 set and bit 0x100000 set it needs a memory or node list (0x401fb4 to 0x401fcc). With bit 0x100 set and a zero entry in the processor or node list (processor 0 or node 0) it fails with errno 1 (0x401f6c to 0x401f84). It rejects a name shorter than 3 or longer than 8 bytes with errno 13 (the `strlen` result tested at 0x401e50 and 0x401e58, the store at 0x401e6c). These are Established as tests. The public flag names that go with the bits (exclusive, memory-local and the policies) are not in the binary: Unknown, and the manual page was not consulted.
+
+What is still unread: the request layouts of the other 21 operations except get-flags, the bits' kernel meanings, and what the `cpuset` command adds on top of the library.
+
 ## Not established
 
-What the cpuset operations 22 and 23 (`cpuset_load_volatile` and `cpuset_get_volatile`) do beyond their names, and the field layout of the 0x470-byte request.
+What the cpuset operations 22 and 23 (`cpuset_load_volatile` and `cpuset_get_volatile`) do beyond their names, and the layout of the 0x470-byte request for operations other than create and get-flags.
 
 Whether the system the shipped kernels were linked on had the optional subsystem installed (its software-version database is not held).
 
-Which public name belongs to which `sysmp` selector, and the argument conventions of the user commands, which are not held.
+Which public name belongs to which `sysmp` selector, and the argument conventions of the `miser_*` and `dplace` commands, which are held and not yet read.
 
 Whether any per-cpuset limit exists for process count or open files: none was found, and `cpuset_load_volatile` and `cpuset_get_volatile` were not read.
 
