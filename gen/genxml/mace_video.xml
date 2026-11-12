@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!-- generated from defs/mace_video.toml by defs-gen - do not edit, change the source -->
+<genxml unit="mace_video" prefix="MACE_VIDEO" title="O2 MACE video window map and input channel registers as the IRIX O2 video driver reaches them" from="shipped IRIX O2 video driver object, per docs/mace-video.md">
+  <doc>Base addresses of the video window and its blocks, the offsets of the two input channels and their register layouts. Offsets in the input registers are from the start of an input channel. Prose and the reasoning are in docs/mace-video.md.</doc>
+  <struct name="IN_CONTROL" size="8" grade="inferred" from="shipped IRIX O2 video driver object, per docs/mace-video.md" register="yes" offset="0x0" access="rw" reset="unknown">
+    <doc>Channel control word. The driver writes the whole word, changing only its low nine bits. The reading read the routines that write it in a workspace and did not re-read them, so the grade is inferred.</doc>
+    <field name="intr_enable" start="1" size="8" type="uint" grade="inferred"/>
+    <field name="dma_enable" start="0" size="1" type="uint" grade="inferred"/>
+  </struct>
+  <struct name="IN_STATUS" size="8" grade="inferred" from="MACE 2.0 specification, pages 36 and 37 as the reading cites them" register="yes" offset="0x8" access="r" reset="unknown">
+    <doc>Status word. Reading it clears the pending interrupt causes. The page numbers are the reading's citation and were not checked against the document.</doc>
+  </struct>
+  <struct name="IN_CONFIG" size="8" grade="established" from="shipped IRIX O2 video driver object, per docs/mace-video.md" register="yes" offset="0x10" access="rw" reset="unknown">
+    <doc>Configuration word, written at start-up. Its field layout is not recorded.</doc>
+  </struct>
+  <struct name="IN_NEXT_DESCRIPTOR" size="8" grade="inferred" from="shipped IRIX O2 video driver object, per docs/mace-video.md" register="yes" offset="0x18" access="rw" reset="unknown">
+    <doc>Physical address of the next descriptor block, held as a zero-extended 32-bit word. The driver ORs a flag byte into the word. Which bits carry the flag is not stated.</doc>
+  </struct>
+  <struct name="IN_FIELD_OFFSET" size="8" grade="inferred" from="shipped IRIX O2 video driver object, per docs/mace-video.md" register="yes" offset="0x20" access="rw" reset="unknown">
+    <doc>Field offset. The driver writes the low halfword of a transfer-record word here.</doc>
+    <field name="offset" start="0" size="16" type="uint" grade="inferred"/>
+  </struct>
+  <struct name="IN_LINE_WIDTH" size="8" grade="inferred" from="shipped IRIX O2 video driver object, per docs/mace-video.md" register="yes" offset="0x28" access="rw" reset="unknown">
+    <doc>Line width word. The name is the reading's label; the start-up writes it with a 64-bit store.</doc>
+  </struct>
+  <struct name="IN_HCLIP_ODD" size="8" grade="established" from="shipped IRIX O2 video driver object, per docs/mace-video.md" register="yes" offset="0x30" access="rw" reset="unknown">
+    <doc>Horizontal clip word for the odd field. The start-up writes it with a 64-bit store. Its layout is not recorded.</doc>
+  </struct>
+  <struct name="IN_VCLIP_ODD" size="8" grade="established" from="shipped IRIX O2 video driver object, per docs/mace-video.md" register="yes" offset="0x38" access="rw" reset="unknown">
+    <doc>Vertical clip word for the odd field. The start-up writes it with a 64-bit store. Its layout is not recorded.</doc>
+  </struct>
+  <struct name="IN_ALPHA_ODD" size="8" grade="established" from="shipped IRIX O2 video driver object, per docs/mace-video.md" register="yes" offset="0x40" access="rw" reset="unknown">
+    <doc>Alpha word for the odd field. The start-up writes it with a 64-bit store. Its layout is not recorded.</doc>
+  </struct>
+  <struct name="IN_HCLIP_EVEN" size="8" grade="established" from="shipped IRIX O2 video driver object, per docs/mace-video.md" register="yes" offset="0x48" access="rw" reset="unknown">
+    <doc>Horizontal clip word for the even field. The start-up writes it with a 64-bit store. Its layout is not recorded.</doc>
+  </struct>
+  <struct name="IN_VCLIP_EVEN" size="8" grade="established" from="shipped IRIX O2 video driver object, per docs/mace-video.md" register="yes" offset="0x50" access="rw" reset="unknown">
+    <doc>Vertical clip word for the even field. The start-up writes it with a 64-bit store. Its layout is not recorded.</doc>
+  </struct>
+  <struct name="IN_ALPHA_EVEN" size="8" grade="established" from="shipped IRIX O2 video driver object, per docs/mace-video.md" register="yes" offset="0x58" access="rw" reset="unknown">
+    <doc>Alpha word for the even field. The start-up writes it with a 64-bit store. Its layout is not recorded.</doc>
+  </struct>
+  <constant name="GBE_CAPTURE_OFF" value="0x80000" grade="established"/>
+  <constant name="IN2_OFF" value="0x80000" grade="established"/>
+  <constant name="OUT_OFF" value="0x100000" grade="established"/>
+  <constant name="TIMER_PHYS_ADDR" value="0x1f340000" grade="established"/>
+  <constant name="TIMER_SNAP_IN1_OFF" value="0x38" grade="established"/>
+  <constant name="TIMER_SNAP_IN2_OFF" value="0x40" grade="established"/>
+  <constant name="TIMER_SNAP_OUT_OFF" value="0x48" grade="established"/>
+  <constant name="TWO_WIRE_PHYS_ADDR" value="0x1f330000" grade="established"/>
+  <constant name="WINDOW_PHYS_ADDR" value="0x1f100000" grade="established"/>
+</genxml>

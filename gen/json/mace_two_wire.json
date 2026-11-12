@@ -1,0 +1,94 @@
+{
+ "schema": "defs-flat/1",
+ "source": "defs/mace_two_wire.toml",
+ "profile": "public",
+ "rows": [
+  {
+   "unit": "mace_two_wire",
+   "kind": "register",
+   "name": "tw_config",
+   "offset": 0,
+   "access": "rw",
+   "width": 64,
+   "count": 1,
+   "stride": 8,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX O2 video driver object, per docs/mace-video.md"
+  },
+  {
+   "unit": "mace_two_wire",
+   "kind": "field",
+   "name": "tw_config.low_config",
+   "hi": 3,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX O2 video driver object, per docs/mace-video.md"
+  },
+  {
+   "unit": "mace_two_wire",
+   "kind": "register",
+   "name": "tw_control",
+   "offset": 16,
+   "access": "rw",
+   "width": 64,
+   "count": 1,
+   "stride": 8,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX O2 video driver object, per docs/mace-video.md"
+  },
+  {
+   "unit": "mace_two_wire",
+   "kind": "field",
+   "name": "tw_control.bus_error",
+   "hi": 7,
+   "lo": 7,
+   "grade": "established",
+   "from": "shipped IRIX O2 video driver object, per docs/mace-video.md"
+  },
+  {
+   "unit": "mace_two_wire",
+   "kind": "field",
+   "name": "tw_control.ack_missing",
+   "hi": 5,
+   "lo": 5,
+   "grade": "established",
+   "from": "shipped IRIX O2 video driver object, per docs/mace-video.md"
+  },
+  {
+   "unit": "mace_two_wire",
+   "kind": "field",
+   "name": "tw_control.transfer_busy",
+   "hi": 4,
+   "lo": 4,
+   "grade": "established",
+   "from": "shipped IRIX O2 video driver object, per docs/mace-video.md"
+  },
+  {
+   "unit": "mace_two_wire",
+   "kind": "field",
+   "name": "tw_control.not_idle",
+   "hi": 0,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX O2 video driver object, per docs/mace-video.md"
+  },
+  {
+   "unit": "mace_two_wire",
+   "kind": "register",
+   "name": "tw_data",
+   "offset": 24,
+   "access": "rw",
+   "width": 64,
+   "count": 1,
+   "stride": 8,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX O2 video driver object, per docs/mace-video.md"
+  }
+ ]
+}

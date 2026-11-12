@@ -99,6 +99,22 @@ prose_offsets = false
 group = "crime"
 prose_offsets = false
 
+[units.mace_video]
+group = "mace_video"
+prose_offsets = false
+
+[units.mace_video_out]
+group = "mace_video_out"
+prose_offsets = false
+
+[units.mace_two_wire]
+group = "mace_two_wire"
+prose_offsets = false
+
+[units.gbe_capture]
+group = "gbe_capture"
+prose_offsets = false
+
 [[claims]]
 group = "xvm"
 label = "physical label magic and size"

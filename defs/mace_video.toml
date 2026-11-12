@@ -1,0 +1,119 @@
+# Hardware definitions for mace_video. Edit here; gen/ is generated from this file.
+unit = "mace_video"
+prefix = "MACE_VIDEO"
+title = "O2 MACE video window map and input channel registers as the IRIX O2 video driver reaches them"
+doc = "Base addresses of the video window and its blocks, the offsets of the two input channels and their register layouts. Offsets in the input registers are from the start of an input channel. Prose and the reasoning are in docs/mace-video.md."
+from = "shipped IRIX O2 video driver object, per docs/mace-video.md"
+public_from = ["shipped IRIX O2 video driver object, per docs/mace-video.md", "MACE 2.0 specification"]
+
+[registers.in_control]
+offset = 0x00
+access = "rw"
+width = 64
+grade = "inferred"
+from = "shipped IRIX O2 video driver object, per docs/mace-video.md"
+doc = "Channel control word. The driver writes the whole word, changing only its low nine bits. The reading read the routines that write it in a workspace and did not re-read them, so the grade is inferred."
+[registers.in_control.fields]
+dma_enable = { bits = [0, 0], grade = "inferred", doc = "DMA enable. Bit 0 is stated for the output channel; the input reading gives only the nine-bit group." }
+intr_enable = { bits = [8, 1], grade = "inferred", doc = "Eight interrupt enables. Which cause each bit enables is not stated." }
+
+[registers.in_status]
+offset = 0x08
+access = "r"
+width = 64
+grade = "inferred"
+from = "MACE 2.0 specification, pages 36 and 37 as the reading cites them"
+doc = "Status word. Reading it clears the pending interrupt causes. The page numbers are the reading's citation and were not checked against the document."
+
+[registers.in_config]
+offset = 0x10
+access = "rw"
+width = 64
+grade = "established"
+from = "shipped IRIX O2 video driver object, per docs/mace-video.md"
+doc = "Configuration word, written at start-up. Its field layout is not recorded."
+
+[registers.in_next_descriptor]
+offset = 0x18
+access = "rw"
+width = 64
+grade = "inferred"
+from = "shipped IRIX O2 video driver object, per docs/mace-video.md"
+doc = "Physical address of the next descriptor block, held as a zero-extended 32-bit word. The driver ORs a flag byte into the word. Which bits carry the flag is not stated."
+
+[registers.in_field_offset]
+offset = 0x20
+access = "rw"
+width = 64
+grade = "inferred"
+from = "shipped IRIX O2 video driver object, per docs/mace-video.md"
+doc = "Field offset. The driver writes the low halfword of a transfer-record word here."
+[registers.in_field_offset.fields]
+offset = { bits = [15, 0], grade = "inferred", doc = "Field offset in the low halfword" }
+
+[registers.in_line_width]
+offset = 0x28
+access = "rw"
+width = 64
+grade = "inferred"
+from = "shipped IRIX O2 video driver object, per docs/mace-video.md"
+doc = "Line width word. The name is the reading's label; the start-up writes it with a 64-bit store."
+
+[registers.in_hclip_odd]
+offset = 0x30
+access = "rw"
+width = 64
+grade = "established"
+from = "shipped IRIX O2 video driver object, per docs/mace-video.md"
+doc = "Horizontal clip word for the odd field. The start-up writes it with a 64-bit store. Its layout is not recorded."
+
+[registers.in_vclip_odd]
+offset = 0x38
+access = "rw"
+width = 64
+grade = "established"
+from = "shipped IRIX O2 video driver object, per docs/mace-video.md"
+doc = "Vertical clip word for the odd field. The start-up writes it with a 64-bit store. Its layout is not recorded."
+
+[registers.in_alpha_odd]
+offset = 0x40
+access = "rw"
+width = 64
+grade = "established"
+from = "shipped IRIX O2 video driver object, per docs/mace-video.md"
+doc = "Alpha word for the odd field. The start-up writes it with a 64-bit store. Its layout is not recorded."
+
+[registers.in_hclip_even]
+offset = 0x48
+access = "rw"
+width = 64
+grade = "established"
+from = "shipped IRIX O2 video driver object, per docs/mace-video.md"
+doc = "Horizontal clip word for the even field. The start-up writes it with a 64-bit store. Its layout is not recorded."
+
+[registers.in_vclip_even]
+offset = 0x50
+access = "rw"
+width = 64
+grade = "established"
+from = "shipped IRIX O2 video driver object, per docs/mace-video.md"
+doc = "Vertical clip word for the even field. The start-up writes it with a 64-bit store. Its layout is not recorded."
+
+[registers.in_alpha_even]
+offset = 0x58
+access = "rw"
+width = 64
+grade = "established"
+from = "shipped IRIX O2 video driver object, per docs/mace-video.md"
+doc = "Alpha word for the even field. The start-up writes it with a 64-bit store. Its layout is not recorded."
+
+[constants]
+WINDOW_PHYS_ADDR = { value = 0x1f100000, grade = "established", doc = "Physical base of the video window. The driver reaches it through the uncached address 0xbf100000 and stores that pointer as input channel 1." }
+IN2_OFF = { value = 0x80000, grade = "established", doc = "Offset of input channel 2 from the start of the video window" }
+OUT_OFF = { value = 0x100000, grade = "established", doc = "Offset of the output channel from the start of the video window" }
+TWO_WIRE_PHYS_ADDR = { value = 0x1f330000, grade = "established", doc = "Physical base of the MACE peripheral two-wire bus block" }
+TIMER_PHYS_ADDR = { value = 0x1f340000, grade = "established", doc = "Physical base of the MACE count and compare timer block, read by the driver's timestamp routine. Its place as sub-block 4 of the MACE peripheral map is the reading's citation of the specification, not checked." }
+GBE_CAPTURE_OFF = { value = 0x80000, grade = "established", doc = "Offset of the GBE capture block from the GBE register block base. The driver stores the uncached pointer 0xb6080000 for it." }
+TIMER_SNAP_IN1_OFF = { value = 0x38, grade = "established", doc = "Timer snapshot doubleword for input channel 1, from the timer block base" }
+TIMER_SNAP_IN2_OFF = { value = 0x40, grade = "established", doc = "Timer snapshot doubleword for input channel 2, from the timer block base" }
+TIMER_SNAP_OUT_OFF = { value = 0x48, grade = "established", doc = "Timer snapshot doubleword for the output channel, from the timer block base" }

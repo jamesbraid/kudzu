@@ -1,0 +1,38 @@
+# Hardware definitions for mace_two_wire. Edit here; gen/ is generated from this file.
+unit = "mace_two_wire"
+prefix = "MACE_TWO_WIRE"
+title = "MACE peripheral two-wire bus block as the IRIX video driver drives it"
+doc = "Configuration, control and data words of the MACE peripheral's two-wire bus, which the video driver uses to program video-port chips. The bus is base 0x1f330000. Prose and the reasoning are in docs/mace-video.md."
+from = "shipped IRIX O2 video driver object, per docs/mace-video.md"
+public_from = ["shipped IRIX O2 video driver object, per docs/mace-video.md", "MACE 2.0 specification, pages 149 to 151 as the reading cites them"]
+
+[registers.tw_config]
+offset = 0x00
+access = "rw"
+width = 64
+grade = "established"
+from = "shipped IRIX O2 video driver object, per docs/mace-video.md"
+doc = "Bus configuration word. The configuration helper reads it and writes it back with the bits selected by its mask replaced. The driver writes 1 to request a bus reset. Meanings of the other values written are not recorded."
+[registers.tw_config.fields]
+low_config = { bits = [3, 0], grade = "established", doc = "Low four bits, the only bits the configuration helper changes" }
+
+[registers.tw_control]
+offset = 0x10
+access = "rw"
+width = 64
+grade = "established"
+from = "shipped IRIX O2 video driver object, per docs/mace-video.md"
+doc = "Bus control and status word. Transfer routines poll the status bits below. Writes of 1, 3 and 5 are commands, and their meanings are inferred in docs/mace-video.md."
+[registers.tw_control.fields]
+not_idle = { bits = [0, 0], grade = "established", doc = "Bus not idle. Also set by the force-idle command, which stores its argument with this bit cleared." }
+transfer_busy = { bits = [4, 4], grade = "established", doc = "Transfer busy" }
+ack_missing = { bits = [5, 5], grade = "established", doc = "Acknowledge not received from the addressed chip" }
+bus_error = { bits = [7, 7], grade = "established", doc = "Bus error. Only the force-idle path tests it in the reading." }
+
+[registers.tw_data]
+offset = 0x18
+access = "rw"
+width = 64
+grade = "established"
+from = "shipped IRIX O2 video driver object, per docs/mace-video.md"
+doc = "Data word. The read and write routines store the chip address byte and the register number byte through it, and read it back after the transfer. How its bytes map to bits is not recorded."

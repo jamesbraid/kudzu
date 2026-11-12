@@ -2,12 +2,16 @@
 pub mod crime;
 pub mod efs;
 pub mod gbe;
+pub mod gbe_capture;
 pub mod hubio;
 pub mod hubmda;
 pub mod hubmdb;
 pub mod hubni;
 pub mod hubpi;
 pub mod klconfig;
+pub mod mace_two_wire;
+pub mod mace_video;
+pub mod mace_video_out;
 pub mod nic;
 pub mod pcibr;
 pub mod r10k_timer;
