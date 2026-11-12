@@ -11,7 +11,7 @@ Each entry says what its routine appears to do, based only on its instructions o
   Reviewed: 2026-11-12 (sonnet)
 
 - `VEC_dbe` in `6.5.30/unix.IP30` at 0xa800000020026960
-  **Inferred.** It reads from the uncached pointer at 0xffffffffaff50000 and from a table at offset -0x500f0000 indexed the same way, then stores a doubleword into the argument block at offset 0x140. It finishes with a direct jump at 0xa8000000200269b0 to VEC_trap at 0xa80000002001b9d0, passing the argument registers through. The name suggests a data bus error vector; the facts show the handoff to VEC_trap but not what the table or the stored value mean.
+  **Inferred.** It reads from the uncached pointer at 0xffffffffaff50000, uses that value shifted left by three to index a table at offset -0x500f0000, and both loads from and stores a doubleword to that table slot. It also stores a doubleword into the argument block at offset 0x140. It finishes with a direct jump at 0xa8000000200269b0 to VEC_trap at 0xa80000002001b9d0, passing the argument registers through. The name suggests a data bus error vector; the facts show the handoff to VEC_trap but not what the table or the stored values mean.
   Reviewed: 2026-11-12 (sonnet)
 
 - `VEC_ibe` in `6.5.30/unix.IP30` at 0xa80000002002bf70
@@ -47,11 +47,11 @@ Each entry says what its routine appears to do, based only on its instructions o
   Reviewed: 2026-11-12 (sonnet)
 
 - `pcireg_intr_addr_vect_set` in `6.5.30/unix.IP30` at 0xa80000002005709c
-  **Inferred.** It reads the doubleword at offset 0x8 and the halfword at offset 0x72 of its record in a0, and a negative value in a1 takes a branch at 0xa8000000200570e0 that leads to an assertion call at 0xa8000000200572b4 (assfail at 0xa80000002001bc94). Its other path updates several fields through pointers the facts do not resolve, and it ends in a panic call at 0xa8000000200572c8. The name suggests it sets an interrupt vector field in the record, but the facts show neither the field nor where the vector comes from.
+  **Inferred.** It reads the doubleword at offset 0x8 and the halfword at offset 0x72 of its record in a0. A value in a1 below zero or at or above 8 takes a branch (at 0xa8000000200570e0 and 0xa8000000200570ec) to an assertion call at 0xa8000000200572b4 (assfail at 0xa80000002001bc94). A branch on a register (s0, source not shown) equal to -1 reaches a panic call at 0xa8000000200572c8. Other paths store through pointers the facts do not resolve and read the word at offset 0x4 of the record. The name suggests it sets an interrupt vector field in the record, but the facts show neither the field nor where the vector comes from.
   Reviewed: 2026-11-12 (sonnet)
 
 - `pcireg_intr_addr_addr_set` in `6.5.30/unix.IP30` at 0xa800000020057508
-  **Inferred.** It is a close sibling of pcireg_intr_addr_vect_set. It reads the doubleword at offset 0x8 and the halfword at offset 0x72 of the record, updates fields through unresolved pointers, and ends in either an assertion call at 0xa800000020057730 (assfail at 0xa80000002001bc94) or a panic call at 0xa800000020057744. The name suggests it sets an interrupt address field where the sibling sets a vector field, but the facts do not show which fields differ.
+  **Inferred.** It is a close sibling of pcireg_intr_addr_vect_set. It reads the doubleword at offset 0x8 and the halfword at offset 0x72 of the record, and a1 below zero or at or above 8 reaches an assertion call at 0xa800000020057730 (assfail at 0xa80000002001bc94). A branch on a register (s0, source not shown) equal to -1 reaches a panic call at 0xa800000020057744. Other paths store through unresolved pointers. The name suggests it sets an interrupt address field where the sibling sets a vector field, but the facts do not show which fields differ.
   Reviewed: 2026-11-12 (sonnet)
 
 - `pckm_attach` in `6.5.30/unix.IP30` at 0xa800000020061aa4
@@ -71,7 +71,7 @@ Each entry says what its routine appears to do, based only on its instructions o
   Reviewed: 2026-11-12 (sonnet)
 
 - `syssgi` in `6.5.30/unix.IP30` at 0xa8000000201eb9a8
-  **Inferred.** This is the dispatcher for the syssgi system call. An indirect jump at 0xa8000000201eba08 uses the jump table at 0xa8000000203d7b10 to pick one of many handlers, and many of those handlers move data with copyin and copyout and check privileges with cap_able. Some of them call job-control helpers such as syssgi_makenewjob, syssgi_killjob and syssgi_setjlimit. This entry covers only the dispatch and the call graph, and the meaning of each subcommand is not established here.
+  **Inferred.** Role (from name): this is the syssgi system call entry. An indirect jump at 0xa8000000201eba08 uses the jump table at 0xa8000000203d7b10 to pick one of many targets, and the routine calls copyin, copyout and cap_able many times. Some paths call syssgi_makenewjob, syssgi_killjob and syssgi_setjlimit. This entry covers only the jump and the call graph, and the meaning of each target is not established here.
   Reviewed: 2026-11-12 (sonnet)
 
 - `dogetitimer` in `6.5.30/unix.IP30` at 0xa800000020212948
@@ -83,11 +83,11 @@ Each entry says what its routine appears to do, based only on its instructions o
   Reviewed: 2026-11-12 (sonnet)
 
 - `gf_OdsyInitialize` in `6.5.30/unix.IP30` at 0xa8000000203601e8
-  **Inferred.** It takes a semaphore with psema at 0xa800000020150388 and checks attachment through gfx_flow_am_i_attached at 0xa80000002038f874. Its setup calls OdsyAlloc32kSlot at 0xa80000002036e248 twice, zeroes state with odsyZeroOut at 0xa8000000203600dc, and resets the device through odsyReset at 0xa800000020360b68. It gets an interrupt target from xtalk_intr_target_get at 0xa80000002003ac4c and inserts delays with odsy_usdelay and us_delay. The name fits device bring-up, but the facts show the call order and not the register values written.
+  **Inferred.** In address order its calls include htp_register_board, spl1, gfx_flow_am_i_attached at 0xa80000002038f874, gfx_flow_detach_me, xtalk_intr_target_get at 0xa80000002003ac4c, odsyReset at 0xa800000020360b68, gfx_flow_alloc, OdsyAlloc32kSlot at 0xa80000002036e248 twice, odsyZeroOut at 0xa8000000203600dc, and psema at 0xa800000020150388 on a branch. It also delays with odsy_usdelay and us_delay and logs with cmn_err. The name fits device bring-up, but the facts show the calls and not the register values written.
   Reviewed: 2026-11-12 (sonnet)
 
 - `odsyLowLevelReset` in `6.5.30/unix.IP30` at 0xa800000020360794
-  **Inferred.** It performs a sequence of word reads and writes at fixed addresses in the 0x9000000010000000 range and in a table at 0x900000001000010c. It places delays between steps with odsy_usdelay (values 0xf4240, 0x3e8 and 0x186a0) and us_delay (0x30d40), calls odsyLLPReset at 0xa800000020360724 on one step, and reports through cmn_err at 0xa800000020360b38 on a later path. A compare against 0xd100 at 0xa8000000203607d4 decides one branch, and the facts do not show what that value is. From the name this is the low-level reset of the Odyssey board, but only part of the register sequence is visible.
+  **Inferred.** It performs a sequence of word reads and writes at fixed addresses in the 0x9000000010000000 range and in a table at 0x900000001000010c. It places delays between steps with odsy_usdelay (values 0xf4240, 0x3e8 and 0x186a0) and us_delay (0x30d40), calls odsyLLPReset at 0xa800000020360724 on one step, and reports through cmn_err (the call is at 0xa800000020360b38) on a later path. A compare against 0xd100 at 0xa8000000203607d4 decides one branch, and the facts do not show what that value is. From the name this is the low-level reset of the Odyssey board, but only part of the register sequence is visible.
   Reviewed: 2026-11-12 (sonnet)
 
 - `gf_OdsyAttach` in `6.5.30/unix.IP30` at 0xa80000002036f8cc
@@ -95,9 +95,9 @@ Each entry says what its routine appears to do, based only on its instructions o
   Reviewed: 2026-11-12 (sonnet)
 
 - `gf_OdsyDestroyDDRN` in `6.5.30/unix.IP30` at 0xa80000002038b748
-  **Inferred.** Role (from name): the routine appears to tear down a per-context object; the facts do not explain the abbreviation in the name. In address order it calls gf_OdsyUnSchedSwapBuf at 0xa800000020366054, gf_OdsyUnSchedRetraceEvent at 0xa800000020366298, odsy_hpipe_cleanup at 0xa800000020388850, kmem_free at 0xa800000020148710, OdsyFree32kSlot, spl1, gfx_flow_detach_me and gfx_flow_dealloc, splx, odsyDMAFinish at 0xa80000002038e854, odsyMMdetach at 0xa800000020367ba0 and odsyUnpinAndUnmapGctxRegions at 0xa800000020370f50. Several of these calls sit behind branches, so which of them run on a given path is not stated here.
+  **Inferred.** Role (from name): the routine appears to tear down a per-context object; the facts do not explain the abbreviation in the name. Among its calls, in address order, are gf_OdsyUnSchedSwapBuf at 0xa800000020366054, gf_OdsyUnSchedRetraceEvent at 0xa800000020366298, odsy_hpipe_cleanup at 0xa800000020388850, kmem_free at 0xa800000020148710, spl1, gfx_flow_detach_me, gfx_flow_dealloc, splx, odsyDMAFinish at 0xa80000002038e854, odsyMMdetach at 0xa800000020367ba0 and odsyUnpinAndUnmapGctxRegions at 0xa800000020370f50. Several of these calls sit behind branches, so which of them run on a given path is not stated here.
   Reviewed: 2026-11-12 (sonnet)
 
 - `gfx_flow_delayed_hiwater_intr_prehandler` in `6.5.30/unix.IP30` at 0xa80000002038f1a0
-  **Inferred.** It reads a pointer from the table at 0xa8000000204a8620, indexed by its first argument shifted left by three, and branches at 0xa80000002038f1b4 on whether that pointer is nonzero. It logs through cmn_err at 0xa8000000201c6b00, locks and unlocks the spin lock at 0xa8000000204b0024 with mutex_spinlock at 0xa80000002022d954 and mutex_spinunlock at 0xa80000002022d9a0, and ends in an indirect call (the jalr at 0xa80000002038f214) whose target the facts do not resolve. That call passes the word at offset 48 of the table entry as a0 and the word at offset 40 as a5. It looks like the dispatch point for a high-water event, but the facts do not show which target it calls.
+  **Inferred.** It reads a pointer from the table at 0xa8000000204a8620, indexed by its first argument shifted left by three, and branches at 0xa80000002038f1b4 on whether that pointer is nonzero. When it is zero, the routine calls cmn_err twice (call at 0xa80000002038f1c4 among them), takes the spin lock at 0xa8000000204b0024 with mutex_spinlock at 0xa80000002022d954, reads and stores a doubleword at 0xffffffffaff00040, and releases the lock with mutex_spinunlock at 0xa80000002022d9a0. When it is nonzero, it makes an indirect call (the jalr at 0xa80000002038f214) whose target the facts do not resolve, passing the doubleword at offset 48 of the table entry as a0 and the one at offset 40 as a5. It looks like the dispatch point for a high-water event, but the facts do not show which target it calls.
   Reviewed: 2026-11-12 (sonnet)
