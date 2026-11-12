@@ -59,10 +59,15 @@ Also present:
 - `unix.IP27`, `unix.IP30` and `unix.IP35`: the linked 6.5.22 kernels, in `root/6.5.22/`. This repository does not record which installed system they came from. Their SHA-256 hashes are in `scripts/inventory-root.sha256`, and [docs/version-diffs.md](docs/version-diffs.md) compares them with the 6.5.30 kernels.
 - `var/sysgen.IP27`, `var/sysgen.IP30` and `var/sysgen.IP35`: kernel configuration files (`master.d`, `mtune`, `system`, `stune`, `ioconfig`), with no object code.
 
+Userland held in `root/6.5.22/`: the same set as `root/6.5.30/`, at the same install paths. It covers the loader and C library, the two Xsgi builds with libX11, libXi and libaudio, the programs and libraries behind the optional-subsystem questions (checkpoint and restart, cpusets and miser, performance counters, the IP filter daemon, the autofs tools, the CD-ROM and SCSI control tools, `xvm`, `mkfs_xfs`), plus `usr/etc/automount`, `usr/sbin/xfs_db` and `usr/sbin/xfs_repair`. The files were read from the 6.5.22 overlay discs above: 56 from overlays 1 and 15 from overlays 2. The 6.5 foundation, NFS and development discs that the 6.5.22 install recipe names (`foundation1`, `foundation2`, `nfs`, `devlibs`, `devfoundation`) carry older copies of most of these paths; the overlays update them, so the overlay copy is held. Each file's size matches its installation record, and its hash is in `scripts/inventory-root.sha256` under `6.5.22/`.
+
+- Where one path has two CPU-specific builds on the media, the first build in the disc's order is held. For `lib32/libc.so.1` that is the copy that also sits at `usr/lib32/mips3/libc.so.1`, as in 6.5.30. The other build is the one at `usr/lib32/mips4/libc.so.1`. The second builds of `usr/sbin/cpr` (32-bit; the held build is 64-bit, as in 6.5.30), `usr/lib32/mips4/libm.so` and `usr/lib64/mips4/libm.so` are not held.
+- Not held: `usr/sbin/xfs_io` and `usr/sbin/xfs_quota`. Neither is on the 6.5.22 discs above or on the 6.5 installation tools disc. The 6.5.30 root holds both.
+
 Not present, wanted next:
 
 - `unix.IP32` (O2): no installed 6.5.22 O2 kernel is held.
-- The base libraries and applications, as for 6.5.30.
+- The rest of the base libraries and applications, as for 6.5.30. Only the userland listed above is held.
 
 The 6.5.22 patch sets for 32-bit and 64-bit systems are patches, not a base install, and are not in `root/`.
 
