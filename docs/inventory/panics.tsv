@@ -337,7 +337,7 @@ binary	function	address	callee	sites	scope	status
 6.5.22/unix.IP27	init_platform_pda	0xc00000000002658c	assfail	2	in	documented
 6.5.22/unix.IP27	init_timebase	0xc0000000000453d8	cmn_err	1	in	documented
 6.5.22/unix.IP27	init_timers	0xc000000000293c70	cmn_err	1	in	undocumented
-6.5.22/unix.IP27	initmasterpda	0xc0000000001e0520	assfail	1	in	undocumented
+6.5.22/unix.IP27	initmasterpda	0xc0000000001e0520	assfail	1	in	documented
 6.5.22/unix.IP27	inittodr	0xc0000000000454b0	cmn_err_tag	3	in	documented
 6.5.22/unix.IP27	insq	0xc000000000173a28	cmn_err_tag	1	in	documented
 6.5.22/unix.IP27	insque_tcb	0xc0000000001393f0	printf	1	in	documented
@@ -1480,7 +1480,7 @@ binary	function	address	callee	sites	scope	status
 6.5.22/unix.IP30	init_mfhi_war	0xa80000002016ae24	cmn_err_tag	1	in	undocumented
 6.5.22/unix.IP30	init_timebase	0xa800000020008a94	cmn_err	1	in	documented
 6.5.22/unix.IP30	init_timers	0xa80000002021d9d0	cmn_err	1	in	undocumented
-6.5.22/unix.IP30	initmasterpda	0xa8000000201b1b84	assfail	1	in	undocumented
+6.5.22/unix.IP30	initmasterpda	0xa8000000201b1b84	assfail	1	in	documented
 6.5.22/unix.IP30	inittodr	0xa800000020008b50	cmn_err_tag	5	in	documented
 6.5.22/unix.IP30	insq	0xa8000000201246dc	cmn_err_tag	1	in	documented
 6.5.22/unix.IP30	insque_tcb	0xa8000000200f5be0	printf	1	in	documented
@@ -2464,7 +2464,7 @@ binary	function	address	callee	sites	scope	status
 6.5.22/unix.IP35	init_platform_pda	0xc00000000004eac4	assfail	2	in	documented
 6.5.22/unix.IP35	init_timebase	0xc000000000067c84	cmn_err	1	in	documented
 6.5.22/unix.IP35	init_timers	0xc000000000307418	cmn_err	1	in	undocumented
-6.5.22/unix.IP35	initmasterpda	0xc0000000002561e0	assfail	1	in	undocumented
+6.5.22/unix.IP35	initmasterpda	0xc0000000002561e0	assfail	1	in	documented
 6.5.22/unix.IP35	inittodr	0xc000000000067d80	cmn_err_tag	3	in	documented
 6.5.22/unix.IP35	insq	0xc0000000001e5a34	cmn_err_tag	1	in	documented
 6.5.22/unix.IP35	insque_tcb	0xc00000000019c6d4	printf	1	in	documented
@@ -3728,7 +3728,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	init_platform_pda	0xc0000000000267e0	assfail	2	in	documented
 6.5.30/unix.IP27	init_timebase	0xc000000000045c68	cmn_err	1	in	documented
 6.5.30/unix.IP27	init_timers	0xc000000000292e10	cmn_err	1	in	undocumented
-6.5.30/unix.IP27	initmasterpda	0xc0000000001e42d4	assfail	1	in	undocumented
+6.5.30/unix.IP27	initmasterpda	0xc0000000001e42d4	assfail	1	in	documented
 6.5.30/unix.IP27	inittodr	0xc000000000045d40	cmn_err_tag	3	in	documented
 6.5.30/unix.IP27	insq	0xc000000000170048	cmn_err_tag	1	in	documented
 6.5.30/unix.IP27	insque_tcb	0xc0000000001348e4	printf	1	in	documented
@@ -4952,7 +4952,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	init_mfhi_war	0xa800000020187588	cmn_err_tag	1	in	undocumented
 6.5.30/unix.IP30	init_timebase	0xa800000020014d40	cmn_err	1	in	documented
 6.5.30/unix.IP30	init_timers	0xa80000002023a3b0	cmn_err	1	in	undocumented
-6.5.30/unix.IP30	initmasterpda	0xa8000000201d2610	assfail	1	in	undocumented
+6.5.30/unix.IP30	initmasterpda	0xa8000000201d2610	assfail	1	in	documented
 6.5.30/unix.IP30	inittodr	0xa800000020014dfc	cmn_err_tag	5	in	documented
 6.5.30/unix.IP30	insq	0xa80000002013c5b8	cmn_err_tag	1	in	documented
 6.5.30/unix.IP30	insque_tcb	0xa80000002010c988	printf	1	in	documented
@@ -6067,7 +6067,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	init_timebase	0xc0000000000679e4	cmn_err	1	in	documented
 6.5.30/unix.IP35	init_timebase	0xc0000000000679e4	cmn_err_tag	1	in	documented
 6.5.30/unix.IP35	init_timers	0xc00000000033e878	cmn_err	1	in	undocumented
-6.5.30/unix.IP35	initmasterpda	0xc000000000293648	assfail	1	in	undocumented
+6.5.30/unix.IP35	initmasterpda	0xc000000000293648	assfail	1	in	documented
 6.5.30/unix.IP35	inittodr	0xc000000000067b30	cmn_err_tag	3	in	documented
 6.5.30/unix.IP35	insq	0xc00000000021abb0	cmn_err_tag	1	in	documented
 6.5.30/unix.IP35	insque_tcb	0xc0000000001d0654	printf	1	in	documented
