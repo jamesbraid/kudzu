@@ -73,7 +73,7 @@ dp_capacity = { bits = [31, 0], grade = "established" }
 
 [words.HDR_W7]
 width = 32
-grade = "inferred"
+grade = "unknown"
 
 [words.HDR_W7.fields]
 dp_cylinders = { bits = [31, 16], grade = "inferred" }
@@ -81,7 +81,7 @@ dp_head_offset = { bits = [15, 0], grade = "unknown" }
 
 [words.HDR_W8]
 width = 32
-grade = "established"
+grade = "unknown"
 
 [words.HDR_W8.fields]
 dp_heads = { bits = [31, 16], grade = "inferred" }

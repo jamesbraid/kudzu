@@ -878,7 +878,7 @@
    "kind": "word",
    "name": "SB_W25",
    "width": 32,
-   "grade": "established",
+   "grade": "inferred",
    "from": "shipped IRIX binaries, per docs/formats/xfs.md"
   },
   {
@@ -1519,7 +1519,7 @@
    "kind": "word",
    "name": "SB_W50",
    "width": 32,
-   "grade": "established",
+   "grade": "unknown",
    "from": "shipped IRIX binaries, per docs/formats/xfs.md"
   },
   {

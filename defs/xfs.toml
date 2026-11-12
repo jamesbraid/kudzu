@@ -334,7 +334,7 @@ logblocks = { bits = [31, 0], grade = "established" }
 
 [words.SB_W25]
 width = 32
-grade = "established"
+grade = "inferred"
 
 [words.SB_W25.fields]
 versionnum_morebits = { bits = [31, 31], grade = "established" }
@@ -538,7 +538,7 @@ rblocks_lo = { bits = [31, 0], grade = "established" }
 
 [words.SB_W50]
 width = 32
-grade = "established"
+grade = "unknown"
 
 [words.SB_W50.fields]
 features2_high = { bits = [31, 5], grade = "unknown" }

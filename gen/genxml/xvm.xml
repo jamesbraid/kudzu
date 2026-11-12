@@ -46,7 +46,7 @@
   <struct name="ATTR_PERM_W8" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xvm.md">
     <field name="mode" start="0" size="32" type="uint" grade="established"/>
   </struct>
-  <struct name="ATTR_W0" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xvm.md">
+  <struct name="ATTR_W0" size="4" grade="inferred" from="shipped IRIX binaries, per docs/formats/xvm.md">
     <field name="type" start="24" size="8" type="attr_w0_type" grade="established"/>
     <field name="flag_persistent" start="16" size="1" type="uint" grade="inferred"/>
   </struct>
@@ -69,7 +69,7 @@
   <struct name="PL_W0" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xvm.md">
     <field name="magic" start="0" size="32" type="uint" grade="established"/>
   </struct>
-  <struct name="PL_W1" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xvm.md">
+  <struct name="PL_W1" size="4" grade="inferred" from="shipped IRIX binaries, per docs/formats/xvm.md">
     <field name="version" start="16" size="16" type="uint" grade="established"/>
     <field name="state_draining" start="14" size="1" type="uint" grade="inferred"/>
     <field name="state_cluster" start="13" size="1" type="uint" grade="established"/>
@@ -105,7 +105,7 @@
   <struct name="VE_MIRROR_W15" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xvm.md">
     <field name="oldlength_lo" start="0" size="32" type="uint" grade="established"/>
   </struct>
-  <struct name="VE_MIRROR_W16" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xvm.md">
+  <struct name="VE_MIRROR_W16" size="4" grade="inferred" from="shipped IRIX binaries, per docs/formats/xvm.md">
     <field name="logfreq" start="16" size="16" type="uint" grade="established"/>
     <field name="policy" start="8" size="8" type="ve_mirror_w16_policy" grade="established"/>
     <field name="config" start="0" size="8" type="uint" grade="inferred"/>

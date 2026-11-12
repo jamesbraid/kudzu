@@ -16,7 +16,7 @@ pub mod brd_w0 {
         }
     }
 }
-/// (established)
+/// (inferred)
 pub mod brd_w1 {
     pub const WIDTH: u32 = 32;
     pub mod class { // bits 23:20, established

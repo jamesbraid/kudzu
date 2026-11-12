@@ -297,7 +297,7 @@
 #define XFS_SB_W24_LOGBLOCKS_INPLACE                 (XFS_SB_W24_LOGBLOCKS_MASK << XFS_SB_W24_LOGBLOCKS_SHIFT)
 
 /* word SB_W25: 32 bits; shipped IRIX binaries, per docs/formats/xfs.md */
-#define XFS_SB_W25_WIDTH                             32 /* established */
+#define XFS_SB_W25_WIDTH                             32 /* inferred */
 #define XFS_SB_W25_VERSIONNUM_MOREBITS_SHIFT         31 /* established */
 #define XFS_SB_W25_VERSIONNUM_MOREBITS_MASK          0x1u
 #define XFS_SB_W25_VERSIONNUM_MOREBITS_INPLACE       (XFS_SB_W25_VERSIONNUM_MOREBITS_MASK << XFS_SB_W25_VERSIONNUM_MOREBITS_SHIFT)
@@ -519,7 +519,7 @@
 #define XFS_SB_W5_RBLOCKS_LO_INPLACE                 (XFS_SB_W5_RBLOCKS_LO_MASK << XFS_SB_W5_RBLOCKS_LO_SHIFT)
 
 /* word SB_W50: 32 bits; shipped IRIX binaries, per docs/formats/xfs.md */
-#define XFS_SB_W50_WIDTH                             32 /* established */
+#define XFS_SB_W50_WIDTH                             32 /* unknown */
 #define XFS_SB_W50_FEATURES2_HIGH_SHIFT              5 /* unknown */
 #define XFS_SB_W50_FEATURES2_HIGH_MASK               0x7ffffffu
 #define XFS_SB_W50_FEATURES2_HIGH_INPLACE            (XFS_SB_W50_FEATURES2_HIGH_MASK << XFS_SB_W50_FEATURES2_HIGH_SHIFT)

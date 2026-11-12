@@ -25,7 +25,7 @@
    "kind": "word",
    "name": "BRD_W1",
    "width": 32,
-   "grade": "established",
+   "grade": "inferred",
    "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
   },
   {

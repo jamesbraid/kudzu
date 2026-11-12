@@ -25,7 +25,7 @@
 #define XVM_ATTR_PERM_W8_MODE_INPLACE                (XVM_ATTR_PERM_W8_MODE_MASK << XVM_ATTR_PERM_W8_MODE_SHIFT)
 
 /* word ATTR_W0: 32 bits; shipped IRIX binaries, per docs/formats/xvm.md */
-#define XVM_ATTR_W0_WIDTH                            32 /* established */
+#define XVM_ATTR_W0_WIDTH                            32 /* inferred */
 #define XVM_ATTR_W0_TYPE_SHIFT                       24 /* established */
 #define XVM_ATTR_W0_TYPE_MASK                        0xffu
 #define XVM_ATTR_W0_TYPE_INPLACE                     (XVM_ATTR_W0_TYPE_MASK << XVM_ATTR_W0_TYPE_SHIFT)
@@ -71,7 +71,7 @@
 #define XVM_PL_W0_MAGIC_INPLACE                      (XVM_PL_W0_MAGIC_MASK << XVM_PL_W0_MAGIC_SHIFT)
 
 /* word PL_W1: 32 bits; shipped IRIX binaries, per docs/formats/xvm.md */
-#define XVM_PL_W1_WIDTH                              32 /* established */
+#define XVM_PL_W1_WIDTH                              32 /* inferred */
 #define XVM_PL_W1_VERSION_SHIFT                      16 /* established */
 #define XVM_PL_W1_VERSION_MASK                       0xffffu
 #define XVM_PL_W1_VERSION_INPLACE                    (XVM_PL_W1_VERSION_MASK << XVM_PL_W1_VERSION_SHIFT)
@@ -155,7 +155,7 @@
 #define XVM_VE_MIRROR_W15_OLDLENGTH_LO_INPLACE       (XVM_VE_MIRROR_W15_OLDLENGTH_LO_MASK << XVM_VE_MIRROR_W15_OLDLENGTH_LO_SHIFT)
 
 /* word VE_MIRROR_W16: 32 bits; shipped IRIX binaries, per docs/formats/xvm.md */
-#define XVM_VE_MIRROR_W16_WIDTH                      32 /* established */
+#define XVM_VE_MIRROR_W16_WIDTH                      32 /* inferred */
 #define XVM_VE_MIRROR_W16_LOGFREQ_SHIFT              16 /* established */
 #define XVM_VE_MIRROR_W16_LOGFREQ_MASK               0xffffu
 #define XVM_VE_MIRROR_W16_LOGFREQ_INPLACE            (XVM_VE_MIRROR_W16_LOGFREQ_MASK << XVM_VE_MIRROR_W16_LOGFREQ_SHIFT)

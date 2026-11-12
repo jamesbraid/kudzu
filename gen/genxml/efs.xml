@@ -63,7 +63,7 @@
   <struct name="DI_W6" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
     <field name="gen" start="0" size="32" type="uint" grade="established"/>
   </struct>
-  <struct name="DI_W7" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+  <struct name="DI_W7" size="4" grade="inferred" from="shipped IRIX binaries, per docs/formats/efs.md">
     <field name="numextents" start="16" size="16" type="uint" grade="established"/>
     <field name="version" start="8" size="8" type="uint" grade="established"/>
     <field name="spare" start="0" size="8" type="uint" grade="inferred"/>

@@ -13,7 +13,7 @@
 #define XLV_E_W0_VOL_FLAGS_INPLACE                   (XLV_E_W0_VOL_FLAGS_MASK << XLV_E_W0_VOL_FLAGS_SHIFT)
 
 /* word E_W25: 32 bits; shipped IRIX binaries, per docs/formats/xlv.md */
-#define XLV_E_W25_WIDTH                              32 /* established */
+#define XLV_E_W25_WIDTH                              32 /* unknown */
 #define XLV_E_W25_SV_FLAGS_HI_NO_ERR_RETRY_SHIFT     31 /* established */
 #define XLV_E_W25_SV_FLAGS_HI_NO_ERR_RETRY_MASK      0x1u
 #define XLV_E_W25_SV_FLAGS_HI_NO_ERR_RETRY_INPLACE   (XLV_E_W25_SV_FLAGS_HI_NO_ERR_RETRY_MASK << XLV_E_W25_SV_FLAGS_HI_NO_ERR_RETRY_SHIFT)
@@ -144,7 +144,7 @@
 #define XLV_LBL_W0_MAGIC_INPLACE                     (XLV_LBL_W0_MAGIC_MASK << XLV_LBL_W0_MAGIC_SHIFT)
 
 /* word LBL_W1: 32 bits; shipped IRIX binaries, per docs/formats/xlv.md */
-#define XLV_LBL_W1_WIDTH                             32 /* established */
+#define XLV_LBL_W1_WIDTH                             32 /* unknown */
 #define XLV_LBL_W1_VERSION_SHIFT                     16 /* established */
 #define XLV_LBL_W1_VERSION_MASK                      0xffffu
 #define XLV_LBL_W1_VERSION_INPLACE                   (XLV_LBL_W1_VERSION_MASK << XLV_LBL_W1_VERSION_SHIFT)

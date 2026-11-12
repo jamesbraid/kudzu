@@ -22,7 +22,7 @@
   <struct name="E_W0" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
     <field name="vol_flags" start="0" size="32" type="uint" grade="established"/>
   </struct>
-  <struct name="E_W25" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+  <struct name="E_W25" size="4" grade="unknown" from="shipped IRIX binaries, per docs/formats/xlv.md">
     <field name="sv_flags_hi_no_err_retry" start="31" size="1" type="uint" grade="established"/>
     <field name="sv_flags_hi_other" start="16" size="15" type="uint" grade="unknown"/>
     <field name="sv_flags_hi_low" start="0" size="16" type="uint" grade="established"/>
@@ -89,7 +89,7 @@
   <struct name="LBL_W0" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
     <field name="magic" start="0" size="32" type="uint" grade="established"/>
   </struct>
-  <struct name="LBL_W1" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+  <struct name="LBL_W1" size="4" grade="unknown" from="shipped IRIX binaries, per docs/formats/xlv.md">
     <field name="version" start="16" size="16" type="uint" grade="established"/>
     <field name="nparts" start="8" size="8" type="uint" grade="established"/>
     <field name="reserved" start="0" size="8" type="uint" grade="unknown"/>

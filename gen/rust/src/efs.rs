@@ -244,7 +244,7 @@ pub mod di_w6 {
         }
     }
 }
-/// (established)
+/// (inferred)
 pub mod di_w7 {
     pub const WIDTH: u32 = 32;
     pub mod numextents { // bits 31:16, established

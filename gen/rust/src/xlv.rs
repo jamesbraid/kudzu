@@ -16,7 +16,7 @@ pub mod e_w0 {
         }
     }
 }
-/// (established)
+/// (unknown)
 pub mod e_w25 {
     pub const WIDTH: u32 = 32;
     pub mod sv_flags_hi_no_err_retry { // bits 31:31, established
@@ -412,7 +412,7 @@ pub mod lbl_w0 {
         }
     }
 }
-/// (established)
+/// (unknown)
 pub mod lbl_w1 {
     pub const WIDTH: u32 = 32;
     pub mod version { // bits 31:16, established

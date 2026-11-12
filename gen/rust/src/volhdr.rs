@@ -124,7 +124,7 @@ pub mod hdr_w17 {
         }
     }
 }
-/// (inferred)
+/// (unknown)
 pub mod hdr_w7 {
     pub const WIDTH: u32 = 32;
     pub mod dp_cylinders { // bits 31:16, inferred
@@ -148,7 +148,7 @@ pub mod hdr_w7 {
         }
     }
 }
-/// (established)
+/// (unknown)
 pub mod hdr_w8 {
     pub const WIDTH: u32 = 32;
     pub mod dp_heads { // bits 31:16, inferred

@@ -19,7 +19,7 @@ vol_flags = { bits = [31, 0], grade = "established" }
 
 [words.E_W25]
 width = 32
-grade = "established"
+grade = "unknown"
 
 [words.E_W25.fields]
 sv_flags_hi_no_err_retry = { bits = [31, 31], grade = "established" }
@@ -174,7 +174,7 @@ magic = { bits = [31, 0], grade = "established" }
 
 [words.LBL_W1]
 width = 32
-grade = "established"
+grade = "unknown"
 
 [words.LBL_W1.fields]
 version = { bits = [31, 16], grade = "established" }

@@ -21,8 +21,8 @@ Every item has a grade: established, inferred or unknown. A grade says how the i
 | `HDR_W11` | 32 | inferred | shipped IRIX binaries, per docs/formats/volume-header.md |
 | `HDR_W126` | 32 | established | shipped IRIX binaries, per docs/formats/volume-header.md |
 | `HDR_W17` | 32 | established | shipped IRIX binaries, per docs/formats/volume-header.md |
-| `HDR_W7` | 32 | inferred | shipped IRIX binaries, per docs/formats/volume-header.md |
-| `HDR_W8` | 32 | established | shipped IRIX binaries, per docs/formats/volume-header.md |
+| `HDR_W7` | 32 | unknown | shipped IRIX binaries, per docs/formats/volume-header.md |
+| `HDR_W8` | 32 | unknown | shipped IRIX binaries, per docs/formats/volume-header.md |
 | `HDR_W9` | 32 | inferred | shipped IRIX binaries, per docs/formats/volume-header.md |
 | `PART_W0` | 32 | established | shipped IRIX binaries, per docs/formats/volume-header.md |
 | `PART_W1` | 32 | established | shipped IRIX binaries, per docs/formats/volume-header.md |

@@ -106,7 +106,7 @@ gen = { bits = [31, 0], grade = "established" }
 
 [words.DI_W7]
 width = 32
-grade = "established"
+grade = "inferred"
 
 [words.DI_W7.fields]
 numextents = { bits = [31, 16], grade = "established" }

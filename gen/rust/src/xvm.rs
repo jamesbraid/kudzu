@@ -44,7 +44,7 @@ pub mod attr_perm_w8 {
         }
     }
 }
-/// (established)
+/// (inferred)
 pub mod attr_w0 {
     pub const WIDTH: u32 = 32;
     pub mod r#type { // bits 31:24, established
@@ -204,7 +204,7 @@ pub mod pl_w0 {
         }
     }
 }
-/// (established)
+/// (inferred)
 pub mod pl_w1 {
     pub const WIDTH: u32 = 32;
     pub mod version { // bits 31:16, established
@@ -436,7 +436,7 @@ pub mod ve_mirror_w15 {
         }
     }
 }
-/// (established)
+/// (inferred)
 pub mod ve_mirror_w16 {
     pub const WIDTH: u32 = 32;
     pub mod logfreq { // bits 31:16, established

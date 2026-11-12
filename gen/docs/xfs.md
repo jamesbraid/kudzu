@@ -53,7 +53,7 @@ Every item has a grade: established, inferred or unknown. A grade says how the i
 | `SB_W22` | 32 | established | shipped IRIX binaries, per docs/formats/xfs.md |
 | `SB_W23` | 32 | established | shipped IRIX binaries, per docs/formats/xfs.md |
 | `SB_W24` | 32 | established | shipped IRIX binaries, per docs/formats/xfs.md |
-| `SB_W25` | 32 | established | shipped IRIX binaries, per docs/formats/xfs.md |
+| `SB_W25` | 32 | inferred | shipped IRIX binaries, per docs/formats/xfs.md |
 | `SB_W26` | 32 | established | shipped IRIX binaries, per docs/formats/xfs.md |
 | `SB_W3` | 32 | established | shipped IRIX binaries, per docs/formats/xfs.md |
 | `SB_W30` | 32 | established | shipped IRIX binaries, per docs/formats/xfs.md |
@@ -78,7 +78,7 @@ Every item has a grade: established, inferred or unknown. A grade says how the i
 | `SB_W48` | 32 | established | shipped IRIX binaries, per docs/formats/xfs.md |
 | `SB_W49` | 32 | established | shipped IRIX binaries, per docs/formats/xfs.md |
 | `SB_W5` | 32 | established | shipped IRIX binaries, per docs/formats/xfs.md |
-| `SB_W50` | 32 | established | shipped IRIX binaries, per docs/formats/xfs.md |
+| `SB_W50` | 32 | unknown | shipped IRIX binaries, per docs/formats/xfs.md |
 | `SB_W6` | 32 | established | shipped IRIX binaries, per docs/formats/xfs.md |
 | `SB_W7` | 32 | established | shipped IRIX binaries, per docs/formats/xfs.md |
 

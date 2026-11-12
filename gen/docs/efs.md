@@ -23,7 +23,7 @@ Every item has a grade: established, inferred or unknown. A grade says how the i
 | `DI_W4` | 32 | established | shipped IRIX binaries, per docs/formats/efs.md |
 | `DI_W5` | 32 | established | shipped IRIX binaries, per docs/formats/efs.md |
 | `DI_W6` | 32 | established | shipped IRIX binaries, per docs/formats/efs.md |
-| `DI_W7` | 32 | established | shipped IRIX binaries, per docs/formats/efs.md |
+| `DI_W7` | 32 | inferred | shipped IRIX binaries, per docs/formats/efs.md |
 | `EXT_W0` | 32 | established | shipped IRIX binaries, per docs/formats/efs.md |
 | `EXT_W1` | 32 | established | shipped IRIX binaries, per docs/formats/efs.md |
 | `SB_W0` | 32 | established | shipped IRIX binaries, per docs/formats/efs.md |

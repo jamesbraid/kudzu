@@ -25,7 +25,7 @@
    "kind": "word",
    "name": "E_W25",
    "width": 32,
-   "grade": "established",
+   "grade": "unknown",
    "from": "shipped IRIX binaries, per docs/formats/xlv.md"
   },
   {
@@ -457,7 +457,7 @@
    "kind": "word",
    "name": "LBL_W1",
    "width": 32,
-   "grade": "established",
+   "grade": "unknown",
    "from": "shipped IRIX binaries, per docs/formats/xlv.md"
   },
   {

@@ -59,7 +59,7 @@
    "kind": "word",
    "name": "ATTR_W0",
    "width": 32,
-   "grade": "established",
+   "grade": "inferred",
    "from": "shipped IRIX binaries, per docs/formats/xvm.md"
   },
   {
@@ -227,7 +227,7 @@
    "kind": "word",
    "name": "PL_W1",
    "width": 32,
-   "grade": "established",
+   "grade": "inferred",
    "from": "shipped IRIX binaries, per docs/formats/xvm.md"
   },
   {
@@ -471,7 +471,7 @@
    "kind": "word",
    "name": "VE_MIRROR_W16",
    "width": 32,
-   "grade": "established",
+   "grade": "inferred",
    "from": "shipped IRIX binaries, per docs/formats/xvm.md"
   },
   {

@@ -21,7 +21,7 @@
   <struct name="BRD_W0" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/klconfig.md">
     <field name="next" start="0" size="32" type="uint" grade="established"/>
   </struct>
-  <struct name="BRD_W1" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/klconfig.md">
+  <struct name="BRD_W1" size="4" grade="inferred" from="shipped IRIX kernel binaries, per docs/klconfig.md">
     <field name="class" start="20" size="4" type="brd_w1_class" grade="established"/>
     <field name="type_low" start="16" size="4" type="uint" grade="inferred"/>
   </struct>

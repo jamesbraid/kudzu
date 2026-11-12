@@ -47,11 +47,11 @@
   <struct name="HDR_W17" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/volume-header.md">
     <field name="dp_capacity" start="0" size="32" type="uint" grade="established"/>
   </struct>
-  <struct name="HDR_W7" size="4" grade="inferred" from="shipped IRIX binaries, per docs/formats/volume-header.md">
+  <struct name="HDR_W7" size="4" grade="unknown" from="shipped IRIX binaries, per docs/formats/volume-header.md">
     <field name="dp_cylinders" start="16" size="16" type="uint" grade="inferred"/>
     <field name="dp_head_offset" start="0" size="16" type="uint" grade="unknown"/>
   </struct>
-  <struct name="HDR_W8" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/volume-header.md">
+  <struct name="HDR_W8" size="4" grade="unknown" from="shipped IRIX binaries, per docs/formats/volume-header.md">
     <field name="dp_heads" start="16" size="16" type="uint" grade="inferred"/>
     <field name="dp_tag_depth" start="8" size="8" type="uint" grade="established"/>
     <field name="dp_cyl_high" start="0" size="8" type="uint" grade="unknown"/>

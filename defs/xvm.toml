@@ -33,7 +33,7 @@ mode = { bits = [31, 0], grade = "established" }
 
 [words.ATTR_W0]
 width = 32
-grade = "established"
+grade = "inferred"
 
 [words.ATTR_W0.fields]
 flag_persistent = { bits = [16, 16], grade = "inferred" }
@@ -93,7 +93,7 @@ magic = { bits = [31, 0], grade = "established" }
 
 [words.PL_W1]
 width = 32
-grade = "established"
+grade = "inferred"
 
 [words.PL_W1.fields]
 version = { bits = [31, 16], grade = "established" }
@@ -161,7 +161,7 @@ oldlength_lo = { bits = [31, 0], grade = "established" }
 
 [words.VE_MIRROR_W16]
 width = 32
-grade = "established"
+grade = "inferred"
 
 [words.VE_MIRROR_W16.fields]
 logfreq = { bits = [31, 16], grade = "established" }

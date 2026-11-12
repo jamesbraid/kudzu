@@ -58,7 +58,7 @@
 #define DVH_HDR_W17_DP_CAPACITY_INPLACE              (DVH_HDR_W17_DP_CAPACITY_MASK << DVH_HDR_W17_DP_CAPACITY_SHIFT)
 
 /* word HDR_W7: 32 bits; shipped IRIX binaries, per docs/formats/volume-header.md */
-#define DVH_HDR_W7_WIDTH                             32 /* inferred */
+#define DVH_HDR_W7_WIDTH                             32 /* unknown */
 #define DVH_HDR_W7_DP_CYLINDERS_SHIFT                16 /* inferred */
 #define DVH_HDR_W7_DP_CYLINDERS_MASK                 0xffffu
 #define DVH_HDR_W7_DP_CYLINDERS_INPLACE              (DVH_HDR_W7_DP_CYLINDERS_MASK << DVH_HDR_W7_DP_CYLINDERS_SHIFT)
@@ -67,7 +67,7 @@
 #define DVH_HDR_W7_DP_HEAD_OFFSET_INPLACE            (DVH_HDR_W7_DP_HEAD_OFFSET_MASK << DVH_HDR_W7_DP_HEAD_OFFSET_SHIFT)
 
 /* word HDR_W8: 32 bits; shipped IRIX binaries, per docs/formats/volume-header.md */
-#define DVH_HDR_W8_WIDTH                             32 /* established */
+#define DVH_HDR_W8_WIDTH                             32 /* unknown */
 #define DVH_HDR_W8_DP_HEADS_SHIFT                    16 /* inferred */
 #define DVH_HDR_W8_DP_HEADS_MASK                     0xffffu
 #define DVH_HDR_W8_DP_HEADS_INPLACE                  (DVH_HDR_W8_DP_HEADS_MASK << DVH_HDR_W8_DP_HEADS_SHIFT)

@@ -19,7 +19,7 @@ next = { bits = [31, 0], grade = "established" }
 
 [words.BRD_W1]
 width = 32
-grade = "established"
+grade = "inferred"
 
 [words.BRD_W1.fields]
 type_low = { bits = [19, 16], grade = "inferred" }

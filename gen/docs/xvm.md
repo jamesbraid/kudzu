@@ -16,12 +16,12 @@ Every item has a grade: established, inferred or unknown. A grade says how the i
 | `ATTR_PERM_W6` | 32 | established | shipped IRIX binaries, per docs/formats/xvm.md |
 | `ATTR_PERM_W7` | 32 | established | shipped IRIX binaries, per docs/formats/xvm.md |
 | `ATTR_PERM_W8` | 32 | established | shipped IRIX binaries, per docs/formats/xvm.md |
-| `ATTR_W0` | 32 | established | shipped IRIX binaries, per docs/formats/xvm.md |
+| `ATTR_W0` | 32 | inferred | shipped IRIX binaries, per docs/formats/xvm.md |
 | `ATTR_W1` | 32 | established | shipped IRIX binaries, per docs/formats/xvm.md |
 | `LH_W0` | 32 | established | shipped IRIX binaries, per docs/formats/xvm.md |
 | `LH_W1` | 32 | established | shipped IRIX binaries, per docs/formats/xvm.md |
 | `PL_W0` | 32 | established | shipped IRIX binaries, per docs/formats/xvm.md |
-| `PL_W1` | 32 | established | shipped IRIX binaries, per docs/formats/xvm.md |
+| `PL_W1` | 32 | inferred | shipped IRIX binaries, per docs/formats/xvm.md |
 | `PL_W14` | 32 | established | shipped IRIX binaries, per docs/formats/xvm.md |
 | `PL_W15` | 32 | established | shipped IRIX binaries, per docs/formats/xvm.md |
 | `PL_W16` | 32 | established | shipped IRIX binaries, per docs/formats/xvm.md |
@@ -29,7 +29,7 @@ Every item has a grade: established, inferred or unknown. A grade says how the i
 | `PL_W30` | 32 | established | shipped IRIX binaries, per docs/formats/xvm.md |
 | `VE_MIRROR_W14` | 32 | established | shipped IRIX binaries, per docs/formats/xvm.md |
 | `VE_MIRROR_W15` | 32 | established | shipped IRIX binaries, per docs/formats/xvm.md |
-| `VE_MIRROR_W16` | 32 | established | shipped IRIX binaries, per docs/formats/xvm.md |
+| `VE_MIRROR_W16` | 32 | inferred | shipped IRIX binaries, per docs/formats/xvm.md |
 | `VE_RAID_W14` | 32 | inferred | shipped IRIX binaries, per docs/formats/xvm.md |
 | `VE_RAID_W15` | 32 | inferred | shipped IRIX binaries, per docs/formats/xvm.md |
 | `VE_SLICE_W14` | 32 | established | shipped IRIX binaries, per docs/formats/xvm.md |

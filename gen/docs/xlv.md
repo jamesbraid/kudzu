@@ -14,7 +14,7 @@ Every item has a grade: established, inferred or unknown. A grade says how the i
 | Word | Width | Grade | Source |
 |---|---|---|---|
 | `E_W0` | 32 | established | shipped IRIX binaries, per docs/formats/xlv.md |
-| `E_W25` | 32 | established | shipped IRIX binaries, per docs/formats/xlv.md |
+| `E_W25` | 32 | unknown | shipped IRIX binaries, per docs/formats/xlv.md |
 | `E_W27` | 32 | established | shipped IRIX binaries, per docs/formats/xlv.md |
 | `E_W28` | 32 | established | shipped IRIX binaries, per docs/formats/xlv.md |
 | `E_W29` | 32 | established | shipped IRIX binaries, per docs/formats/xlv.md |
@@ -30,7 +30,7 @@ Every item has a grade: established, inferred or unknown. A grade says how the i
 | `E_W67` | 32 | established | shipped IRIX binaries, per docs/formats/xlv.md |
 | `E_W68` | 32 | established | shipped IRIX binaries, per docs/formats/xlv.md |
 | `LBL_W0` | 32 | established | shipped IRIX binaries, per docs/formats/xlv.md |
-| `LBL_W1` | 32 | established | shipped IRIX binaries, per docs/formats/xlv.md |
+| `LBL_W1` | 32 | unknown | shipped IRIX binaries, per docs/formats/xlv.md |
 | `LBL_W2` | 32 | unknown | shipped IRIX binaries, per docs/formats/xlv.md |
 | `LBL_W3` | 32 | unknown | shipped IRIX binaries, per docs/formats/xlv.md |
 | `LBL_W4` | 32 | established | shipped IRIX binaries, per docs/formats/xlv.md |

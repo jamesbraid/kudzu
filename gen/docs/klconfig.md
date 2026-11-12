@@ -14,7 +14,7 @@ Every item has a grade: established, inferred or unknown. A grade says how the i
 | Word | Width | Grade | Source |
 |---|---|---|---|
 | `BRD_W0` | 32 | established | shipped IRIX kernel binaries, per docs/klconfig.md |
-| `BRD_W1` | 32 | established | shipped IRIX kernel binaries, per docs/klconfig.md |
+| `BRD_W1` | 32 | inferred | shipped IRIX kernel binaries, per docs/klconfig.md |
 | `BRD_W2` | 32 | established | shipped IRIX kernel binaries, per docs/klconfig.md |
 | `BRD_W3` | 32 | established | shipped IRIX kernel binaries, per docs/klconfig.md |
 | `BRD_W5` | 32 | established | shipped IRIX kernel binaries, per docs/klconfig.md |

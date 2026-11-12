@@ -91,7 +91,7 @@
 #define EFS_DI_W6_GEN_INPLACE                        (EFS_DI_W6_GEN_MASK << EFS_DI_W6_GEN_SHIFT)
 
 /* word DI_W7: 32 bits; shipped IRIX binaries, per docs/formats/efs.md */
-#define EFS_DI_W7_WIDTH                              32 /* established */
+#define EFS_DI_W7_WIDTH                              32 /* inferred */
 #define EFS_DI_W7_NUMEXTENTS_SHIFT                   16 /* established */
 #define EFS_DI_W7_NUMEXTENTS_MASK                    0xffffu
 #define EFS_DI_W7_NUMEXTENTS_INPLACE                 (EFS_DI_W7_NUMEXTENTS_MASK << EFS_DI_W7_NUMEXTENTS_SHIFT)

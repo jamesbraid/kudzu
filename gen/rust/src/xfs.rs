@@ -766,7 +766,7 @@ pub mod sb_w24 {
         }
     }
 }
-/// (established)
+/// (inferred)
 pub mod sb_w25 {
     pub const WIDTH: u32 = 32;
     pub mod versionnum_morebits { // bits 31:31, established
@@ -1356,7 +1356,7 @@ pub mod sb_w5 {
         }
     }
 }
-/// (established)
+/// (unknown)
 pub mod sb_w50 {
     pub const WIDTH: u32 = 32;
     pub mod features2_high { // bits 31:5, unknown

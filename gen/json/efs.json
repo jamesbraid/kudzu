@@ -295,7 +295,7 @@
    "kind": "word",
    "name": "DI_W7",
    "width": 32,
-   "grade": "established",
+   "grade": "inferred",
    "from": "shipped IRIX binaries, per docs/formats/efs.md"
   },
   {

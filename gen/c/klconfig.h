@@ -13,7 +13,7 @@
 #define KLCONFIG_BRD_W0_NEXT_INPLACE                 (KLCONFIG_BRD_W0_NEXT_MASK << KLCONFIG_BRD_W0_NEXT_SHIFT)
 
 /* word BRD_W1: 32 bits; shipped IRIX kernel binaries, per docs/klconfig.md */
-#define KLCONFIG_BRD_W1_WIDTH                        32 /* established */
+#define KLCONFIG_BRD_W1_WIDTH                        32 /* inferred */
 #define KLCONFIG_BRD_W1_CLASS_SHIFT                  20 /* established */
 #define KLCONFIG_BRD_W1_CLASS_MASK                   0xfu
 #define KLCONFIG_BRD_W1_CLASS_INPLACE                (KLCONFIG_BRD_W1_CLASS_MASK << KLCONFIG_BRD_W1_CLASS_SHIFT)
