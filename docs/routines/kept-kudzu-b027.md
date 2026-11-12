@@ -4,3 +4,4 @@ Entries that were on this kept branch and not on main. The role text is unchange
 
 - `cpu_waitforreset` in `6.5.30/unix.IP35` at 0xc000000000077a78
   **Established.** The whole body is 8 bytes, 0xc000000000077a78 to 0xc000000000077a80: one branch at 0xc000000000077a78 that targets itself, with its delay slot. It touches no memory and makes no call, so the routine never returns. The name suggests it waits for a CPU reset, which these facts do not show.
+  Reviewed: 2026-11-12 (sonnet)
