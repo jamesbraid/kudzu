@@ -2,8 +2,33 @@
 <!-- generated from defs/gbe.toml by defs-gen - do not edit, change the source -->
 <genxml unit="gbe" prefix="GBE" title="O2 GBE register block as the O2 kernel drives it: two-wire buses, flat-panel timing words and the dual-channel option probe" from="shipped IRIX kernel binaries, per docs/gbe.md">
   <doc>Register offsets, packed timing words and option-probe constants that the O2 kernel writes on the GBE block.</doc>
+  <struct name="DOTCLK" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x4" access="rw" reset="unknown">
+    <doc>Dot-clock (PLL) word. The timing routine clears the run bit, writes the timing words, then writes this word with the run bit set and waits 11 milliseconds. The coefficient fields hold M minus one, N minus one and P, as the kernel stores them.</doc>
+    <field name="run" start="20" size="1" type="uint" grade="established"/>
+    <field name="pll_p" start="14" size="2" type="uint" grade="established"/>
+    <field name="pll_n" start="8" size="6" type="uint" grade="established"/>
+    <field name="pll_m" start="0" size="8" type="uint" grade="established"/>
+  </struct>
   <struct name="DEVICE_ID" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x14" access="r" reset="unknown">
     <doc>Identity word the kernel reads first. It accepts the block only when the word reads 0x666; any other value means the kernel leaves the block untouched.</doc>
+  </struct>
+  <struct name="VT_XY" size="4" grade="inferred" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x10000" access="rw" reset="unknown">
+    <doc>Vertical timing position word, called VT_0 in the reading. The start-up sequence compares its whole unmasked value with the vertical blank start line, and the stop sequence freezes it with the value in VT_XY_FREEZE. The offset follows from the VT_n numbering of the other timing words; the reading does not state it directly.</doc>
+  </struct>
+  <struct name="VT_1" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x10004" access="w" reset="unknown">
+    <doc>Frame totals. The timing routine writes 0 here, and the start-up sequence writes the totals once the frame buffer is set up. The kernel stores the record's total pixels and total lines, not one less than them; whether the hardware expects one less is unknown.</doc>
+    <field name="total_lines" start="12" size="12" type="uint" grade="established"/>
+    <field name="total_pixels" start="0" size="12" type="uint" grade="established"/>
+  </struct>
+  <struct name="VT_2" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x10008" access="w" reset="unknown">
+    <doc>Vertical sync position, in lines.</doc>
+    <field name="vsync_start" start="12" size="12" type="uint" grade="established"/>
+    <field name="vsync_end" start="0" size="12" type="uint" grade="established"/>
+  </struct>
+  <struct name="VT_3" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x1000c" access="w" reset="unknown">
+    <doc>Horizontal sync position, in pixels.</doc>
+    <field name="hsync_start" start="12" size="12" type="uint" grade="established"/>
+    <field name="hsync_end" start="0" size="12" type="uint" grade="established"/>
   </struct>
   <struct name="VT_VBLANK" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x10010" access="w" reset="unknown">
     <doc>Vertical blank word. The timing routine stores it in the interlace case and when no dual-channel option is fitted, packing the active height and 0xfff. Other stores to this offset are outside what this unit records.</doc>
@@ -17,6 +42,11 @@
   </struct>
   <struct name="TIMING_FLAGS" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x10018" access="rw" reset="unknown">
     <doc>Timing flag word. The timing routine reads it, clears bits 1 and 7, and ORs in a value of 0 or 2 for the byte 132 set-up. What bit 1 does to the hardware is unknown. The value is undefined when the option lookup that feeds it fails.</doc>
+  </struct>
+  <struct name="VT_7" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x1001c" access="w" reset="unknown">
+    <doc>Vertical blank start line in the high field. The low field repeats it when the frame-lock flag bits of the timing record (mask 0x12) are set, and holds 0xfff otherwise.</doc>
+    <field name="blank_start" start="12" size="12" type="uint" grade="established"/>
+    <field name="low" start="0" size="12" type="uint" grade="established"/>
   </struct>
   <struct name="FP_HDRV" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x10028" access="w" reset="unknown">
     <doc>Flat-panel horizontal drive word. The value depends on the board's panel set-up byte and on whether a dual-channel option is fitted. The table of values is in docs/gbe.md.</doc>
@@ -33,9 +63,40 @@
     <field name="hi" start="12" size="12" type="uint" grade="established"/>
     <field name="lo" start="0" size="12" type="uint" grade="established"/>
   </struct>
+  <struct name="VT_13" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x10034" access="w" reset="unknown">
+    <doc>Parked holding 0xffffff before the frame buffer is set up and written last in the start-up sequence. The final value is ((active width + v - 2) mod total pixels) in the low field and v in the high field, where v is the horizontal blank end minus 0x13, with total pixels added first when that is negative.</doc>
+  </struct>
+  <struct name="VT_14" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x10038" access="w" reset="unknown">
+    <doc>Parked holding 0xffffff and written last in the start-up sequence with the vertical blank start in the low field and the vertical blank end in the high field.</doc>
+  </struct>
+  <struct name="VT_15" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x1003c" access="w" reset="unknown">
+    <doc>Horizontal blank window, in pixels.</doc>
+    <field name="hblank_start" start="12" size="12" type="uint" grade="established"/>
+    <field name="hblank_end" start="0" size="12" type="uint" grade="established"/>
+  </struct>
+  <struct name="VT_16" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x10040" access="w" reset="unknown">
+    <doc>Vertical blank window, in lines.</doc>
+    <field name="vblank_start" start="12" size="12" type="uint" grade="established"/>
+    <field name="vblank_end" start="0" size="12" type="uint" grade="established"/>
+  </struct>
+  <struct name="VT_17" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x10044" access="w" reset="unknown">
+    <doc>Two parts, with bit placement not stated in the reading. The vertical part is minus (vertical blank start minus vertical blank end minus 1) when that difference is positive, else the difference, masked to 12 bits. The horizontal part is the horizontal blank end minus 20, with total pixels added when the blank end is below 20.</doc>
+  </struct>
+  <struct name="VT_18" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x10048" access="w" reset="unknown">
+    <doc>The vertical part of VT_17 and the horizontal blank end minus 54, with total pixels added when that is negative, then 0x1000 added for one line. The reading gives the 54 as a kernel constant. The 0x1000 step places the line part in bits 23:12 (inferred), so the horizontal part is in bits 11:0 (inferred).</doc>
+  </struct>
+  <struct name="VT_19" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x1004c" access="w" reset="unknown">
+    <doc>The vertical part of VT_17 without the extra line that VT_18 adds, and the horizontal blank end minus 4. Bit placement is inferred as for VT_18.</doc>
+  </struct>
+  <struct name="OVR_READBACK" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x20004" access="r" reset="unknown">
+    <doc>Live readback of the overlay control. The start-up sequence polls bit 0 until it equals bit 0 of the value it has just written to the overlay control.</doc>
+  </struct>
   <struct name="OVR_CONTROL" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x20008" access="rw" reset="unknown">
     <doc>Overlay control. The stop routine clears its enable bit and leaves the word otherwise unwritten.</doc>
     <field name="enable" start="0" size="1" type="uint" grade="established"/>
+  </struct>
+  <struct name="FRM_READBACK" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x30008" access="r" reset="unknown">
+    <doc>Live readback of the frame control. The start-up sequence polls bit 0 until it equals bit 0 of the value it has just written to the frame control.</doc>
   </struct>
   <struct name="FRM_CONTROL" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x3000c" access="rw" reset="unknown">
     <doc>Frame-buffer scan-out control. The stop routine saves it, clears its enable bit, and later writes it back with its pointer field bumped by one unit. The pointer field starts at bit 5 (inferred).</doc>

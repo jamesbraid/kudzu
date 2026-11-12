@@ -7,10 +7,70 @@
 
 
 /*
+ * Dot-clock (PLL) word. The timing routine clears the run bit, writes the timing words, then writes this word with the run bit set and waits 11 milliseconds. The coefficient fields hold M minus one, N minus one and P, as the kernel stores them.
+ */
+/* dotclk: rw32, reset unknown; shipped IRIX kernel binaries, per docs/gbe.md */
+#define GBE_DOTCLK_OFFSET                            0x4u /* established */
+#define GBE_DOTCLK_RUN_SHIFT                         20 /* established */
+#define GBE_DOTCLK_RUN_MASK                          0x1u
+#define GBE_DOTCLK_RUN_INPLACE                       (GBE_DOTCLK_RUN_MASK << GBE_DOTCLK_RUN_SHIFT)
+#define GBE_DOTCLK_PLL_P_SHIFT                       14 /* established */
+#define GBE_DOTCLK_PLL_P_MASK                        0x3u
+#define GBE_DOTCLK_PLL_P_INPLACE                     (GBE_DOTCLK_PLL_P_MASK << GBE_DOTCLK_PLL_P_SHIFT)
+#define GBE_DOTCLK_PLL_N_SHIFT                       8 /* established */
+#define GBE_DOTCLK_PLL_N_MASK                        0x3fu
+#define GBE_DOTCLK_PLL_N_INPLACE                     (GBE_DOTCLK_PLL_N_MASK << GBE_DOTCLK_PLL_N_SHIFT)
+#define GBE_DOTCLK_PLL_M_SHIFT                       0 /* established */
+#define GBE_DOTCLK_PLL_M_MASK                        0xffu
+#define GBE_DOTCLK_PLL_M_INPLACE                     (GBE_DOTCLK_PLL_M_MASK << GBE_DOTCLK_PLL_M_SHIFT)
+
+/*
  * Identity word the kernel reads first. It accepts the block only when the word reads 0x666; any other value means the kernel leaves the block untouched.
  */
 /* device_id: r32, reset unknown; shipped IRIX kernel binaries, per docs/gbe.md */
 #define GBE_DEVICE_ID_OFFSET                         0x14u /* established */
+
+/*
+ * Vertical timing position word, called VT_0 in the reading. The start-up sequence compares its whole unmasked value with the vertical blank start line, and the stop sequence freezes it with the value in VT_XY_FREEZE. The offset follows from the VT_n numbering of the other timing words; the reading does not state it directly.
+ */
+/* vt_xy: rw32, reset unknown; shipped IRIX kernel binaries, per docs/gbe.md */
+#define GBE_VT_XY_OFFSET                             0x10000u /* inferred */
+
+/*
+ * Frame totals. The timing routine writes 0 here, and the start-up sequence writes the totals once the frame buffer is set up. The kernel stores the record's total pixels and total lines, not one less than them; whether the hardware expects one less is unknown.
+ */
+/* vt_1: w32, reset unknown; shipped IRIX kernel binaries, per docs/gbe.md */
+#define GBE_VT_1_OFFSET                              0x10004u /* established */
+#define GBE_VT_1_TOTAL_LINES_SHIFT                   12 /* established */
+#define GBE_VT_1_TOTAL_LINES_MASK                    0xfffu
+#define GBE_VT_1_TOTAL_LINES_INPLACE                 (GBE_VT_1_TOTAL_LINES_MASK << GBE_VT_1_TOTAL_LINES_SHIFT)
+#define GBE_VT_1_TOTAL_PIXELS_SHIFT                  0 /* established */
+#define GBE_VT_1_TOTAL_PIXELS_MASK                   0xfffu
+#define GBE_VT_1_TOTAL_PIXELS_INPLACE                (GBE_VT_1_TOTAL_PIXELS_MASK << GBE_VT_1_TOTAL_PIXELS_SHIFT)
+
+/*
+ * Vertical sync position, in lines.
+ */
+/* vt_2: w32, reset unknown; shipped IRIX kernel binaries, per docs/gbe.md */
+#define GBE_VT_2_OFFSET                              0x10008u /* established */
+#define GBE_VT_2_VSYNC_START_SHIFT                   12 /* established */
+#define GBE_VT_2_VSYNC_START_MASK                    0xfffu
+#define GBE_VT_2_VSYNC_START_INPLACE                 (GBE_VT_2_VSYNC_START_MASK << GBE_VT_2_VSYNC_START_SHIFT)
+#define GBE_VT_2_VSYNC_END_SHIFT                     0 /* established */
+#define GBE_VT_2_VSYNC_END_MASK                      0xfffu
+#define GBE_VT_2_VSYNC_END_INPLACE                   (GBE_VT_2_VSYNC_END_MASK << GBE_VT_2_VSYNC_END_SHIFT)
+
+/*
+ * Horizontal sync position, in pixels.
+ */
+/* vt_3: w32, reset unknown; shipped IRIX kernel binaries, per docs/gbe.md */
+#define GBE_VT_3_OFFSET                              0x1000cu /* established */
+#define GBE_VT_3_HSYNC_START_SHIFT                   12 /* established */
+#define GBE_VT_3_HSYNC_START_MASK                    0xfffu
+#define GBE_VT_3_HSYNC_START_INPLACE                 (GBE_VT_3_HSYNC_START_MASK << GBE_VT_3_HSYNC_START_SHIFT)
+#define GBE_VT_3_HSYNC_END_SHIFT                     0 /* established */
+#define GBE_VT_3_HSYNC_END_MASK                      0xfffu
+#define GBE_VT_3_HSYNC_END_INPLACE                   (GBE_VT_3_HSYNC_END_MASK << GBE_VT_3_HSYNC_END_SHIFT)
 
 /*
  * Vertical blank word. The timing routine stores it in the interlace case and when no dual-channel option is fitted, packing the active height and 0xfff. Other stores to this offset are outside what this unit records.
@@ -41,6 +101,18 @@
  */
 /* timing_flags: rw32, reset unknown; shipped IRIX kernel binaries, per docs/gbe.md */
 #define GBE_TIMING_FLAGS_OFFSET                      0x10018u /* established */
+
+/*
+ * Vertical blank start line in the high field. The low field repeats it when the frame-lock flag bits of the timing record (mask 0x12) are set, and holds 0xfff otherwise.
+ */
+/* vt_7: w32, reset unknown; shipped IRIX kernel binaries, per docs/gbe.md */
+#define GBE_VT_7_OFFSET                              0x1001cu /* established */
+#define GBE_VT_7_BLANK_START_SHIFT                   12 /* established */
+#define GBE_VT_7_BLANK_START_MASK                    0xfffu
+#define GBE_VT_7_BLANK_START_INPLACE                 (GBE_VT_7_BLANK_START_MASK << GBE_VT_7_BLANK_START_SHIFT)
+#define GBE_VT_7_LOW_SHIFT                           0 /* established */
+#define GBE_VT_7_LOW_MASK                            0xfffu
+#define GBE_VT_7_LOW_INPLACE                         (GBE_VT_7_LOW_MASK << GBE_VT_7_LOW_SHIFT)
 
 /*
  * Flat-panel horizontal drive word. The value depends on the board's panel set-up byte and on whether a dual-channel option is fitted. The table of values is in docs/gbe.md.
@@ -79,6 +151,66 @@
 #define GBE_FP_DE_LO_INPLACE                         (GBE_FP_DE_LO_MASK << GBE_FP_DE_LO_SHIFT)
 
 /*
+ * Parked holding 0xffffff before the frame buffer is set up and written last in the start-up sequence. The final value is ((active width + v - 2) mod total pixels) in the low field and v in the high field, where v is the horizontal blank end minus 0x13, with total pixels added first when that is negative.
+ */
+/* vt_13: w32, reset unknown; shipped IRIX kernel binaries, per docs/gbe.md */
+#define GBE_VT_13_OFFSET                             0x10034u /* established */
+
+/*
+ * Parked holding 0xffffff and written last in the start-up sequence with the vertical blank start in the low field and the vertical blank end in the high field.
+ */
+/* vt_14: w32, reset unknown; shipped IRIX kernel binaries, per docs/gbe.md */
+#define GBE_VT_14_OFFSET                             0x10038u /* established */
+
+/*
+ * Horizontal blank window, in pixels.
+ */
+/* vt_15: w32, reset unknown; shipped IRIX kernel binaries, per docs/gbe.md */
+#define GBE_VT_15_OFFSET                             0x1003cu /* established */
+#define GBE_VT_15_HBLANK_START_SHIFT                 12 /* established */
+#define GBE_VT_15_HBLANK_START_MASK                  0xfffu
+#define GBE_VT_15_HBLANK_START_INPLACE               (GBE_VT_15_HBLANK_START_MASK << GBE_VT_15_HBLANK_START_SHIFT)
+#define GBE_VT_15_HBLANK_END_SHIFT                   0 /* established */
+#define GBE_VT_15_HBLANK_END_MASK                    0xfffu
+#define GBE_VT_15_HBLANK_END_INPLACE                 (GBE_VT_15_HBLANK_END_MASK << GBE_VT_15_HBLANK_END_SHIFT)
+
+/*
+ * Vertical blank window, in lines.
+ */
+/* vt_16: w32, reset unknown; shipped IRIX kernel binaries, per docs/gbe.md */
+#define GBE_VT_16_OFFSET                             0x10040u /* established */
+#define GBE_VT_16_VBLANK_START_SHIFT                 12 /* established */
+#define GBE_VT_16_VBLANK_START_MASK                  0xfffu
+#define GBE_VT_16_VBLANK_START_INPLACE               (GBE_VT_16_VBLANK_START_MASK << GBE_VT_16_VBLANK_START_SHIFT)
+#define GBE_VT_16_VBLANK_END_SHIFT                   0 /* established */
+#define GBE_VT_16_VBLANK_END_MASK                    0xfffu
+#define GBE_VT_16_VBLANK_END_INPLACE                 (GBE_VT_16_VBLANK_END_MASK << GBE_VT_16_VBLANK_END_SHIFT)
+
+/*
+ * Two parts, with bit placement not stated in the reading. The vertical part is minus (vertical blank start minus vertical blank end minus 1) when that difference is positive, else the difference, masked to 12 bits. The horizontal part is the horizontal blank end minus 20, with total pixels added when the blank end is below 20.
+ */
+/* vt_17: w32, reset unknown; shipped IRIX kernel binaries, per docs/gbe.md */
+#define GBE_VT_17_OFFSET                             0x10044u /* established */
+
+/*
+ * The vertical part of VT_17 and the horizontal blank end minus 54, with total pixels added when that is negative, then 0x1000 added for one line. The reading gives the 54 as a kernel constant. The 0x1000 step places the line part in bits 23:12 (inferred), so the horizontal part is in bits 11:0 (inferred).
+ */
+/* vt_18: w32, reset unknown; shipped IRIX kernel binaries, per docs/gbe.md */
+#define GBE_VT_18_OFFSET                             0x10048u /* established */
+
+/*
+ * The vertical part of VT_17 without the extra line that VT_18 adds, and the horizontal blank end minus 4. Bit placement is inferred as for VT_18.
+ */
+/* vt_19: w32, reset unknown; shipped IRIX kernel binaries, per docs/gbe.md */
+#define GBE_VT_19_OFFSET                             0x1004cu /* established */
+
+/*
+ * Live readback of the overlay control. The start-up sequence polls bit 0 until it equals bit 0 of the value it has just written to the overlay control.
+ */
+/* ovr_readback: r32, reset unknown; shipped IRIX kernel binaries, per docs/gbe.md */
+#define GBE_OVR_READBACK_OFFSET                      0x20004u /* established */
+
+/*
  * Overlay control. The stop routine clears its enable bit and leaves the word otherwise unwritten.
  */
 /* ovr_control: rw32, reset unknown; shipped IRIX kernel binaries, per docs/gbe.md */
@@ -86,6 +218,12 @@
 #define GBE_OVR_CONTROL_ENABLE_SHIFT                 0 /* established */
 #define GBE_OVR_CONTROL_ENABLE_MASK                  0x1u
 #define GBE_OVR_CONTROL_ENABLE_INPLACE               (GBE_OVR_CONTROL_ENABLE_MASK << GBE_OVR_CONTROL_ENABLE_SHIFT)
+
+/*
+ * Live readback of the frame control. The start-up sequence polls bit 0 until it equals bit 0 of the value it has just written to the frame control.
+ */
+/* frm_readback: r32, reset unknown; shipped IRIX kernel binaries, per docs/gbe.md */
+#define GBE_FRM_READBACK_OFFSET                      0x30008u /* established */
 
 /*
  * Frame-buffer scan-out control. The stop routine saves it, clears its enable bit, and later writes it back with its pointer field bumped by one unit. The pointer field starts at bit 5 (inferred).

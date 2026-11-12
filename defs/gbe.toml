@@ -63,6 +63,149 @@ doc = "Flat-panel data-enable word. The timing routine writes it only for the de
 hi = { bits = [23, 12], grade = "established", doc = "12-bit field; its meaning is unknown" }
 lo = { bits = [11, 0], grade = "established", doc = "12-bit field; its meaning is unknown" }
 
+[registers.dotclk]
+offset = 0x04
+access = "rw"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Dot-clock (PLL) word. The timing routine clears the run bit, writes the timing words, then writes this word with the run bit set and waits 11 milliseconds. The coefficient fields hold M minus one, N minus one and P, as the kernel stores them."
+[registers.dotclk.fields]
+pll_m = { bits = [7, 0], grade = "established", doc = "PLL multiplier M, stored as M minus one" }
+pll_n = { bits = [13, 8], grade = "established", doc = "PLL divider N, stored as N minus one" }
+pll_p = { bits = [15, 14], grade = "established", doc = "PLL post-divider P, stored unchanged" }
+run = { bits = [20, 20], grade = "established", doc = "cleared before a new value and set with it; what it does in the hardware is inferred (see DOTCLK_RUN_BIT)" }
+
+[registers.vt_xy]
+offset = 0x10000
+access = "rw"
+width = 32
+grade = "inferred"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Vertical timing position word, called VT_0 in the reading. The start-up sequence compares its whole unmasked value with the vertical blank start line, and the stop sequence freezes it with the value in VT_XY_FREEZE. The offset follows from the VT_n numbering of the other timing words; the reading does not state it directly."
+
+[registers.vt_1]
+offset = 0x10004
+access = "w"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Frame totals. The timing routine writes 0 here, and the start-up sequence writes the totals once the frame buffer is set up. The kernel stores the record's total pixels and total lines, not one less than them; whether the hardware expects one less is unknown."
+[registers.vt_1.fields]
+total_pixels = { bits = [11, 0], grade = "established", doc = "total pixels per line, as stored" }
+total_lines = { bits = [23, 12], grade = "established", doc = "total lines per frame, as stored" }
+
+[registers.vt_2]
+offset = 0x10008
+access = "w"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Vertical sync position, in lines."
+[registers.vt_2.fields]
+vsync_end = { bits = [11, 0], grade = "established", doc = "line where vertical sync ends" }
+vsync_start = { bits = [23, 12], grade = "established", doc = "line where vertical sync starts" }
+
+[registers.vt_3]
+offset = 0x1000c
+access = "w"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Horizontal sync position, in pixels."
+[registers.vt_3.fields]
+hsync_end = { bits = [11, 0], grade = "established", doc = "pixel where horizontal sync ends" }
+hsync_start = { bits = [23, 12], grade = "established", doc = "pixel where horizontal sync starts" }
+
+[registers.vt_7]
+offset = 0x1001c
+access = "w"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Vertical blank start line in the high field. The low field repeats it when the frame-lock flag bits of the timing record (mask 0x12) are set, and holds 0xfff otherwise."
+[registers.vt_7.fields]
+blank_start = { bits = [23, 12], grade = "established", doc = "vertical blank start line" }
+low = { bits = [11, 0], grade = "established", doc = "the blank start line when a frame-lock flag is set, else 0xfff" }
+
+[registers.vt_13]
+offset = 0x10034
+access = "w"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Parked holding 0xffffff before the frame buffer is set up and written last in the start-up sequence. The final value is ((active width + v - 2) mod total pixels) in the low field and v in the high field, where v is the horizontal blank end minus 0x13, with total pixels added first when that is negative."
+
+[registers.vt_14]
+offset = 0x10038
+access = "w"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Parked holding 0xffffff and written last in the start-up sequence with the vertical blank start in the low field and the vertical blank end in the high field."
+
+[registers.vt_15]
+offset = 0x1003c
+access = "w"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Horizontal blank window, in pixels."
+[registers.vt_15.fields]
+hblank_end = { bits = [11, 0], grade = "established", doc = "pixel where horizontal blank ends" }
+hblank_start = { bits = [23, 12], grade = "established", doc = "pixel where horizontal blank starts" }
+
+[registers.vt_16]
+offset = 0x10040
+access = "w"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Vertical blank window, in lines."
+[registers.vt_16.fields]
+vblank_end = { bits = [11, 0], grade = "established", doc = "line where vertical blank ends" }
+vblank_start = { bits = [23, 12], grade = "established", doc = "line where vertical blank starts" }
+
+[registers.vt_17]
+offset = 0x10044
+access = "w"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Two parts, with bit placement not stated in the reading. The vertical part is minus (vertical blank start minus vertical blank end minus 1) when that difference is positive, else the difference, masked to 12 bits. The horizontal part is the horizontal blank end minus 20, with total pixels added when the blank end is below 20."
+
+[registers.vt_18]
+offset = 0x10048
+access = "w"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "The vertical part of VT_17 and the horizontal blank end minus 54, with total pixels added when that is negative, then 0x1000 added for one line. The reading gives the 54 as a kernel constant. The 0x1000 step places the line part in bits 23:12 (inferred), so the horizontal part is in bits 11:0 (inferred)."
+
+[registers.vt_19]
+offset = 0x1004c
+access = "w"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "The vertical part of VT_17 without the extra line that VT_18 adds, and the horizontal blank end minus 4. Bit placement is inferred as for VT_18."
+
+[registers.frm_readback]
+offset = 0x30008
+access = "r"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Live readback of the frame control. The start-up sequence polls bit 0 until it equals bit 0 of the value it has just written to the frame control."
+
+[registers.ovr_readback]
+offset = 0x20004
+access = "r"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Live readback of the overlay control. The start-up sequence polls bit 0 until it equals bit 0 of the value it has just written to the overlay control."
+
 [registers.device_id]
 offset = 0x14
 access = "r"

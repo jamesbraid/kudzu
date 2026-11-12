@@ -13,14 +13,29 @@ Every item has a grade: established, inferred or unknown. A grade says how the i
 
 | Register | Offset | Access | Width | Count | Space | Reset | Grade | Source |
 |---|---|---|---|---|---|---|---|---|
+| `dotclk` | 0x4 | rw | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
 | `device_id` | 0x14 | r | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
+| `vt_xy` | 0x10000 | rw | 32 |  |  | unknown | inferred | shipped IRIX kernel binaries, per docs/gbe.md |
+| `vt_1` | 0x10004 | w | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
+| `vt_2` | 0x10008 | w | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
+| `vt_3` | 0x1000c | w | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
 | `vt_vblank` | 0x10010 | w | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
 | `vt_hblank` | 0x10014 | w | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
 | `timing_flags` | 0x10018 | rw | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
+| `vt_7` | 0x1001c | w | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
 | `fp_hdrv` | 0x10028 | w | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
 | `fp_vdrv` | 0x1002c | w | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
 | `fp_de` | 0x10030 | w | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
+| `vt_13` | 0x10034 | w | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
+| `vt_14` | 0x10038 | w | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
+| `vt_15` | 0x1003c | w | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
+| `vt_16` | 0x10040 | w | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
+| `vt_17` | 0x10044 | w | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
+| `vt_18` | 0x10048 | w | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
+| `vt_19` | 0x1004c | w | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
+| `ovr_readback` | 0x20004 | r | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
 | `ovr_control` | 0x20008 | rw | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
+| `frm_readback` | 0x30008 | r | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
 | `frm_control` | 0x3000c | rw | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
 | `did_control` | 0x40004 | rw | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
 | `wid` | 0x48000 | w | 32 | 32 |  | unknown | established | shipped IRIX X display module, per docs/gbe.md |
@@ -30,9 +45,51 @@ Every item has a grade: established, inferred or unknown. A grade says how the i
 | `cursor_color2` | 0x7000c | w | 32 |  |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
 | `cursor_glyph` | 0x78000 | w | 32 | 64 |  | unknown | established | shipped IRIX kernel binaries, per docs/gbe.md |
 
+### Register `dotclk`
+
+Dot-clock (PLL) word. The timing routine clears the run bit, writes the timing words, then writes this word with the run bit set and waits 11 milliseconds. The coefficient fields hold M minus one, N minus one and P, as the kernel stores them.
+
+| Bits | Field | Grade | Values | Source | Description |
+|---|---|---|---|---|---|
+| 20 | `run` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | cleared before a new value and set with it; what it does in the hardware is inferred (see DOTCLK_RUN_BIT) |
+| 15:14 | `pll_p` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | PLL post-divider P, stored unchanged |
+| 13:8 | `pll_n` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | PLL divider N, stored as N minus one |
+| 7:0 | `pll_m` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | PLL multiplier M, stored as M minus one |
+
 ### Register `device_id`
 
 Identity word the kernel reads first. It accepts the block only when the word reads 0x666; any other value means the kernel leaves the block untouched.
+
+### Register `vt_xy`
+
+Vertical timing position word, called VT_0 in the reading. The start-up sequence compares its whole unmasked value with the vertical blank start line, and the stop sequence freezes it with the value in VT_XY_FREEZE. The offset follows from the VT_n numbering of the other timing words; the reading does not state it directly.
+
+### Register `vt_1`
+
+Frame totals. The timing routine writes 0 here, and the start-up sequence writes the totals once the frame buffer is set up. The kernel stores the record's total pixels and total lines, not one less than them; whether the hardware expects one less is unknown.
+
+| Bits | Field | Grade | Values | Source | Description |
+|---|---|---|---|---|---|
+| 23:12 | `total_lines` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | total lines per frame, as stored |
+| 11:0 | `total_pixels` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | total pixels per line, as stored |
+
+### Register `vt_2`
+
+Vertical sync position, in lines.
+
+| Bits | Field | Grade | Values | Source | Description |
+|---|---|---|---|---|---|
+| 23:12 | `vsync_start` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | line where vertical sync starts |
+| 11:0 | `vsync_end` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | line where vertical sync ends |
+
+### Register `vt_3`
+
+Horizontal sync position, in pixels.
+
+| Bits | Field | Grade | Values | Source | Description |
+|---|---|---|---|---|---|
+| 23:12 | `hsync_start` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | pixel where horizontal sync starts |
+| 11:0 | `hsync_end` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | pixel where horizontal sync ends |
 
 ### Register `vt_vblank`
 
@@ -55,6 +112,15 @@ Horizontal blank word. The timing routine stores it in the interlace case and wh
 ### Register `timing_flags`
 
 Timing flag word. The timing routine reads it, clears bits 1 and 7, and ORs in a value of 0 or 2 for the byte 132 set-up. What bit 1 does to the hardware is unknown. The value is undefined when the option lookup that feeds it fails.
+
+### Register `vt_7`
+
+Vertical blank start line in the high field. The low field repeats it when the frame-lock flag bits of the timing record (mask 0x12) are set, and holds 0xfff otherwise.
+
+| Bits | Field | Grade | Values | Source | Description |
+|---|---|---|---|---|---|
+| 23:12 | `blank_start` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | vertical blank start line |
+| 11:0 | `low` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | the blank start line when a frame-lock flag is set, else 0xfff |
 
 ### Register `fp_hdrv`
 
@@ -83,6 +149,48 @@ Flat-panel data-enable word. The timing routine writes it only for the default s
 | 23:12 | `hi` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | 12-bit field; its meaning is unknown |
 | 11:0 | `lo` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | 12-bit field; its meaning is unknown |
 
+### Register `vt_13`
+
+Parked holding 0xffffff before the frame buffer is set up and written last in the start-up sequence. The final value is ((active width + v - 2) mod total pixels) in the low field and v in the high field, where v is the horizontal blank end minus 0x13, with total pixels added first when that is negative.
+
+### Register `vt_14`
+
+Parked holding 0xffffff and written last in the start-up sequence with the vertical blank start in the low field and the vertical blank end in the high field.
+
+### Register `vt_15`
+
+Horizontal blank window, in pixels.
+
+| Bits | Field | Grade | Values | Source | Description |
+|---|---|---|---|---|---|
+| 23:12 | `hblank_start` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | pixel where horizontal blank starts |
+| 11:0 | `hblank_end` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | pixel where horizontal blank ends |
+
+### Register `vt_16`
+
+Vertical blank window, in lines.
+
+| Bits | Field | Grade | Values | Source | Description |
+|---|---|---|---|---|---|
+| 23:12 | `vblank_start` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | line where vertical blank starts |
+| 11:0 | `vblank_end` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | line where vertical blank ends |
+
+### Register `vt_17`
+
+Two parts, with bit placement not stated in the reading. The vertical part is minus (vertical blank start minus vertical blank end minus 1) when that difference is positive, else the difference, masked to 12 bits. The horizontal part is the horizontal blank end minus 20, with total pixels added when the blank end is below 20.
+
+### Register `vt_18`
+
+The vertical part of VT_17 and the horizontal blank end minus 54, with total pixels added when that is negative, then 0x1000 added for one line. The reading gives the 54 as a kernel constant. The 0x1000 step places the line part in bits 23:12 (inferred), so the horizontal part is in bits 11:0 (inferred).
+
+### Register `vt_19`
+
+The vertical part of VT_17 without the extra line that VT_18 adds, and the horizontal blank end minus 4. Bit placement is inferred as for VT_18.
+
+### Register `ovr_readback`
+
+Live readback of the overlay control. The start-up sequence polls bit 0 until it equals bit 0 of the value it has just written to the overlay control.
+
 ### Register `ovr_control`
 
 Overlay control. The stop routine clears its enable bit and leaves the word otherwise unwritten.
@@ -90,6 +198,10 @@ Overlay control. The stop routine clears its enable bit and leaves the word othe
 | Bits | Field | Grade | Values | Source | Description |
 |---|---|---|---|---|---|
 | 0 | `enable` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | cleared by the stop routine; the meaning as a DMA enable is inferred |
+
+### Register `frm_readback`
+
+Live readback of the frame control. The start-up sequence polls bit 0 until it equals bit 0 of the value it has just written to the frame control.
 
 ### Register `frm_control`
 

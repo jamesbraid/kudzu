@@ -2,10 +2,135 @@
 // O2 GBE register block as the O2 kernel drives it: two-wire buses, flat-panel timing words and the dual-channel option probe
 #![allow(dead_code)]
 
+/// Dot-clock (PLL) word. The timing routine clears the run bit, writes the timing words, then writes this word with the run bit set and waits 11 millisec (established)
+pub mod dotclk {
+    pub const WIDTH: u32 = 32;
+    pub const OFFSET: u64 = 0x4;
+    pub mod run { // bits 20:20, established
+        pub const SHIFT: u32 = 20;
+        pub const MASK: u32 = 0x1;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
+    pub mod pll_p { // bits 15:14, established
+        pub const SHIFT: u32 = 14;
+        pub const MASK: u32 = 0x3;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
+    pub mod pll_n { // bits 13:8, established
+        pub const SHIFT: u32 = 8;
+        pub const MASK: u32 = 0x3f;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
+    pub mod pll_m { // bits 7:0, established
+        pub const SHIFT: u32 = 0;
+        pub const MASK: u32 = 0xff;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
+}
 /// Identity word the kernel reads first. It accepts the block only when the word reads 0x666; any other value means the kernel leaves the block untouched (established)
 pub mod device_id {
     pub const WIDTH: u32 = 32;
     pub const OFFSET: u64 = 0x14;
+}
+/// Vertical timing position word, called VT_0 in the reading. The start-up sequence compares its whole unmasked value with the vertical blank start line, (inferred)
+pub mod vt_xy {
+    pub const WIDTH: u32 = 32;
+    pub const OFFSET: u64 = 0x10000;
+}
+/// Frame totals. The timing routine writes 0 here, and the start-up sequence writes the totals once the frame buffer is set up. The kernel stores the rec (established)
+pub mod vt_1 {
+    pub const WIDTH: u32 = 32;
+    pub const OFFSET: u64 = 0x10004;
+    pub mod total_lines { // bits 23:12, established
+        pub const SHIFT: u32 = 12;
+        pub const MASK: u32 = 0xfff;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
+    pub mod total_pixels { // bits 11:0, established
+        pub const SHIFT: u32 = 0;
+        pub const MASK: u32 = 0xfff;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
+}
+/// Vertical sync position, in lines. (established)
+pub mod vt_2 {
+    pub const WIDTH: u32 = 32;
+    pub const OFFSET: u64 = 0x10008;
+    pub mod vsync_start { // bits 23:12, established
+        pub const SHIFT: u32 = 12;
+        pub const MASK: u32 = 0xfff;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
+    pub mod vsync_end { // bits 11:0, established
+        pub const SHIFT: u32 = 0;
+        pub const MASK: u32 = 0xfff;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
+}
+/// Horizontal sync position, in pixels. (established)
+pub mod vt_3 {
+    pub const WIDTH: u32 = 32;
+    pub const OFFSET: u64 = 0x1000c;
+    pub mod hsync_start { // bits 23:12, established
+        pub const SHIFT: u32 = 12;
+        pub const MASK: u32 = 0xfff;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
+    pub mod hsync_end { // bits 11:0, established
+        pub const SHIFT: u32 = 0;
+        pub const MASK: u32 = 0xfff;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
 }
 /// Vertical blank word. The timing routine stores it in the interlace case and when no dual-channel option is fitted, packing the active height and 0xfff (established)
 pub mod vt_vblank {
@@ -61,6 +186,31 @@ pub mod vt_hblank {
 pub mod timing_flags {
     pub const WIDTH: u32 = 32;
     pub const OFFSET: u64 = 0x10018;
+}
+/// Vertical blank start line in the high field. The low field repeats it when the frame-lock flag bits of the timing record (mask 0x12) are set, and hold (established)
+pub mod vt_7 {
+    pub const WIDTH: u32 = 32;
+    pub const OFFSET: u64 = 0x1001c;
+    pub mod blank_start { // bits 23:12, established
+        pub const SHIFT: u32 = 12;
+        pub const MASK: u32 = 0xfff;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
+    pub mod low { // bits 11:0, established
+        pub const SHIFT: u32 = 0;
+        pub const MASK: u32 = 0xfff;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
 }
 /// Flat-panel horizontal drive word. The value depends on the board's panel set-up byte and on whether a dual-channel option is fitted. The table of valu (established)
 pub mod fp_hdrv {
@@ -137,6 +287,86 @@ pub mod fp_de {
         }
     }
 }
+/// Parked holding 0xffffff before the frame buffer is set up and written last in the start-up sequence. The final value is ((active width + v - 2) mod to (established)
+pub mod vt_13 {
+    pub const WIDTH: u32 = 32;
+    pub const OFFSET: u64 = 0x10034;
+}
+/// Parked holding 0xffffff and written last in the start-up sequence with the vertical blank start in the low field and the vertical blank end in the hig (established)
+pub mod vt_14 {
+    pub const WIDTH: u32 = 32;
+    pub const OFFSET: u64 = 0x10038;
+}
+/// Horizontal blank window, in pixels. (established)
+pub mod vt_15 {
+    pub const WIDTH: u32 = 32;
+    pub const OFFSET: u64 = 0x1003c;
+    pub mod hblank_start { // bits 23:12, established
+        pub const SHIFT: u32 = 12;
+        pub const MASK: u32 = 0xfff;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
+    pub mod hblank_end { // bits 11:0, established
+        pub const SHIFT: u32 = 0;
+        pub const MASK: u32 = 0xfff;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
+}
+/// Vertical blank window, in lines. (established)
+pub mod vt_16 {
+    pub const WIDTH: u32 = 32;
+    pub const OFFSET: u64 = 0x10040;
+    pub mod vblank_start { // bits 23:12, established
+        pub const SHIFT: u32 = 12;
+        pub const MASK: u32 = 0xfff;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
+    pub mod vblank_end { // bits 11:0, established
+        pub const SHIFT: u32 = 0;
+        pub const MASK: u32 = 0xfff;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
+}
+/// Two parts, with bit placement not stated in the reading. The vertical part is minus (vertical blank start minus vertical blank end minus 1) when that  (established)
+pub mod vt_17 {
+    pub const WIDTH: u32 = 32;
+    pub const OFFSET: u64 = 0x10044;
+}
+/// The vertical part of VT_17 and the horizontal blank end minus 54, with total pixels added when that is negative, then 0x1000 added for one line. The r (established)
+pub mod vt_18 {
+    pub const WIDTH: u32 = 32;
+    pub const OFFSET: u64 = 0x10048;
+}
+/// The vertical part of VT_17 without the extra line that VT_18 adds, and the horizontal blank end minus 4. Bit placement is inferred as for VT_18. (established)
+pub mod vt_19 {
+    pub const WIDTH: u32 = 32;
+    pub const OFFSET: u64 = 0x1004c;
+}
+/// Live readback of the overlay control. The start-up sequence polls bit 0 until it equals bit 0 of the value it has just written to the overlay control. (established)
+pub mod ovr_readback {
+    pub const WIDTH: u32 = 32;
+    pub const OFFSET: u64 = 0x20004;
+}
 /// Overlay control. The stop routine clears its enable bit and leaves the word otherwise unwritten. (established)
 pub mod ovr_control {
     pub const WIDTH: u32 = 32;
@@ -151,6 +381,11 @@ pub mod ovr_control {
             (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
         }
     }
+}
+/// Live readback of the frame control. The start-up sequence polls bit 0 until it equals bit 0 of the value it has just written to the frame control. (established)
+pub mod frm_readback {
+    pub const WIDTH: u32 = 32;
+    pub const OFFSET: u64 = 0x30008;
 }
 /// Frame-buffer scan-out control. The stop routine saves it, clears its enable bit, and later writes it back with its pointer field bumped by one unit. T (established)
 pub mod frm_control {

@@ -79,7 +79,7 @@ Inferred: the horizontal delay `d` differs by option id because two families of 
 
 The sections below cover what the O2 kernel and the O2 X server display module do to the GBE block apart from the flat-panel words: identity and clock select, the stop and blank sequences, the window-ID table, the display-ID tables that describe scan-out bands, the tile lists, colour-map writes, line interrupts, dot-clock coefficients and the hardware cursor.
 
-The facts come from one reader's decompilation of the shipped IRIX 6.5.30 IP32 kernel objects and the X server display module, with the public GBE 1.1 ASIC specification cited as far as the reading gives it. Routines are described by role; no routine name is given. The reading has not had a second check. Register offsets for CTRLSTAT, DOTCLK, VT_XY, the VT_INTR words, CMFIFO and the live readback words are not recorded in the reading, so those registers appear here by name only. The offsets above remain relative to the GBE register block.
+The facts come from one reader's decompilation of the shipped IRIX 6.5.30 IP32 kernel objects and the X server display module, with the public GBE 1.1 ASIC specification cited as far as the reading gives it. Routines are described by role; no routine name is given. The reading has not had a second check. Register offsets for CTRLSTAT, the VT_INTR words and CMFIFO are not recorded in the reading, so those registers appear here by name only. The dot-clock, vertical position and live readback offsets come from the timing and start-up stores and are in the register table. The offsets above remain relative to the GBE register block.
 
 ### Identity, clock select and blanking
 
@@ -192,6 +192,37 @@ Unknown: why the stereo record's PLL values differ from its file, and why its cl
 
 Established: the shipped formats use small integer coefficients, and the highest shipped format is 135 MHz. Shipped VCO frequencies run from 85.7 to 206.7 MHz. Unknown: whether the hardware locks above 140 MHz, the ceiling the reading attributes to the GBE 1.1 specification (not checked here). The reading also gives the specification's worked example for 25.175 MHz as M 146, N 29, P 4. That example does not fit the output formula above (it gives about 6.29 MHz), so either the specification uses a different formula or the example belongs to another reference. This is unresolved.
 
+### Start-up order and frame-size words
+
+Established (timing routine): the kernel keeps bits 15:0 of the dot-clock word, which clears the run bit, writes the timing words, then writes the dot-clock word with the run bit set and waits 11 milliseconds. The timing words are written before the dot-clock value.
+
+Established (start-up sequence, in the order the routine runs):
+
+1. Clear bit 16 of the word at physical `0x14000028`. The reading does not identify that word or confirm that bit 16 is the GBE line interrupt.
+2. Park VT_13 and VT_14 holding `0xffffff`.
+3. Write the frame totals, VT_1.
+4. Pulse bit 15 of the frame-size word and bit 13 of the overlay-width word. Each pulse resets that FIFO. The reading gives neither word's offset.
+5. Write the frame, overlay and display-ID controls at `0x3000c`, `0x20008` and `0x40004`.
+6. Poll bit 0 of the live readbacks at `0x30008` and `0x20004` until each equals bit 0 of the control just written.
+7. Compare the vertical position word, VT_XY, whole and unmasked, with the vertical blank start line. Wait until it is below that line, then until it is above it.
+8. Write VT_13 and VT_14 with their final values.
+
+Established (frame size): the frame-size word takes the width in whole tiles at bits 12:5 and the remainder in 32-byte units at bits 4:0. Its depth code sits at bits 14:13: 1 for 16-bit pixels, 2 otherwise. A tile is 256 pixels at 16 bits and 128 at 32 bits. The frame-size pixel word is the height shifted left 16 bits, halved for an interlaced record. The overlay-width word uses 512-pixel tiles for the 8-bit overlay.
+
+Established (frame-lock flags): the low field of VT_7 takes the blank start line when the record's frame-lock flag bits (mask `0x12`) are set, and `0xfff` otherwise. The reading shows only that the choice tests those bits. What the bits do in the hardware is unknown.
+
+Established (VT_17 to VT_19): the vertical and horizontal parts are built as the register table describes. Where each part sits in its word is inferred from the `0x1000` step that VT_18 adds for one line.
+
+### Conflicting CRT timing readings
+
+A second reading of the CRT-format register stores disagrees with three entries above. Neither is resolved here, and the grades above are unchanged.
+
+- The word at `0x10010` (vt_vblank). The CRT reading stores the vertical blank end in the low field, where that entry says the low field is `0xfff` in the interlace case. For the 640 by 480 record the high field agrees at 480.
+- The word at `0x10014` (vt_hblank). The CRT reading stores `(hblank end - 3)` in the low field and `(hblank start + total pixels - 5) mod total pixels` in the high field. For the 640 by 480 record that high field is 635, where that entry records the active width, 640.
+- The word at `0x10018` (timing_flags). The CRT reading writes 0. That entry says the routine reads the word, clears bits 1 and 7, and ORs in 0 or 2.
+
+The 640 by 480 example has no dual-channel option, and the entries above say the vt_vblank and vt_hblank stores run when no option is fitted. So the two readings disagree on the same branch as far as either shows. Settling it needs the branch conditions of the timing routine read again for a CRT record with no option, and then an independent review of this page.
+
 ### Hardware cursor
 
 Established (text-port initialiser): before the screen is blanked the kernel loads the hardware cursor. Colour 1 at `0x70008` is `0xffffff00`, colour 2 at `0x7000c` is `0xff000000`, and the position word at `0x70000` is 0. Glyph words 0 to 31 at `0x78000` to `0x7807c` come from a 32-word table, and words 32 to 63 at `0x78080` to `0x780fc` are 0. The control word at `0x70004` is then 1. Colours use the byte layout red, green, blue, zero, as in the colour map.
@@ -205,10 +236,13 @@ Inferred: the 64 words form a 32 by 32 cursor at two bits per pixel, and the tex
 - The meaning of bit 1 of the timing flag word. The bit-level specification for that register was not read for this page.
 - The value of `v` when the option lookup fails on set-up 132.
 - The physical base of the GBE block. The offsets above are relative to it.
-- The offset of the frame-size register that the interlace case halves.
+- The offsets of the frame-size word, the frame-size pixel word and the overlay-width word. The interlace case halves the frame-size pixel word, and its offset is among these.
+- Whether VT_1 takes the totals or the totals minus one. The kernel writes the totals, and the reading gives no further evidence.
+- Whether the unmasked vertical position comparison in the start-up sequence is the intended line test, or works only because the line counter is zero early in the frame.
+- Which of the two CRT readings in the conflict section is right for a record with no dual-channel option.
 - The purpose of the no-option rewrite of the blank words. Unknown: no shipped software or published source depends on it.
 - The layout of the board description, beyond the two byte offsets above.
-- Register offsets of CTRLSTAT, DOTCLK, VT_XY, the VT_INTR words, CMFIFO and the live readbacks. The reading gives their use but not their offsets.
+- Register offsets of CTRLSTAT, the VT_INTR words and CMFIFO. The reading gives their use but not their offsets.
 - The layout of CTRLSTAT and the IO pin pairs beyond IO_3 to IO_6, and the meaning of the strap codes other than 0.
 - The reset values of revision 2. No shipped software depends on them, and no source gives them; the revision 1 values are the only ones with a source.
 - Tile-number bit 15, and the contents of the kernel block at `+0x400` and `+0x500`.
