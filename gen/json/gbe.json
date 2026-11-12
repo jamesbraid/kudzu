@@ -1,0 +1,352 @@
+{
+ "schema": "defs-flat/1",
+ "source": "defs/gbe.toml",
+ "profile": "public",
+ "rows": [
+  {
+   "unit": "gbe",
+   "kind": "register",
+   "name": "vt_vblank",
+   "offset": 65552,
+   "access": "w",
+   "width": 32,
+   "count": 1,
+   "stride": 4,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "field",
+   "name": "vt_vblank.hi",
+   "hi": 23,
+   "lo": 12,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "field",
+   "name": "vt_vblank.lo",
+   "hi": 11,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "register",
+   "name": "vt_hblank",
+   "offset": 65556,
+   "access": "w",
+   "width": 32,
+   "count": 1,
+   "stride": 4,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "field",
+   "name": "vt_hblank.hi",
+   "hi": 23,
+   "lo": 12,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "field",
+   "name": "vt_hblank.lo",
+   "hi": 11,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "register",
+   "name": "timing_flags",
+   "offset": 65560,
+   "access": "rw",
+   "width": 32,
+   "count": 1,
+   "stride": 4,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "register",
+   "name": "fp_hdrv",
+   "offset": 65576,
+   "access": "w",
+   "width": 32,
+   "count": 1,
+   "stride": 4,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "field",
+   "name": "fp_hdrv.hi",
+   "hi": 23,
+   "lo": 12,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "field",
+   "name": "fp_hdrv.lo",
+   "hi": 11,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "register",
+   "name": "fp_vdrv",
+   "offset": 65580,
+   "access": "w",
+   "width": 32,
+   "count": 1,
+   "stride": 4,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "field",
+   "name": "fp_vdrv.hi",
+   "hi": 23,
+   "lo": 12,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "field",
+   "name": "fp_vdrv.lo",
+   "hi": 11,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "register",
+   "name": "fp_de",
+   "offset": 65584,
+   "access": "w",
+   "width": 32,
+   "count": 1,
+   "stride": 4,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "field",
+   "name": "fp_de.hi",
+   "hi": 23,
+   "lo": 12,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "field",
+   "name": "fp_de.lo",
+   "hi": 11,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "BOARD_INTERLACE_OFF",
+   "value": 45,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "BOARD_PANEL_OFF",
+   "value": 46,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "FIELD_MASK",
+   "value": 4095,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "FIELD_SHIFT",
+   "value": 12,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "OPT_CMD_CLOCK_KHZ",
+   "value": 100000,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "OPT_CMD_ID_HIGH",
+   "value": 255,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "OPT_CMD_ID_LOW",
+   "value": 127,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "OPT_DELAY_SMALL",
+   "value": 2,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "OPT_ID_MASK",
+   "value": 96,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "OPT_ID_RESTORE",
+   "value": 112,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "OPT_INSTALLED_LIMIT",
+   "value": 9,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "OPT_PORT_ADDR",
+   "value": 126,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "PANEL_SETUP_A",
+   "value": 130,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "PANEL_SETUP_B",
+   "value": 131,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "PANEL_SETUP_C",
+   "value": 132,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "TWO_WIRE_FP_OFF",
+   "value": 16,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "TWO_WIRE_MON_OFF",
+   "value": 8,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "TWO_WIRE_WAIT_BIT",
+   "value": 1,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "TWO_WIRE_WAIT_LIMIT",
+   "value": 60,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  }
+ ]
+}

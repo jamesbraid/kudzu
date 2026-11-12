@@ -6,6 +6,12 @@ plugin = "scripts/disk_format_checks.py"
 profile = "public"
 rust_crate = "hwdefs"
 
+# The GBE block's register offsets run past 0xffff, so the default 14-bit bound
+# is widened for every unit. Other units stay far below it.
+[checks]
+address_bits = 17
+max_reg_offset = 0x1ffff
+
 [[banned.extra]]
 label = "shipped routine name"
 regex = '\b(?:efs|xfs|xlv|xvm)_[a-z]\w*'
@@ -82,6 +88,10 @@ prose_offsets = false
 
 [units.r10k_tlb]
 group = "r10k_tlb"
+prose_offsets = false
+
+[units.gbe]
+group = "gbe"
 prose_offsets = false
 
 [[claims]]

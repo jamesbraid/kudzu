@@ -1,5 +1,6 @@
 // generated from defs/ by defs-gen - do not edit, change the source
 pub mod efs;
+pub mod gbe;
 pub mod hubio;
 pub mod hubmda;
 pub mod hubmdb;

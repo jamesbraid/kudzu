@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!-- generated from defs/gbe.toml by defs-gen - do not edit, change the source -->
+<genxml unit="gbe" prefix="GBE" title="O2 GBE register block as the O2 kernel drives it: two-wire buses, flat-panel timing words and the dual-channel option probe" from="shipped IRIX kernel binaries, per docs/gbe.md">
+  <doc>Register offsets, packed timing words and option-probe constants that the O2 kernel writes on the GBE block.</doc>
+  <struct name="VT_VBLANK" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x10010" access="w" reset="unknown">
+    <doc>Vertical blank word. The timing routine stores it in the interlace case and when no dual-channel option is fitted, packing the active height and 0xfff. Other stores to this offset are outside what this unit records.</doc>
+    <field name="hi" start="12" size="12" type="uint" grade="established"/>
+    <field name="lo" start="0" size="12" type="uint" grade="established"/>
+  </struct>
+  <struct name="VT_HBLANK" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x10014" access="w" reset="unknown">
+    <doc>Horizontal blank word. The timing routine stores it in the interlace case and when no dual-channel option is fitted, packing the active width and 0xfff. Other stores to this offset are outside what this unit records.</doc>
+    <field name="hi" start="12" size="12" type="uint" grade="established"/>
+    <field name="lo" start="0" size="12" type="uint" grade="established"/>
+  </struct>
+  <struct name="TIMING_FLAGS" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x10018" access="rw" reset="unknown">
+    <doc>Timing flag word. The timing routine reads it, clears bits 1 and 7, and ORs in a value of 0 or 2 for the byte 132 set-up. What bit 1 does to the hardware is unknown. The value is undefined when the option lookup that feeds it fails.</doc>
+  </struct>
+  <struct name="FP_HDRV" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x10028" access="w" reset="unknown">
+    <doc>Flat-panel horizontal drive word. The value depends on the board's panel set-up byte and on whether a dual-channel option is fitted. The table of values is in docs/gbe.md.</doc>
+    <field name="hi" start="12" size="12" type="uint" grade="established"/>
+    <field name="lo" start="0" size="12" type="uint" grade="established"/>
+  </struct>
+  <struct name="FP_VDRV" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x1002c" access="w" reset="unknown">
+    <doc>Flat-panel vertical drive word. The value depends on the panel set-up byte and on the option, as the table in docs/gbe.md gives.</doc>
+    <field name="hi" start="12" size="12" type="uint" grade="established"/>
+    <field name="lo" start="0" size="12" type="uint" grade="established"/>
+  </struct>
+  <struct name="FP_DE" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x10030" access="w" reset="unknown">
+    <doc>Flat-panel data-enable word. The timing routine writes it only for the default set-up and panel set-ups 130 and 131, and only when no dual-channel option is fitted. It is not written otherwise.</doc>
+    <field name="hi" start="12" size="12" type="uint" grade="established"/>
+    <field name="lo" start="0" size="12" type="uint" grade="established"/>
+  </struct>
+  <constant name="BOARD_INTERLACE_OFF" value="0x2d" grade="established"/>
+  <constant name="BOARD_PANEL_OFF" value="0x2e" grade="established"/>
+  <constant name="FIELD_MASK" value="0xfff" grade="established"/>
+  <constant name="FIELD_SHIFT" value="0xc" grade="established"/>
+  <constant name="OPT_CMD_CLOCK_KHZ" value="0x186a0" grade="established"/>
+  <constant name="OPT_CMD_ID_HIGH" value="0xff" grade="established"/>
+  <constant name="OPT_CMD_ID_LOW" value="0x7f" grade="established"/>
+  <constant name="OPT_DELAY_SMALL" value="0x2" grade="established"/>
+  <constant name="OPT_ID_MASK" value="0x60" grade="established"/>
+  <constant name="OPT_ID_RESTORE" value="0x70" grade="established"/>
+  <constant name="OPT_INSTALLED_LIMIT" value="0x9" grade="established"/>
+  <constant name="OPT_PORT_ADDR" value="0x7e" grade="established"/>
+  <constant name="PANEL_SETUP_A" value="0x82" grade="established"/>
+  <constant name="PANEL_SETUP_B" value="0x83" grade="established"/>
+  <constant name="PANEL_SETUP_C" value="0x84" grade="established"/>
+  <constant name="TWO_WIRE_FP_OFF" value="0x10" grade="established"/>
+  <constant name="TWO_WIRE_MON_OFF" value="0x8" grade="established"/>
+  <constant name="TWO_WIRE_WAIT_BIT" value="0x1" grade="established"/>
+  <constant name="TWO_WIRE_WAIT_LIMIT" value="0x3c" grade="established"/>
+</genxml>
