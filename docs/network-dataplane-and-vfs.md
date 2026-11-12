@@ -224,7 +224,7 @@ So the kernel NFS client (`nfs_vfsops`, version 2) mounts a directory from a ser
 The kernel NFS server is started by `nfs_svc` (call 1119) and the program `nfsd`; `exportfs` (call 1122) feeds the export list; `rpc.mountd`, `rpc.lockd` and `rpc.statd` are held in `usr/etc`. Established for presence; behaviour is in [syscalls.md](syscalls.md).
 
 `lofs` is the kernel loopback file system: it mounts another path of the same host over a directory and forwards every operation to the underlying vnode. It is in the kernel (slot 3 of `vfssw`), is not a user-space server, and needs no daemon. Established.
-`autofs` exists in the kernel (slot 4 of `vfssw`, section 3.4) with no daemon in `root`; the string "autofs" does not occur in the `automount` program above. The user-space part of the kernel `autofs` is Unknown (section 6).
+`autofs` exists in the kernel (slot 4 of `vfssw`, section 3.4). The string "autofs" does not occur in the `automount` program above, but three programs that use it are now held: `usr/etc/autofsd` (an ONC RPC server: it imports `svc_register`, `svcudp_create` and `svc_run`, and has the procedure routines `autofs_mount_1`, `autofs_unmount_1` and `autofs_remount`; its messages say "No autofs filesystem in the kernel" and "There is no AutoFS interface in kernel", and it needs `CAP_MOUNT_MGT`), `usr/etc/autofs` (the command that reads `/etc/auto_master` and mounts the maps) and `usr/etc/mount_autofs`, which calls `sgi_eag_mount` with the file system type `autofs` and a 24-byte data block (call at 0x10001864, length at 0x10001858). Established for those names and calls; how the kernel reaches the daemon (an RPC call into the in-kernel client, which the server imports suggest) is Inferred, and the block's fields and the kernel's detection routine (the daemon's messages) were not read. No user-space code was found for `umfs`: none of the 70 files added in November 2026 contains `umfs` or `umfscall` (a `syscall` by number, 1228, from `libcpr.so` or another importer of `syscall` was not looked for).
 
 ### 4.3 What this means for a FUSE-like layer
 
@@ -257,7 +257,7 @@ Each is recorded in [open-questions.md](open-questions.md) with the route tried 
 - How a pseudo-interface is created from user space (the case list of `ifioctl`, 0xc0000000001b2ac0, 2672 bytes).
 - What the file system module's `init` routine is called with, and what `fsys_load` requires of the `vfsops` and `vnodeops` symbols: answered in [vfs-layering.md](vfs-layering.md) section 2.3 (`init(&record, index)`; `init`, `vfsops` and `vnodeops` are required, `unload` is optional).
 - The effect of the local-server flag in `nfs_processargs`.
-- The kernel `autofs` daemon and the user-space half of `umfs`.
+- The mount data block and kernel RPC path of `autofs` (the daemon is held), and any user of `umfs` (none found in the held userland).
 
 ## 7. Routine index
 
