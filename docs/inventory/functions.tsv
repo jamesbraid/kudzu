@@ -29033,7 +29033,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020010364	96	earlybaerror	dwarf+symtab	023edea16f26		in	understood	docs/routines/t1-kudzu-b004.md#routine-role-statements-ip30-kernel-clock-power-and-bus-error-paths	Routine role statements: IP30 kernel clock, power, and bus-error paths
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200103d0	12	VEC_breakpoint	dwarf+symtab	f7ab1ebfb18c		in	named-only	docs/kernel-tracing-and-modules.md#engineering-inference	Engineering inference
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200103d8	4	kernelbp	symtab	cd09e81bee54		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200103dc	120	debug	dwarf+symtab	b2813700c036		in	named-only	docs/ip30-timer-compare-rearm.md#the-trimcompare-operand-by-release	The trimcompare operand by release
+6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200103dc	120	debug	dwarf+symtab	b2813700c036		in	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020010454	4	sstepbp	dwarf+symtab	0df244da6067		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020010460	736	ULIsystrap	dwarf+symtab	20daa8430872		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200105b0	400	keruliframe	symtab	6886f5c48ce4		in	named-only	docs/version-diffs-queue.tsv	
@@ -41693,7 +41693,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006d1dc	264	sendgroupintr	dwarf+symtab	b64d2a223292		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006d2f0	12	VEC_breakpoint	dwarf+symtab	9c4641a4bc9d		in	named-only	docs/kernel-tracing-and-modules.md#engineering-inference	Engineering inference
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006d2f8	4	kernelbp	symtab	cd09e81bee54		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006d2fc	120	debug	dwarf+symtab	9b2ad9decc66		in	named-only	docs/ip30-timer-compare-rearm.md#the-trimcompare-operand-by-release	The trimcompare operand by release
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006d2fc	120	debug	dwarf+symtab	9b2ad9decc66		in	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006d374	4	sstepbp	dwarf+symtab	0df244da6067		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006d380	736	ULIsystrap	dwarf+symtab	4ffcc3790e7e		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000006d4d0	400	keruliframe	symtab	493303a54004		in	named-only	docs/version-diffs-queue.tsv	
@@ -60191,7 +60191,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x110bc	8	locore_exl_20	symtab	6cc16abd70ee	shared-address	in	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x110c4	4	elocore_exl_20	symtab	cd09e81bee54	shared-address	in	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x110c4	4	kernelbp	symtab	cd09e81bee54	shared-address	in	named-only		
-6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x110c8	72	debug	dwarf+symtab	dcffcaf7af27		in	named-only	docs/ip30-timer-compare-rearm.md#the-trimcompare-operand-by-release	The trimcompare operand by release
+6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x110c8	72	debug	dwarf+symtab	dcffcaf7af27		in	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x11110	4	sstepbp	dwarf+symtab	0df244da6067		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x11114	900	VEC_cpfault	dwarf+symtab	070a87b740ff	shared-address	in	named-only		
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x11114	128	locore_exl_7	symtab	eb830514dc71	shared-address	in	undocumented		
@@ -77282,7 +77282,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x3217c	52	update_checksum_base	dwarf	0b341b9f93af		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x321b0	12	VEC_breakpoint	dwarf+symtab	3614e4802762		in	named-only	docs/kernel-tracing-and-modules.md#engineering-inference	Engineering inference
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x321b8	4	kernelbp	symtab	cd09e81bee54		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x321bc	120	debug	dwarf+symtab	920ba04ec3dd		in	named-only	docs/ip30-timer-compare-rearm.md#the-trimcompare-operand-by-release	The trimcompare operand by release
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x321bc	120	debug	dwarf+symtab	920ba04ec3dd		in	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x32234	4	sstepbp	dwarf+symtab	0df244da6067		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x32240	736	ULIsystrap	dwarf+symtab	3b41695b6912		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x32390	400	keruliframe	symtab	5018e99b04c8		in	named-only	docs/version-diffs-queue.tsv	
@@ -95493,7 +95493,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xc1e4	96	earlybaerror	dwarf+symtab	6379e44e03ee		in	located	docs/routines/t1-kudzu-b016.md#routine-role-statements-kudzu-batch-16	Routine role statements, kudzu batch 16
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xc250	12	VEC_breakpoint	dwarf+symtab	3614e4802762		in	named-only	docs/kernel-tracing-and-modules.md#engineering-inference	Engineering inference
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xc258	4	kernelbp	symtab	cd09e81bee54		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xc25c	120	debug	dwarf+symtab	920ba04ec3dd		in	named-only	docs/ip30-timer-compare-rearm.md#the-trimcompare-operand-by-release	The trimcompare operand by release
+6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xc25c	120	debug	dwarf+symtab	920ba04ec3dd		in	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xc2d4	4	sstepbp	dwarf+symtab	0df244da6067		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xc2e0	736	ULIsystrap	dwarf+symtab	f26d21e3181b		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xc430	400	keruliframe	symtab	b6b215c979d8		in	named-only	docs/version-diffs-queue.tsv	
@@ -111441,7 +111441,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x14a0c	88	earlybaerror	dwarf+symtab	f697dc69ced7		in	understood	docs/routines/t1-kudzu-b018.md#routine-role-statements-tier-1-batch-18	Routine role statements, tier-1 batch 18
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x14a64	12	VEC_breakpoint	dwarf+symtab	3614e4802762		in	named-only	docs/kernel-tracing-and-modules.md#engineering-inference	Engineering inference
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x14a6c	4	kernelbp	symtab	cd09e81bee54		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x14a70	72	debug	dwarf+symtab	dcffcaf7af27		in	named-only	docs/ip30-timer-compare-rearm.md#the-trimcompare-operand-by-release	The trimcompare operand by release
+6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x14a70	72	debug	dwarf+symtab	dcffcaf7af27		in	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x14ab8	4	sstepbp	dwarf+symtab	0df244da6067		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x14abc	1004	intrnorm	dwarf+symtab	6616057883c9		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x14b74	820	_baduk	symtab	ad0c94b16a45		in	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -127196,7 +127196,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2d05c	264	sendgroupintr	dwarf+symtab	8cfbe237d515		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2d170	12	VEC_breakpoint	dwarf+symtab	3614e4802762		in	named-only	docs/kernel-tracing-and-modules.md#engineering-inference	Engineering inference
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2d178	4	kernelbp	symtab	cd09e81bee54		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2d17c	120	debug	dwarf+symtab	920ba04ec3dd		in	named-only	docs/ip30-timer-compare-rearm.md#the-trimcompare-operand-by-release	The trimcompare operand by release
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2d17c	120	debug	dwarf+symtab	920ba04ec3dd		in	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2d1f4	4	sstepbp	dwarf+symtab	0df244da6067		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2d200	736	ULIsystrap	dwarf+symtab	79f730b36b5e		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2d350	400	keruliframe	symtab	af8b3a046b4d		in	named-only	docs/version-diffs-queue.tsv	
@@ -195254,7 +195254,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000004bc9c	52	update_checksum_base	dwarf	693f5f998172		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000004bcd0	12	VEC_breakpoint	dwarf+symtab	7291318231b0		in	named-only	docs/kernel-tracing-and-modules.md#engineering-inference	Engineering inference
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000004bcd8	4	kernelbp	symtab	cd09e81bee54		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000004bcdc	120	debug	dwarf+symtab	f143c9f4bda5		in	named-only	docs/ip30-timer-compare-rearm.md#the-trimcompare-operand-by-release	The trimcompare operand by release
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000004bcdc	120	debug	dwarf+symtab	f143c9f4bda5		in	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000004bd54	4	sstepbp	dwarf+symtab	0df244da6067		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000004bd60	736	ULIsystrap	dwarf+symtab	e32809582337		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000004beb0	400	keruliframe	symtab	2581e7388156		in	named-only	docs/version-diffs-queue.tsv	
@@ -208153,7 +208153,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002001c964	96	earlybaerror	dwarf+symtab	c66268cf7682		in	named-only	docs/routines/t1-kudzu-b002.md#routine-role-reads-kudzu-batch-2	Routine role reads, kudzu batch 2
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002001c9d0	12	VEC_breakpoint	dwarf+symtab	1c3f5b008867		in	named-only	docs/kernel-tracing-and-modules.md#engineering-inference	Engineering inference
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002001c9d8	4	kernelbp	symtab	cd09e81bee54		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002001c9dc	120	debug	dwarf+symtab	cf7ab5ac7a34		in	named-only	docs/ip30-timer-compare-rearm.md#the-trimcompare-operand-by-release	The trimcompare operand by release
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002001c9dc	120	debug	dwarf+symtab	cf7ab5ac7a34		in	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002001ca54	4	sstepbp	dwarf+symtab	0df244da6067		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002001ca60	736	ULIsystrap	dwarf+symtab	84b93c40359d		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002001cbb0	400	keruliframe	symtab	5d28588806fc		in	named-only	docs/version-diffs-queue.tsv	
@@ -221705,7 +221705,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006cfcc	264	sendgroupintr	dwarf+symtab	829009101c18		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006d0e0	12	VEC_breakpoint	dwarf+symtab	e6b415c84db7		in	named-only	docs/kernel-tracing-and-modules.md#the-kernel-debugger	The kernel debugger
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006d0e8	4	kernelbp	symtab	cd09e81bee54		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006d0ec	120	debug	dwarf+symtab	0214ad8e6f28		in	named-only	docs/ip30-timer-compare-rearm.md#the-trimcompare-operand-by-release	The trimcompare operand by release
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006d0ec	120	debug	dwarf+symtab	0214ad8e6f28		in	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006d164	4	sstepbp	dwarf+symtab	0df244da6067		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006d170	736	ULIsystrap	dwarf+symtab	8d3983b62c27		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006d2c0	400	keruliframe	symtab	eac6c7ecfff9		in	named-only	docs/version-diffs-queue.tsv	
@@ -243346,7 +243346,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x32b1c	52	update_checksum_base	dwarf	f28e7d75ab70		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x32b50	12	VEC_breakpoint	dwarf+symtab	3614e4802762		in	named-only	docs/kernel-tracing-and-modules.md#engineering-inference	Engineering inference
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x32b58	4	kernelbp	symtab	cd09e81bee54		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x32b5c	120	debug	dwarf+symtab	920ba04ec3dd		in	named-only	docs/ip30-timer-compare-rearm.md#the-trimcompare-operand-by-release	The trimcompare operand by release
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x32b5c	120	debug	dwarf+symtab	920ba04ec3dd		in	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x32bd4	4	sstepbp	dwarf+symtab	0df244da6067		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x32be0	736	ULIsystrap	dwarf+symtab	e72f3439af4b		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x32d30	400	keruliframe	symtab	3dd4780639f8		in	named-only	docs/version-diffs-queue.tsv	
@@ -262459,7 +262459,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xc7e4	96	earlybaerror	dwarf+symtab	6379e44e03ee		in	located	docs/routines/t1-kudzu-b016.md#routine-role-statements-kudzu-batch-16	Routine role statements, kudzu batch 16
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xc850	12	VEC_breakpoint	dwarf+symtab	3614e4802762		in	named-only	docs/kernel-tracing-and-modules.md#engineering-inference	Engineering inference
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xc858	4	kernelbp	symtab	cd09e81bee54		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xc85c	120	debug	dwarf+symtab	920ba04ec3dd		in	named-only	docs/ip30-timer-compare-rearm.md#the-trimcompare-operand-by-release	The trimcompare operand by release
+6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xc85c	120	debug	dwarf+symtab	920ba04ec3dd		in	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xc8d4	4	sstepbp	dwarf+symtab	0df244da6067		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xc8e0	736	ULIsystrap	dwarf+symtab	f26d21e3181b		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xca30	400	keruliframe	symtab	b6b215c979d8		in	named-only	docs/version-diffs-queue.tsv	
@@ -279910,7 +279910,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x14a0c	88	earlybaerror	dwarf+symtab	f697dc69ced7		in	understood	docs/routines/t1-kudzu-b018.md#routine-role-statements-tier-1-batch-18	Routine role statements, tier-1 batch 18
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x14a64	12	VEC_breakpoint	dwarf+symtab	3614e4802762		in	named-only	docs/kernel-tracing-and-modules.md#engineering-inference	Engineering inference
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x14a6c	4	kernelbp	symtab	cd09e81bee54		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x14a70	72	debug	dwarf+symtab	dcffcaf7af27		in	named-only	docs/ip30-timer-compare-rearm.md#the-trimcompare-operand-by-release	The trimcompare operand by release
+6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x14a70	72	debug	dwarf+symtab	dcffcaf7af27		in	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x14ab8	4	sstepbp	dwarf+symtab	0df244da6067		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x14abc	1004	intrnorm	dwarf+symtab	1c5abbf32d0d		in	named-only	docs/ip27-kernel-io.md#hub-address-checks-error-counters-and-kick-set-up	Hub address checks, error counters and kick set-up
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x14b74	820	_baduk	symtab	ad0c94b16a45		in	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -298354,7 +298354,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2ce4c	264	sendgroupintr	dwarf+symtab	9468630c995a		in	named-only	docs/interrupts.md#ip35-differences	IP35 differences
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2cf60	12	VEC_breakpoint	dwarf+symtab	3614e4802762		in	named-only	docs/kernel-tracing-and-modules.md#engineering-inference	Engineering inference
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2cf68	4	kernelbp	symtab	cd09e81bee54		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2cf6c	120	debug	dwarf+symtab	920ba04ec3dd		in	named-only	docs/ip30-timer-compare-rearm.md#the-trimcompare-operand-by-release	The trimcompare operand by release
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2cf6c	120	debug	dwarf+symtab	920ba04ec3dd		in	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2cfe4	4	sstepbp	dwarf+symtab	0df244da6067		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2cff0	736	ULIsystrap	dwarf+symtab	79f730b36b5e		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2d140	400	keruliframe	symtab	af8b3a046b4d		in	named-only	docs/version-diffs-queue.tsv	
@@ -313477,7 +313477,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/etc/mmscd	userland	n32		0x10005a54	184	double_select	dynsym	45356d1b23e0		out:2	undocumented		
 6.5.30/usr/etc/mmscd	userland	n32		0x10005b0c	168	debug_enable	dynsym	c725690e8672		out:2	undocumented		
 6.5.30/usr/etc/mmscd	userland	n32		0x10005bb4	20	silent_enable	dynsym	4c4c90748c69		out:2	undocumented		
-6.5.30/usr/etc/mmscd	userland	n32		0x10005bc8	152	debug	dynsym	4c796b5df480		out:2	named-only	docs/ip30-timer-compare-rearm.md#the-trimcompare-operand-by-release	The trimcompare operand by release
+6.5.30/usr/etc/mmscd	userland	n32		0x10005bc8	152	debug	dynsym	4c796b5df480		out:2	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
 6.5.30/usr/etc/mmscd	userland	n32		0x10005c60	256	warning	dynsym	021b916a61e6		out:2	undocumented		
 6.5.30/usr/etc/mmscd	userland	n32		0x10005d60	256	fatal	dynsym	70eb4ef0fdc6		out:2	named-only	docs/userland-abi-and-loader.md#quickstart-and-library-versioning	Quickstart and library versioning
 6.5.30/usr/etc/mmscd	userland	n32		0x10005e60	124	perr	dynsym	d3b6cfe11cc1		out:2	undocumented		
@@ -350661,7 +350661,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/sbin/flashmmsc	userland	n32		0x10005288	184	double_select	dynsym	fee7b0a78be0		out:2	undocumented		
 6.5.30/usr/sbin/flashmmsc	userland	n32		0x10005340	168	debug_enable	dynsym	86545d54e11e		out:2	undocumented		
 6.5.30/usr/sbin/flashmmsc	userland	n32		0x100053e8	20	silent_enable	dynsym	326a68727133		out:2	undocumented		
-6.5.30/usr/sbin/flashmmsc	userland	n32		0x100053fc	152	debug	dynsym	3d26004f8c81		out:2	named-only	docs/ip30-timer-compare-rearm.md#the-trimcompare-operand-by-release	The trimcompare operand by release
+6.5.30/usr/sbin/flashmmsc	userland	n32		0x100053fc	152	debug	dynsym	3d26004f8c81		out:2	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
 6.5.30/usr/sbin/flashmmsc	userland	n32		0x10005494	256	warning	dynsym	7a3d6d40a9cd		out:2	undocumented		
 6.5.30/usr/sbin/flashmmsc	userland	n32		0x10005594	256	fatal	dynsym	69330ed0d36d		out:2	named-only	docs/userland-abi-and-loader.md#quickstart-and-library-versioning	Quickstart and library versioning
 6.5.30/usr/sbin/flashmmsc	userland	n32		0x10005694	124	perr	dynsym	0a92b2302951		out:2	undocumented		
@@ -358438,7 +358438,7 @@ dmediapro-dm2-1.1.3ml/usr/lib32/mlmodule/libdigvid.so	shared-kernel	n32	.text	0x
 dmediapro-dm2-1.1.3ml/usr/lib32/mlmodule/libdigvid.so	shared-kernel	n32	.text	0x417310	544	xilinx_load_intel	dwarf+funcnames	b39a88a29c0e		out:1	named-only	docs/dmedia-video-drivers.md#dm2-user-side	DM2 user side
 dmediapro-dm2-1.1.3ml/usr/lib32/mlmodule/libdigvid.so	shared-kernel	n32	.text	0x417530	540	read_intel_hex_line	dwarf+funcnames	439d13d7060f		out:1	undocumented		
 dmediapro-dm2-1.1.3ml/usr/lib32/mlmodule/libdigvid.so	shared-kernel	n32	.text	0x417750	196	get_config_size	dwarf+funcnames	e70131ac3f15		out:1	undocumented		
-dmediapro-dm2-1.1.3ml/usr/lib32/mlmodule/nullxcode.so	shared-kernel	n32	.text	0x5671ed0	120	debug	dwarf+funcnames	14a8da0c69c3		out:1	named-only	docs/ip30-timer-compare-rearm.md#the-trimcompare-operand-by-release	The trimcompare operand by release
+dmediapro-dm2-1.1.3ml/usr/lib32/mlmodule/nullxcode.so	shared-kernel	n32	.text	0x5671ed0	120	debug	dwarf+funcnames	14a8da0c69c3		out:1	named-only	docs/ip35-pci-bridge.md#slot-information-export	Slot information export
 dmediapro-dm2-1.1.3ml/usr/lib32/mlmodule/nullxcode.so	shared-kernel	n32		0x5671f50	108	ddInterrogate	dwarf+dynsym	4195b6e1a472		out:1	named-only	docs/dm2-ioctl.md#6-cross-check-against-libdigvidso	6. Cross-check against `libdigvid.so`
 dmediapro-dm2-1.1.3ml/usr/lib32/mlmodule/nullxcode.so	shared-kernel	n32		0x5671fc0	5828	ddConnect	dwarf+dynsym	4afba9213dbf		out:1	named-only	docs/dmedia-video-drivers.md#dm2-user-side	DM2 user side
 dmediapro-dm2-1.1.3ml/usr/lib32/mlmodule/nullxcode.so	shared-kernel	n32	.text	0x5673690	464	ddGetCapabilities	dwarf+funcnames	fad6086c259d		out:1	named-only	docs/dmedia-video-drivers.md#dm2-user-side	DM2 user side
