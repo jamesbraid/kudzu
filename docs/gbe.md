@@ -229,6 +229,20 @@ Established (text-port initialiser): before the screen is blanked the kernel loa
 
 Inferred: the 64 words form a 32 by 32 cursor at two bits per pixel, and the text port draws with the first 32 words only.
 
+## Revision 1.1 specification
+
+The GBE ASIC specification for revision 1.1 (18 July 1996) describes revision 1.1 only. Every fact here is from that document and is graded inferred, because a published document is a hint, not a shipped binary. Where the kernel's use agrees with it, the agreement is noted but does not change the grade.
+
+- **Reset values** (inferred): CTRLSTAT chip ID 1, every pin pair an input, clock select 0. DOTCLK 0, the two-wire lines released, DEVICE_ID `0x666`, VT_XY freeze set, and the other timing, plane, display-ID and cursor registers 0. CMFIFO reads 0. The kernel unfreezes VT_XY only when the freeze bit reads set, which matches.
+- **Shadow latching** (inferred): each control register is copied into its live twin at the start of blanking. The tile-list pointer is in bits 31:5, so the kernel's stop routine adds `0x20` to see a changed pointer arrive, as the stop section above describes. The display-ID control holds the upper address bits of a 64 KiB table, and bit 16 enables it. It does not hold a list pointer. See `table_hi` in the reference.
+- **Tile lists** (inferred): 16-bit entries of 64 KiB tile numbers, read whole into on-chip RAM at vertical blanking. A rewrite during active video takes effect at the next frame. Requests are 512-byte aligned, do not cross an 8 KiB page, and up to eight may be outstanding. The constants are in the reference.
+- **Overlay and cursor compositing** (inferred): an opaque cursor pixel wins, then a non-zero overlay pixel, then the normal planes. An overlay value of 0 is transparent. The overlay always indexes the last 256 colour-map entries and always passes gamma. No register carries a colour key, and the hardware has no underlay. This fits the kernel's use: the only overlay code changes a drawable's rendering state, and no shipped code writes a transparent value or an overlay-to-window map.
+- **Window-ID entry** (inferred): buffer code 1 is the lower buffer, 2 the upper and 3 both. A change between buffer codes is a buffer swap with no frame-pointer change. The auxiliary code is in bits 12:11 and the colour-map group in bits 9:5. The kernel's compare mask of `0x7fc` leaves out bits 1:0 and 12:11, which fits the buffer and auxiliary codes being excluded from the type comparison.
+- **Colour map** (inferred): 4608 entries in revision 1.1, against 6144 in the revision 2 tables the X module uses and in the public Linux driver. The larger map belongs to a later revision.
+- **FIFO count** (inferred): the specification counts free entries at both revisions. That matches the reading above, and the public Linux driver's occupancy reading is the outlier.
+- **Counter period** (inferred): the counters reset when they equal their maxima, so a stored value N gives a period of N + 1. The kernel writes the exact totals, which would make the programmed frame one clock and one line longer than its format. This points to the totals minus one, but needs a capture to settle. See the note on `vt_1` in the reference.
+- **Display-ID runs** (inferred): a line table is a list of 16-bit entries with `xend` in bits 10:0 and the display ID in bits 15:11. The specification asks for the last run to end at 2047, while the X module ends visible lines at the last active column. The reading gives no source for the hardware comparison. See `DID_LINE` in the reference.
+
 ## Unknown
 
 - What the option port's other pins drive, and what the ids above the two delay classes mean. Unknown: no shipped software or published source depends on them. Routes tried: none recorded for this page.
@@ -237,7 +251,8 @@ Inferred: the 64 words form a 32 by 32 cursor at two bits per pixel, and the tex
 - The value of `v` when the option lookup fails on set-up 132.
 - The physical base of the GBE block. The offsets above are relative to it.
 - The offsets of the frame-size word, the frame-size pixel word and the overlay-width word. The interlace case halves the frame-size pixel word, and its offset is among these.
-- Whether VT_1 takes the totals or the totals minus one. The kernel writes the totals, and the reading gives no further evidence.
+- Whether VT_1 takes the totals or the totals minus one. The kernel writes the totals, and the reading gives no further evidence. The revision 1.1 section gives a reason to expect minus one, which is inferred and needs a capture.
+- The gamma write path. The source reading gives a linear ramp, where entry i is `i * 0x01010100`, written to offset `0x60000`, or a fixed table. It gives no grade for this, so it is recorded as unknown until the routine is checked.
 - Whether the unmasked vertical position comparison in the start-up sequence is the intended line test, or works only because the line counter is zero early in the frame.
 - Which of the two CRT readings in the conflict section is right for a record with no dual-channel option.
 - The purpose of the no-option rewrite of the blank words. Unknown: no shipped software or published source depends on it.

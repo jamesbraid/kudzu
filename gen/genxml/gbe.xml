@@ -105,9 +105,11 @@
   <struct name="DID_CONTROL" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x40004" access="rw" reset="unknown">
     <doc>Display-ID table control. The stop routine clears its enable bit and leaves the word otherwise unwritten.</doc>
     <field name="enable" start="16" size="1" type="uint" grade="established"/>
+    <field name="table_hi" start="0" size="16" type="uint" grade="inferred"/>
   </struct>
   <struct name="WID" size="4" grade="established" from="shipped IRIX X display module, per docs/gbe.md" register="yes" offset="0x48000" access="w" count="32" stride="4" reset="unknown">
     <doc>Window-ID table, one 32-bit word per window index. Indices of 32 or more are rejected by the kernel. The kernel writes entry 0 with 3 at text-port set-up.</doc>
+    <field name="aux" start="11" size="2" type="uint" grade="inferred"/>
     <field name="gamma_disable" start="10" size="1" type="uint" grade="established"/>
     <field name="map_group" start="5" size="5" type="uint" grade="inferred"/>
     <field name="type" start="2" size="3" type="uint" grade="inferred"/>
@@ -128,8 +130,20 @@
   <struct name="CURSOR_GLYPH" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x78000" access="w" count="64" stride="4" reset="unknown">
     <doc>Cursor bitmap, 64 words. The text port loads words 0 to 31 from a 32-word table and writes 0 to words 32 to 63. Reading the words as a 32 by 32 bitmap at two bits per pixel is inferred; the text port draws with the first 32 words only (inferred).</doc>
   </struct>
+  <struct name="DID_FRAME" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md">
+    <doc>Frame entry of a display-ID table: one per horizontal band of lines. The X module packs it as block &lt;&lt; 19 | offset &lt;&lt; 11 | yend.</doc>
+    <field name="block" start="19" size="7" type="uint" grade="established"/>
+    <field name="offset" start="11" size="8" type="uint" grade="established"/>
+    <field name="yend" start="0" size="11" type="uint" grade="established"/>
+  </struct>
+  <struct name="DID_LINE" size="2" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md">
+    <doc>Line-table entry of a display-ID table: one per rectangle in a band, sorted by its last column. The X module packs it as index &lt;&lt; 11 | xend.</doc>
+    <field name="did" start="11" size="5" type="uint" grade="established"/>
+    <field name="xend" start="0" size="11" type="uint" grade="established"/>
+  </struct>
   <constant name="BOARD_INTERLACE_OFF" value="0x2d" grade="established"/>
   <constant name="BOARD_PANEL_OFF" value="0x2e" grade="established"/>
+  <constant name="CMAP_ENTRIES_REV11" value="0x1200" grade="inferred"/>
   <constant name="CMAP_ENTRY_BASE" value="0x50000" grade="established"/>
   <constant name="CMFIFO_BATCH" value="0x21" grade="established"/>
   <constant name="CMFIFO_FREE_MIN" value="0x30" grade="established"/>
@@ -154,10 +168,14 @@
   <constant name="OPT_ID_RESTORE" value="0x70" grade="established"/>
   <constant name="OPT_INSTALLED_LIMIT" value="0x9" grade="established"/>
   <constant name="OPT_PORT_ADDR" value="0x7e" grade="established"/>
+  <constant name="OVERLAY_TRANSPARENT_INDEX" value="0x0" grade="inferred"/>
   <constant name="PANEL_SETUP_A" value="0x82" grade="established"/>
   <constant name="PANEL_SETUP_B" value="0x83" grade="established"/>
   <constant name="PANEL_SETUP_C" value="0x84" grade="established"/>
   <constant name="REF_CLOCK_KHZ" value="0x4e20" grade="inferred"/>
+  <constant name="TILE_LIST_ALIGN_BYTES" value="0x200" grade="inferred"/>
+  <constant name="TILE_LIST_OUTSTANDING" value="0x8" grade="inferred"/>
+  <constant name="TILE_LIST_PAGE_BYTES" value="0x2000" grade="inferred"/>
   <constant name="TILE_NUMBER_MASK" value="0x1fff" grade="established"/>
   <constant name="TWO_WIRE_FP_OFF" value="0x10" grade="established"/>
   <constant name="TWO_WIRE_MON_OFF" value="0x8" grade="established"/>

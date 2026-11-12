@@ -616,6 +616,15 @@
   },
   {
    "unit": "gbe",
+   "kind": "field",
+   "name": "did_control.table_hi",
+   "hi": 15,
+   "lo": 0,
+   "grade": "inferred",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
    "kind": "register",
    "name": "wid",
    "offset": 294912,
@@ -626,6 +635,15 @@
    "space": null,
    "reset": "unknown",
    "grade": "established",
+   "from": "shipped IRIX X display module, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "field",
+   "name": "wid.aux",
+   "hi": 12,
+   "lo": 11,
+   "grade": "inferred",
    "from": "shipped IRIX X display module, per docs/gbe.md"
   },
   {
@@ -736,6 +754,67 @@
   },
   {
    "unit": "gbe",
+   "kind": "word",
+   "name": "DID_FRAME",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "field",
+   "name": "DID_FRAME.block",
+   "hi": 25,
+   "lo": 19,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "field",
+   "name": "DID_FRAME.offset",
+   "hi": 18,
+   "lo": 11,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "field",
+   "name": "DID_FRAME.yend",
+   "hi": 10,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "word",
+   "name": "DID_LINE",
+   "width": 16,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "field",
+   "name": "DID_LINE.did",
+   "hi": 15,
+   "lo": 11,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "field",
+   "name": "DID_LINE.xend",
+   "hi": 10,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
    "kind": "constant",
    "name": "BOARD_INTERLACE_OFF",
    "value": 45,
@@ -750,6 +829,15 @@
    "value": 46,
    "count": 1,
    "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "CMAP_ENTRIES_REV11",
+   "value": 4608,
+   "count": 1,
+   "grade": "inferred",
    "from": "shipped IRIX kernel binaries, per docs/gbe.md"
   },
   {
@@ -971,6 +1059,15 @@
   {
    "unit": "gbe",
    "kind": "constant",
+   "name": "OVERLAY_TRANSPARENT_INDEX",
+   "value": 0,
+   "count": 1,
+   "grade": "inferred",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
    "name": "PANEL_SETUP_A",
    "value": 130,
    "count": 1,
@@ -1000,6 +1097,33 @@
    "kind": "constant",
    "name": "REF_CLOCK_KHZ",
    "value": 20000,
+   "count": 1,
+   "grade": "inferred",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "TILE_LIST_ALIGN_BYTES",
+   "value": 512,
+   "count": 1,
+   "grade": "inferred",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "TILE_LIST_OUTSTANDING",
+   "value": 8,
+   "count": 1,
+   "grade": "inferred",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe",
+   "kind": "constant",
+   "name": "TILE_LIST_PAGE_BYTES",
+   "value": 8192,
    "count": 1,
    "grade": "inferred",
    "from": "shipped IRIX kernel binaries, per docs/gbe.md"

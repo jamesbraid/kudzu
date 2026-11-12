@@ -95,6 +95,10 @@ prose_offsets = false
 group = "gbe"
 prose_offsets = false
 
+[units.crime]
+group = "crime"
+prose_offsets = false
+
 [[claims]]
 group = "xvm"
 label = "physical label magic and size"

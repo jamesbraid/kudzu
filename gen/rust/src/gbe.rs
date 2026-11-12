@@ -416,6 +416,16 @@ pub mod did_control {
             (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
         }
     }
+    pub mod table_hi { // bits 15:0, inferred
+        pub const SHIFT: u32 = 0;
+        pub const MASK: u32 = 0xffff;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
 }
 /// Window-ID table, one 32-bit word per window index. Indices of 32 or more are rejected by the kernel. The kernel writes entry 0 with 3 at text-port set (established)
 pub mod wid {
@@ -423,6 +433,16 @@ pub mod wid {
     pub const OFFSET: u64 = 0x48000;
     pub const COUNT: u32 = 32;
     pub const STRIDE: u64 = 4;
+    pub mod aux { // bits 12:11, inferred
+        pub const SHIFT: u32 = 11;
+        pub const MASK: u32 = 0x3;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
     pub mod gamma_disable { // bits 10:10, established
         pub const SHIFT: u32 = 10;
         pub const MASK: u32 = 0x1;
@@ -491,8 +511,67 @@ pub mod cursor_glyph {
     pub const COUNT: u32 = 64;
     pub const STRIDE: u64 = 4;
 }
+/// Frame entry of a display-ID table: one per horizontal band of lines. The X module packs it as block << 19 | offset << 11 | yend. (established)
+pub mod did_frame {
+    pub const WIDTH: u32 = 32;
+    pub mod block { // bits 25:19, established
+        pub const SHIFT: u32 = 19;
+        pub const MASK: u32 = 0x7f;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
+    pub mod offset { // bits 18:11, established
+        pub const SHIFT: u32 = 11;
+        pub const MASK: u32 = 0xff;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
+    pub mod yend { // bits 10:0, established
+        pub const SHIFT: u32 = 0;
+        pub const MASK: u32 = 0x7ff;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
+}
+/// Line-table entry of a display-ID table: one per rectangle in a band, sorted by its last column. The X module packs it as index << 11 | xend. (established)
+pub mod did_line {
+    pub const WIDTH: u32 = 16;
+    pub mod did { // bits 15:11, established
+        pub const SHIFT: u32 = 11;
+        pub const MASK: u32 = 0x1f;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
+    pub mod xend { // bits 10:0, established
+        pub const SHIFT: u32 = 0;
+        pub const MASK: u32 = 0x7ff;
+        pub const fn get(v: u32) -> u32 {
+            (v >> SHIFT) & MASK
+        }
+        pub const fn set(v: u32, x: u32) -> u32 {
+            (v & !(MASK << SHIFT)) | ((x & MASK) << SHIFT)
+        }
+    }
+}
 pub const BOARD_INTERLACE_OFF: u32 = 0x2d; // established
 pub const BOARD_PANEL_OFF: u32 = 0x2e; // established
+pub const CMAP_ENTRIES_REV11: u32 = 0x1200; // inferred
 pub const CMAP_ENTRY_BASE: u32 = 0x50000; // established
 pub const CMFIFO_BATCH: u32 = 0x21; // established
 pub const CMFIFO_FREE_MIN: u32 = 0x30; // established
@@ -517,10 +596,14 @@ pub const OPT_ID_MASK: u32 = 0x60; // established
 pub const OPT_ID_RESTORE: u32 = 0x70; // established
 pub const OPT_INSTALLED_LIMIT: u32 = 0x9; // established
 pub const OPT_PORT_ADDR: u32 = 0x7e; // established
+pub const OVERLAY_TRANSPARENT_INDEX: u32 = 0x0; // inferred
 pub const PANEL_SETUP_A: u32 = 0x82; // established
 pub const PANEL_SETUP_B: u32 = 0x83; // established
 pub const PANEL_SETUP_C: u32 = 0x84; // established
 pub const REF_CLOCK_KHZ: u32 = 0x4e20; // inferred
+pub const TILE_LIST_ALIGN_BYTES: u32 = 0x200; // inferred
+pub const TILE_LIST_OUTSTANDING: u32 = 0x8; // inferred
+pub const TILE_LIST_PAGE_BYTES: u32 = 0x2000; // inferred
 pub const TILE_NUMBER_MASK: u32 = 0x1fff; // established
 pub const TWO_WIRE_FP_OFF: u32 = 0x10; // established
 pub const TWO_WIRE_MON_OFF: u32 = 0x8; // established

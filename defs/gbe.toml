@@ -4,7 +4,7 @@ prefix = "GBE"
 title = "O2 GBE register block as the O2 kernel drives it: two-wire buses, flat-panel timing words and the dual-channel option probe"
 doc = "Register offsets, packed timing words and option-probe constants that the O2 kernel writes on the GBE block."
 from = "shipped IRIX kernel binaries, per docs/gbe.md"
-public_from = ["shipped IRIX"]
+public_from = ["shipped IRIX", "GBE ASIC specification, rev 1.1 (1996)"]
 
 [registers.vt_vblank]
 offset = 0x10010
@@ -91,6 +91,7 @@ width = 32
 grade = "established"
 from = "shipped IRIX kernel binaries, per docs/gbe.md"
 doc = "Frame totals. The timing routine writes 0 here, and the start-up sequence writes the totals once the frame buffer is set up. The kernel stores the record's total pixels and total lines, not one less than them; whether the hardware expects one less is unknown."
+notes = "Inferred from the rev 1.1 specification: the counters reset when they equal the maxima, so a stored value N gives a period of N + 1. If the kernel's totals are used as stored, the programmed frame is one clock and one line longer than its format. Needs a capture to settle."
 [registers.vt_1.fields]
 total_pixels = { bits = [11, 0], grade = "established", doc = "total pixels per line, as stored" }
 total_lines = { bits = [23, 12], grade = "established", doc = "total lines per frame, as stored" }
@@ -243,6 +244,7 @@ from = "shipped IRIX kernel binaries, per docs/gbe.md"
 doc = "Display-ID table control. The stop routine clears its enable bit and leaves the word otherwise unwritten."
 [registers.did_control.fields]
 enable = { bits = [16, 16], grade = "established", doc = "cleared by the stop routine; the stop routine also tests it at entry" }
+table_hi = { bits = [15, 0], grade = "inferred", from = "GBE ASIC specification, rev 1.1", doc = "Upper address bits of the 64 KiB display-ID table. The specification gives this field; the kernel never writes it" }
 
 [registers.wid]
 offset = 0x48000
@@ -258,6 +260,7 @@ buf = { bits = [1, 0], grade = "inferred", doc = "buffer code: 3 buffers both, 0
 type = { bits = [4, 2], grade = "inferred", doc = "pixel type: 0 indexed 8-bit, 1 indexed 12-bit, 2 RG3B2, 4 RGB5, 5 RGB8. The bit position is inferred from the table values and the compare mask." }
 map_group = { bits = [9, 5], grade = "inferred", doc = "colour-map group; the group's first entry is this value times 256. The bit position is inferred from the table values." }
 gamma_disable = { bits = [10, 10], grade = "established", doc = "gamma disable. The kernel clears it before a write when the alternative gamma table is in use." }
+aux = { bits = [12, 11], grade = "inferred", from = "GBE ASIC specification, rev 1.1", doc = "Auxiliary code. The kernel's compare mask of 0x7fc leaves it out. The position is from the specification" }
 
 [registers.cursor_pos]
 offset = 0x70000
@@ -338,3 +341,25 @@ BOARD_PANEL_OFF = { value = 46, grade = "established", doc = "Board description 
 PANEL_SETUP_A = { value = 130, grade = "established", doc = "Panel set-up byte: fixed values for the first panel." }
 PANEL_SETUP_B = { value = 131, grade = "established", doc = "Panel set-up byte: fixed values for the second panel." }
 PANEL_SETUP_C = { value = 132, grade = "established", doc = "Panel set-up byte: fixed horizontal value, and the timing flag rewrite." }
+TILE_LIST_ALIGN_BYTES = { value = 512, grade = "inferred", from = "GBE ASIC specification, rev 1.1", doc = "Tile-list requests start on this boundary" }
+TILE_LIST_PAGE_BYTES = { value = 8192, grade = "inferred", from = "GBE ASIC specification, rev 1.1", doc = "A tile-list request does not cross a page of this size" }
+TILE_LIST_OUTSTANDING = { value = 8, grade = "inferred", from = "GBE ASIC specification, rev 1.1", doc = "Tile-list requests that may be outstanding at once" }
+CMAP_ENTRIES_REV11 = { value = 4608, grade = "inferred", from = "GBE ASIC specification, rev 1.1", doc = "Colour-map entries in revision 1.1. The IRIX revision-2 tables and the public Linux driver use 6144" }
+OVERLAY_TRANSPARENT_INDEX = { value = 0, grade = "inferred", from = "GBE ASIC specification, rev 1.1", doc = "Overlay pixel value that is transparent, so the normal planes show through" }
+
+[words.DID_FRAME]
+width = 32
+grade = "established"
+doc = "Frame entry of a display-ID table: one per horizontal band of lines. The X module packs it as block << 19 | offset << 11 | yend."
+[words.DID_FRAME.fields]
+yend = { bits = [10, 0], grade = "established", doc = "last line of the band, counted from the first active line" }
+offset = { bits = [18, 11], grade = "established", doc = "offset of the band's line table within its block" }
+block = { bits = [25, 19], grade = "established", doc = "block that holds the band's line table" }
+
+[words.DID_LINE]
+width = 16
+grade = "established"
+doc = "Line-table entry of a display-ID table: one per rectangle in a band, sorted by its last column. The X module packs it as index << 11 | xend."
+[words.DID_LINE.fields]
+xend = { bits = [10, 0], grade = "established", doc = "last column of the rectangle; the last visible entry of a line ends at width minus 1" }
+did = { bits = [15, 11], grade = "established", doc = "display (window) ID of the rectangle" }

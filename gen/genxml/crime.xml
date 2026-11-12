@@ -1,0 +1,133 @@
+<?xml version="1.0" ?>
+<!-- generated from defs/crime.toml by defs-gen - do not edit, change the source -->
+<genxml unit="crime" prefix="CRIME" title="O2 CRIME as the shipped IRIX kernel and graphics libraries drive it: identity, interrupt inputs, renderer state and TLB formats" from="shipped IRIX O2 graphics objects, per docs/crime.md">
+  <doc>Offsets, identity values, interrupt inputs and renderer field layouts that the O2 kernel, OpenGL library and X server use on the CRIME block. Prose and the reasoning are in docs/crime.md.</doc>
+  <struct name="ID" size="1" grade="established" from="shipped IRIX O2 graphics objects, per docs/crime.md" register="yes" offset="0x0" access="r" reset="unknown">
+    <doc>Identity byte at the start of the CRIME block. The graphics probe reads its low byte and accepts the part only when bits 7:4 are the accepted family and the byte is not the refused value.</doc>
+    <field name="family" start="4" size="4" type="uint" grade="established"/>
+  </struct>
+  <struct name="TEXTURE_FORMAT" size="8" grade="established" from="shipped IRIX O2 graphics objects, per docs/crime.md" register="yes" offset="0x2118" access="w" reset="unknown">
+    <doc>Texture format record, written by the OpenGL library for each texture. It carries the log2 sizes of the texture and the coordinate masks. The width of the register is taken from the top field, which reaches bit 47.</doc>
+    <field name="width_inv" start="44" size="4" type="uint" grade="established"/>
+    <field name="height_inv" start="40" size="4" type="uint" grade="established"/>
+    <field name="width_log2" start="36" size="4" type="uint" grade="established"/>
+    <field name="height_log2" start="32" size="4" type="uint" grade="established"/>
+    <field name="width_mask" start="16" size="16" type="uint" grade="established"/>
+    <field name="height_mask" start="0" size="16" type="uint" grade="established"/>
+  </struct>
+  <struct name="IB_ADDR" size="8" grade="established" from="shipped IRIX O2 graphics objects, per docs/crime.md">
+    <doc>Interface-buffer address word, as the kernel decodes it in software. Bit 45 marks the stop entry.</doc>
+    <field name="stop" start="45" size="1" type="uint" grade="established"/>
+    <field name="lane" start="43" size="2" type="uint" grade="established"/>
+    <field name="group" start="40" size="3" type="uint" grade="established"/>
+    <field name="reg_index" start="32" size="8" type="uint" grade="established"/>
+  </struct>
+  <constant name="AA_LINE_OFF" value="0x2190" grade="established"/>
+  <constant name="ALPHA_TEST_OFF" value="0x2198" grade="established"/>
+  <constant name="BLEND_FUNC_OFF" value="0x21a8" grade="established"/>
+  <constant name="BLOCK_ADDR" value="0x14000000" grade="established"/>
+  <constant name="CID_TLB_REGS" value="0x4" grade="established"/>
+  <constant name="CONTROL_OFF" value="0x8" grade="established"/>
+  <constant name="CPU_ERR_STATUS_OFF" value="0x48" grade="established"/>
+  <constant name="DEPTH_APERTURE_ADDR" value="0x12000000" grade="inferred"/>
+  <constant name="DEPTH_FUNC_OFF" value="0x21c0" grade="established"/>
+  <constant name="DMA_IOCTL" value="0x55f2" grade="inferred"/>
+  <constant name="DMA_POLL_LIMIT" value="0x7a120" grade="established"/>
+  <constant name="DMA_REQ_BYTES" value="0x28" grade="established"/>
+  <constant name="DRAWMODE_OFF" value="0x2018" grade="established"/>
+  <constant name="ENGINE_RESET_OFF" value="0x408" grade="established"/>
+  <constant name="FB_TLB_REGS" value="0x40" grade="established"/>
+  <constant name="FOG_COLOR_OFF" value="0x2170" grade="established"/>
+  <constant name="FRAME_APERTURE_ADDR" value="0x10000000" grade="inferred"/>
+  <constant name="FULL_MEM_ADDR" value="0x40000000" grade="inferred"/>
+  <constant name="GBE_WINDOW_ADDR" value="0x16000000" grade="inferred"/>
+  <constant name="GL_UNBOUND_BIAS" value="0x21000" grade="established"/>
+  <constant name="GL_VERTEX_BIAS" value="0x1000" grade="established"/>
+  <constant name="HIGH_ALIAS_ADDR" value="0x20000000" grade="inferred"/>
+  <constant name="ID_FAMILY_ACCEPTED" value="0xa" grade="established"/>
+  <constant name="ID_REFUSED_BYTE" value="0xa0" grade="established"/>
+  <constant name="ID_SPEC_15" value="0xb1" grade="inferred"/>
+  <constant name="INTMASK_OFF" value="0x18" grade="established"/>
+  <constant name="INTR_EDGE_OFF" value="0x28" grade="established"/>
+  <constant name="INTSTAT_OFF" value="0x10" grade="established"/>
+  <constant name="IRQ_BUS_ERR_A" value="0x14" grade="established"/>
+  <constant name="IRQ_BUS_ERR_B" value="0x15" grade="established"/>
+  <constant name="IRQ_FIFO_HIGH" value="0x1a" grade="established"/>
+  <constant name="IRQ_FIFO_LOW" value="0x19" grade="established"/>
+  <constant name="IRQ_GBE_LINE_2" value="0x12" grade="established"/>
+  <constant name="IRQ_GBE_LINE_3" value="0x13" grade="established"/>
+  <constant name="IRQ_MACE_ISA_A" value="0x4" grade="established"/>
+  <constant name="IRQ_MACE_ISA_B" value="0x5" grade="established"/>
+  <constant name="IRQ_PREBLANK" value="0x11" grade="established"/>
+  <constant name="IRQ_RETRACE" value="0x10" grade="established"/>
+  <constant name="IRQ_SOFT_A" value="0x1c" grade="inferred"/>
+  <constant name="IRQ_SOFT_B" value="0x1d" grade="inferred"/>
+  <constant name="LINEAR_WINDOW_MASK" value="0x1ffff" grade="established"/>
+  <constant name="LINE_MATCH_LATCHES" value="0x4" grade="inferred"/>
+  <constant name="LIN_TLB_MAX_PAGES" value="0x20" grade="established"/>
+  <constant name="LIN_TLB_REGS" value="0x10" grade="established"/>
+  <constant name="LIN_TLB_VALID" value="0x80000000" grade="established"/>
+  <constant name="LOGIC_OP_OFF" value="0x21b0" grade="established"/>
+  <constant name="MACE_WINDOW_ADDR" value="0x18000000" grade="inferred"/>
+  <constant name="MEM_CTL_OFF" value="0x200" grade="established"/>
+  <constant name="MEM_ERR_STATUS_OFF" value="0x250" grade="established"/>
+  <constant name="MTE_HOST_CHUNK_BYTES" value="0x20000" grade="established"/>
+  <constant name="MTE_MODE_HOST_CLEAR" value="0x11" grade="established"/>
+  <constant name="MTE_MODE_HOST_COPY" value="0x897" grade="established"/>
+  <constant name="MTE_MODE_X_COPY" value="0x820" grade="established"/>
+  <constant name="MTE_X_BLOCK_BYTES" value="0x100" grade="established"/>
+  <constant name="MTE_X_ROWS_16" value="0x10" grade="established"/>
+  <constant name="MTE_X_ROWS_32" value="0x8" grade="established"/>
+  <constant name="NOECC_ALIAS_ADDR" value="0x80000000" grade="inferred"/>
+  <constant name="PAGE_BYTES" value="0x1000" grade="inferred"/>
+  <constant name="PIXFLUSH_OFF" value="0x21f8" grade="established"/>
+  <constant name="PIXPIPE_NULL_OFF" value="0x21f0" grade="established"/>
+  <constant name="PIXXFER_POS_OFF" value="0x20a0" grade="established"/>
+  <constant name="PIXXFER_VTX_OFF" value="0x2070" grade="established"/>
+  <constant name="PIXXFER_YSTEP_OFF" value="0x20ac" grade="established"/>
+  <constant name="PRIMITIVE_OFF" value="0x2060" grade="established"/>
+  <constant name="PRIM_RECT" value="0x3020000" grade="established"/>
+  <constant name="PRIM_TRIANGLE" value="0x2000000" grade="established"/>
+  <constant name="RENDER_COUNT_INIT" value="0xa" grade="established"/>
+  <constant name="RENDER_CTL_INIT" value="0xfefff0a" grade="established"/>
+  <constant name="RENDER_CTL_OFF" value="0x400" grade="established"/>
+  <constant name="RENDER_EMPTY_SHIFT" value="0xe" grade="established"/>
+  <constant name="RENDER_FIELD_MASK" value="0x7f" grade="established"/>
+  <constant name="RENDER_FIFO_DEPTH" value="0x40" grade="inferred"/>
+  <constant name="RENDER_FLUSH_OFF" value="0x4008" grade="established"/>
+  <constant name="RENDER_FULL_SHIFT" value="0x15" grade="established"/>
+  <constant name="RENDER_OCC_SHIFT" value="0x12" grade="established"/>
+  <constant name="RENDER_R10K_EMPTY" value="0x0" grade="established"/>
+  <constant name="RENDER_R10K_FULL" value="0x14" grade="established"/>
+  <constant name="RENDER_R10K_STALL" value="0x13" grade="established"/>
+  <constant name="RENDER_R5K_EMPTY" value="0x18" grade="established"/>
+  <constant name="RENDER_R5K_FULL" value="0x30" grade="established"/>
+  <constant name="RENDER_R5K_STALL" value="0x2f" grade="established"/>
+  <constant name="RENDER_STALL_SHIFT" value="0x7" grade="established"/>
+  <constant name="RENDER_START_MASK" value="0x3f" grade="established"/>
+  <constant name="RENDER_STATUS_IDLE_BIT" value="0x1c" grade="established"/>
+  <constant name="RENDER_STATUS_OFF" value="0x4000" grade="established"/>
+  <constant name="RENDER_WPTR_SHIFT" value="0x6" grade="established"/>
+  <constant name="SOFTINT_OFF" value="0x20" grade="inferred"/>
+  <constant name="START_ALIAS_OFF" value="0x800" grade="established"/>
+  <constant name="STENCIL_MASK_OFF" value="0x21e8" grade="established"/>
+  <constant name="STENCIL_MODE_OFF" value="0x21e0" grade="established"/>
+  <constant name="TEXTURE_MODE_OFF" value="0x2110" grade="established"/>
+  <constant name="TEX_LOG2_BYTES_SHIFT" value="0x12" grade="established"/>
+  <constant name="TEX_MAX_TEXELS" value="0x400" grade="inferred"/>
+  <constant name="TEX_SUBTILE_BIT" value="0x18" grade="established"/>
+  <constant name="TEX_SUBTILE_CELL_BYTES" value="0x20" grade="inferred"/>
+  <constant name="TEX_TILE_FLAG" value="0x8000" grade="established"/>
+  <constant name="TEX_TLB_REGS" value="0x1c" grade="established"/>
+  <constant name="TEX_TYPE_SHIFT" value="0x14" grade="established"/>
+  <constant name="TILE_BYTES" value="0x10000" grade="inferred"/>
+  <constant name="TILE_PAGES" value="0x10" grade="established"/>
+  <constant name="TILE_ROWS" value="0x80" grade="inferred"/>
+  <constant name="TILE_ROW_BYTES" value="0x200" grade="inferred"/>
+  <constant name="TIME_OFF" value="0x38" grade="established"/>
+  <constant name="TIME_RESOLUTION" value="0x3a98" grade="established"/>
+  <constant name="VTX_DEPTH_BASE" value="0x840000" grade="established"/>
+  <constant name="VTX_STEP" value="0x40" grade="established"/>
+  <constant name="VTX_TRI_BASE" value="0x48040000" grade="established"/>
+  <constant name="WATCHDOG_OFF" value="0x30" grade="established"/>
+</genxml>

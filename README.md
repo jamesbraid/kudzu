@@ -28,6 +28,7 @@ Every hand-written document under `docs/` and the top-level Markdown files, grou
 - [docs/hwgraph-paths.md](docs/hwgraph-paths.md): Hardware-graph path and edge names in the 6.5.30 kernels
 - [docs/interrupts.md](docs/interrupts.md): Hub interrupt routing as the kernel programs it
 - [docs/gbe.md](docs/gbe.md): O2 GBE two-wire buses, flat-panel timing words and the dual-channel option probe
+- [docs/crime.md](docs/crime.md): O2 CRIME: identity, interrupt inputs, renderer interface buffer, TLBs and the pixel pipeline as the shipped IRIX graphics code drives them
 - [docs/ioconfig.md](docs/ioconfig.md): Device unit numbers and the ioconfig file
 - [docs/input-path.md](docs/input-path.md): Input events from a serial tablet module through the shared-memory queue to Xsgi
 - [docs/nic.md](docs/nic.md): Board identity read from Dallas 1-Wire number-in-a-can parts

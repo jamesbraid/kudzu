@@ -242,6 +242,9 @@
 #define GBE_DID_CONTROL_ENABLE_SHIFT                 16 /* established */
 #define GBE_DID_CONTROL_ENABLE_MASK                  0x1u
 #define GBE_DID_CONTROL_ENABLE_INPLACE               (GBE_DID_CONTROL_ENABLE_MASK << GBE_DID_CONTROL_ENABLE_SHIFT)
+#define GBE_DID_CONTROL_TABLE_HI_SHIFT               0 /* inferred */
+#define GBE_DID_CONTROL_TABLE_HI_MASK                0xffffu
+#define GBE_DID_CONTROL_TABLE_HI_INPLACE             (GBE_DID_CONTROL_TABLE_HI_MASK << GBE_DID_CONTROL_TABLE_HI_SHIFT)
 
 /*
  * Window-ID table, one 32-bit word per window index. Indices of 32 or more are rejected by the kernel. The kernel writes entry 0 with 3 at text-port set-up.
@@ -250,6 +253,9 @@
 #define GBE_WID_OFFSET                               0x48000u /* established */
 #define GBE_WID_COUNT                                32
 #define GBE_WID_STRIDE                               4
+#define GBE_WID_AUX_SHIFT                            11 /* inferred */
+#define GBE_WID_AUX_MASK                             0x3u
+#define GBE_WID_AUX_INPLACE                          (GBE_WID_AUX_MASK << GBE_WID_AUX_SHIFT)
 #define GBE_WID_GAMMA_DISABLE_SHIFT                  10 /* established */
 #define GBE_WID_GAMMA_DISABLE_MASK                   0x1u
 #define GBE_WID_GAMMA_DISABLE_INPLACE                (GBE_WID_GAMMA_DISABLE_MASK << GBE_WID_GAMMA_DISABLE_SHIFT)
@@ -295,8 +301,36 @@
 #define GBE_CURSOR_GLYPH_COUNT                       64
 #define GBE_CURSOR_GLYPH_STRIDE                      4
 
+/*
+ * Frame entry of a display-ID table: one per horizontal band of lines. The X module packs it as block << 19 | offset << 11 | yend.
+ */
+/* word DID_FRAME: 32 bits; shipped IRIX kernel binaries, per docs/gbe.md */
+#define GBE_DID_FRAME_WIDTH                          32 /* established */
+#define GBE_DID_FRAME_BLOCK_SHIFT                    19 /* established */
+#define GBE_DID_FRAME_BLOCK_MASK                     0x7fu
+#define GBE_DID_FRAME_BLOCK_INPLACE                  (GBE_DID_FRAME_BLOCK_MASK << GBE_DID_FRAME_BLOCK_SHIFT)
+#define GBE_DID_FRAME_OFFSET_SHIFT                   11 /* established */
+#define GBE_DID_FRAME_OFFSET_MASK                    0xffu
+#define GBE_DID_FRAME_OFFSET_INPLACE                 (GBE_DID_FRAME_OFFSET_MASK << GBE_DID_FRAME_OFFSET_SHIFT)
+#define GBE_DID_FRAME_YEND_SHIFT                     0 /* established */
+#define GBE_DID_FRAME_YEND_MASK                      0x7ffu
+#define GBE_DID_FRAME_YEND_INPLACE                   (GBE_DID_FRAME_YEND_MASK << GBE_DID_FRAME_YEND_SHIFT)
+
+/*
+ * Line-table entry of a display-ID table: one per rectangle in a band, sorted by its last column. The X module packs it as index << 11 | xend.
+ */
+/* word DID_LINE: 16 bits; shipped IRIX kernel binaries, per docs/gbe.md */
+#define GBE_DID_LINE_WIDTH                           16 /* established */
+#define GBE_DID_LINE_DID_SHIFT                       11 /* established */
+#define GBE_DID_LINE_DID_MASK                        0x1fu
+#define GBE_DID_LINE_DID_INPLACE                     (GBE_DID_LINE_DID_MASK << GBE_DID_LINE_DID_SHIFT)
+#define GBE_DID_LINE_XEND_SHIFT                      0 /* established */
+#define GBE_DID_LINE_XEND_MASK                       0x7ffu
+#define GBE_DID_LINE_XEND_INPLACE                    (GBE_DID_LINE_XEND_MASK << GBE_DID_LINE_XEND_SHIFT)
+
 #define GBE_BOARD_INTERLACE_OFF                      0x2du /* established */
 #define GBE_BOARD_PANEL_OFF                          0x2eu /* established */
+#define GBE_CMAP_ENTRIES_REV11                       0x1200u /* inferred */
 #define GBE_CMAP_ENTRY_BASE                          0x50000u /* established */
 #define GBE_CMFIFO_BATCH                             0x21u /* established */
 #define GBE_CMFIFO_FREE_MIN                          0x30u /* established */
@@ -321,10 +355,14 @@
 #define GBE_OPT_ID_RESTORE                           0x70u /* established */
 #define GBE_OPT_INSTALLED_LIMIT                      0x9u /* established */
 #define GBE_OPT_PORT_ADDR                            0x7eu /* established */
+#define GBE_OVERLAY_TRANSPARENT_INDEX                0x0u /* inferred */
 #define GBE_PANEL_SETUP_A                            0x82u /* established */
 #define GBE_PANEL_SETUP_B                            0x83u /* established */
 #define GBE_PANEL_SETUP_C                            0x84u /* established */
 #define GBE_REF_CLOCK_KHZ                            0x4e20u /* inferred */
+#define GBE_TILE_LIST_ALIGN_BYTES                    0x200u /* inferred */
+#define GBE_TILE_LIST_OUTSTANDING                    0x8u /* inferred */
+#define GBE_TILE_LIST_PAGE_BYTES                     0x2000u /* inferred */
 #define GBE_TILE_NUMBER_MASK                         0x1fffu /* established */
 #define GBE_TWO_WIRE_FP_OFF                          0x10u /* established */
 #define GBE_TWO_WIRE_MON_OFF                         0x8u /* established */

@@ -218,6 +218,7 @@ Display-ID table control. The stop routine clears its enable bit and leaves the 
 | Bits | Field | Grade | Values | Source | Description |
 |---|---|---|---|---|---|
 | 16 | `enable` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | cleared by the stop routine; the stop routine also tests it at entry |
+| 15:0 | `table_hi` | inferred |  | shipped IRIX kernel binaries, per docs/gbe.md | Upper address bits of the 64 KiB display-ID table. The specification gives this field; the kernel never writes it |
 
 ### Register `wid`
 
@@ -227,6 +228,7 @@ Array of 32 registers, stride 4.
 
 | Bits | Field | Grade | Values | Source | Description |
 |---|---|---|---|---|---|
+| 12:11 | `aux` | inferred |  | shipped IRIX X display module, per docs/gbe.md | Auxiliary code. The kernel's compare mask of 0x7fc leaves it out. The position is from the specification |
 | 10 | `gamma_disable` | established |  | shipped IRIX X display module, per docs/gbe.md | gamma disable. The kernel clears it before a write when the alternative gamma table is in use. |
 | 9:5 | `map_group` | inferred |  | shipped IRIX X display module, per docs/gbe.md | colour-map group; the group's first entry is this value times 256. The bit position is inferred from the table values. |
 | 4:2 | `type` | inferred |  | shipped IRIX X display module, per docs/gbe.md | pixel type: 0 indexed 8-bit, 1 indexed 12-bit, 2 RG3B2, 4 RGB5, 5 RGB8. The bit position is inferred from the table values and the compare mask. |
@@ -254,12 +256,39 @@ Cursor bitmap, 64 words. The text port loads words 0 to 31 from a 32-word table 
 
 Array of 64 registers, stride 4.
 
+## Words
+
+| Word | Width | Grade | Source |
+|---|---|---|---|
+| `DID_FRAME` | 32 | established | shipped IRIX kernel binaries, per docs/gbe.md |
+| `DID_LINE` | 16 | established | shipped IRIX kernel binaries, per docs/gbe.md |
+
+### Word `DID_FRAME`
+
+Frame entry of a display-ID table: one per horizontal band of lines. The X module packs it as block << 19 | offset << 11 | yend.
+
+| Bits | Field | Grade | Values | Source | Description |
+|---|---|---|---|---|---|
+| 25:19 | `block` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | block that holds the band's line table |
+| 18:11 | `offset` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | offset of the band's line table within its block |
+| 10:0 | `yend` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | last line of the band, counted from the first active line |
+
+### Word `DID_LINE`
+
+Line-table entry of a display-ID table: one per rectangle in a band, sorted by its last column. The X module packs it as index << 11 | xend.
+
+| Bits | Field | Grade | Values | Source | Description |
+|---|---|---|---|---|---|
+| 15:11 | `did` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | display (window) ID of the rectangle |
+| 10:0 | `xend` | established |  | shipped IRIX kernel binaries, per docs/gbe.md | last column of the rectangle; the last visible entry of a line ends at width minus 1 |
+
 ## Constants
 
 | Constant | Value | Grade | Source | Description |
 |---|---|---|---|---|
 | `BOARD_INTERLACE_OFF` | 0x2d | established | shipped IRIX kernel binaries, per docs/gbe.md | Board description byte that selects the interlace case when non-zero. The layout of the board description is not established here. |
 | `BOARD_PANEL_OFF` | 0x2e | established | shipped IRIX kernel binaries, per docs/gbe.md | Board description byte that selects a flat-panel set-up. |
+| `CMAP_ENTRIES_REV11` | 0x1200 | inferred | shipped IRIX kernel binaries, per docs/gbe.md | Colour-map entries in revision 1.1. The IRIX revision-2 tables and the public Linux driver use 6144 |
 | `CMAP_ENTRY_BASE` | 0x50000 | established | shipped IRIX kernel binaries, per docs/gbe.md | Colour-map entry i is the word at this offset plus 4 times i; the word is red << 24 \| green << 16 \| blue << 8 |
 | `CMFIFO_BATCH` | 0x21 | established | shipped IRIX kernel binaries, per docs/gbe.md | Colour-map writes the X module issues between FIFO checks |
 | `CMFIFO_FREE_MIN` | 0x30 | established | shipped IRIX kernel binaries, per docs/gbe.md | Free colour-map FIFO entries the X module waits for after each batch of 33 writes |
@@ -284,10 +313,14 @@ Array of 64 registers, stride 4.
 | `OPT_ID_RESTORE` | 0x70 | established | shipped IRIX kernel binaries, per docs/gbe.md | Bits ORed into the first byte read when the probe writes that byte back. |
 | `OPT_INSTALLED_LIMIT` | 0x9 | established | shipped IRIX kernel binaries, per docs/gbe.md | Installed values below this use the small horizontal delay. The reason for the split is inferred. |
 | `OPT_PORT_ADDR` | 0x7e | established | shipped IRIX kernel binaries, per docs/gbe.md | Write address of the option port on the flat-panel bus. A read uses the same address with bit 0 set. |
+| `OVERLAY_TRANSPARENT_INDEX` | 0x0 | inferred | shipped IRIX kernel binaries, per docs/gbe.md | Overlay pixel value that is transparent, so the normal planes show through |
 | `PANEL_SETUP_A` | 0x82 | established | shipped IRIX kernel binaries, per docs/gbe.md | Panel set-up byte: fixed values for the first panel. |
 | `PANEL_SETUP_B` | 0x83 | established | shipped IRIX kernel binaries, per docs/gbe.md | Panel set-up byte: fixed values for the second panel. |
 | `PANEL_SETUP_C` | 0x84 | established | shipped IRIX kernel binaries, per docs/gbe.md | Panel set-up byte: fixed horizontal value, and the timing flag rewrite. |
 | `REF_CLOCK_KHZ` | 0x4e20 | inferred | shipped IRIX kernel binaries, per docs/gbe.md | PLL reference clock behind the dot-clock table. The kernel states none; the source reading takes 20 MHz from a public Linux driver, not re-checked here. |
+| `TILE_LIST_ALIGN_BYTES` | 0x200 | inferred | shipped IRIX kernel binaries, per docs/gbe.md | Tile-list requests start on this boundary |
+| `TILE_LIST_OUTSTANDING` | 0x8 | inferred | shipped IRIX kernel binaries, per docs/gbe.md | Tile-list requests that may be outstanding at once |
+| `TILE_LIST_PAGE_BYTES` | 0x2000 | inferred | shipped IRIX kernel binaries, per docs/gbe.md | A tile-list request does not cross a page of this size |
 | `TILE_NUMBER_MASK` | 0x1fff | established | shipped IRIX kernel binaries, per docs/gbe.md | Mask the kernel applies to a physical tile address before it is written into a tile list |
 | `TWO_WIRE_FP_OFF` | 0x10 | established | shipped IRIX kernel binaries, per docs/gbe.md | Register offset of the flat-panel two-wire bus. Bus selector 1 drives it. |
 | `TWO_WIRE_MON_OFF` | 0x8 | established | shipped IRIX kernel binaries, per docs/gbe.md | Register offset of the monitor two-wire bus. Every other bus selector drives it. |
