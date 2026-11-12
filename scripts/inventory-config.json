@@ -1554,5 +1554,11 @@
         ".srdata"
       ]
     }
+  ],
+  "review_required": [
+    "docs/routines/t1-*.md",
+    "docs/routines/t2-*.md",
+    "docs/routines/kept-*.md",
+    "docs/routines/ioctl-handlers-*.md"
   ]
 }

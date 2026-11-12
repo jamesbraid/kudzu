@@ -1,8 +1,8 @@
 number	hex	table	handler	evidence	senders	binaries	example	status	doc	section
-26369	0x6701		pcibr_ioctl	handled		1	6.5.30/unix.IP27:pcibr_ioctl	understood	docs/routines/ioctl-handlers-ip27.md#routine-roles-ip27-control-call-handlers	Routine roles: IP27 control-call handlers
-26370	0x6702		pcibr_ioctl	handled		1	6.5.30/unix.IP27:pcibr_ioctl	understood	docs/routines/ioctl-handlers-ip27.md#routine-roles-ip27-control-call-handlers	Routine roles: IP27 control-call handlers
-28673	0x7001		pcibr_ioctl	handled		1	6.5.30/unix.IP27:pcibr_ioctl	understood	docs/routines/ioctl-handlers-ip27.md#routine-roles-ip27-control-call-handlers	Routine roles: IP27 control-call handlers
-28674	0x7002		pcibr_ioctl	handled		1	6.5.30/unix.IP27:pcibr_ioctl	understood	docs/routines/ioctl-handlers-ip27.md#routine-roles-ip27-control-call-handlers	Routine roles: IP27 control-call handlers
-28675	0x7003		pcibr_ioctl	handled		1	6.5.30/unix.IP27:pcibr_ioctl	understood	docs/routines/ioctl-handlers-ip27.md#routine-roles-ip27-control-call-handlers	Routine roles: IP27 control-call handlers
-29446	0x7306		scsiha_ioctl	handled		1	6.5.30/unix.IP27:scsiha_ioctl	understood	docs/routines/t1-kudzu-b011.md#routine-roles-tier-1-batch-11	Routine roles: tier-1 batch 11
-29473	0x7321		scsiha_ioctl	handled		1	6.5.30/unix.IP27:scsiha_ioctl	understood	docs/routines/t1-kudzu-b011.md#routine-roles-tier-1-batch-11	Routine roles: tier-1 batch 11
+26369	0x6701		pcibr_ioctl	handled		1	6.5.30/unix.IP27:pcibr_ioctl	located	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
+26370	0x6702		pcibr_ioctl	handled		1	6.5.30/unix.IP27:pcibr_ioctl	located	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
+28673	0x7001		pcibr_ioctl	handled		1	6.5.30/unix.IP27:pcibr_ioctl	located	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
+28674	0x7002		pcibr_ioctl	handled		1	6.5.30/unix.IP27:pcibr_ioctl	located	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
+28675	0x7003		pcibr_ioctl	handled		1	6.5.30/unix.IP27:pcibr_ioctl	located	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
+29446	0x7306		scsiha_ioctl	handled		1	6.5.30/unix.IP27:scsiha_ioctl	located	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
+29473	0x7321		scsiha_ioctl	handled		1	6.5.30/unix.IP27:scsiha_ioctl	located	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
