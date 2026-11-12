@@ -49,6 +49,7 @@ Every hand-written document under `docs/` and the top-level Markdown files, grou
 - [docs/network-and-snapshots.md](docs/network-and-snapshots.md): Network addressing and filtering; XVM and XFS copy-on-write primitives
 - [docs/network-dataplane-and-vfs.md](docs/network-dataplane-and-vfs.md): Network dataplane and virtual file system attachment points
 - [docs/page-migration.md](docs/page-migration.md): Page migration and cross-partition communication in the 6.5.30 kernels
+- [docs/numa-text-replication.md](docs/numa-text-replication.md): Kernel text replication, user page replication and node numbering after start-up (IP27 and IP35)
 - [docs/process-model.md](docs/process-model.md): Process model, groups, root directories and privilege checks
 - [docs/resource-control.md](docs/resource-control.md): Resource control and NUMA placement: cpusets, miser, limits
 - [docs/scsi-cdrom-inquiry.md](docs/scsi-cdrom-inquiry.md): The INQUIRY vendor and product text of a SCSI CD-ROM
