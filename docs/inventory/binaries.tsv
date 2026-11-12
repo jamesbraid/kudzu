@@ -4020,7 +4020,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/lib32/rld	userland-libraries	userland	executable	n32	555968	bce3d5b3f8c18722		1136	symtab+dwarf	0	0	named-only	docs/userland-abi-and-loader.md#quickstart-and-library-versioning	Quickstart and library versioning
 6.5.30/lib64/rld	userland-libraries	userland	executable	n64	612936	7ce15131c84e66be		1136	symtab+dwarf	0	0	undocumented		
 6.5.30/sbin/hinv	userland-base	userland	executable	n32	77064	4f430d6c4da73656		19	dynsym	0	0	named-only	docs/dmedia-video-drivers.md#divo-software	DIVO software
-6.5.30/sbin/ioconfig	userland-base	userland	executable	n32	41768	cef4f7b1b16a0c3e		24	dynsym	0	0	named-only	docs/dmedia-video-drivers.md#what-was-read	What was read
+6.5.30/sbin/ioconfig	userland-base	userland	executable	n32	41768	cef4f7b1b16a0c3e		24	dynsym	0	0	named-only	docs/dm2-ioctl.md#1-calling-convention-e	1. Calling convention (E)
 6.5.30/sbin/mkfs_xfs	userland-base	userland	executable	n32	360980	3c2bb50a0a2b2171		550	dynsym	0	0	named-only	docs/network-and-snapshots.md#evidence-and-method	Evidence and method
 6.5.30/sbin/xvm	userland-base	userland	executable	n32	984392	33fc326360f2c676		913	dynsym	0	0	named-only	docs/network-and-snapshots.md#evidence-and-method	Evidence and method
 6.5.30/unix.IP27	kernel-image	shared-kernel	executable	n64	11101184	567474674eaa83d3		13484	symtab+dwarf	332	182	named-only	docs/checkpoint-restart.md#ip27-and-6522	IP27 and 6.5.22
@@ -7581,9 +7581,9 @@ dmediapro-dm2-1.1.3ml/etc/init.d/mldaemon	video-option-products	shared-kernel	da
 dmediapro-dm2-1.1.3ml/tmp/VERSION	video-option-products	shared-kernel	data	-	545	c8fd44c44f132666	dmediapro-dm2-1.1.3ml/usr/dmedia/ucode/vbob/VERSION	0		0	0	undocumented		
 dmediapro-dm2-1.1.3ml/tmp/VERSION.1	video-option-products	shared-kernel	data	-	545	d414ac66d76f06d3	dmediapro-dm2-1.1.3ml/usr/dmedia/ucode/vbob/VERSION.1	0		0	0	undocumented		
 dmediapro-dm2-1.1.3ml/usr/bin/mlquery	video-option-products	shared-kernel	executable	n32	39976	4e48e21526c11316		32	dynsym	0	0	named-only	docs/dmedia-video-drivers.md#what-was-read	What was read
-dmediapro-dm2-1.1.3ml/usr/cpu/sysgen/IP27boot/xtdigvid.o	video-option-products	shared-kernel	object	n64	658792	138ab5488ed6263b		55	symtab+dwarf	0	0	named-only	docs/dmedia-video-drivers.md#what-was-read	What was read
-dmediapro-dm2-1.1.3ml/usr/cpu/sysgen/IP30boot/xtdigvid.o	video-option-products	shared-kernel	object	n64	653304	952c3d9ecca08643		54	symtab+dwarf	0	0	named-only	docs/dmedia-video-drivers.md#what-was-read	What was read
-dmediapro-dm2-1.1.3ml/usr/cpu/sysgen/IP35boot/xtdigvid.o	video-option-products	shared-kernel	object	n64	658960	64c024a59b6b1dd7		54	symtab+dwarf	0	0	named-only	docs/dmedia-video-drivers.md#what-was-read	What was read
+dmediapro-dm2-1.1.3ml/usr/cpu/sysgen/IP27boot/xtdigvid.o	video-option-products	shared-kernel	object	n64	658792	138ab5488ed6263b		55	symtab+dwarf	0	0	named-only	docs/dm2-ioctl.md#sources	Sources
+dmediapro-dm2-1.1.3ml/usr/cpu/sysgen/IP30boot/xtdigvid.o	video-option-products	shared-kernel	object	n64	653304	952c3d9ecca08643		54	symtab+dwarf	0	0	named-only	docs/dm2-ioctl.md#sources	Sources
+dmediapro-dm2-1.1.3ml/usr/cpu/sysgen/IP35boot/xtdigvid.o	video-option-products	shared-kernel	object	n64	658960	64c024a59b6b1dd7		54	symtab+dwarf	0	0	named-only	docs/dm2-ioctl.md#sources	Sources
 dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/check_ustmsc	video-option-products	shared-kernel	executable	n32	21956	4526fcdfee9c0b8f		5	dynsym	0	0	named-only	docs/dmedia-video-drivers.md#dm2-user-side	DM2 user side
 dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/diff_images	video-option-products	shared-kernel	executable	n32	21968	5c23011bc07c155a		6	dynsym	0	0	named-only	docs/dmedia-video-drivers.md#dm2-user-side	DM2 user side
 dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/dv_flapper	video-option-products	shared-kernel	data	-	10397	95a4e616fdf6515e		0		0	0	named-only	docs/dmedia-video-drivers.md#dm2-user-side	DM2 user side
@@ -7591,12 +7591,12 @@ dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/dv_memtovid	video-option-product
 dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/dv_vidtocmp	video-option-products	shared-kernel	executable	n32	42952	70296d4450c42e69		14	dynsym	0	0	named-only	docs/dmedia-video-drivers.md#dm2-user-side	DM2 user side
 dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/dv_vidtogfx	video-option-products	shared-kernel	executable	n32	42816	95c98c1de4da49c4		9	dynsym	0	0	named-only	docs/dmedia-video-drivers.md#dm2-user-side	DM2 user side
 dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/dv_vidtomem	video-option-products	shared-kernel	executable	n32	64312	2acdd103e4e9f987		39	dynsym	0	0	named-only	docs/dmedia-video-drivers.md#dm2-user-side	DM2 user side
-dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/vbob_reset	video-option-products	shared-kernel	executable	n32	39380	1b28dda2fc1289a1		14	dynsym	0	0	named-only	docs/dmedia-video-drivers.md#dm2-user-side	DM2 user side
+dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/vbob_reset	video-option-products	shared-kernel	executable	n32	39380	1b28dda2fc1289a1		14	dynsym	0	0	named-only	docs/dm2-ioctl.md#8-unknowns-and-what-would-settle-each	8. Unknowns, and what would settle each
 dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/xtdigvid_confidence	video-option-products	shared-kernel	data	-	113682	90a75022dcf19f96		0		0	0	named-only	docs/dmedia-video-drivers.md#dm2-user-side	DM2 user side
 dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/xtdigvid_hinv	video-option-products	shared-kernel	data	-	2351	ba13ca2c8582ede3		0		0	0	named-only	docs/dmedia-video-drivers.md#dm2-kernel-driver-xtdigvido	DM2 kernel driver (`xtdigvid.o`)
-dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/xtdigvidtst	video-option-products	shared-kernel	executable	n32	113316	7c96c9a69f7d2378		53	dynsym	0	0	named-only	docs/dmedia-video-drivers.md#dm2-user-side	DM2 user side
-dmediapro-dm2-1.1.3ml/usr/dmedia/bin/vbob/vbob_config	video-option-products	shared-kernel	executable	n32	39792	e6f92e2982a35f4d		14	dynsym	0	0	named-only	docs/dmedia-video-drivers.md#dm2-user-side	DM2 user side
-dmediapro-dm2-1.1.3ml/usr/dmedia/bin/vbob/vbob_flash	video-option-products	shared-kernel	executable	n32	65856	19d127ccfe308e1e		52	dynsym	0	0	named-only	docs/dmedia-video-drivers.md#dm2-user-side	DM2 user side
+dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/xtdigvidtst	video-option-products	shared-kernel	executable	n32	113316	7c96c9a69f7d2378		53	dynsym	0	0	named-only	docs/dm2-ioctl.md#8-unknowns-and-what-would-settle-each	8. Unknowns, and what would settle each
+dmediapro-dm2-1.1.3ml/usr/dmedia/bin/vbob/vbob_config	video-option-products	shared-kernel	executable	n32	39792	e6f92e2982a35f4d		14	dynsym	0	0	named-only	docs/dm2-ioctl.md#8-unknowns-and-what-would-settle-each	8. Unknowns, and what would settle each
+dmediapro-dm2-1.1.3ml/usr/dmedia/bin/vbob/vbob_flash	video-option-products	shared-kernel	executable	n32	65856	19d127ccfe308e1e		52	dynsym	0	0	named-only	docs/dm2-ioctl.md#8-unknowns-and-what-would-settle-each	8. Unknowns, and what would settle each
 dmediapro-dm2-1.1.3ml/usr/dmedia/bin/vbob/vbob_flash.1	video-option-products	shared-kernel	executable	n32	66204	9b37085387ba61df		51	dynsym	0	0	undocumented		
 dmediapro-dm2-1.1.3ml/usr/dmedia/bin/vbob/vbob_update1	video-option-products	shared-kernel	data	-	1399	0a16bc1701983635		0		0	0	named-only	docs/dmedia-video-drivers.md#dm2-user-side	DM2 user side
 dmediapro-dm2-1.1.3ml/usr/dmedia/bin/vbob/vbob_update2	video-option-products	shared-kernel	data	-	1825	ff087c01ab50b5fe		0		0	0	named-only	docs/dmedia-video-drivers.md#dm2-user-side	DM2 user side
@@ -7694,7 +7694,7 @@ dmediapro-dm2-1.1.3ml/usr/include/ML/ml.h	video-option-products	shared-kernel	da
 dmediapro-dm2-1.1.3ml/usr/include/ML/ml_didd.h	video-option-products	shared-kernel	data	-	7785	654fd843969cba23		0		0	0	undocumented		
 dmediapro-dm2-1.1.3ml/usr/include/ML/ml_oswrap.h	video-option-products	shared-kernel	data	-	4328	86cc004c9d07fa8d		0		0	0	undocumented		
 dmediapro-dm2-1.1.3ml/usr/include/ML/ml_private.h	video-option-products	shared-kernel	data	-	12358	d00256e7a1d96a22		0		0	0	undocumented		
-dmediapro-dm2-1.1.3ml/usr/include/ML/ml_xtdigvid.h	video-option-products	shared-kernel	data	-	4350	ba0bb950f48e06d1		0		0	0	undocumented		
+dmediapro-dm2-1.1.3ml/usr/include/ML/ml_xtdigvid.h	video-option-products	shared-kernel	data	-	4350	ba0bb950f48e06d1		0		0	0	named-only	docs/dm2-ioctl.md#6-cross-check-against-libdigvidso	6. Cross-check against `libdigvid.so`
 dmediapro-dm2-1.1.3ml/usr/include/ML/mlancdata.h	video-option-products	shared-kernel	data	-	4873	8782a95ce910871b		0		0	0	undocumented		
 dmediapro-dm2-1.1.3ml/usr/include/ML/mlaudio.h	video-option-products	shared-kernel	data	-	7844	d5b0cbbf79c0d866		0		0	0	undocumented		
 dmediapro-dm2-1.1.3ml/usr/include/ML/mlcompression.h	video-option-products	shared-kernel	data	-	3400	0691c8ee5c8866dc		0		0	0	undocumented		
@@ -7717,11 +7717,11 @@ dmediapro-dm2-1.1.3ml/usr/include/ML/mlutimecode.h	video-option-products	shared-
 dmediapro-dm2-1.1.3ml/usr/include/ML/mlutiming.h	video-option-products	shared-kernel	data	-	3197	c6c3c3b0d293a253		0		0	0	undocumented		
 dmediapro-dm2-1.1.3ml/usr/include/ML/mlvideo.h	video-option-products	shared-kernel	data	-	9333	782b5714da124c14		0		0	0	undocumented		
 dmediapro-dm2-1.1.3ml/usr/include/ML/mlxcode.h	video-option-products	shared-kernel	data	-	5670	d00117f8a7889573		0		0	0	undocumented		
-dmediapro-dm2-1.1.3ml/usr/lib32/libML.so.1	video-option-products	shared-kernel	shared-object	n32	138788	19c056d1c12fc399		169	dynsym+dwarf	0	0	named-only	docs/dmedia-video-drivers.md#what-was-read	What was read
+dmediapro-dm2-1.1.3ml/usr/lib32/libML.so.1	video-option-products	shared-kernel	shared-object	n32	138788	19c056d1c12fc399		169	dynsym+dwarf	0	0	named-only	docs/dm2-ioctl.md#8-unknowns-and-what-would-settle-each	8. Unknowns, and what would settle each
 dmediapro-dm2-1.1.3ml/usr/lib32/libMLU.so.1	video-option-products	shared-kernel	shared-object	n32	67264	c25e148b4e37ff61		40	dynsym+dwarf	0	0	undocumented		
 dmediapro-dm2-1.1.3ml/usr/lib32/libMLddk.so.1	video-option-products	shared-kernel	shared-object	n32	178784	368b546ab0cfcb3c		38	dynsym+dwarf	0	0	undocumented		
 dmediapro-dm2-1.1.3ml/usr/lib32/mlmodule/debug/libdigvid.so	video-option-products	shared-kernel	shared-object	n32	391220	a6bcd5d2da2531c9		125	dynsym+dwarf	0	0	undocumented		
-dmediapro-dm2-1.1.3ml/usr/lib32/mlmodule/libdigvid.so	video-option-products	shared-kernel	shared-object	n32	227832	aacf8d4a64dcd34b		124	dynsym+dwarf	0	0	named-only	docs/dmedia-video-drivers.md#what-was-read	What was read
+dmediapro-dm2-1.1.3ml/usr/lib32/mlmodule/libdigvid.so	video-option-products	shared-kernel	shared-object	n32	227832	aacf8d4a64dcd34b		124	dynsym+dwarf	0	0	named-only	docs/dm2-ioctl.md#sources	Sources
 dmediapro-dm2-1.1.3ml/usr/lib32/mlmodule/nullxcode.so	video-option-products	shared-kernel	shared-object	n32	76168	ced2c10444509f9d		25	dynsym+dwarf	0	0	undocumented		
 dmediapro-dm2-1.1.3ml/usr/sbin/mldaemon	video-option-products	shared-kernel	executable	n32	22288	b46a10aef550f0ae		11	dynsym	0	0	named-only	docs/dmedia-video-drivers.md#what-was-read	What was read
 dmediapro-dm2-1.1.3ml/usr/share/src/dmedia/video/xtdigvid/examples/Makefile	video-option-products	shared-kernel	data	-	532	2fa1116be0e5754f		0		0	0	undocumented		
