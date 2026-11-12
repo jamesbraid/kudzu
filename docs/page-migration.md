@@ -210,9 +210,9 @@ Everything in this section comes from the 6.5.30 `eoe` product on the installati
 
 `nstats` (20860 bytes) reads `syssgi` 218 (`numa_stats_get`) and prints node counters named "MigrIntrs", "AutoMigr", "UserMigr", "CoalMigr", the queue and bounce counters, the reference-counter interrupt counters ("refcnt_introk_relative" and others) and the two `memoryd` activation counts. These are the IP27 statistic names; whether any IP35 routine increments them was not checked.
 
-`cpuset` and `libcpuset` (`cpusetMoveMigrate` and variants): user requests that end in `as_migrate` through `sysmp`. `libfetchop` uses `pm_attach` to reserve its fetch-and-op pages. `libdlook` reads page information through `__pm_get_page_info`. `numastatd` samples and does not move pages ([userland.md](userland.md)). `topology`, `numa_view` and `runon` only read topology or bind a process.
+`cpuset` and `libcpuset` (`cpusetMoveMigrate` and variants): user requests that end in `as_migrate` through `sysmp`. `libfetchop` uses `pm_attach` to reserve its fetch-and-op pages. `libdlook` reads page information through `__pm_get_page_info`. `numastatd` samples and does not move pages ([userland.md](userland.md)). `topology`, `numa_view` and `6.5.30/usr/sbin/runon` only read topology or bind a process.
 
-No daemon on the installation media drives migration: the files of the `eoe` product that mention migration are `dplace`, `dlook`, `dprof`, `nstats`, `sn`, `cpuset`, `libdplace`, `libcpuset`, `libdlook`, `libdprof`, the C library and the manual pages. No `memoryd` binary or `init.d` script exists in the 6.5.30, 6.5.22 or 6.5 base idb manifests. Established for the media held.
+No daemon on the installation media drives migration: the files of the `eoe` product that mention migration are `6.5.30/usr/sbin/dplace`, `dlook`, `6.5.30/usr/sbin/dprof`, `nstats`, `sn`, `cpuset`, `libdplace`, `libcpuset`, `libdlook`, `libdprof`, the C library and the manual pages. No `memoryd` binary or `init.d` script exists in the 6.5.30, 6.5.22 or 6.5 base idb manifests. Established for the media held.
 
 ### 6.5.22 for comparison
 

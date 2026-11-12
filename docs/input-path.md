@@ -16,7 +16,7 @@ Everything here is read from shipped binaries. Nothing was run, so nothing is an
 
 - Function bytes of `idev.o`, `shmiq.o` and `qcntl.o` are identical between 6.5.22 and 6.5.30 for IP30 (compared function by function), so addresses below are for 6.5.22 and hold for 6.5.30. The other platforms' copies were not compared.
 - The IP27 `shmiq.o` and `idev.o` are different builds from the IP30 ones (the hashes differ) and were read separately for the cursor section below; its kernel addresses are IP27 object offsets.
-- Release 6.5.21 is not held. The X server is held for 6.5.30 only; no 6.5.22 userland is in `root/`. A claim about Xsgi is a 6.5.30 claim.
+- Release 6.5.21 is not held. The X server is held for 6.5.30 and 6.5.22; a claim about Xsgi names the release it was read from.
 - Kernel object addresses are offsets into `.text` of the relocatable object. Xsgi addresses are virtual addresses.
 - The objects carry DWARF names for functions only, not structure layouts, so every structure offset in `idev.o` is read from the code and is inferred as a layout. The shipped `sys/shmiq.h` header gives the layout of the queue and event record, and the object code agrees with it where checked.
 - The `input(7)` and `idev` manual pages are not in the installed manual set. The library search service was not reachable when this was written, so published SGI input documentation was not consulted beyond the `XSGIDeviceControl(3X11)` page in the media.

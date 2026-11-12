@@ -110932,7 +110932,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x1c40	240	call_prom_cached	dwarf+symtab	6b06abfe72dd		in	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x1d30	120	string_sum	dwarf+funcnames	05c947f25ad5		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x1da8	196	gensum	dwarf+funcnames	36045cf81104		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x1e6c	200	checksum	dwarf+funcnames	a863efef9112		in	named-only	docs/userland-abi-and-loader.md#quickstart-and-library-versioning	Quickstart and library versioning
+6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x1e6c	200	checksum	dwarf+funcnames	a863efef9112		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x1f34	104	flash_parsevar	dwarf+funcnames	8b4058819029		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x1f9c	88	flash_cpyname	dwarf+funcnames	12a0554b098f		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x1ff4	132	valid_seg_hdr	dwarf+funcnames	cb9ab27834f2		in	undocumented		
@@ -279401,7 +279401,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x1c50	240	call_prom_cached	dwarf+symtab	d1f713f4a0e0		in	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x1d40	120	string_sum	dwarf+funcnames	05c947f25ad5		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x1db8	196	gensum	dwarf+funcnames	660ff84a31fc		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x1e7c	200	checksum	dwarf+funcnames	f15a7f3f8bf7		in	named-only	docs/userland-abi-and-loader.md#quickstart-and-library-versioning	Quickstart and library versioning
+6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x1e7c	200	checksum	dwarf+funcnames	f15a7f3f8bf7		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x1f44	104	flash_parsevar	dwarf+funcnames	8b4058819029		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x1fac	88	flash_cpyname	dwarf+funcnames	12a0554b098f		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x2004	132	valid_seg_hdr	dwarf+funcnames	cb9ab27834f2		in	undocumented		

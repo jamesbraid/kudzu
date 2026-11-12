@@ -39,7 +39,7 @@ Other state: `ktext_repmask`, `get_freemem_start` (reserves the copy's space whe
 
 The manual `numa(5)` still says the numa tunables tune "the aggressiveness of both migration and replication" and that automatic locality management exists on Origin 2000/200 only. Both are marketing for a disabled feature; for the replication half the kernel contradicts it.
 
-Library text (libc and libraries) is therefore a single shared copy per page cache entry, placed by first touch, and moved at most by explicit migration calls (`migration(3C)`, `dplace`) or, on Origin 2000/200 only, the automatic migration engine (page-migration.md). Inferred from the absence of replication code.
+Library text (libc and libraries) is therefore a single shared copy per page cache entry, placed by first touch, and moved at most by explicit migration calls (`migration(3C)`, `6.5.30/usr/sbin/dplace`) or, on Origin 2000/200 only, the automatic migration engine (page-migration.md). Inferred from the absence of replication code.
 
 ## Node renumbering and alias size after start
 
