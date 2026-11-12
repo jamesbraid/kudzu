@@ -1,12 +1,12 @@
 # IP35 kernel: the graphics board EEPROM label path (6.5.30)
 
-Question. When the Odyssey driver runs on a chimera-type IP35 host, how does the kernel read the graphics board's EEPROM and build the `_nic` label? Grades: E established, I inferred, U unknown, M model choice. Source: `unix.IP35` and `IP35boot/odyssey.a(odsy_init.o)` of IRIX 6.5.30; the layout of the area is the public IPMI FRU board info area. Companion notes: chips `docs/questions/v12-nic.md`, sysco `docs/l1/ip35-graphics-eeprom-request.md`.
+Question. When the Odyssey driver runs on a chimera-type IP35 host, how does the kernel read the graphics board's EEPROM and build the `_nic` label? Grades: E established, I inferred, U unknown. Source: `unix.IP35` and `IP35boot/odyssey.a(odsy_init.o)` of IRIX 6.5.30; the layout of the area is the public IPMI FRU board info area. Companion notes: chips `docs/questions/v12-nic.md`, sysco `docs/l1/ip35-graphics-eeprom-request.md`.
 
 
 
 Source: IRIX 6.5.30 `unix.IP35` (symbols present, text addresses `0xc000000000...`) and
-`IP35boot/odyssey.a(odsy_init.o)`. Grades: E established (read in the binary), I inferred, U unknown,
-M model choice. Nothing here is hardware evidence for what a real V12 board holds. Disassembly was
+`IP35boot/odyssey.a(odsy_init.o)`. Grades: E established (read in the binary), I inferred, U unknown.
+Nothing here is hardware evidence for what a real V12 board holds. Disassembly was
 done with capstone; addresses below are kernel text unless named.
 
 ### What the driver calls (E)
@@ -35,9 +35,9 @@ done with capstone; addresses below are kernel text unless named.
   comes back). The same reader for the C-brick on a chimera host uses component 0 (0x9355c), which is the
   node board the `/node` hinv line comes from. I/O-brick reads use components 1, 2 or 4 depending on
   flag and peer case (0x93a30 to 0x93a9c); those are the I/O path, not graphics. (E for the numbers, I
-  for which caller of the I/O path the iris model's refusals of 1 and 4 belong to.)
-- So for the V12 the model must answer **component 2, area 2**. Its refusal of component 2 is exactly
-  what stops attach. The refusals of 1 and 4 are not on the graphics path.
+  for the claim that those reads belong to the I/O path.)
+- So the V12 graphics read is **component 2, area 2**. A refusal of component 2 leaves `_nic` unset
+  (see Q2), which is the alert path. Components 1 and 4 are not on the graphics path.
 
 ### Q2. Does a refusal leave `_nic` unset? (E)
 
@@ -85,21 +85,3 @@ reads it like this:
 - Which byte a real board has in the skipped slot, and what the two raw bytes and SGI field 3 hold:
   U. A real board's Revision may sit in a different field; the printed hinv rev C is consistent with
   SGI field 1 but that is I.
-
-### Model choice (M, not hardware evidence)
-
-Answer component 2, area 2 (board) on the local node's L1. Area bytes (56, version 1, length 7):
-
-```
-01 07 00 00 00 00 c3 53 47 49 ce 4f 44 59 31 32 38 56 45 52 53 49 4f 4e 42
-c6 45 4d 55 30 30 31 cc 30 33 30 2d 31 36 31 31 2d 30 30 31 c0 c1 43 ff ff
-c0 c1 00 00 00 01
-```
-
-Manufacturer `SGI` (placeholder), name `ODY128VERSIONB`, serial `EMU001` (placeholder), part
-`030-1611-001`, skipped slot 0xc0, SGI field 1 `C`, raw bytes 0xff 0xff, empty field 3, 0xc1 end, three
-pad zeros, checksum 0x01 (sum of the 56 bytes is 0 mod 256). Reply chunks as the kernel requests: at most
-the 64 bytes asked, a short final chunk (the 56-byte area ends the loop). A decode of this record by an
-independent port of the rules above yields part `030-1611-001`, name `ODY128VERSIONB`, rev `C`
-(own script, not the kernel). Keep the name away from `ODY128B1_2`, `CHIM_ODY`, `CHIODY` unless the
-DVI register path is wanted. Also still answer component 0 as today.

@@ -110,6 +110,6 @@ Consequence for the stock config: `pushpointer "on"` stores role 5 during creati
 
 Each is recorded with the settling test in [open-questions.md](open-questions.md).
 
-## Hardware and emulator relevance
+## Hardware relevance
 
 None of this depends on hardware: it is software contract between the shipped kernel objects and Xsgi. The conclusions that need a run are marked inferred above.
