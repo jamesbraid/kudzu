@@ -22,7 +22,8 @@ is in chips (`docs/audio/hollywood-dsp.md` there). Labels as in [AGENTS.md](../A
   public header is shared by `hdsp` and `kdsp` and that the private header is only partly used by `kdsp`. That sharing is the reason the `kdsp`
   readings stand in for `hdsp`: **inferred**. Where `hdsp` differs (it handles one request that `kdsp` rejects, and has hardware-specific
   state), the difference is marked.
-- The audio library (`libaudio`) is **not held** (no user-space audio binary is in either root). Library-side claims are from the shipped
+- The audio library (`libaudio.so.1`, all three ABIs) and `usr/sbin/audiostate` are held for 6.5.30 (no 6.5.22 userland is). They are read
+  only for strings and imports so far ([What libaudio opens](#what-libaudio-opens)). Library-side claims about parameters are from the shipped
   `audio.h`, whose parameter and type numbers match the driver header's one for one wherever I compared them (three spot checks: the lock-state
   parameter 40, the input-port type 23, the input-ring type 25). **Inferred.**
 
@@ -188,9 +189,16 @@ image coming from a user-space file. All of this is **inferred**; the image name
   **Established** for those five objects (strings read); **inferred** that the others (not held) do the same.
 - The inventory type for the Indigo DSP system is 0 (`INV_AUDIO_HDSP`), which `hinv` prints as "Iris Audio Processor". **Established** (see the
   chips repository's audio drivers page).
-- The audio library and its applications: **unknown** which opens the device. By construction the library's version number appears in the
-  set-ring-info request and the header says to keep the library header in step with it, so the library is a user. Whether any other program opens it
-  directly is **unknown** (no user binary held).
+- The audio library and its applications: `libaudio.so.1` opens the device (below). Of the other held programs, `audiostate` has no `hdsp` string, imports
+  `open`, `ioctl` and the library's `al*` calls, and names `/dev/graphics` for its panel code; the IP22 NG1 `Xsgi` carries the same three device-node strings
+  as the library (statically included library code, Inferred from the identical strings). Whether any other 6.5.30 program opens the nodes directly is **unknown**
+  (only a small part of the userland is held).
+
+## What libaudio opens
+
+`usr/lib32/libaudio.so.1` (and the o32 `usr/lib/libaudio.so.1`) contain exactly three device-node names: `/dev/hdsp/hdsp0master`, `/dev/hdsp/hdsp0events` and `/dev/hdsp/hdsp0r%d` (the ring node, one per ring number); the 64-bit build contains the first two and no `hdsp0r%d` under the same search. The library has no `kdsp` string. Its undefined symbols are `open`, `close`, `ioctl`, `mmap`, `munmap`, `select`, `getenv` and string and memory helpers, and not `read`, `write` or any file-opening call other than `open`. The open routine `alOpenPort` (0xd008dc0, 2428 bytes) loads the master name from the object `_ALhdsp0master` (0xd01d140). Established for the strings and imports, `libaudio.so.1` n32.
+
+What this settles. The library does not choose between `hdsp` and `kdsp`: it opens one fixed path, and whichever driver owns the major number 53 answers it, which agrees with the `kdsp` master file saying "use instead of hdsp" (Established for the path, Inferred for the agreement). The node roles (master, events, one node per ring) match the minor roles read in `kdspopen` above. The library moves sample data through `mmap`, not `read` or `write`, as the driver's missing read and write entries require. It does not itself load the DSP microcode from a file (no `read`, `fopen` or `open` of an image name; the only paths are the three above): the load, if it is done through the driver, would have to be an ioctl on one of those nodes, and which request, or which program, does it remains Unknown. The reset and activate requests were not located in the library.
 
 ## Open questions
 
