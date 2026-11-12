@@ -11,7 +11,7 @@ hub and device register aliases, as the disassembly reports them.
   **Inferred.** `debug_stop_all_cpus` is a 140-byte leaf with no calls. It loops over CPU indices up
   to the `maxcpus` word and compares each with the halfword at abs -0x3c60, which the
   other routines here also read and which looks like the current CPU number. It stores
-  two doublewords to 0xffffffffaff10020, a hub-range address, but the stored values are
+  two doublewords to 0xffffffffaff10020, an address the facts do not identify, and the stored values are
   not resolved, so whether this halts or signals the other CPUs is open.
 
 - `stop_bell` in `6.5.30/usr/cpu/sysgen/IP30boot/kernel.o` at 0x4108
@@ -41,8 +41,8 @@ hub and device register aliases, as the disassembly reports them.
   sign of its first argument picks one of two paths, and zero goes to 0x5e24. Both paths
   take `timelock` with `nested_spinlock` and read the clock through `__nanotime` at 0x5d0c
   and 0x5e2c, then release the lock at 0x5dc4 and 0x5e98. The constants 0xf4240 and 0x3e8
-  bound the step size, which looks like microseconds and milliseconds, but the stepping
-  arithmetic is not shown.
+  are compared against a value the facts do not resolve (at 0x5df8 and 0x5cf4), which
+  looks like microseconds and milliseconds, but the stepping arithmetic is not shown.
 
 - `__nanotime` in `6.5.30/usr/cpu/sysgen/IP30boot/kernel.o` at 0x5eb0
   **Inferred.** `__nanotime` is a 548-byte routine that returns the current time as seconds and

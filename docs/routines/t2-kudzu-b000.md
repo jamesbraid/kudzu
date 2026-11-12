@@ -66,7 +66,7 @@ Addresses are in the binary named in each header.
   **Inferred.** Searches the component list at arg0, whose entry count is the byte at +0x17, for an entry that matches the arguments, and returns the match or 0. The failure path prints a debug line with dprintf at 0xc00000000004cbe4. The field compared and the list layout are inferred from the loads and branches only.
 
 - `find_first_component` in `6.5.22/unix.IP27` at 0xc00000000001d944
-  **Inferred.** A wrapper that calls find_component at 0xc00000000001d7fc with arg0, zero as the second argument, and arg1 and arg3 passed through, then returns that result. Its meaning is the first match that find_component reports.
+  **Inferred.** A wrapper that calls find_component at 0xc00000000001d7fc with arg0, zero as the second argument, arg1 as the third and arg3 as the fourth, then returns that result. The name suggests it returns the first match find_component reports, but the facts show only the forwarding.
 
 - `is_master_baseio` in `6.5.22/unix.IP27` at 0xc00000000001dcb0
   **Inferred.** Answers whether the calling board is the master base-IO board on its node. It reads the node record through the table at 0xc0000000014d3600 and the hub-space address built from arg0 at offset 0x48, finds the module slot with find_lboard_modslot at 0xc00000000001d964 (called twice), and reads the flag byte at +0x9 of the slot record. It returns 0 or a flag value; the flag's meaning is not settled by these facts.

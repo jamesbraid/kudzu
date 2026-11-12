@@ -20,7 +20,7 @@ All 25 entries are in `6.5.30/unix.IP35`. None were left out.
   **Inferred.** Tests a word from a global at -0x3a60 against the word at 0x9200000001000098, then calls ms1bit at 0xc0000000000602e8 to pick a bit index. It uses that index to find a per-bit record and calls cvsema, valusema and vsema on the record at +32. It also calls a function pointer stored at record +16. The name suggests dispatch of pending bits to semaphores, but the record layout is unresolved.
 
 - `intpend1` in `6.5.30/unix.IP35` at 0xc0000000000603d0
-  **Inferred.** The companion to intpend0 with the same pending-bit lookup through ms1bit (0xc00000000006041c), but it does not touch the semaphores. It calls the function pointer at record +16 via jalr at 0xc000000000060454, and calls cmn_err at 0xc0000000000604ac on one path. The purpose of that path is not established.
+  **Inferred.** The companion to intpend0 with the same pending-bit lookup through ms1bit (0xc00000000006041c), but it does not touch the semaphores. It makes an indirect call with jalr at 0xc000000000060454 that passes the doubleword at record +16 as its first argument and its own a0 as the second, and the callee is not resolved. It also calls cmn_err at 0xc0000000000604ac on one path. The purpose of that path is not established.
 
 - `sendintr` in `6.5.30/unix.IP35` at 0xc000000000060824
   **Inferred.** Reads a per-CPU table entry and a few fields from it, then stores a 64-bit word to one of two addresses, 0x9200000001800090 or 0x9200000001a00090. The choice is made from a shifted halfword field and a branch on a1 equal to 0xab. Returns 0. Which of the two addresses belongs to which target is not established.
