@@ -4671,7 +4671,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	kernel-other-objects	shared-kernel	object	n64	18788	5ee87d851345dac8		15	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(syscalls.o)	kernel-other-objects	shared-kernel	object	n64	5076	aaaee8445fc28236		1	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/sharena.o	kernel-other-objects	shared-kernel	object	n64	11032	994796a5743386ed		8	symtab	0	0	undocumented		
-6.5.30/usr/cpu/sysgen/IP27boot/shmiq.o	kernel-other-objects	shared-kernel	object	n64	20152	f7bf97e5301c322d		17	symtab	0	0	undocumented		
+6.5.30/usr/cpu/sysgen/IP27boot/shmiq.o	kernel-other-objects	shared-kernel	object	n64	20152	f7bf97e5301c322d		17	symtab	0	0	named-only	docs/input-path.md#evidence-and-its-limits	Evidence and its limits
 6.5.30/usr/cpu/sysgen/IP27boot/sio_i2c.o	kernel-platform-drivers	shared-kernel	object	n64	13432	570dee27c1d03016		13	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP27boot/smfd.o	kernel-other-objects	shared-kernel	object	n64	69320	9efee23c0c325143	6.5.30/usr/cpu/sysgen/IP30boot/smfd.o;6.5.30/usr/cpu/sysgen/IP35boot/smfd.o	44	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP27boot/sn0drv.o	kernel-platform-drivers	shared-kernel	object	n64	20208	6728bc0ccaf8730c		11	symtab	0	0	named-only	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts

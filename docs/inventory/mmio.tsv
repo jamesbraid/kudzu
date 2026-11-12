@@ -12,8 +12,8 @@ BEDROCK-MD	0x780000		r8	4	4	stop_all_cpus	local alias	6.5.22/unix.IP35:stop_all_
 BEDROCK-MD	0x780008		r8	12	4	mdir_xlate_addr_mem;mdir_xlate_addr_pdir;mdir_xlate_addr_sdir	local alias	6.5.22/unix.IP35:mdir_xlate_addr_mem	named-only	docs/interrupts.md#routines	Routines
 BEDROCK-MD	0x7a0038		r8	4	4	doacvec	local alias	6.5.22/unix.IP35:doacvec	undocumented		
 BEDROCK-NI	0x680000		r8	6	6	net_link_up;part_discovery	local alias	6.5.22/unix.IP35:net_link_up	named-only	docs/ip35-halt-and-reset.md#link-errors-at-run-time	Link errors at run time
-BEDROCK-NI	0x680008		w8	8	4	ni_reset_port;restart	local alias	6.5.22/unix.IP35:ni_reset_port	named-only	docs/interrupts.md#routines	Routines
-BEDROCK-NI	0x680010		w8	8	4	ni_reset_port;restart	local alias	6.5.22/unix.IP35:ni_reset_port	named-only	docs/ip35-halt-and-reset.md#reboot-and-port-reset	Reboot and port reset
+BEDROCK-NI	0x680008		w8	8	4	ni_reset_port;restart	local alias	6.5.22/unix.IP35:ni_reset_port	understood	docs/ip35-hub-errors.md#what-clears-the-ni-error-interrupt-after-a-tolerated-link-reset	What clears the NI error interrupt after a tolerated link reset
+BEDROCK-NI	0x680010		w8	8	4	ni_reset_port;restart	local alias	6.5.22/unix.IP35:ni_reset_port	understood	docs/ip35-hub-errors.md#what-clears-the-ni-error-interrupt-after-a-tolerated-link-reset	What clears the NI error interrupt after a tolerated link reset
 BEDROCK-NI	0x680108		r8	4	4	check_ni_errors_nasid	local alias	6.5.22/unix.IP35:check_ni_errors_nasid	named-only	docs/ip35-hub-errors.md#what-clears-the-ni-error-interrupt-after-a-tolerated-link-reset	What clears the NI error interrupt after a tolerated link reset
 BEDROCK-NI	0x680110		r8	4	4	check_ni_errors_nasid	local alias	6.5.22/unix.IP35:check_ni_errors_nasid	named-only	docs/ip35-hub-errors.md#hub-programmed-io-windows	Hub programmed-I/O windows
 BEDROCK-NI	0x680118		r8	4	4	check_ni_errors_nasid	local alias	6.5.22/unix.IP35:check_ni_errors_nasid	named-only	docs/ip35-hub-errors.md#hub-widget-shutdown	Hub widget shutdown
