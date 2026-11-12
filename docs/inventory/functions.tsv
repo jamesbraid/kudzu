@@ -32274,7 +32274,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020101a80	28	polladd	dwarf+symtab	04eb283c94cd		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020101a9c	28	polldel	dwarf+symtab	82f641696f87		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020101ab8	80	polldelvec	dwarf	63bcc3764e08		in	named-only		
-6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020101b08	536	poll	dwarf+symtab	1a1ba5f38caf		in	named-only	docs/hollywood-dsp-driver.md#firmware-download	Firmware download
+6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020101b08	536	poll	dwarf+symtab	1a1ba5f38caf		in	named-only	docs/crime.md#tiles-subtiles-and-the-mte	Tiles, subtiles and the MTE
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020101d20	1524	dopoll	dwarf	8203edea5810		in	named-only	docs/syscalls.md#entries	Entries
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020102314	1412	k_select	dwarf	1b677664b4d1		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020102898	28	select	dwarf+symtab	3f9d94a77198		in	named-only	docs/dm2-ioctl.md#1-calling-convention-e	1. Calling convention (E)
@@ -45804,7 +45804,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000001a857c	28	polladd	dwarf+symtab	d9925d17ac65		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000001a8598	28	polldel	dwarf+symtab	def3c01854f4		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000001a85b4	80	polldelvec	dwarf	76312ab77425		in	named-only		
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000001a8604	536	poll	dwarf+symtab	1902e6aa82b5		in	named-only	docs/hollywood-dsp-driver.md#firmware-download	Firmware download
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000001a8604	536	poll	dwarf+symtab	1902e6aa82b5		in	named-only	docs/crime.md#tiles-subtiles-and-the-mte	Tiles, subtiles and the MTE
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000001a881c	1524	dopoll	dwarf	714c4214a947		in	named-only	docs/syscalls.md#entries	Entries
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000001a8e10	1412	k_select	dwarf	ff646f39cda8		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000001a9394	28	select	dwarf+symtab	5db2f42518ad		in	named-only	docs/dm2-ioctl.md#1-calling-convention-e	1. Calling convention (E)
@@ -67161,7 +67161,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(select.o)	shared-kernel	n32	.text	0x1f4	28	polladd	dwarf+symtab	34d7a2e33b85		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(select.o)	shared-kernel	n32	.text	0x210	28	polldel	dwarf+symtab	34d7a2e33b85		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(select.o)	shared-kernel	n32	.text	0x22c	80	polldelvec	dwarf+funcnames+symtab	ef148082c8d0		in	named-only		
-6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(select.o)	shared-kernel	n32	.text	0x27c	548	poll	dwarf+symtab	89776c7788bb		in	named-only	docs/hollywood-dsp-driver.md#firmware-download	Firmware download
+6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(select.o)	shared-kernel	n32	.text	0x27c	548	poll	dwarf+symtab	89776c7788bb		in	named-only	docs/crime.md#tiles-subtiles-and-the-mte	Tiles, subtiles and the MTE
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(select.o)	shared-kernel	n32	.text	0x4a0	1476	dopoll	dwarf+funcnames+symtab	3202a52b692f		in	named-only	docs/syscalls.md#entries	Entries
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(select.o)	shared-kernel	n32	.text	0xa64	1408	k_select	dwarf+funcnames+symtab	2207a13366cc		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP22boot/sgi.a(select.o)	shared-kernel	n32	.text	0xfe4	28	select	dwarf+symtab	295c861fb3cd		in	named-only	docs/dm2-ioctl.md#1-calling-convention-e	1. Calling convention (E)
@@ -85891,7 +85891,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x224	28	polladd	dwarf+symtab	a86de4a9d7a4		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x240	28	polldel	dwarf+symtab	a86de4a9d7a4		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x25c	80	polldelvec	dwarf+symtab	6c5417e795d4		in	named-only		
-6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x2ac	536	poll	dwarf+symtab	8b78c59acb49		in	named-only	docs/hollywood-dsp-driver.md#firmware-download	Firmware download
+6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x2ac	536	poll	dwarf+symtab	8b78c59acb49		in	named-only	docs/crime.md#tiles-subtiles-and-the-mte	Tiles, subtiles and the MTE
 6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x4c4	1524	dopoll	dwarf+symtab	aeff543b3582		in	named-only	docs/syscalls.md#entries	Entries
 6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0xab8	1412	k_select	dwarf+symtab	01c867d23691		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x103c	28	select	dwarf+symtab	4e0b7c85ec68		in	named-only	docs/dm2-ioctl.md#1-calling-convention-e	1. Calling convention (E)
@@ -103051,7 +103051,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x224	28	polladd	dwarf+symtab	a86de4a9d7a4		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x240	28	polldel	dwarf+symtab	a86de4a9d7a4		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x25c	80	polldelvec	dwarf+symtab	6c5417e795d4		in	named-only		
-6.5.22/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x2ac	536	poll	dwarf+symtab	ff8cb942044b		in	named-only	docs/hollywood-dsp-driver.md#firmware-download	Firmware download
+6.5.22/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x2ac	536	poll	dwarf+symtab	ff8cb942044b		in	named-only	docs/crime.md#tiles-subtiles-and-the-mte	Tiles, subtiles and the MTE
 6.5.22/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x4c4	1524	dopoll	dwarf+symtab	2ea53846f8e1		in	named-only	docs/syscalls.md#entries	Entries
 6.5.22/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0xab8	1412	k_select	dwarf+symtab	59f275bdd3b7		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x103c	28	select	dwarf+symtab	4e0b7c85ec68		in	named-only	docs/dm2-ioctl.md#1-calling-convention-e	1. Calling convention (E)
@@ -118108,7 +118108,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x1f4	28	polladd	dwarf+symtab	34d7a2e33b85		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x210	28	polldel	dwarf+symtab	34d7a2e33b85		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x22c	80	polldelvec	dwarf+funcnames+symtab	ef148082c8d0		in	named-only		
-6.5.22/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x27c	548	poll	dwarf+symtab	89776c7788bb		in	named-only	docs/hollywood-dsp-driver.md#firmware-download	Firmware download
+6.5.22/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x27c	548	poll	dwarf+symtab	89776c7788bb		in	named-only	docs/crime.md#tiles-subtiles-and-the-mte	Tiles, subtiles and the MTE
 6.5.22/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x4a0	1476	dopoll	dwarf+funcnames+symtab	3202a52b692f		in	named-only	docs/syscalls.md#entries	Entries
 6.5.22/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0xa64	1408	k_select	dwarf+funcnames+symtab	2207a13366cc		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0xfe4	28	select	dwarf+symtab	295c861fb3cd		in	named-only	docs/dm2-ioctl.md#1-calling-convention-e	1. Calling convention (E)
@@ -135676,7 +135676,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x224	28	polladd	dwarf+symtab	a86de4a9d7a4		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x240	28	polldel	dwarf+symtab	a86de4a9d7a4		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x25c	80	polldelvec	dwarf+symtab	6c5417e795d4		in	named-only		
-6.5.22/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x2ac	536	poll	dwarf+symtab	334cfb81cd7c		in	named-only	docs/hollywood-dsp-driver.md#firmware-download	Firmware download
+6.5.22/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x2ac	536	poll	dwarf+symtab	334cfb81cd7c		in	named-only	docs/crime.md#tiles-subtiles-and-the-mte	Tiles, subtiles and the MTE
 6.5.22/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x4c4	1524	dopoll	dwarf+symtab	a3e9e3008c9f		in	named-only	docs/syscalls.md#entries	Entries
 6.5.22/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0xab8	1412	k_select	dwarf+symtab	c9ac1419016d		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x103c	28	select	dwarf+symtab	4e0b7c85ec68		in	named-only	docs/dm2-ioctl.md#1-calling-convention-e	1. Calling convention (E)
@@ -150452,7 +150452,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib/libm.so	userland	o32		0xf87481c	96	__floor	dynsym+mdebug	c4afd37a7753	shared-address	out:3	undocumented		
 6.5.22/usr/lib/libm.so	userland	o32		0xf87481c	96	floor	dynsym	c4afd37a7753	shared-address	out:3	undocumented		
 6.5.22/usr/lib/libm.so	userland	o32		0xf87487c	104	__ceil	dynsym+mdebug	9e907bfc17a5	shared-address	out:3	undocumented		
-6.5.22/usr/lib/libm.so	userland	o32		0xf87487c	116	ceil	dynsym	9683197e991a	shared-address	out:3	undocumented		
+6.5.22/usr/lib/libm.so	userland	o32		0xf87487c	116	ceil	dynsym	9683197e991a	shared-address	out:3	named-only		
 6.5.22/usr/lib/libm.so	userland	o32		0xf8748f0	904	__fmod	dynsym+mdebug	0141ba0639b5	shared-address	out:3	undocumented		
 6.5.22/usr/lib/libm.so	userland	o32		0xf8748f0	904	fmod	dynsym	0141ba0639b5	shared-address	out:3	undocumented		
 6.5.22/usr/lib/libm.so	userland	o32		0xf874c78	452	__fmodf	dynsym+mdebug	82cbbe1e5ce5	shared-address	out:3	undocumented		
@@ -155466,7 +155466,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib32/mips3/libm.so	userland	n32		0xac08ac0	60	__c_abs_	dwarf+dynsym	f8fb1c774fe0	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips3/libm.so	userland	n32		0xac08ac0	60	c_abs_	dynsym	f8fb1c774fe0	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips3/libm.so	userland	n32		0xac08afc	268	__ceil	dwarf+dynsym	1840e836cb4d	shared-address	out:3	undocumented		
-6.5.22/usr/lib32/mips3/libm.so	userland	n32		0xac08afc	268	ceil	dynsym	1840e836cb4d	shared-address	out:3	undocumented		
+6.5.22/usr/lib32/mips3/libm.so	userland	n32		0xac08afc	268	ceil	dynsym	1840e836cb4d	shared-address	out:3	named-only		
 6.5.22/usr/lib32/mips3/libm.so	userland	n32		0xac08c08	268	__fceil	dwarf+dynsym	995d3f43e8d0	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips3/libm.so	userland	n32		0xac08c08	268	ceilf	dynsym	995d3f43e8d0	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips3/libm.so	userland	n32		0xac08c08	268	fceil	dynsym	995d3f43e8d0	shared-address	out:3	undocumented		
@@ -155787,7 +155787,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib32/mips3/libm.so	userland	n32		0xac1cec0	960	__llroundl	dwarf+dynsym	c8a98b7705f7	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips3/libm.so	userland	n32		0xac1cec0	960	llroundl	dynsym	c8a98b7705f7	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips3/libm.so	userland	n32		0xac1d280	696	__libm_log2	dwarf+dynsym	c032bf8a380d	shared-address	out:3	undocumented		
-6.5.22/usr/lib32/mips3/libm.so	userland	n32		0xac1d280	696	log2	dynsym	c032bf8a380d	shared-address	out:3	undocumented		
+6.5.22/usr/lib32/mips3/libm.so	userland	n32		0xac1d280	696	log2	dynsym	c032bf8a380d	shared-address	out:3	named-only		
 6.5.22/usr/lib32/mips3/libm.so	userland	n32		0xac1d540	520	__log2f	dwarf+dynsym	7983c703d027	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips3/libm.so	userland	n32		0xac1d540	520	log2f	dynsym	7983c703d027	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips3/libm.so	userland	n32		0xac1d780	1992	__log2l	dwarf+dynsym	4623e5ed8a74	shared-address	out:3	undocumented		
@@ -161284,7 +161284,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib32/mips4/libm.so	userland	n32		0xac08ac0	64	__c_abs_	dwarf+dynsym	12c15e5f486c	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips4/libm.so	userland	n32		0xac08ac0	64	c_abs_	dynsym	12c15e5f486c	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips4/libm.so	userland	n32		0xac08b00	268	__ceil	dwarf+dynsym	a9e67c38e93c	shared-address	out:3	undocumented		
-6.5.22/usr/lib32/mips4/libm.so	userland	n32		0xac08b00	272	ceil	dynsym	70c963a05bfb	shared-address	out:3	undocumented		
+6.5.22/usr/lib32/mips4/libm.so	userland	n32		0xac08b00	272	ceil	dynsym	70c963a05bfb	shared-address	out:3	named-only		
 6.5.22/usr/lib32/mips4/libm.so	userland	n32		0xac08c10	268	__fceil	dwarf+dynsym	3547a20dcdf3	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips4/libm.so	userland	n32		0xac08c10	272	ceilf	dynsym	9e5f6696b6ec	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips4/libm.so	userland	n32		0xac08c10	272	fceil	dynsym	9e5f6696b6ec	shared-address	out:3	undocumented		
@@ -161605,7 +161605,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib32/mips4/libm.so	userland	n32		0xac1b180	940	__llroundl	dwarf+dynsym	e3a3935d6d3e	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips4/libm.so	userland	n32		0xac1b180	940	llroundl	dynsym	e3a3935d6d3e	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips4/libm.so	userland	n32		0xac1b540	604	__libm_log2	dwarf+dynsym	c1289663ecc4	shared-address	out:3	undocumented		
-6.5.22/usr/lib32/mips4/libm.so	userland	n32		0xac1b540	604	log2	dynsym	c1289663ecc4	shared-address	out:3	undocumented		
+6.5.22/usr/lib32/mips4/libm.so	userland	n32		0xac1b540	604	log2	dynsym	c1289663ecc4	shared-address	out:3	named-only		
 6.5.22/usr/lib32/mips4/libm.so	userland	n32		0xac1b7c0	488	__log2f	dwarf+dynsym	cee2011fcf1c	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips4/libm.so	userland	n32		0xac1b7c0	488	log2f	dynsym	cee2011fcf1c	shared-address	out:3	undocumented		
 6.5.22/usr/lib32/mips4/libm.so	userland	n32		0xac1b9c0	1964	__log2l	dwarf+dynsym	18abc31a4b02	shared-address	out:3	undocumented		
@@ -170672,7 +170672,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib64/mips3/libm.so	userland	n64		0x200a5c0	60	__c_abs_	dwarf+dynsym	3828737d057a	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips3/libm.so	userland	n64		0x200a5c0	60	c_abs_	dynsym	3828737d057a	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips3/libm.so	userland	n64		0x200a5fc	268	__ceil	dwarf+dynsym	5a631827d183	shared-address	out:3	undocumented		
-6.5.22/usr/lib64/mips3/libm.so	userland	n64		0x200a5fc	268	ceil	dynsym	5a631827d183	shared-address	out:3	undocumented		
+6.5.22/usr/lib64/mips3/libm.so	userland	n64		0x200a5fc	268	ceil	dynsym	5a631827d183	shared-address	out:3	named-only		
 6.5.22/usr/lib64/mips3/libm.so	userland	n64		0x200a708	268	__fceil	dwarf+dynsym	07c9bb342900	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips3/libm.so	userland	n64		0x200a708	268	ceilf	dynsym	07c9bb342900	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips3/libm.so	userland	n64		0x200a708	268	fceil	dynsym	07c9bb342900	shared-address	out:3	undocumented		
@@ -170993,7 +170993,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib64/mips3/libm.so	userland	n64		0x201efc0	964	__llroundl	dwarf+dynsym	9c3a41bb5ba9	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips3/libm.so	userland	n64		0x201efc0	964	llroundl	dynsym	9c3a41bb5ba9	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips3/libm.so	userland	n64		0x201f3c0	700	__libm_log2	dwarf+dynsym	ea5f097b3cd9	shared-address	out:3	undocumented		
-6.5.22/usr/lib64/mips3/libm.so	userland	n64		0x201f3c0	700	log2	dynsym	ea5f097b3cd9	shared-address	out:3	undocumented		
+6.5.22/usr/lib64/mips3/libm.so	userland	n64		0x201f3c0	700	log2	dynsym	ea5f097b3cd9	shared-address	out:3	named-only		
 6.5.22/usr/lib64/mips3/libm.so	userland	n64		0x201f680	524	__log2f	dwarf+dynsym	1ab8f50f5d9d	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips3/libm.so	userland	n64		0x201f680	524	log2f	dynsym	1ab8f50f5d9d	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips3/libm.so	userland	n64		0x201f8c0	2056	__log2l	dwarf+dynsym	10c1f9bd5b0b	shared-address	out:3	undocumented		
@@ -176441,7 +176441,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib64/mips4/libm.so	userland	n64		0x200a5c0	64	__c_abs_	dwarf+dynsym	ee1e98e5b457	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips4/libm.so	userland	n64		0x200a5c0	64	c_abs_	dynsym	ee1e98e5b457	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips4/libm.so	userland	n64		0x200a600	268	__ceil	dwarf+dynsym	73a988ea55bb	shared-address	out:3	undocumented		
-6.5.22/usr/lib64/mips4/libm.so	userland	n64		0x200a600	272	ceil	dynsym	6dac6d810662	shared-address	out:3	undocumented		
+6.5.22/usr/lib64/mips4/libm.so	userland	n64		0x200a600	272	ceil	dynsym	6dac6d810662	shared-address	out:3	named-only		
 6.5.22/usr/lib64/mips4/libm.so	userland	n64		0x200a710	268	__fceil	dwarf+dynsym	a10015802500	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips4/libm.so	userland	n64		0x200a710	272	ceilf	dynsym	b33de4cb542e	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips4/libm.so	userland	n64		0x200a710	272	fceil	dynsym	b33de4cb542e	shared-address	out:3	undocumented		
@@ -176762,7 +176762,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/lib64/mips4/libm.so	userland	n64		0x201cc00	956	__llroundl	dwarf+dynsym	55b928a337a2	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips4/libm.so	userland	n64		0x201cc00	956	llroundl	dynsym	55b928a337a2	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips4/libm.so	userland	n64		0x201cfc0	604	__libm_log2	dwarf+dynsym	22f7619a7d2b	shared-address	out:3	undocumented		
-6.5.22/usr/lib64/mips4/libm.so	userland	n64		0x201cfc0	604	log2	dynsym	22f7619a7d2b	shared-address	out:3	undocumented		
+6.5.22/usr/lib64/mips4/libm.so	userland	n64		0x201cfc0	604	log2	dynsym	22f7619a7d2b	shared-address	out:3	named-only		
 6.5.22/usr/lib64/mips4/libm.so	userland	n64		0x201d240	488	__log2f	dwarf+dynsym	89fd0d6176a5	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips4/libm.so	userland	n64		0x201d240	488	log2f	dynsym	89fd0d6176a5	shared-address	out:3	undocumented		
 6.5.22/usr/lib64/mips4/libm.so	userland	n64		0x201d440	1964	__log2l	dwarf+dynsym	d04dc6cd950d	shared-address	out:3	undocumented		
@@ -198639,7 +198639,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000141478	28	polladd	dwarf+symtab	9c5376e9606b		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000141494	28	polldel	dwarf+symtab	7cee2aef5f53		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001414b0	80	polldelvec	dwarf	8ab3590e0582		in	named-only		
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000141500	536	poll	dwarf+symtab	ff7bc05a7b1c		in	named-only	docs/hollywood-dsp-driver.md#firmware-download	Firmware download
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000141500	536	poll	dwarf+symtab	ff7bc05a7b1c		in	named-only	docs/crime.md#tiles-subtiles-and-the-mte	Tiles, subtiles and the MTE
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000141718	1524	dopoll	dwarf	aaaa0112681e		in	named-only	docs/syscalls.md#entries	Entries
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000141d0c	1412	k_select	dwarf	3a34eedf0e4b		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000142290	28	select	dwarf+symtab	2d1efb7bd9dd		in	named-only	docs/dm2-ioctl.md#1-calling-convention-e	1. Calling convention (E)
@@ -211563,7 +211563,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020119518	28	polladd	dwarf+symtab	7c2f4a9e181d		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020119534	28	polldel	dwarf+symtab	7283d1893b7d		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020119550	80	polldelvec	dwarf	47434552b1ac		in	named-only		
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201195a0	536	poll	dwarf+symtab	9c6f4dce27bb		in	named-only	docs/hollywood-dsp-driver.md#firmware-download	Firmware download
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201195a0	536	poll	dwarf+symtab	9c6f4dce27bb		in	named-only	docs/crime.md#tiles-subtiles-and-the-mte	Tiles, subtiles and the MTE
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa8000000201197b8	1524	dopoll	dwarf	d85fa7ec6df2		in	named-only	docs/syscalls.md#entries	Entries
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020119dac	1412	k_select	dwarf	003756839cee		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002011a330	28	select	dwarf+symtab	1f559b562043		in	named-only	docs/dm2-ioctl.md#1-calling-convention-e	1. Calling convention (E)
@@ -226135,7 +226135,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001dd1e4	28	polladd	dwarf+symtab	c73563a99e9c		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001dd200	28	polldel	dwarf+symtab	103b6f043228		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001dd21c	80	polldelvec	dwarf	5c7644c5d7e8		in	named-only		
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001dd26c	536	poll	dwarf+symtab	bf94a091d68a		in	named-only	docs/hollywood-dsp-driver.md#firmware-download	Firmware download
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001dd26c	536	poll	dwarf+symtab	bf94a091d68a		in	named-only	docs/crime.md#tiles-subtiles-and-the-mte	Tiles, subtiles and the MTE
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001dd484	1524	dopoll	dwarf	95cfe25ad0a4		in	named-only	docs/syscalls.md#entries	Entries
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001dda78	1412	k_select	dwarf	18801787f279		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000001ddffc	28	select	dwarf+symtab	9215b329ebdb		in	named-only	docs/dm2-ioctl.md#1-calling-convention-e	1. Calling convention (E)
@@ -252315,7 +252315,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x224	28	polladd	dwarf+symtab	a86de4a9d7a4		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x240	28	polldel	dwarf+symtab	a86de4a9d7a4		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x25c	80	polldelvec	dwarf+symtab	6c5417e795d4		in	named-only		
-6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x2ac	536	poll	dwarf+symtab	8b78c59acb49		in	named-only	docs/hollywood-dsp-driver.md#firmware-download	Firmware download
+6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x2ac	536	poll	dwarf+symtab	8b78c59acb49		in	named-only	docs/crime.md#tiles-subtiles-and-the-mte	Tiles, subtiles and the MTE
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x4c4	1524	dopoll	dwarf+symtab	aeff543b3582		in	named-only	docs/syscalls.md#entries	Entries
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0xab8	1412	k_select	dwarf+symtab	01c867d23691		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP27boot/sgi.a(select.o)	shared-kernel	n64	.text	0x103c	28	select	dwarf+symtab	4e0b7c85ec68		in	named-only	docs/dm2-ioctl.md#1-calling-convention-e	1. Calling convention (E)
@@ -270521,7 +270521,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x224	28	polladd	dwarf+symtab	a86de4a9d7a4		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x240	28	polldel	dwarf+symtab	a86de4a9d7a4		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x25c	80	polldelvec	dwarf+symtab	6c5417e795d4		in	named-only		
-6.5.30/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x2ac	536	poll	dwarf+symtab	ff8cb942044b		in	named-only	docs/hollywood-dsp-driver.md#firmware-download	Firmware download
+6.5.30/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x2ac	536	poll	dwarf+symtab	ff8cb942044b		in	named-only	docs/crime.md#tiles-subtiles-and-the-mte	Tiles, subtiles and the MTE
 6.5.30/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x4c4	1524	dopoll	dwarf+symtab	2ea53846f8e1		in	named-only	docs/syscalls.md#entries	Entries
 6.5.30/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0xab8	1412	k_select	dwarf+symtab	59f275bdd3b7		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP30boot/sgi.a(select.o)	shared-kernel	n64	.text	0x103c	28	select	dwarf+symtab	4e0b7c85ec68		in	named-only	docs/dm2-ioctl.md#1-calling-convention-e	1. Calling convention (E)
@@ -287685,7 +287685,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x1f4	28	polladd	dwarf+symtab	34d7a2e33b85		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x210	28	polldel	dwarf+symtab	34d7a2e33b85		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x22c	80	polldelvec	dwarf+funcnames+symtab	ef148082c8d0		in	named-only		
-6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x27c	548	poll	dwarf+symtab	89776c7788bb		in	named-only	docs/hollywood-dsp-driver.md#firmware-download	Firmware download
+6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x27c	548	poll	dwarf+symtab	89776c7788bb		in	named-only	docs/crime.md#tiles-subtiles-and-the-mte	Tiles, subtiles and the MTE
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0x4a0	1476	dopoll	dwarf+funcnames+symtab	3202a52b692f		in	named-only	docs/syscalls.md#entries	Entries
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0xa64	1408	k_select	dwarf+funcnames+symtab	2207a13366cc		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP32boot/sgi.a(select.o)	shared-kernel	n32	.text	0xfe4	28	select	dwarf+symtab	295c861fb3cd		in	named-only	docs/dm2-ioctl.md#1-calling-convention-e	1. Calling convention (E)
@@ -307217,7 +307217,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x224	28	polladd	dwarf+symtab	a86de4a9d7a4		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x240	28	polldel	dwarf+symtab	a86de4a9d7a4		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x25c	80	polldelvec	dwarf+symtab	6c5417e795d4		in	named-only		
-6.5.30/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x2ac	536	poll	dwarf+symtab	334cfb81cd7c		in	named-only	docs/hollywood-dsp-driver.md#firmware-download	Firmware download
+6.5.30/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x2ac	536	poll	dwarf+symtab	334cfb81cd7c		in	named-only	docs/crime.md#tiles-subtiles-and-the-mte	Tiles, subtiles and the MTE
 6.5.30/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x4c4	1524	dopoll	dwarf+symtab	a3e9e3008c9f		in	named-only	docs/syscalls.md#entries	Entries
 6.5.30/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0xab8	1412	k_select	dwarf+symtab	c9ac1419016d		in	named-only	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP35boot/sgi.a(select.o)	shared-kernel	n64	.text	0x103c	28	select	dwarf+symtab	4e0b7c85ec68		in	named-only	docs/dm2-ioctl.md#1-calling-convention-e	1. Calling convention (E)
@@ -323101,7 +323101,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib/libm.so	userland	o32		0xf83482c	96	__floor	dynsym+mdebug	f735c1244caa	shared-address	out:3	undocumented		
 6.5.30/usr/lib/libm.so	userland	o32		0xf83482c	96	floor	dynsym	f735c1244caa	shared-address	out:3	undocumented		
 6.5.30/usr/lib/libm.so	userland	o32		0xf83488c	104	__ceil	dynsym+mdebug	4e95ec9c6199	shared-address	out:3	undocumented		
-6.5.30/usr/lib/libm.so	userland	o32		0xf83488c	116	ceil	dynsym	9d658261f42a	shared-address	out:3	undocumented		
+6.5.30/usr/lib/libm.so	userland	o32		0xf83488c	116	ceil	dynsym	9d658261f42a	shared-address	out:3	named-only		
 6.5.30/usr/lib/libm.so	userland	o32		0xf834900	904	__fmod	dynsym+mdebug	465eb63c1b74	shared-address	out:3	undocumented		
 6.5.30/usr/lib/libm.so	userland	o32		0xf834900	904	fmod	dynsym	465eb63c1b74	shared-address	out:3	undocumented		
 6.5.30/usr/lib/libm.so	userland	o32		0xf834c88	452	__fmodf	dynsym+mdebug	e6027dff5f36	shared-address	out:3	undocumented		
@@ -328173,7 +328173,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib32/mips3/libm.so	userland	n32		0x408ac0	60	__c_abs_	dwarf+dynsym	f8fb1c774fe0	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips3/libm.so	userland	n32		0x408ac0	60	c_abs_	dynsym	f8fb1c774fe0	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips3/libm.so	userland	n32		0x408afc	268	__ceil	dwarf+dynsym	1840e836cb4d	shared-address	out:3	undocumented		
-6.5.30/usr/lib32/mips3/libm.so	userland	n32		0x408afc	268	ceil	dynsym	1840e836cb4d	shared-address	out:3	undocumented		
+6.5.30/usr/lib32/mips3/libm.so	userland	n32		0x408afc	268	ceil	dynsym	1840e836cb4d	shared-address	out:3	named-only		
 6.5.30/usr/lib32/mips3/libm.so	userland	n32		0x408c08	268	__fceil	dwarf+dynsym	995d3f43e8d0	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips3/libm.so	userland	n32		0x408c08	268	ceilf	dynsym	995d3f43e8d0	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips3/libm.so	userland	n32		0x408c08	268	fceil	dynsym	995d3f43e8d0	shared-address	out:3	undocumented		
@@ -328494,7 +328494,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib32/mips3/libm.so	userland	n32		0x41cec0	960	__llroundl	dwarf+dynsym	c8a98b7705f7	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips3/libm.so	userland	n32		0x41cec0	960	llroundl	dynsym	c8a98b7705f7	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips3/libm.so	userland	n32		0x41d280	696	__libm_log2	dwarf+dynsym	c032bf8a380d	shared-address	out:3	undocumented		
-6.5.30/usr/lib32/mips3/libm.so	userland	n32		0x41d280	696	log2	dynsym	c032bf8a380d	shared-address	out:3	undocumented		
+6.5.30/usr/lib32/mips3/libm.so	userland	n32		0x41d280	696	log2	dynsym	c032bf8a380d	shared-address	out:3	named-only		
 6.5.30/usr/lib32/mips3/libm.so	userland	n32		0x41d540	520	__log2f	dwarf+dynsym	7983c703d027	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips3/libm.so	userland	n32		0x41d540	520	log2f	dynsym	7983c703d027	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips3/libm.so	userland	n32		0x41d780	1992	__log2l	dwarf+dynsym	4623e5ed8a74	shared-address	out:3	undocumented		
@@ -334138,7 +334138,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib32/mips4/libm.so	userland	n32		0x408ac0	64	__c_abs_	dwarf+dynsym	12c15e5f486c	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips4/libm.so	userland	n32		0x408ac0	64	c_abs_	dynsym	12c15e5f486c	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips4/libm.so	userland	n32		0x408b00	268	__ceil	dwarf+dynsym	a9e67c38e93c	shared-address	out:3	undocumented		
-6.5.30/usr/lib32/mips4/libm.so	userland	n32		0x408b00	272	ceil	dynsym	70c963a05bfb	shared-address	out:3	undocumented		
+6.5.30/usr/lib32/mips4/libm.so	userland	n32		0x408b00	272	ceil	dynsym	70c963a05bfb	shared-address	out:3	named-only		
 6.5.30/usr/lib32/mips4/libm.so	userland	n32		0x408c10	268	__fceil	dwarf+dynsym	3547a20dcdf3	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips4/libm.so	userland	n32		0x408c10	272	ceilf	dynsym	9e5f6696b6ec	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips4/libm.so	userland	n32		0x408c10	272	fceil	dynsym	9e5f6696b6ec	shared-address	out:3	undocumented		
@@ -334459,7 +334459,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib32/mips4/libm.so	userland	n32		0x41b180	940	__llroundl	dwarf+dynsym	e3a3935d6d3e	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips4/libm.so	userland	n32		0x41b180	940	llroundl	dynsym	e3a3935d6d3e	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips4/libm.so	userland	n32		0x41b540	604	__libm_log2	dwarf+dynsym	c1289663ecc4	shared-address	out:3	undocumented		
-6.5.30/usr/lib32/mips4/libm.so	userland	n32		0x41b540	604	log2	dynsym	c1289663ecc4	shared-address	out:3	undocumented		
+6.5.30/usr/lib32/mips4/libm.so	userland	n32		0x41b540	604	log2	dynsym	c1289663ecc4	shared-address	out:3	named-only		
 6.5.30/usr/lib32/mips4/libm.so	userland	n32		0x41b7c0	488	__log2f	dwarf+dynsym	cee2011fcf1c	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips4/libm.so	userland	n32		0x41b7c0	488	log2f	dynsym	cee2011fcf1c	shared-address	out:3	undocumented		
 6.5.30/usr/lib32/mips4/libm.so	userland	n32		0x41b9c0	1964	__log2l	dwarf+dynsym	18abc31a4b02	shared-address	out:3	undocumented		
@@ -343687,7 +343687,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib64/mips3/libm.so	userland	n64		0x200a5c0	60	__c_abs_	dwarf+dynsym	3828737d057a	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips3/libm.so	userland	n64		0x200a5c0	60	c_abs_	dynsym	3828737d057a	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips3/libm.so	userland	n64		0x200a5fc	268	__ceil	dwarf+dynsym	5a631827d183	shared-address	out:3	undocumented		
-6.5.30/usr/lib64/mips3/libm.so	userland	n64		0x200a5fc	268	ceil	dynsym	5a631827d183	shared-address	out:3	undocumented		
+6.5.30/usr/lib64/mips3/libm.so	userland	n64		0x200a5fc	268	ceil	dynsym	5a631827d183	shared-address	out:3	named-only		
 6.5.30/usr/lib64/mips3/libm.so	userland	n64		0x200a708	268	__fceil	dwarf+dynsym	07c9bb342900	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips3/libm.so	userland	n64		0x200a708	268	ceilf	dynsym	07c9bb342900	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips3/libm.so	userland	n64		0x200a708	268	fceil	dynsym	07c9bb342900	shared-address	out:3	undocumented		
@@ -344008,7 +344008,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib64/mips3/libm.so	userland	n64		0x201efc0	964	__llroundl	dwarf+dynsym	9c3a41bb5ba9	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips3/libm.so	userland	n64		0x201efc0	964	llroundl	dynsym	9c3a41bb5ba9	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips3/libm.so	userland	n64		0x201f3c0	700	__libm_log2	dwarf+dynsym	ea5f097b3cd9	shared-address	out:3	undocumented		
-6.5.30/usr/lib64/mips3/libm.so	userland	n64		0x201f3c0	700	log2	dynsym	ea5f097b3cd9	shared-address	out:3	undocumented		
+6.5.30/usr/lib64/mips3/libm.so	userland	n64		0x201f3c0	700	log2	dynsym	ea5f097b3cd9	shared-address	out:3	named-only		
 6.5.30/usr/lib64/mips3/libm.so	userland	n64		0x201f680	524	__log2f	dwarf+dynsym	1ab8f50f5d9d	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips3/libm.so	userland	n64		0x201f680	524	log2f	dynsym	1ab8f50f5d9d	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips3/libm.so	userland	n64		0x201f8c0	2056	__log2l	dwarf+dynsym	10c1f9bd5b0b	shared-address	out:3	undocumented		
@@ -349603,7 +349603,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib64/mips4/libm.so	userland	n64		0x200a5c0	64	__c_abs_	dwarf+dynsym	ee1e98e5b457	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips4/libm.so	userland	n64		0x200a5c0	64	c_abs_	dynsym	ee1e98e5b457	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips4/libm.so	userland	n64		0x200a600	268	__ceil	dwarf+dynsym	73a988ea55bb	shared-address	out:3	undocumented		
-6.5.30/usr/lib64/mips4/libm.so	userland	n64		0x200a600	272	ceil	dynsym	6dac6d810662	shared-address	out:3	undocumented		
+6.5.30/usr/lib64/mips4/libm.so	userland	n64		0x200a600	272	ceil	dynsym	6dac6d810662	shared-address	out:3	named-only		
 6.5.30/usr/lib64/mips4/libm.so	userland	n64		0x200a710	268	__fceil	dwarf+dynsym	a10015802500	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips4/libm.so	userland	n64		0x200a710	272	ceilf	dynsym	b33de4cb542e	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips4/libm.so	userland	n64		0x200a710	272	fceil	dynsym	b33de4cb542e	shared-address	out:3	undocumented		
@@ -349924,7 +349924,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/lib64/mips4/libm.so	userland	n64		0x201cc00	956	__llroundl	dwarf+dynsym	55b928a337a2	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips4/libm.so	userland	n64		0x201cc00	956	llroundl	dynsym	55b928a337a2	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips4/libm.so	userland	n64		0x201cfc0	604	__libm_log2	dwarf+dynsym	22f7619a7d2b	shared-address	out:3	undocumented		
-6.5.30/usr/lib64/mips4/libm.so	userland	n64		0x201cfc0	604	log2	dynsym	22f7619a7d2b	shared-address	out:3	undocumented		
+6.5.30/usr/lib64/mips4/libm.so	userland	n64		0x201cfc0	604	log2	dynsym	22f7619a7d2b	shared-address	out:3	named-only		
 6.5.30/usr/lib64/mips4/libm.so	userland	n64		0x201d240	488	__log2f	dwarf+dynsym	89fd0d6176a5	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips4/libm.so	userland	n64		0x201d240	488	log2f	dynsym	89fd0d6176a5	shared-address	out:3	undocumented		
 6.5.30/usr/lib64/mips4/libm.so	userland	n64		0x201d440	1964	__log2l	dwarf+dynsym	d04dc6cd950d	shared-address	out:3	undocumented		
