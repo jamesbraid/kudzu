@@ -22,7 +22,7 @@ is in chips (`docs/audio/hollywood-dsp.md` there). Labels as in [AGENTS.md](../A
   public header is shared by `hdsp` and `kdsp` and that the private header is only partly used by `kdsp`. That sharing is the reason the `kdsp`
   readings stand in for `hdsp`: **inferred**. Where `hdsp` differs (it handles one request that `kdsp` rejects, and has hardware-specific
   state), the difference is marked.
-- The audio library (`libaudio.so.1`, all three ABIs) and `usr/sbin/audiostate` are held for 6.5.30 (no 6.5.22 userland is). They are read
+- The audio library (`libaudio.so.1`, all three ABIs) and `usr/sbin/audiostate` are held for 6.5.30 (a 6.5.22 copy was added to `root/6.5.22` at the same time as this reading and was not compared). They are read
   only for strings and imports so far ([What libaudio opens](#what-libaudio-opens)). Library-side claims about parameters are from the shipped
   `audio.h`, whose parameter and type numbers match the driver header's one for one wherever I compared them (three spot checks: the lock-state
   parameter 40, the input-port type 23, the input-ring type 25). **Inferred.**
