@@ -332,7 +332,7 @@ binary	function	address	callee	sites	scope	status
 6.5.22/unix.IP27	in6_init	0xc0000000003c247c	cmn_err	1	in	undocumented
 6.5.22/unix.IP27	in_cksum	0xc00000000012f998	panic	1	in	documented
 6.5.22/unix.IP27	init_hub_stats	0xc000000000042db8	assfail	1	in	documented
-6.5.22/unix.IP27	init_mfhi_war	0xc0000000001fc4b8	cmn_err_tag	1	in	undocumented
+6.5.22/unix.IP27	init_mfhi_war	0xc0000000001fc4b8	cmn_err_tag	1	in	documented
 6.5.22/unix.IP27	init_platform_nodepda	0xc0000000000262ac	assfail	2	in	documented
 6.5.22/unix.IP27	init_platform_pda	0xc00000000002658c	assfail	2	in	documented
 6.5.22/unix.IP27	init_timebase	0xc0000000000453d8	cmn_err	1	in	documented
@@ -592,7 +592,7 @@ binary	function	address	callee	sites	scope	status
 6.5.22/unix.IP27	numa_init	0xc000000000277194	cmn_err	1	in	documented
 6.5.22/unix.IP27	numa_tests	0xc0000000002841a8	cmn_err	1	in	documented
 6.5.22/unix.IP27	open_statmon_dir	0xc0000000000bf99c	cmn_err	3	in	documented
-6.5.22/unix.IP27	p0	0xc00000000022e3f4	cmn_err	2	in	undocumented
+6.5.22/unix.IP27	p0	0xc00000000022e3f4	cmn_err	2	in	documented
 6.5.22/unix.IP27	page_discard	0xc0000000001b19bc	cmn_err	1	in	documented
 6.5.22/unix.IP27	page_discard_enqueue	0xc0000000001b1c70	cmn_err	1	in	documented
 6.5.22/unix.IP27	page_replica_shoot	0xc0000000002847d4	assfail	2	in	documented
@@ -1477,7 +1477,7 @@ binary	function	address	callee	sites	scope	status
 6.5.22/unix.IP30	ifafree_common	0xa8000000200db944	panic	1	in	documented
 6.5.22/unix.IP30	in6_init	0xa800000020338ebc	cmn_err	1	in	undocumented
 6.5.22/unix.IP30	in_cksum	0xa8000000200ec188	panic	1	in	documented
-6.5.22/unix.IP30	init_mfhi_war	0xa80000002016ae24	cmn_err_tag	1	in	undocumented
+6.5.22/unix.IP30	init_mfhi_war	0xa80000002016ae24	cmn_err_tag	1	in	documented
 6.5.22/unix.IP30	init_timebase	0xa800000020008a94	cmn_err	1	in	documented
 6.5.22/unix.IP30	init_timers	0xa80000002021d9d0	cmn_err	1	in	undocumented
 6.5.22/unix.IP30	initmasterpda	0xa8000000201b1b84	assfail	1	in	documented
@@ -1627,7 +1627,7 @@ binary	function	address	callee	sites	scope	status
 6.5.22/unix.IP30	nomemmsg	0xa80000002016b71c	cmn_err	2	in	documented
 6.5.22/unix.IP30	noreach	0xa800000020154ed4	cmn_err	1	in	documented
 6.5.22/unix.IP30	open_statmon_dir	0xa80000002007bed8	cmn_err	3	in	documented
-6.5.22/unix.IP30	p0	0xa8000000201d86f4	cmn_err	2	in	undocumented
+6.5.22/unix.IP30	p0	0xa8000000201d86f4	cmn_err	2	in	documented
 6.5.22/unix.IP30	page_discard	0xa80000002015a8f4	cmn_err	1	in	documented
 6.5.22/unix.IP30	pagecoloralign	0xa800000020193a60	cmn_err_tag	1	in	undocumented
 6.5.22/unix.IP30	pagecoloralign	0xa800000020193a60	printf	1	in	undocumented
@@ -2735,7 +2735,7 @@ binary	function	address	callee	sites	scope	status
 6.5.22/unix.IP35	ohci_send_info_cmd	0xc00000000012ef50	cmn_err	1	in	undocumented
 6.5.22/unix.IP35	ohci_test_probe_finish	0xc00000000012f850	cmn_err	1	in	undocumented
 6.5.22/unix.IP35	open_statmon_dir	0xc000000000102c04	cmn_err	3	in	documented
-6.5.22/unix.IP35	p0	0xc0000000002a4814	cmn_err	2	in	undocumented
+6.5.22/unix.IP35	p0	0xc0000000002a4814	cmn_err	2	in	documented
 6.5.22/unix.IP35	page_discard	0xc00000000022782c	cmn_err	1	in	documented
 6.5.22/unix.IP35	page_discard_enqueue	0xc000000000227ae0	cmn_err	1	in	documented
 6.5.22/unix.IP35	page_replica_shoot	0xc0000000002f7bd0	assfail	2	in	documented
@@ -3723,7 +3723,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	in6_init	0xc0000000003c1da4	cmn_err	1	in	undocumented
 6.5.30/unix.IP27	in_cksum	0xc00000000012cbb0	panic	1	in	documented
 6.5.30/unix.IP27	init_hub_stats	0xc000000000043340	assfail	1	in	documented
-6.5.30/unix.IP27	init_mfhi_war	0xc000000000201008	cmn_err_tag	1	in	undocumented
+6.5.30/unix.IP27	init_mfhi_war	0xc000000000201008	cmn_err_tag	1	in	documented
 6.5.30/unix.IP27	init_platform_nodepda	0xc000000000026500	assfail	2	in	documented
 6.5.30/unix.IP27	init_platform_pda	0xc0000000000267e0	assfail	2	in	documented
 6.5.30/unix.IP27	init_timebase	0xc000000000045c68	cmn_err	1	in	documented
@@ -3979,7 +3979,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	nomemmsg	0xc0000000001c8280	cmn_err	2	in	documented
 6.5.30/unix.IP27	noreach	0xc0000000001a74a4	cmn_err	1	in	documented
 6.5.30/unix.IP27	numa_init	0xc000000000277a1c	cmn_err	1	in	documented
-6.5.30/unix.IP27	p0	0xc00000000022ec5c	cmn_err	2	in	undocumented
+6.5.30/unix.IP27	p0	0xc00000000022ec5c	cmn_err	2	in	documented
 6.5.30/unix.IP27	page_discard	0xc0000000001b0290	assfail	1	in	documented
 6.5.30/unix.IP27	page_discard	0xc0000000001b0290	cmn_err	1	in	documented
 6.5.30/unix.IP27	page_discard_enqueue	0xc0000000001b0934	cmn_err	1	in	documented
@@ -4949,7 +4949,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	ifafree_common	0xa8000000200efedc	panic	1	in	documented
 6.5.30/unix.IP30	in6_init	0xa8000000203a8f44	cmn_err	1	in	undocumented
 6.5.30/unix.IP30	in_cksum	0xa800000020104c54	panic	1	in	documented
-6.5.30/unix.IP30	init_mfhi_war	0xa800000020187588	cmn_err_tag	1	in	undocumented
+6.5.30/unix.IP30	init_mfhi_war	0xa800000020187588	cmn_err_tag	1	in	documented
 6.5.30/unix.IP30	init_timebase	0xa800000020014d40	cmn_err	1	in	documented
 6.5.30/unix.IP30	init_timers	0xa80000002023a3b0	cmn_err	1	in	undocumented
 6.5.30/unix.IP30	initmasterpda	0xa8000000201d2610	assfail	1	in	documented
@@ -5174,7 +5174,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	odsy_usb_comp_readwrite_register	0xa800000020387594	cmn_err	4	in	undocumented
 6.5.30/unix.IP30	odsy_usb_comp_update_tiles	0xa80000002038756c	cmn_err	1	in	undocumented
 6.5.30/unix.IP30	open_statmon_dir	0xa800000020084d88	cmn_err	3	in	documented
-6.5.30/unix.IP30	p0	0xa8000000201f4940	cmn_err	2	in	undocumented
+6.5.30/unix.IP30	p0	0xa8000000201f4940	cmn_err	2	in	documented
 6.5.30/unix.IP30	page_discard	0xa800000020174788	assfail	1	in	documented
 6.5.30/unix.IP30	page_discard	0xa800000020174788	cmn_err	1	in	documented
 6.5.30/unix.IP30	page_unmapall	0xa800000020174b10	assfail	1	in	undocumented
@@ -6343,7 +6343,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	noreach	0xc000000000256048	cmn_err	1	in	documented
 6.5.30/unix.IP35	numa_init	0xc0000000003272f0	cmn_err	1	in	documented
 6.5.30/unix.IP35	open_statmon_dir	0xc0000000000ff7a8	cmn_err	3	in	documented
-6.5.30/unix.IP35	p0	0xc0000000002dd8c4	cmn_err	2	in	undocumented
+6.5.30/unix.IP35	p0	0xc0000000002dd8c4	cmn_err	2	in	documented
 6.5.30/unix.IP35	page_discard	0xc00000000025ea38	assfail	1	in	documented
 6.5.30/unix.IP35	page_discard	0xc00000000025ea38	cmn_err	1	in	documented
 6.5.30/unix.IP35	page_discard_enqueue	0xc00000000025f0fc	cmn_err	1	in	documented

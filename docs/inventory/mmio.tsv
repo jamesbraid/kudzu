@@ -4,7 +4,7 @@ BEDROCK-BOOT	0xa0		r4	8	6	cpuprom_detailed_inventory_info_add;prom_has_vga_suppo
 BEDROCK-BOOT	0xa4		r4	8	6	cpuprom_detailed_inventory_info_add;prom_has_vga_support	boot window	6.5.22/unix.IP35:cpuprom_detailed_inventory_info_add	undocumented		
 BEDROCK-IO	0x400130		r8,w8	8	4	ii_llp_error_monitor	local alias	6.5.22/unix.IP35:ii_llp_error_monitor	named-only	docs/page-migration.md#hub-window-read-and-clear-sequence-acknowledge-and-re-arm	Hub window: read and clear sequence, acknowledge and re-arm
 BEDROCK-IO	0x4001f8		w8	8	4	bte_init	local alias	6.5.22/unix.IP35:bte_init	named-only	docs/ip35-hub-errors.md#hub-error-handling-in-the-ip35-kernel	Hub error handling in the IP35 kernel
-BEDROCK-LB	0x600000		r8	24	4	bootstrap;get_nasid;is_fine_dirmode;start;stop_all_cpus	local alias	6.5.22/unix.IP35:bootstrap	named-only	docs/page-migration.md#routines	Routines
+BEDROCK-LB	0x600000		r8	24	4	bootstrap;get_nasid;is_fine_dirmode;start;stop_all_cpus	local alias	6.5.22/unix.IP35:bootstrap	named-only	docs/numa-text-replication.md#2-writers-of-the-node-tables-the-alias-size-and-the-node-number-register	2. Writers of the node tables, the alias size and the node-number register
 BEDROCK-LB	0x604020		r8	4	4	stop_all_cpus	local alias	6.5.22/unix.IP35:stop_all_cpus	undocumented		
 BEDROCK-LB	0x604028		r8	4	4	stop_all_cpus	local alias	6.5.22/unix.IP35:stop_all_cpus	undocumented		
 BEDROCK-LB	0x604200		r8	251	21	__nanotime;bte_init;counter_intr;divo_start_subsys;doadjtime;dogetitimer;+34 more	local alias	6.5.22/unix.IP35:__nanotime	named-only	docs/syssgi.md#timers-clocks-and-the-front-panel-leds	Timers, clocks and the front-panel LEDs
