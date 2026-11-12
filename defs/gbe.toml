@@ -63,8 +63,120 @@ doc = "Flat-panel data-enable word. The timing routine writes it only for the de
 hi = { bits = [23, 12], grade = "established", doc = "12-bit field; its meaning is unknown" }
 lo = { bits = [11, 0], grade = "established", doc = "12-bit field; its meaning is unknown" }
 
+[registers.device_id]
+offset = 0x14
+access = "r"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Identity word the kernel reads first. It accepts the block only when the word reads 0x666; any other value means the kernel leaves the block untouched."
+
+[registers.frm_control]
+offset = 0x3000c
+access = "rw"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Frame-buffer scan-out control. The stop routine saves it, clears its enable bit, and later writes it back with its pointer field bumped by one unit. The pointer field starts at bit 5 (inferred)."
+[registers.frm_control.fields]
+enable = { bits = [0, 0], grade = "established", doc = "cleared by the stop routine; the meaning as a DMA enable is inferred" }
+
+[registers.ovr_control]
+offset = 0x20008
+access = "rw"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Overlay control. The stop routine clears its enable bit and leaves the word otherwise unwritten."
+[registers.ovr_control.fields]
+enable = { bits = [0, 0], grade = "established", doc = "cleared by the stop routine; the meaning as a DMA enable is inferred" }
+
+[registers.did_control]
+offset = 0x40004
+access = "rw"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Display-ID table control. The stop routine clears its enable bit and leaves the word otherwise unwritten."
+[registers.did_control.fields]
+enable = { bits = [16, 16], grade = "established", doc = "cleared by the stop routine; the stop routine also tests it at entry" }
+
+[registers.wid]
+offset = 0x48000
+access = "w"
+width = 32
+count = 32
+stride = 4
+grade = "established"
+from = "shipped IRIX X display module, per docs/gbe.md"
+doc = "Window-ID table, one 32-bit word per window index. Indices of 32 or more are rejected by the kernel. The kernel writes entry 0 with 3 at text-port set-up."
+[registers.wid.fields]
+buf = { bits = [1, 0], grade = "inferred", doc = "buffer code: 3 buffers both, 0 marks the window to be skipped by the buffer flip, 1 and 2 exchange on a swap. The bit position is inferred from the table values." }
+type = { bits = [4, 2], grade = "inferred", doc = "pixel type: 0 indexed 8-bit, 1 indexed 12-bit, 2 RG3B2, 4 RGB5, 5 RGB8. The bit position is inferred from the table values and the compare mask." }
+map_group = { bits = [9, 5], grade = "inferred", doc = "colour-map group; the group's first entry is this value times 256. The bit position is inferred from the table values." }
+gamma_disable = { bits = [10, 10], grade = "established", doc = "gamma disable. The kernel clears it before a write when the alternative gamma table is in use." }
+
+[registers.cursor_pos]
+offset = 0x70000
+access = "w"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Hardware cursor position word. The text port writes 0 at set-up."
+
+[registers.cursor_ctrl]
+offset = 0x70004
+access = "w"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Cursor control word. The text port writes 1 after the glyph and colours are loaded. What the bits mean beyond that is unknown."
+
+[registers.cursor_color1]
+offset = 0x70008
+access = "w"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Cursor colour 1 in the byte layout red, green, blue, zero. The text port writes 0xffffff00."
+
+[registers.cursor_color2]
+offset = 0x7000c
+access = "w"
+width = 32
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Cursor colour 2 in the byte layout red, green, blue, zero. The text port writes 0xff000000."
+
+[registers.cursor_glyph]
+offset = 0x78000
+access = "w"
+width = 32
+count = 64
+stride = 4
+grade = "established"
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+doc = "Cursor bitmap, 64 words. The text port loads words 0 to 31 from a 32-word table and writes 0 to words 32 to 63. Reading the words as a 32 by 32 bitmap at two bits per pixel is inferred; the text port draws with the first 32 words only (inferred)."
+
 [constants]
-TWO_WIRE_FP_OFF = { value = 0x10, grade = "established", doc = "Register offset of the flat-panel two-wire bus. Bus selector 1 drives it." }
+DEVICE_ID_VALUE = { value = 0x666, grade = "established", doc = "Value the identity word at offset 0x14 must read for the kernel to accept the block" }
+VT_XY_FREEZE = { value = 0x80000000, grade = "established", doc = "Value the kernel writes to the vertical timing position word to freeze it; the word's bit 31 is read first as the freeze state" }
+DOTCLK_RUN_BIT = { value = 20, grade = "inferred", doc = "Bit of the dot-clock word that the kernel clears before a new value and sets with it. Inferred to run the PLL or its output; the specification leaves it undefined." }
+DOTCLK_SETTLE_MS = { value = 11, grade = "established", doc = "Milliseconds the kernel waits after it writes the dot-clock word with the run bit set" }
+REF_CLOCK_KHZ = { value = 20000, grade = "inferred", doc = "PLL reference clock behind the dot-clock table. The kernel states none; the source reading takes 20 MHz from a public Linux driver, not re-checked here." }
+CMFIFO_MASK = { value = 0x3f, grade = "established", doc = "Colour-map FIFO occupancy field, bits 5:0. The register that holds it is not recorded here." }
+CMFIFO_FREE_MIN = { value = 48, grade = "established", doc = "Free colour-map FIFO entries the X module waits for after each batch of 33 writes" }
+CMFIFO_BATCH = { value = 33, grade = "established", doc = "Colour-map writes the X module issues between FIFO checks" }
+CMAP_ENTRY_BASE = { value = 0x50000, grade = "established", doc = "Colour-map entry i is the word at this offset plus 4 times i; the word is red << 24 | green << 16 | blue << 8" }
+TILE_NUMBER_MASK = { value = 0x1fff, grade = "established", doc = "Mask the kernel applies to a physical tile address before it is written into a tile list" }
+DID_TABLE_BYTES = { value = 0x10000, grade = "established", doc = "Size of one display-ID table as the X module fills it. The frame table starts at byte 0 and the line tables start at DID_LINE_TABLE_OFFSET." }
+DID_LINE_TABLE_OFFSET = { value = 0x2000, grade = "established", doc = "Byte offset of the first line table in a display-ID table" }
+DID_BLOCK_BYTES = { value = 0x200, grade = "established", doc = "Size of one block of a display-ID table; line tables are packed in 16-bit units inside a block" }
+DID_BLOCK_ENTRIES = { value = 256, grade = "established", doc = "Entries after which packing restarts in the next block" }
+DID_END_BLOCK = { value = 128, grade = "established", doc = "Block number that ends a display-ID table; the X module stops filling it there" }
+DID_LAST_XEND = { value = 2047, grade = "established", doc = "Right-hand column of the last band's line entry, which covers every line below the screen" }
+GBE_LINE_IRQ_BASE = { value = 16, grade = "established", doc = "CRIME interrupt bit of GBE line 0; GBE line n raises bit 16 + n. Lines 2 and 3 are the CRIME inputs 18 and 19." }
+TWO_WIRE_FP_OFF ={ value = 0x10, grade = "established", doc = "Register offset of the flat-panel two-wire bus. Bus selector 1 drives it." }
 TWO_WIRE_MON_OFF = { value = 0x8, grade = "established", doc = "Register offset of the monitor two-wire bus. Every other bus selector drives it." }
 TWO_WIRE_WAIT_BIT = { value = 1, grade = "established", doc = "Bit of the bus register that a start condition waits to read clear." }
 TWO_WIRE_WAIT_LIMIT = { value = 60, grade = "established", doc = "Most delays a start condition polls the bus bit before it gives up." }

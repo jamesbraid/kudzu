@@ -7,10 +7,11 @@ profile = "public"
 rust_crate = "hwdefs"
 
 # The GBE block's register offsets run past 0xffff, so the default 14-bit bound
-# is widened for every unit. Other units stay far below it.
+# is widened for every unit. The cursor glyph words end at 0x780fc, which needs
+# 19 bits. Other units stay far below it.
 [checks]
-address_bits = 17
-max_reg_offset = 0x1ffff
+address_bits = 19
+max_reg_offset = 0x7ffff
 
 [[banned.extra]]
 label = "shipped routine name"

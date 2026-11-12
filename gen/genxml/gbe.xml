@@ -2,6 +2,9 @@
 <!-- generated from defs/gbe.toml by defs-gen - do not edit, change the source -->
 <genxml unit="gbe" prefix="GBE" title="O2 GBE register block as the O2 kernel drives it: two-wire buses, flat-panel timing words and the dual-channel option probe" from="shipped IRIX kernel binaries, per docs/gbe.md">
   <doc>Register offsets, packed timing words and option-probe constants that the O2 kernel writes on the GBE block.</doc>
+  <struct name="DEVICE_ID" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x14" access="r" reset="unknown">
+    <doc>Identity word the kernel reads first. It accepts the block only when the word reads 0x666; any other value means the kernel leaves the block untouched.</doc>
+  </struct>
   <struct name="VT_VBLANK" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x10010" access="w" reset="unknown">
     <doc>Vertical blank word. The timing routine stores it in the interlace case and when no dual-channel option is fitted, packing the active height and 0xfff. Other stores to this offset are outside what this unit records.</doc>
     <field name="hi" start="12" size="12" type="uint" grade="established"/>
@@ -30,10 +33,58 @@
     <field name="hi" start="12" size="12" type="uint" grade="established"/>
     <field name="lo" start="0" size="12" type="uint" grade="established"/>
   </struct>
+  <struct name="OVR_CONTROL" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x20008" access="rw" reset="unknown">
+    <doc>Overlay control. The stop routine clears its enable bit and leaves the word otherwise unwritten.</doc>
+    <field name="enable" start="0" size="1" type="uint" grade="established"/>
+  </struct>
+  <struct name="FRM_CONTROL" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x3000c" access="rw" reset="unknown">
+    <doc>Frame-buffer scan-out control. The stop routine saves it, clears its enable bit, and later writes it back with its pointer field bumped by one unit. The pointer field starts at bit 5 (inferred).</doc>
+    <field name="enable" start="0" size="1" type="uint" grade="established"/>
+  </struct>
+  <struct name="DID_CONTROL" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x40004" access="rw" reset="unknown">
+    <doc>Display-ID table control. The stop routine clears its enable bit and leaves the word otherwise unwritten.</doc>
+    <field name="enable" start="16" size="1" type="uint" grade="established"/>
+  </struct>
+  <struct name="WID" size="4" grade="established" from="shipped IRIX X display module, per docs/gbe.md" register="yes" offset="0x48000" access="w" count="32" stride="4" reset="unknown">
+    <doc>Window-ID table, one 32-bit word per window index. Indices of 32 or more are rejected by the kernel. The kernel writes entry 0 with 3 at text-port set-up.</doc>
+    <field name="gamma_disable" start="10" size="1" type="uint" grade="established"/>
+    <field name="map_group" start="5" size="5" type="uint" grade="inferred"/>
+    <field name="type" start="2" size="3" type="uint" grade="inferred"/>
+    <field name="buf" start="0" size="2" type="uint" grade="inferred"/>
+  </struct>
+  <struct name="CURSOR_POS" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x70000" access="w" reset="unknown">
+    <doc>Hardware cursor position word. The text port writes 0 at set-up.</doc>
+  </struct>
+  <struct name="CURSOR_CTRL" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x70004" access="w" reset="unknown">
+    <doc>Cursor control word. The text port writes 1 after the glyph and colours are loaded. What the bits mean beyond that is unknown.</doc>
+  </struct>
+  <struct name="CURSOR_COLOR1" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x70008" access="w" reset="unknown">
+    <doc>Cursor colour 1 in the byte layout red, green, blue, zero. The text port writes 0xffffff00.</doc>
+  </struct>
+  <struct name="CURSOR_COLOR2" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x7000c" access="w" reset="unknown">
+    <doc>Cursor colour 2 in the byte layout red, green, blue, zero. The text port writes 0xff000000.</doc>
+  </struct>
+  <struct name="CURSOR_GLYPH" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/gbe.md" register="yes" offset="0x78000" access="w" count="64" stride="4" reset="unknown">
+    <doc>Cursor bitmap, 64 words. The text port loads words 0 to 31 from a 32-word table and writes 0 to words 32 to 63. Reading the words as a 32 by 32 bitmap at two bits per pixel is inferred; the text port draws with the first 32 words only (inferred).</doc>
+  </struct>
   <constant name="BOARD_INTERLACE_OFF" value="0x2d" grade="established"/>
   <constant name="BOARD_PANEL_OFF" value="0x2e" grade="established"/>
+  <constant name="CMAP_ENTRY_BASE" value="0x50000" grade="established"/>
+  <constant name="CMFIFO_BATCH" value="0x21" grade="established"/>
+  <constant name="CMFIFO_FREE_MIN" value="0x30" grade="established"/>
+  <constant name="CMFIFO_MASK" value="0x3f" grade="established"/>
+  <constant name="DEVICE_ID_VALUE" value="0x666" grade="established"/>
+  <constant name="DID_BLOCK_BYTES" value="0x200" grade="established"/>
+  <constant name="DID_BLOCK_ENTRIES" value="0x100" grade="established"/>
+  <constant name="DID_END_BLOCK" value="0x80" grade="established"/>
+  <constant name="DID_LAST_XEND" value="0x7ff" grade="established"/>
+  <constant name="DID_LINE_TABLE_OFFSET" value="0x2000" grade="established"/>
+  <constant name="DID_TABLE_BYTES" value="0x10000" grade="established"/>
+  <constant name="DOTCLK_RUN_BIT" value="0x14" grade="inferred"/>
+  <constant name="DOTCLK_SETTLE_MS" value="0xb" grade="established"/>
   <constant name="FIELD_MASK" value="0xfff" grade="established"/>
   <constant name="FIELD_SHIFT" value="0xc" grade="established"/>
+  <constant name="GBE_LINE_IRQ_BASE" value="0x10" grade="established"/>
   <constant name="OPT_CMD_CLOCK_KHZ" value="0x186a0" grade="established"/>
   <constant name="OPT_CMD_ID_HIGH" value="0xff" grade="established"/>
   <constant name="OPT_CMD_ID_LOW" value="0x7f" grade="established"/>
@@ -45,8 +96,11 @@
   <constant name="PANEL_SETUP_A" value="0x82" grade="established"/>
   <constant name="PANEL_SETUP_B" value="0x83" grade="established"/>
   <constant name="PANEL_SETUP_C" value="0x84" grade="established"/>
+  <constant name="REF_CLOCK_KHZ" value="0x4e20" grade="inferred"/>
+  <constant name="TILE_NUMBER_MASK" value="0x1fff" grade="established"/>
   <constant name="TWO_WIRE_FP_OFF" value="0x10" grade="established"/>
   <constant name="TWO_WIRE_MON_OFF" value="0x8" grade="established"/>
   <constant name="TWO_WIRE_WAIT_BIT" value="0x1" grade="established"/>
   <constant name="TWO_WIRE_WAIT_LIMIT" value="0x3c" grade="established"/>
+  <constant name="VT_XY_FREEZE" value="0x80000000" grade="established"/>
 </genxml>

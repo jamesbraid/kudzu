@@ -75,6 +75,129 @@ Established: when installed is below 9, which includes 0 for no option, and the 
 
 Inferred: the horizontal delay `d` differs by option id because two families of the option need different delays. That reasoning explains the `d` test only. The interlace rewrite runs when no option is fitted, so the same reasoning does not explain it.
 
+## Display set-up outside the timing words
+
+The sections below cover what the O2 kernel and the O2 X server display module do to the GBE block apart from the flat-panel words: identity and clock select, the stop and blank sequences, the window-ID table, the display-ID tables that describe scan-out bands, the tile lists, colour-map writes, line interrupts, dot-clock coefficients and the hardware cursor.
+
+The facts come from one reader's decompilation of the shipped IRIX 6.5.30 IP32 kernel objects and the X server display module, with the public GBE 1.1 ASIC specification cited as far as the reading gives it. Routines are described by role; no routine name is given. The reading has not had a second check. Register offsets for CTRLSTAT, DOTCLK, VT_XY, the VT_INTR words, CMFIFO and the live readback words are not recorded in the reading, so those registers appear here by name only. The offsets above remain relative to the GBE register block.
+
+### Identity, clock select and blanking
+
+Established (probe routine): the kernel accepts a GBE only when the identity word at offset `0x14` reads `0x666`. It then writes CTRLSTAT as `0x30000000`: clock source 3, which is the internal PLL, with every pin pair set to output driving 0. It writes 0 to VT_XY only when that word's bit 31 reads 1. A device with any other identity is left alone.
+
+Established (board-information routine): the kernel rewrites CTRLSTAT as its old value with the clock source kept, plus `0x000aa000`. Bits 13, 15, 17 and 19 set make IO_3 to IO_6 inputs, and their data bits are 12, 14, 16 and 18. The kernel reads those four data bits, with the bit at 12 as bit 0, as a board strap. When the strap reads 0, the kernel selects the alternative gamma table; otherwise it does not. CTRLSTAT bits 3:0 read back the chip revision: 1 is the GBE 1.1 part.
+
+Established (blank and unblank): blanking writes `0x000aa000`, which selects clock source 0, the external TTL input. The board does not drive that input. Unblanking writes `0x300aa000`. Inferred: blanking deselects the clock and does not change any timing register.
+
+Unknown: the meaning of the other strap codes, and what IO_0 to IO_2 and IO_7 to IO_9 drive. Routes tried: the specification's pin table, the stand-alone diagnostics, the kernel, public Linux and NetBSD drivers. No shipped software depends on either.
+
+### Stopping scan-out
+
+The three controls sit at `0x3000c` (frame), `0x20008` (overlay) and `0x40004` (display ID). Their DMA enables are frame bit 0, overlay bit 0 and display-ID bit 16.
+
+Established (stop routine): the kernel saves the three controls and clears their enables. If the saved overlay enable was clear, it stops there. Otherwise it polls the live readback of the three enables, up to 20,000 times at 10 microseconds, until all three read clear. It then writes the frame control back with its enable clear and `0x20` added. It polls the live frame control, up to 20,000 more times, until it equals the value written. The overlay and display-ID controls stay cleared and are not written back.
+
+Inferred: the pointer field of the frame control starts at bit 5, so adding `0x20` moves the pointer by one unit. A changed live value shows that a blanking edge has passed.
+
+Established (early stop, used before the kernel returns to the PROM): the same three enables are cleared, each write followed by a bus flush. Polling is capped at 400,000 reads. Each control gets `0x20` added and the live readbacks are polled until they equal the new values. VT_XY is written `0x80000000`, which freezes it, and bit 20 of DOTCLK is cleared with the other bits kept. The sequence is skipped when the live overlay and frame enables and the display-ID enable are all clear at entry.
+
+### Window-ID table
+
+Established: the window-ID table is at `0x48000`, one 32-bit word per window index, `0x48000 + 4 * index`. An index of 32 or more is rejected. The kernel writes entry 0 with 3 at text-port set-up.
+
+Established: the X module writes one of four tables at start-up, chosen by the chip revision (a revision below 2 takes the first pair, 2 or more the second) and by whether the frame buffer is 16 bits deep. Each entry's value is below. Every entry has buffer code 3.
+
+| Table | Entries (index: value) |
+|---|---|
+| revision 1, 16-bit (8) | 0 `0x203`, 1 `0x1e3`, 2 `0x1c3`, 3 `0x1a3`, 4 `0x183` (indexed 8-bit, map groups 16 to 12); 5 `0x00b` (RG3B2); 6 `0x007` (indexed 12-bit); 7 `0x013` (RGB5) |
+| revision 1, 24-bit (10) | 0 to 7 as above; 8 `0x577` (RGB8, group 11, gamma disabled); 9 `0x017` (RGB8, group 0) |
+| revision 2, 16-bit (9) | 0 to 5: indexed 8-bit with groups 18 to 23 (`0x243`, `0x263`, `0x283`, `0x2a3`, `0x2c3`, `0x2e3`); 6 `0x00b`; 7 `0x007`; 8 `0x013` |
+| revision 2, 24-bit (11) | 0 to 6 as the revision 2 16-bit table; 7 `0x007`; 8 `0x013`; 9 `0x577` (RGB8, group 11, gamma disabled); 10 `0x017` |
+
+Inferred, from the values and a 32-bit compare mask of `0x7fc` that the X module uses: bits 1:0 are the buffer code, bits 4:2 the pixel type (0 indexed 8-bit, 1 indexed 12-bit, 2 RG3B2, 4 RGB5, 5 RGB8), bits 9:5 the colour-map group and bit 10 the gamma disable. Bit 10 is established from the kernel, which clears it before a write when the alternative gamma table is in use.
+
+Established (retrace handler): an entry with buffer code 0 is skipped by the buffer flip, and entries with code 1 or 2 are exchanged on a swap. Inferred: this is a front-back flip with no change to the frame pointer.
+
+### Display-ID tables as the X module fills them
+
+Established (table builder): the X module keeps up to three 64 KiB display-ID tables. The 32 windows are merged into horizontal bands of lines that cross the same rectangles.
+
+Each band has one frame entry, a 32-bit word `block << 19 | offset << 11 | yend`, where `yend` is the band's last line, counted from 0 at the first active line. Each band also has one line table, with one 16-bit entry per rectangle, `index << 11 | xend`, where `xend` is the rectangle's last column. Entries are sorted by `xend` when a band has two or more rectangles. When the screen is narrower than the display, the list is cut after the entry that reaches the last display column and clamped to it.
+
+Established (layout): the frame table starts at byte 0 and holds up to 2048 entries in blocks 0 to 15, each block being 512 bytes. Line tables start at byte `0x2000` (block 16) and are packed back to back in 16-bit units inside 512-byte blocks. When a table would pass entry 256 of a block, packing restarts at the next block. Block 128 ends the table; on reaching it the X module prints a warning and ends the table early.
+
+Established: the last band covers every line below the screen. Its line entry has `xend` 2047 and display ID 5 (value `0x2fff`) on revision 1, or 6 (`0x37ff`) on revision 2. Its frame entry has `yend` 2047. Those display IDs are the RG3B2 window-ID entries above.
+
+Established: the X module ends each visible line's last entry at the last active column (width minus 1), not at 2047. Inferred: the display stops reading a line table at the end of the active line, so an `xend` at or past the last active pixel ends the line either way. The reading gives no source for the comparison the hardware makes. Unknown: whether the hardware also accepts an `xend` short of the active width when no later entry follows.
+
+### Tile lists
+
+Established (list builder): the kernel keeps one 0x600-byte block per GBE. A tile number is the physical tile address masked to 13 bits (`0x1fff`), so tile bases lie below 512 MiB of bus address.
+
+- Overlay lists (`+0x120` and `+0x160` in the kernel block): contiguous 16-bit tile numbers, two copies, the second starting half way down for interlaced modes.
+- Frame-buffer lists (`+0x200` and `+0x300`): `ceil(width / (512 / bytes per pixel))` tile numbers per row, one row per 128-line tile row, with the second list starting half way for interlaced modes.
+- `+0x0a0`: 64 entries, each one tile number in the high halfword of a word.
+- `+0x400` and `+0x500` are not filled by the two routines read. Unknown: whether another path fills them.
+
+Inferred: which list serves which plane, from the sizes and sources. Established: the list loader sets bit 0 of each of the seven pointer words before the words are used as the frame, overlay and display-ID control values. Inferred: bit 0 is the DMA enable of those controls. Unknown: the meaning of tile-number bit 15. The kernel masks it, and no shipped software sets it.
+
+### Colour-map writes and the FIFO
+
+Established (X module): a colour is one 32-bit store to `0x50000 + 4 * index`, the word `R << 24 | G << 16 | B << 8`. The index is the global entry number, so a window's group base is part of it. The first entry of a group is the group value times 256. Revision 1 group lists start at `0x1000`, `0xf00`, `0xe00`, `0xd00`, `0xc00`, `0xb00` and `0x1100`, which are groups 16 to 12, 11 and 17. Revision 2 lists start at `0x1200` to `0x1700` (groups 18 to 23) and at `0xb00` and `0x1100`.
+
+Established: after 33 writes the X module polls CMFIFO (bits 5:0) until it is at least 48 on revision 2, or 0 or at least 48 on revision 1. It also polls at the start of a list. The stand-alone diagnostics wait for room until the field reads at least 17 on revision 2 (0 or at least 17 on revision 1), and wait for an empty queue until it reads 63 on revision 2 and 0 on revision 1.
+
+Inferred: both revisions count free entries. Revision 2 queues at most 63, so 0 means full and an empty queue reads 63. Revision 1 queues 64, wraps to 0 when empty and also reads 0 when full, which is why its room test accepts 0. Thirty-three writes after a count of at least 48 free cannot overrun 64 entries, by arithmetic.
+
+Established: the X module skips the hardware write of entry `0x1102` (group `0x11`, index 2) while one of its screen flags is non-zero, and keeps only its software copy. The text port draws colour `c` as pixel value `c + 1` and loads it at entry `0x1100 + c + 1`, so entry `0x1102` is the text port's colour 1. Inferred: the skip protects that colour. What sets the flag was not traced.
+
+Unknown: whether the hardware drains writes in strict order. No shipped software reads a colour-map entry back.
+
+### Line interrupts
+
+Established (mode set-up): for a mode with vertical blank start `B` and total lines `T`, the kernel computes line 1 as `B - 32` and line 0 as `B + 4`, reduced by `T` when it reaches `T`. It writes `VT_INTR01 = line1 | line0 << 12`, rewrites it from the interrupt handler on every frame, and parks VT_INTR23 and both lines of an unused display at `0xfff` or `0xffffff`. Inferred: each line number is 12 bits, bits 11:0 for line 1 and 23:12 for line 0, from the shift.
+
+Established: the handler clears CRIME interrupt bit 16 first and then rewrites the register. CRIME bit `16 + n` is GBE line `n`, so lines 2 and 3 are CRIME inputs 18 and 19. The reading found scheduler code that uses lines 2 and 3, but no shipped graphics object calls it, so a stock session leaves both lines parked at `0xfff`.
+
+Unknown: whether a line interrupt fires when its line is written equal to the line the beam is on, or when it is written after the beam has passed it. No shipped caller does either.
+
+### Dot-clock coefficients
+
+Established (dot-clock write): the kernel clears DOTCLK bit 20, writes the new value with bit 20 set, and waits 11 milliseconds. Inferred: bit 20 runs the PLL or its output. The specification leaves it undefined.
+
+Established (format files): the 26 shipped video format files each name three PLL scalars, M, N and P, in their schema. The values below were read at the offsets the schema gives, as big-endian words. The two-channel and `p` variants repeat their base format's values. Inferred: the output is `20 MHz * M / (N * 2^P)`. The kernel states no reference clock. The 20 MHz reference is taken from a public Linux driver in the reading, which was not checked here. The output and difference columns below were recomputed from M, N and P.
+
+| File | M | N | P | VCO MHz | Output MHz | File clock MHz | Difference |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 640x480_60 | 5 | 1 | 2 | 100.000 | 25.000 | 25.175 | -0.70 % |
+| 800x600_60 | 8 | 1 | 2 | 160.000 | 40.000 | 40.000 | 0.00 % |
+| 800x600_72 | 5 | 1 | 1 | 100.000 | 50.000 | 50.000 | 0.00 % |
+| 1024x768_60 | 13 | 2 | 1 | 130.000 | 65.000 | 65.000 | 0.00 % |
+| 1024x768_70 | 15 | 2 | 1 | 150.000 | 75.000 | 75.000 | 0.00 % |
+| 1024x768_75 | 39 | 5 | 1 | 156.000 | 78.000 | 78.750 | -0.95 % |
+| 1024x768_96s | 31 | 3 | 1 | 206.667 | 103.333 | 103.503 | -0.16 % |
+| 1280x1024_48 | 30 | 7 | 0 | 85.714 | 85.714 | 85.882 | -0.20 % |
+| 1280x1024_50 | 9 | 1 | 1 | 180.000 | 90.000 | 89.460 | +0.60 % |
+| 1280x1024_60 | 16 | 3 | 0 | 106.667 | 106.667 | 107.245 | -0.54 % |
+| 1280x1024_72 | 13 | 2 | 0 | 130.000 | 130.000 | 129.468 | +0.41 % |
+| 1280x1024_75 | 27 | 4 | 0 | 135.000 | 135.000 | 135.001 | 0.00 % |
+| 1280x492_120s | 16 | 3 | 0 | 106.667 | 106.667 | 107.144 | -0.45 % |
+| 1600x1024_48p | 34 | 7 | 0 | 97.143 | 97.143 | 97.219 | -0.08 % |
+| 1600x1024_50p | 5 | 1 | 0 | 100.000 | 100.000 | 101.270 | -1.25 % |
+| 1600x1024_60p | 38 | 7 | 0 | 108.571 | 108.571 | 108.732 | -0.15 % |
+
+Established (kernel built-in table): 13 populated records carry the same M, N and P as their files, with two exceptions. The stereo record (1280 by 492) carries 27, 5, 0 where its file has 16, 3, 0. The 1600 by 1024 record carries 5, 1, 0, the values of the 50 Hz file, and no record carries the 48 or 60 Hz values. The pixel clock fields, in slot order and in kHz, are 25,175; 40,000; 50,000; 65,000; 75,000; 78,750; 85,882; 89,544; 107,245; 129,468; 135,000; 107,072 for the stereo record; and 101,270.
+
+Unknown: why the stereo record's PLL values differ from its file, and why its clock is 107,072 kHz rather than the 108,000 kHz those values give.
+
+Established: the shipped formats use small integer coefficients, and the highest shipped format is 135 MHz. Shipped VCO frequencies run from 85.7 to 206.7 MHz. Unknown: whether the hardware locks above 140 MHz, the ceiling the reading attributes to the GBE 1.1 specification (not checked here). The reading also gives the specification's worked example for 25.175 MHz as M 146, N 29, P 4. That example does not fit the output formula above (it gives about 6.29 MHz), so either the specification uses a different formula or the example belongs to another reference. This is unresolved.
+
+### Hardware cursor
+
+Established (text-port initialiser): before the screen is blanked the kernel loads the hardware cursor. Colour 1 at `0x70008` is `0xffffff00`, colour 2 at `0x7000c` is `0xff000000`, and the position word at `0x70000` is 0. Glyph words 0 to 31 at `0x78000` to `0x7807c` come from a 32-word table, and words 32 to 63 at `0x78080` to `0x780fc` are 0. The control word at `0x70004` is then 1. Colours use the byte layout red, green, blue, zero, as in the colour map.
+
+Inferred: the 64 words form a 32 by 32 cursor at two bits per pixel, and the text port draws with the first 32 words only.
+
 ## Unknown
 
 - What the option port's other pins drive, and what the ids above the two delay classes mean. Unknown: no shipped software or published source depends on them. Routes tried: none recorded for this page.
@@ -85,3 +208,9 @@ Inferred: the horizontal delay `d` differs by option id because two families of 
 - The offset of the frame-size register that the interlace case halves.
 - The purpose of the no-option rewrite of the blank words. Unknown: no shipped software or published source depends on it.
 - The layout of the board description, beyond the two byte offsets above.
+- Register offsets of CTRLSTAT, DOTCLK, VT_XY, the VT_INTR words, CMFIFO and the live readbacks. The reading gives their use but not their offsets.
+- The layout of CTRLSTAT and the IO pin pairs beyond IO_3 to IO_6, and the meaning of the strap codes other than 0.
+- The reset values of revision 2. No shipped software depends on them, and no source gives them; the revision 1 values are the only ones with a source.
+- Tile-number bit 15, and the contents of the kernel block at `+0x400` and `+0x500`.
+- The `xend` comparison, the firing rule for line interrupts, and the write ordering of the colour map (see the sections above).
+- Whether the hardware locks above 140 MHz, and the cause of the 25.175 MHz example's mismatch with the output formula.
