@@ -26,11 +26,11 @@ Missing input:
 
 - The IP32 linked kernel (row 1): no IP32 configuration is held for either release.
 - An installed `/etc/ioconfig.conf` and `/etc/ioperms`, and the 6.5.30 `/var/sysgen/ioconfig` fragments: not held. The program itself is read ([ioconfig.md](ioconfig.md)); what remains is which path form the file stores for real systems and what requests `0x642e` and `0xc0044470` do on disk nodes. Next route: any installed system's `/etc/ioconfig.conf`, or a booted guest run of the program.
-- The Octane2, Origin 350, Tezro and Fuel base-I/O PROMs, the IP22 PROM and an installed 6.5.22 `mediad` with its device module: none held ([scsi-cdrom-inquiry.md](scsi-cdrom-inquiry.md)). The CD-ROM device module (`dev_cdrom.so`) is not in `root/` for 6.5.30 either, so the routines at `0x01cf2c88`, `0x01cf31d8` and `0x01cf32f8` cannot be read to the end until it is extracted (checked 2026-11-01: no `dev_cdrom.so` or `mediad` file under `root/`).
+- The Octane2, Origin 350, Tezro and Fuel base-I/O PROMs, the IP22 PROM and an installed 6.5.22 `mediad` with its device module: none held ([scsi-cdrom-inquiry.md](scsi-cdrom-inquiry.md)). The 6.5.30 CD-ROM device module (`usr/lib/devicelib/dev_cdrom.so`) and `usr/sbin/scsicontrol` are held since 2026-11-11 and the module's class-dependent routines are read. The 6.5.22 `mediad` and device module are still not held.
 
 Hardware-only:
 
-- What opcodes `0xc4` and `0xc9` do to a Toshiba or Sony drive. Routes tried: both PROM families, both kernels, the media daemon and `scsicontrol` send them but nothing reveals their effect. Next route: a vendor drive manual ([scsi-cdrom-inquiry.md](scsi-cdrom-inquiry.md)).
+- What opcodes `0xc4`, `0xc7` and `0xc9` do to a Toshiba or Sony drive. Routes tried: both PROM families, both kernels, the media daemon, `scsicontrol` and the device module (all held) send them but nothing reveals their effect. Next route: a vendor drive manual ([scsi-cdrom-inquiry.md](scsi-cdrom-inquiry.md)).
 
 ## Scaffold
 
