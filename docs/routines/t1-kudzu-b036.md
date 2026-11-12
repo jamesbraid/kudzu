@@ -93,8 +93,9 @@ hub and device register aliases, as the disassembly reports them.
 
 - `cpu_waitforreset` in `6.5.30/usr/cpu/sysgen/IP30boot/kernel.o` at 0x8680
   **Inferred.** `cpu_waitforreset` is a 48-byte spin loop. Role (from name): waits for a reset. It reads the
-  word at 0x900000001f000104 and keeps polling while bit 0x40 is clear. When the bit is set it calls
-  `cpu_soft_powerdown` at 0x86a0 and then branches unconditionally back to the poll. The facts show no return,
+  word at 0x900000001f000104 and keeps polling while bit 0x40 is clear. Only when the bit is set
+  does it reach the call to `cpu_soft_powerdown` at 0x86a0; the branch at 0x86a8 that follows is always taken, back
+  to the poll. The facts show no return,
   so the routine has no exit. What the bit reports is not shown.
   Reviewed: 2026-11-12 (sonnet)
 
