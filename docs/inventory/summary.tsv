@@ -1,6 +1,6 @@
 table	rows	out_of_scope	understood	understood_with_open	understood_distinct	templated	located	named_only	undocumented	no_software_dependency	pct_understood	pct_located_or_better	pct_mentioned	pct_done	unresolved_sites	truncated	audited_real_pct	audited_sample	audited_date	computes	reused	multi_unit	shared_address	address_unknown	input
 binaries	7737	0	1	0	1	1	1	872	6863	0	0.0	0.0	11.3	0.0							0				
-functions	242521	115978	2960	206	1906	27234	29922	144281	65358	0	1.2	13.6	73.1	1.2			100.0	6	2026-11-02		0	163	2722	0	
+functions	242521	115978	2961	206	1907	27233	29921	144281	65358	0	1.2	13.6	73.1	1.2			100.0	6	2026-11-02		0	163	2722	0	
 functions (distinct names)	24901	25609	998	71	961	6830	7239	7020	9644	0	4.0	33.1	61.3	4.0							0				
 mmio	176	0	4	0	3	0	0	101	71	0	2.3	2.3	59.7	2.3	2121						0				
 tokens	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
@@ -17,7 +17,7 @@ functions in 6.5.22/lib32/rld	0	1133	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0
 functions in 6.5.22/lib64/rld	0	1133	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.22/sbin/mkfs_xfs	0	533	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.22/sbin/xvm	0	888	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
-functions in 6.5.22/unix.IP27	13658	0	567	38	554	5725	5960	4996	2135	0	4.2	47.8	84.4	4.2							0	13	148	0	
+functions in 6.5.22/unix.IP27	13658	0	568	38	555	5724	5959	4996	2135	0	4.2	47.8	84.4	4.2							0	13	148	0	
 functions in 6.5.22/unix.IP30	12214	0	119	2	118	1277	1312	8679	2104	0	1.0	11.7	82.8	1.0							0	10	170	0	
 functions in 6.5.22/unix.IP35	14511	0	133	4	131	1410	1458	10345	2575	0	0.9	11.0	82.3	0.9							0	55	148	0	
 functions in 6.5.22/usr/bin/jlimit	0	11	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				

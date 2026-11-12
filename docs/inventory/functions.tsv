@@ -15765,7 +15765,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000042ed0	8	dki_dcache_wb	symtab	78aa5094d5ec	shared-address	in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000042ed0	8	dki_dcache_wbinval	symtab	78aa5094d5ec	shared-address	in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000042ed0	8	dummy_func	dwarf+symtab	78aa5094d5ec	shared-address	in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000042ed8	208	bootstrap	dwarf+symtab	486611312be0		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
+6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000042ed8	208	bootstrap	dwarf+symtab	486611312be0		in	understood	docs/routines/t1-kudzu-b001.md#tier-1-kudzu-routine-roles-batch-1	Tier-1 kudzu routine roles, batch 1
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000042fa8	168	mapped_kernel_setup_tlb	dwarf+symtab	a4decd02e59c		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc000000000043050	316	nmi_dump	dwarf+symtab	80f47ce9d6aa		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/unix.IP27	shared-kernel	n64	.text	0xc00000000004318c	140	dumptlb	dwarf+symtab	9bb17562dda5		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -41342,7 +41342,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000060c58	236	intpend1	dwarf	11a31002fe56		in	understood	docs/routines/t1-kudzu-b007.md#tier-1-routine-role-statements-batch-7	Tier-1 routine role statements, batch 7
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000060d44	636	intr	dwarf+symtab	0bc8af1e47e6		in	named-only	docs/ip27-driver-attach-interrupts.md#qlogic-scsi-controller	QLogic SCSI controller
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000060fc0	36	setrtvector	dwarf+symtab	43b4541dff4e		in	named-only	docs/ip35-rtc-and-cycle-counter.md#established	Established
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000060fe4	36	setkgvector	dwarf+symtab	cc4998fbeb3a		in	named-only	docs/routines/t1-kudzu-b001.md#6522unixip27-at-0xc000000000047c30	`6.5.22/unix.IP27` at `0xc000000000047c30`
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000060fe4	36	setkgvector	dwarf+symtab	cc4998fbeb3a		in	named-only	docs/routines/t1-kudzu-b001.md#tier-1-kudzu-routine-roles-batch-1	Tier-1 kudzu routine roles, batch 1
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000061008	140	idle_err	dwarf+symtab	6687c9bdc513		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000061094	24	earlynofault	dwarf+symtab	624e31b87e77		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000610ac	108	sendintr	dwarf+symtab	33366fa19336		in	understood	docs/routines/t1-kudzu-b007.md#tier-1-routine-role-statements-batch-7	Tier-1 routine role statements, batch 7
@@ -59848,7 +59848,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x3e34	232	lclvec_init	dwarf+symtab	065f65e63444		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x3f1c	980	mlreset	dwarf+symtab	952081a550af		in	located	docs/routines/t1-kudzu-b009.md#routine-readings-kudzu-reading-round-1-batch-9	Routine readings, kudzu reading round 1, batch 9
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x42f0	72	set_endianness	dwarf+funcnames	bf0bf6e95d4b		in	named-only	docs/routines/t1-kudzu-b009.md#routine-readings-kudzu-reading-round-1-batch-9	Routine readings, kudzu reading round 1, batch 9
-6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x4338	12	setkgvector	dwarf+symtab	bddc43788de1		in	named-only	docs/routines/t1-kudzu-b001.md#6522unixip27-at-0xc000000000047c30	`6.5.22/unix.IP27` at `0xc000000000047c30`
+6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x4338	12	setkgvector	dwarf+symtab	bddc43788de1		in	named-only	docs/routines/t1-kudzu-b001.md#tier-1-kudzu-routine-roles-batch-1	Tier-1 kudzu routine roles, batch 1
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x4344	512	setlclvector	dwarf+symtab	8b0713444d7e		in	named-only	docs/routines/t1-kudzu-b009.md#routine-readings-kudzu-reading-round-1-batch-9	Routine readings, kudzu reading round 1, batch 9
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x4544	440	setgiovector	dwarf+symtab	029f7cc036f7		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x46fc	112	setgioconfig	dwarf+symtab	ae45a3c093b7		in	undocumented		
@@ -76825,7 +76825,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1fd88	236	intpend1	dwarf	e483f5ab9e3e		in	understood	docs/routines/t1-kudzu-b033.md#routine-role-statements-kudzu-ip30-kernel-and-boot-objects	Routine role statements, kudzu IP30 kernel and boot objects
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x1fe74	636	intr	dwarf+symtab	0d5fd5fc25f4		in	named-only	docs/ip27-driver-attach-interrupts.md#qlogic-scsi-controller	QLogic SCSI controller
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x200f0	36	setrtvector	dwarf+symtab	8485962c8ebb		in	named-only	docs/ip35-rtc-and-cycle-counter.md#established	Established
-6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20114	36	setkgvector	dwarf+symtab	f5e28d2b8ad8		in	named-only	docs/routines/t1-kudzu-b001.md#6522unixip27-at-0xc000000000047c30	`6.5.22/unix.IP27` at `0xc000000000047c30`
+6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20114	36	setkgvector	dwarf+symtab	f5e28d2b8ad8		in	named-only	docs/routines/t1-kudzu-b001.md#tier-1-kudzu-routine-roles-batch-1	Tier-1 kudzu routine roles, batch 1
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20138	140	idle_err	dwarf+symtab	f3c3dcf7f8d1		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x201c4	24	earlynofault	dwarf+symtab	624e31b87e77		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x201dc	72	sendintr	dwarf+symtab	f1e2a61583f8		in	understood	docs/routines/t1-kudzu-b033.md#routine-role-statements-kudzu-ip30-kernel-and-boot-objects	Routine role statements, kudzu IP30 kernel and boot objects
@@ -111142,7 +111142,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa280	68	crime_intr_disable	dwarf+symtab	c9cb8f2fec13		in	located	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa2c4	684	crime_intr	dwarf+funcnames	ed775fd57a19		in	located	docs/instruction-readings-kudzu-g2.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa570	588	intr	dwarf+symtab	7d8af72607ca		in	named-only	docs/ip27-driver-attach-interrupts.md#qlogic-scsi-controller	QLogic SCSI controller
-6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa7bc	8	setkgvector	dwarf+symtab	0704e46b90c8		in	named-only	docs/routines/t1-kudzu-b001.md#6522unixip27-at-0xc000000000047c30	`6.5.22/unix.IP27` at `0xc000000000047c30`
+6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa7bc	8	setkgvector	dwarf+symtab	0704e46b90c8		in	named-only	docs/routines/t1-kudzu-b001.md#tier-1-kudzu-routine-roles-batch-1	Tier-1 kudzu routine roles, batch 1
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa7c4	360	getcvpriority	dwarf+symtab	5bec9452990c		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa92c	200	create_crimegang	dwarf+symtab	a8a39d587dc3		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa9f4	144	join_crimegang	dwarf+symtab	4a21d14bf335		in	undocumented		
@@ -126845,7 +126845,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20ad8	236	intpend1	dwarf	585c60d1e458		in	understood	docs/routines/t1-kudzu-b020.md#routine-role-statements-tier-1-batch-20	Routine role statements, tier-1 batch 20
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20bc4	636	intr	dwarf+symtab	4a631a589c2b		in	named-only	docs/ip27-driver-attach-interrupts.md#qlogic-scsi-controller	QLogic SCSI controller
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20e40	36	setrtvector	dwarf+symtab	8485962c8ebb		in	named-only	docs/ip35-rtc-and-cycle-counter.md#established	Established
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20e64	36	setkgvector	dwarf+symtab	f5e28d2b8ad8		in	named-only	docs/routines/t1-kudzu-b001.md#6522unixip27-at-0xc000000000047c30	`6.5.22/unix.IP27` at `0xc000000000047c30`
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20e64	36	setkgvector	dwarf+symtab	f5e28d2b8ad8		in	named-only	docs/routines/t1-kudzu-b001.md#tier-1-kudzu-routine-roles-batch-1	Tier-1 kudzu routine roles, batch 1
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20e88	140	idle_err	dwarf+symtab	0fdc25cd7d2e		in	named-only	docs/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20f14	24	earlynofault	dwarf+symtab	624e31b87e77		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20f2c	108	sendintr	dwarf+symtab	ea3c255fd0c9		in	understood	docs/routines/t1-kudzu-b020.md#routine-role-statements-tier-1-batch-20	Routine role statements, tier-1 batch 20
@@ -194791,7 +194791,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000391ec	236	intpend1	dwarf	db946084d161		in	understood	docs/routines/t1-kudzu-b023.md#routine-role-statements-tier-1-batch-23	Routine role statements, tier-1 batch 23
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000000392d8	636	intr	dwarf+symtab	3daadd2f402c		in	understood	docs/ip27-kernel-io.md#interrupt-entry	Interrupt entry
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000039554	36	setrtvector	dwarf+symtab	e6551453a5ef		in	named-only	docs/ip35-rtc-and-cycle-counter.md#established	Established
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000039578	36	setkgvector	dwarf+symtab	f7066758fec2		in	named-only	docs/routines/t1-kudzu-b001.md#6522unixip27-at-0xc000000000047c30	`6.5.22/unix.IP27` at `0xc000000000047c30`
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000039578	36	setkgvector	dwarf+symtab	f7066758fec2		in	named-only	docs/routines/t1-kudzu-b001.md#tier-1-kudzu-routine-roles-batch-1	Tier-1 kudzu routine roles, batch 1
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc00000000003959c	140	idle_err	dwarf+symtab	9f7c0583e75f		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000039628	24	earlynofault	dwarf+symtab	624e31b87e77		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc000000000039640	72	sendintr	dwarf+symtab	1d4bb28c2e52		in	located	docs/routines/t1-kudzu-b023.md#routine-role-statements-tier-1-batch-23	Routine role statements, tier-1 batch 23
@@ -221348,7 +221348,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000603d0	236	intpend1	dwarf	61e1b87e49ca		in	located	docs/routines/t1-kudzu-b029.md#tier-1-routine-readings-batch-29-kudzu	Tier-1 routine readings, batch 29 (kudzu)
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000000604bc	636	intr	dwarf+symtab	b66e70913049		in	understood	docs/ip35-hub-errors.md#interrupt-dispatch	Interrupt dispatch
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000060738	36	setrtvector	dwarf+symtab	1f2dbbdb56ea		in	named-only	docs/ip35-rtc-and-cycle-counter.md#established	Established
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006075c	36	setkgvector	dwarf+symtab	0cc591cc947c		in	named-only	docs/routines/t1-kudzu-b001.md#6522unixip27-at-0xc000000000047c30	`6.5.22/unix.IP27` at `0xc000000000047c30`
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006075c	36	setkgvector	dwarf+symtab	0cc591cc947c		in	named-only	docs/routines/t1-kudzu-b001.md#tier-1-kudzu-routine-roles-batch-1	Tier-1 kudzu routine roles, batch 1
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000060780	140	idle_err	dwarf+symtab	b2acd80ffbc4		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000006080c	24	earlynofault	dwarf+symtab	624e31b87e77		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000060824	108	sendintr	dwarf+symtab	57bcdb8ecb49		in	located	docs/routines/t1-kudzu-b029.md#tier-1-routine-readings-batch-29-kudzu	Tier-1 routine readings, batch 29 (kudzu)
@@ -242883,7 +242883,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2006c	236	intpend1	dwarf	e483f5ab9e3e		in	understood	docs/routines/t1-kudzu-b033.md#routine-role-statements-kudzu-ip30-kernel-and-boot-objects	Routine role statements, kudzu IP30 kernel and boot objects
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x20158	636	intr	dwarf+symtab	fa20e461f518		in	named-only	docs/ip27-driver-attach-interrupts.md#qlogic-scsi-controller	QLogic SCSI controller
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x203d4	36	setrtvector	dwarf+symtab	8485962c8ebb		in	named-only	docs/ip35-rtc-and-cycle-counter.md#established	Established
-6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x203f8	36	setkgvector	dwarf+symtab	f5e28d2b8ad8		in	named-only	docs/routines/t1-kudzu-b001.md#6522unixip27-at-0xc000000000047c30	`6.5.22/unix.IP27` at `0xc000000000047c30`
+6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x203f8	36	setkgvector	dwarf+symtab	f5e28d2b8ad8		in	named-only	docs/routines/t1-kudzu-b001.md#tier-1-kudzu-routine-roles-batch-1	Tier-1 kudzu routine roles, batch 1
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x2041c	140	idle_err	dwarf+symtab	f3c3dcf7f8d1		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x204a8	24	earlynofault	dwarf+symtab	624e31b87e77		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP27boot/kernel.o	shared-kernel	n64	.text	0x204c0	72	sendintr	dwarf+symtab	f1e2a61583f8		in	understood	docs/routines/t1-kudzu-b033.md#routine-role-statements-kudzu-ip30-kernel-and-boot-objects	Routine role statements, kudzu IP30 kernel and boot objects
@@ -279611,7 +279611,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa288	68	crime_intr_disable	dwarf+symtab	c9cb8f2fec13		in	located	docs/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa2cc	684	crime_intr	dwarf+funcnames	ed775fd57a19		in	located	docs/instruction-readings-kudzu-g2.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa578	588	intr	dwarf+symtab	7d8af72607ca		in	named-only	docs/ip27-driver-attach-interrupts.md#qlogic-scsi-controller	QLogic SCSI controller
-6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa7c4	8	setkgvector	dwarf+symtab	0704e46b90c8		in	named-only	docs/routines/t1-kudzu-b001.md#6522unixip27-at-0xc000000000047c30	`6.5.22/unix.IP27` at `0xc000000000047c30`
+6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa7c4	8	setkgvector	dwarf+symtab	0704e46b90c8		in	named-only	docs/routines/t1-kudzu-b001.md#tier-1-kudzu-routine-roles-batch-1	Tier-1 kudzu routine roles, batch 1
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa7cc	360	getcvpriority	dwarf+symtab	5bec9452990c		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa934	200	create_crimegang	dwarf+symtab	a8a39d587dc3		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa9fc	144	join_crimegang	dwarf+symtab	4a21d14bf335		in	undocumented		
@@ -297997,7 +297997,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20250	236	intpend1	dwarf	2c3ca223d1af		in	located	docs/routines/t1-kudzu-b041.md#routine-role-statements-tier-1-batch-41	Routine role statements, tier-1 batch 41
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2033c	636	intr	dwarf+symtab	f201a996e5e9		in	named-only	docs/ip27-driver-attach-interrupts.md#qlogic-scsi-controller	QLogic SCSI controller
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x205b8	36	setrtvector	dwarf+symtab	8485962c8ebb		in	named-only	docs/ip35-rtc-and-cycle-counter.md#established	Established
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x205dc	36	setkgvector	dwarf+symtab	f5e28d2b8ad8		in	named-only	docs/routines/t1-kudzu-b001.md#6522unixip27-at-0xc000000000047c30	`6.5.22/unix.IP27` at `0xc000000000047c30`
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x205dc	36	setkgvector	dwarf+symtab	f5e28d2b8ad8		in	named-only	docs/routines/t1-kudzu-b001.md#tier-1-kudzu-routine-roles-batch-1	Tier-1 kudzu routine roles, batch 1
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x20600	140	idle_err	dwarf+symtab	ebf0cb58ea55		in	named-only	docs/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x2068c	24	earlynofault	dwarf+symtab	624e31b87e77		in	located	docs/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x206a4	108	sendintr	dwarf+symtab	ff654949d5dc		in	located	docs/routines/t1-kudzu-b041.md#routine-role-statements-tier-1-batch-41	Routine role statements, tier-1 batch 41
