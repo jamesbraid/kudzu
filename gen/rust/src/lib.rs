@@ -9,6 +9,7 @@ pub mod klconfig;
 pub mod nic;
 pub mod pcibr;
 pub mod r10k_timer;
+pub mod r10k_tlb;
 pub mod scsi;
 pub mod tg;
 pub mod volhdr;

@@ -80,6 +80,10 @@ prose_offsets = false
 group = "r10k_timer"
 prose_offsets = false
 
+[units.r10k_tlb]
+group = "r10k_tlb"
+prose_offsets = false
+
 [[claims]]
 group = "xvm"
 label = "physical label magic and size"
