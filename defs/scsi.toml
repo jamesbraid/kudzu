@@ -1,0 +1,36 @@
+# Hardware definitions for scsi. Edit here; gen/ is generated from this file.
+unit = "scsi"
+prefix = "SCSI"
+title = "SCSI command opcodes the CD-ROM driver selects by drive class"
+from = "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+public_from = ["shipped IRIX"]
+
+[c]
+legacy_header = "SCSI_DECODE.h"
+legacy_guard = "SCSI_DECODE_H"
+
+# The PROM prefixes are text, not numbers, so the constants table cannot hold them.
+# They stay as aliases for the old names. Each is established in the old header,
+# which records what a TOSHIBA match does (sends 0xc9) and leaves what a SONY or
+# LMS match does unrecorded.
+[c.aliases]
+SCSI_PROM_PREFIX_TOSHIBA = '"TOSHIBA CD"'
+SCSI_PROM_PREFIX_SONY = '"SONY    CD"'
+SCSI_PROM_PREFIX_LMS = '"LMS     CD"'
+
+[constants]
+CDROM_VENDOR_C4 = { value = 0xc4, grade = "established", doc = "established: sent by classes 1 to 3 in place of START STOP UNIT; use as software eject is inferred" }
+CDROM_VENDOR_C9 = { value = 0xc9, grade = "established", doc = "established: sent only by classes 1 to 3; use as a mode switch is inferred" }
+INQ_LEN_PRODUCT = { value = 0x10, grade = "inferred", doc = "inferred" }
+INQ_LEN_VENDOR = { value = 0x8, grade = "established", doc = "established: the notes and both readers treat vendor and product as one 24-byte text" }
+INQ_OFF_PRODUCT = { value = 0x10, grade = "inferred", doc = "inferred: follows the vendor field in that text" }
+INQ_OFF_TYPE = { value = 0x0, grade = "established", doc = "established: device type byte; the PROMs test it for 0 and the daemon accepts only 5" }
+INQ_OFF_VENDOR = { value = 0x8, grade = "established", doc = "established: first byte of the vendor text, the start of the text the daemon matches" }
+INQ_OFF_VERSION = { value = 0x2, grade = "established", doc = "established: version byte; the daemon masks it with 7 and tests for 2 to refine one drive family" }
+INQ_TYPE_CDROM = { value = 0x5, grade = "established", doc = "established: the daemon accepts it; the PROMs never compare the text of a type 5 unit" }
+INQ_TYPE_DISK = { value = 0x0, grade = "established", doc = "established: the PROMs test for this value before comparing the text" }
+INQ_TYPE_TAPE = { value = 0x1, grade = "established", doc = "established: named by the O2 PROM's probe; no other PROM tests it" }
+INQ_VERSION_MASK = { value = 0x7, grade = "established", doc = "established" }
+INQ_VERSION_REFINE = { value = 0x2, grade = "established", doc = "established" }
+PROM_PREFIX_LEN = { value = 0xa, grade = "established", doc = "established: bytes of the trimmed vendor, separator and product that are compared" }
+START_STOP_UNIT = { value = 0x1b, grade = "established", doc = "established: sent by every class except the first three" }

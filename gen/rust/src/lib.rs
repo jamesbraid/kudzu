@@ -1,0 +1,17 @@
+// generated from defs/ by defs-gen - do not edit, change the source
+pub mod efs;
+pub mod hubio;
+pub mod hubmda;
+pub mod hubmdb;
+pub mod hubni;
+pub mod hubpi;
+pub mod klconfig;
+pub mod nic;
+pub mod pcibr;
+pub mod r10k_timer;
+pub mod scsi;
+pub mod tg;
+pub mod volhdr;
+pub mod xfs;
+pub mod xlv;
+pub mod xvm;

@@ -1,0 +1,298 @@
+<?xml version="1.0" ?>
+<!-- generated from defs/xfs.toml by defs-gen - do not edit, change the source -->
+<genxml unit="xfs" prefix="XFS" title="XFS superblock and inode core as the shipped release writes them" from="shipped IRIX binaries, per docs/formats/xfs.md">
+  <doc>XFS superblock and inode core as the shipped release writes them.</doc>
+  <enum name="ino_w1_format">
+    <value name="dev" value="0" grade="established"/>
+    <value name="local" value="1" grade="established"/>
+    <value name="extents" value="2" grade="established"/>
+    <value name="btree" value="3" grade="established"/>
+    <value name="uuid" value="4" grade="established"/>
+  </enum>
+  <enum name="ino_w20_aformat">
+    <value name="local" value="1" grade="established"/>
+    <value name="extents" value="2" grade="established"/>
+    <value name="btree" value="3" grade="established"/>
+  </enum>
+  <struct name="INO_W0" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="magic" start="16" size="16" type="uint" grade="established"/>
+    <field name="mode" start="0" size="16" type="uint" grade="established"/>
+    <test value="0x494e41ed" kind="example">
+      <expect field="magic" value="18766"/>
+      <expect field="mode" value="16877"/>
+    </test>
+  </struct>
+  <struct name="INO_W1" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="version" start="24" size="8" type="uint" grade="established"/>
+    <field name="format" start="16" size="8" type="ino_w1_format" grade="established"/>
+    <field name="onlink" start="0" size="16" type="uint" grade="established"/>
+    <test value="0x2010000" kind="example">
+      <expect field="version" value="2"/>
+      <expect field="format" value="1"/>
+    </test>
+  </struct>
+  <struct name="INO_W10" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="mtime_sec" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W11" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="mtime_nsec" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W12" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="ctime_sec" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W13" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="ctime_nsec" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W14" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="size_hi" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W15" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="size_lo" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W16" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="nblocks_hi" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W17" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="nblocks_lo" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W18" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="extsize" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W19" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="nextents" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W2" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="uid" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W20" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="naextents" start="16" size="16" type="uint" grade="established"/>
+    <field name="forkoff" start="8" size="8" type="uint" grade="established"/>
+    <field name="aformat" start="0" size="8" type="ino_w20_aformat" grade="established"/>
+  </struct>
+  <struct name="INO_W21" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="dmevmask" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W22" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="dmstate" start="16" size="16" type="uint" grade="established"/>
+    <field name="flags_rtinherit" start="8" size="1" type="uint" grade="established"/>
+    <field name="flags_nodump" start="7" size="1" type="uint" grade="established"/>
+    <field name="flags_noatime" start="6" size="1" type="uint" grade="established"/>
+    <field name="flags_sync" start="5" size="1" type="uint" grade="established"/>
+    <field name="flags_append" start="4" size="1" type="uint" grade="established"/>
+    <field name="flags_immutable" start="3" size="1" type="uint" grade="established"/>
+    <field name="flags_newrtbm" start="2" size="1" type="uint" grade="established"/>
+    <field name="flags_prealloc" start="1" size="1" type="uint" grade="established"/>
+    <field name="flags_realtime" start="0" size="1" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W23" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="gen" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W24" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="next_unlinked" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W3" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="gid" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W4" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="nlinkv2" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W5" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="projid" start="16" size="16" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W7" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="flushiter" start="0" size="16" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W8" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="atime_sec" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="INO_W9" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="atime_nsec" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W0" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="magicnum" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W1" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="blocksize" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W12" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="logstart_hi" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W13" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="logstart_lo" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W14" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="rootino_hi" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W15" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="rootino_lo" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W16" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="rbmino_hi" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W17" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="rbmino_lo" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W18" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="rsumino_hi" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W19" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="rsumino_lo" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W2" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="dblocks_hi" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W20" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="rextsize" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W21" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="agblocks" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W22" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="agcount" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W23" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="rbmblocks" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W24" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="logblocks" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W25" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="versionnum_morebits" start="31" size="1" type="uint" grade="established"/>
+    <field name="versionnum_ci_dirs" start="30" size="1" type="uint" grade="inferred"/>
+    <field name="versionnum_dirv2" start="29" size="1" type="uint" grade="established"/>
+    <field name="versionnum_extflg" start="28" size="1" type="uint" grade="established"/>
+    <field name="versionnum_rejected" start="27" size="1" type="uint" grade="established"/>
+    <field name="versionnum_logv2" start="26" size="1" type="uint" grade="established"/>
+    <field name="versionnum_shared" start="25" size="1" type="uint" grade="established"/>
+    <field name="versionnum_dalign" start="24" size="1" type="uint" grade="established"/>
+    <field name="versionnum_align" start="23" size="1" type="uint" grade="established"/>
+    <field name="versionnum_quota" start="22" size="1" type="uint" grade="established"/>
+    <field name="versionnum_nlink" start="21" size="1" type="uint" grade="established"/>
+    <field name="versionnum_attr" start="20" size="1" type="uint" grade="established"/>
+    <field name="versionnum_vers" start="16" size="4" type="uint" grade="established"/>
+    <field name="sectsize" start="0" size="16" type="uint" grade="established"/>
+    <test value="0x40000" kind="example">
+      <expect field="versionnum_vers" value="4"/>
+      <expect field="versionnum_attr" value="0"/>
+      <expect field="versionnum_nlink" value="0"/>
+    </test>
+  </struct>
+  <struct name="SB_W26" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="inodesize" start="16" size="16" type="uint" grade="established"/>
+    <field name="inopblock" start="0" size="16" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W3" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="dblocks_lo" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W30" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="blocklog" start="24" size="8" type="uint" grade="established"/>
+    <field name="sectlog" start="16" size="8" type="uint" grade="established"/>
+    <field name="inodelog" start="8" size="8" type="uint" grade="established"/>
+    <field name="inopblog" start="0" size="8" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W31" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="agblklog" start="24" size="8" type="uint" grade="established"/>
+    <field name="rextslog" start="16" size="8" type="uint" grade="established"/>
+    <field name="inprogress" start="8" size="8" type="uint" grade="established"/>
+    <field name="imax_pct" start="0" size="8" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W32" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="icount_hi" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W33" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="icount_lo" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W34" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="ifree_hi" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W35" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="ifree_lo" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W36" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="fdblocks_hi" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W37" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="fdblocks_lo" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W38" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="frextents_hi" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W39" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="frextents_lo" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W4" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="rblocks_hi" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W40" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="uquotino_hi" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W41" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="uquotino_lo" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W42" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="pquotino_hi" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W43" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="pquotino_lo" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W44" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="qflags" start="16" size="16" type="uint" grade="established"/>
+    <field name="flags_shared_ro" start="8" size="1" type="uint" grade="established"/>
+    <field name="shared_vn" start="0" size="8" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W45" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="inoalignmt" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W46" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="unit" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W47" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="width" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W48" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="dirblklog" start="24" size="8" type="uint" grade="established"/>
+    <field name="logsectlog" start="16" size="8" type="uint" grade="established"/>
+    <field name="logsectsize" start="0" size="16" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W49" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="logsunit" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W5" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="rblocks_lo" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W50" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="features2_high" start="5" size="27" type="uint" grade="unknown"/>
+    <field name="features2_parent" start="4" size="1" type="uint" grade="established"/>
+    <field name="features2_attr2" start="3" size="1" type="uint" grade="established"/>
+    <field name="features2_bit2" start="2" size="1" type="uint" grade="unknown"/>
+    <field name="features2_lazysbcount" start="1" size="1" type="uint" grade="established"/>
+    <field name="features2_bit0" start="0" size="1" type="uint" grade="unknown"/>
+    <test value="0x1b" kind="vector">
+      <expect field="features2_bit0" value="1"/>
+      <expect field="features2_lazysbcount" value="1"/>
+      <expect field="features2_attr2" value="1"/>
+      <expect field="features2_parent" value="1"/>
+    </test>
+  </struct>
+  <struct name="SB_W6" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="rextents_hi" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W7" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xfs.md">
+    <field name="rextents_lo" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <constant name="INO_ATTR_FORK_UNIT" value="0x8" grade="established"/>
+  <constant name="INO_FLAGS_OFFSET" value="0x5a" grade="established"/>
+  <constant name="INO_FORK_OFFSET" value="0x64" grade="established"/>
+  <constant name="INO_MAGIC" value="0x494e" grade="established"/>
+  <constant name="INO_SIZE" value="0x64" grade="established"/>
+  <constant name="SB_DESCRIBED_BYTES" value="0xcc" grade="established"/>
+  <constant name="SB_LEN_FNAME" value="0x6" grade="established"/>
+  <constant name="SB_LEN_FPACK" value="0x6" grade="established"/>
+  <constant name="SB_LEN_UUID" value="0x10" grade="established"/>
+  <constant name="SB_MAGIC" value="0x58465342" grade="established"/>
+  <constant name="SB_OFF_FNAME" value="0x6c" grade="established"/>
+  <constant name="SB_OFF_FPACK" value="0x72" grade="established"/>
+  <constant name="SB_OFF_UUID" value="0x20" grade="established"/>
+  <constant name="SB_READ_BYTES" value="0xd0" grade="established"/>
+  <constant name="SB_SIZE" value="0xd0" grade="established"/>
+</genxml>

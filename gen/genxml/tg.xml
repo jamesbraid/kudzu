@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<!-- generated from defs/tg.toml by defs-gen - do not edit, change the source -->
+<genxml unit="tg" prefix="TG" title="gigabit Ethernet controller match table of the Origin 300/350 driver" from="shipped IRIX kernel binaries, per docs/ip35-tg-driver.md">
+  <doc>Gigabit Ethernet controller match table: the PCI vendor, device and subsystem ids the Origin 300/350 driver accepts.</doc>
+  <struct name="ROW_W0" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/ip35-tg-driver.md">
+    <field name="vendor" start="16" size="16" type="uint" grade="established"/>
+    <field name="device" start="0" size="16" type="uint" grade="established"/>
+  </struct>
+  <struct name="ROW_W1" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/ip35-tg-driver.md">
+    <field name="subsys_vendor" start="16" size="16" type="uint" grade="established"/>
+    <field name="subsys_device" start="0" size="16" type="uint" grade="established"/>
+  </struct>
+  <constant name="CFG_OFF_DEVICE" value="0x0" grade="established"/>
+  <constant name="CFG_OFF_SUBSYS_DEVICE" value="0x2e" grade="established"/>
+  <constant name="CFG_OFF_SUBSYS_VENDOR" value="0x2c" grade="established"/>
+  <constant name="CFG_OFF_VENDOR" value="0x2" grade="established"/>
+  <constant name="MATCH_ROW_COUNT" value="0x5" grade="established"/>
+  <constant name="MATCH_ROW_STRIDE" value="0x10" grade="established"/>
+  <constant name="PCI_DEVICE_1645" value="0x1645" grade="established"/>
+  <constant name="PCI_DEVICE_1648" value="0x1648" grade="established"/>
+  <constant name="PCI_DEVICE_16A8" value="0x16a8" grade="established"/>
+  <constant name="PCI_SUBSYS_DEVICE_FIRST" value="0x8010" grade="established"/>
+  <constant name="PCI_SUBSYS_VENDOR" value="0x10a9" grade="established"/>
+  <constant name="PCI_VENDOR" value="0x14e4" grade="established"/>
+</genxml>

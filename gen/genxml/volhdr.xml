@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+<!-- generated from defs/volhdr.toml by defs-gen - do not edit, change the source -->
+<genxml unit="volhdr" prefix="DVH" title="SGI disk volume header" from="shipped IRIX binaries, per docs/formats/volume-header.md">
+  <doc>SGI disk volume header: magic, drive parameters, volume directory and partition table.</doc>
+  <enum name="part_w2_type">
+    <value name="volhdr" value="0" grade="established"/>
+    <value name="trkrepl" value="1" grade="inferred"/>
+    <value name="secrepl" value="2" grade="inferred"/>
+    <value name="raw" value="3" grade="established"/>
+    <value name="bsd" value="4" grade="inferred"/>
+    <value name="sysv" value="5" grade="inferred"/>
+    <value name="volume" value="6" grade="established"/>
+    <value name="efs" value="7" grade="established"/>
+    <value name="lvol" value="8" grade="established"/>
+    <value name="rlvol" value="9" grade="established"/>
+    <value name="xfs" value="10" grade="established"/>
+    <value name="xfslog" value="11" grade="established"/>
+    <value name="xlv" value="12" grade="established"/>
+    <value name="xvm" value="13" grade="established"/>
+    <value name="vxvm" value="14" grade="established"/>
+  </enum>
+  <struct name="DIRENT_W2" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/volume-header.md">
+    <field name="start_block" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="DIRENT_W3" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/volume-header.md">
+    <field name="length_bytes" start="0" size="32" type="uint" grade="established"/>
+    <test value="0x41400" kind="vector">
+      <expect field="length_bytes" value="267264"/>
+    </test>
+  </struct>
+  <struct name="HDR_W0" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/volume-header.md">
+    <field name="magic" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="HDR_W1" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/volume-header.md">
+    <field name="root" start="16" size="16" type="uint" grade="established"/>
+    <field name="swap" start="0" size="16" type="uint" grade="established"/>
+  </struct>
+  <struct name="HDR_W10" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/volume-header.md">
+    <field name="dp_secbytes" start="16" size="16" type="uint" grade="established"/>
+  </struct>
+  <struct name="HDR_W11" size="4" grade="inferred" from="shipped IRIX binaries, per docs/formats/volume-header.md">
+    <field name="dp_flags" start="0" size="32" type="uint" grade="inferred"/>
+  </struct>
+  <struct name="HDR_W126" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/volume-header.md">
+    <field name="checksum" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="HDR_W17" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/volume-header.md">
+    <field name="dp_capacity" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="HDR_W7" size="4" grade="inferred" from="shipped IRIX binaries, per docs/formats/volume-header.md">
+    <field name="dp_cylinders" start="16" size="16" type="uint" grade="inferred"/>
+    <field name="dp_head_offset" start="0" size="16" type="uint" grade="unknown"/>
+  </struct>
+  <struct name="HDR_W8" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/volume-header.md">
+    <field name="dp_heads" start="16" size="16" type="uint" grade="inferred"/>
+    <field name="dp_tag_depth" start="8" size="8" type="uint" grade="established"/>
+    <field name="dp_cyl_high" start="0" size="8" type="uint" grade="unknown"/>
+  </struct>
+  <struct name="HDR_W9" size="4" grade="inferred" from="shipped IRIX binaries, per docs/formats/volume-header.md">
+    <field name="dp_sectors" start="0" size="16" type="uint" grade="inferred"/>
+  </struct>
+  <struct name="PART_W0" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/volume-header.md">
+    <field name="nblks" start="0" size="32" type="uint" grade="established"/>
+    <test value="0x1000" kind="vector">
+      <expect field="nblks" value="4096"/>
+    </test>
+    <test value="0x40000" kind="vector">
+      <expect field="nblks" value="262144"/>
+    </test>
+  </struct>
+  <struct name="PART_W1" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/volume-header.md">
+    <field name="first" start="0" size="32" type="uint" grade="established"/>
+    <test value="0x41000" kind="vector">
+      <expect field="first" value="266240"/>
+    </test>
+  </struct>
+  <struct name="PART_W2" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/volume-header.md">
+    <field name="type" start="0" size="32" type="part_w2_type" grade="established"/>
+    <test value="0xa" kind="example">
+      <expect field="type" value="10"/>
+    </test>
+  </struct>
+  <constant name="BOOTFILE_OFF" value="0x8" grade="established"/>
+  <constant name="CSUM_OFF" value="0x1f8" grade="established"/>
+  <constant name="DIRENT_LEN_NAME" value="0x8" grade="established"/>
+  <constant name="DIRENT_OFF_NAME" value="0x0" grade="established"/>
+  <constant name="DIRENT_SIZE" value="0x10" grade="established"/>
+  <constant name="DIR_COUNT" value="0xf" grade="established"/>
+  <constant name="DIR_NAME_LEN" value="0x8" grade="established"/>
+  <constant name="DIR_OFF" value="0x48" grade="established"/>
+  <constant name="DIR_STRIDE" value="0x10" grade="established"/>
+  <constant name="DP_BYTES" value="0x30" grade="established"/>
+  <constant name="DP_FLAG_TAGGED" value="0x40" grade="inferred"/>
+  <constant name="DP_OFF" value="0x18" grade="established"/>
+  <constant name="HDR_LEN_BOOTFILE" value="0x10" grade="established"/>
+  <constant name="HDR_OFF_BOOTFILE" value="0x8" grade="established"/>
+  <constant name="HDR_SIZE" value="0x200" grade="established"/>
+  <constant name="MAGIC" value="0xbe5a941" grade="established"/>
+  <constant name="PART_COUNT" value="0x10" grade="established"/>
+  <constant name="PART_OFF" value="0x138" grade="established"/>
+  <constant name="PART_SIZE" value="0xc" grade="established"/>
+  <constant name="PART_STRIDE" value="0xc" grade="established"/>
+  <constant name="SIZE" value="0x200" grade="established"/>
+  <constant name="SLOT_ROOT" value="0x0" grade="established"/>
+  <constant name="SLOT_SWAP" value="0x1" grade="established"/>
+  <constant name="SLOT_VOLHDR" value="0x8" grade="established"/>
+  <constant name="SLOT_WHOLEDISK" value="0xa" grade="established"/>
+</genxml>

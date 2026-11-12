@@ -1,0 +1,248 @@
+{
+ "schema": "defs-flat/1",
+ "source": "defs/hubio.toml",
+ "profile": "public",
+ "rows": [
+  {
+   "unit": "hubio",
+   "kind": "register",
+   "name": "llp_csr",
+   "offset": 296,
+   "access": "r",
+   "width": 64,
+   "count": 1,
+   "stride": 8,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "field",
+   "name": "llp_csr.bit13",
+   "hi": 13,
+   "lo": 13,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "register",
+   "name": "flags",
+   "offset": 488,
+   "access": "r",
+   "width": 64,
+   "count": 1,
+   "stride": 8,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "field",
+   "name": "flags.bit4",
+   "hi": 4,
+   "lo": 4,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "field",
+   "name": "flags.bit0",
+   "hi": 0,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "register",
+   "name": "crb_a",
+   "offset": 1024,
+   "access": "r",
+   "width": 64,
+   "count": 1,
+   "stride": 8,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "field",
+   "name": "crb_a.bit55",
+   "hi": 55,
+   "lo": 55,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "field",
+   "name": "crb_a.type",
+   "hi": 54,
+   "lo": 52,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "field",
+   "name": "crb_a.bit51",
+   "hi": 51,
+   "lo": 51,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "field",
+   "name": "crb_a.bit50",
+   "hi": 50,
+   "lo": 50,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "field",
+   "name": "crb_a.bit49",
+   "hi": 49,
+   "lo": 49,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "field",
+   "name": "crb_a.bit0",
+   "hi": 0,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "register",
+   "name": "crb_b",
+   "offset": 1032,
+   "access": "r",
+   "width": 64,
+   "count": 1,
+   "stride": 8,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "field",
+   "name": "crb_b.engine_alt",
+   "hi": 58,
+   "lo": 58,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "field",
+   "name": "crb_b.sub",
+   "hi": 42,
+   "lo": 41,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "field",
+   "name": "crb_b.kind",
+   "hi": 32,
+   "lo": 30,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "register",
+   "name": "crb_c",
+   "offset": 1040,
+   "access": "r",
+   "width": 64,
+   "count": 1,
+   "stride": 8,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "field",
+   "name": "crb_c.bit48",
+   "hi": 48,
+   "lo": 48,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "constant",
+   "name": "CRB_COUNT",
+   "value": 15,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "constant",
+   "name": "CRB_STRIDE",
+   "value": 32,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "constant",
+   "name": "NODE_SHIFT",
+   "value": 33,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "constant",
+   "name": "WIDGET_PART_C104",
+   "value": 49412,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "constant",
+   "name": "WIDGET_PART_C105",
+   "value": 49413,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  },
+  {
+   "unit": "hubio",
+   "kind": "constant",
+   "name": "WINDOW_BASE",
+   "value": 29360128,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+  }
+ ]
+}

@@ -1,0 +1,166 @@
+{
+ "schema": "defs-flat/1",
+ "source": "defs/hubmda.toml",
+ "profile": "public",
+ "rows": [
+  {
+   "unit": "hubmda",
+   "kind": "register",
+   "name": "mig_diff_thresh",
+   "offset": 48,
+   "access": "rw",
+   "width": 64,
+   "count": 1,
+   "stride": 8,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries"
+  },
+  {
+   "unit": "hubmda",
+   "kind": "field",
+   "name": "mig_diff_thresh.value",
+   "hi": 19,
+   "lo": 0,
+   "grade": "inferred",
+   "from": "shipped IRIX kernel binaries"
+  },
+  {
+   "unit": "hubmda",
+   "kind": "register",
+   "name": "mig_value_thresh",
+   "offset": 56,
+   "access": "rw",
+   "width": 64,
+   "count": 1,
+   "stride": 8,
+   "space": null,
+   "reset": "unknown",
+   "grade": "inferred",
+   "from": "shipped IRIX kernel binaries"
+  },
+  {
+   "unit": "hubmda",
+   "kind": "register",
+   "name": "mig_candidate",
+   "offset": 72,
+   "access": "r",
+   "width": 64,
+   "count": 1,
+   "stride": 8,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries"
+  },
+  {
+   "unit": "hubmda",
+   "kind": "field",
+   "name": "mig_candidate.type",
+   "hi": 30,
+   "lo": 30,
+   "grade": "inferred",
+   "from": "shipped IRIX kernel binaries"
+  },
+  {
+   "unit": "hubmda",
+   "kind": "field",
+   "name": "mig_candidate.node",
+   "hi": 28,
+   "lo": 20,
+   "grade": "inferred",
+   "from": "shipped IRIX kernel binaries"
+  },
+  {
+   "unit": "hubmda",
+   "kind": "field",
+   "name": "mig_candidate.page",
+   "hi": 17,
+   "lo": 0,
+   "grade": "inferred",
+   "from": "shipped IRIX kernel binaries"
+  },
+  {
+   "unit": "hubmda",
+   "kind": "constant",
+   "name": "MIG_CANDIDATE_VALID_BIT",
+   "value": 63,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries"
+  },
+  {
+   "unit": "hubmda",
+   "kind": "constant",
+   "name": "MIG_DIFF_THRESH_VALID_BIT",
+   "value": 63,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries"
+  },
+  {
+   "unit": "hubmda",
+   "kind": "constant",
+   "name": "MIG_VALUE_THRESH_VALID_BIT",
+   "value": 63,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries"
+  },
+  {
+   "unit": "hubmda",
+   "kind": "constant",
+   "name": "NODE_SHIFT",
+   "value": 32,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries"
+  },
+  {
+   "unit": "hubmda",
+   "kind": "constant",
+   "name": "REFCNT_COUNT_MASK_PREMIUM",
+   "value": 524287,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries"
+  },
+  {
+   "unit": "hubmda",
+   "kind": "constant",
+   "name": "REFCNT_COUNT_MASK_STANDARD",
+   "value": 2047,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries"
+  },
+  {
+   "unit": "hubmda",
+   "kind": "constant",
+   "name": "REFCNT_COUNT_SHIFT",
+   "value": 5,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries"
+  },
+  {
+   "unit": "hubmda",
+   "kind": "constant",
+   "name": "REFCNT_NODE_STRIDE",
+   "value": 8,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries"
+  },
+  {
+   "unit": "hubmda",
+   "kind": "constant",
+   "name": "WINDOW_BASE",
+   "value": 27262976,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries"
+  }
+ ]
+}

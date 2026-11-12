@@ -1,0 +1,159 @@
+{
+ "schema": "defs-flat/1",
+ "source": "defs/hubpi.toml",
+ "profile": "public",
+ "rows": [
+  {
+   "unit": "hubpi",
+   "kind": "register",
+   "name": "int_pend_mod",
+   "offset": 144,
+   "access": "w",
+   "width": 64,
+   "count": 1,
+   "stride": 8,
+   "space": null,
+   "reset": "unknown",
+   "grade": "inferred",
+   "from": "shipped IRIX kernel binaries, per docs/interrupts.md"
+  },
+  {
+   "unit": "hubpi",
+   "kind": "field",
+   "name": "int_pend_mod.set",
+   "hi": 8,
+   "lo": 8,
+   "grade": "inferred",
+   "from": "shipped IRIX kernel binaries, per docs/interrupts.md"
+  },
+  {
+   "unit": "hubpi",
+   "kind": "field",
+   "name": "int_pend_mod.level",
+   "hi": 6,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/interrupts.md"
+  },
+  {
+   "unit": "hubpi",
+   "kind": "register",
+   "name": "int_pend0",
+   "offset": 152,
+   "access": "r",
+   "width": 64,
+   "count": 1,
+   "stride": 8,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/interrupts.md"
+  },
+  {
+   "unit": "hubpi",
+   "kind": "register",
+   "name": "int_pend1",
+   "offset": 160,
+   "access": "r",
+   "width": 64,
+   "count": 1,
+   "stride": 8,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/interrupts.md"
+  },
+  {
+   "unit": "hubpi",
+   "kind": "register",
+   "name": "int_mask0_a",
+   "offset": 168,
+   "access": "rw",
+   "width": 64,
+   "count": 1,
+   "stride": 8,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/interrupts.md"
+  },
+  {
+   "unit": "hubpi",
+   "kind": "register",
+   "name": "int_mask1_a",
+   "offset": 176,
+   "access": "rw",
+   "width": 64,
+   "count": 1,
+   "stride": 8,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/interrupts.md"
+  },
+  {
+   "unit": "hubpi",
+   "kind": "register",
+   "name": "int_mask0_b",
+   "offset": 184,
+   "access": "rw",
+   "width": 64,
+   "count": 1,
+   "stride": 8,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/interrupts.md"
+  },
+  {
+   "unit": "hubpi",
+   "kind": "register",
+   "name": "int_mask1_b",
+   "offset": 192,
+   "access": "rw",
+   "width": 64,
+   "count": 1,
+   "stride": 8,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/interrupts.md"
+  },
+  {
+   "unit": "hubpi",
+   "kind": "constant",
+   "name": "INT_PEND_MOD_ALT_OFFSET",
+   "value": 2097296,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/interrupts.md"
+  },
+  {
+   "unit": "hubpi",
+   "kind": "constant",
+   "name": "LOCAL_WINDOW_BASE",
+   "value": 16777216,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/interrupts.md"
+  },
+  {
+   "unit": "hubpi",
+   "kind": "constant",
+   "name": "NODE_SHIFT",
+   "value": 32,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/interrupts.md"
+  },
+  {
+   "unit": "hubpi",
+   "kind": "constant",
+   "name": "NODE_WINDOW_BASE",
+   "value": 25165824,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/interrupts.md"
+  }
+ ]
+}

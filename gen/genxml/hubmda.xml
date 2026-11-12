@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<!-- generated from defs/hubmda.toml by defs-gen - do not edit, change the source -->
+<genxml unit="hubmda" prefix="HUBMDA" title="Origin 200/2000 hub memory-directory migration registers" from="shipped IRIX kernel binaries">
+  <doc>Origin 200/2000 hub memory-directory migration registers.</doc>
+  <struct name="MIG_DIFF_THRESH" size="8" grade="established" from="shipped IRIX kernel binaries" register="yes" offset="0x30" access="rw" reset="unknown">
+    <doc>Bit 63 is the valid bit: set when the kernel arms the threshold, cleared to disarm it while a candidate is handled. See MIG_DIFF_THRESH_VALID_BIT.</doc>
+    <field name="value" start="0" size="20" type="uint" grade="inferred"/>
+  </struct>
+  <struct name="MIG_VALUE_THRESH" size="8" grade="inferred" from="shipped IRIX kernel binaries" register="yes" offset="0x38" access="rw" reset="unknown">
+    <doc>Bit 63 is the valid bit, set to arm and cleared to disarm. See MIG_VALUE_THRESH_VALID_BIT.</doc>
+  </struct>
+  <struct name="MIG_CANDIDATE" size="8" grade="established" from="shipped IRIX kernel binaries" register="yes" offset="0x48" access="r" reset="unknown">
+    <doc>Read-to-clear alias of the candidate register. The kernel reads it in a loop
+until the valid bit (bit 63) is clear. The public Linux hub header calls 0x40
+the candidate register and 0x48 its read-to-clear alias. The kernel reads only
+0x48, so this is that alias; that a read consumes the candidate is inferred
+from the name and the loop. Nothing accesses 0x40. See MIG_CANDIDATE_VALID_BIT.
+</doc>
+    <field name="type" start="30" size="1" type="uint" grade="inferred"/>
+    <field name="node" start="20" size="9" type="uint" grade="inferred"/>
+    <field name="page" start="0" size="18" type="uint" grade="inferred"/>
+  </struct>
+  <constant name="MIG_CANDIDATE_VALID_BIT" value="0x3f" grade="established"/>
+  <constant name="MIG_DIFF_THRESH_VALID_BIT" value="0x3f" grade="established"/>
+  <constant name="MIG_VALUE_THRESH_VALID_BIT" value="0x3f" grade="established"/>
+  <constant name="NODE_SHIFT" value="0x20" grade="established"/>
+  <constant name="REFCNT_COUNT_MASK_PREMIUM" value="0x7ffff" grade="established"/>
+  <constant name="REFCNT_COUNT_MASK_STANDARD" value="0x7ff" grade="established"/>
+  <constant name="REFCNT_COUNT_SHIFT" value="0x5" grade="established"/>
+  <constant name="REFCNT_NODE_STRIDE" value="0x8" grade="established"/>
+  <constant name="WINDOW_BASE" value="0x1a00000" grade="established"/>
+</genxml>

@@ -1,0 +1,163 @@
+<?xml version="1.0" ?>
+<!-- generated from defs/efs.toml by defs-gen - do not edit, change the source -->
+<genxml unit="efs" prefix="EFS" title="Extent File System on-disk structures" from="shipped IRIX binaries, per docs/formats/efs.md">
+  <doc>Extent File System on-disk structures: superblock, inode, extent and directory block.</doc>
+  <enum name="di_w0_mode_type">
+    <value name="fifo" value="1" grade="established"/>
+    <value name="chr" value="2" grade="established"/>
+    <value name="x3" value="3" grade="established"/>
+    <value name="dir" value="4" grade="established"/>
+    <value name="blk" value="6" grade="established"/>
+    <value name="x7" value="7" grade="established"/>
+    <value name="reg" value="8" grade="established"/>
+    <value name="lnk" value="10" grade="established"/>
+    <value name="sock" value="12" grade="established"/>
+  </enum>
+  <enum name="sb_w5_dirty">
+    <value name="clean" value="0" grade="established"/>
+    <value name="dirty" value="2989" grade="established"/>
+    <value name="needsck" value="4660" grade="established"/>
+    <value name="mounted" value="30583" grade="established"/>
+  </enum>
+  <enum name="sb_w7_magic">
+    <value name="old" value="469337" grade="established"/>
+    <value name="new" value="469338" grade="established"/>
+  </enum>
+  <struct name="DB_W0" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="magic" start="16" size="16" type="uint" grade="established"/>
+    <field name="firstused" start="8" size="8" type="uint" grade="established"/>
+    <field name="slots" start="0" size="8" type="uint" grade="established"/>
+    <test value="0xbeef0300" kind="example">
+      <expect field="magic" value="48879"/>
+      <expect field="firstused" value="3"/>
+      <expect field="slots" value="0"/>
+    </test>
+  </struct>
+  <struct name="DEV_W8" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="odev" start="16" size="16" type="uint" grade="established"/>
+  </struct>
+  <struct name="DEV_W9" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="ndev" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="DI_W0" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="mode_type" start="28" size="4" type="di_w0_mode_type" grade="established"/>
+    <field name="mode_perm" start="16" size="12" type="uint" grade="established"/>
+    <field name="nlink" start="0" size="16" type="uint" grade="established"/>
+  </struct>
+  <struct name="DI_W1" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="uid" start="16" size="16" type="uint" grade="established"/>
+    <field name="gid" start="0" size="16" type="uint" grade="established"/>
+  </struct>
+  <struct name="DI_W2" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="size" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="DI_W3" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="atime" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="DI_W4" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="mtime" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="DI_W5" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="ctime" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="DI_W6" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="gen" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="DI_W7" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="numextents" start="16" size="16" type="uint" grade="established"/>
+    <field name="version" start="8" size="8" type="uint" grade="established"/>
+    <field name="spare" start="0" size="8" type="uint" grade="inferred"/>
+  </struct>
+  <struct name="EXT_W0" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="magic" start="24" size="8" type="uint" grade="established"/>
+    <field name="bn" start="0" size="24" type="uint" grade="established"/>
+    <test value="0x19b2" kind="example">
+      <expect field="magic" value="0"/>
+      <expect field="bn" value="6578"/>
+    </test>
+  </struct>
+  <struct name="EXT_W1" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="length" start="24" size="8" type="uint" grade="established"/>
+    <field name="offset" start="0" size="24" type="uint" grade="established"/>
+    <test value="0x1000001" kind="example">
+      <expect field="length" value="1"/>
+      <expect field="offset" value="1"/>
+    </test>
+  </struct>
+  <struct name="SB_W0" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="size" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W1" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="firstcg" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W11" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="bmsize" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W12" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="tfree" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W13" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="tinode" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W14" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="bmblock" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W15" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="replsb" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W16" size="4" grade="inferred" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="lastialloc" start="0" size="32" type="uint" grade="inferred"/>
+  </struct>
+  <struct name="SB_W2" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="cgfsize" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W22" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="checksum" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W3" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="cgisize" start="16" size="16" type="uint" grade="established"/>
+    <field name="sectors" start="0" size="16" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W4" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="heads" start="16" size="16" type="uint" grade="established"/>
+    <field name="ncg" start="0" size="16" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W5" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="dirty" start="16" size="16" type="sb_w5_dirty" grade="established"/>
+    <test value="0x77770000" kind="example">
+      <expect field="dirty" value="30583"/>
+    </test>
+  </struct>
+  <struct name="SB_W6" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="time" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="SB_W7" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/efs.md">
+    <field name="magic" start="0" size="32" type="sb_w7_magic" grade="established"/>
+  </struct>
+  <constant name="BBSIZE" value="0x200" grade="established"/>
+  <constant name="BITMAP_BB" value="0x2" grade="established"/>
+  <constant name="DB_SIZE" value="0x200" grade="established"/>
+  <constant name="DENT_HEADER_BYTES" value="0x5" grade="established"/>
+  <constant name="DEV_LONG_FORM" value="0xffff" grade="established"/>
+  <constant name="DIRBLK_HEADERSIZE" value="0x4" grade="established"/>
+  <constant name="DIRBLK_MAGIC" value="0xbeef" grade="established"/>
+  <constant name="DIRBLK_MAXSLOTS" value="0x48" grade="established"/>
+  <constant name="DIRECTEXTENTS" value="0xc" grade="established"/>
+  <constant name="DI_SIZE" value="0x80" grade="established"/>
+  <constant name="EXT_SIZE" value="0x8" grade="established"/>
+  <constant name="EX_MAXLEN" value="0xf8" grade="established"/>
+  <constant name="INODES_PER_BB" value="0x4" grade="established"/>
+  <constant name="INODE_DATA_BYTES" value="0x60" grade="established"/>
+  <constant name="INODE_SIZE" value="0x80" grade="established"/>
+  <constant name="MAGIC_NEW" value="0x7295a" grade="established"/>
+  <constant name="MAGIC_OLD" value="0x72959" grade="established"/>
+  <constant name="ROOT_INO" value="0x2" grade="established"/>
+  <constant name="SB_LEN_FNAME" value="0x6" grade="established"/>
+  <constant name="SB_LEN_FPACK" value="0x6" grade="established"/>
+  <constant name="SB_LEN_SPARE" value="0x14" grade="inferred"/>
+  <constant name="SB_OFF_FNAME" value="0x20" grade="established"/>
+  <constant name="SB_OFF_FPACK" value="0x26" grade="established"/>
+  <constant name="SB_OFF_SPARE" value="0x44" grade="inferred"/>
+  <constant name="SB_SIZE" value="0x5c" grade="established"/>
+  <constant name="SUPER_BB" value="0x1" grade="established"/>
+</genxml>

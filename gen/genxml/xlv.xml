@@ -1,0 +1,161 @@
+<?xml version="1.0" ?>
+<!-- generated from defs/xlv.toml by defs-gen - do not edit, change the source -->
+<genxml unit="xlv" prefix="XLV" title="XLV logical volume manager on-disk label structures" from="shipped IRIX binaries, per docs/formats/xlv.md">
+  <doc>XLV logical volume manager on-disk label: master block, label slot header and per-partition entry.</doc>
+  <enum name="e_w29_sv_type">
+    <value name="log" value="1" grade="established"/>
+    <value name="data" value="2" grade="established"/>
+    <value name="rt" value="3" grade="established"/>
+  </enum>
+  <enum name="e_w56_ve_state">
+    <value name="empty" value="0" grade="established"/>
+    <value name="clean" value="1" grade="established"/>
+    <value name="active" value="2" grade="established"/>
+    <value name="stale" value="3" grade="established"/>
+    <value name="offline" value="4" grade="established"/>
+    <value name="incomplete" value="5" grade="established"/>
+  </enum>
+  <enum name="e_w56_ve_type">
+    <value name="stripe" value="1" grade="established"/>
+    <value name="concat" value="2" grade="established"/>
+  </enum>
+  <struct name="E_W0" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="vol_flags" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="E_W25" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="sv_flags_hi_no_err_retry" start="31" size="1" type="uint" grade="established"/>
+    <field name="sv_flags_hi_other" start="16" size="15" type="uint" grade="unknown"/>
+    <field name="sv_flags_hi_low" start="0" size="16" type="uint" grade="established"/>
+    <test value="0x80000000" kind="vector">
+      <expect field="sv_flags_hi_no_err_retry" value="1"/>
+      <expect field="sv_flags_hi_other" value="0"/>
+      <expect field="sv_flags_hi_low" value="0"/>
+    </test>
+  </struct>
+  <struct name="E_W27" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="time" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="E_W28" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="vol_attr16" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="E_W29" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="sv_type" start="24" size="8" type="e_w29_sv_type" grade="established"/>
+    <field name="sv_depth" start="0" size="16" type="uint" grade="established"/>
+  </struct>
+  <struct name="E_W42" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="sv_nplex" start="24" size="8" type="uint" grade="established"/>
+    <field name="plex_index" start="16" size="8" type="uint" grade="established"/>
+    <field name="plex_nve" start="0" size="16" type="uint" grade="established"/>
+  </struct>
+  <struct name="E_W43" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="plex_flags" start="16" size="16" type="uint" grade="established"/>
+  </struct>
+  <struct name="E_W56" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="ve_state" start="24" size="8" type="e_w56_ve_state" grade="established"/>
+    <field name="ve_type" start="16" size="8" type="e_w56_ve_type" grade="established"/>
+    <field name="ve_nparts" start="8" size="8" type="uint" grade="established"/>
+    <field name="ve_index" start="0" size="8" type="uint" grade="established"/>
+    <test value="0x2010302" kind="example">
+      <expect field="ve_state" value="2"/>
+      <expect field="ve_type" value="1"/>
+      <expect field="ve_nparts" value="3"/>
+      <expect field="ve_index" value="2"/>
+    </test>
+  </struct>
+  <struct name="E_W57" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="ve_stripe_unit" start="16" size="16" type="uint" grade="established"/>
+  </struct>
+  <struct name="E_W58" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="ve_start_hi" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="E_W59" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="ve_start_lo" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="E_W60" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="ve_end_hi" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="E_W61" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="ve_end_lo" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="E_W66" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="part_dev" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="E_W67" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="part_size" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="E_W68" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="part_index" start="24" size="8" type="uint" grade="established"/>
+  </struct>
+  <struct name="LBL_W0" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="magic" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="LBL_W1" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="version" start="16" size="16" type="uint" grade="established"/>
+    <field name="nparts" start="8" size="8" type="uint" grade="established"/>
+    <field name="reserved" start="0" size="8" type="uint" grade="unknown"/>
+  </struct>
+  <struct name="LBL_W2" size="4" grade="unknown" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="timestamp_hi" start="0" size="32" type="uint" grade="unknown"/>
+  </struct>
+  <struct name="LBL_W3" size="4" grade="unknown" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="timestamp_lo" start="0" size="32" type="uint" grade="unknown"/>
+  </struct>
+  <struct name="LBL_W4" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="trans_id_hi" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="LBL_W5" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="trans_id_lo" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="MASTER_W0" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="seq_hi" start="0" size="32" type="uint" grade="established"/>
+  </struct>
+  <struct name="MASTER_W1" size="4" grade="established" from="shipped IRIX binaries, per docs/formats/xlv.md">
+    <field name="seq_lo_rest" start="1" size="31" type="uint" grade="established"/>
+    <field name="seq_lo_slot" start="0" size="1" type="uint" grade="established"/>
+  </struct>
+  <constant name="ENTRY_OFF" value="0x120" grade="established"/>
+  <constant name="ENTRY_SIZE" value="0x118" grade="established"/>
+  <constant name="E_LEN_DATA_SV_UUID" value="0x10" grade="established"/>
+  <constant name="E_LEN_LOG_SV_UUID" value="0x10" grade="established"/>
+  <constant name="E_LEN_PART_UUID" value="0x10" grade="established"/>
+  <constant name="E_LEN_PLEX_NAME" value="0x20" grade="established"/>
+  <constant name="E_LEN_PLEX_UUID" value="0x10" grade="established"/>
+  <constant name="E_LEN_RT_SV_UUID" value="0x10" grade="established"/>
+  <constant name="E_LEN_VE_NAME" value="0x20" grade="established"/>
+  <constant name="E_LEN_VE_UUID" value="0x10" grade="established"/>
+  <constant name="E_LEN_VOL_NAME" value="0x20" grade="established"/>
+  <constant name="E_LEN_VOL_UUID" value="0x10" grade="established"/>
+  <constant name="E_OFF_DATA_SV_UUID" value="0x24" grade="established"/>
+  <constant name="E_OFF_LOG_SV_UUID" value="0x14" grade="established"/>
+  <constant name="E_OFF_PART_UUID" value="0xf8" grade="established"/>
+  <constant name="E_OFF_PLEX_NAME" value="0x88" grade="established"/>
+  <constant name="E_OFF_PLEX_UUID" value="0x78" grade="established"/>
+  <constant name="E_OFF_RT_SV_UUID" value="0x34" grade="established"/>
+  <constant name="E_OFF_VE_NAME" value="0xc0" grade="established"/>
+  <constant name="E_OFF_VE_UUID" value="0xb0" grade="established"/>
+  <constant name="E_OFF_VOL_NAME" value="0x44" grade="established"/>
+  <constant name="E_OFF_VOL_UUID" value="0x4" grade="established"/>
+  <constant name="E_SIZE" value="0x118" grade="established"/>
+  <constant name="HDR_SIZE" value="0x120" grade="established"/>
+  <constant name="LABEL_BYTES" value="0x12a0" grade="established"/>
+  <constant name="LABEL_MAGIC" value="0x11201989" grade="established"/>
+  <constant name="LABEL_VERSION" value="0x2" grade="established"/>
+  <constant name="LBL_LEN_NODENAME" value="0x108" grade="established"/>
+  <constant name="LBL_OFF_NODENAME" value="0x18" grade="established"/>
+  <constant name="LBL_SIZE" value="0x120" grade="established"/>
+  <constant name="MASTER_BYTES" value="0x200" grade="established"/>
+  <constant name="NAME_LEN" value="0x20" grade="established"/>
+  <constant name="NODENAME_COPY" value="0x102" grade="established"/>
+  <constant name="NODENAME_LEN" value="0x108" grade="established"/>
+  <constant name="NPART" value="0x10" grade="established"/>
+  <constant name="PTYPE_EFS" value="0x7" grade="established"/>
+  <constant name="PTYPE_EFS_LEGACY" value="0x5" grade="established"/>
+  <constant name="PTYPE_RAW" value="0x3" grade="established"/>
+  <constant name="PTYPE_VOLHDR" value="0x0" grade="established"/>
+  <constant name="PTYPE_VOLUME" value="0x6" grade="established"/>
+  <constant name="PTYPE_VXVM" value="0xe" grade="established"/>
+  <constant name="PTYPE_XFS" value="0xa" grade="established"/>
+  <constant name="PTYPE_XFSLOG" value="0xb" grade="established"/>
+  <constant name="PTYPE_XLV" value="0xc" grade="established"/>
+  <constant name="PTYPE_XVM" value="0xd" grade="established"/>
+</genxml>

@@ -1,0 +1,102 @@
+{
+ "schema": "defs-flat/1",
+ "source": "defs/hubmdb.toml",
+ "profile": "public",
+ "rows": [
+  {
+   "unit": "hubmdb",
+   "kind": "register",
+   "name": "mig_diff_thresh",
+   "offset": 64,
+   "access": "w",
+   "width": 64,
+   "count": 1,
+   "stride": 8,
+   "space": null,
+   "reset": "unknown",
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/page-migration.md"
+  },
+  {
+   "unit": "hubmdb",
+   "kind": "field",
+   "name": "mig_diff_thresh.value",
+   "hi": 14,
+   "lo": 0,
+   "grade": "inferred",
+   "from": "shipped IRIX kernel binaries, per docs/page-migration.md"
+  },
+  {
+   "unit": "hubmdb",
+   "kind": "constant",
+   "name": "MIG_CANDIDATE_CLR_OFFSET",
+   "value": 56,
+   "count": 1,
+   "grade": "unknown",
+   "from": "shipped IRIX kernel binaries, per docs/page-migration.md"
+  },
+  {
+   "unit": "hubmdb",
+   "kind": "constant",
+   "name": "MIG_CANDIDATE_OFFSET",
+   "value": 48,
+   "count": 1,
+   "grade": "unknown",
+   "from": "shipped IRIX kernel binaries, per docs/page-migration.md"
+  },
+  {
+   "unit": "hubmdb",
+   "kind": "constant",
+   "name": "MIG_CONFIG_LOCAL_OFFSET",
+   "value": 7864344,
+   "count": 1,
+   "grade": "inferred",
+   "from": "shipped IRIX kernel binaries, per docs/page-migration.md"
+  },
+  {
+   "unit": "hubmdb",
+   "kind": "constant",
+   "name": "MIG_DIFF_THRESH_VALID_BIT",
+   "value": 63,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/page-migration.md"
+  },
+  {
+   "unit": "hubmdb",
+   "kind": "constant",
+   "name": "MIG_VALUE_THRESH_OFFSET",
+   "value": 72,
+   "count": 1,
+   "grade": "unknown",
+   "from": "shipped IRIX kernel binaries, per docs/page-migration.md"
+  },
+  {
+   "unit": "hubmdb",
+   "kind": "constant",
+   "name": "NODE_SHIFT",
+   "value": 33,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/page-migration.md"
+  },
+  {
+   "unit": "hubmdb",
+   "kind": "constant",
+   "name": "WINDOW_BASE_UNITS",
+   "value": 508,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/page-migration.md"
+  },
+  {
+   "unit": "hubmdb",
+   "kind": "constant",
+   "name": "WINDOW_BASE_UNIT_SHIFT",
+   "value": 16,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/page-migration.md"
+  }
+ ]
+}

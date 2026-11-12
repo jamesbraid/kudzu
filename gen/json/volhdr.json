@@ -1,0 +1,626 @@
+{
+ "schema": "defs-flat/1",
+ "source": "defs/volhdr.toml",
+ "profile": "public",
+ "rows": [
+  {
+   "unit": "volhdr",
+   "kind": "word",
+   "name": "DIRENT_W2",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "field",
+   "name": "DIRENT_W2.start_block",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "word",
+   "name": "DIRENT_W3",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "field",
+   "name": "DIRENT_W3.length_bytes",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "word",
+   "name": "HDR_W0",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "field",
+   "name": "HDR_W0.magic",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "word",
+   "name": "HDR_W1",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "field",
+   "name": "HDR_W1.root",
+   "hi": 31,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "field",
+   "name": "HDR_W1.swap",
+   "hi": 15,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "word",
+   "name": "HDR_W10",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "field",
+   "name": "HDR_W10.dp_secbytes",
+   "hi": 31,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "word",
+   "name": "HDR_W11",
+   "width": 32,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "field",
+   "name": "HDR_W11.dp_flags",
+   "hi": 31,
+   "lo": 0,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "word",
+   "name": "HDR_W126",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "field",
+   "name": "HDR_W126.checksum",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "word",
+   "name": "HDR_W17",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "field",
+   "name": "HDR_W17.dp_capacity",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "word",
+   "name": "HDR_W7",
+   "width": 32,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "field",
+   "name": "HDR_W7.dp_cylinders",
+   "hi": 31,
+   "lo": 16,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "field",
+   "name": "HDR_W7.dp_head_offset",
+   "hi": 15,
+   "lo": 0,
+   "grade": "unknown",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "word",
+   "name": "HDR_W8",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "field",
+   "name": "HDR_W8.dp_heads",
+   "hi": 31,
+   "lo": 16,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "field",
+   "name": "HDR_W8.dp_tag_depth",
+   "hi": 15,
+   "lo": 8,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "field",
+   "name": "HDR_W8.dp_cyl_high",
+   "hi": 7,
+   "lo": 0,
+   "grade": "unknown",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "word",
+   "name": "HDR_W9",
+   "width": 32,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "field",
+   "name": "HDR_W9.dp_sectors",
+   "hi": 15,
+   "lo": 0,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "word",
+   "name": "PART_W0",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "field",
+   "name": "PART_W0.nblks",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "word",
+   "name": "PART_W1",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "field",
+   "name": "PART_W1.first",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "word",
+   "name": "PART_W2",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "field",
+   "name": "PART_W2.type",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "enum_value",
+   "name": "PART_W2.type.volhdr",
+   "value": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "enum_value",
+   "name": "PART_W2.type.trkrepl",
+   "value": 1,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "enum_value",
+   "name": "PART_W2.type.secrepl",
+   "value": 2,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "enum_value",
+   "name": "PART_W2.type.raw",
+   "value": 3,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "enum_value",
+   "name": "PART_W2.type.bsd",
+   "value": 4,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "enum_value",
+   "name": "PART_W2.type.sysv",
+   "value": 5,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "enum_value",
+   "name": "PART_W2.type.volume",
+   "value": 6,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "enum_value",
+   "name": "PART_W2.type.efs",
+   "value": 7,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "enum_value",
+   "name": "PART_W2.type.lvol",
+   "value": 8,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "enum_value",
+   "name": "PART_W2.type.rlvol",
+   "value": 9,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "enum_value",
+   "name": "PART_W2.type.xfs",
+   "value": 10,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "enum_value",
+   "name": "PART_W2.type.xfslog",
+   "value": 11,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "enum_value",
+   "name": "PART_W2.type.xlv",
+   "value": 12,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "enum_value",
+   "name": "PART_W2.type.xvm",
+   "value": 13,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "enum_value",
+   "name": "PART_W2.type.vxvm",
+   "value": 14,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "BOOTFILE_OFF",
+   "value": 8,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "CSUM_OFF",
+   "value": 504,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "DIRENT_LEN_NAME",
+   "value": 8,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "DIRENT_OFF_NAME",
+   "value": 0,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "DIRENT_SIZE",
+   "value": 16,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "DIR_COUNT",
+   "value": 15,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "DIR_NAME_LEN",
+   "value": 8,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "DIR_OFF",
+   "value": 72,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "DIR_STRIDE",
+   "value": 16,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "DP_BYTES",
+   "value": 48,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "DP_FLAG_TAGGED",
+   "value": 64,
+   "count": 1,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "DP_OFF",
+   "value": 24,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "HDR_LEN_BOOTFILE",
+   "value": 16,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "HDR_OFF_BOOTFILE",
+   "value": 8,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "HDR_SIZE",
+   "value": 512,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "MAGIC",
+   "value": 199600449,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "PART_COUNT",
+   "value": 16,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "PART_OFF",
+   "value": 312,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "PART_SIZE",
+   "value": 12,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "PART_STRIDE",
+   "value": 12,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "SIZE",
+   "value": 512,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "SLOT_ROOT",
+   "value": 0,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "SLOT_SWAP",
+   "value": 1,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "SLOT_VOLHDR",
+   "value": 8,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  },
+  {
+   "unit": "volhdr",
+   "kind": "constant",
+   "name": "SLOT_WHOLEDISK",
+   "value": 10,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/volume-header.md"
+  }
+ ]
+}

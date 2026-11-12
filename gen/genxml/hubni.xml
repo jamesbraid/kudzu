@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!-- generated from defs/hubni.toml by defs-gen - do not edit, change the source -->
+<genxml unit="hubni" prefix="HUBNI" title="node hub network interface registers" from="shipped IRIX kernel binaries, per docs/ip35-hub-errors.md">
+  <doc>Node hub network interface words: node number, link state, link reset and port error.</doc>
+  <struct name="NSRI" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/ip35-hub-errors.md">
+    <doc>The low 32 bits of the Origin 200/2000 network status word.</doc>
+    <field name="nodeid" start="8" size="9" type="uint" grade="established"/>
+  </struct>
+  <constant name="O200_STATUS_OFFSET" value="0x600000" grade="established"/>
+  <constant name="O300_ERROR_CLEAR_OFFSET" value="0x680120" grade="established"/>
+  <constant name="O300_ERROR_LATCHED_HI" value="0x34" grade="established"/>
+  <constant name="O300_ERROR_LATCHED_LO" value="0x18" grade="established"/>
+  <constant name="O300_ERROR_LINK_RESET_BIT" value="0x34" grade="established"/>
+  <constant name="O300_ERROR_OFFSET" value="0x680100" grade="established"/>
+  <constant name="O300_ERROR_REPORT_A_OFFSET" value="0x680108" grade="established"/>
+  <constant name="O300_ERROR_REPORT_B_OFFSET" value="0x680110" grade="established"/>
+  <constant name="O300_ERROR_REPORT_C_OFFSET" value="0x680118" grade="established"/>
+  <constant name="O300_PORT_RESET_OFFSET" value="0x680008" grade="established"/>
+  <constant name="O300_RESET_ENABLE_OFFSET" value="0x680010" grade="established"/>
+  <constant name="O300_STATUS_OFFSET" value="0x680000" grade="established"/>
+</genxml>

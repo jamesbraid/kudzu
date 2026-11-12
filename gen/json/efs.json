@@ -1,0 +1,936 @@
+{
+ "schema": "defs-flat/1",
+ "source": "defs/efs.toml",
+ "profile": "public",
+ "rows": [
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "DB_W0",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "DB_W0.magic",
+   "hi": 31,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "DB_W0.firstused",
+   "hi": 15,
+   "lo": 8,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "DB_W0.slots",
+   "hi": 7,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "DEV_W8",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "DEV_W8.odev",
+   "hi": 31,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "DEV_W9",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "DEV_W9.ndev",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "DI_W0",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "DI_W0.mode_type",
+   "hi": 31,
+   "lo": 28,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "enum_value",
+   "name": "DI_W0.mode_type.fifo",
+   "value": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "enum_value",
+   "name": "DI_W0.mode_type.chr",
+   "value": 2,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "enum_value",
+   "name": "DI_W0.mode_type.x3",
+   "value": 3,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "enum_value",
+   "name": "DI_W0.mode_type.dir",
+   "value": 4,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "enum_value",
+   "name": "DI_W0.mode_type.blk",
+   "value": 6,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "enum_value",
+   "name": "DI_W0.mode_type.x7",
+   "value": 7,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "enum_value",
+   "name": "DI_W0.mode_type.reg",
+   "value": 8,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "enum_value",
+   "name": "DI_W0.mode_type.lnk",
+   "value": 10,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "enum_value",
+   "name": "DI_W0.mode_type.sock",
+   "value": 12,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "DI_W0.mode_perm",
+   "hi": 27,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "DI_W0.nlink",
+   "hi": 15,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "DI_W1",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "DI_W1.uid",
+   "hi": 31,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "DI_W1.gid",
+   "hi": 15,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "DI_W2",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "DI_W2.size",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "DI_W3",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "DI_W3.atime",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "DI_W4",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "DI_W4.mtime",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "DI_W5",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "DI_W5.ctime",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "DI_W6",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "DI_W6.gen",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "DI_W7",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "DI_W7.numextents",
+   "hi": 31,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "DI_W7.version",
+   "hi": 15,
+   "lo": 8,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "DI_W7.spare",
+   "hi": 7,
+   "lo": 0,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "EXT_W0",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "EXT_W0.magic",
+   "hi": 31,
+   "lo": 24,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "EXT_W0.bn",
+   "hi": 23,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "EXT_W1",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "EXT_W1.length",
+   "hi": 31,
+   "lo": 24,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "EXT_W1.offset",
+   "hi": 23,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "SB_W0",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "SB_W0.size",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "SB_W1",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "SB_W1.firstcg",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "SB_W11",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "SB_W11.bmsize",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "SB_W12",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "SB_W12.tfree",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "SB_W13",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "SB_W13.tinode",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "SB_W14",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "SB_W14.bmblock",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "SB_W15",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "SB_W15.replsb",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "SB_W16",
+   "width": 32,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "SB_W16.lastialloc",
+   "hi": 31,
+   "lo": 0,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "SB_W2",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "SB_W2.cgfsize",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "SB_W22",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "SB_W22.checksum",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "SB_W3",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "SB_W3.cgisize",
+   "hi": 31,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "SB_W3.sectors",
+   "hi": 15,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "SB_W4",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "SB_W4.heads",
+   "hi": 31,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "SB_W4.ncg",
+   "hi": 15,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "SB_W5",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "SB_W5.dirty",
+   "hi": 31,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "enum_value",
+   "name": "SB_W5.dirty.clean",
+   "value": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "enum_value",
+   "name": "SB_W5.dirty.dirty",
+   "value": 2989,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "enum_value",
+   "name": "SB_W5.dirty.needsck",
+   "value": 4660,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "enum_value",
+   "name": "SB_W5.dirty.mounted",
+   "value": 30583,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "SB_W6",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "SB_W6.time",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "word",
+   "name": "SB_W7",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "field",
+   "name": "SB_W7.magic",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "enum_value",
+   "name": "SB_W7.magic.old",
+   "value": 469337,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "enum_value",
+   "name": "SB_W7.magic.new",
+   "value": 469338,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "BBSIZE",
+   "value": 512,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "BITMAP_BB",
+   "value": 2,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "DB_SIZE",
+   "value": 512,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "DENT_HEADER_BYTES",
+   "value": 5,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "DEV_LONG_FORM",
+   "value": 65535,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "DIRBLK_HEADERSIZE",
+   "value": 4,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "DIRBLK_MAGIC",
+   "value": 48879,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "DIRBLK_MAXSLOTS",
+   "value": 72,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "DIRECTEXTENTS",
+   "value": 12,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "DI_SIZE",
+   "value": 128,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "EXT_SIZE",
+   "value": 8,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "EX_MAXLEN",
+   "value": 248,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "INODES_PER_BB",
+   "value": 4,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "INODE_DATA_BYTES",
+   "value": 96,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "INODE_SIZE",
+   "value": 128,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "MAGIC_NEW",
+   "value": 469338,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "MAGIC_OLD",
+   "value": 469337,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "ROOT_INO",
+   "value": 2,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "SB_LEN_FNAME",
+   "value": 6,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "SB_LEN_FPACK",
+   "value": 6,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "SB_LEN_SPARE",
+   "value": 20,
+   "count": 1,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "SB_OFF_FNAME",
+   "value": 32,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "SB_OFF_FPACK",
+   "value": 38,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "SB_OFF_SPARE",
+   "value": 68,
+   "count": 1,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "SB_SIZE",
+   "value": 92,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  },
+  {
+   "unit": "efs",
+   "kind": "constant",
+   "name": "SUPER_BB",
+   "value": 1,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/efs.md"
+  }
+ ]
+}

@@ -1,0 +1,1749 @@
+{
+ "schema": "defs-flat/1",
+ "source": "defs/xfs.toml",
+ "profile": "public",
+ "rows": [
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W0",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W0.magic",
+   "hi": 31,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W0.mode",
+   "hi": 15,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W1",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W1.version",
+   "hi": 31,
+   "lo": 24,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W1.format",
+   "hi": 23,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "enum_value",
+   "name": "INO_W1.format.dev",
+   "value": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "enum_value",
+   "name": "INO_W1.format.local",
+   "value": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "enum_value",
+   "name": "INO_W1.format.extents",
+   "value": 2,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "enum_value",
+   "name": "INO_W1.format.btree",
+   "value": 3,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "enum_value",
+   "name": "INO_W1.format.uuid",
+   "value": 4,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W1.onlink",
+   "hi": 15,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W10",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W10.mtime_sec",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W11",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W11.mtime_nsec",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W12",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W12.ctime_sec",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W13",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W13.ctime_nsec",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W14",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W14.size_hi",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W15",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W15.size_lo",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W16",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W16.nblocks_hi",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W17",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W17.nblocks_lo",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W18",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W18.extsize",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W19",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W19.nextents",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W2",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W2.uid",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W20",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W20.naextents",
+   "hi": 31,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W20.forkoff",
+   "hi": 15,
+   "lo": 8,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W20.aformat",
+   "hi": 7,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "enum_value",
+   "name": "INO_W20.aformat.local",
+   "value": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "enum_value",
+   "name": "INO_W20.aformat.extents",
+   "value": 2,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "enum_value",
+   "name": "INO_W20.aformat.btree",
+   "value": 3,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W21",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W21.dmevmask",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W22",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W22.dmstate",
+   "hi": 31,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W22.flags_rtinherit",
+   "hi": 8,
+   "lo": 8,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W22.flags_nodump",
+   "hi": 7,
+   "lo": 7,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W22.flags_noatime",
+   "hi": 6,
+   "lo": 6,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W22.flags_sync",
+   "hi": 5,
+   "lo": 5,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W22.flags_append",
+   "hi": 4,
+   "lo": 4,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W22.flags_immutable",
+   "hi": 3,
+   "lo": 3,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W22.flags_newrtbm",
+   "hi": 2,
+   "lo": 2,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W22.flags_prealloc",
+   "hi": 1,
+   "lo": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W22.flags_realtime",
+   "hi": 0,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W23",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W23.gen",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W24",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W24.next_unlinked",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W3",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W3.gid",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W4",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W4.nlinkv2",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W5",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W5.projid",
+   "hi": 31,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W7",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W7.flushiter",
+   "hi": 15,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W8",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W8.atime_sec",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "INO_W9",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "INO_W9.atime_nsec",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W0",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W0.magicnum",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W1",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W1.blocksize",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W12",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W12.logstart_hi",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W13",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W13.logstart_lo",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W14",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W14.rootino_hi",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W15",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W15.rootino_lo",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W16",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W16.rbmino_hi",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W17",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W17.rbmino_lo",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W18",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W18.rsumino_hi",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W19",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W19.rsumino_lo",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W2",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W2.dblocks_hi",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W20",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W20.rextsize",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W21",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W21.agblocks",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W22",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W22.agcount",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W23",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W23.rbmblocks",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W24",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W24.logblocks",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W25",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W25.versionnum_morebits",
+   "hi": 31,
+   "lo": 31,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W25.versionnum_ci_dirs",
+   "hi": 30,
+   "lo": 30,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W25.versionnum_dirv2",
+   "hi": 29,
+   "lo": 29,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W25.versionnum_extflg",
+   "hi": 28,
+   "lo": 28,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W25.versionnum_rejected",
+   "hi": 27,
+   "lo": 27,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W25.versionnum_logv2",
+   "hi": 26,
+   "lo": 26,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W25.versionnum_shared",
+   "hi": 25,
+   "lo": 25,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W25.versionnum_dalign",
+   "hi": 24,
+   "lo": 24,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W25.versionnum_align",
+   "hi": 23,
+   "lo": 23,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W25.versionnum_quota",
+   "hi": 22,
+   "lo": 22,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W25.versionnum_nlink",
+   "hi": 21,
+   "lo": 21,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W25.versionnum_attr",
+   "hi": 20,
+   "lo": 20,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W25.versionnum_vers",
+   "hi": 19,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W25.sectsize",
+   "hi": 15,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W26",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W26.inodesize",
+   "hi": 31,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W26.inopblock",
+   "hi": 15,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W3",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W3.dblocks_lo",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W30",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W30.blocklog",
+   "hi": 31,
+   "lo": 24,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W30.sectlog",
+   "hi": 23,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W30.inodelog",
+   "hi": 15,
+   "lo": 8,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W30.inopblog",
+   "hi": 7,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W31",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W31.agblklog",
+   "hi": 31,
+   "lo": 24,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W31.rextslog",
+   "hi": 23,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W31.inprogress",
+   "hi": 15,
+   "lo": 8,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W31.imax_pct",
+   "hi": 7,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W32",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W32.icount_hi",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W33",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W33.icount_lo",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W34",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W34.ifree_hi",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W35",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W35.ifree_lo",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W36",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W36.fdblocks_hi",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W37",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W37.fdblocks_lo",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W38",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W38.frextents_hi",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W39",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W39.frextents_lo",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W4",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W4.rblocks_hi",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W40",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W40.uquotino_hi",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W41",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W41.uquotino_lo",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W42",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W42.pquotino_hi",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W43",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W43.pquotino_lo",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W44",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W44.qflags",
+   "hi": 31,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W44.flags_shared_ro",
+   "hi": 8,
+   "lo": 8,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W44.shared_vn",
+   "hi": 7,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W45",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W45.inoalignmt",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W46",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W46.unit",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W47",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W47.width",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W48",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W48.dirblklog",
+   "hi": 31,
+   "lo": 24,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W48.logsectlog",
+   "hi": 23,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W48.logsectsize",
+   "hi": 15,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W49",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W49.logsunit",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W5",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W5.rblocks_lo",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W50",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W50.features2_high",
+   "hi": 31,
+   "lo": 5,
+   "grade": "unknown",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W50.features2_parent",
+   "hi": 4,
+   "lo": 4,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W50.features2_attr2",
+   "hi": 3,
+   "lo": 3,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W50.features2_bit2",
+   "hi": 2,
+   "lo": 2,
+   "grade": "unknown",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W50.features2_lazysbcount",
+   "hi": 1,
+   "lo": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W50.features2_bit0",
+   "hi": 0,
+   "lo": 0,
+   "grade": "unknown",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W6",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W6.rextents_hi",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "word",
+   "name": "SB_W7",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "field",
+   "name": "SB_W7.rextents_lo",
+   "hi": 31,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "constant",
+   "name": "INO_ATTR_FORK_UNIT",
+   "value": 8,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "constant",
+   "name": "INO_FLAGS_OFFSET",
+   "value": 90,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "constant",
+   "name": "INO_FORK_OFFSET",
+   "value": 100,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "constant",
+   "name": "INO_MAGIC",
+   "value": 18766,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "constant",
+   "name": "INO_SIZE",
+   "value": 100,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "constant",
+   "name": "SB_DESCRIBED_BYTES",
+   "value": 204,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "constant",
+   "name": "SB_LEN_FNAME",
+   "value": 6,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "constant",
+   "name": "SB_LEN_FPACK",
+   "value": 6,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "constant",
+   "name": "SB_LEN_UUID",
+   "value": 16,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "constant",
+   "name": "SB_MAGIC",
+   "value": 1481003842,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "constant",
+   "name": "SB_OFF_FNAME",
+   "value": 108,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "constant",
+   "name": "SB_OFF_FPACK",
+   "value": 114,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "constant",
+   "name": "SB_OFF_UUID",
+   "value": 32,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "constant",
+   "name": "SB_READ_BYTES",
+   "value": 208,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  },
+  {
+   "unit": "xfs",
+   "kind": "constant",
+   "name": "SB_SIZE",
+   "value": 208,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/formats/xfs.md"
+  }
+ ]
+}

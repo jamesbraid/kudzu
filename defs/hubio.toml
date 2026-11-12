@@ -1,0 +1,84 @@
+# Hardware definitions for hubio. Edit here; gen/ is generated from this file.
+unit = "hubio"
+prefix = "HUBIO"
+title = "Origin 300 hub crosstalk-side register window"
+doc = "Origin 300 hub crosstalk-side window: the link status doubleword, the register tested by the error path, the request-buffer table the I/O error scan reads and the widget part numbers the kernel compares."
+from = "shipped IRIX kernel binaries, per docs/ip35-hub-errors.md"
+public_from = ["shipped IRIX"]
+
+[c]
+legacy_header = "HUBIO_DECODE.h"
+legacy_guard = "HUBIO_DECODE_H"
+
+[registers.llp_csr]
+offset = 0x128
+access = "r"
+width = 64
+grade = "established"
+doc = """
+Link control and status doubleword that the early widget probe reads. Only bit 13
+is described. With it clear, the probe returns -1 for the part, revision and
+manufacturer without touching the widget. Whether the bit means link up is
+inferred from how the I/O error interrupt set-up uses it.
+"""
+
+[registers.llp_csr.fields]
+bit13 = { bits = [13, 13], grade = "established", doc = "the early widget probe tests this bit; the I/O error interrupt set-up tests it before choosing a handler path" }
+
+[registers.flags]
+offset = 0x1e8
+access = "r"
+width = 64
+grade = "established"
+doc = "The register the kernel's error path tests before it goes on to the widget error handler."
+
+[registers.flags.fields]
+bit4 = { bits = [4, 4], grade = "established", doc = "see bit0; role unknown" }
+bit0 = { bits = [0, 0], grade = "established", doc = "tested with bit 4; the error routine continues only when one of the two is set; role unknown" }
+
+[registers.crb_a]
+offset = 0x400
+access = "r"
+width = 64
+grade = "established"
+doc = """
+Request-buffer table. Entry i (0 to 14) has three 64-bit words, crb_a, crb_b
+and crb_c, at the register offsets below plus the stride times i; the scan
+reads all fifteen entries in order. See CRB_STRIDE and CRB_COUNT.
+"""
+
+[registers.crb_a.fields]
+bit55 = { bits = [55, 55], grade = "established", doc = "with the bit set the type selects the handling case; with it clear bit49 and bit51 are tested" }
+type = { bits = [54, 52], grade = "established", doc = "error type, 0 to 7; with bit55 set it picks one of eight handling cases" }
+bit51 = { bits = [51, 51], grade = "established", doc = "reported as an uncorrectable data error on data from the network; tested only when bit55 is clear" }
+bit50 = { bits = [50, 50], grade = "established", doc = "the scan skips the entry unless this bit is set" }
+bit49 = { bits = [49, 49], grade = "established", doc = "reported as a crosstalk packet that arrived with its error bit set; tested only when bit55 is clear" }
+bit0 = { bits = [0, 0], grade = "established", doc = "selects which of two forms of the error record the scan builds for a block-transfer error; role unknown" }
+
+[registers.crb_b]
+offset = 0x408
+access = "r"
+width = 64
+grade = "established"
+
+[registers.crb_b.fields]
+engine_alt = { bits = [58, 58], grade = "established", doc = "selects the block-transfer engine when crb_c bit48 is set" }
+sub = { bits = [42, 41], grade = "established", doc = "see kind" }
+kind = { bits = [32, 30], grade = "established", doc = "with the value 1 or 5 and sub 1 or 2, the entry is treated as a block-transfer-engine error; bit 32 alone also selects the engine when crb_c bit48 is clear" }
+
+[registers.crb_c]
+offset = 0x410
+access = "r"
+width = 64
+grade = "established"
+
+[registers.crb_c.fields]
+bit48 = { bits = [48, 48], grade = "established", doc = "with the bit set the entry is treated as a block-transfer-engine error" }
+
+[constants]
+CRB_COUNT = { value = 0xf, grade = "established", doc = "entries the scan reads" }
+CRB_STRIDE = { value = 0x20, grade = "established", doc = "bytes between entries" }
+NODE_SHIFT = { value = 0x21, grade = "established", doc = "node number shift" }
+WIDGET_PART_C104 = { value = 0xc104, grade = "established", doc = "widget part number the Origin 300/350 kernels compare by value, read from the widget identification word; compared in both releases read and in no Origin 200/2000 kernel; role unknown" }
+WIDGET_PART_C105 = { value = 0xc105, grade = "established", doc = "widget part number, compared like C104; the kernel's per-widget set-up takes the same programmed-I/O mode call for both as for its graphics parts; no driver registers either part" }
+WINDOW_BASE = { value = 0x1c00000, grade = "established", doc = "physical base of the window for node 0" }

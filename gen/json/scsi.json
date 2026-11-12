@@ -1,0 +1,142 @@
+{
+ "schema": "defs-flat/1",
+ "source": "defs/scsi.toml",
+ "profile": "public",
+ "rows": [
+  {
+   "unit": "scsi",
+   "kind": "constant",
+   "name": "CDROM_VENDOR_C4",
+   "value": 196,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+  },
+  {
+   "unit": "scsi",
+   "kind": "constant",
+   "name": "CDROM_VENDOR_C9",
+   "value": 201,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+  },
+  {
+   "unit": "scsi",
+   "kind": "constant",
+   "name": "INQ_LEN_PRODUCT",
+   "value": 16,
+   "count": 1,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+  },
+  {
+   "unit": "scsi",
+   "kind": "constant",
+   "name": "INQ_LEN_VENDOR",
+   "value": 8,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+  },
+  {
+   "unit": "scsi",
+   "kind": "constant",
+   "name": "INQ_OFF_PRODUCT",
+   "value": 16,
+   "count": 1,
+   "grade": "inferred",
+   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+  },
+  {
+   "unit": "scsi",
+   "kind": "constant",
+   "name": "INQ_OFF_TYPE",
+   "value": 0,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+  },
+  {
+   "unit": "scsi",
+   "kind": "constant",
+   "name": "INQ_OFF_VENDOR",
+   "value": 8,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+  },
+  {
+   "unit": "scsi",
+   "kind": "constant",
+   "name": "INQ_OFF_VERSION",
+   "value": 2,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+  },
+  {
+   "unit": "scsi",
+   "kind": "constant",
+   "name": "INQ_TYPE_CDROM",
+   "value": 5,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+  },
+  {
+   "unit": "scsi",
+   "kind": "constant",
+   "name": "INQ_TYPE_DISK",
+   "value": 0,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+  },
+  {
+   "unit": "scsi",
+   "kind": "constant",
+   "name": "INQ_TYPE_TAPE",
+   "value": 1,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+  },
+  {
+   "unit": "scsi",
+   "kind": "constant",
+   "name": "INQ_VERSION_MASK",
+   "value": 7,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+  },
+  {
+   "unit": "scsi",
+   "kind": "constant",
+   "name": "INQ_VERSION_REFINE",
+   "value": 2,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+  },
+  {
+   "unit": "scsi",
+   "kind": "constant",
+   "name": "PROM_PREFIX_LEN",
+   "value": 10,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+  },
+  {
+   "unit": "scsi",
+   "kind": "constant",
+   "name": "START_STOP_UNIT",
+   "value": 27,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+  }
+ ]
+}

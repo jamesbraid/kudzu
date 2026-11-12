@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!-- generated from defs/hubmdb.toml by defs-gen - do not edit, change the source -->
+<genxml unit="hubmdb" prefix="HUBMDB" title="Origin 300 hub memory-directory migration registers" from="shipped IRIX kernel binaries, per docs/page-migration.md">
+  <doc>Origin 300 hub memory-directory migration registers.</doc>
+  <struct name="MIG_DIFF_THRESH" size="8" grade="established" from="shipped IRIX kernel binaries, per docs/page-migration.md" register="yes" offset="0x40" access="w" reset="unknown">
+    <doc>The mode control sits in a different window of the hub, not in the block
+above: its offset is the local register base of the public vendor header
+subtracted from the address the notes record. No shipped kernel reads or
+writes it, so only the offset is stated. See MIG_CONFIG_LOCAL_OFFSET.
+</doc>
+    <field name="value" start="0" size="15" type="uint" grade="inferred"/>
+  </struct>
+  <constant name="MIG_CANDIDATE_CLR_OFFSET" value="0x38" grade="unknown"/>
+  <constant name="MIG_CANDIDATE_OFFSET" value="0x30" grade="unknown"/>
+  <constant name="MIG_CONFIG_LOCAL_OFFSET" value="0x780018" grade="inferred"/>
+  <constant name="MIG_DIFF_THRESH_VALID_BIT" value="0x3f" grade="established"/>
+  <constant name="MIG_VALUE_THRESH_OFFSET" value="0x48" grade="unknown"/>
+  <constant name="NODE_SHIFT" value="0x21" grade="established"/>
+  <constant name="WINDOW_BASE_UNITS" value="0x1fc" grade="established"/>
+  <constant name="WINDOW_BASE_UNIT_SHIFT" value="0x10" grade="established"/>
+</genxml>

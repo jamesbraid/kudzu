@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<!-- generated from defs/hubpi.toml by defs-gen - do not edit, change the source -->
+<genxml unit="hubpi" prefix="HUBPI" title="node hub interrupt pending and mask registers" from="shipped IRIX kernel binaries, per docs/interrupts.md">
+  <doc>Node hub interrupt pending and mask registers.</doc>
+  <struct name="INT_PEND_MOD" size="8" grade="inferred" from="shipped IRIX kernel binaries, per docs/interrupts.md" register="yes" offset="0x90" access="w" reset="unknown">
+    <field name="set" start="8" size="1" type="uint" grade="inferred"/>
+    <field name="level" start="0" size="7" type="uint" grade="established"/>
+  </struct>
+  <struct name="INT_PEND0" size="8" grade="established" from="shipped IRIX kernel binaries, per docs/interrupts.md" register="yes" offset="0x98" access="r" reset="unknown">
+  </struct>
+  <struct name="INT_PEND1" size="8" grade="established" from="shipped IRIX kernel binaries, per docs/interrupts.md" register="yes" offset="0xa0" access="r" reset="unknown">
+  </struct>
+  <struct name="INT_MASK0_A" size="8" grade="established" from="shipped IRIX kernel binaries, per docs/interrupts.md" register="yes" offset="0xa8" access="rw" reset="unknown">
+  </struct>
+  <struct name="INT_MASK1_A" size="8" grade="established" from="shipped IRIX kernel binaries, per docs/interrupts.md" register="yes" offset="0xb0" access="rw" reset="unknown">
+  </struct>
+  <struct name="INT_MASK0_B" size="8" grade="established" from="shipped IRIX kernel binaries, per docs/interrupts.md" register="yes" offset="0xb8" access="rw" reset="unknown">
+  </struct>
+  <struct name="INT_MASK1_B" size="8" grade="established" from="shipped IRIX kernel binaries, per docs/interrupts.md" register="yes" offset="0xc0" access="rw" reset="unknown">
+  </struct>
+  <constant name="INT_PEND_MOD_ALT_OFFSET" value="0x200090" grade="established"/>
+  <constant name="LOCAL_WINDOW_BASE" value="0x1000000" grade="established"/>
+  <constant name="NODE_SHIFT" value="0x20" grade="established"/>
+  <constant name="NODE_WINDOW_BASE" value="0x1800000" grade="established"/>
+</genxml>

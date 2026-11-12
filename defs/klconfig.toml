@@ -1,0 +1,181 @@
+# Hardware definitions for klconfig. Edit here; gen/ is generated from this file.
+unit = "klconfig"
+prefix = "KLCONFIG"
+title = "hardware configuration board record"
+doc = "Hardware configuration records: the board, component, console, memory and global-data fields the kernel reads to find boards, slots, modules and components."
+from = "shipped IRIX kernel binaries, per docs/klconfig.md"
+public_from = ["shipped IRIX"]
+
+[c]
+legacy_header = "KLCONFIG_DECODE.h"
+legacy_guard = "KLCONFIG_DECODE_H"
+
+[words.BRD_W0]
+width = 32
+grade = "established"
+
+[words.BRD_W0.fields]
+next = { bits = [31, 0], grade = "established" }
+
+[words.BRD_W1]
+width = 32
+grade = "established"
+
+[words.BRD_W1.fields]
+type_low = { bits = [19, 16], grade = "inferred" }
+
+[words.BRD_W1.fields.class]
+bits = [23, 20]
+grade = "established"
+
+[words.BRD_W1.fields.class.enums]
+node = { value = 1, grade = "established" }
+io = { value = 2, grade = "inferred" }
+router = { value = 3, grade = "inferred" }
+graphics = { value = 5, grade = "inferred" }
+
+[words.BRD_W2]
+width = 32
+grade = "established"
+
+[words.BRD_W2.fields]
+flags_master_baseio = { bits = [21, 21], grade = "established" }
+slot = { bits = [15, 8], grade = "established" }
+
+[words.BRD_W3]
+width = 32
+grade = "established"
+
+[words.BRD_W3.fields]
+module = { bits = [15, 0], grade = "established" }
+
+[words.BRD_W5]
+width = 32
+grade = "established"
+
+[words.BRD_W5.fields]
+numcompts = { bits = [7, 0], grade = "established" }
+
+[words.BRD_W8]
+width = 32
+grade = "established"
+
+[words.BRD_W8.fields]
+nasid = { bits = [31, 16], grade = "established" }
+
+[words.COMP_W0]
+width = 32
+grade = "established"
+
+[words.COMP_W0.fields]
+flags_enabled = { bits = [8, 8], grade = "established" }
+
+[words.COMP_W0.fields.struct_type]
+bits = [31, 24]
+grade = "established"
+
+[words.COMP_W0.fields.struct_type.enums]
+hub = { value = 2, grade = "established" }
+memory = { value = 3, grade = "inferred" }
+io = { value = 5, grade = "inferred" }
+router = { value = 9, grade = "inferred" }
+graphics = { value = 10, grade = "inferred" }
+
+[words.COMP_W6]
+width = 32
+grade = "established"
+
+[words.COMP_W6.fields]
+physid = { bits = [31, 24], grade = "established" }
+
+[words.CONS_W2]
+width = 32
+grade = "established"
+
+[words.CONS_W2.fields]
+config_base_hi = { bits = [31, 0], grade = "established" }
+
+[words.CONS_W3]
+width = 32
+grade = "established"
+
+[words.CONS_W3.fields]
+config_base_lo = { bits = [31, 0], grade = "established" }
+
+[words.CONS_W4]
+width = 32
+grade = "established"
+
+[words.CONS_W4.fields]
+memory_base_hi = { bits = [31, 0], grade = "established" }
+
+[words.CONS_W5]
+width = 32
+grade = "established"
+
+[words.CONS_W5.fields]
+memory_base_widget = { bits = [31, 24], grade = "established" }
+memory_base_rest = { bits = [23, 0], grade = "established" }
+
+[words.CONS_W8]
+width = 32
+grade = "established"
+
+[words.CONS_W8.fields]
+nasid = { bits = [31, 16], grade = "established" }
+npci = { bits = [7, 0], grade = "established" }
+
+[words.GDA_W97]
+width = 32
+grade = "established"
+
+[words.GDA_W97.fields]
+pebrick_marker = { bits = [31, 0], grade = "established" }
+
+[words.MEM_W14]
+width = 32
+grade = "established"
+
+[words.MEM_W14.fields]
+dimm_select = { bits = [15, 0], grade = "established" }
+
+[words.NODECLASS_W1]
+width = 32
+grade = "established"
+
+[words.NODECLASS_W1.fields.class]
+bits = [15, 12]
+grade = "established"
+
+[words.NODECLASS_W1.fields.class.enums]
+pebrick = { value = 12, grade = "established" }
+
+[words.PEPAIR_W0]
+width = 32
+grade = "established"
+
+[words.PEPAIR_W0.fields]
+pe_nasid = { bits = [31, 16], grade = "established" }
+host_nasid = { bits = [15, 0], grade = "established" }
+
+[constants]
+BRD_OFF_COMPTS = { value = 0x24, grade = "established", doc = "first component offset, one 32-bit word each" }
+BRD_STRIDE_COMPTS = { value = 0x4, grade = "established" }
+DIR_CONFIG_OFFSET_MASK = { value = 0xffffffffff, grade = "established", doc = "40 bits are kept" }
+DIR_OFF = { value = 0x2000, grade = "established", doc = "directory offset from the node base" }
+DIR_OFF_CONFIG_OFFSET = { value = 0x48, grade = "established", doc = "byte of the doubleword that gives the configuration header offset" }
+GDA_COUNT_NASIDTABLE_IP27 = { value = 0x40, grade = "established", doc = "entries the Origin 200/2000 kernel reads at most" }
+GDA_COUNT_NASIDTABLE_IP35 = { value = 0x80, grade = "established", doc = "entries the Origin 300/350 kernel reads at most" }
+GDA_COUNT_PEBRICK = { value = 0x4, grade = "established", doc = "pairs read at most" }
+GDA_OFF_NASIDTABLE = { value = 0x80, grade = "established", doc = "signed halfword node number of each compact node; the first -1 ends the list" }
+GDA_OFF_PEBRICK = { value = 0x188, grade = "established", doc = "Origin 300/350 only, pairs of signed halfwords; a first halfword of -1 ends the table" }
+GDA_PEBRICK_MAGIC = { value = 0x5045626b, grade = "established", doc = "the word at byte 388 equals this when the pair table follows" }
+GDA_STRIDE_NASIDTABLE = { value = 0x2, grade = "established" }
+GDA_STRIDE_PEBRICK = { value = 0x4, grade = "established" }
+HDR_OFF_BOARD_INFO = { value = 0x14, grade = "established", doc = "word giving the offset of the first board record" }
+MEM_COUNT_BNKSZ = { value = 0x8, grade = "established" }
+MEM_OFF_BNKSZ = { value = 0x3c, grade = "established", doc = "bank sizes in megabytes, signed halfwords" }
+MEM_STRIDE_BNKSZ = { value = 0x2, grade = "established" }
+NODECLASS_OFF = { value = 0x4000000, grade = "established", doc = "offset of the register in the node's local register space" }
+NODECLASS_SPACE_LOCAL = { value = 0x10000000, grade = "established", doc = "added to the offset for the local alias" }
+NODECLASS_SPACE_REMOTE = { value = 0x30000000, grade = "established", doc = "added to the offset, with the node number, for the node-indexed alias" }

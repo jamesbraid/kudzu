@@ -1,0 +1,63 @@
+# Hardware definitions for hubpi. Edit here; gen/ is generated from this file.
+unit = "hubpi"
+prefix = "HUBPI"
+title = "node hub interrupt pending and mask registers"
+doc = "Node hub interrupt pending and mask registers."
+from = "shipped IRIX kernel binaries, per docs/interrupts.md"
+public_from = ["shipped IRIX"]
+
+[c]
+legacy_header = "HUBPI_DECODE.h"
+legacy_guard = "HUBPI_DECODE_H"
+
+[registers.int_pend_mod]
+offset = 0x90
+access = "w"
+width = 64
+grade = "inferred"
+
+[registers.int_pend_mod.fields]
+set = { bits = [8, 8], grade = "inferred" }
+level = { bits = [6, 0], grade = "established" }
+
+[registers.int_pend0]
+offset = 0x98
+access = "r"
+width = 64
+grade = "established"
+
+[registers.int_pend1]
+offset = 0xa0
+access = "r"
+width = 64
+grade = "established"
+
+[registers.int_mask0_a]
+offset = 0xa8
+access = "rw"
+width = 64
+grade = "established"
+
+[registers.int_mask1_a]
+offset = 0xb0
+access = "rw"
+width = 64
+grade = "established"
+
+[registers.int_mask0_b]
+offset = 0xb8
+access = "rw"
+width = 64
+grade = "established"
+
+[registers.int_mask1_b]
+offset = 0xc0
+access = "rw"
+width = 64
+grade = "established"
+
+[constants]
+INT_PEND_MOD_ALT_OFFSET = { value = 0x200090, grade = "established", doc = "a processor whose slice number has bit 1 set reaches int_pend_mod at this offset in place of 0x90" }
+LOCAL_WINDOW_BASE = { value = 0x1000000, grade = "established", doc = "physical base of the processor's own hub window; no node shift" }
+NODE_SHIFT = { value = 0x20, grade = "established", doc = "physical node number shift" }
+NODE_WINDOW_BASE = { value = 0x1800000, grade = "established", doc = "physical base of a named node's window" }
