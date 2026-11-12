@@ -13,7 +13,7 @@ Every entry below is graded inferred. The facts name each routine from the binar
   Reviewed: 2026-11-12 (sonnet)
 
 - `get_myid` in `6.5.22/usr/cpu/sysgen/IP35boot/l1.o` at 0xc3c
-  **Inferred.** `get_myid` is a 16-byte leaf. It loads a doubleword from the fixed address 0x9200000001000020 at 0xc40 and returns it in v0 after a shift by zero bits at the return at 0xc44, so the facts do not show the full doubleword being returned unchanged. The name suggests a processor or node identifier, which fits a value read from a fixed location, but the facts do not give the meaning of the stored value.
+  **Inferred.** `get_myid` is a 16-byte leaf. It loads a doubleword from the fixed address 0x9200000001000020 at 0xc40 and returns it in v0 through a shift by zero bits in the delay slot of the return at 0xc44, which on MIPS64 keeps only the low 32 bits, sign-extended, so it is not returned unchanged. The name suggests a processor or node identifier, which fits a value read from a fixed location, but the facts do not give the meaning of the stored value.
   Reviewed: 2026-11-12 (sonnet)
 
 - `nic_get_phase_bits` in `6.5.22/usr/cpu/sysgen/IP35boot/nic.o` at 0x68
@@ -21,7 +21,7 @@ Every entry below is graded inferred. The facts name each routine from the binar
   Reviewed: 2026-11-12 (sonnet)
 
 - `gf_OdsyAttach` in `6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_attach.o)` at 0x68
-  **Inferred.** `gf_OdsyAttach` calls `gfxdd_recycle` at 0xfc and, on the paths that continue past its result test at 0x104, calls `gfxdd_mmap` at 0x18c with `gfx_fault` as its fourth argument (a3). When `gfxdd_mmap` returns zero it calls `splhi` at 0x19c, `gf_OdsyUnMapGfx` at 0x1b4 and `splx` at 0x1bc. When it returns nonzero it logs through `cmn_err` at 0x1e0. Its return values are 0x0, 0xc and 0x16, which look like errno-style codes, but the facts do not name them.
+  **Inferred.** `gf_OdsyAttach` calls `gfxdd_recycle` at 0xfc and, when it returns zero (the test at 0x104), calls `gfxdd_mmap` at 0x18c with `gfx_fault` as its fourth argument (a3). When `gfxdd_mmap` returns zero it calls `splhi` at 0x19c, `gf_OdsyUnMapGfx` at 0x1b4 and `splx` at 0x1bc. When it returns nonzero it logs through `cmn_err` at 0x1e0. Its return values are 0x0, 0xc and 0x16, which look like errno-style codes, but the facts do not name them.
   Reviewed: 2026-11-12 (sonnet)
 
 - `gfP_OdsySaveHwShadow` in `6.5.22/usr/cpu/sysgen/IP35boot/odyssey.a(odsy_ctxsw.o)` at 0xc0
@@ -61,7 +61,7 @@ Every entry below is graded inferred. The facts name each routine from the binar
   Reviewed: 2026-11-12 (sonnet)
 
 - `xbridge_attach` in `6.5.22/usr/cpu/sysgen/IP35boot/xbridge.o` at 0x54
-  **Inferred.** `xbridge_attach` is a 3484-byte attach routine with the same call pattern as `pic_attach2`. It gets the bridge pointer with `pcibr_bridge_ptr_get` at 0x84, registers a PCI I/O provider with `pciio_provider_register` at 0xf4 and starts it at 0xfc, and adds a character device through `hwgraph_char_device_add` at 0x120. It allocates a 0xac0-byte block and an 0x18-byte record, links the record into `pcibr_list` with `swap_ptr` at 0x35c, and reads NIC address and mode fields through `pcireg_nic_addr`, `pcireg_mode_get` and `pcireg_speed_get`. The calls fit a bridge provider attach, but the facts do not prove which bridge the symbol refers to.
+  **Inferred.** `xbridge_attach` is a 3484-byte attach routine that shares many callees with `pic_attach2`, such as `hwgraph_char_device_add`, `kmem_zalloc`, `swap_ptr` and `pcireg_mode_get`. It gets the bridge pointer with `pcibr_bridge_ptr_get` at 0x84, registers a PCI I/O provider with `pciio_provider_register` at 0xf4 and starts it at 0xfc, and adds a character device through `hwgraph_char_device_add` at 0x120. It allocates a 0xac0-byte block and an 0x18-byte record, links the record into `pcibr_list` with `swap_ptr` at 0x35c, and reads NIC address and mode fields through `pcireg_nic_addr`, `pcireg_mode_get` and `pcireg_speed_get`. The calls fit a bridge provider attach, but the facts do not prove which bridge the symbol refers to.
   Reviewed: 2026-11-12 (sonnet)
 
 - `sn00_vmc` in `6.5.30/unix.IP27` at 0xc000000000025998
@@ -69,7 +69,7 @@ Every entry below is graded inferred. The facts name each routine from the binar
   Reviewed: 2026-11-12 (sonnet)
 
 - `restart` in `6.5.30/unix.IP27` at 0xc000000000029814
-  **Inferred.** `restart` is a 356-byte routine. It calls `us_delay` with 0xf4240 at 0xc0000000000298a0, then branches at 0xc0000000000298b4 on a word at 0xc0000000014cb024. When that word equals 2 it calls `get_nasid`, then `elsc_init` and `elsc_system_reset` with a stack record, and returns unless the `elsc_system_reset` result is negative; only on a negative result does it call `printf` at 0xc00000000002994c and `us_delay` with 0xf4240, then store a doubleword to 0x9200000001600008 at 0xc000000000029968, the same register `ni_reset_port` writes. When the word is not 2 it enters a loop: it calls `sysctlr_power_off` at 0xc0000000000298cc with a0 zero when the word at 0xc0000000014d4350 is nonzero, or `ni_reset_port` at 0xc000000000029904 when it is zero, followed by `us_delay` with 0x2dc6c0 at 0xc0000000000298d4, and the facts list no return from that loop. The name suggests the system restart path, and the power-off and reset calls fit that, but the facts do not say what the printed text reports.
+  **Inferred.** `restart` is a 356-byte routine. It calls `us_delay` with 0xf4240 at 0xc0000000000298a0, then branches at 0xc0000000000298b4 on a word at 0xc0000000014cb024. When that word equals 2 it calls `get_nasid`, then `elsc_init` and `elsc_system_reset` with a stack record, and returns unless the `elsc_system_reset` result is negative; only on a negative result does it call `printf` at 0xc00000000002994c and `us_delay` at 0xc000000000029954 with an argument the facts do not resolve, then store a doubleword to 0x9200000001600008 at 0xc000000000029968, the same register `ni_reset_port` writes. When the word is not 2 it enters a loop: it calls `sysctlr_power_off` at 0xc0000000000298cc with a0 zero when the word at 0xc0000000014d4350 is nonzero, or `ni_reset_port` at 0xc000000000029904 when it is zero, followed by `us_delay` with 0x2dc6c0 at 0xc0000000000298d4, and the facts list no return from that loop. The name suggests the system restart path, and the power-off and reset calls fit that, but the facts do not say what the printed text reports.
   Reviewed: 2026-11-12 (sonnet)
 
 - `page_local_calias` in `6.5.30/unix.IP27` at 0xc00000000002b108
