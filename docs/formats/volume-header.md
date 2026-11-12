@@ -15,8 +15,7 @@ Binaries (all under `refs/irix-media/6.5.30/`): `sbin/dvhtool` (N32, symbols kep
 `usr/sbin/prtvtoc`, `lib32/libdisk.so` (N32, symbols kept), `stand/fx` (ECOFF, disk formatter),
 `stand/sash.CPUBOARD-IP27-CPUBOARD-IP30-CPUBOARD-IP35` (ELF relocatable), and the kernel disk
 driver `usr/cpu/sysgen/IP30boot/dksc.o` plus `io.a(disksub.o)`. Real block 0: first sector of
-`irix-6.5.30-accepted.qcow2` (an IRIX 6.5.30 install on the emulated Octane, written by IRIX
-itself; read-only via `qemu-img dd -U`).
+a disk image of an IRIX 6.5.30 install on an Octane, written by IRIX itself. It is not a capture from a physical drive.
 
 ## 1. Overall layout (512 bytes, one sector)
 
@@ -85,7 +84,7 @@ graded by layout arithmetic and by agreement with the real block.
 | +4 | 0x1C | u16 | cylinder count | inferred (real block 0x4104 = 16644; 16644*16*63 = 16 777 152, within 64 of capacity) |
 | +6 | 0x1E | u16 | head offset of volume 0 | unknown (zero). Settling test: search the kernel disk driver's label code (the routine that writes the drive parameters, including the capacity routine named below), sash, fx and dvhtool for a halfword load or store at drive-parameter +6 (volume header 0x1e); a hit's use gives the meaning, no hit means no software dependency |
 | +8 | 0x20 | u16 | tracks (heads) per cylinder | inferred (real block 16) |
-| +10 | 0x22 | u8 | command-tag-queue depth | established as a field: kernel stores 0x10 here when the drive supports tagged queuing; real block 0 (untagged emulated disk) |
+| +10 | 0x22 | u8 | command-tag-queue depth | established as a field: kernel stores 0x10 here when the drive supports tagged queuing; real block 0 (a disk image, not a physical drive; whether a physical drive that supports tagged queuing gets 0x10 is unknown) |
 | +11 | 0x23 | u8 | high cylinder bits | unknown (zero). Settling test: the same search at drive-parameter +11 (0x23), and in fx's geometry display and compare code for a cylinder count wider than 16 bits |
 | +14 | 0x26 | u16 | sectors per track | inferred (real block 63) |
 | +16 | 0x28 | u16 | **bytes per sector** | established: kernel stores block size here, sash `dopart` stores 0x200, fx compares it to the drive's value and prints "bytes/sec" on mismatch; real block 0x0200 |
@@ -227,8 +226,8 @@ Notes:
 - Behaviour with a non-512-byte sector size in dp+16: fx compares it, libdisk has
   `disk_setblksz`, but no examined writer produces any other value. All block fields stay in
   512-byte units in the examples.
-- The real block comes from an emulated disk, so its geometry values (dp +4/+8/+14) reflect the
-  emulator's SCSI answers, not a physical drive.
+- The real block comes from a disk image, so its geometry values (dp +4/+8/+14) reflect the
+  SCSI answers recorded when IRIX wrote it, not a physical drive. Inferred; a block 0 read from a physical drive would settle it.
 
 ## 9. Method
 

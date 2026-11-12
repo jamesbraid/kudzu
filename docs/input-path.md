@@ -112,7 +112,7 @@ Consequence for the stock config: `pushpointer "on"` stores role 5 during creati
 
 ## Why a pointer record moves no cursor (Onyx2, IMPACT)
 
-Question from a session running an Onyx2 guest with an IMPACT (MGRAS) head: a tablet attach succeeds, each type 0 record reaches `simplePointer` and then `corePointerEvent` (`a0` = `0x10324518`, `a1` = 349, `a2` = 249, `a3` = `0xe4e3a`, `a4` = `0x16e39`), the core pointer does not move, the board's cursor-position routine `MgrasPositionCursor` is never hit, and later PS/2 relative motion moves the cursor from the screen centre. Those observations come from an emulator run. They are not hardware evidence and they are not used as evidence below.
+Open question about an Onyx2 with an IMPACT (MGRAS) head: after a tablet attach, whether each type 0 record that reaches `simplePointer` and then `corePointerEvent` moves the core pointer, and whether the board's cursor-position routine `MgrasPositionCursor` is reached. The reports behind the question did not come from hardware, so they are not used as evidence below.
 
 **Which Xsgi.** Established: the generic `usr/gfx/arch/GENERIC/Xsgi` is the server an Onyx2 with IMPACT runs. The 6.5.30 media holds only two server binaries, that one and `usr/gfx/arch/IP22NG1/Xsgi` (the Indigo2 NG1 build, 13 NG1 strings; the generic one has none). `usr/bin/X11/Xsgi` links to `/var/arch/X11/Xsgi`, which links to the generic binary. The IP27 and IP35 graphics directories (`IP27GR5`, `IP27KONA`, and the rest) hold only `libGL.so` and `libGLcore.so`. The generic server has no MGRAS string and needs only `libm` and `libc`; its `dlopen` callers are the font scanner, the speech library loader and the GLX and PEX extension loaders (`scan_font`, `GLXLoadExtension` `0x101b6b40`, `PEXLoadExtension` `0x1017466c`). So no board-specific X server or dynamic DDX exists on this media. The board-specific part of the cursor path is in the kernel graphics driver, below.
 
@@ -167,7 +167,7 @@ None of these needs the tablet records to be malformed, since they reached `simp
 - The slot's flag word (link `+0x2c`) is zero because the cursor-axes request was never sent or failed. `simpleAttachCursor` sends nothing when its link value (item 1) is not above zero, and prints "QIOCSETCURS ioctl failed" when the request fails.
 - State `+0x44` names a slot with no link, or a slot that is not the graphics stream, so `positionCursor` returns at `0x1c` or sends the message to an input device's module. Request `0x80045106` sets it; the initial value and whether Xsgi's `SetRectOffsets` or `ddxChangeToScreen` ran for this screen were not read.
 - The message arrives but `GfxProto` frees it at `0x1814` because the stream's table word is zero.
-- `MgrasPositionCursor` runs under another address than the breakpoint, or the board's table entry is not that routine. The session also says PS/2 motion moves the cursor with no hit at that routine, and the same chain serves a PS/2 link (it also needs the cursor-axes request and a `type 0` record). So either the PS/2 cursor is moved by something other than this chain, or the breakpoint is not on the live copy of the routine. This point decides between "tablet link misses a precondition" and "chain broken for every device", and the checks below separate them.
+- `MgrasPositionCursor` runs under another address than the breakpoint, or the board's table entry is not that routine. A report, not from hardware, says PS/2 motion moves the cursor with no hit at that routine, and the same chain serves a PS/2 link (it also needs the cursor-axes request and a `type 0` record). So either the PS/2 cursor is moved by something other than this chain, or the breakpoint is not on the live copy of the routine. This point decides between "tablet link misses a precondition" and "chain broken for every device", and the checks below separate them.
 
 **Attach as a discriminator.** `simpleAttachCursor` calls `ddxSetCursorPosition` at attach with the rectangle origin (item 1), which should itself run `positionCursor` once. If that never reaches `MgrasPositionCursor` either, the chain is broken for every device, not just the tablet.
 
@@ -194,7 +194,7 @@ Kernel (object offsets; add the object's text load address from the linked kerne
 - `gfx.o` `0x1774` and `0x17d4`: accepted magic; the call of the board routine.
 - `mgras_retrace.o` `0x14cc`.
 
-Run the same breakpoints with a PS/2 motion: whichever one first stops being hit for the tablet and not for PS/2 is the answer. If the PS/2 motion also never reaches `shmiq.o` `0x2cc`, the cursor is not moved through this chain in that run.
+Run the same breakpoints with a PS/2 motion: whichever one first stops being hit for the tablet and not for PS/2 is the answer. If the PS/2 motion also never reaches `shmiq.o` `0x2cc`, the cursor is not moved through this chain.
 
 ## Open questions
 

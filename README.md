@@ -4,7 +4,7 @@ Reverse-engineering and specification repository for SGI IRIX 6.5.30 and 6.5.22.
 
 It starts with the hardware-facing and boot-critical kernel: the PROM interface and KLCONFIG parsing, hardware-graph construction, interrupt routing, NUMA and memory initialisation, the topology checks that panic or skip nodes, the device attach framework, and a debugging map of structure layouts, entry points and panic and assert sites. The long-term scope is all of IRIX and its add-ons: the full kernel, CXFS, ONC RPC and NFS, the base applications and libraries.
 
-There is no reimplementation here. The findings are specifications that emulator datasheets, drivers and debuggers elsewhere can use.
+There is no reimplementation here. The findings are specifications that datasheets, drivers and debuggers elsewhere can use.
 
 The layout follows the sibling repositories for graphics and chip reverse engineering. Proprietary IRIX binaries are not tracked: copy them from your own media into the ignored `root/` directory as [IRIX_FILES.md](IRIX_FILES.md) describes. [AGENTS.md](AGENTS.md) has the scope rule, the evidence rules and the finish line; [docs/coverage.md](docs/coverage.md) is the map of what is covered; [docs/open-questions.md](docs/open-questions.md) lists what the binaries have not yet answered; [docs/published-sources.md](docs/published-sources.md) says which public trees are pinned and why.
 

@@ -41,7 +41,7 @@ change it flushes the buffer through `compress_and_write_block` (0xc0000000002c8
 argument) and refills it. A flush that returns nonzero ends the walk with that value. Established for the shape; the
 meaning of 0x5045626b, which the code takes as selecting four extra nodes, is unknown here. The pair that follows the
 real-time counter (0x30100) is offsets 0x40200 to 0x40210 (three doublewords), the first register of which is where the
-observed failure in a crash dump of a guest kernel stops.
+failure reported for a crash dump stops (a report, not a hardware capture).
 
 ## A failed load in the walk
 

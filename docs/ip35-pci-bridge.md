@@ -1076,11 +1076,12 @@ is initialised once per function, before the BAR loop, from the 32-bit word at f
 the constant 5 at 0x8fa34, on the path for a 64-bit memory BAR, so a device that has such a BAR sets it for the
 remaining BARs. The reserve of an I/O BAR therefore lands in whichever pool the residue or the last such BAR
 names: `pcibr_bus_addr_alloc` (0x91928) maps 2 to the I/O pool, 4 to the 16 KB-unit memory pool, 5 to the second
-memory pool, and anything else to no pool. A breakpoint on that routine shows the value 5 for the onboard
+memory pool, and anything else to no pool. The value therefore depends on what the stack held: probably 5 for the onboard
 Octane Bridge and 0xffffffffa8000000 (the high word of a kernel pointer left at +0x38) for the Bridge of a
-board with only I/O BARs. In both cases the I/O BAR's reserve misses the I/O pool, so a firmware-placed I/O BAR
-is not protected from a later I/O allocation. **Established** by the disassembly and the breakpoint.
-Which earlier call left the pointer at +0x38 was not identified; a write watchpoint on that stack address settles it.
+board with only I/O BARs. In both cases the I/O BAR's reserve would miss the I/O pool, so a firmware-placed I/O BAR
+is not protected from a later I/O allocation. **Established** by the disassembly for the pool mapping and the
+unwritten stack word; **inferred** for the two values, which came from a debugger run that is not hardware evidence.
+Which earlier call left the pointer at +0x38 was not identified; tracing the callers statically, or a run on hardware, settles it.
 
 **The 6.5.30 change.** The 6.5.30 object has no read of an uninitialised slot: the space code is the one
 recorded for the BAR (2 on the I/O path), copied to frame +0x1c0 (0xbc70, 0xbca4) and passed as the third argument

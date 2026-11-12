@@ -1,7 +1,7 @@
 # DM2 (XT-DIGVID) kernel driver: the ioctl contract
 
 Status: **draft, not independently reviewed.** Part of the DM2 scoping datasheet
-(chips docs/xio-dmediapro-dm2.md (chips repository, docs/xio-dmediapro-dm2.md)); the host
+(the chips repository, `docs/xio-dmediapro-dm2.md`); the host
 software overview is [dmedia-video-drivers.md](dmedia-video-drivers.md). This page maps every command number that
 `xtdigvid_ioctl` accepts to its argument block, its effect on the board and its return codes, and cross-checks each command against the call sites in
 `libdigvid.so`. Grades: **E** established (read in disassembly or the object's own tables), **I** inferred, **U** unknown, each with what would settle it.
@@ -38,7 +38,7 @@ The jump table is in `.rodata` of each object: K30 0x1a38, K27 0x1ca8, K35 0x19f
 - **Dispatch.** `cmd - 0x68647601` below 32 indexes the jump table. Commands 0x02, 0x04, 0x0d, 0x0e, 0x10, 0x11 and 0x15, and everything outside 1 to 32, go to the default arm (K30 0xaeb4), which calls `xtdigvid_eval_ioctl(board, block)`.
   That routine handles only 0x02, 0x04 and 0x0e; any other number returns errno 22. K27 and K35 have the same set of seven default entries (checked from the three jump tables).
 - **Copy-out.** A handler that returns data sets a flag and the common tail copies all 168 bytes back (K30 0xb20c); a failed `copyout` returns errno 14. Commands that return data are marked "out" below.
-- **Pipe numbering.** Pipe index 0 is the output pipe (host to board) and 1 the input pipe, as in dma.md (chips repository, docs/dm2/dma.md).
+- **Pipe numbering.** Pipe index 0 is the output pipe (host to board) and 1 the input pipe, as in dma.md (chips repository, `docs/dm2/dma.md`).
   A pipe index of 2 or more is refused with errno 22 and a console line "xtdigvid_ioctl(%d): bad pipe %d specified" in every handler that has a pipe field except the two noted (0x16, 0x20).
 - **Board state used.** `board` is the 0x14860-byte record (magic words at +0 and +0x14858). Offsets used by the handlers: +4 widget vertex, +24 PIO window base (16 MiB), +32 unit number (-1 until ioconfig),
   +0x50 + `pipe` * 0xa368 the two pipe records (the second argument of `xtdigvid_dma` is a pipe record), +0x14720 clink-ack wait variable, +0x14728 clink-ack lock, +0x14738 clink-ack-outstanding halfword, +0x14740 pid-table semaphore,
@@ -64,7 +64,7 @@ The jump table is in `.rodata` of each object: K30 0x1a38, K27 0x1ca8, K35 0x19f
 | 0x0b | RESET (K "ioctl_reset") | +8 u32 flags (section 4.2) | Per flags: clears pipe state, resets the XG widget and its map RAM, re-initialises the GIF | 0; -1 if XG init, map RAM invalidate or GIF init fails |
 | 0x0c | SDMA_CONTROL (K "gif_sdma_control pipe %d: %s") | +8 u32 pipe; +12 u32 on/off | Sets or clears bit 15 (0x8000) of the pipe's DMA control shadow and writes the whole shadow to the pipe's DMA control word, window +0x800014 (pipe 0) or +0x80003c (pipe 1) | 0; 22 |
 | 0x0d | none | | default arm | 22 |
-| 0x0e | GIF_BYTE_WRITE (eval) | +8 u8 byte | Eight rounds of three stores of `byte | 0x200` then three of `byte | 0x300` to window +0x120000, each followed by `sync`. No read. Not used by L (fpga-load.md (chips repository, docs/dm2/fpga-load.md) section 6 has the same reading) | 0 |
+| 0x0e | GIF_BYTE_WRITE (eval) | +8 u8 byte | Eight rounds of three stores of `byte | 0x200` then three of `byte | 0x300` to window +0x120000, each followed by `sync`. No read. Not used by L (fpga-load.md (chips repository, `docs/dm2/fpga-load.md`) section 6 has the same reading) | 0 |
 | 0x0f | GET_NIC (L `XTDIGVID_IOCTL_GET_NIC`) | +8 u64 user buffer pointer; +16 u64 buffer size in, bytes copied out | Copies the board's NIC text (`nic_vertex_info_get` on the widget vertex; the string "NOT AVAILABLE" if none) to the user buffer, `min(size, strlen+1)` bytes | 0; 14 if the buffer copy fails |
 | 0x10 | none | | default arm | 22 |
 | 0x11 | none | | default arm | 22 |
@@ -130,12 +130,12 @@ K30 0xc268 to 0xc5e8, 0xc72c to 0xc7a8, 0xd650 to 0xd7b8, 0xe2b8 to 0xe44c, 0x10
 3. **bit 1 clear**: call `xtdigvid_init_gif(board, flags & 4 != 0)` and return -1 if it fails. Bit 1 set skips this call (K30 0xe428 `beq t9,zero,0x101f8`).
 
 The library issues 3 after the GIF FPGA is loaded (resets the XG, map RAM and clears pipe state, keeps the GIF) and 4 after the last FPGA is loaded (clears the pipe words and re-initialises the GIF; L `xhdInit` 0x4079ec and 0x407ed4).
-This settles two items in fpga-load.md (chips repository, docs/dm2/fpga-load.md) section 6: the argument-4 reset reaches `xtdigvid_init_gif` with the re-initialise flag set (it was **I**, now **E**), and an argument with bit 1 set returns 0 without reading or writing the GIF registers (it was "not read").
+This settles two items in fpga-load.md (chips repository, `docs/dm2/fpga-load.md`) section 6: the argument-4 reset reaches `xtdigvid_init_gif` with the re-initialise flag set (it was **I**, now **E**), and an argument with bit 1 set returns 0 without reading or writing the GIF registers (it was "not read").
 The library's `xhdOpenPath` never issues 0x0b.
 
 ### 4.3 VBOB_WRITE (0x14) (E)
 
-Fully described in vbob.md (chips repository, docs/dm2/vbob.md) section 1; this page agrees with it on the block (+8 pipe, +12 .. +35 message), the TX registers (twelve halfwords at window +0x803804 + 8k, big-endian pairs of block bytes), the doorbell (+0x8038ec = 1), the 250-tick timer,
+Fully described in vbob.md (chips repository, `docs/dm2/vbob.md`) section 1; this page agrees with it on the block (+8 pipe, +12 .. +35 message), the TX registers (twelve halfwords at window +0x803804 + 8k, big-endian pairs of block bytes), the doorbell (+0x8038ec = 1), the 250-tick timer,
 the lock failure (11) and the timeout path (zero the status page, zero window +0x800074 for pipe 0 or +0x800064 for pipe 1, return 11). The pipe check (22 for 2 or more) comes before the lock.
 The state is board +0x14728 (lock), +0x14738 (outstanding halfword), +0x14720 (sleep variable), +0x1471c (timer id, cancelled by `untimeout` in the success path and by 0x16).
 

@@ -50,5 +50,5 @@ argument. **Established** for all arithmetic below (all three read in full).
 - None of the loads above is followed by a store back to the word. The kernel's IP35 slot-size routine (0xc00000000004f408) XORs the slot number with a halfword at +58 of the memory
   component ([klconfig.md](klconfig.md)); that this halfword equals S is **inferred**, and the PROM store that fills it
   was not found (see the chips repository's `docs/questions/ip35-prom-memory-bank-config.md` item 4).
-- A guest that never reads bits 33:32 sees no effect of S except in this error decode, so a model that gets S wrong
+- Software that never reads bits 33:32 sees no effect of S except in this error decode, so an implementation that gets S wrong
   mislabels error reports and nothing else, provided the access path itself applies the XOR.

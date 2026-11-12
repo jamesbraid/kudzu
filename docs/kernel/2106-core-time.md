@@ -8,7 +8,7 @@ the objects' own symbol tables). The requester's linked addresses map by a const
 `inittodr` 0xc000000000067b30 = `kernel.o` .text 0x279b0 (delta 0x40180).
 Method: Capstone disassembly of each routine with relocations annotated; layouts of kernel structs are
 inferred from load/store offsets (the extracted members carry no usable DWARF), so field names are my
-labels, offsets are exact. Nothing here was run in an emulator.
+labels, offsets are exact. Nothing here was run; it is all read from the binaries.
 Cross-check: `inittodr` has the same floor test and the same signed compare in the 6.5-base (1998) IP27
 kernel and the 6.5.30 IP27 kernel. IP30 has a longer variant (not analysed).
 
@@ -215,5 +215,4 @@ Summary table (S = sign-extending or signed compare, U = zero-extending/unsigned
    extension), NFS conversion (raw), utime/stime/settimeofday (no checks).
 4. Unresolved: what reads the static flag at .sdata+0x134 that `inittodr` sets; the meaning of the incoming
    flag that gates the `rtodc`/`clkset` call in `xfs_cmountfs`; the `rtodc` fallback day (inferred).
-   A boot-time daemon that "caches a time and compares it signed" is most likely in userland (the other
-   agent's scope); the kernel supplies the inputs described in item 1.
+   A boot-time daemon that "caches a time and compares it signed" is most likely in userland (outside this page's scope); the kernel supplies the inputs described in item 1.

@@ -1,6 +1,6 @@
 # IRIX 6.5 reverse engineering and specification
 
-This repository documents how IRIX 6.5.30 and IRIX 6.5.22 work, from the shipped binaries, as specifications that other projects (emulator datasheets, drivers, debuggers) can build on. It holds no reimplementation. The layout and working style follow the sibling repositories for the graphics and chip work: a gitignored `root/` of IRIX files, an `IRIX_FILES.md` that says what goes in it, generated inventory tables that measure what is covered, and a claim checker that compares written facts with the binaries.
+This repository documents how IRIX 6.5.30 and IRIX 6.5.22 work, from the shipped binaries, as specifications that other projects (datasheets, drivers, debuggers) can build on. It holds no reimplementation. The layout and working style follow the sibling repositories for the graphics and chip work: a gitignored `root/` of IRIX files, an `IRIX_FILES.md` that says what goes in it, generated inventory tables that measure what is covered, and a claim checker that compares written facts with the binaries.
 
 ## 1. Scope
 
@@ -20,7 +20,7 @@ Rules for what is written down:
 
 - Findings go in your own words, graded **established** (read in full in a binary: the whole function body, table or section, with address), **inferred** (a reasoned reading; say the reasoning) or **unknown**. Anything unlabelled is unknown. Never reword an entry to change its grade.
 - No source text, file structure, comments or internal identifiers from any source tree go into the repository. That includes source file paths and directory layouts: a DWARF record that names the file a structure was declared in is not copied. Symbol names that are present in the shipped binaries' own symbol tables or debug information are fine, and so are names in published headers and manuals.
-- A fact that no software reveals is labelled "unknown: no shipped software or published source depends on it", with the routes tried. An emulator author then chooses a value and documents the choice.
+- A fact that no software reveals is labelled "unknown: no shipped software or published source depends on it", with the routes tried. A reimplementer then chooses a value and documents the choice.
 - There is no exposure or provenance record in this repository. The guard is the check described in section 5.
 - Do not paste proprietary binaries, disassembly of whole files, or source into the repository. Short quoted instruction sequences and tables derived from the binaries are fine.
 - No commit trailers, and no names of the people or tools involved, in commits or files.

@@ -21,7 +21,7 @@ The word tested at offset 0x8c68 is a count kept by `router_map_init` (0xc000000
 
 So the kernel uses the local `* pwr d` form exactly when it found no router board of that kind in KLCONFIG, and the controller form `p <id> pwr d` whenever at least one is listed. It never probes for a rack controller, and it has no timeout or retry limit on the controller form. That the class 0x31 is a router and that bit 2 of the flag byte means "device" are inferred from the board layout in published headers; the code only tests the numbers. Inferred.
 
-The emulated runs that show the controller form on topologies with a router and the local form on those without (an Origin 3200 and an Onyx 3000 with two bricks) are consistent with this; they are model behaviour, not hardware.
+No hardware capture of either form is held, so which topologies print which form on real systems is unknown; a console log from a physical Origin 3000 or Onyx 3000 halt, with and without a router board listed in KLCONFIG, would settle it.
 
 ## Reboot and port reset
 

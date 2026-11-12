@@ -24,12 +24,12 @@ should note:
   with a zero argument at function entry (the `time(NULL)` shape, call target not resolved by name), subtracts a
   value, and `slt`s the result. It is an ageing-shaped site, so the "divu needed" entry stands, but the TSV
   grade (low) understates it.
-* Not re-checked: installed-disk hashes and offsets, the live guest verdicts, and the kernel rows (the
+* Not re-checked: installed-disk hashes and offsets, the reported boot-test verdicts, and the kernel rows (the
   installed-kernel offsets were not re-read; only the media `nfs_client.o` compare was).
 
 Method: binary RE only of the shipped ELF objects under `refs/irix-media/6.5.30`. No IRIX source
 tree or header was opened. Symbol names come from each binary's own symbol table. Disassembly is
-capstone (mips64, big-endian). Nothing was run on a guest; every row here is static.
+capstone (mips64, big-endian). Nothing was run; every row here is static.
 
 This turns boot-by-boot discovery of signed 32-bit time bugs into a patch-and-test checklist. It is
 a companion to the hand-done readings in [2106-core-time.md](2106-core-time.md),
@@ -142,8 +142,7 @@ The ranked table's addresses were read on the install-media binaries under `refs
 Those are not always the builds that actually run: the nsd/libc fix in
 [boot-time-nsd-getpwuid.md](boot-time-nsd-getpwuid.md) sat 0x480 off between media and installed
 libc. The top login/boot rows were therefore re-pinned against the binaries on the golden IP35
-diagnostics disk `irix/6.5.30/root-diags-origin300.qcow2`, pulled read-only (no guest boot) with
-`origami disk get`. Patch byte = the funct byte (file offset + 3 of the big-endian word): `slt`→`sltu`
+diagnostics disk `irix/6.5.30/root-diags-origin300.qcow2`, read without booting it. Patch byte = the funct byte (file offset + 3 of the big-endian word): `slt`→`sltu`
 is 2a→2b, `div`→`divu` is 1a→1b. Every divide found is the 32-bit form (funct 1a), even where the
 time value is spilled through a 64-bit stack slot (`sd`/`ld`), so the arithmetic is on the low 32 bits.
 
@@ -159,8 +158,8 @@ time value is spilled through a 64-bit stack slot (`sd`/`ld`), so the arithmetic
 | libc gmtime core | `/lib32/libc.so.1` | `e774e2fb…311953b` | `div` 0x76154/0x76198, `slt` 0x761b4 | 0x75d08 | SHIFTED +0x44c — and a different build (see below) |
 | pam_unix `pam_sm_acct_mgmt` | `/usr/lib32/security/pam_unix.so` (n32) and `/usr/lib64/security/pam_unix.so` (n64) | — | — | 0x402a14 / 0x40316c | ABSENT — not installed on this disk |
 
-**Live guest verdicts (2038 boot test).** A guest test at the 2038 clock settled which byte to flip at
-each ageing site, and it is the **divide**, not the compare. The login-ageing shape is
+**Reported verdicts (2038 boot test).** A boot test at the 2038 clock, not on hardware and so graded inferred (a physical system booted past 2038 would settle it), reported which byte to flip at
+each ageing site: the **divide**, not the compare. The login-ageing shape is
 `days = time() / 86400` (signed) then a signed compare of `days` against an ageing field. The divide is
 the bug: at 2038 a signed `div` of the negative 32-bit `time()` gives a negative day number. Once the
 divide is unsigned (`div`→`divu`, funct 1a→1b) the day number is small and positive, and the original
@@ -189,15 +188,14 @@ Per-site verdicts (installed file offsets):
 | libc gmtime `div` | 0x76157, 0x7619b | `divu` needed, but NOT a one-byte fix — the `bgez` sign fix-up at 0x76180 must also be handled, or the core still prints 1901 dates at 2038 |
 
 With `divu` at su/passwd/ftpd/rshd plus the three iaf/scheme divides, su, ftp, rsh, passwd minimum-age
-and login behave at 2038 as at 2026 (guest-confirmed).
+and login behave at 2038 as at 2026 (reported from a non-hardware boot test; inferred).
 
 **Still open (not a one-byte fix, or not yet resolved):**
 - passwd's day-count × 86400 multiply (0x46d4, and the CDE pam's `__get_authtoken_attr` 0x3e6c) is a
   32-bit `mult`, so it writes an empty last-change field at 2038 — needs a 64-bit multiply (code growth).
 - libc gmtime still prints 1901 dates at 2038: the divide and the `bgez` sign fix-up both need handling.
 
-Evidence for these verdicts: the live 2038 guest boot test (the irix-containers y2038 research notes,
-section 13).
+Evidence for these verdicts: the reported 2038 boot test above; the instruction reading supports the divide as the cause.
 
 Caveats from the re-pin:
 
@@ -206,7 +204,7 @@ Caveats from the re-pin:
   `/usr/dt/lib32/security/pam_unix.so.1` (sha256 `7d511652…c89e67`), a different build whose
   `pam_sm_acct_mgmt` (VMA 0x5ffe26a0) has **no** `div` by 86400 — it computes days with a
   reciprocal `multu` and still ends in a signed `slt $t2,$t2,$t3` at file 0x2944 (word `014b502a`,
-  patch byte 0x2947). Whether any guest loads it depends on PAM config the disk lacks. So row 1's
+  patch byte 0x2947). Whether any system loads it depends on PAM config the disk lacks. So row 1's
   "every PAM account check" overstates this disk; the installed login-ageing exposure runs through
   `su`, `ftpd`, `rshd` and `passwd` (libia ageing directly), not PAM. (Independently re-read: the
   standard path returns "No such file or directory"; the CDE copy's `slt` and absent 86400 confirmed.)
@@ -241,8 +239,8 @@ each site has a 64-bit nsec-companion `slt` that is not a patch target.
 | `second_thread` (clock.o) | `/unix` | 0xc0000000002609bc | 0x2209bc | `19200015` (`blez`) | — | NO — leave alone. The seconds test is a `blez` on a `timespec_sub` result (now − stored), a wrap-safe elapsed difference; `blez` is a sign-branch with no funct byte and no unsigned form. The earlier "`ld` 64-bit" reading was wrong; it is a 32-bit `lw`, but width is moot for a difference. |
 
 All four words were re-read from the raw `/unix` bytes. Three of the four live rows are correct
-`slt`→`sltu` fixes; `second_thread` is not a bug; `xvm_ve_collect` cannot be pinned here. Live 2038
-guest test: `bdflush_wake_proc`'s fix is confirmed real — a 10 MB write that sat unflushed ~200 s at
+`slt`→`sltu` fixes; `second_thread` is not a bug; `xvm_ve_collect` cannot be pinned here. A reported 2038
+boot test (not hardware; inferred): `bdflush_wake_proc`'s fix is reported to work — a 10 MB write that sat unflushed ~200 s at
 2038 flushed in ~20 s with the patch. `devpoll_scan` and `syssgi` are patched but not yet exercised.
 
 ## Counts

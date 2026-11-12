@@ -138,7 +138,7 @@ Only the shipped kernel, the shipped configuration and the vendor manuals were u
 
 **Verdict.** Without new kernel code, shipped Trusted IRIX could give **label-based compartments** (isolation of what a process may read, write and connect to, at the points the hooks cover), plus multilevel-directory views of chosen directories, plus the cpuset and capability controls. It does **not** give container-style isolation: no namespaces for process ids, mounts, IPC keys, host name or network. And it is **not obtainable today** for 6.5.22 or 6.5.30 IP35/IP27 because the kernel objects are not held. So: **no** for container-style isolation; **unknown** for label-based compartments until a trusted 6.5.x object is read.
 
-What would settle the unknowns: the 6.5.22 `mac_proc.o`, `mac.a`, `mac_ipc.o` (what label check `ps`, signals and IPC get), and a run of a trusted kernel on the model. Neither is possible from held media.
+What would settle the unknowns: the 6.5.22 `mac_proc.o`, `mac.a`, `mac_ipc.o` (what label check `ps`, signals and IPC get), and a run of a trusted kernel. Neither is possible from held media.
 
 ## The multilevel-directory hook: in the shipped kernel, and what a container id could drive with it
 

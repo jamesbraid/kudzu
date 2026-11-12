@@ -4,7 +4,7 @@ Method: binary RE only, shipped 6.5.30 media under `refs/irix-media/6.5.30`. No 
 (the shipped `usr/include/ns_*.h` were deliberately not read). Own-words notes; symbol names come from each
 binary's own symbol table where it has one (`nsd` has a full one; `libc.so.1` has only its exported dynamic
 symbols, so internal functions there are unnamed). Disassembly is capstone (mips64, big-endian) with a local GOT-slot annotator.
-Nothing here was run on a guest: every conclusion is static.
+Nothing here was run: every conclusion is static unless section 9 says otherwise.
 
 Objects examined:
 * `usr/etc/nsd` (n32, not stripped, has a symtab)
@@ -35,8 +35,8 @@ earlier text should note:
 * **libc symbol source.** `lib32/libc.so.1` is not a symtab-bearing binary; the header wording was
   corrected. The quoted function addresses and sizes are unchanged and were re-verified.
 * Re-verified unchanged: the `ns_lookup` signed compare word `010b402a` at `0xfa4e2c8` with the `beqz` miss branch
-  at `0xfa4e2d8`. Not re-checked here: the installed-disk build offsets and hashes, and every live guest result
-  in section 9 (they come from guest runs this check had no logs for).
+  at `0xfa4e2d8`. Not re-checked here: the installed-disk build offsets and hashes, and every live result
+  in section 9 (they come from boot runs this check had no logs for; they are not hardware evidence).
 
 ## 0. Answer first
 
@@ -195,7 +195,7 @@ which is > 2^31) is still in the future for decades, so a boot-time negative/fai
 served until the real clock passes that value. That requires (a) passwd mtime on disk >= 2^31 and (b) a failed
 result having been cached at boot. I have no evidence for either; it is the only mechanism found in userland that
 matches "persists across nsd restart and across a date change". It depends on the kernel stat path returning
-mtime sign (kernel-only, covered by another investigation). If the guest's `/etc/passwd` mtime is >= 2^31 this
+mtime sign (kernel-only, covered by another investigation). If the system's `/etc/passwd` mtime is >= 2^31 this
 should be checked first: dump the `/var/ns/cache` files and compare `created`.
 
 ## 6. Kernel NFS client, where the clear signed bug is
@@ -232,7 +232,7 @@ If the bug is the kernel one, the minimal fix is `nfs_getattr_cache` (nfs_client
 test `sltu` (unsigned), or require `r_attrtime != 0` before the compare. All `time`-relative uses in
 `set_attrcache_time` are differences and need no change.
 
-Checks that would confirm or reject it without a guess (not run, need a guest with the 2106 RTC):
+Checks that would confirm or reject it without a guess (not run, need a system whose clock reads past 2^31):
 * With the clock past 2^31, look at nsd's own log at high verbosity (`nsd -l`, level 4+ in the log calls seen
   above): if nsd never receives a LOOKUP for `passwd.byuid` on the second `getpwuid`, the client served it from
   cache (kernel path). If nsd does receive it and answers "not found" (status 1), the failure is in
@@ -256,8 +256,8 @@ Checks that would confirm or reject it without a guess (not run, need a guest wi
 
 ## 9. Update (2026-11-09): the boot flood is the libc client-cache permanent miss
 
-After the kernel `nfs_getattr_cache` fix in section 6/7 landed, a guest booting at 2038-02-01 still
-degrades: `nsd` logs ~531,000 lines and ~22,900 "bget: not found" (vs ~990 lines and zero at 2026 and
+After the kernel `nfs_getattr_cache` fix in section 6/7, a boot with the clock at 2038-02-01 is reported to still
+degrade (a report from a non-hardware boot, graded inferred; a physical system booted with the clock set past 2038 would settle it): `nsd` logs ~531,000 lines and ~22,900 "bget: not found" (vs ~990 lines and zero at 2026 and
 at 2037-06-01), and every `canonhost`/`emgrlogger` lookup takes 10-70 s, so boot takes ~11 minutes.
 That measurement settles which of the userland compares this document dismissed on correctness (a miss
 rather than a bad hit) is the live regression: a *permanent* client-cache miss is exactly a boot flood.
@@ -296,7 +296,7 @@ The routine is at a different address in two distinct `lib32/libc.so.1` builds (
 | **Installed golden disk** (the one that runs; live-patched) | `e774e2fb081ab653b22a9b633eae4904dd3df3ea58ca3430e9e511cd5311953b` | 0xfa4e748 | **0x6e748** | 0x6e74b |
 | Install media (`refs/irix-media/6.5.30/lib32/libc.so.1`, first read here) | `3fe29d6e191a3fe62969d46ffa1088fc7fb7029ccc57006072ae7cb357f93362` | 0xfa4e2c8 | 0x6e2c8 | 0x6e2cb |
 
-Patch the installed build. Live result (confirmed on a guest): the fix takes a 2038 boot from ~12
+Patch the installed build. Reported result (inferred; not a hardware run): the fix takes a 2038 boot from ~12
 minutes to 39 seconds, with the `nsd` "bget" count dropping from 69,501 to 80. The media-build offsets
 (0x6e2c8 and the `0xfa4e...` addresses in sections 0-4 above) are this note's original read and apply
 only to that build. Live `nsd` log call sites in `nsd_bget` (0x100052a0), for reference: the call at 0x1000539c logs
@@ -319,6 +319,6 @@ so confirm the word `010b402a` at the offset for that build before patching any 
 build-specific: the installed disk and the install media already differ, see the table above). The
 10-70 s/lookup cost is a property of the resolver backend, not a 2038 compare; the
 2038 regression is only that libc stops absorbing repeat lookups and exposes that cost on every call.
-The miss → flood chain was found statically and is now confirmed live: patching the installed build's
-compare took a guest's 2038 boot from ~12 minutes to 39 seconds. The companion whole-binary scan is in
+The miss → flood chain was found statically and is reported confirmed (a non-hardware boot test; inferred): patching the installed build's
+compare took a 2038 boot from ~12 minutes to 39 seconds. The companion whole-binary scan is in
 [y2038-signed-time-scan.md](y2038-signed-time-scan.md).

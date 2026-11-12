@@ -2,8 +2,8 @@
 
 How the IRIX 6.5.30 IP35 kernel (`6.5.30/unix.IP35`, linked 64-bit image with a symbol table) makes sure a PCI
 interrupt whose pin is still asserted is raised again once its handlers have run, and which hardware registers that
-touches. The question came from a host-bridge model that sends one interrupt packet per rising edge: if the
-processor clears the node's pending bit while the pin stays high, nothing raises it again. Every routine below was read
+touches. The question is what happens when the processor clears the node's pending bit while the pin stays high: if the
+bridge sends one interrupt packet per rising edge, nothing raises it again. Every routine below was read
 in full unless a line says otherwise; grades are as in [klconfig.md](klconfig.md). Method: the retools Capstone
 decoder (`tools/hostfacts.py`) over the linked image. Every address is in the `root/6.5.30/unix.IP35` held in this
 repository (13,104,040 bytes). An earlier version of this page quoted addresses
@@ -66,14 +66,14 @@ here from the held image, routine by routine.
   Whether the hardware raises an interrupt on an enable-bit set while the pin
   is high is **unknown** from software. Settling test: the bridge chip's published programming description of its interrupt enable and status registers (look it up by the chip's name and revision first), which states whether the pending state is level or edge sensitive; if it does not say, only a bench measurement on a real Origin 350 base-I/O bridge answers it (write the enable bit with a slot's pin held asserted and watch for an interrupt packet), and that is a last resort because it needs the hardware.
 
-## What follows for a model
+## What follows for the interrupt path
 
-- A PCI interrupt model for the PIC that sends a packet only on edges is compatible with IRIX 6.5.30 only if the
+- A PIC that sends a packet only on edges is compatible with IRIX 6.5.30 only if the
   force-interrupt register at +0x1c0 + 8n re-sends the pin's packet. With that register working, the kernel itself
   re-posts the level after the last handler returns and the node's pending register needs no re-assertion
   of its own. **Inferred**: the register's effect on the hardware (the kernel only writes 1; the accessor name is the
   other evidence); route: the PIC specification or a hardware trace of a write to +0x1c0.
-- A model that re-sets the pending bit by itself after a clear while the pin stays high does so on behalf of guests
-  that have no such re-post. IRIX 6.5.30 is not one of them for kind 1 or 2 bridges.
+- A bridge that re-sets the pending bit by itself after a clear while the pin stays high does so on behalf of software
+  that has no such re-post. IRIX 6.5.30 is not one of them for kind 1 or 2 bridges.
 - The PROM's own interrupt-line test is a different thing and is in the chips repository's
   `docs/questions/ip35-prom-reset-barrier.md`.

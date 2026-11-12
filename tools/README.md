@@ -16,7 +16,7 @@ The container definitions, wrappers, Ghidra helpers and the shared scripts (inve
 
 A check looks for text copied from a reference source tree. It is a fingerprint comparison against a stored index of the reference tree, which holds fingerprints and file paths and never source, and it prints no reference text. It is a lead generator: open each pair it reports and judge it.
 
-The check is `tools/fingerprint` in the project that owns the stored reference index (the emulator tooling repository), not here. Run it from that checkout, against this repository, and let it write its reports under its own scratch run directory, never in this working tree:
+The check is `tools/fingerprint` in the project that owns the stored reference index (a separate tooling repository), not here. Run it from that checkout, against this repository, and let it write its reports under its own scratch run directory, never in this working tree:
 
     # copied spans and prose, over what git tracks here: Markdown and text, listings, tables, Python, C and headers
     TOOLING/tools/fingerprint --ours /path/to/this/repository --docs

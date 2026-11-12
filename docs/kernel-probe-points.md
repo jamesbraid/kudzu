@@ -1,7 +1,7 @@
 # Kernel probe points: a function reference table
 
 A mechanical reference table of candidate kernel functions from the linked
-IRIX 6.5.30 kernel, read for another session's planning work. This page is
+IRIX 6.5.30 kernel, read as a reference list. This page is
 descriptive only: the symbol, address, size, stack-frame use and first four
 instruction words of each routine, plus the kernel text mapping and the
 instruction-cache flush routines. It makes no claim about which routine is

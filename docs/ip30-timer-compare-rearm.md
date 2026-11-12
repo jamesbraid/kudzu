@@ -1,6 +1,6 @@
 # IP30 scheduler clock: how the kernel re-arms CP0 Compare, and the 6.5.13f pull-in defect
 
-The IP30 kernel keeps the scheduler clock on CP0 Count and Compare. Two of its routines write Compare after a tick or a new timer request: `resetcounter` (the tick re-arm) and `trimcompare` (pull the next deadline earlier). This note reads both from two releases and explains one observed 44-second gap.
+The IP30 kernel keeps the scheduler clock on CP0 Count and Compare. Two of its routines write Compare after a tick or a new timer request: `resetcounter` (the tick re-arm) and `trimcompare` (pull the next deadline earlier). This note reads both from two releases and explains a reported 44-second gap. The report is not a hardware capture, so whether the gap occurs on real hardware is unknown (see the questions at the end).
 
 Releases read:
 
@@ -41,14 +41,14 @@ In 6.5.13f, with Count below Compare, that difference is negative as a 64-bit va
 
 `trimcompare` has one caller in 6.5.13f: the routine labelled `set_timer_intr` in the symbol table, at `0xa800000020009204`. It gets an absolute deadline in HEART counter units (the HEART counter read at physical `0x0ff20000` is taken on entry at `0xa800000020009048`), rounds it up to a multiple of 120 units, and compares it with the currently programmed deadline held at absolute address `0xffffffffffffc558`. When the new deadline is earlier it calls `trimcompare` with a0 = Count rate x (old deadline - new deadline) / 125, where the rate is the word at gp-0x1218 (inferred to be the Count rate in units of 100 kHz, 975 for 97.5 MHz, because 975/125 equals 97.5/12.5), then stores the new deadline. When the new deadline is later it calls `resetcounter` (`0xa80000002000912c`, `0xa80000002000916c`). The tick handler (`counter_intr`) calls `resetcounter` at `0xa8000000200086b8` and `0xa800000020008150`, with the interval taken from the programmed deadline minus the current HEART value rounded down to a multiple of the tick period (word at gp-0x1214). Established for the call structure; the unit of the rate word is inferred.
 
-## What was observed, and what explains it
+## The reported trace, and what explains it
 
-An emulated Octane running 6.5.13f wrote Compare = `0xfffff0b0` at `0xa8000000200057d4` (the Compare write at the end of `trimcompare`) with Count = `0x10dd`; the preceding `resetcounter` had reset Count to zero 4317 ticks earlier and had written Compare = `0xb1510`.
+A trace of 6.5.13f on an Octane, taken without a hardware capture and therefore only inferred to match hardware, records a Compare write of `0xfffff0b0` at `0xa8000000200057d4` (the Compare write at the end of `trimcompare`) with Count = `0x10dd`; the preceding `resetcounter` had reset Count to zero 4317 ticks earlier and had written Compare = `0xb1510`.
 
 - The value comes from the pull-in path, not from a stall. `0xfffff0b0` is not Count + 1000, so it is Compare - a0 with the Compare read being `0xb1510` (the most recent Compare write): a0 = `0xb2460` = 730,208 ticks. **Inferred** (the arithmetic is exact; that the Compare read equals the previous write rests on no other write between them, as in the trace).
 - a1 = -3920: the requested deadline lies 3920 ticks (about 40 microseconds at 97.5 MHz) before the instant the previous `resetcounter` set Count to zero. In 6.5.30 the same inputs hit the "pull-in at least the remaining time" guard and write Count + 1000. **Established** for the 6.5.30 behaviour (instruction-level read); the 13f outcome is **established** given the inputs above.
 - The 4317 ticks are not the exposure. They span the return from `resetcounter`, the rest of the tick handler and the call into `set_timer_intr`. The window inside `trimcompare` from its Count read to its Compare write is under sixteen register instructions, and a1 does not depend on Count at all. **Established.**
-- Within `resetcounter`, Count reset to Compare write is eight register instructions with interrupts masked and no memory access. On an R10000 that is a few tens of cycles at most, plus an instruction-cache miss on first use; **inferred** from the instruction count, not measured. The emulated traces of this window show 434 to 870 Count ticks, which is far longer than that inference allows.
+- Within `resetcounter`, Count reset to Compare write is eight register instructions with interrupts masked and no memory access. On an R10000 that is a few tens of cycles at most, plus an instruction-cache miss on first use; **inferred** from the instruction count, not measured. The trace of this window reports 434 to 870 Count ticks, far longer than that inference allows; a trace that is not a hardware capture cannot say whether real hardware shows it, so that gap is unknown.
 
 ## Why the requested deadline falls before the Count reset (inferred)
 
@@ -65,7 +65,7 @@ So the gap does not need a stall the hardware could not have, and does not need 
 | Question | Class | Test that would settle it |
 |---|---|---|
 | Whether the 6.5.13f inputs (a0 greater than Compare) occur on real hardware, and how often. | hardware-only | A trace of Count, Compare, the programmed deadline at `0xffffffffffffc558` and the HEART counter at every `trimcompare` entry on a running 6.5.13f Octane; count entries where a0 exceeds Compare. |
-| Whether the early-Compare mechanism above is the source in the observed run. | software-now | In the emulated run, read the HEART value stored by the tick handler, the tick period (gp-0x1214), the programmed deadline and the Compare at `0xa800000020005700` return, and check that the Count-domain time of Compare is earlier than the deadline by the observed amount. |
+| Whether the early-Compare mechanism above is the source in the reported trace. | software-now | In a trace of the same release, read the HEART value stored by the tick handler, the tick period (gp-0x1214), the programmed deadline and the Compare at `0xa800000020005700` return, and check that the Count-domain time of Compare is earlier than the deadline by the observed amount. |
 | In which release between 6.5.13f and 6.5.30 the subtraction operand was corrected, and whether 6.5.22 has it. | missing-input | The `IP30boot/kernel.o` of 6.5.22 and of the intermediate maintenance releases: compare the word at `trimcompare+0x20`. |
 | Whether the Count rate word (gp-0x1218) is in units of 100 kHz. | software-now | Read the word from a running kernel on a 195 MHz CPU (expect 975) and the code that stores it. |
 
@@ -76,7 +76,7 @@ The word at `trimcompare+0x20` in each IP30 kernel that could be read. `13f` is 
 | release | file | sha256 prefix | word | form |
 |---|---|---|---|---|
 | 6.5 base (June 1998 media) | `refs/irix-media/6.5-base/usr/cpu/sysgen/IP30boot/kernel.o` | `5d6eba62f3e0` | `018e4023` | 13f |
-| 6.5.22 | `kona-scaffold/kudzu/root/6.5.22/usr/cpu/sysgen/IP30boot/kernel.o` (origami scaffold; no disc or manifest recorded alongside it) | `05ed66e3d9d4` | `01cc4023` | fixed |
+| 6.5.22 | `root/6.5.22/usr/cpu/sysgen/IP30boot/kernel.o` (a working copy; no disc or manifest recorded alongside it) | `05ed66e3d9d4` | `01cc4023` | fixed |
 | 6.5.30 | `refs/irix-media/6.5.30/usr/cpu/sysgen/IP30boot/kernel.o` (same bytes as the kudzu and chips copies) | `32d900592e14` | `01cc4023` | fixed |
 | 6.5.30m | `/unix` on a scratch copy of `octane2-vpro.qcow2` (banner 6.5.30m; same bytes as the `octane2-vpro-sdk-recovered-20261002.qcow2` copy) | `3ac07f94bd51` | `01cc4023` | fixed |
 | 6.5.30m | `/unix` on a scratch copy of `octane-mgras-base-install-20261003.qcow2` | `c2414ec0a4b0` | `01cc4023` | fixed |
@@ -85,4 +85,4 @@ The word at `trimcompare+0x20` in each IP30 kernel that could be read. `13f` is 
 | 6.5.23m | `/unix` on a scratch copy of `o2-octane2-v12-irix6523m-base-pristine.qcow2` (banner 6.5.23m) | `6ec53d8c3c66` | `01cc4023` | fixed |
 | 6.5.23f | `/unix` on a scratch copy of `o2-octane2-v12-irix6523f-flame9514-ok.qcow2` (banner 6.5.23f) | `9a7f97c0ce63` | `01cc4023` | fixed |
 
-Not held, so not checked: 6.5.13f, 6.5.14 through 6.5.20, 6.5.21 maintenance, 6.5.24 through 6.5.29, the 6.5.29 tarballs listed in the media inventory, and any other maintenance or feature release not in the table. The 6.5.13f Octane disks (rung 5 and rung 7 of the discreet disk set) exist but the origami disk reader refuses their version 1 directories, so their `/unix` was not read. The release trees extracted under `scratch/irix-debug-survey-20261029/rel/` carry only the IP30 `gfx.o` and `odyssey.a` overlays, with no `kernel.o` or `unix`. The disk search covered only the Octane- and IP30-named images, so an installed IP30 disk on another release may exist unrecorded.
+Not held, so not checked: 6.5.13f, 6.5.14 through 6.5.20, 6.5.21 maintenance, 6.5.24 through 6.5.29, the 6.5.29 tarballs listed in the media inventory, and any other maintenance or feature release not in the table. The 6.5.13f Octane disks (rung 5 and rung 7 of the discreet disk set) exist but the disk reader used here refuses their version 1 directories, so their `/unix` was not read. The extracted release trees carry only the IP30 `gfx.o` and `odyssey.a` overlays, with no `kernel.o` or `unix`. The disk search covered only the Octane- and IP30-named images, so an installed IP30 disk on another release may exist unrecorded.
