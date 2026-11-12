@@ -72,7 +72,7 @@ does not show, the entry says so.
   **Inferred.** A 52-byte accessor that returns the doubleword at +0x38 of its pointer argument. A null pointer reaches a call to `panic` (0xc0000000001f9228) with the format constant 0xc0000000003c5fb8.
 
 - `xwidget_driver_register` in `6.5.22/unix.IP27` at 0xc00000000006df78
-  **Inferred.** A 116-byte routine that tests the doubleword at +0x8 of the global at 0xc0000000014c9db8. If that is zero, it calls `xtalk_init` (0xc00000000006decc) at 0xc00000000006dfd0; otherwise it calls `cdl_add_driver` (0xc0000000000d15bc) at 0xc00000000006dfb8 with that same value as its first argument and returns the callee's v0. The render does not show how the two paths rejoin, or what the driver argument contains.
+  **Inferred.** A 116-byte routine that tests the doubleword at +0x8 of the global at 0xc0000000014c9db8. If that is zero, it first calls `xtalk_init` (0xc00000000006decc) at 0xc00000000006dfd0. The two paths rejoin before `cdl_add_driver` (0xc0000000000d15bc), which it calls at 0xc00000000006dfb8 on every path with that same value as its first argument, and it returns the callee's v0. The render does not show what the driver argument contains.
 
 - `xwidget_driver_unregister` in `6.5.22/unix.IP27` at 0xc00000000006dfec
   **Inferred.** A 36-byte routine that calls `cdl_del_driver` (0xc0000000000d1900) with the doubleword at +0x8 of the global 0xc0000000014c9db8 as its first argument and a second argument equal to its own a0, then returns the callee's v0. It is the counterpart of `xwidget_driver_register`, which reads the same global.

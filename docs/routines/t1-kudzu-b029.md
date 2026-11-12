@@ -56,7 +56,7 @@ All 25 entries are in `6.5.30/unix.IP35`. None were left out.
   **Inferred.** The same shape as acktmoclock, with writes to 0x9200000001000138 and 0x9200000001000130. The name refers to a second clock whose meaning is not in these facts. It returns the same shifted halfword.
 
 - `startkgclock` in `6.5.30/unix.IP35` at 0xc00000000006a17c
-  **Inferred.** Takes the lock at 0xc000000001644cc0 (mutex_spinlock_spl at 0xc00000000006a188), reads several 64-bit counters, calls cnodetocpu at 0xc00000000006a284, writes 0x9200000001000158, 0x9200000001000118 and 0x9200000001000150, and then calls setkgvector at 0xc00000000006a344 with the address of prof_intr (0xc00000000006ae00). That suggests it installs prof_intr as the vector for this clock, but the facts show only the address, not the install.
+  **Inferred.** Takes the lock at 0xc000000001644cc0 (mutex_spinlock_spl at 0xc00000000006a188), reads several 64-bit counters. When the flag word at -32384(gp) is zero, it calls setkgvector at 0xc00000000006a344 with the address of prof_intr (0xc00000000006ae00) and sets the flag to 1. The counter code calls cnodetocpu at 0xc00000000006a284 and writes 0x9200000001000158, 0x9200000001000118 and 0x9200000001000150. That suggests it installs prof_intr as the vector for this clock, but the facts show only the address, not the install.
 
 - `slowkgclock` in `6.5.30/unix.IP35` at 0xc00000000006a35c
   **Inferred.** The slow path of the same clock. It takes the lock at 0xc000000001644cc0, writes 0x9200000001000158 and 0x9200000001000150 and a 32-bit word at abs 0xffffffffffffc53c, and calls ackkgclock at 0xc00000000006a404. It ends by calling spinlock_init on the same lock. The branch conditions depend on globals whose values are not known here.
