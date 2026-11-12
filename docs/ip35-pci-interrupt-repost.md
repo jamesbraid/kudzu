@@ -47,8 +47,21 @@ decoder (`tools/hostfacts.py`) over the linked image.
   interrupt nobody claimed is masked at the bridge. **Established.**
 - For a kind-2 bridge whose word at soft +120 has 1 in its low nibble, the dispatch routine also clears and sets the
   pin's enable bit once under the lock before it starts (0xc00000000009e3b0 to 0xc00000000009e404). What sets soft +120
-  is a stack argument of `pic_attach2` (0xc000000000093f84); its value was not traced: **unknown**. Route: read the
-  caller of `pic_attach2` and its stack frame. Whether the hardware raises an interrupt on an enable-bit set while the pin
+  is the chip's revision: `pic_attach2` (`6.5.30/unix.IP35`, 0xc00000000009b884) reads the bridge's identification
+  register with `pcireg_id_get` (call at 0xc00000000009b8f8), forms `((id >> 28) & 0xf) | (((id >> 12) & 0xffff) << 4)`
+  (0xc00000000009b908 to 0xc00000000009b91c; the revision field, bits 31:28, in the low four bits and the part number,
+  bits 27:12, above it), keeps it in a local slot (0xc00000000009b924), attaches it to the vertex as a label
+  (`hwgraph_info_add_LBL`, call at 0xc00000000009b920) and stores it at soft +120 (load 0xc00000000009bab4, store
+  0xc00000000009bab8). It is a local of `pic_attach2`, not a stack argument. So "1 in the low nibble" means the PIC
+  reports revision 1. The dispatch routine (`pcibr_intr_func`, 0xc0000000000a5cfc in the same image) tests it as
+  `(1 << (word & 0xf)) & 2` (0xc0000000000a5ee0 to 0xc0000000000a5eec), and `pic_attach2` makes the same test at
+  0xc00000000009bdb4 to 0xc00000000009bde0 to choose between two values before `pcireg_control_set` (call at
+  0xc00000000009bdf4; the control-register bits it changes were not read). **Established** for the stores and tests;
+  that the identification register has its revision in bits 31:28 comes from the routine's own shifts and the label
+  it builds, and is **inferred** for the hardware layout. The addresses of the other routines on this page do not match
+  the 6.5.30 image in `root/` (there `pcibr_force_interrupt` is at 0xc0000000000a4d38, `pic_attach2` at
+  0xc00000000009b884 and `xbridge_attach` at 0xc00000000009c8ac); they were not re-derived here, so look routines up by
+  name. Whether the hardware raises an interrupt on an enable-bit set while the pin
   is high is **unknown** from software. Settling test: the bridge chip's published programming description of its interrupt enable and status registers (look it up by the chip's name and revision first), which states whether the pending state is level or edge sensitive; if it does not say, only a bench measurement on a real Origin 350 base-I/O bridge answers it (write the enable bit with a slot's pin held asserted and watch for an interrupt packet), and that is a last resort because it needs the hardware.
 
 ## What follows for a model
