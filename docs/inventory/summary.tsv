@@ -1,13 +1,13 @@
 table	rows	out_of_scope	understood	understood_with_open	understood_distinct	templated	located	named_only	undocumented	no_software_dependency	pct_understood	pct_located_or_better	pct_mentioned	pct_done	unresolved_sites	truncated	audited_real_pct	audited_sample	audited_date	computes	reused	multi_unit	shared_address	address_unknown	input
-binaries	7456	0	1	0	1	1	1	827	6627	0	0.0	0.0	11.1	0.0							0				
-functions	242516	110423	3417	231	2285	27201	29465	144281	65353	0	1.4	13.6	73.1	1.4			100.0	6	2026-11-02		0	163	2722	0	
-functions (distinct names)	24898	22183	1057	68	1020	6823	7180	7020	9641	0	4.2	33.1	61.3	4.2							0				
-mmio	176	0	4	0	3	0	0	101	71	0	2.3	2.3	59.7	2.3	2099						0				
+binaries	7737	0	1	0	1	1	1	871	6864	0	0.0	0.0	11.3	0.0							0				
+functions	242521	115978	3417	231	2285	27201	29465	144281	65358	0	1.4	13.6	73.1	1.4			100.0	6	2026-11-02		0	163	2722	0	
+functions (distinct names)	24901	25609	1057	68	1020	6823	7180	7020	9644	0	4.2	33.1	61.3	4.2							0				
+mmio	176	0	4	0	3	0	0	101	71	0	2.3	2.3	59.7	2.3	2121						0				
 tokens	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 ioctls	7	0	7	0	2	0	0	0	0	0	100.0	100.0	100.0	100.0							0				
 ucode	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0						0	0				
 spec-registers	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
-input root manifest	2666																								dc09c920e1101976accdfd7400ae8b8bcd3c97a00a9985d0d3b9b408b6fec469
+input root manifest	2935																								3e48bad82ea245eade431d5ddb70bedef13da8f1f7fcf24c2caf5f35cfb934e8
 functions in 6.5.22/lib/libc.so.1	0	4810	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.22/lib/libcpr.so	0	6	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.22/lib/rld	0	1306	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
@@ -7355,3 +7355,82 @@ functions in 6.5.30/usr/sbin/xfs_growfs	0	7	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0					
 functions in 6.5.30/usr/sbin/xfs_io	0	104	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/sbin/xfs_quota	0	65	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/sbin/xfs_repair	0	873	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP27boot/divo.a(divo.o)	0	7	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP27boot/divo.a(divo_init.o)	2	5	0	0	0	0	0	0	2	0	0.0	0.0	0.0	0.0							0	0	0	0	
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP27boot/divo.a(divo_ioctl.o)	0	8	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP27boot/divo.a(divo_intr.o)	0	8	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP27boot/divo.a(divo_dma.o)	0	7	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP27boot/divo.a(divo_flash.o)	0	6	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP27boot/divo.a(divo_idbg.o)	0	5	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP27boot/divo_al.o	0	34	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP27boot/mdivo.o	0	8	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP30boot/divo.a(divo.o)	0	7	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP30boot/divo.a(divo_init.o)	1	6	0	0	0	0	0	0	1	0	0.0	0.0	0.0	0.0							0	0	0	0	
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP30boot/divo.a(divo_ioctl.o)	0	8	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP30boot/divo.a(divo_intr.o)	0	8	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP30boot/divo.a(divo_dma.o)	0	7	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP30boot/divo.a(divo_flash.o)	0	6	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP30boot/divo.a(divo_idbg.o)	0	5	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP30boot/divo_al.o	0	34	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP30boot/mdivo.o	0	8	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP35boot/divo.a(divo.o)	0	7	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP35boot/divo.a(divo_init.o)	1	6	0	0	0	0	0	0	1	0	0.0	0.0	0.0	0.0							0	0	0	0	
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP35boot/divo.a(divo_ioctl.o)	0	8	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP35boot/divo.a(divo_intr.o)	0	8	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP35boot/divo.a(divo_dma.o)	0	7	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP35boot/divo.a(divo_flash.o)	0	6	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP35boot/divo.a(divo_idbg.o)	0	5	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP35boot/divo_al.o	1	33	0	0	0	0	0	0	1	0	0.0	0.0	0.0	0.0							0	0	0	0	
+functions in divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP35boot/mdivo.o	0	8	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/diags/DIVO/bin/cmp_dv	0	15	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/diags/DIVO/bin/csc_dump	0	7	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/diags/DIVO/bin/deventlog	0	9	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/diags/DIVO/bin/divotest	0	383	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/diags/DIVO/bin/dvcpro_init	0	64	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/diags/DIVO/bin/gen_tp	0	81	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/diags/DIVO/bin/genlock_dump	0	5	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/diags/DIVO/bin/loopback	0	32	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/diags/DIVO/bin/parse_divohinv	0	5	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/diags/DIVO/bin/rpc_dump	0	15	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/diags/DIVO/bin/sdti_dump	0	16	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/diags/DIVO/bin/vidif_dump	0	9	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/diags/DIVO/bin/vip_dump	0	21	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/dmedia/bin/DIVO/divo_cmd	0	8	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/dmedia/bin/DIVO/divo_ee	0	21	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/dmedia/bin/DIVO/divo_memtovid	0	50	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/dmedia/bin/DIVO/divo_reset	0	5	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/dmedia/bin/DIVO/divo_vidtomem	0	50	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/dmedia/bin/DIVO/dvparse	0	76	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/dmedia/bin/DIVO/flashdivo	0	72	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/dmedia/bin/DIVO/orion	0	403	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/dmedia/bin/DIVO/vpaper	0	1129	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw	0	488	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.2925	0	425	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/divofw.dvc.log	0	499	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/dmedia/ucode/DIVO/lincprom	0	29	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in divodvc-2.4-6.5.11m/usr/lib32/dmedia/video/DIVO.so	0	321	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/bin/mlquery	0	32	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/cpu/sysgen/IP27boot/xtdigvid.o	0	55	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/cpu/sysgen/IP30boot/xtdigvid.o	0	54	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/cpu/sysgen/IP35boot/xtdigvid.o	0	54	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/check_ustmsc	0	5	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/diff_images	0	6	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/dv_memtovid	0	44	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/dv_vidtocmp	0	14	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/dv_vidtogfx	0	9	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/dv_vidtomem	0	39	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/vbob_reset	0	14	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/diags/ml_xtdigvid/bin/xtdigvidtst	0	53	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/dmedia/bin/vbob/vbob_config	0	14	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/dmedia/bin/vbob/vbob_flash	0	52	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/dmedia/bin/vbob/vbob_flash.1	0	51	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/lib32/libML.so.1	0	169	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/lib32/libMLU.so.1	0	40	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/lib32/libMLddk.so.1	0	38	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/lib32/mlmodule/debug/libdigvid.so	0	125	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/lib32/mlmodule/libdigvid.so	0	124	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/lib32/mlmodule/nullxcode.so	0	25	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/sbin/mldaemon	0	11	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/share/src/dmedia/video/xtdigvid/examples/ttyvideo	0	9	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/share/src/dmedia/video/xtdigvid/examples/xtdv_memtovid	0	8	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in dmediapro-dm2-1.1.3ml/usr/share/src/dmedia/video/xtdigvid/examples/xtdv_vidtogfx	0	7	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				

@@ -130,6 +130,16 @@
       "reason": "Objects that exist only for the NUMA, hardware-graph, crossbar, bridge, node-board and attach machinery of the in-scope subsystems."
     },
     {
+      "group": "video-option-products",
+      "role": "shared-kernel",
+      "scope": "out",
+      "paths": [
+        "divodvc-2.4-6.5.11m/*",
+        "dmediapro-dm2-1.1.3ml/*"
+      ],
+      "reason": "DM2 and DIVO video option software, read for the DM2 contract and not part of the base platform. Listed before kernel-other-objects so their platform boot objects leave the in-scope set; their functions are out of scope for now, not excluded."
+    },
+    {
       "group": "kernel-other-objects",
       "role": "shared-kernel",
       "scope": "in",
@@ -2002,6 +2012,26 @@
       "binary": "*/usr/cpu/sysgen/IP35boot/xiovme.o",
       "names": ["xiovme_vmc"],
       "why": "accesses a crosstalk widget through a pointer a crosstalk mapping routine returned, at an address the scan cannot place"
+    },
+    {
+      "binary": "divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP27boot/divo.a",
+      "names": ["divo_attach", "divo_init_bridge"],
+      "why": "the scan finds it reaching a register window, a token or an ioctl; the object was in scope before the video option trees left the base platform"
+    },
+    {
+      "binary": "divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP30boot/divo.a",
+      "names": ["divo_init_bridge"],
+      "why": "the scan finds it reaching a register window, a token or an ioctl; the object was in scope before the video option trees left the base platform"
+    },
+    {
+      "binary": "divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP35boot/divo.a",
+      "names": ["divo_init_bridge"],
+      "why": "the scan finds it reaching a register window, a token or an ioctl; the object was in scope before the video option trees left the base platform"
+    },
+    {
+      "binary": "divodvc-2.4-6.5.11m/usr/cpu/sysgen/IP35boot/divo_al.o",
+      "names": ["divo_start_subsys"],
+      "why": "the scan finds it reaching a register window, a token or an ioctl; the object was in scope before the video option trees left the base platform"
     }
   ]
 }
