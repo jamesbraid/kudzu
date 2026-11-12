@@ -1,13 +1,13 @@
 table	rows	out_of_scope	understood	understood_with_open	understood_distinct	templated	located	named_only	undocumented	no_software_dependency	pct_understood	pct_located_or_better	pct_mentioned	pct_done	unresolved_sites	truncated	audited_real_pct	audited_sample	audited_date	computes	reused	multi_unit	shared_address	address_unknown	input
-binaries	7317	0	1	0	1	1	1	776	6539	0	0.0	0.0	10.6	0.0							0				
-functions	242516	3706	3417	232	2285	27201	29472	144274	65353	0	1.4	13.6	73.1	1.4			100.0	6	2026-11-02		0	163	2722	0	
-functions (distinct names)	24898	2829	1057	68	1020	6823	7181	7019	9641	0	4.2	33.1	61.3	4.2							0				
+binaries	7386	0	1	0	1	1	1	816	6568	0	0.0	0.0	11.1	0.0							0				
+functions	242516	56975	3417	231	2285	27201	29465	144281	65353	0	1.4	13.6	73.1	1.4			100.0	6	2026-11-02		0	163	2722	0	
+functions (distinct names)	24898	20256	1057	68	1020	6823	7180	7020	9641	0	4.2	33.1	61.3	4.2							0				
 mmio	176	0	4	0	3	0	0	101	71	0	2.3	2.3	59.7	2.3	2099						0				
 tokens	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 ioctls	7	0	7	0	2	0	0	0	0	0	100.0	100.0	100.0	100.0							0				
 ucode	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0						0	0				
 spec-registers	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
-input root manifest	2525																								3b8822e5a57ec1e1d442684bd304fa05bea5031e47ecc970dce74574e05f864a
+input root manifest	2595																								9110021711e2e6acdf210a2612ba91a9910b5438d92c11ff2db25f865e22f1dd
 functions in 6.5.22/unix.IP27	13658	0	745	58	732	5716	5782	4996	2135	0	5.5	47.8	84.4	5.5							0	13	148	0	
 functions in 6.5.22/unix.IP30	12214	0	129	3	128	1276	1302	8679	2104	0	1.1	11.7	82.8	1.1							0	10	170	0	
 functions in 6.5.22/unix.IP35	14511	0	144	2	143	1408	1447	10345	2575	0	1.0	11.0	82.3	1.0							0	55	148	0	
@@ -3871,11 +3871,22 @@ functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_irix_memmgmt.o)	1	0	0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_irix_root.o)	2	0	0	0	0	0	0	2	0	0	0.0	0.0	100.0	0.0							0	0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_snapshot.o)	60	0	0	0	0	0	0	39	21	0	0.0	0.0	65.0	0.0							0	0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP35boot/xvmidbg.o	39	0	0	0	0	0	0	38	1	0	0.0	0.0	97.4	0.0							0	0	0	0	
+functions in 6.5.30/lib/libc.so.1	0	4957	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/lib/libcpr.so	0	6	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/lib/rld	0	1309	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/lib32/libc.so.1	0	5165	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/lib32/libcpuset.so	0	60	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/lib32/rld	0	1136	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/lib64/rld	0	1136	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/sbin/hinv	0	19	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/sbin/ioconfig	0	24	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
-functions in 6.5.30/unix.IP27	13484	0	489	15	485	1537	1622	8865	2508	0	3.6	15.7	81.4	3.6							0	10	148	0	
-functions in 6.5.30/unix.IP30	13087	0	328	9	309	1246	1301	8750	2708	0	2.5	12.4	79.3	2.5							0	9	174	0	
-functions in 6.5.30/unix.IP35	15130	0	447	59	444	1382	1451	10017	3215	0	3.0	12.5	78.8	3.0							0	54	148	0	
+functions in 6.5.30/sbin/mkfs_xfs	0	550	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/sbin/xvm	0	913	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/unix.IP27	13484	0	489	15	485	1537	1621	8866	2508	0	3.6	15.6	81.4	3.6							0	10	148	0	
+functions in 6.5.30/unix.IP30	13087	0	328	9	309	1246	1300	8751	2708	0	2.5	12.4	79.3	2.5							0	9	174	0	
+functions in 6.5.30/unix.IP35	15130	0	447	58	444	1382	1450	10018	3215	0	3.0	12.5	78.8	3.0							0	54	148	0	
+functions in 6.5.30/usr/bin/jlimit	0	11	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/bin/perfex	0	18	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/cluster/bin/cmon_ctrl	0	11	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/cluster/bin/cmond	0	96	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/cluster/bin/cms_failconf	0	7	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
@@ -4004,7 +4015,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP27boot/disp.a(batch.o)	34	0	0	0	0	1	1	33	0	
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/disp.a(cpu.o)	18	0	0	0	0	0	0	18	0	0	0.0	0.0	100.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/disp.a(miser.o)	35	0	0	0	0	1	1	34	0	0	0.0	2.9	100.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/disp.a(rt.o)	22	0	0	0	0	2	2	20	0	0	0.0	9.1	100.0	0.0							0	0	0	0	
-functions in 6.5.30/usr/cpu/sysgen/IP27boot/disp.a(cpuset.o)	69	0	0	0	0	3	5	55	9	0	0.0	7.2	87.0	0.0							0	0	0	0	
+functions in 6.5.30/usr/cpu/sysgen/IP27boot/disp.a(cpuset.o)	69	0	0	0	0	3	4	56	9	0	0.0	5.8	87.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/disp_idbg.a(disp_idbg.o)	12	0	0	0	0	0	0	7	5	0	0.0	0.0	58.3	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/dksc.o	60	0	0	0	0	2	2	58	0	0	0.0	3.3	100.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP27boot/dmi.a(dmi_attr.o)	2	0	0	0	0	0	0	0	2	0	0.0	0.0	0.0	0.0							0	0	0	0	
@@ -4928,7 +4939,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP30boot/disp.a(batch.o)	32	0	0	0	0	1	1	31	0	
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/disp.a(cpu.o)	15	0	0	0	0	0	0	15	0	0	0.0	0.0	100.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/disp.a(miser.o)	35	0	0	0	0	1	1	34	0	0	0.0	2.9	100.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/disp.a(rt.o)	21	0	0	0	0	2	2	19	0	0	0.0	9.5	100.0	0.0							0	0	0	0	
-functions in 6.5.30/usr/cpu/sysgen/IP30boot/disp.a(cpuset.o)	69	0	0	0	0	2	4	56	9	0	0.0	5.8	87.0	0.0							0	0	0	0	
+functions in 6.5.30/usr/cpu/sysgen/IP30boot/disp.a(cpuset.o)	69	0	0	0	0	2	3	57	9	0	0.0	4.3	87.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/disp_idbg.a(disp_idbg.o)	12	0	0	0	0	0	0	7	5	0	0.0	0.0	58.3	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/dksc.o	60	0	0	0	0	2	2	58	0	0	0.0	3.3	100.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP30boot/dmi.a(dmi_mountinfo.o)	4	0	0	0	0	0	0	0	4	0	0.0	0.0	0.0	0.0							0	0	0	0	
@@ -5682,7 +5693,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP32boot/disp.a(batch.o)	32	0	0	0	0	1	1	31	0	
 functions in 6.5.30/usr/cpu/sysgen/IP32boot/disp.a(cpu.o)	11	0	0	0	0	0	0	11	0	0	0.0	0.0	100.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP32boot/disp.a(miser.o)	35	0	0	0	0	0	0	35	0	0	0.0	0.0	100.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP32boot/disp.a(rt.o)	14	0	0	0	0	1	1	13	0	0	0.0	7.1	100.0	0.0							0	0	0	0	
-functions in 6.5.30/usr/cpu/sysgen/IP32boot/disp.a(cpuset.o)	69	0	0	0	0	0	2	58	9	0	0.0	2.9	87.0	0.0							0	0	0	0	
+functions in 6.5.30/usr/cpu/sysgen/IP32boot/disp.a(cpuset.o)	69	0	0	0	0	0	1	59	9	0	0.0	1.4	87.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP32boot/disp_idbg.a(disp_idbg.o)	12	0	0	0	0	0	0	7	5	0	0.0	0.0	58.3	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP32boot/dksc.o	59	0	0	0	0	1	1	58	0	0	0.0	1.7	100.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP32boot/dmi.a(dmi_attr.o)	2	0	0	0	0	0	0	0	2	0	0.0	0.0	0.0	0.0							0	0	0	0	
@@ -6441,7 +6452,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP35boot/disp.a(batch.o)	34	0	0	0	0	1	1	33	0	
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/disp.a(cpu.o)	18	0	0	0	0	0	0	18	0	0	0.0	0.0	100.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/disp.a(miser.o)	35	0	0	0	0	1	1	34	0	0	0.0	2.9	100.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/disp.a(rt.o)	22	0	0	0	0	2	2	20	0	0	0.0	9.1	100.0	0.0							0	0	0	0	
-functions in 6.5.30/usr/cpu/sysgen/IP35boot/disp.a(cpuset.o)	69	0	0	0	0	2	4	56	9	0	0.0	5.8	87.0	0.0							0	0	0	0	
+functions in 6.5.30/usr/cpu/sysgen/IP35boot/disp.a(cpuset.o)	69	0	0	0	0	2	3	57	9	0	0.0	4.3	87.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/disp_idbg.a(disp_idbg.o)	12	0	0	0	0	0	0	7	5	0	0.0	0.0	58.3	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/dksc.o	60	0	0	0	0	2	2	58	0	0	0.0	3.3	100.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/dmi.a(dmi_mountinfo.o)	4	0	0	0	0	0	0	0	4	0	0.0	0.0	0.0	0.0							0	0	0	0	
@@ -7190,13 +7201,18 @@ functions in 6.5.30/usr/cpu/sysgen/IP35boot/xvm.a(xvm_gpt.o)	8	0	0	0	0	0	0	0	8	0
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/xvm.a(xvm_snapshot.o)	58	0	0	0	0	0	1	41	16	0	0.0	1.7	72.4	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/xvm.a(xvm_irix_snapshot.o)	25	0	0	0	0	0	0	3	22	0	0.0	0.0	12.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP35boot/xvmidbg.o	40	0	0	0	0	0	0	40	0	0	0.0	0.0	100.0	0.0							0	0	0	0	
+functions in 6.5.30/usr/etc/autofs	0	42	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/etc/autofsd	0	97	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/etc/automount	0	124	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/etc/cfsadmin	0	32	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/etc/cfsstat	0	9	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/etc/eventmond	0	130	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/etc/exportfs	0	40	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/etc/ipfilterd	0	197	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/etc/mediad	0	438	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/etc/miser	0	165	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/etc/mmscd	0	37	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/etc/mount_autofs	0	6	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/etc/nfsd	0	4	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/etc/nfsdctl	0	4	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/etc/rpc.bootparamd	0	12	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
@@ -7212,9 +7228,61 @@ functions in 6.5.30/usr/etc/rpc.rwalld	0	6	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0						
 functions in 6.5.30/usr/etc/rpc.sprayd	0	6	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/etc/rpc.statd	0	22	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/etc/rpc.ypupdated	0	9	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/gfx/arch/GENERIC/Xsgi	0	2936	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/gfx/arch/IP22NG1/Xsgi	0	3845	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib/devicelib/dev_cdrom.so	0	61	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib/libX11.so.1	0	2181	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib/libXi.so	0	52	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib/libaudio.so.1	0	178	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib/libexc.so	0	102	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib/libm.so	0	192	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib/libperfex.so	0	32	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib/libpthread.so	0	262	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib32/libC.so.2	0	1106	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib32/libX11.so.1	0	2622	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib32/libXi.so	0	53	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib32/libaudio.so.1	0	176	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib32/libcpr.so	0	409	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib32/libperfex.so	0	32	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib32/libpthread.so	0	264	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib32/mips3/libm.so	0	710	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib32/mips4/libc.so.1	0	5165	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib32/mips4/libdplace.so	0	61	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib32/mips4/libdprof.so	0	29	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib32/mips4/libm.so	0	710	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib64/libX11.so.1	0	2639	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib64/libXi.so	0	53	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib64/libaudio.so.1	0	176	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib64/libcpr.so	0	409	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib64/libcpuset.so	0	60	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib64/libperfex.so	0	32	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib64/libpthread.so	0	264	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib64/mips3/libc.so.1	0	5206	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib64/mips3/libm.so	0	710	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib64/mips4/libc.so.1	0	5206	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/lib64/mips4/libm.so	0	710	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/sbin/audiostate	0	68	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/sbin/cpr	0	4	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/sbin/cpuset	0	19	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/sbin/cview	0	231	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/sbin/dplace	0	4	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/sbin/dprof	0	4	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/sbin/flashmmsc	0	41	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/sbin/l1cmd	0	261	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/sbin/miser_jinfo	0	41	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/sbin/miser_kill	0	20	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/sbin/miser_move	0	71	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/sbin/miser_qinfo	0	39	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/sbin/miser_reset	0	39	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/sbin/miser_submit	0	72	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/sbin/numastatd	0	18	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/sbin/runon	0	4	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/sbin/scsicontrol	0	54	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/sbin/sysmon	0	385	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/sbin/xfs_bmap	0	7	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/sbin/xfs_db	0	193	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/sbin/xfs_freeze	0	5	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/sbin/xfs_growfs	0	7	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/sbin/xfs_io	0	104	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
+functions in 6.5.30/usr/sbin/xfs_quota	0	65	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 functions in 6.5.30/usr/sbin/xfs_repair	0	873	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				

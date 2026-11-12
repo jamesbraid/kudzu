@@ -17,7 +17,14 @@ Not present, wanted next:
 
 - `unix.IP32` (O2): no installed O2 kernel is held. The IP32 objects above are present, so the object inventory covers IP32 without the linked image.
 - `var/sysgen/` (`master.d`, `mtune`, `system`, `stune`, `sassign`): the kernel configuration files, from the same media.
-- The base libraries and applications (`lib32`, `lib64`, `usr/bin`, `usr/sbin`, `sbin`) for the later, wider scope.
+- The rest of the base libraries and applications (`lib32`, `lib64`, `usr/bin`, `usr/sbin`, `sbin`) for the later, wider scope. Only the programs and libraries that [docs/open-questions.md](docs/open-questions.md) names are held, listed next.
+
+Userland held in `root/6.5.30/`, copied from the extracted 6.5.30 overlay set (five discs) at the same install paths (products `eoe`, `x_eoe`, `dmedia_eoe`, `nfs` and `compiler_eoe`, from the media's file index). The whole userland is not held, to keep the inventory small; each file's hash is in `scripts/inventory-root.sha256`.
+
+- Loader and C library: `lib/rld`, `lib32/rld` and `lib64/rld`; `libc.so.1` as `lib/libc.so.1` (o32), `lib32/libc.so.1`, `usr/lib32/mips3/libc.so.1` and `usr/lib32/mips4/libc.so.1` (n32, MIPS III and MIPS IV builds), and `usr/lib64/mips3/libc.so.1` and `usr/lib64/mips4/libc.so.1` (64-bit); `libm.so` in the same builds; `libpthread.so` (three ABIs), `usr/lib/libexc.so`, `usr/lib32/libCsup.so` and `usr/lib32/libC.so.2`. The media installs `lib32/libc.so.1` under a CPU-architecture selector as well (`libc.so.1.CPUARCH-R8000-CPUARCH-R10000-CPUARCH-R5000`); that copy has the content of the MIPS IV build and is not held separately.
+- X and audio: `usr/gfx/arch/GENERIC/Xsgi` and `usr/gfx/arch/IP22NG1/Xsgi` (the only two server builds on the media), `libX11.so.1` and `libXi.so` in the three ABIs, `libaudio.so.1` in the three ABIs and `usr/sbin/audiostate`.
+- Programs and libraries behind the optional-subsystem questions: `usr/sbin/cpr`, `usr/sbin/cview` and `libcpr.so` (three ABIs); `usr/etc/ipfilterd`; `usr/sbin/cpuset`, `runon`, `dplace`, `dprof`, `usr/etc/miser`, the six `usr/sbin/miser_*` commands, `usr/bin/jlimit`, `libcpuset.so` (n32 and 64-bit), `usr/lib32/mips4/libdplace.so` and `libdprof.so`; `usr/bin/perfex` and `libperfex.so` (three ABIs); `usr/etc/autofs`, `autofsd` and `mount_autofs`; `usr/lib/devicelib/dev_cdrom.so` and `usr/sbin/scsicontrol`; `sbin/xvm`, `sbin/mkfs_xfs` and `usr/sbin/xfs_bmap`, `xfs_freeze`, `xfs_growfs`, `xfs_io` and `xfs_quota`.
+- Not held: any 6.5.22 userland. Only the 6.5.22 kernel archives and linked kernels are in `root/6.5.22/`.
 
 ```files
 /unix

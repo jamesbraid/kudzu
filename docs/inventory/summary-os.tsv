@@ -1,6 +1,6 @@
 table	in_scope	out_of_scope	documented	undocumented
 syscalls	2844	0	2382	462
 structs	343	5037	277	66
-panics	6987	0	5062	1925
+panics	6987	0	5070	1917
 selectors	18	5499	18	0
 formats	29	0	15	14

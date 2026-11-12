@@ -148,7 +148,67 @@
         "6.5.30/usr/sbin/*",
         "6.5.30/usr/cluster/bin/*"
       ],
-      "reason": "Base user-space daemons and commands of the installed 6.5.30 system: hardware inventory and configuration, the controller and power-management tools, NFS, RPC and CacheFS services, the cluster daemons and the XFS repair tools. Listed so the inventory counts them; their functions are out of scope for now, not excluded."
+      "reason": "Base user-space daemons and commands of the installed 6.5.30 system: hardware inventory and configuration, the controller and power-management tools, NFS, RPC and CacheFS services, the cluster daemons, the XFS tools and the commands that the open questions name (checkpoint and restart, cpusets and miser, the IP filter daemon, the autofs daemons, the CD-ROM and SCSI control tools). Listed so the inventory counts them; their functions are out of scope for now, not excluded."
+    },
+    {
+      "group": "userland-libraries",
+      "role": "userland",
+      "scope": "out",
+      "paths": [
+        "6.5.30/lib/rld",
+        "6.5.30/lib32/rld",
+        "6.5.30/lib64/rld",
+        "6.5.30/lib/libc.so.1",
+        "6.5.30/lib32/libc.so.1",
+        "6.5.30/usr/lib32/mips3/libc.so.1",
+        "6.5.30/usr/lib32/mips4/libc.so.1",
+        "6.5.30/usr/lib64/mips3/libc.so.1",
+        "6.5.30/usr/lib64/mips4/libc.so.1",
+        "6.5.30/usr/lib/libm.so",
+        "6.5.30/usr/lib32/mips3/libm.so",
+        "6.5.30/usr/lib32/mips4/libm.so",
+        "6.5.30/usr/lib64/mips3/libm.so",
+        "6.5.30/usr/lib64/mips4/libm.so",
+        "6.5.30/usr/lib/libpthread.so",
+        "6.5.30/usr/lib32/libpthread.so",
+        "6.5.30/usr/lib64/libpthread.so",
+        "6.5.30/usr/lib/libexc.so",
+        "6.5.30/usr/lib32/libCsup.so",
+        "6.5.30/usr/lib32/libC.so.2",
+        "6.5.30/usr/lib/libX11.so.1",
+        "6.5.30/usr/lib32/libX11.so.1",
+        "6.5.30/usr/lib64/libX11.so.1",
+        "6.5.30/usr/lib/libXi.so",
+        "6.5.30/usr/lib32/libXi.so",
+        "6.5.30/usr/lib64/libXi.so",
+        "6.5.30/usr/lib/libaudio.so.1",
+        "6.5.30/usr/lib32/libaudio.so.1",
+        "6.5.30/usr/lib64/libaudio.so.1",
+        "6.5.30/usr/lib/devicelib/dev_cdrom.so",
+        "6.5.30/lib/libcpr.so",
+        "6.5.30/usr/lib32/libcpr.so",
+        "6.5.30/usr/lib64/libcpr.so",
+        "6.5.30/lib32/libcpuset.so",
+        "6.5.30/usr/lib64/libcpuset.so",
+        "6.5.30/usr/lib32/mips4/libdplace.so",
+        "6.5.30/usr/lib32/mips4/libdprof.so",
+        "6.5.30/usr/lib/libperfex.so",
+        "6.5.30/usr/lib32/libperfex.so",
+        "6.5.30/usr/lib64/libperfex.so"
+      ],
+      "reason": "The runtime loader and the shared libraries of the installed 6.5.30 system that the open questions name: the loader in the three ABIs, the C and maths libraries in their MIPS III and MIPS IV builds, the thread, unwinder and C++ support libraries, the X11 and XInput client libraries, the audio library and the libraries of the checkpoint, cpuset, data-placement and counter commands. Listed so the inventory counts them; their functions are out of scope for now, not excluded."
+    },
+    {
+      "group": "userland-programs",
+      "role": "userland",
+      "scope": "out",
+      "paths": [
+        "6.5.30/usr/gfx/arch/GENERIC/Xsgi",
+        "6.5.30/usr/gfx/arch/IP22NG1/Xsgi",
+        "6.5.30/usr/bin/perfex",
+        "6.5.30/usr/bin/jlimit"
+      ],
+      "reason": "The two X server builds of the 6.5.30 media (the generic one an Octane or Onyx2 runs, and the Indigo2 NG1 build) and two commands outside the base directories, the performance-counter and job-limit tools. Listed so the inventory counts them; their functions are out of scope for now, not excluded."
     }
   ],
   "structure_prefixes": [

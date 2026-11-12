@@ -3942,11 +3942,22 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_irix_root.o)	kernel-other-objects	shared-kernel	object	n64	11268	483470cc2fb5dea8		2	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/xvm.a(xvm_snapshot.o)	kernel-other-objects	shared-kernel	object	n64	74212	6ce6deb1ef5096d3		60	symtab	0	0	undocumented		
 6.5.22/usr/cpu/sysgen/IP35boot/xvmidbg.o	kernel-other-objects	shared-kernel	object	n64	108064	a47c444640f24c6b		39	symtab	0	0	undocumented		
+6.5.30/lib/libc.so.1	userland-libraries	userland	shared-object	o32	2559588	33034210c84cc6e1		4957	dynsym+mdebug	0	0	named-only	docs/userland-abi-and-loader.md#how-a-program-is-started	How a program is started
+6.5.30/lib/libcpr.so	userland-libraries	userland	shared-object	o32	69728	edb4f91f9465f975		6	dynsym	0	0	undocumented		
+6.5.30/lib/rld	userland-libraries	userland	executable	o32	527276	305a9670b5a105c7		1309	symtab+mdebug	0	0	named-only	docs/userland-abi-and-loader.md#evidence-and-sample	Evidence and sample
+6.5.30/lib32/libc.so.1	userland-libraries	userland	shared-object	n32	3323968	3fe29d6e191a3fe6	6.5.30/usr/lib32/mips3/libc.so.1	5165	dynsym+dwarf	0	0	named-only	docs/open-questions.md#userland-abi-and-loader	Userland ABI and loader
+6.5.30/lib32/libcpuset.so	userland-libraries	userland	shared-object	n32	52588	2fabc682b88f5bde		60	dynsym+dwarf	0	0	undocumented		
+6.5.30/lib32/rld	userland-libraries	userland	executable	n32	555968	bce3d5b3f8c18722		1136	symtab+dwarf	0	0	named-only	docs/open-questions.md#userland-abi-and-loader	Userland ABI and loader
+6.5.30/lib64/rld	userland-libraries	userland	executable	n64	612936	7ce15131c84e66be		1136	symtab+dwarf	0	0	undocumented		
 6.5.30/sbin/hinv	userland-base	userland	executable	n32	77064	4f430d6c4da73656		19	dynsym	0	0	named-only	docs/checkpoint-restart.md#the-on-disk-format-and-the-user-tools	The on-disk format and the user tools
 6.5.30/sbin/ioconfig	userland-base	userland	executable	n32	41768	cef4f7b1b16a0c3e		24	dynsym	0	0	named-only	docs/checkpoint-restart.md#the-on-disk-format-and-the-user-tools	The on-disk format and the user tools
+6.5.30/sbin/mkfs_xfs	userland-base	userland	executable	n32	360980	3c2bb50a0a2b2171		550	dynsym	0	0	named-only	IRIX_FILES.md#1-irix-6530-primary	1. IRIX 6.5.30 (primary)
+6.5.30/sbin/xvm	userland-base	userland	executable	n32	984392	33fc326360f2c676		913	dynsym	0	0	named-only	docs/kernel-debugger-commands.md#commands-per-object	Commands per object
 6.5.30/unix.IP27	kernel-image	shared-kernel	executable	n64	11101184	567474674eaa83d3		13484	symtab+dwarf	332	182	named-only	docs/checkpoint-restart.md#ip27-and-6522	IP27 and 6.5.22
 6.5.30/unix.IP30	kernel-image	shared-kernel	executable	n64	10716216	607a432f441d15f7		13087	symtab+dwarf	414	62	named-only	docs/driver-ioctls.md#driver-control-requests-ip30-kernel-dispatch	Driver control requests: IP30 kernel dispatch
 6.5.30/unix.IP35	kernel-image	shared-kernel	executable	n64	13104040	412a1aae553a3483		15130	symtab+dwarf	348	279	named-only	docs/checkpoint-restart.md#checkpoint-and-restart-in-the-irix-kernels	Checkpoint and restart in the IRIX kernels
+6.5.30/usr/bin/jlimit	userland-programs	userland	executable	n32	19476	f2132a8dad21b2a0		11	dynsym	0	0	named-only	IRIX_FILES.md#1-irix-6530-primary	1. IRIX 6.5.30 (primary)
+6.5.30/usr/bin/perfex	userland-programs	userland	executable	n32	73900	0bdffea7a9d5cc2f		18	dynsym	0	0	named-only	docs/module-interfaces.md#loadable-kernel-modules-and-performance-counters	Loadable kernel modules and performance counters
 6.5.30/usr/cluster/bin/cmon_ctrl	userland-base	userland	executable	n32	30396	fb10cd802a5f35a8		11	dynsym+dwarf	0	0	named-only	docs/userland.md#6530usrclusterbincmon_ctrl	`6.5.30/usr/cluster/bin/cmon_ctrl`
 6.5.30/usr/cluster/bin/cmond	userland-base	userland	executable	n32	219644	64a4074332f415de		96	dynsym+dwarf	0	0	named-only	docs/userland.md#6530usrclusterbincmond	`6.5.30/usr/cluster/bin/cmond`
 6.5.30/usr/cluster/bin/cms_failconf	userland-base	userland	executable	n32	35164	84de8c8ad7046823		7	dynsym+dwarf	0	0	named-only	docs/userland.md#6530usrclusterbincms_failconf	`6.5.30/usr/cluster/bin/cms_failconf`
@@ -7288,13 +7299,18 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/cpu/sysgen/IP35boot/xvm.a(xvm_snapshot.o)	kernel-other-objects	shared-kernel	object	n64	74708	44f50e379c03c023		58	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xvm.a(xvm_irix_snapshot.o)	kernel-other-objects	shared-kernel	object	n64	22708	be841889d5cb09da		25	symtab	0	0	undocumented		
 6.5.30/usr/cpu/sysgen/IP35boot/xvmidbg.o	kernel-other-objects	shared-kernel	object	n64	107400	d257b6091b3a821b		40	symtab	0	0	undocumented		
+6.5.30/usr/etc/autofs	userland-base	userland	executable	n32	74024	0fc90a41a1f8938d		42	dynsym	0	0	named-only	docs/kernel-optional-subsystems.md#the-table	The table
+6.5.30/usr/etc/autofsd	userland-base	userland	executable	n32	151164	85aa53c85905833a		97	dynsym	0	0	named-only	IRIX_FILES.md#1-irix-6530-primary	1. IRIX 6.5.30 (primary)
 6.5.30/usr/etc/automount	userland-base	userland	executable	n32	81780	6da8967f2fd4bf7b		124	dynsym	0	0	named-only	docs/network-dataplane-and-vfs.md#network-dataplane-and-virtual-file-system-attachment-points	Network dataplane and virtual file system attachment points
 6.5.30/usr/etc/cfsadmin	userland-base	userland	executable	n32	39928	ff70755e57a0382f		32	dynsym	0	0	named-only	docs/userland.md#6530usretccfsadmin	`6.5.30/usr/etc/cfsadmin`
 6.5.30/usr/etc/cfsstat	userland-base	userland	executable	n32	37648	75a22aab1b9ec79c		9	dynsym	0	0	named-only	docs/userland.md#6530usretccfsstat	`6.5.30/usr/etc/cfsstat`
 6.5.30/usr/etc/eventmond	userland-base	userland	executable	n32	159128	edf94f779e9a580d		130	dynsym	0	0	named-only	docs/userland.md#6530usretceventmond	`6.5.30/usr/etc/eventmond`
 6.5.30/usr/etc/exportfs	userland-base	userland	executable	n32	73192	8edb27d96991ef73		40	dynsym	0	0	understood	docs/userland.md#6530usretcexportfs	`6.5.30/usr/etc/exportfs`
+6.5.30/usr/etc/ipfilterd	userland-base	userland	executable	n32	170040	dfd0928e310bd371		197	dynsym	0	0	named-only	docs/kernel-optional-subsystems.md#the-table	The table
 6.5.30/usr/etc/mediad	userland-base	userland	executable	n32	222192	d38efd64c2bb819f		438	dynsym	0	0	named-only	docs/open-questions.md#triage-2026-11-01	Triage (2026-11-01)
+6.5.30/usr/etc/miser	userland-base	userland	executable	n32	126940	733a8d13f7e207d1		165	dynsym	0	0	named-only	docs/namespace-dispatch.md#b-where-it-lives	B. Where it lives
 6.5.30/usr/etc/mmscd	userland-base	userland	executable	n32	41672	f670e794ef6faa77		37	dynsym	0	0	named-only	docs/userland-abi-and-loader.md#how-a-program-is-started	How a program is started
+6.5.30/usr/etc/mount_autofs	userland-base	userland	executable	n32	67716	d5c3d6d671b699d8		6	dynsym	0	0	named-only	IRIX_FILES.md#1-irix-6530-primary	1. IRIX 6.5.30 (primary)
 6.5.30/usr/etc/nfsd	userland-base	userland	executable	n32	69304	4cb351d0032fe7d3		4	dynsym	0	0	named-only	docs/network-dataplane-and-vfs.md#42-other-server-side-and-loopback-pieces	4.2 Other server-side and loopback pieces
 6.5.30/usr/etc/nfsdctl	userland-base	userland	executable	n32	67572	d1205e7652d1ba77		4	dynsym	0	0	named-only	docs/userland.md#6530usretcnfsdctl	`6.5.30/usr/etc/nfsdctl`
 6.5.30/usr/etc/rpc.bootparamd	userland-base	userland	executable	n32	20440	fd2cd1bd0e81246b		12	dynsym	0	0	named-only	docs/userland.md#6530usretcrpcbootparamd	`6.5.30/usr/etc/rpc.bootparamd`
@@ -7310,9 +7326,62 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/etc/rpc.sprayd	userland-base	userland	executable	n32	67476	94daa4cd189dd319		6	dynsym	0	0	named-only	docs/userland.md#6530usretcrpcsprayd	`6.5.30/usr/etc/rpc.sprayd`
 6.5.30/usr/etc/rpc.statd	userland-base	userland	executable	n32	39564	0db13befa4eb1a99		22	dynsym	0	0	named-only	docs/network-dataplane-and-vfs.md#42-other-server-side-and-loopback-pieces	4.2 Other server-side and loopback pieces
 6.5.30/usr/etc/rpc.ypupdated	userland-base	userland	executable	n32	67836	4787f916baae7913		9	dynsym	0	0	named-only	docs/userland.md#6530usretcrpcypupdated	`6.5.30/usr/etc/rpc.ypupdated`
+6.5.30/usr/gfx/arch/GENERIC/Xsgi	userland-programs	userland	executable	n32	3120928	68792b0377bde4be		2936	dynsym	0	0	named-only	docs/input-path.md#evidence-and-its-limits	Evidence and its limits
+6.5.30/usr/gfx/arch/IP22NG1/Xsgi	userland-programs	userland	executable	n32	4817628	7adec50590ab4f57		3845	dynsym	0	0	undocumented		
+6.5.30/usr/lib/devicelib/dev_cdrom.so	userland-libraries	userland	shared-object	n32	36192	ef65e6a199b518ec		61	dynsym+dwarf	0	0	named-only	docs/open-questions.md#triage-2026-11-01	Triage (2026-11-01)
+6.5.30/usr/lib/libX11.so.1	userland-libraries	userland	shared-object	o32	1655188	96589e475d9362f6		2181	dynsym+mdebug	0	0	undocumented		
+6.5.30/usr/lib/libXi.so	userland-libraries	userland	shared-object	o32	78432	4dc37206b6caffad		52	dynsym+mdebug	0	0	undocumented		
+6.5.30/usr/lib/libaudio.so.1	userland-libraries	userland	shared-object	o32	173676	b6094923824e773d		178	dynsym+mdebug	0	0	undocumented		
+6.5.30/usr/lib/libexc.so	userland-libraries	userland	shared-object	o32	89208	2af8af01e7e46eef		102	dynsym+mdebug	0	0	named-only	docs/open-questions.md#userland-abi-and-loader	Userland ABI and loader
+6.5.30/usr/lib/libm.so	userland-libraries	userland	shared-object	o32	105752	9fd544c09af3032d		192	dynsym+mdebug	0	0	undocumented		
+6.5.30/usr/lib/libperfex.so	userland-libraries	userland	shared-object	o32	89632	badbbfb6dcdffe81		32	dynsym+mdebug	0	0	undocumented		
+6.5.30/usr/lib/libpthread.so	userland-libraries	userland	shared-object	o32	185488	cdbbc0d51fddca1c		262	dynsym+mdebug	0	0	undocumented		
+6.5.30/usr/lib32/libC.so.2	userland-libraries	userland	shared-object	n32	836276	1a6d442c10f2a65b		1106	dynsym+dwarf (dwarf addresses stale, dropped except sections of their own)	0	0	named-only	IRIX_FILES.md#1-irix-6530-primary	1. IRIX 6.5.30 (primary)
+6.5.30/usr/lib32/libCsup.so	userland-libraries	userland	shared-object	n32	18584	c4c2f8fce0121a58		0	none	0	0	named-only	docs/open-questions.md#userland-abi-and-loader	Userland ABI and loader
+6.5.30/usr/lib32/libX11.so.1	userland-libraries	userland	shared-object	n32	2676568	fc75841b697e163e		2622	dynsym+dwarf	0	0	undocumented		
+6.5.30/usr/lib32/libXi.so	userland-libraries	userland	shared-object	n32	136880	fb3c401b6193c830		53	dynsym+dwarf	0	0	undocumented		
+6.5.30/usr/lib32/libaudio.so.1	userland-libraries	userland	shared-object	n32	291044	41c4c1c0e3f58fce		176	dynsym+dwarf	0	0	undocumented		
+6.5.30/usr/lib32/libcpr.so	userland-libraries	userland	shared-object	n32	763712	b6314e79918a00b7		409	dynsym+dwarf	0	0	undocumented		
+6.5.30/usr/lib32/libperfex.so	userland-libraries	userland	shared-object	n32	63472	ec28034569754466		32	dynsym+dwarf	0	0	undocumented		
+6.5.30/usr/lib32/libpthread.so	userland-libraries	userland	shared-object	n32	196320	ac017319c253d9aa		264	dynsym+dwarf	0	0	named-only	docs/userland-abi-and-loader.md#thread-local-data	Thread-local data
+6.5.30/usr/lib32/mips3/libm.so	userland-libraries	userland	shared-object	n32	837472	38026cf46e0eda30		710	dynsym+dwarf	0	0	named-only	docs/userland-libraries-and-isa.md#where-each-part-lives	Where each part lives
+6.5.30/usr/lib32/mips4/libc.so.1	userland-libraries	userland	shared-object	n32	3324696	e774e2fb081ab653		5165	dynsym+dwarf	0	0	named-only	docs/open-questions.md#userland-abi-and-loader	Userland ABI and loader
+6.5.30/usr/lib32/mips4/libdplace.so	userland-libraries	userland	shared-object	n32	92952	c8a881eff28a9ca7		61	dynsym+dwarf	0	0	named-only	IRIX_FILES.md#1-irix-6530-primary	1. IRIX 6.5.30 (primary)
+6.5.30/usr/lib32/mips4/libdprof.so	userland-libraries	userland	shared-object	n32	30588	73aa0cc93438824c		29	dynsym+dwarf	0	0	named-only	IRIX_FILES.md#1-irix-6530-primary	1. IRIX 6.5.30 (primary)
+6.5.30/usr/lib32/mips4/libm.so	userland-libraries	userland	shared-object	n32	880608	96efc8c6b8a2b417		710	dynsym+dwarf	0	0	named-only	docs/userland-libraries-and-isa.md#where-each-part-lives	Where each part lives
+6.5.30/usr/lib64/libX11.so.1	userland-libraries	userland	shared-object	n64	2894952	35b6014d1b28d472		2639	dynsym+dwarf	0	0	undocumented		
+6.5.30/usr/lib64/libXi.so	userland-libraries	userland	shared-object	n64	143856	015572f99260654f		53	dynsym+dwarf	0	0	undocumented		
+6.5.30/usr/lib64/libaudio.so.1	userland-libraries	userland	shared-object	n64	279552	a67d3eab55bbce09		176	dynsym+dwarf	0	0	undocumented		
+6.5.30/usr/lib64/libcpr.so	userland-libraries	userland	shared-object	n64	886616	fe33310b3aa6ef95		409	dynsym+dwarf	0	0	undocumented		
+6.5.30/usr/lib64/libcpuset.so	userland-libraries	userland	shared-object	n64	55760	33c075ebeb9c4d3a		60	dynsym+dwarf	0	0	undocumented		
+6.5.30/usr/lib64/libperfex.so	userland-libraries	userland	shared-object	n64	66744	302b98d81e98bd0b		32	dynsym+dwarf	0	0	undocumented		
+6.5.30/usr/lib64/libpthread.so	userland-libraries	userland	shared-object	n64	210840	62de6ec1a5314507		264	dynsym+dwarf	0	0	named-only	docs/userland-libraries-and-isa.md#where-each-part-lives	Where each part lives
+6.5.30/usr/lib64/mips3/libc.so.1	userland-libraries	userland	shared-object	n64	3817864	635fb57e835f9d21		5206	dynsym+dwarf	0	0	named-only	docs/open-questions.md#userland-abi-and-loader	Userland ABI and loader
+6.5.30/usr/lib64/mips3/libm.so	userland-libraries	userland	shared-object	n64	908304	729252e09c083ffa		710	dynsym+dwarf	0	0	undocumented		
+6.5.30/usr/lib64/mips4/libc.so.1	userland-libraries	userland	shared-object	n64	3736040	ae478bb95af5b501		5206	dynsym+dwarf	0	0	named-only	docs/open-questions.md#userland-abi-and-loader	Userland ABI and loader
+6.5.30/usr/lib64/mips4/libm.so	userland-libraries	userland	shared-object	n64	950320	3b9eaafdcb20017e		710	dynsym+dwarf	0	0	undocumented		
+6.5.30/usr/sbin/audiostate	userland-base	userland	executable	n32	81052	d0a551fdfa1b5626		68	dynsym	0	0	named-only	IRIX_FILES.md#1-irix-6530-primary	1. IRIX 6.5.30 (primary)
+6.5.30/usr/sbin/cpr	userland-base	userland	executable	n64	22848	a96e98b6c9aed122		4	dynsym	0	0	named-only	docs/checkpoint-restart.md#checkpoint-and-restart-in-the-irix-kernels	Checkpoint and restart in the IRIX kernels
+6.5.30/usr/sbin/cpuset	userland-base	userland	executable	n32	42360	ad47355f2064f02e		19	dynsym	0	0	named-only	docs/kernel-debugger-commands.md#commands-per-object	Commands per object
+6.5.30/usr/sbin/cview	userland-base	userland	executable	n32	144088	f0cb08156644a41e		231	dynsym	0	0	named-only	docs/checkpoint-restart.md#does-the-facility-exist-and-how-is-it-configured	Does the facility exist, and how is it configured
+6.5.30/usr/sbin/dplace	userland-base	userland	executable	n32	20856	a74225c954cad225		4	dynsym	0	0	named-only	docs/numa-text-replication.md#user-text-and-page-replication	User text and page replication
+6.5.30/usr/sbin/dprof	userland-base	userland	executable	n32	20764	66967311d01f4c1c		4	dynsym	0	0	named-only	docs/page-migration.md#user-level	User level
 6.5.30/usr/sbin/flashmmsc	userland-base	userland	executable	n32	43824	362d470b4fcc55ca		41	dynsym	0	0	named-only	docs/userland.md#6530usrsbinflashmmsc	`6.5.30/usr/sbin/flashmmsc`
 6.5.30/usr/sbin/l1cmd	userland-base	userland	executable	n32	251576	9184e7789998e5bf		261	dynsym	0	0	named-only	docs/userland.md#6530usrsbinl1cmd	`6.5.30/usr/sbin/l1cmd`
+6.5.30/usr/sbin/miser_jinfo	userland-base	userland	executable	n32	39420	a096e1195c41a736		41	dynsym	0	0	undocumented		
+6.5.30/usr/sbin/miser_kill	userland-base	userland	executable	n32	20108	35b1c379a4878b10		20	dynsym	0	0	undocumented		
+6.5.30/usr/sbin/miser_move	userland-base	userland	executable	n32	46168	657a9b5459b13a84		71	dynsym	0	0	undocumented		
+6.5.30/usr/sbin/miser_qinfo	userland-base	userland	executable	n32	39908	bef6f212e37fee77		39	dynsym	0	0	undocumented		
+6.5.30/usr/sbin/miser_reset	userland-base	userland	executable	n32	39012	9af204ed10a53a2c		39	dynsym	0	0	undocumented		
+6.5.30/usr/sbin/miser_submit	userland-base	userland	executable	n32	47196	901fbd2137d51f7d		72	dynsym	0	0	undocumented		
 6.5.30/usr/sbin/numastatd	userland-base	userland	executable	n32	19972	91380a2b19e3715a		18	dynsym	0	0	named-only	docs/page-migration.md#policy-interfaces	Policy interfaces
+6.5.30/usr/sbin/runon	userland-base	userland	executable	n32	18136	ba0231089832c166		4	dynsym	0	0	named-only	docs/page-migration.md#user-level	User level
+6.5.30/usr/sbin/scsicontrol	userland-base	userland	executable	n32	47408	52506f9d11362f81		54	dynsym	0	0	named-only	docs/open-questions.md#triage-2026-11-01	Triage (2026-11-01)
 6.5.30/usr/sbin/sysmon	userland-base	userland	executable	n32	256620	c1009c32b337a441		385	dynsym	0	0	named-only	docs/userland-abi-and-loader.md#relocations	Relocations
+6.5.30/usr/sbin/xfs_bmap	userland-base	userland	executable	n32	18968	05e3bb844163774b		7	dynsym	0	0	named-only	IRIX_FILES.md#1-irix-6530-primary	1. IRIX 6.5.30 (primary)
 6.5.30/usr/sbin/xfs_db	userland-base	userland	executable	n32	217348	d02f7cbc9029e895		193	dynsym	0	0	named-only	docs/network-and-snapshots.md#evidence-and-method	Evidence and method
+6.5.30/usr/sbin/xfs_freeze	userland-base	userland	executable	n32	18416	4a803eb6fac0e6f8		5	dynsym	0	0	named-only	IRIX_FILES.md#1-irix-6530-primary	1. IRIX 6.5.30 (primary)
+6.5.30/usr/sbin/xfs_growfs	userland-base	userland	executable	n32	20636	508be6197e123c08		7	dynsym	0	0	named-only	IRIX_FILES.md#1-irix-6530-primary	1. IRIX 6.5.30 (primary)
+6.5.30/usr/sbin/xfs_io	userland-base	userland	executable	n32	113028	8a8133e2971ba19c		104	dynsym	0	0	named-only	IRIX_FILES.md#1-irix-6530-primary	1. IRIX 6.5.30 (primary)
+6.5.30/usr/sbin/xfs_quota	userland-base	userland	executable	n32	92408	7eb7899d83c55241		65	dynsym	0	0	named-only	IRIX_FILES.md#1-irix-6530-primary	1. IRIX 6.5.30 (primary)
 6.5.30/usr/sbin/xfs_repair	userland-base	userland	executable	n32	639436	4829c0925f6acb30		873	dynsym	0	0	located	docs/userland.md#6530usrsbinxfs_repair	`6.5.30/usr/sbin/xfs_repair`

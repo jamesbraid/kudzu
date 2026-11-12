@@ -32,7 +32,7 @@ binary	function	address	callee	sites	scope	status
 6.5.22/unix.IP27	_xfs_force_shutdown	0xc0000000002d3a2c	cmn_err	4	in	undocumented
 6.5.22/unix.IP27	acctctl	0xc000000000257400	cmn_err	1	in	documented
 6.5.22/unix.IP27	alenlist_cursor_clone	0xc0000000001757bc	assfail	1	in	documented
-6.5.22/unix.IP27	alloc_cpupda	0xc0000000001e0034	cmn_err	2	in	undocumented
+6.5.22/unix.IP27	alloc_cpupda	0xc0000000001e0034	cmn_err	2	in	documented
 6.5.22/unix.IP27	allowboot	0xc000000000043b20	cmn_err	7	in	documented
 6.5.22/unix.IP27	alp_register	0xc0000000000b5b2c	printf	1	in	documented
 6.5.22/unix.IP27	anon_flip	0xc0000000001b8b34	assfail	1	in	documented
@@ -1232,7 +1232,7 @@ binary	function	address	callee	sites	scope	status
 6.5.22/unix.IP30	acctctl	0xa8000000201f4220	cmn_err	1	in	documented
 6.5.22/unix.IP30	add_cpuboard	0xa80000002000702c	cmn_err	1	in	documented
 6.5.22/unix.IP30	alenlist_cursor_clone	0xa800000020126470	assfail	1	in	documented
-6.5.22/unix.IP30	alloc_cpupda	0xa8000000201b1830	cmn_err	2	in	undocumented
+6.5.22/unix.IP30	alloc_cpupda	0xa8000000201b1830	cmn_err	2	in	documented
 6.5.22/unix.IP30	allowboot	0xa8000000200067e8	cmn_err	8	in	documented
 6.5.22/unix.IP30	alp_register	0xa800000020072068	printf	1	in	documented
 6.5.22/unix.IP30	anon_flip	0xa80000002016131c	assfail	1	in	documented
@@ -2165,7 +2165,7 @@ binary	function	address	callee	sites	scope	status
 6.5.22/unix.IP35	_xfs_force_shutdown	0xc0000000003471dc	cmn_err	4	in	undocumented
 6.5.22/unix.IP35	acctctl	0xc0000000002ce78c	cmn_err	1	in	documented
 6.5.22/unix.IP35	alenlist_cursor_clone	0xc0000000001e77c8	assfail	1	in	documented
-6.5.22/unix.IP35	alloc_cpupda	0xc000000000255cd8	cmn_err	2	in	undocumented
+6.5.22/unix.IP35	alloc_cpupda	0xc000000000255cd8	cmn_err	2	in	documented
 6.5.22/unix.IP35	allowboot	0xc00000000006634c	cmn_err	5	in	documented
 6.5.22/unix.IP35	alp_register	0xc0000000000f8da0	printf	1	in	documented
 6.5.22/unix.IP35	anon_flip	0xc00000000022e964	assfail	1	in	documented
@@ -3058,7 +3058,7 @@ binary	function	address	callee	sites	scope	status
 6.5.22/unix.IP35	raw_usrreq	0xc00000000017ad78	panic	1	in	documented
 6.5.22/unix.IP35	rawclose	0xc000000000174948	cmn_err	2	in	documented
 6.5.22/unix.IP35	rawopen	0xc000000000174720	cmn_err	2	in	documented
-6.5.22/unix.IP35	read_board_ia	0xc000000000095534	printf	1	in	undocumented
+6.5.22/unix.IP35	read_board_ia	0xc000000000095534	printf	1	in	documented
 6.5.22/unix.IP35	record_remote_name	0xc000000000102d28	cmn_err	1	in	documented
 6.5.22/unix.IP35	remque_tcb	0xc00000000019c788	printf	1	in	documented
 6.5.22/unix.IP35	repl_interpose	0xc0000000002e2af0	panic	1	in	documented
@@ -3429,7 +3429,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP27	_xfs_force_shutdown	0xc0000000002d8368	cmn_err	4	in	undocumented
 6.5.30/unix.IP27	acctctl	0xc0000000002584a4	cmn_err	1	in	documented
 6.5.30/unix.IP27	alenlist_cursor_clone	0xc000000000171de0	assfail	1	in	documented
-6.5.30/unix.IP27	alloc_cpupda	0xc0000000001e3de8	cmn_err	2	in	undocumented
+6.5.30/unix.IP27	alloc_cpupda	0xc0000000001e3de8	cmn_err	2	in	documented
 6.5.30/unix.IP27	allowboot	0xc000000000044380	cmn_err	7	in	documented
 6.5.30/unix.IP27	alp_register	0xc0000000000b2ebc	printf	1	in	documented
 6.5.30/unix.IP27	anon_flip	0xc0000000001b8bac	assfail	1	in	documented
@@ -4620,7 +4620,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP30	acctctl	0xa8000000202111a8	cmn_err	1	in	documented
 6.5.30/unix.IP30	add_cpuboard	0xa8000000200132ac	cmn_err	1	in	documented
 6.5.30/unix.IP30	alenlist_cursor_clone	0xa80000002013e350	assfail	1	in	documented
-6.5.30/unix.IP30	alloc_cpupda	0xa8000000201d22bc	cmn_err	2	in	undocumented
+6.5.30/unix.IP30	alloc_cpupda	0xa8000000201d22bc	cmn_err	2	in	documented
 6.5.30/unix.IP30	allowboot	0xa800000020012a68	cmn_err	8	in	documented
 6.5.30/unix.IP30	alp_register	0xa80000002007b03c	printf	1	in	documented
 6.5.30/unix.IP30	anon_flip	0xa80000002017d62c	assfail	1	in	documented
@@ -5733,7 +5733,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	_xfs_force_shutdown	0xc000000000383dd0	cmn_err	4	in	undocumented
 6.5.30/unix.IP35	acctctl	0xc000000000308150	cmn_err	1	in	documented
 6.5.30/unix.IP35	alenlist_cursor_clone	0xc00000000021c948	assfail	1	in	documented
-6.5.30/unix.IP35	alloc_cpupda	0xc000000000293140	cmn_err	2	in	undocumented
+6.5.30/unix.IP35	alloc_cpupda	0xc000000000293140	cmn_err	2	in	documented
 6.5.30/unix.IP35	allowboot	0xc00000000006603c	cmn_err	5	in	documented
 6.5.30/unix.IP35	alp_register	0xc0000000000f5a64	printf	1	in	documented
 6.5.30/unix.IP35	anon_flip	0xc000000000268564	assfail	1	in	documented
@@ -6667,7 +6667,7 @@ binary	function	address	callee	sites	scope	status
 6.5.30/unix.IP35	raw_usrreq	0xc0000000001ab6cc	panic	1	in	documented
 6.5.30/unix.IP35	rawclose	0xc0000000001a5140	cmn_err	2	in	documented
 6.5.30/unix.IP35	rawopen	0xc0000000001a4f18	cmn_err	2	in	documented
-6.5.30/unix.IP35	read_board_ia	0xc0000000000931ec	printf	1	in	undocumented
+6.5.30/unix.IP35	read_board_ia	0xc0000000000931ec	printf	1	in	documented
 6.5.30/unix.IP35	record_remote_name	0xc0000000000ff8cc	cmn_err	1	in	documented
 6.5.30/unix.IP35	remque_tcb	0xc0000000001d0714	printf	1	in	documented
 6.5.30/unix.IP35	replicate_kernel_text	0xc000000000074d14	cmn_err	1	in	documented
