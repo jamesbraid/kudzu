@@ -10,7 +10,7 @@ Routines were read from the symbol table and disassembly; the `syssgi` selector 
 
 IP27 compared with IP35: for `in_control`, `in_pcbbind`, `in_pcbsetaddrx`, `arprequest`, `sfmatch`, `snoop_match`, `snoop_input2`, `ifa_ifwithaddr`, `ip_ctloutput`, `xfs_swapext`, `xfs_swap_extents`, `xfs_fsoperations`, `xfs_mk_sharedro` and `xfs_clear_sharedro` the instruction text is equal once call targets, branch targets and gp displacements are masked (`in_control` differs in eight instructions, all the gp displacement of the address-count words, and `arprequest` in the gp displacement of one `daddiu`). Nothing below differs on IP27 unless stated. Established.
 
-The user-space tools that drive these interfaces (`ifconfig`, the XVM and XFS administration commands, `xfs_fsr`, `ipfilterd`, `quota` tools) are not in `root/` (`ipfilterd` is on the Overlays 1 disc in `eoe.sw.ipgate`; the XVM tools are in `eoe.sw.xvm`); the only XFS programs held are `6.5.30/usr/sbin/xfs_db` and `6.5.30/usr/sbin/xfs_repair`. Every statement about those commands is therefore unknown or a hint.
+The user-space tools that drive these interfaces (`ifconfig`, the XVM and XFS administration commands, `xfs_fsr`, `ipfilterd`, `quota` tools) are mostly not in `root/` (`ifconfig`, `xfs_fsr` and the `quota` tools are not held). Held since 2026-11-11 and not yet read for their requests: `6.5.30/usr/etc/ipfilterd`, `sbin/xvm`, `sbin/mkfs_xfs` and `usr/sbin/xfs_bmap`, `xfs_freeze`, `xfs_growfs`, `xfs_io`, `xfs_quota`, alongside the older `xfs_db` and `xfs_repair`. Their import lists are read: `xvm` imports `syssgi`, `ioctl`, `fcntl`, `opendir` and `attr_get`; `xfs_io` imports `open`, `fcntl` and `syssgi`; `ipfilterd` imports `ioctl`, `open` and `openlog` and builds the request code `0xc0517a7f` at 0x10005280 (the code `ipfilterioctl` accepts, Established). The statements below about what those commands send remain unknown or hints unless a line says otherwise.
 
 ## Network
 
@@ -118,7 +118,7 @@ The jump table is in `xvm_user.o`'s `.rodata` at 0x1e8; the buffer sizes and han
 
 `xvm_collapse` (`xvm_user.o`, 0xe2c, 156 bytes) and `xvm_delete` (0xec8, 268 bytes) test the element with `xvm_snapshot_check` before acting. Established.
 
-Unknown: the names of the administration commands that issue these requests, their option syntax, and the on-disk label format of a snapshot element. The user-space XVM programs are not held; the published XVM administrator's guide was not consulted in this pass. Settling route: install media for the XVM user package, or the guide by document number.
+Unknown: the names of the administration commands that issue these requests, their option syntax, and the on-disk label format of a snapshot element. The XVM program `sbin/xvm` is now held (it uses `syssgi`, `ioctl`, `fcntl` and `attr_get`) and was not read past its imports; the published XVM administrator's guide was not consulted in this pass. Settling route: read the `syssgi` and `ioctl` calls of `sbin/xvm`, or the guide by document number.
 
 ### What the primitive offers for an image store
 
