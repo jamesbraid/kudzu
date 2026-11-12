@@ -90,7 +90,14 @@ no grade.
   to interrupt table or a PCI interrupt line. Their only interrupt text concerns the RT
   interrupt ports and the NMI switch. The Tezro guide labels its PCI slots by bus and slot
   (bus 1 and bus 2, slots 1 and 2 on each bus, rear labels PCI 1 to PCI 4).
-- The Origin 350 User's Guide (007-4566-001) was located by search but not read.
+- The Origin 350 User's Guide (007-4566-001, 274 pages) was searched on every page's text for
+  "interrupt", "INTA", "IRQ", "IDSEL", "wiring", "jumper" and "PCI slot". It gives no INTA to
+  INTD routing and no slot to interrupt table; its interrupt text is the real-time interrupt
+  ports and the NMI switch (printed pages 45, 61, 69, 110, 111, 119, 123, 126 and 130). Its only
+  slot facts are physical: a compute module has four PCI/PCI-X slots, the lowermost reserved for
+  the IO9 card and the one above it limited to 66 MHz or slower cards; the MPX module has four;
+  the PCI expansion module has six buses (1 to 6) of two slots each, labelled 1 and 2 (printed
+  page 87). The pages were found by text search, not read in full.
 
 ## Captures
 
@@ -104,7 +111,8 @@ dual-function PCI card was found. Unknown.
 - Software expectation of the IP35 kernels: the mapper arithmetic in the routine entries
   above. INTA and INTC use the slot bit, and INTB and INTD use the slot bit XOR 4.
 - Board wiring, meaning which physical pin reaches which bridge bit: unknown. No document or
-  capture read here states it.
+  capture read here states it, and the Origin 350, Origin 300 and Tezro user's guides were all
+  searched without finding it.
 - The XOR-4 rule for pins B and D is the rule the question attributes to the OpenBSD and
   IA64 drivers. Those drivers were not read here. The Linux Origin 350 port's `d - 1` for
   every pin does not match the IRIX kernel for pins B and D.
