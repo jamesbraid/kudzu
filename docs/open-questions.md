@@ -224,3 +224,15 @@ Questions left by [vfs-layering.md](vfs-layering.md). Rows marked missing-input 
 | What a ring's request and fill-mark words mean to the DSP and to each back end, and the sign of the flush arithmetic. | software-now | [hollywood-dsp-driver.md](hollywood-dsp-driver.md) | The framework leaves them to the back ends. | Read the ring service routines in `rad_dd.o` and `a3_dd.o`, whose rings use the same header. |
 | Which held program besides `libaudio` opens the DSP nodes, other than the IP22 NG1 `Xsgi` (same strings) and `audiostate` (none)? | software-now | [hollywood-dsp-driver.md](hollywood-dsp-driver.md) | `libaudio` opens only fixed `hdsp` node names, no `kdsp` name; the hardware choice is made by the driver that owns major 53. | Search the strings of the rest of the 6.5.30 userland once more of it is held. |
 | Whether the kernel-variable record of a node (boot directory offset 0x21d0, text-source NASID at +4) can be read from a live guest with `icrash`, and whether the IP27 `set_ktext_source` and `bootstrap` match the IP35 reading. | software-now | [numa-text-replication.md](numa-text-replication.md) | IP35 `replicate_kernel_text`, `set_ktext_source`, `bootstrap` and `mapped_kernel_setup_tlb` read; `icrash(1M)` manual read. | Disassemble the IP27 routines and compare constants; try `icrash dump` on a booted guest. |
+
+## DM2 and DIVO video software
+
+| Question | Class | Where |
+|---|---|---|
+| The case-by-case ioctl map of `xtdigvid_ioctl` (23,240 bytes, jump table) and its argument structures. | software-now | [dmedia-video-drivers.md](dmedia-video-drivers.md) |
+| The body of `xtdigvid_dma` and the video interrupt service (one 97 KB symbol with three unnamed routines inside). | software-now | [dmedia-video-drivers.md](dmedia-video-drivers.md) |
+| The contents and order of `xthd_fpga_info` in `libdigvid.so`. | software-now | [dmedia-video-drivers.md](dmedia-video-drivers.md) |
+| Whether the DM2 software that shipped on an older Discreet Octane2 media (a different `libdigvid.so` build) uses the same ioctl set and kernel object as release 1.1.3ml. | missing-input (the older kernel object is not held) | [dmedia-video-drivers.md](dmedia-video-drivers.md) |
+| `divo_ioctl.o`, `divo_dma.o`, `divo_intr.o`, the on-board firmware mailbox and `divofw`. | software-now | [dmedia-video-drivers.md](dmedia-video-drivers.md) |
+| How `hinv` turns an `INV_VIDEO` inventory entry into its printed line (the program is not in `root/6.5.30`). | missing-input | [dmedia-video-drivers.md](dmedia-video-drivers.md) |
+

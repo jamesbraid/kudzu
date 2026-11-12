@@ -101,6 +101,7 @@ Every hand-written document under `docs/` and the top-level Markdown files, grou
 ### Userland
 
 - [docs/userland.md](docs/userland.md): IRIX 6.5.30 base user-space programs, one entry each
+- [docs/dmedia-video-drivers.md](docs/dmedia-video-drivers.md): host software for the DMediaPro DM2 (XT-DIGVID) and DIVO video boards: drivers, ML and VL modules, daemons, firmware download
 - [docs/userland-abi-and-loader.md](docs/userland-abi-and-loader.md): Userland ABI and the dynamic loader
 - [docs/userland-libraries-and-isa.md](docs/userland-libraries-and-isa.md): Userland libraries and the instruction-set level
 
