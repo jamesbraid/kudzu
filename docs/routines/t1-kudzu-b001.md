@@ -4,127 +4,102 @@ Role statements for 25 routines of the shipped IP27 kernel `6.5.22/unix.IP27`, t
 
 Addresses such as `0x9200000001000090` are hub register addresses as the code uses them. `table(0xc0000000014d39a8)` is a per-node table pointer that many of these routines read. `0xffffffffffffc420` is a halfword global read by most of them.
 
-### `6.5.22/unix.IP27` at `0xc000000000034e5c`
+- `ni_llp_error_monitor` in `6.5.22/unix.IP27` at 0xc000000000034e5c
+  **Inferred.** Reads the 64-bit hub word at 0x9200000001608008 and tests it against 0x3e00000000 at 0xc000000000034e78. When the result is non-zero the branch goes to 0xc000000000034f08, just before the `cmn_err` call at 0xc000000000034f10 (a0=4, a2 the first hub word, a5=0x9200000001608088, a3 the incoming a3); the facts show 0x9200000001608088 only as that argument, not as a load. When the result is zero it falls into loads and stores at offsets 0, 8, 0x10, 0x18, 0x19 and 0x1a, three branches that compare 0xff against argument registers and skip some of them, and a return at 0xc000000000034ed0. The base register of those loads and stores is not resolved, so the facts do not show that it is the routine's argument or that source and destination are the same block. The meaning of the checked bits and of the block is not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-`ni_llp_error_monitor` reads two 64-bit words from fixed addresses `0x9200000001608008` and `0x9200000001608088`, then copies a 27-byte block at its argument to itself, field by field, using loads and stores at offsets 0 to 0x1a. A bit test on the first hub word at `0xc000000000034e78` decides whether the byte-field work runs. The `cmn_err` call (`0xc0000000001f8090`) at `0xc000000000034f10` is on a separate path whose condition the facts do not fully pin down.
-Grade: inferred.
+- `err_int_unblock_mask` in `6.5.22/unix.IP27` at 0xc0000000000353a8
+  **Inferred.** Loads a halfword (0xc0000000000353a8), the per-node table entry (0xc0000000000353b8) and a byte at table entry +0x520. When argument `a1` is zero the branch at 0xc0000000000353c0 skips one 8-byte store (0xc0000000000353cc); when `a1` is non-zero that store runs. Either way it then loads and stores one 64-bit word each (0xc0000000000353e4 and 0xc0000000000353f0) at base plus an offset that is 0x9200000001000000 read as an unsigned 64-bit value. The base register and the stored values are not resolved. The facts do not show the address of the first store, so they do not support a write to 0x9200000001000400, and the whole write sequence is not skipped when `a1` is zero. The purpose of the unblock is not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-### `6.5.22/unix.IP27` at `0xc0000000000353a8`
+- `handle_io_buserr` in `6.5.22/unix.IP27` at 0xc00000000003649c
+  **Inferred.** Reads a 64-bit field at offset 0x110 of its first argument (`a0`) and halfwords at fixed addresses (0xffffffffffffc420 and 0xffffffffffffc422) before each of three `kl_ioerror_handler` calls (0xc00000000003659c, 0xc00000000003660c, 0xc0000000000366c0). Early on it branches on `s2 == a2` (s2 is 1). It calls `get_matching_spool_addr` (0xc0000000000343c8) at 0xc0000000000364f8 and compares the result against 0, -1, 1 and 2. Depending on that, it calls `kl_ioerror_handler` (0xc000000000037330), `cmn_err_tag` (0xc0000000001f80dc) and `get_nasid` (0xc00000000001d434). One path reads the hub word at 0x9200000001000400 and tests it against 0x100000 or 0x200000, followed by an 8-byte store at 0xc000000000036674 whose address the facts do not give, so a write to 0x9200000001000400 is not shown. The meaning of each result code is not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-`err_int_unblock_mask` reads a halfword at `0xffffffffffffc420` and the per-node table entry, then writes 8 bytes to hub address `0x9200000001000400`. It also read-modify-writes a 64-bit word at an address computed from a byte field of the table entry. The write sequence is skipped when argument `a1` is zero. The register's bit pattern and the purpose of the unblock are not established by these facts.
-Grade: inferred.
+- `handle_uncac_buserr` in `6.5.22/unix.IP27` at 0xc0000000000366e4
+  **Inferred.** Role (from name): handler for uncached bus errors. The routine is 1180 bytes. It calls `get_matching_spool_addr` (0xc0000000000343c8) at 0xc000000000036718 and branches on the result against 0, -1, 1 and 2. On several paths it calls `nasid_to_partid` (0xc0000000003c2928) and `part_id` (0xc0000000003c2910) and compares the `part_id` result with a value the facts leave unresolved or with the `nasid_to_partid` result. It calls `partition_handle_error` (0xc000000000037afc) with codes 0xa, 9, 1, 6 and 5 on different paths. Other paths call `error_check_memory_access` (0xc000000000035e90), `error_check_part_page` (0xc000000000037a7c), `error_check_poisoned_state` (0xc000000000035f7c) and `error_page_discard` (0xc0000000000379e0). One path reads the hub word at 0x9200000001000400 and tests it against 0x100000 or 0x200000. Many paths log through `cmn_err_tag`. The comparisons' meaning is not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-### `6.5.22/unix.IP27` at `0xc00000000003649c`
+- `handle_cac_buserr` in `6.5.22/unix.IP27` at 0xc000000000036b80
+  **Inferred.** Role (from name): handler for cached-access bus errors. The routine is 1656 bytes. It calls `get_matching_spool_addr` and branches on the result against -1, 0, 1 and 2, then calls `nasid_to_partid`, `part_id`, `error_check_memory_access`, `error_check_part_page`, `error_check_poisoned_state`, `error_page_discard` and `partition_handle_error` on different paths, as `handle_uncac_buserr` does. It also calls `log_md_errors` (0xc0000000000332d4), `nasid_to_region` (0xc00000000002734c), `error_lookup_inst_type` (0xc000000000035dc0), `memory_iscalias` (0xc00000000002adf4), `klerror_check_recoverable` (0xc0000000000354cc), `verify_snchip_rev` (0xc00000000001d490), whose result it compares with 5 (signed, at 0xc000000000037050), and `get_dir_ent` (0xc00000000002acec). One path reaches `kl_panic` (0xc0000000000374f4) at 0xc000000000036c64 and another path reaches `dump_crb` (0xc0000000000371f8). The conditions that select those paths are not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-`handle_io_buserr` reads error-record fields at offset 0x110 of its argument, plus halfwords at fixed addresses. It calls `get_matching_spool_addr` (`0xc0000000000343c8`) and branches on the result against 0, -1, 1 and 2. Depending on the branch it calls `kl_ioerror_handler` (`0xc000000000037330`), `cmn_err_tag` (`0xc0000000001f80dc`) and `get_nasid` (`0xc00000000001d434`). One path writes `0x9200000001000400` after testing bits `0x100000` and `0x200000`. The meaning of each result code is inferred from callee names only.
-Grade: inferred.
+- `intpend0` in `6.5.22/unix.IP27` at 0xc000000000038da8
+  **Inferred.** Role (from name): interrupt-pending dispatcher. It reads the hub word at 0x9200000001000098 and tests it against a 64-bit mask loaded from 0xffffffffffffc598 (the other fixed word it loads is 0xffffffffffffc508). It finds a bit with `ms1bit` (0xc000000000037bd8) and indexes a table (base at 0xffffffffffffc5a8) by that result times 72. It calls `cvsema` (0xc00000000018a930) on a field at table entry +32, then branches on `s1` (0xc000000000038e08), which the facts do not tie to the `cvsema` result, to skip the handler work. Otherwise it calls a handler whose address the facts leave unresolved with the table entry's +16 word as its first argument, then calls `valusema` (0xc00000000018aeb8). `vsema` (0xc00000000018ac88) is called only when the `valusema` result is below the word at 0xc0000000014c9bfc; otherwise the loop branches back to `cvsema`. A second handler call at 0xc000000000038ef8 is reached when bit 0x1000 of the table entry's +0x18 word is clear. The routine returns either the 0x9200000001000098 word or an unresolved value. The handlers' identity is not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-### `6.5.22/unix.IP27` at `0xc0000000000366e4`
+- `intpend1` in `6.5.22/unix.IP27` at 0xc000000000038f08
+  **Inferred.** Role (from name): second pending-interrupt dispatcher. It loads the hub word at 0x92000000010000a0 and tests it against a mask loaded from 0xffffffffffffc5a0. It calls `ms1bit` (0xc000000000037bd8), indexes a table (base at 0xffffffffffffc5b0) by the result times 72 and, when the entry's first word is non-zero, calls a handler whose address the facts leave unresolved with the entry's +16 word as its first argument. A 64-bit store at 0xc000000000038f60 has no address in the facts, so a write to 0x9200000001000090 is not shown, and the facts do not show reads of 0x9200000001000090 or 0x9200000001000098. When the entry's first word is zero the branch at 0xc000000000038f80 goes to 0xc000000000038fd8. A `cmn_err` call (0xc0000000001f8090) at 0xc000000000038fe4 passes the `ms1bit` result as its third argument; whether it follows that branch is not shown. The handlers' identity is not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-`handle_uncac_buserr` is a 1180-byte dispatcher for uncached bus errors. It calls `get_matching_spool_addr`, `nasid_to_partid` (`0xc0000000003c2928`) and `part_id` (`0xc0000000003c2910`), and compares their results against values from the caller and the table. It then calls `partition_handle_error` (`0xc000000000037afc`) with several codes, and on a page-state path calls `error_check_memory_access` (`0xc000000000035e90`), `error_check_part_page` (`0xc000000000037a7c`), `error_check_poisoned_state` (`0xc000000000035f7c`) and `error_page_discard` (`0xc0000000000379e0`). Many paths log through `cmn_err_tag`. The partition ownership rules behind the comparisons are not established.
-Grade: inferred.
+- `sendintr` in `6.5.22/unix.IP27` at 0xc00000000003935c
+  **Inferred.** A 72-byte routine. It loads the per-node table entry, a halfword at its +0x424 and a byte at its +0x520. A branch at 0xc000000000039378 goes to 0xc00000000003939c when argument `a1` equals 0xab. The return of 0 at 0xc000000000039394 is followed by an 8-byte store at 0xc000000000039398, at base plus an offset that is 0x9200000001800090 read as an unsigned 64-bit value; the facts do not show how the base is built from the halfword at +1060, what the store writes, or what the 0xab path does after 0xc00000000003939c. The meaning of 0xab is not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-### `6.5.22/unix.IP27` at `0xc000000000036b80`
+- `cpuintr` in `6.5.22/unix.IP27` at 0xc0000000000393a4
+  **Inferred.** Role (from name): per-CPU interrupt entry. The routine is 276 bytes. It tests bit 0x20 of the word at 0xffffffffffffc280, loads the table entry and a halfword, and stores 8 bytes at 0xc0000000000393e4. When the byte at 0xffffffffffffc080 and the word at 0xc0000000014c901c are both non-zero it calls `bcopy` (0xc000000000020178) with a length of 0x168 (call at 0xc000000000039448). It then calls `doacvec` (0xc0000000001e1a50) and `doactions` (0xc0000000001e1794) and tests bit 0x20 again. Depending on that bit it calls `log_tstamp_event` (0xc0000000002383b0) with 0x71 (0xc00000000003948c) or with 0x65 (0xc0000000000394a8, second argument 0x71). The copied block and the event meanings are not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-`handle_cac_buserr` is the cached-access counterpart of `handle_uncac_buserr`, at 1656 bytes. It reuses the same kind of checks (`error_check_part_page`, `partition_handle_error`, `error_page_discard`) and adds `klerror_check_recoverable` (`0xc0000000000354cc`), `memory_iscalias` (`0xc00000000002adf4`) and `verify_snchip_rev` (`0xc00000000001d490`), which it compares against 5. One path reaches `kl_panic` (`0xc0000000000374f4`) and another reaches `dump_crb` (`0xc0000000000371f8`). The range at `0xc000000000037004` is not reached from the entry in the rendered facts, so it is not analysed.
-Grade: inferred.
+- `dbgintr` in `6.5.22/unix.IP27` at 0xc000000000039518
+  **Inferred.** Loads a halfword and the per-node table entry, and a byte at +0x520. It makes an 8-byte store at 0xc000000000039548 whose address the facts do not give, and a 64-bit load at 0xc000000000039554 after the call. It calls `debug` (0xc00000000004b33c) with a0 the constant 0xc00000000140b8e8 (not a per-node pointer), a1 the byte at table entry +1312 plus 118, a2 the constant 0x9200000001000090 and a3 the incoming a3, and returns the `debug` result. The facts do not show a read of 0x9200000001000098 or a store to 0x9200000001000090. The debugger's contract is not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-### `6.5.22/unix.IP27` at `0xc000000000038da8`
+- `chkdebug` in `6.5.22/unix.IP27` at 0xc000000000039810
+  **Inferred.** Loads a halfword, the per-node table entry and a byte at +0x520, as `dbgintr` does, and reads the hub word at 0x92000000010000a0. It tests that word against a register value the facts leave unresolved at 0xc000000000039844. When the test is zero it skips the `dbgintr` call (0xc00000000003984c) and returns an unresolved value; otherwise it calls `dbgintr` (0xc000000000039518) with a0 zero and its own incoming a1, a2 and a3, and returns the `dbgintr` result. The meaning of the tested bit is not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-`intpend0` reads pending-interrupt words from the hub region around `0x9200000001000090` and `0x9200000001000098`, plus fixed addresses `0xffffffffffffc598` and `0xffffffffffffc508`. It finds the most significant set bit with `ms1bit` (`0xc000000000037bd8`) and indexes a table by it. The loop takes a semaphore with `cvsema` (`0xc00000000018a930`), calls a handler through a function pointer at offset 16 of the table entry, then releases with `valusema` (`0xc00000000018aeb8`) and `vsema` (`0xc00000000018ac88`). The handler identities are not known from the facts.
-Grade: inferred.
+- `debug_stop_all_cpus` in `6.5.22/unix.IP27` at 0xc000000000039934
+  **Inferred.** Role (from name): stop all CPUs for the debugger. It loops while an index is below the word at 0xc0000000014d13a0 (the branch at 0xc000000000039950 skips the loop when that word is not positive). Each pass calls `get_cpu_slice` (0xc00000000001e0ec); a branch at 0xc0000000000399a4 compares the halfword at 0xffffffffffffc420 with the loop index and jumps to 0xc000000000039990 when they are equal, and `cpu_enabled` (0xc000000000026f74) is called on other paths, a zero result jumping to 0xc00000000003998c. It makes an 8-byte store at 0xc000000000039988 whose address the facts do not give, so they do not show a write to 0x9200000001800090. The facts do not say what the store is.
+  Reviewed: 2026-11-12 (sonnet)
 
-### `6.5.22/unix.IP27` at `0xc000000000038f08`
+- `intr_clear_bits` in `6.5.22/unix.IP27` at 0xc000000000039b44
+  **Inferred.** Loads the 64-bit word at its second argument (`a1`) and branches on whether it is zero (0xc000000000039b5c). It loops, with bit tests of that word against masks the facts leave unresolved (0xc000000000039b78 and 0xc000000000039b9c), and makes 8-byte loads and stores (stores at 0xc000000000039b80 and 0xc000000000039ba4) whose addresses are not given, so reads of 0x9200000001000098 and writes of 0x9200000001000090 are not shown. The register roles and the layout of the masks are not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-`intpend1` is the second pending-interrupt word and has the same shape as `intpend0`. It reads hub addresses `0x9200000001000090`, `0x9200000001000098` and `0x92000000010000a0`, writes `0x9200000001000090` inside its loop, and takes the most significant set bit through `ms1bit`. It calls an indirect handler through the same table layout. One exit path logs through `cmn_err` (`0xc0000000001f8090`), and the condition for that path is not clear from the facts.
-Grade: inferred.
+- `get_my_slotid` in `6.5.22/unix.IP27` at 0xc00000000003ca64
+  **Inferred.** Loads a 64-bit word at 0xc00000000003ca68. The facts do not give its address, so the entry's earlier address 0x9200000001220048 is unsupported; a0 of the call below is not resolved in the facts. It calls `hub_slotbits_to_slot` (0xc00000000003c7ec) with a0 unresolved and a1, a2, a3 as its incoming arguments, and returns that call's value (0xc00000000003ca80). The load's target and the meaning of the slot bits are not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-### `6.5.22/unix.IP27` at `0xc00000000003935c`
+- `llp_pfail_intr` in `6.5.22/unix.IP27` at 0xc00000000003dea4
+  **Inferred.** Role (from name): link-layer power-fail interrupt. The routine is 792 bytes. It calls `msc_owner_cpu` (0xc00000000003dbd0) in a loop and `llp_pfail_barrier` (0xc00000000003dc78). It calls `vector_read` (0xc00000000001cfe4) and `vector_write` (0xc00000000001d02c) several times, with a2 values 0x600110, 0x30 and 0x8, a0 0 or 6 and a3 0xe on some writes, and calls `us_delay` (0xc000000000047274) with 100 (0x64) and 300 (0x12c). A loop reads the hub word at 0x9200000001608088 and tests bit 0x2000000000 repeatedly. Two 8-byte stores at 0xc00000000003e088 and 0xc00000000003e098 have no address in the facts; the facts do not show reads or writes of 0x9200000001600008. The vector targets, the reason for the waits and the loop bounds are not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-`sendintr` is a 72-byte helper. It reads the per-node table entry, a halfword at its +0x424 and a flag byte at its +0x520, then stores 8 bytes through a pointer computed from a halfword at +1060. The store is skipped when argument `a1` equals 0xab, and the routine returns 0. What 0xab selects and what gets stored are not established.
-Grade: inferred.
+- `force_system_shutdown` in `6.5.22/unix.IP27` at 0xc00000000003f6d8
+  **Inferred.** Calls `cmn_err` (0xc0000000001f8090, a0=4), then `us_delay` (0xc000000000047274) with 500000 (0x7a120) and `elsc_system_reset` (0xc00000000009b718) with a0=0xc0000000014dc6f8. If the result is not negative it returns at 0xc00000000003f70c. If it is negative it calls `printf` (0xc0000000001f8f2c), then `us_delay` with 1000000 (0xf4240), and ends with an 8-byte store at 0xc00000000003f738 whose address the facts do not give. The store comes last, not first, and a write to 0x9200000001600008 is not shown. The controller behind the reset and the success condition are not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-### `6.5.22/unix.IP27` at `0xc0000000000393a4`
+- `bootstrap` in `6.5.22/unix.IP27` at 0xc000000000042ed8
+  **Inferred.** Loads a 64-bit word and two halfwords (0xc000000000042f04 to 0xc000000000042f28), whose addresses the facts do not give. It calls `mapped_kernel_setup_tlb` (0xc000000000042fa8) with a0 and a1 unresolved and its incoming a2 and a3, then makes a tail jump at 0xc000000000042f4c to `bootstrap+124` (0xc000000000042f54). The facts do not follow that jump, so the code at `bootstrap+124` is not covered here.
+  Reviewed: 2026-11-12 (sonnet)
 
-`cpuintr` is the per-CPU interrupt entry, at 276 bytes. It copies 0x168 bytes with `bcopy` (`0xc000000000020178`), then runs `doacvec` (`0xc0000000001e1a50`) and `doactions` (`0xc0000000001e1794`). It logs timestamp events through `log_tstamp_event` (`0xc0000000002383b0`) with codes 0x71 and 0x65 on its paths. The copied block and the event meanings are not established.
-Grade: inferred.
+- `counter_intr` in `6.5.22/unix.IP27` at 0xc000000000044f44
+  **Inferred.** Role (from name): counter interrupt. The routine is 676 bytes. It first loads the 64-bit word at 0xffffffffffffc280 and tests bit 0x20 (the facts do not show the load as the counter at 0x9200000001030100). It calls `frs_handle_counter_intr` (0xc0000000003c4010), `hwperf_overflowed_intr` (0xc0000000000574ac), `l2_sbe_intr` (0xc000000000054d30) and `hwperf_intr` (0xc0000000000580f8) on separate paths, `resetcounter` (0xc000000000052c54, a0 the word at 0xffffffffffffc564) at two sites, `_get_count` (0xc000000000052c30), `_get_compare` (0xc000000000052c3c), `clock` (0xc0000000001b3594), `log_tstamp_event` (0xc0000000002383b0) with 0x6c and with 0x65, and `cmn_err` (0xc0000000001f8090). The names suggest the CPU count and compare timer, but the facts do not establish it.
+  Reviewed: 2026-11-12 (sonnet)
 
-### `6.5.22/unix.IP27` at `0xc000000000039518`
+- `doadjtime` in `6.5.22/unix.IP27` at 0xc000000000046790
+  **Inferred.** Role (from name): time-of-day adjustment. It branches on its argument `a0` against zero (0xc0000000000467ac and 0xc0000000000467b8). Two call sequences (from 0xc0000000000467d4 and from 0xc0000000000468f0) each call `spl65` (0xc00000000003b094), `__nanotime` (0xc00000000004697c, at 0xc0000000000467dc and at 0xc0000000000468f8) and `nested_spinlock` (0xc000000000287280) on the lock at 0xc0000000014d143c, and release with `mutex_spinunlock` (0xc000000000287260) whose second argument is the `spl65` result. `__nanotime` is called at two sites on different paths, not shown to run twice in one call. A loop compares a value with 1,000,000 (0xf4240); 1,000 (0x3e8) appears only as a register value at the last unlock call, not as a compare. The update rule is not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-`dbgintr` reads the halfword at `0xffffffffffffc420` and the table entry, stores 8 bytes to `0x9200000001000090` and reads `0x9200000001000098`. It then calls `debug` (`0xc00000000004b33c`) with a per-node pointer, a value taken from the table entry at +1312 with offset 118, and the hub address `0x9200000001000090`. It returns what `debug` returns. The debugger's contract is not established by these facts.
-Grade: inferred.
+- `__nanotime` in `6.5.22/unix.IP27` at 0xc00000000004697c
+  **Inferred.** Takes the lock at 0xc0000000014d143c through `mutex_spinlock_spl` (0xc0000000002871c0), passing the address of `spl65` (0xc00000000003b094) as its second argument. It reads the 64-bit word at 0x9200000001030100 and compares it with the sum of the words at 0xc0000000014d1460 and 0xc0000000014d1468, and tests the words at 0xc0000000014d1450 and 0xc0000000014d1458 against zero. It compares values against 1,000,000,000 (0x3b9aca00) at 0xc000000000046aa0, 0xc000000000046ae0 and 0xc000000000046af0. It makes 8-byte and 4-byte stores (0xc000000000046b00, 0xc000000000046b0c, 0xc000000000046b90, 0xc000000000046b94) whose addresses the facts do not give, so they do not support stores to 0xc0000000014dce90 or 0xc0000000014dce98. It unlocks with `mutex_spinunlock` (0xc000000000287260) on both exit paths. The meaning of the words and the counter scale are not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-### `6.5.22/unix.IP27` at `0xc000000000039810`
+- `findcpufreq_cycles` in `6.5.22/unix.IP27` at 0xc00000000004710c
+  **Inferred.** Role (from name): CPU frequency measurement. It first loads the word at 0xffffffffffffc744 and returns it (0xc00000000004711c) when it is non-zero. Otherwise it calls `spl1` (0xc00000000003affc) with its incoming arguments, `_set_count` (0xc000000000052c48, a0=0), and loops comparing the 64-bit word at 0x9200000001030100 with its first value plus 0x1312d0 (1,250,000) until it is reached. It then calls `_get_count` (0xc000000000052c30), `cpu_cycles_adjust` (0xc00000000001e5b8) with the count as a0, makes a 4-byte store at 0xc0000000000471c8 whose address the facts do not give, and calls `splx` (0xc00000000003b0e4) with the `spl1` result. The unit of the window and the meaning of the stored value are not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-`chkdebug` reads the same halfword and table entry as `dbgintr`, and reads the hub word at `0x92000000010000a0`. It calls `dbgintr` (`0xc000000000039518`) with its own incoming arguments. A bit test of that hub word against the value `dbgintr` returns chooses the value `chkdebug` returns. The meaning of that bit is not established.
-Grade: inferred.
+- `acktmoclock` in `6.5.22/unix.IP27` at 0xc000000000047bc0
+  **Inferred.** Role (from name): acknowledge the timeout clock. It loads a halfword at 0xffffffffffffc420, the per-node table entry and a byte at +0x520, then branches at 0xc000000000047bdc on the byte at table entry +1312. Two 8-byte stores appear, at 0xc000000000047be4 (before the first return) and 0xc000000000047bf4 (after the second return), and both returns give the halfword shifted left by 4. The flag byte selects between the returns. The facts do not give the stores' addresses, so they do not show writes to 0x9200000001000128 or 0x9200000001000120, and do not show that one of them always runs. The register meanings are not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-### `6.5.22/unix.IP27` at `0xc000000000039934`
+- `ackkgclock` in `6.5.22/unix.IP27` at 0xc000000000047bf8
+  **Inferred.** Role (from name): acknowledge the kg clock. It has the same layout as `acktmoclock`: a halfword at 0xffffffffffffc420, the table entry and a byte at +0x520, a branch at 0xc000000000047c14 on the byte at table entry +1312, two 8-byte stores (0xc000000000047c1c before the first return and 0xc000000000047c2c after the second), and two returns that give the halfword shifted left by 4. The stores' addresses are not in the facts, so writes to 0x9200000001000138 and 0x9200000001000130 are not shown, nor that one of them always runs. The register meanings are not established.
+  Reviewed: 2026-11-12 (sonnet)
 
-`debug_stop_all_cpus` loops over CPUs. Each pass calls `get_cpu_slice` (`0xc00000000001e0ec`) and `cpu_enabled` (`0xc000000000026f74`), skips the CPU whose index matches the halfword at `0xffffffffffffc420`, and writes a word to hub address `0x9200000001800090`. The loop bound is read from `0xc0000000014d13a0`. The store is probably a per-CPU interrupt or stop register, but the facts do not identify it.
-Grade: inferred.
+- `startkgclock` in `6.5.22/unix.IP27` at 0xc000000000047c30
+  **Inferred.** Role (from name): start the kg clock. It takes the lock at 0xc0000000014d14a0 with `mutex_spinlock_spl` (0xc0000000002871c0) and releases it with `mutex_spinunlock` (0xc000000000287260) at three sites. When the word at 0xc0000000014c9078 is zero it calls `setkgvector` (0xc000000000039294) with a0=0xc0000000000489d0. Otherwise, unless the word at 0xffffffffffffc534 equals 0x4e2 (which jumps to 0xc000000000047d34), it reads a flag byte at table entry +1312, calls `cnodetocpu` (0xc000000000026d14, a0 the halfword at 0xffffffffffffc422, a1=1) unless the 4-byte word at base +0x4930 equals 1, and loads and stores a 4-byte word at base +0x4930 and an 8-byte word at base +0x4928, where base is the word at 0xffffffffffffc400. The facts do not give the addresses of the other stores, so writes to 0x9200000001000158, 0x9200000001000118 and 0x9200000001000150 are not shown (0x9200000001000158 appears only as an argument register at the `cnodetocpu` call). The handler behind 0xc0000000000489d0 is not identified.
+  Reviewed: 2026-11-12 (sonnet)
 
-### `6.5.22/unix.IP27` at `0xc000000000039b44`
-
-`intr_clear_bits` reads the first 64-bit word of its pointer argument and loops over a pair of masks, reading `0x9200000001000098` and writing `0x9200000001000090` in the loop. Bit tests on the argument's words select which steps run. The register roles and the layout of the mask pair are inferred from the access pattern only.
-Grade: inferred.
-
-### `6.5.22/unix.IP27` at `0xc00000000003ca64`
-
-`get_my_slotid` reads the 64-bit word at hub address `0x9200000001220048` and calls `hub_slotbits_to_slot` (`0xc00000000003c7ec`) with its incoming arguments. It returns that call's value directly. The identity of the register at `0x9200000001220048` is not established.
-Grade: inferred.
-
-### `6.5.22/unix.IP27` at `0xc00000000003dea4`
-
-`llp_pfail_intr` is a 792-byte power-fail handler. The name points to the link layer (LLP), and the routine calls `msc_owner_cpu` (`0xc00000000003dbd0`) and `llp_pfail_barrier` (`0xc00000000003dc78`). It also calls `vector_read` (`0xc00000000001cfe4`) and `vector_write` (`0xc00000000001d02c`) several times, with fixed waits through `us_delay` (`0xc000000000047274`) of 100 and 300 microseconds. It reads and writes the hub words at `0x9200000001600110` and `0x9200000001600008`, and its loop bound is not identified. The target of the vector transactions and the reason for each wait are not established.
-Grade: inferred.
-
-### `6.5.22/unix.IP27` at `0xc00000000003f6d8`
-
-`force_system_shutdown` writes `0x9200000001600008`, prints a message through `cmn_err` (`0xc0000000001f8090`), waits 500000 microseconds with `us_delay`, and calls `elsc_system_reset` (`0xc00000000009b718`). The sign of that return value feeds a branch before a `printf` (`0xc0000000001f8f2c`) and a one-second `us_delay`. The controller behind the reset and the success condition are not established.
-Grade: inferred.
-
-### `6.5.22/unix.IP27` at `0xc000000000042ed8`
-
-`bootstrap` reads a 64-bit word at fixed address `0x9200000001600000` and two halfwords, then calls `mapped_kernel_setup_tlb` (`0xc000000000042fa8`) with its incoming arguments. It ends in an indirect jump (`jr` at `0xc000000000042f4c`) to the constant address `bootstrap+124`. The facts do not follow that jump, so the code at `bootstrap+124` is not covered here.
-Grade: inferred.
-
-### `6.5.22/unix.IP27` at `0xc000000000044f44`
-
-`counter_intr` is a 676-byte timer interrupt. It reads a 64-bit counter at `0x9200000001030100`, then reads and resets the count and compare through `_get_count` (`0xc000000000052c30`), `_get_compare` (`0xc000000000052c3c`) and `resetcounter` (`0xc000000000052c54`). It calls `frs_handle_counter_intr` (`0xc0000000003c4010`), `hwperf_overflowed_intr` (`0xc0000000000574ac`), `hwperf_intr` (`0xc0000000000580f8`) and `l2_sbe_intr` (`0xc000000000054d30`) on separate paths, and calls `clock` (`0xc0000000001b3594`). The name and accessors suggest the CPU count/compare timer, but the facts do not establish it.
-Grade: inferred.
-
-### `6.5.22/unix.IP27` at `0xc000000000046790`
-
-`doadjtime` applies a time-of-day adjustment under the spinlock at `0xc0000000014d143c`. It takes the lock with `nested_spinlock` (`0xc000000000287280`) and releases it with `mutex_spinunlock` (`0xc000000000287260`), raising and restoring the priority level with `spl65` (`0xc00000000003b094`). It reads `__nanotime` (`0xc00000000004697c`) twice, and its loop compares against 1,000,000 and 1,000, which suggests microsecond and millisecond step bounds. The exact update rule is not established by these facts.
-Grade: inferred.
-
-### `6.5.22/unix.IP27` at `0xc00000000004697c`
-
-`__nanotime` takes the lock at `0xc0000000014d143c` through `mutex_spinlock_spl` (`0xc0000000002871c0`) with `spl65`, reads the 64-bit counter at `0x9200000001030100`, and updates two cached words at `0xc0000000014dce90` and `0xc0000000014dce98`. It carries the count into seconds and nanoseconds, comparing against 1,000,000,000 (0x3b9aca00), and unlocks with `mutex_spinunlock`. The conversion constants come from the comparisons, not from a documented counter scale.
-Grade: inferred.
-
-### `6.5.22/unix.IP27` at `0xc00000000004710c`
-
-`findcpufreq_cycles` measures the CPU cycle rate. It raises the priority with `spl1` (`0xc00000000003affc`), clears the count with `_set_count` (`0xc000000000052c48`), and polls the counter at `0x9200000001030100` until it passes its starting value plus 0x1312d0 (1,250,000) ticks. It then reads the count with `_get_count` (`0xc000000000052c30`), passes the result to `cpu_cycles_adjust` (`0xc00000000001e5b8`), restores the level with `splx` (`0xc00000000003b0e4`), and stores 4 bytes at `0xffffffffffffc744`. The unit of the window and the meaning of the stored value are not established.
-Grade: inferred.
-
-### `6.5.22/unix.IP27` at `0xc000000000047bc0`
-
-`acktmoclock` acknowledges the timeout clock. It always writes hub address `0x9200000001000128`, and writes `0x9200000001000120` only when a flag byte at table entry +1312 is nonzero. It returns the halfword at `0xffffffffffffc420` shifted left by 4. The register meanings are inferred from the store pattern.
-Grade: inferred.
-
-### `6.5.22/unix.IP27` at `0xc000000000047bf8`
-
-`ackkgclock` has the same shape as `acktmoclock`, on hub addresses `0x9200000001000138` and `0x9200000001000130`. It always writes `0x9200000001000138`, writes `0x9200000001000130` only when the flag byte at table entry +1312 is nonzero, and returns the `0xffffffffffffc420` halfword shifted left by 4. The register meanings are inferred from the store pattern.
-Grade: inferred.
-
-### `6.5.22/unix.IP27` at `0xc000000000047c30`
-
-`startkgclock` starts the kg clock under the spinlock at `0xc0000000014d14a0`, taken with `mutex_spinlock_spl` and released with `mutex_spinunlock`. It calls `cnodetocpu` (`0xc000000000026d14`) with the halfword at `0xffffffffffffc422` and a constant 1, and calls `setkgvector` (`0xc000000000039294`) with the function address `0xc0000000000489d0` as its argument. It writes hub addresses `0x9200000001000158`, `0x9200000001000118` and `0x9200000001000150`, and two structure words at `[-0x3c00]+0x4930` and `[-0x3c00]+0x4928`. The handler behind `0xc0000000000489d0` is not identified.
-Grade: inferred.
-
-### `6.5.22/unix.IP27` at `0xc000000000047d48`
-
-`slowkgclock` shares the lock at `0xc0000000014d14a0` and the `ackkgclock` call with `startkgclock`, but it has no `cnodetocpu` call. It calls `spinlock_init` (`0xc000000000286fe8`) on that lock with `0xc00000000140e418` as the second argument, and a branch on a flag word at `0xc0000000014c9080` decides whether that call runs. It writes hub addresses `0x9200000001000158` and `0x9200000001000150`, and 32-bit words at `0xffffffffffffc534` and `[-0x3c00]+0x4930`. Which path runs in normal operation is not established.
-Grade: inferred.
+- `slowkgclock` in `6.5.22/unix.IP27` at 0xc000000000047d48
+  **Inferred.** Role (from name): slow the kg clock. It branches on the word at 0xc0000000014c9080. When it is zero the branch goes to 0xc000000000047e08, which calls `spinlock_init` (0xc000000000286fe8) on the lock at 0xc0000000014d14a0 with a1=0xc00000000140e418 and the incoming a2 and a3. When it is non-zero it takes that lock with `mutex_spinlock_spl` (0xc0000000002871c0), releases it with `mutex_spinunlock` (0xc000000000287260) at two sites, and on one path calls `ackkgclock` (0xc000000000047bf8); `startkgclock` does not call `ackkgclock`, and `slowkgclock` has no `cnodetocpu` call. It makes 8-byte and 4-byte stores whose addresses the facts do not give (0xc000000000047db4, 0xc000000000047de8, 0xc000000000047e04) and a 4-byte load and store at base +0x4930; 0x9200000001000158 and 0x9200000001000150 appear only as argument registers at unlock calls. Which path runs in normal operation is not established.
+  Reviewed: 2026-11-12 (sonnet)
