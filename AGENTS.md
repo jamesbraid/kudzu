@@ -30,6 +30,7 @@ Rules for what is written down:
 - `root/` is gitignored. It mirrors the install of each release under `root/<release>/` (for example `root/6.5.30/usr/cpu/sysgen/IP27boot/kernel.o`) and holds the linked kernels as `root/<release>/unix.IPnn`. [IRIX_FILES.md](IRIX_FILES.md) lists the paths and which media each came from.
 - `docs/` holds the findings (`docs/<area>.md`), [docs/coverage.md](docs/coverage.md) (the map and the measured totals), [docs/open-questions.md](docs/open-questions.md) and the generated [docs/inventory/](docs/inventory/README.md).
 - `include/` and per-area directories hold C headers that describe structure layouts and constants, each field commented with its grade and derivation.
+- `defs/` holds the hardware facts for the disk, hub and board structures (the volume header, the EFS, XFS, XLV and XVM labels, the KLCONFIG records and the hub, PCI bridge, NIC, gigabit Ethernet and SCSI constants) as TOML sources, one file per unit. Each item carries a grade and a source. `gen/` is generated from `defs/` and is never edited by hand: `gen/c`, `gen/rust`, `gen/py`, `gen/json` and `gen/genxml` are the machine outputs, and `gen/docs/` holds the reference pages. The `*_DECODE.h` headers at the root are forwarding headers that `defs-gen` writes, so existing includes keep building. To change a fact, edit the TOML, run `retools/tools/defs/defs-gen`, and commit both.
 - `scripts/` holds this repository's own generators and data (`errno_table.py`, `gen-hw-windows.py`, `scope.json`, `inventory-config.json` and the like). The shared tooling is the `retools/` submodule (sgi-retools): `retools/tools/` has the inventory, fact sheet, container definitions and wrappers, and `retools/tools/kudzu/` has the tables specific to this repository (`os_tables.py`, `gen-scope.py`, `panic_sites.py`, `struct_fields.py`). Run them from the repository root; they find this repository from the current directory. `tools/` keeps only this repository's `check-os-tables` and `setup-clone.sh`.
 - Public sources are pinned submodules ([docs/published-sources.md](docs/published-sources.md) says why each pin).
 
@@ -47,6 +48,7 @@ Tables (all generated; never edit them by hand):
 
 - The copy check in `tools/README.md`: a fingerprint comparison of the C in this repository and an identifier comparison of the prose against a stored index of a reference tree. It never prints reference source. Read every lead; a lead is judged by opening the pair, not by the score.
 - `retools/tools/kudzu/gen-scope.py --check` and `scripts/gen-hw-windows.py --check`.
+- `retools/tools/defs/ci-check`, the same check CI runs. After a change under `defs/`, `retools/tools/defs/defs-gen --check` must pass and `retools/tools/defs/defs-check --build` must print `build: ok`.
 
 ## 6. When work is finished
 
