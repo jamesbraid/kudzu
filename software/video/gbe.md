@@ -7,7 +7,7 @@ Grades follow [klconfig.md](../../formats/klconfig/README.md): "Established" mea
 ## Sources and what was checked
 
 - All routines are in the IP32 boot set of IRIX 6.5.30: `usr/cpu/sysgen/IP32boot/crime.a`, members `crime.o` (the start-up caller), `crime_init.o` (the timing routine) and `crime_i2c.o` (the two-wire and option routines).
-- The entry offsets and sizes in the table below come from the 6.5.30 function inventory ([evidence/inventory/functions.tsv](../../evidence/inventory/functions.tsv)). The statements in this page were taken from a routine-by-routine reading of these objects. The bytes were not re-read for this page, and the routines were matched to the table by role, so the offsets should be checked before anyone relies on them.
+- The entry offsets and sizes in the table below come from the 6.5.30 function inventory ([evidence/inventory/functions.tsv](../../evidence/inventory/functions.tsv)). The statements in this page were taken from a routine-by-routine reading of these objects. A later verification pass re-read the routines in the 6.5.30 `crime.a` members and compared them with the GBE 1.1 specification (PDF page numbers below). Every entry offset and size in the table matches the symbol table of the shipped object. The statements marked "checked" below were confirmed against the instructions at the addresses given. The statements about the X server display module were not reachable in that pass and are unchanged.
 - The 6.5.22 readings in [instruction-readings-kudzu-g1.md](../../evidence/instruction-readings-kudzu-g1.md) list the same entry offsets and the same register stores, which is a second check that the routines match.
 
 | Role | Routine (6.5.30 object) | Entry | Bytes |
@@ -22,9 +22,9 @@ Grades follow [klconfig.md](../../formats/klconfig/README.md): "Established" mea
 
 ## Two-wire buses
 
-Established: the bit-banged bus routines take a bus selector. Selector 1 drives the GBE register at offset `0x10`, the flat-panel two-wire bus. Every other selector drives the register at offset `0x08`, the monitor bus.
+Established: the bit-banged bus routines take a bus selector. Selector 1 drives the GBE register at offset `0x10`, the flat-panel two-wire bus. Every other selector drives the register at offset `0x08`, the monitor bus. The GBE 1.1 specification names them `I2CFP` at `0x10` and `I2C` (the CRT bus) at `0x08` (PDF page 34). Checked: `i2_start` (`crime_i2c.o`, `0x1aa4`) branches to the `0x10` register when its selector is 1 and uses `0x08` otherwise.
 
-Established: a start condition writes 0 to the bus register, then polls bit 1 of that register until it reads clear. The poll makes at most 60 delays. It then writes 1 and 3, with a delay after each write. The register's other bits are not described here.
+Established: a start condition writes 0 to the bus register, then polls bit 1 of that register until it reads clear. The poll makes at most 60 delays (checked: `i2_sync_clk`, `0x1da0`, tests bit 1 and gives up after 60 one-microsecond delays). It then writes 1 and 3, with a delay after each write. The register's other bits are not described here.
 
 Established: a byte read is a start with the address ORed with 1, one byte received, then a stop. A byte write is a start with the address, one byte sent, then a stop. Each helper returns 1 on success and 0 when the start or the byte transfer fails. It issues the stop either way.
 
@@ -32,7 +32,7 @@ Established: a byte read is a start with the address ORed with 1, one byte recei
 
 Inferred: the option is a second output channel for flat-panel and dual-head configurations. The kernel talks to it through an 8-bit port on the flat-panel bus. The write address is `0x7e`, the read address is `0x7f`, and the seven-bit address is `0x3f`. The shipped software uses the port only to identify the option and to send a one-byte command. What the port's other pins connect to is unknown.
 
-Established, in order:
+Established, in order (checked: `i2cfp_DualChannelProbe`, `crime_i2c.o` at `0x19c0`, matches each step below, with the read address `0x7f` formed by ORing 1 into `0x7e` in `i2cfp_PortRead`):
 
 1. Read the port into byte A. If the read fails, the probe returns 0 and stops, so no option is fitted. A later read or write that fails is not noticed. A failed later read leaves the stack byte it would have filled unchanged.
 2. Write `0xff` and read the port. Keep bits 6 and 5 of the byte as the high two bits of a four-bit id.
@@ -42,7 +42,7 @@ Established, in order:
 
 Established: the word that step 5 sets is the first argument that the monitor EDID reader passes to the bus start routine, and the one the bus reset compares with 1. Inferred from those uses: after a successful probe the selector is the flat-panel bus. The other routines that store to the word were not read for this page.
 
-Established, in `crime_earlyinit`: the return value is stored in a kernel variable here called "installed". It is 0 without the option and the id plus one, from 1 to 16, with it. When installed is non-zero the same routine also sets the number of monitors to 2.
+Established, in `crime_earlyinit`: the return value is stored in a kernel variable here called "installed" (`crm_dc_board_installed` in the symbol table). It is 0 without the option and the id plus one, from 1 to 16, with it. When installed is non-zero the same routine also sets the number of monitors (`crm_num_monitors`) to 2. Checked at `crime.o` offsets `0x521c` to `0x5230`.
 
 ## Option command
 
@@ -50,7 +50,7 @@ Established: when installed is non-zero, the timing routine first sends a comman
 
 ## Flat-panel timing words
 
-Established: the timing routine chooses one of four flat-panel set-ups from the board description byte at offset 46. The values 130 and 131 each select a fixed panel, 132 selects a third, and any other value is the default. The layout of the board description is not described here.
+Established: the timing routine chooses one of four flat-panel set-ups from the board description byte at offset 46. Checked: every value in the table below, the option adjustment `d`, the command byte test and the 130, 131 and 132 constants match `gbeSetTimingRegs` (`crime_init.o`, `0x498`). The three registers are `VT_10`, `VT_11` and `VT_12` in the specification's register map (PDF pages 39 and 40: `fp_hdrv`, `fp_vdrv` and `fp_de`, each with an on field in bits 23:12 and an off field in bits 11:0), which settles the field split the next paragraph leaves unexplained. The values 130 and 131 each select a fixed panel, 132 selects a third, and any other value is the default. The layout of the board description is not described here.
 
 In the table, `W` and `H` are the active width and height from the video timing record. `d` is 2 when installed is below 9 (option ids 0 to 7) and 0 otherwise. Each field is masked to 12 bits before it is shifted or stored. Values for 130 and 131 are fixed and do not depend on the record.
 
@@ -65,13 +65,13 @@ In the table, `W` and `H` are the active width and height from the video timing 
 
 The 132 row is the only one for that set-up, with no split by installed value. These are the values the kernel writes. What the hardware does with them is not established here.
 
-Established: the timing routine writes the packed words with the high field in bits 23 to 12 and the low field in bits 11 to 0. The meaning of each field is unknown.
+Established: the timing routine writes the packed words with the high field in bits 23 to 12 and the low field in bits 11 to 0. Inferred, from the specification (PDF pages 39 and 40): the high field is the "on" position and the low field the "off" position of each flat-panel drive signal, in dot clocks for `fp_hdrv` and `fp_de` and in lines for `fp_vdrv`.
 
 ## Interlace case and the timing flag word
 
-Established, set-up 132 only: the routine rewrites the timing flag word at `+0x10018` as the old value with bits 1 and 7 cleared, ORed with `v`. It looks up one kernel option by name. The name is a string in the routine's read-only data and is not recorded here. If the option exists and its first character is `1`, `v` is 0. If it exists with any other first character, `v` is 2. If the option does not exist, the routine uses a stack word it never stores to, so `v` is undefined.
+Established, set-up 132 only: the routine rewrites the timing flag word at `+0x10018` as the old value masked with `0x7d`, ORed with `v`. The mask clears bits 1 and 7 and also every bit above 7 (checked: `andi 0x7d` at `crime_init.o` offset `0x954`). The specification's register (`VT_6`, PDF page 39) defines bits 0 to 6 and no bit above 6, so the upper bits are reserved. Bit 1 is `vt_vdrv_low`, which forces the vertical sync output low (a power-saving state for monitors), so `v` = 2 forces it low. Inferred. It looks up one kernel option by name. The name is a string in the routine's read-only data and is not recorded here. If the option exists and its first character is `1`, `v` is 0. If it exists with any other first character, `v` is 2. If the option does not exist, the routine uses a stack word it never stores to, so `v` is undefined.
 
-Established: when installed is below 9, which includes 0 for no option, and the board description byte at offset 45 is non-zero, the routine writes the vertical blank word at `+0x10010` as `H << 12 \| 0xfff` and the horizontal blank word at `+0x10014` as `W << 12 \| 0xfff`. The same byte halves the frame height that the routine writes to the frame-size register. Inferred: byte 45 is the interlace flag, from that use.
+Established: when installed is below 9, which includes 0 for no option, and the board description byte at offset 45 is non-zero, the routine writes the vertical blank word at `+0x10010` as `H << 12 \| 0xfff` and the horizontal blank word at `+0x10014` as `W << 12 \| 0xfff`. The same byte halves the frame height that the routine writes to the frame-size register. Inferred: byte 45 is the interlace flag, from that use. Checked at `crime_init.o` offsets `0x55c` to `0x59c` and `0x7a4` to `0x7b8`. Before that test the routine always writes both words from the video timing record, as the next section describes.
 
 Inferred: the horizontal delay `d` differs by option id because two families of the option need different delays. That reasoning explains the `d` test only. The interlace rewrite runs when no option is fitted, so the same reasoning does not explain it.
 
@@ -83,11 +83,11 @@ The facts come from one reader's decompilation of the shipped IRIX 6.5.30 IP32 k
 
 ### Identity, clock select and blanking
 
-Established (probe routine): the kernel accepts a GBE only when the identity word at offset `0x14` reads `0x666`. It then writes CTRLSTAT as `0x30000000`: clock source 3, which is the internal PLL, with every pin pair set to output driving 0. It writes 0 to VT_XY only when that word's bit 31 reads 1. A device with any other identity is left alone.
+Established (probe routine): the kernel accepts a GBE only when the identity word at offset `0x14` reads `0x666`. It then writes CTRLSTAT as `0x30000000`: clock source 3, which is the internal PLL, with every pin pair set to output driving 0. It writes 0 to VT_XY only when that word's bit 31 reads 1. A device with any other identity is left alone. Checked: `gbeProbe` (`crime_init.o`, `0x0`). The specification puts `DEVICE_ID` at `0x14`, `CTRLSTAT` at `0x0` with the clock select in bits 29:28 (`11` is the internal PLL) and `VT_0` at `0x10000` with the freeze bit at bit 31 (PDF pages 34, 36 and 38).
 
 Established (board-information routine): the kernel rewrites CTRLSTAT as its old value with the clock source kept, plus `0x000aa000`. Bits 13, 15, 17 and 19 set make IO_3 to IO_6 inputs, and their data bits are 12, 14, 16 and 18. The kernel reads those four data bits, with the bit at 12 as bit 0, as a board strap. When the strap reads 0, the kernel selects the alternative gamma table; otherwise it does not. CTRLSTAT bits 3:0 read back the chip revision: 1 is the GBE 1.1 part.
 
-Established (blank and unblank): blanking writes `0x000aa000`, which selects clock source 0, the external TTL input. The board does not drive that input. Unblanking writes `0x300aa000`. Inferred: blanking deselects the clock and does not change any timing register.
+Established (blank and unblank; checked: `gbeBlankScreen`, `crime_init.o`, `0x15d0`): blanking writes `0x000aa000`, which selects clock source 0, the external TTL input. The board does not drive that input. Unblanking writes `0x300aa000`. Inferred: blanking deselects the clock and does not change any timing register.
 
 Unknown: the meaning of the other strap codes, and what IO_0 to IO_2 and IO_7 to IO_9 drive. Routes tried: the specification's pin table, the stand-alone diagnostics, the kernel, public Linux and NetBSD drivers. No shipped software depends on either.
 
@@ -95,7 +95,7 @@ Unknown: the meaning of the other strap codes, and what IO_0 to IO_2 and IO_7 to
 
 The three controls sit at `0x3000c` (frame), `0x20008` (overlay) and `0x40004` (display ID). Their DMA enables are frame bit 0, overlay bit 0 and display-ID bit 16.
 
-Established (stop routine): the kernel saves the three controls and clears their enables. If the saved overlay enable was clear, it stops there. Otherwise it polls the live readback of the three enables, up to 20,000 times at 10 microseconds, until all three read clear. It then writes the frame control back with its enable clear and `0x20` added. It polls the live frame control, up to 20,000 more times, until it equals the value written. The overlay and display-ID controls stay cleared and are not written back.
+Established (stop routine; checked: `gbeStop`, `crime_init.o`, `0x16fc`, including the 20,000-iteration polls at 10 microseconds and the `0x20` addition): the kernel saves the three controls and clears their enables. The specification names them `FRM_3` (`0x3000c`), `OVR_2` (`0x20008`) and `DID_SHADOW` (`0x40004`), each copied into its live twin at the start of blanking (PDF pages 42 to 44). If the saved overlay enable was clear, it stops there. Otherwise it polls the live readback of the three enables, up to 20,000 times at 10 microseconds, until all three read clear. It then writes the frame control back with its enable clear and `0x20` added. It polls the live frame control, up to 20,000 more times, until it equals the value written. The overlay and display-ID controls stay cleared and are not written back.
 
 Inferred: the pointer field of the frame control starts at bit 5, so adding `0x20` moves the pointer by one unit. A changed live value shows that a blanking edge has passed.
 
@@ -103,7 +103,7 @@ Established (early stop, used before the kernel returns to the PROM): the same t
 
 ### Window-ID table
 
-Established: the window-ID table is at `0x48000`, one 32-bit word per window index, `0x48000 + 4 * index`. An index of 32 or more is rejected. The kernel writes entry 0 with 3 at text-port set-up.
+Established: the window-ID table is at `0x48000`, one 32-bit word per window index, `0x48000 + 4 * index`. The specification's register map agrees: `WID[0..31]` at `0x48000` to `0x4807c` (PDF page 34). An index of 32 or more is rejected. The kernel writes entry 0 with 3 at text-port set-up.
 
 Established: the X module writes one of four tables at start-up, chosen by the chip revision (a revision below 2 takes the first pair, 2 or more the second) and by whether the frame buffer is 16 bits deep. Each entry's value is below. Every entry has buffer code 3.
 
@@ -114,7 +114,7 @@ Established: the X module writes one of four tables at start-up, chosen by the c
 | revision 2, 16-bit (9) | 0 to 5: indexed 8-bit with groups 18 to 23 (`0x243`, `0x263`, `0x283`, `0x2a3`, `0x2c3`, `0x2e3`); 6 `0x00b`; 7 `0x007`; 8 `0x013` |
 | revision 2, 24-bit (11) | 0 to 6 as the revision 2 16-bit table; 7 `0x007`; 8 `0x013`; 9 `0x577` (RGB8, group 11, gamma disabled); 10 `0x017` |
 
-Inferred, from the values and a 32-bit compare mask of `0x7fc` that the X module uses: bits 1:0 are the buffer code, bits 4:2 the pixel type (0 indexed 8-bit, 1 indexed 12-bit, 2 RG3B2, 4 RGB5, 5 RGB8), bits 9:5 the colour-map group and bit 10 the gamma disable. Bit 10 is established from the kernel, which clears it before a write when the alternative gamma table is in use.
+Inferred, from the values and a 32-bit compare mask of `0x7fc` that the X module uses: bits 1:0 are the buffer code, bits 4:2 the pixel type (0 indexed 8-bit, 1 indexed 12-bit, 2 RG3B2, 4 RGB5, 5 RGB8), bits 9:5 the colour-map group and bit 10 the gamma disable. The specification's window table (PDF page 16) has the same layout, with bits 1:0 buffer (01 lower half, 10 upper half, 11 both), 4:2 type (0 I8, 1 I12, 2 RG3B2, 3 RGB4, 4 RGB5, 5 RGB8), 9:5 colour-map group, 10 gamma disable and 12:11 an auxiliary flat-panel output code. Bit 10 is established from the kernel, which clears it before a write when the alternative gamma table is in use.
 
 Established (retrace handler): an entry with buffer code 0 is skipped by the buffer flip, and entries with code 1 or 2 are exchanged on a swap. Inferred: this is a front-back flip with no change to the frame pointer.
 
@@ -155,7 +155,7 @@ Unknown: whether the hardware drains writes in strict order. No shipped software
 
 ### Line interrupts
 
-Established (mode set-up): for a mode with vertical blank start `B` and total lines `T`, the kernel computes line 1 as `B - 32` and line 0 as `B + 4`, reduced by `T` when it reaches `T`. It writes `VT_INTR01 = line1 | line0 << 12`, rewrites it from the interrupt handler on every frame, and parks VT_INTR23 and both lines of an unused display at `0xfff` or `0xffffff`. Inferred: each line number is 12 bits, bits 11:0 for line 1 and 23:12 for line 0, from the shift.
+Established (mode set-up): for a mode with vertical blank start `B` and total lines `T`, the kernel computes line 1 as `B - 32` and line 0 as `B + 4`, reduced by `T` when it reaches `T`. It writes `VT_INTR01 = line1 | line0 << 12`, rewrites it from the interrupt handler on every frame, and parks VT_INTR23 and both lines of an unused display at `0xfff` or `0xffffff`. Inferred: each line number is 12 bits, bits 11:0 for line 1 and 23:12 for line 0, from the shift. The specification agrees: `VT_8` at `0x10020` holds `vt_intr1` in bits 11:0 and `vt_intr0` in bits 23:12, and `VT_9` at `0x10024` holds interrupts 3 and 2 (PDF page 39). Checked: `gbeCacheVtInfo` (`crime_retrace.o`, `0x6c`) stores to `0x10020`, and `crimeRetraceHandler` (`0xb80`) clears the CRIME bit before it rewrites the register.
 
 Established: the handler clears CRIME interrupt bit 16 first and then rewrites the register. CRIME bit `16 + n` is GBE line `n`, so lines 2 and 3 are CRIME inputs 18 and 19. The reading found scheduler code that uses lines 2 and 3, but no shipped graphics object calls it, so a stock session leaves both lines parked at `0xfff`.
 
@@ -165,7 +165,7 @@ Unknown: whether a line interrupt fires when its line is written equal to the li
 
 Established (dot-clock write): the kernel clears DOTCLK bit 20, writes the new value with bit 20 set, and waits 11 milliseconds. Inferred: bit 20 runs the PLL or its output. The specification leaves it undefined.
 
-Established (format files): the 26 shipped video format files each name three PLL scalars, M, N and P, in their schema. The values below were read at the offsets the schema gives, as big-endian words. The two-channel and `p` variants repeat their base format's values. Inferred: the output is `20 MHz * M / (N * 2^P)`. The kernel states no reference clock. The 20 MHz reference is taken from a public Linux driver in the reading, which was not checked here. The output and difference columns below were recomputed from M, N and P.
+Established (format files): the 26 shipped video format files each name three PLL scalars, M, N and P, in their schema. The values below were read at the offsets the schema gives, as big-endian words. The two-channel and `p` variants repeat their base format's values. Inferred: the output is `20 MHz * M / (N * 2^P)`. The kernel states no reference clock. The GBE 1.1 specification (PDF page 31) states the formula as `fOut = M * fIn / (N * 2^P)` with a 20 MHz crystal as the input, and says M and N are programmed as the value minus one and P as the exponent. The kernel's encoding agrees: `gbeSetTimingRegs` stores `(M-1) & 0xff`, `(N-1) & 0x3f` shifted to bit 8, and `P & 3` shifted to bit 14. The output and difference columns below were recomputed from M, N and P.
 
 | File | M | N | P | VCO MHz | Output MHz | File clock MHz | Difference |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -190,7 +190,9 @@ Established (kernel built-in table): 13 populated records carry the same M, N an
 
 Unknown: why the stereo record's PLL values differ from its file, and why its clock is 107,072 kHz rather than the 108,000 kHz those values give.
 
-Established: the shipped formats use small integer coefficients, and the highest shipped format is 135 MHz. Shipped VCO frequencies run from 85.7 to 206.7 MHz. Unknown: whether the hardware locks above 140 MHz, the ceiling the reading attributes to the GBE 1.1 specification (not checked here). The reading also gives the specification's worked example for 25.175 MHz as M 146, N 29, P 4. That example does not fit the output formula above (it gives about 6.29 MHz), so either the specification uses a different formula or the example belongs to another reference. This is unresolved.
+Established: the shipped formats use small integer coefficients, and the highest shipped format is 135 MHz. Shipped VCO frequencies run from 85.7 to 206.7 MHz. Unknown: whether the hardware locks above 140 MHz. The specification gives 140 MHz as the dot clock limit (PDF page 1), and lists a 1600 by 1200 mode at 162 MHz with an asterisk.
+
+The specification's table of supported modes (PDF pages 32 and 33) gives the 25.175 MHz example as M 146, N 29, P 4, with a VCO column of 100.690 and an output column of 25.172. That row fits the formula once its P column is read as the post-scaler divider (1, 2, 4 or 8) and not the exponent: 20 * 146 / 29 = 100.69 and 100.69 / 4 = 25.17. Its other rows read the same way (85.882 MHz is M 146, N 34, divider 1). The earlier note that the example does not fit the formula came from reading the column as an exponent. The shipped files carry the exponent, as the table above shows. Resolved, inferred.
 
 ### Start-up order and frame-size words
 
@@ -198,7 +200,7 @@ Established (timing routine): the kernel keeps bits 15:0 of the dot-clock word, 
 
 Established (start-up sequence, in the order the routine runs):
 
-1. Clear bit 16 of the word at physical `0x14000028`. The reading does not identify that word or confirm that bit 16 is the GBE line interrupt.
+1. Clear bit 16 of the word at physical `0x14000028`. That is the CRIME hardware interrupt register (offset `0x28`, PDF page 113 of the CRIME 1.5 specification), and bit 16 is GBE line interrupt 0 (`CRIME_INT_GBE0` in NetBSD). Checked: `gbeStartVideoTiming` (`crime_init.o`, `0x974`) masks the doubleword at `0xb4000028` with `0xfffeffff`.
 2. Park VT_13 and VT_14 holding `0xffffff`.
 3. Write the frame totals, VT_1.
 4. Pulse bit 15 of the frame-size word and bit 13 of the overlay-width word. Each pulse resets that FIFO. The reading gives neither word's offset.
@@ -207,21 +209,20 @@ Established (start-up sequence, in the order the routine runs):
 7. Compare the vertical position word, VT_XY, whole and unmasked, with the vertical blank start line. Wait until it is below that line, then until it is above it.
 8. Write VT_13 and VT_14 with their final values.
 
-Established (frame size): the frame-size word takes the width in whole tiles at bits 12:5 and the remainder in 32-byte units at bits 4:0. Its depth code sits at bits 14:13: 1 for 16-bit pixels, 2 otherwise. A tile is 256 pixels at 16 bits and 128 at 32 bits. The frame-size pixel word is the height shifted left 16 bits, halved for an interlaced record. The overlay-width word uses 512-pixel tiles for the 8-bit overlay.
+Established (frame size): the frame-size word takes the width in whole tiles at bits 12:5 and the remainder in 32-byte units at bits 4:0. Its depth code sits at bits 14:13: 1 for 16-bit pixels, 2 otherwise. Checked: `gbeSetTimingRegs` stores it at `+0x30000`, the frame-size pixel word at `+0x30004` and the overlay-width word at `+0x20000`. These are `FRM_0`, `FRM_1` and `OVR_0` in the specification (PDF pages 42 and 43), which also gives the FIFO reset bits as bit 15 of `FRM_0` and bit 13 of `OVR_0`, matching the two pulses above. A tile is 256 pixels at 16 bits and 128 at 32 bits. The frame-size pixel word is the height shifted left 16 bits, halved for an interlaced record. The overlay-width word uses 512-pixel tiles for the 8-bit overlay.
 
 Established (frame-lock flags): the low field of VT_7 takes the blank start line when the record's frame-lock flag bits (mask `0x12`) are set, and `0xfff` otherwise. The reading shows only that the choice tests those bits. What the bits do in the hardware is unknown.
 
 Established (VT_17 to VT_19): the vertical and horizontal parts are built as the register table describes. Where each part sits in its word is inferred from the `0x1000` step that VT_18 adds for one line.
 
-### Conflicting CRT timing readings
+### Two readings of the CRT timing stores
 
-A second reading of the CRT-format register stores disagrees with three entries above. Neither is resolved here, and the grades above are unchanged.
+A second reading of the CRT-format register stores disagreed with three entries above. A line-by-line re-read of `gbeSetTimingRegs` in the verification pass resolves it: both readings were right about different paths, and the entry above had left out one of the conditions.
 
-- The word at `0x10010` (vt_vblank). The CRT reading stores the vertical blank end in the low field, where that entry says the low field is `0xfff` in the interlace case. For the 640 by 480 record the high field agrees at 480.
-- The word at `0x10014` (vt_hblank). The CRT reading stores `(hblank end - 3)` in the low field and `(hblank start + total pixels - 5) mod total pixels` in the high field. For the 640 by 480 record that high field is 635, where that entry records the active width, 640.
-- The word at `0x10018` (timing_flags). The CRT reading writes 0. That entry says the routine reads the word, clears bits 1 and 7, and ORs in 0 or 2.
+- The words at `0x10010` (`VT_4`, vertical blanking window) and `0x10014` (`VT_5`, horizontal blanking window). The routine writes both unconditionally from the video timing record: `0x10010` takes the vertical blanking end in the low field and the vertical blanking start in the high field, and `0x10014` takes the horizontal blanking end minus 3 in the low field and `(blanking start + total - 5)` modulo the total in the high field. For the 640 by 480 record that high field is 635. The `H << 12 | 0xfff` and `W << 12 | 0xfff` stores above run afterwards, and only when installed is below 9 and board description byte 45 is non-zero. The earlier text of this page dropped the byte 45 condition. A 640 by 480 record with no option and byte 45 clear never reaches them.
+- The word at `0x10018` (`VT_6`). The routine writes 0, as the CRT reading says, and only set-up 132 rewrites it with the read-modify-write above.
 
-The 640 by 480 example has no dual-channel option, and the entries above say the vt_vblank and vt_hblank stores run when no option is fitted. So the two readings disagree on the same branch as far as either shows. Settling it needs the branch conditions of the timing routine read again for a CRT record with no option, and then an independent review of this page.
+Settled by instruction reading (`crime_init.o` offsets `0x4d8` to `0x5d8` and `0x55c` to `0x59c`); the selection of set-ups by byte 46 and the board-description byte layout remain as described above.
 
 ### Hardware cursor
 
@@ -247,19 +248,17 @@ The GBE ASIC specification for revision 1.1 (18 July 1996) describes revision 1.
 
 - What the option port's other pins drive, and what the ids above the two delay classes mean. Unknown: no shipped software or published source depends on them. Routes tried: none recorded for this page.
 - Whether the hardware uses the flat-panel words for anything beyond the values written above.
-- The meaning of bit 1 of the timing flag word. The bit-level specification for that register was not read for this page.
+- Whether `vt_vdrv_low` is the intended use of bit 1 of the timing flag word. The specification defines it, and set-up 132 sets it unless an option string starts with `1`.
 - The value of `v` when the option lookup fails on set-up 132.
 - The physical base of the GBE block. The offsets above are relative to it.
-- The offsets of the frame-size word, the frame-size pixel word and the overlay-width word. The interlace case halves the frame-size pixel word, and its offset is among these.
 - Whether VT_1 takes the totals or the totals minus one. The kernel writes the totals, and the reading gives no further evidence. The revision 1.1 section gives a reason to expect minus one, which is inferred and needs a capture.
 - The gamma write path. The source reading gives a linear ramp, where entry i is `i * 0x01010100`, written to offset `0x60000`, or a fixed table. It gives no grade for this, so it is recorded as unknown until the routine is checked.
 - Whether the unmasked vertical position comparison in the start-up sequence is the intended line test, or works only because the line counter is zero early in the frame.
-- Which of the two CRT readings in the conflict section is right for a record with no dual-channel option.
 - The purpose of the no-option rewrite of the blank words. Unknown: no shipped software or published source depends on it.
 - The layout of the board description, beyond the two byte offsets above.
-- Register offsets of CTRLSTAT, the VT_INTR words and CMFIFO. The reading gives their use but not their offsets.
+- The reading gives no offsets for CTRLSTAT (`0x0`), the VT_INTR words (`0x10020` and `0x10024`) and CMFIFO (`0x58000`). The specification supplies them and the kernel's stores agree where it writes them.
 - The layout of CTRLSTAT and the IO pin pairs beyond IO_3 to IO_6, and the meaning of the strap codes other than 0.
 - The reset values of revision 2. No shipped software depends on them, and no source gives them; the revision 1 values are the only ones with a source.
 - Tile-number bit 15, and the contents of the kernel block at `+0x400` and `+0x500`.
 - The `xend` comparison, the firing rule for line interrupts, and the write ordering of the colour map (see the sections above).
-- Whether the hardware locks above 140 MHz, and the cause of the 25.175 MHz example's mismatch with the output formula.
+- Whether the hardware locks above 140 MHz.
