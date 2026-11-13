@@ -6,10 +6,6 @@ doc = "Software table, not a register map: the PCI vendor, device and subsystem 
 from = "shipped IRIX kernel binaries, per software/kernel/ip35-tg-driver.md"
 public_from = ["shipped IRIX"]
 
-[c]
-legacy_header = "TG_DECODE.h"
-legacy_guard = "TG_DECODE_H"
-
 [words.ROW_W0]
 width = 32
 grade = "established"

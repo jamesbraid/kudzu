@@ -5,10 +5,6 @@ title = "SCSI command opcodes the CD-ROM driver selects by drive class"
 from = "shipped IRIX binaries, per formats/scsi/README.md"
 public_from = ["shipped IRIX"]
 
-[c]
-legacy_header = "SCSI_DECODE.h"
-legacy_guard = "SCSI_DECODE_H"
-
 # The PROM prefixes are text, not numbers, so the constants table cannot hold them.
 # They stay as aliases for the old names. Each is established in the old header,
 # which records what a TOSHIBA match does (sends 0xc9) and leaves what a SONY or

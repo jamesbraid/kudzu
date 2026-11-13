@@ -6,10 +6,6 @@ doc = "Extent File System on-disk structures: superblock, inode, extent and dire
 from = "shipped IRIX binaries, per formats/efs/README.md"
 public_from = ["shipped IRIX"]
 
-[c]
-legacy_header = "EFS_DECODE.h"
-legacy_guard = "EFS_DECODE_H"
-
 [words.DB_W0]
 width = 32
 grade = "established"

@@ -27,22 +27,22 @@ UNION_KEY = {'slice': 'VE_SLICE', 'stripe': 'VE_STRIPE', 'mirror': 'VE_MIRROR', 
              'copy-on-write': 'VE_COW', 'subvolume': 'VE_SUBVOL', 'volume': 'VE_VOL'}
 
 SECTIONS = {
-    'XVM_DECODE.h': [
+    'generated/c/xvm.h': [
         dict(doc='formats/xvm/README.md', heading=r'Physical label \(`xvm_physlab`', key='PL', strip='pl_'),
         dict(doc='formats/xvm/README.md', heading=r'Label sector header \(`xvm_labelhdr`', key='LH', strip='lh_'),
         dict(doc='formats/xvm/README.md', heading=r'Virtual-element entry \(`xvm_disk_ve`', key='VE', strip='dve_', union=True),
         dict(doc='formats/xvm/README.md', heading=r'Attribute entry \(`xvm_disk_attr`', key='ATTR', strip='da_'),
     ],
-    'XLV_DECODE.h': [
+    'generated/c/xlv.h': [
         dict(doc='formats/xlv/README.md', heading=r'Master block', key='MASTER', strip=''),
         dict(doc='formats/xlv/README.md', heading=r'Header \(`0x120` bytes\)', key='LBL', strip=''),
         dict(doc='formats/xlv/README.md', heading=r'Entry \(`0x118` bytes\)', key='E', strip=''),
     ],
-    'EFS_DECODE.h': [
+    'generated/c/efs.h': [
         dict(doc='formats/efs/README.md', heading=r'Superblock \(block 1', key='SB', strip='fs_'),
         dict(doc='formats/efs/README.md', heading=r'Inode \(128 bytes\)', key='DI', strip='di_'),
     ],
-    'XFS_DECODE.h': [
+    'generated/c/xfs.h': [
         dict(doc='formats/xfs/README.md', heading=r'1\.2 Field table', key='SB', strip=''),
         dict(doc='formats/xfs/README.md', heading=r'2\.1 Core', key='INO', strip=''),
     ],

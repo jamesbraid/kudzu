@@ -6,10 +6,6 @@ doc = "SGI disk volume header: magic, drive parameters, volume directory and par
 from = "shipped IRIX binaries, per formats/volhdr/README.md"
 public_from = ["shipped IRIX"]
 
-[c]
-legacy_header = "VOLHDR_DECODE.h"
-legacy_guard = "VOLHDR_DECODE_H"
-
 [words.DIRENT_W2]
 width = 32
 grade = "established"

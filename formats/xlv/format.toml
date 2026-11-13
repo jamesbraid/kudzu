@@ -6,10 +6,6 @@ doc = "XLV logical volume manager on-disk label: master block, label slot header
 from = "shipped IRIX binaries, per formats/xlv/README.md"
 public_from = ["shipped IRIX"]
 
-[c]
-legacy_header = "XLV_DECODE.h"
-legacy_guard = "XLV_DECODE_H"
-
 [words.E_W0]
 width = 32
 grade = "established"

@@ -6,10 +6,6 @@ doc = "Hardware configuration records: the board, component, console, memory and
 from = "shipped IRIX kernel binaries, per formats/klconfig/README.md"
 public_from = ["shipped IRIX"]
 
-[c]
-legacy_header = "KLCONFIG_DECODE.h"
-legacy_guard = "KLCONFIG_DECODE_H"
-
 [words.BRD_W0]
 width = 32
 grade = "established"

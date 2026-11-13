@@ -6,10 +6,6 @@ doc = "XVM volume manager on-disk label structures: the physical label, label se
 from = "shipped IRIX binaries, per formats/xvm/README.md"
 public_from = ["shipped IRIX"]
 
-[c]
-legacy_header = "XVM_DECODE.h"
-legacy_guard = "XVM_DECODE_H"
-
 [words.ATTR_PERM_W6]
 width = 32
 grade = "established"

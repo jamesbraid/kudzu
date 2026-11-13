@@ -6,10 +6,6 @@ doc = "XFS superblock and inode core as the shipped release writes them."
 from = "shipped IRIX binaries, per formats/xfs/README.md"
 public_from = ["shipped IRIX"]
 
-[c]
-legacy_header = "XFS_DECODE.h"
-legacy_guard = "XFS_DECODE_H"
-
 [words.INO_W0]
 width = 32
 grade = "established"
