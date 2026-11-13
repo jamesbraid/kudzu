@@ -1,7 +1,7 @@
 #!/bin/sh
-# Check that docs/inventory/ and the kernel-table block of docs/coverage.md are what
-# retools/tools/kudzu/os_tables.py generates now. They go stale when a docs/*.md page changes (the
-# status columns read the pages) or scripts/scope.json does; regenerate with
+# Check that evidence/inventory/ and the kernel-table block of evidence/coverage.md are what
+# retools/tools/kudzu/os_tables.py generates now. They go stale when a documentation page changes (the
+# status columns read the pages) or tools/config/scope.json does; regenerate with
 #
 #   retools/tools/re-run python3 retools/tools/inventory.py
 #   retools/tools/re-run python3 retools/tools/kudzu/os_tables.py

@@ -10,7 +10,7 @@
    "value": 45057,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/nic.md"
+   "from": "shipped IRIX kernel binaries, per formats/nic_record/README.md"
   },
   {
    "unit": "nic_record",
@@ -19,7 +19,7 @@
    "value": 141,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/nic.md"
+   "from": "shipped IRIX kernel binaries, per formats/nic_record/README.md"
   },
   {
    "unit": "nic_record",
@@ -28,7 +28,7 @@
    "value": 10,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/nic.md"
+   "from": "shipped IRIX kernel binaries, per formats/nic_record/README.md"
   },
   {
    "unit": "nic_record",
@@ -37,7 +37,7 @@
    "value": 14,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/nic.md"
+   "from": "shipped IRIX kernel binaries, per formats/nic_record/README.md"
   }
  ]
 }

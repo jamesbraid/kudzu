@@ -2,7 +2,7 @@
 # reading where it comes from.
 #
 # Names of the public Linux and NetBSD system-call tables that
-# docs/syscall-selector-crosscheck.md compares with the kernel.
+# evidence/syscall-selector-crosscheck.md compares with the kernel.
 GET_CONTEXT_NAME
 SGI_
 #
@@ -19,7 +19,7 @@ undocumented
 XORs
 ABIs
 # Public selector names in NetBSD's irix_syssgi.h (IRIX_SGI_SYSID,
-# IRIX_SGI_FO_SWITCH), listed by docs/syscall-selector-crosscheck.md and used
+# IRIX_SGI_FO_SWITCH), listed by evidence/syscall-selector-crosscheck.md and used
 # in a test fixture.
 SGI_SYSID
 FO_SWITCH
@@ -27,11 +27,11 @@ FO_SWITCH
 glColor3fv
 XDrawLine
 # The file name of a kernel object on the installation media, quoted from the
-# inventory tables in docs/coverage.md.
+# inventory tables in evidence/coverage.md.
 shareIIstubs
 # Exported symbol names of the shipped user-space libraries (libc, libpthread, libm and
 # the portable-ABI libc and libdl), read from their dynamic symbol tables for
-# docs/userland-libraries-and-isa.md, with a few product directory names from the
+# software/userland/userland-libraries-and-isa.md, with a few product directory names from the
 # installed file list and two names (dlinfo, epoll) the document lists as absent.
 ABIinfo
 BSD_getime
@@ -1569,12 +1569,12 @@ _RLDN32_PATH
 _RLD_ROOT
 #
 # Kernel module names that appear in the shipped master files and boot objects
-# (docs/kernel-optional-subsystems.md); read there, not in any source tree.
+# (software/kernel/kernel-optional-subsystems.md); read there, not in any source tree.
 dp_idbg
 klistio
 #
 # Names read in the shipped 6.5.30 user-level files for page migration
-# (docs/page-migration.md): the node-table column headings printed by nstats, the
+# (software/kernel/page-migration.md): the node-table column headings printed by nstats, the
 # libdplace routine that calls migr_range_migrate, the dplace -migration_level option
 # (in its usage text and in the published dplace(1) manual page) and the runon
 # command name (published runon(1)). None was taken from any source tree.

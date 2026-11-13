@@ -446,3 +446,9 @@ The `mkfs_xfs` summary lines print the chosen attr/parent/naming/log/realtime se
 ## Reproduction
 
 Scratch (not part of the findings): a local work directory holds the object extracts, capstone helpers (`tools/odis.py` for relocatable objects, `tools/udis_main.py` for the N32 executables), the `xfs_db` table parser (`tools/ptab.py`) and the raw disassembly (`dis/`, `ud/`).
+
+## Used by
+
+- [Network addressing and filtering; XVM and XFS copy-on-write primitives](../../software/kernel/network-and-snapshots.md)
+- [IRIX 6.5.30 XFS mount path, superblock validation, block I/O interface](../../software/kernel/xfs-mount-and-block-io.md)
+- [XFS inode timestamps in shipped IRIX 6.5.30 (Q3: read/written/compared, widths, signedness)](../../software/kernel/xfs-timestamps.md)

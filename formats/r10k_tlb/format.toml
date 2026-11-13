@@ -2,7 +2,7 @@
 unit = "r10k_tlb"
 prefix = "R10K_TLB"
 title = "The wired-entry layout IRIX uses in the R10000 TLB"
-doc = "Software table, not a register map: the wired-entry layout and the page and ASID policy IRIX uses in its 64-bit kernel. The TLB entry count and ASID width of the R10000 itself are in the chips repository (unit r10000_cp0). Prose and the reasoning are in docs/r10k-tlb.md."
+doc = "Software table, not a register map: the wired-entry layout and the page and ASID policy IRIX uses in its 64-bit kernel. The TLB entry count and ASID width of the R10000 itself are in the chips repository (unit r10000_cp0). Prose and the reasoning are in formats/r10k_tlb/README.md."
 from = "IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual"
 public_from = ["IRIX kernel translation-handling reading"]
 

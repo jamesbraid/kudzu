@@ -1,0 +1,451 @@
+release	module	flags	flag_meanings	prefix	soft_major	devices	dependencies	missing_dependencies	stub_count	IP27	IP30	IP35	kernel_symbols_ip27	status	grade	role	citation	source
+6.5.22	a2_dd	cso	character device software driver one device specification only	a2_	-	-	kdsp	-	0	no	no	no	0 cdevsw:no	located				master.d/a2_dd:4
+6.5.22	a3_dd	cso	character device software driver one device specification only	a3_	-	-	kdsp	-	0	no	no	no	0 cdevsw:no	located				master.d/a3_dd:4
+6.5.22	acl	ox	one device specification only configurable object, not a driver	-	-	-	eag	-	0	yes	yes	yes	-	located				master.d/acl:6
+6.5.22	acl_hwg	ox	one device specification only configurable object, not a driver	-	-	-	acl,hwgfs	-	0	yes	yes	yes	-	located				master.d/acl_hwg:6
+6.5.22	acl_nfs3	ox	one device specification only configurable object, not a driver	-	-	-	acl,nfs3	-	0	yes	yes	yes	-	located				master.d/acl_nfs3:6
+6.5.22	acl_xfs	ox	one device specification only configurable object, not a driver	-	-	-	acl,xfs,xfs_attr_fetch	-	0	yes	yes	yes	-	located				master.d/acl_xfs:6
+6.5.22	aclstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/aclstubs:6
+6.5.22	adp78	nsc	semaphored software driver character device	adp78	-	-	scsi	-	0	no	no	no	0 cdevsw:no	located				master.d/adp78:6
+6.5.22	adphim	ns	semaphored software driver	adphim	-	-	scsi, adp78	-	0	no	no	no	0	located				master.d/adphim:7
+6.5.22	adpidbg	ox	one device specification only configurable object, not a driver	adpidbg_	-	-	idbg, adp78	-	0	no	no	no	0	located				master.d/adpidbg:5
+6.5.22	alp	m	stream module	alp	-	-	-	-	0	yes	yes	yes	7	located				master.d/alp:6
+6.5.22	asidbg	ox	one device specification only configurable object, not a driver	asidbg_	-	-	-	-	0	no	no	no	0	located				master.d/asidbg:16
+6.5.22	atmstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/atmstubs:6
+6.5.22	autofs	jns	file system type semaphored software driver	autofs_	-	-	bsd,nfs	-	1	yes	yes	yes	12	located				master.d/autofs:17
+6.5.22	autofsstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/autofsstubs:5
+6.5.22	bpqueue	ox	one device specification only configurable object, not a driver	bpqueue	-	-	-	-	0	yes	yes	yes	0	located				master.d/bpqueue:6
+6.5.22	bpqueuestubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/bpqueuestubs:6
+6.5.22	bsd	ox	one device specification only configurable object, not a driver	bsd	-	-	-	-	6	yes	yes	yes	6	understood	established	Socket and network-stack base module, flags ox (not a driver, one device specification). Its routines bsd_init, bsd_copyin and bsd_copyout are in the 6.5.22 IP27 kernel. Its stub list has six entries: an empty bsd_init, and getdtablesize, gethostname, sethostname, getdomainname and setdomainname, each a stub that reports no package when the module is left out.	6.5.22 master.d/bsd (stub list); unix.IP27 bsd_init, bsd_copyin, bsd_copyout	master.d/bsd:6
+6.5.22	bsdidbg	ox	one device specification only configurable object, not a driver	bsdidbg	-	-	idbg,bsd	-	0	no	no	no	0	located				master.d/bsdidbg:6
+6.5.22	cachefs	oxj	one device specification only configurable object, not a driver file system type	cachefs_	-	-	sgi	-	0	yes	yes	yes	5	understood	established	Cache filesystem type module, flags oxj, prefix cachefs_, depends on sgi. The kernel holds 5 symbols under cachefs_ (for example cachefs_getstat and cachefs_clearstat). The module has no cachefs_init entry point.	6.5.22 master.d/cachefs (data line); unix.IP27 cachefs_getstat, cachefs_clearstat	master.d/cachefs:7
+6.5.22	cachefsidbg	ox	one device specification only configurable object, not a driver	cachefsidbg	-	-	idbg,cachefs	-	1	no	no	no	0	located				master.d/cachefsidbg:6
+6.5.22	cachefsidbgstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/cachefsidbgstubs:6
+6.5.22	cachefsstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/cachefsstubs:6
+6.5.22	calcomp	omdR	one device specification only stream module dynamically loadable auto-registering loadable module	calcomp	-	-	idev	-	0	yes	yes	yes	0	located				master.d/calcomp:5
+6.5.22	cap_mac_access	ox	one device specification only configurable object, not a driver	-	-	-	eag	-	0	yes	yes	yes	-	located				master.d/cap_mac_access:6
+6.5.22	capability	ox	one device specification only configurable object, not a driver	-	-	-	eag	-	0	yes	yes	yes	-	located				master.d/capability:6
+6.5.22	ccsync	ocs	one device specification only character device software driver	ccsync	252	-	-	-	0	no	no	no	0 cdevsw:no	located				master.d/ccsync:18
+6.5.22	cdl	ox	one device specification only configurable object, not a driver	cdl_	-	-	-	-	0	yes	yes	yes	11	located				master.d/cdl:6
+6.5.22	cdsio	f	framework or stream device	cdsio	8	-	stty_ld	-	0	no	no	no	0	located				master.d/cdsio:6
+6.5.22	cell	ox	one device specification only configurable object, not a driver	cell_	-	-	os,cxfs	-	0	no	no	no	4	located				master.d/cell:16
+6.5.22	cellstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/cellstubs:6
+6.5.22	cfs	oxj	one device specification only configurable object, not a driver file system type	cfs_	-	-	xfs,cell	-	0	no	no	no	12	located				master.d/cfs:16
+6.5.22	cfsidbg	ox	one device specification only configurable object, not a driver	cfs_idbg_	-	-	idbg	-	1	no	no	no	0	located				master.d/cfsidbg:6
+6.5.22	cfsstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/cfsstubs:6
+6.5.22	cl	ocs	one device specification only character device software driver	cl_	-	-	partition,xpc	-	0	no	no	yes	1 cdevsw:no	located				master.d/cl:6
+6.5.22	clone	ofs	one device specification only framework or stream device software driver	cln	10	1	-	-	0	yes	yes	yes	7	understood	established	Software clone device, flags ofs, prefix cln, one device at external major 10. Its open routine clnopen and its character switch table clncdevsw are in the 6.5.22 IP27 kernel.	6.5.22 master.d/clone (data line); unix.IP27 clnopen, clncdevsw	master.d/clone:7
+6.5.22	clshm	csn	character device software driver semaphored	clshm	263	-	cl, partition	-	0	no	no	no	0 cdevsw:no	located				master.d/clshm:6
+6.5.22	cn	orcsm	one device specification only required device character device software driver stream module	cn	58	-	-	-	0	yes	yes	yes	24 cdevsw:yes	located				master.d/cn:6
+6.5.22	compression	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/compression:6
+6.5.22	connld	m	stream module	conn	-	-	fifofs	-	0	yes	yes	yes	7	located				master.d/connld:7
+6.5.22	cpr	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/cpr:6
+6.5.22	cprstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	no	no	no	-	located				master.d/cprstubs:6
+6.5.22	crime	s	software driver	crime_	-	-	gfx	-	0	no	no	no	1	located				master.d/crime:6
+6.5.22	crimestubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/crimestubs:6
+6.5.22	crypto	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/crypto:7
+6.5.22	cryptostubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/cryptostubs:5
+6.5.22	cserialio	cns	character device semaphored software driver	csio_	26	-	-	-	0	yes	yes	yes	8 cdevsw:yes	located				master.d/cserialio:6
+6.5.22	cxfs	ox	one device specification only configurable object, not a driver	cxfs_	-	-	xfs,cfs	-	0	no	no	no	31	located				master.d/cxfs:6
+6.5.22	cxfsarr	ox	one device specification only configurable object, not a driver	-	-	-	cfs,xfs	-	0	no	no	no	-	located				master.d/cxfsarr:6
+6.5.22	cxfsarrstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	no	no	no	-	located				master.d/cxfsarrstubs:6
+6.5.22	cxfsidbg	ox	one device specification only configurable object, not a driver	cxfsidbg	-	-	idbg	-	0	no	no	no	0	located				master.d/cxfsidbg:6
+6.5.22	cxfsstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/cxfsstubs:6
+6.5.22	devicestubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/devicestubs:6
+6.5.22	devpoll	cnrs	character device semaphored required device software driver	devpoll_	138	-	-	-	0	yes	yes	yes	11 cdevsw:yes	located				master.d/devpoll:16
+6.5.22	dfsstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/dfsstubs:6
+6.5.22	dhardlocks	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	no	no	no	-	located				master.d/dhardlocks:17
+6.5.22	dial	omdR	one device specification only stream module dynamically loadable auto-registering loadable module	dial	-	-	idev	-	0	yes	yes	yes	0	located				master.d/dial:5
+6.5.22	dialbox	omdR	one device specification only stream module dynamically loadable auto-registering loadable module	dialbox	-	-	idev	-	0	yes	yes	yes	0	located				master.d/dialbox:5
+6.5.22	disp	orx	one device specification only required device configurable object, not a driver	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/disp:6
+6.5.22	disp_idbg	ox	one device specification only configurable object, not a driver	disp_idbg_	-	-	-	-	2	no	no	no	0	located				master.d/disp_idbg:16
+6.5.22	dksc	osbc	one device specification only software driver block device character device	dksc	-	-	scsi	-	1	yes	yes	yes	21 cdevsw:yes bdevsw:yes	located				master.d/dksc:6
+6.5.22	dmi	ox	one device specification only configurable object, not a driver	dmi	-	-	xfs	-	0	yes	yes	yes	1	located				master.d/dmi:6
+6.5.22	dmiidbg	ox	one device specification only configurable object, not a driver	dmiidbg	-	-	idbg,dmi	-	0	no	no	no	0	located				master.d/dmiidbg:6
+6.5.22	dmistubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/dmistubs:6
+6.5.22	dms	soc	software driver one device specification only character device	dms	248	-	-	-	0	yes	yes	yes	109 cdevsw:yes	located				master.d/dms:9
+6.5.22	dnstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/dnstubs:6
+6.5.22	dp_idbg	ox	one device specification only configurable object, not a driver	dp_idbg_	-	-	idbg	-	0	no	no	no	0	located				master.d/dp_idbg:16
+6.5.22	ds	osc	one device specification only software driver character device	ds	-	-	scsi	-	0	yes	yes	yes	16 cdevsw:yes	located				master.d/ds:6
+6.5.22	eag	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/eag:6
+6.5.22	ecplp	csdRD	character device software driver dynamically loadable auto-registering loadable module loaded then unloaded	plp	38	2	-	-	0	no	no	no	6 cdevsw:no	located				master.d/ecplp:21
+6.5.22	ecpplp	cdR	character device dynamically loadable auto-registering loadable module	plp	-	-	-	-	0	yes	yes	yes	6 cdevsw:no	located				master.d/ecpplp:5
+6.5.22	eeprom	rox	required device one device specification only configurable object, not a driver	eeprom_	-	-	nic	-	0	no	no	yes	0	located				master.d/eeprom:7
+6.5.22	efs	oxj	one device specification only configurable object, not a driver file system type	efs_	-	-	sgi,specfs	-	0	yes	yes	yes	50	understood	established	EFS filesystem type module, flags oxj (filesystem type), prefix efs_, depends on the sgi and specfs modules. The kernel holds 50 symbols under efs_, including efs_init.	6.5.22 master.d/efs (data line); unix.IP27 efs_init and the efs_ symbols	master.d/efs:6
+6.5.22	efsstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/efsstubs:6
+6.5.22	elsc	ox	one device specification only configurable object, not a driver	-	-	-	sio_i2c, i2c	-	0	yes	no	no	-	located				master.d/elsc:7
+6.5.22	epcei	nc	semaphored character device	ei	25	16	-	-	0	no	no	no	16 cdevsw:yes	located				master.d/epcei:5
+6.5.22	epcplp	pc	unsemaphored, master processor only character device	plp	38	16	-	-	0	no	no	no	6 cdevsw:no	located				master.d/epcplp:5
+6.5.22	ev_kbdms	sfr	software driver framework or stream device required device	evkb	-	-	-	-	0	no	no	no	0	located				master.d/ev_kbdms:5
+6.5.22	failover	nsc	semaphored software driver character device	fo_	-	-	scsi	-	0	yes	yes	yes	19 cdevsw:yes	located				master.d/failover:6
+6.5.22	failoverstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/failoverstubs:6
+6.5.22	fcadp	nsc	semaphored software driver character device	fcadp	-	-	scsi	-	0	yes	yes	no	24 cdevsw:yes	located				master.d/fcadp:6
+6.5.22	fcal	s	software driver	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/fcal:6
+6.5.22	fcidbg	ox	one device specification only configurable object, not a driver	fcidbg_	-	-	idbg, fcadp	-	0	no	no	no	0	located				master.d/fcidbg:5
+6.5.22	fd	oxj	one device specification only configurable object, not a driver file system type	fdfs	-	-	-	-	0	yes	yes	yes	8	located				master.d/fd:6
+6.5.22	fddi	ox	one device specification only configurable object, not a driver	fddi	-	-	-	-	0	yes	yes	yes	0	located				master.d/fddi:6
+6.5.22	fglrx	sc	software driver character device	fglrx_	145	-	-	-	0	no	no	yes	0 cdevsw:no	located				master.d/fglrx:16
+6.5.22	fifofs	oxj	one device specification only configurable object, not a driver file system type	fifo_	-	-	-	-	2	yes	yes	yes	29	understood	established	FIFO filesystem type module, flags oxj, prefix fifo_, with two stubs in its stub list. The kernel holds 29 fifo_ symbols, including fifo_access, fifo_attr_get and fifo_attr_set.	6.5.22 master.d/fifofs (data line and stub list); unix.IP27 fifo_access, fifo_attr_get, fifo_attr_set	master.d/fifofs:6
+6.5.22	flash	pc	unsemaphored, master processor only character device	flash_	204	16	-	-	0	no	no	no	0 cdevsw:no	located				master.d/flash:5
+6.5.22	frs	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/frs:6
+6.5.22	frsstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/frsstubs:6
+6.5.22	fru	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	yes	no	yes	-	located				master.d/fru:6
+6.5.22	frustubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/frustubs:6
+6.5.22	fs_cell		no active data line	-	-	-	-	-	0	no	no	no	-	located				master.d/fs_cell:0
+6.5.22	fsctl	sc	software driver character device	fsc	45	-	efs	-	0	yes	yes	yes	7 cdevsw:yes	located				master.d/fsctl:5
+6.5.22	genmidi	omdR	one device specification only stream module dynamically loadable auto-registering loadable module	gsm_	-	-	-	-	0	no	no	no	0	located				master.d/genmidi:5
+6.5.22	gentty	ocs	one device specification only character device software driver	sy	2	-	stty_ld	-	0	yes	yes	yes	80 cdevsw:yes	located				master.d/gentty:6
+6.5.22	gfx	soc	software driver one device specification only character device	gfx	57	-	gfxs	-	0	yes	yes	yes	75 cdevsw:yes	located				master.d/gfx:6
+6.5.22	gfxs	sofp	software driver one device specification only framework or stream device unsemaphored, master processor only	gfxs	56	-	gfx, clone	-	0	yes	yes	yes	4	located				master.d/gfxs:6
+6.5.22	gfxstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/gfxstubs:6
+6.5.22	giobr	nsc	semaphored software driver character device	giobr_	-	-	-	-	0	no	yes	no	0 cdevsw:no	located				master.d/giobr:6
+6.5.22	gioio	ns	semaphored software driver	gioio_	-	-	cdl	-	0	no	yes	no	0	located				master.d/gioio:6
+6.5.22	gr2	s	software driver	gr2_	-	-	gfx	-	0	no	no	no	0	located				master.d/gr2:6
+6.5.22	gr2stubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/gr2stubs:6
+6.5.22	graph	ox	one device specification only configurable object, not a driver	graph	-	-	-	-	0	yes	yes	yes	27	located				master.d/graph:6
+6.5.22	graphidbg	ox	one device specification only configurable object, not a driver	graphidbg	-	-	idbg,graph	-	0	no	no	no	0	located				master.d/graphidbg:6
+6.5.22	grio	ox	one device specification only configurable object, not a driver	grio	-	-	bpqueue, dksc, xfs, xfsrt, xlv	-	0	yes	yes	yes	25	located				master.d/grio:6
+6.5.22	grio2	ox	one device specification only configurable object, not a driver	grio2	-	-	bpqueue,dksc,xfs,xfsrt,xvm,xlv	-	0	no	no	no	14	located				master.d/grio2:6
+6.5.22	grio2idbg	ox	one device specification only configurable object, not a driver	grio2idbg_	-	-	idbg,grio2,xfsrt	-	0	no	no	no	0	located				master.d/grio2idbg:6
+6.5.22	grio2stubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/grio2stubs:6
+6.5.22	grioidbg	ox	one device specification only configurable object, not a driver	grioidbg	-	-	idbg,grio,xfsrt	-	0	no	no	no	0	located				master.d/grioidbg:6
+6.5.22	griostubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/griostubs:6
+6.5.22	gsnstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	no	no	-	located				master.d/gsnstubs:5
+6.5.22	hardlocks	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/hardlocks:6
+6.5.22	hardlocks_statistics	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	no	no	no	-	located				master.d/hardlocks_statistics:9
+6.5.22	hdsp	c	character device	hdsp	53	-	-	-	0	no	no	no	0 cdevsw:no	located				master.d/hdsp:5
+6.5.22	heart	nsc	semaphored software driver character device	heart_	-	-	-	-	0	no	yes	no	0 cdevsw:no	located				master.d/heart:6
+6.5.22	hitachi	omdR	one device specification only stream module dynamically loadable auto-registering loadable module	hitachi	-	-	idev	-	0	yes	yes	yes	0	located				master.d/hitachi:5
+6.5.22	hpc3plp	csdRD	character device software driver dynamically loadable auto-registering loadable module loaded then unloaded	plp	38	2	-	-	0	no	no	no	6 cdevsw:no	located				master.d/hpc3plp:5
+6.5.22	hpcplp	cdR	character device dynamically loadable auto-registering loadable module	plp	38	2	-	-	0	no	no	no	6 cdevsw:no	located				master.d/hpcplp:5
+6.5.22	htport	ox	one device specification only configurable object, not a driver	htport	-	-	tport	-	0	yes	yes	yes	0	located				master.d/htport:6
+6.5.22	hubspc	sc	software driver character device	hubspc_	11	-	-	-	0	yes	no	yes	9 cdevsw:yes	located				master.d/hubspc:6
+6.5.22	hwgfs	jox	file system type one device specification only configurable object, not a driver	hwg	-	-	-	-	0	yes	yes	yes	84	understood	established	Hardware graph filesystem type module, flags jox, prefix hwg. The kernel holds 84 symbols under hwg, including the hwgfs_ routines that allocate and change nodes and the hwgdev data object.	6.5.22 master.d/hwgfs (data line); unix.IP27 hwgfs_allocnode, hwgfs_chmod, hwgdev	master.d/hwgfs:6
+6.5.22	i2c	ox	one device specification only configurable object, not a driver	-	-	-	sio_i2c, elsc	-	0	yes	no	no	-	located				master.d/i2c:7
+6.5.22	idbg	ox	one device specification only configurable object, not a driver	-	-	-	-	-	1	no	no	no	-	located				master.d/idbg:6
+6.5.22	idbgstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/idbgstubs:6
+6.5.22	ide	nsc	semaphored software driver character device	xide_	-	-	scsi	-	0	yes	no	yes	0 cdevsw:no	located				master.d/ide:21
+6.5.22	ide_idbg	ox	one device specification only configurable object, not a driver	xide_idbg_	-	-	idbg, ide	-	0	no	no	no	0	located				master.d/ide_idbg:5
+6.5.22	idev	ox	one device specification only configurable object, not a driver	idev	-	-	shmiq	-	0	yes	yes	yes	21	located				master.d/idev:5
+6.5.22	if_cl	oncs	one device specification only semaphored character device software driver	ifcl_	-	-	partition,xpc,bsd	-	0	no	no	yes	0 cdevsw:no	located				master.d/if_cl:6
+6.5.22	if_clstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	if_cl	-	-	-	-	0	yes	no	yes	0	located				master.d/if_clstubs:6
+6.5.22	if_ec			if_ec	-	-	bsd	-	2	no	no	no	0	located				master.d/if_ec:6
+6.5.22	if_ec2	cs	character device software driver	if_ec	-	-	bsd	-	0	no	no	no	0 cdevsw:no	located				master.d/if_ec2:6
+6.5.22	if_ecf	cs	character device software driver	if_ecf	-	-	bsd	-	0	no	no	no	0 cdevsw:no	located				master.d/if_ecf:6
+6.5.22	if_ee	cs	character device software driver	if_ee	-	-	bsd	-	0	no	no	no	0 cdevsw:no	located				master.d/if_ee:6
+6.5.22	if_ef	cs	character device software driver	if_ef	-	-	bsd	-	0	yes	yes	yes	7 cdevsw:yes	understood	inferred	Network interface driver, flags cs, prefix if_ef, depends on bsd. The kernel has its attach routine if_efattach and a character switch table if_efcdevsw. The chip it drives is not named here.	6.5.22 master.d/if_ef (data line); unix.IP27 if_efattach, if_efcdevsw	master.d/if_ef:6
+6.5.22	if_eg	cs	character device software driver	if_eg	-	-	bsd	-	0	yes	yes	yes	7 cdevsw:yes	understood	inferred	Gigabit Ethernet interface driver: the kernel's own messages call each card "the Gigabit Ethernet unit eg%d" and report firmware missing, full init done, link up and link down. Flags cs, prefix if_eg, depends on bsd. The kernel has if_egattach, if_egopen, if_egdetach and the character switch table if_egcdevsw (7 if_eg symbols in all). Its master file holds per-unit tables of 32 entries for the packet size, send and receive interrupt coalescing, the MAC address and mask, request_rrbs and link preference. The chip it drives is not named here.	6.5.22 master.d/if_eg (data line and data tables); unix.IP27 if_egattach, if_egopen, if_egdetach, if_egcdevsw and the eg%d message strings	master.d/if_eg:22
+6.5.22	if_eg2			if_eg	-	-	bsd	-	0	no	no	no	7	located				master.d/if_eg2:8
+6.5.22	if_ep	cs	character device software driver	if_ep	-	-	bsd	-	0	no	no	no	0 cdevsw:no	located				master.d/if_ep:6
+6.5.22	if_et			if_et	-	-	bsd	-	1	no	no	no	0	located				master.d/if_et:6
+6.5.22	if_fxp	cs	character device software driver	if_fxp	-	-	bsd	-	0	no	no	no	0 cdevsw:no	located				master.d/if_fxp:6
+6.5.22	if_gfe	c	character device	if_gfe	44	-	bsd,io	-	0	no	no	no	0 cdevsw:no	located				master.d/if_gfe:6
+6.5.22	if_hy		no active data line	-	-	-	-	-	0	no	no	no	-	located				master.d/if_hy:0
+6.5.22	if_ipg	cs	character device software driver	if_ipg	-	-	fddi,bsd	-	0	no	no	no	0 cdevsw:no	located				master.d/if_ipg:6
+6.5.22	if_ls	nsc	semaphored software driver character device	ls	-	-	bsd	-	0	yes	yes	yes	4 cdevsw:no	located				master.d/if_ls:6
+6.5.22	if_lsp	nsc	semaphored software driver character device	lsp	-	-	bsd	-	0	yes	yes	yes	0 cdevsw:no	located				master.d/if_lsp:7
+6.5.22	if_me	cs	character device software driver	if_me	-	-	bsd	-	0	no	no	no	0 cdevsw:no	located				master.d/if_me:6
+6.5.22	if_ppp	ofms	one device specification only framework or stream device stream module software driver	if_ppp	52	-	bsd,ppp_fram	-	0	yes	yes	yes	0	located				master.d/if_ppp:6
+6.5.22	if_ptr	cs	character device software driver	if_ptr	-	-	bsd	-	0	yes	yes	yes	0 cdevsw:no	located				master.d/if_ptr:6
+6.5.22	if_rns	cs	character device software driver	if_rns	-	-	fddi,bsd	-	0	yes	yes	yes	0 cdevsw:no	located				master.d/if_rns:6
+6.5.22	if_sl	ofms	one device specification only framework or stream device stream module software driver	if_sl	31	-	bsd	-	0	yes	yes	yes	2	located				master.d/if_sl:6
+6.5.22	if_sw	csp	character device software driver unsemaphored, master processor only	sw	255	-	bsd	-	3	yes	yes	yes	32 cdevsw:no	located				master.d/if_sw:6
+6.5.22	if_tg	cs	character device software driver	if_tg	-	-	bsd	-	0	yes	yes	yes	8 cdevsw:yes	located				master.d/if_tg:20
+6.5.22	if_vfe	c	character device	if_vfe	44	-	io	-	0	no	no	no	0 cdevsw:no	located				master.d/if_vfe:5
+6.5.22	if_xpi	cs	character device software driver	if_xpi	-	-	fddi,bsd	-	0	no	no	no	0 cdevsw:no	located				master.d/if_xpi:6
+6.5.22	imidi	osfdR	one device specification only software driver framework or stream device dynamically loadable auto-registering loadable module	imidi_	202	-	clone	-	0	no	no	no	0	located				master.d/imidi:7
+6.5.22	imon	cs	character device software driver	imon	42	-	-	-	0	yes	yes	yes	22 cdevsw:yes	located				master.d/imon:18
+6.5.22	imp	omdR	one device specification only stream module dynamically loadable auto-registering loadable module	imp	-	-	idev	-	0	yes	yes	yes	1	located				master.d/imp:5
+6.5.22	indigo_dd	c	character device	indigo_	-	-	kdsp	-	0	no	no	no	0 cdevsw:no	located				master.d/indigo_dd:3
+6.5.22	io	ox	one device specification only configurable object, not a driver	-	-	-	-	-	1	yes	yes	yes	-	located				master.d/io:6
+6.5.22	io6	nsc	semaphored software driver character device	io6_	-	-	pcibr,ioc3,nic	-	0	yes	yes	yes	4 cdevsw:yes	located				master.d/io6:6
+6.5.22	ioc3	nsc	semaphored software driver character device	ioc3_	-	-	-	-	0	yes	yes	yes	26 cdevsw:yes	understood	established	Driver for the IOC3 I/O controller: flags nsc, prefix ioc3_, a character switch table. The kernel has ioc3_attach and ioc3_cdevsw. The chip is described in the IP35 IOC3 notes in this repository.	6.5.22 master.d/ioc3 (data line); unix.IP27 ioc3_attach, ioc3_cdevsw; software/kernel/ip35-ioc3.md	master.d/ioc3:7
+6.5.22	ioc3_pckm	sfr	software driver framework or stream device required device	pckm	-	-	io,ioc3	-	0	yes	yes	yes	11	located				master.d/ioc3_pckm:5
+6.5.22	ioc3ei	cns	character device semaphored software driver	ei	-	-	-	-	0	yes	no	yes	16 cdevsw:yes	located				master.d/ioc3ei:5
+6.5.22	ioc4	nsc	semaphored software driver character device	ioc4_	-	-	-	-	0	no	no	yes	0 cdevsw:no	located				master.d/ioc4:7
+6.5.22	ioc4_ei	cns	character device semaphored software driver	ioc4_ei	-	-	-	-	0	no	no	yes	0 cdevsw:no	located				master.d/ioc4_ei:5
+6.5.22	ioc4_pckm	sfr	software driver framework or stream device required device	ioc4_pckm	-	-	io,ioc4	-	0	no	no	yes	0	located				master.d/ioc4_pckm:5
+6.5.22	ip_mroute	ox	one device specification only configurable object, not a driver	ip_mroute	-	-	bsd	-	13	yes	yes	yes	7	located				master.d/ip_mroute:6
+6.5.22	ip_sec	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/ip_sec:6
+6.5.22	ipc	ox	one device specification only configurable object, not a driver	-	-	-	-	-	4	yes	yes	yes	-	located				master.d/ipc:6
+6.5.22	ipfilter	cos	character device one device specification only software driver	ipfilter	59	-	bsd	-	1	yes	yes	yes	3 cdevsw:no	located				master.d/ipfilter:6
+6.5.22	ipv6	ox	one device specification only configurable object, not a driver	ipv6	-	-	bsd	-	0	yes	yes	yes	0	located				master.d/ipv6:5
+6.5.22	ipv6stubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/ipv6stubs:5
+6.5.22	irouter	ox	one device specification only configurable object, not a driver	-	-	-	l1	-	0	no	no	yes	-	located				master.d/irouter:8
+6.5.22	is1	sc	software driver character device	is1_	-	-	fglrx	-	0	no	no	yes	0 cdevsw:no	located				master.d/is1:16
+6.5.22	jlimits	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/jlimits:6
+6.5.22	jlimitsstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/jlimitsstubs:6
+6.5.22	jtagio	ox	one device specification only configurable object, not a driver	-	-	-	l1,irouter	-	0	no	no	yes	-	located				master.d/jtagio:7
+6.5.22	kaio	ocs	one device specification only character device software driver	kaio	-	-	-	-	0	yes	yes	yes	11 cdevsw:no	located				master.d/kaio:18
+6.5.22	kaiostubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/kaiostubs:6
+6.5.22	kbd	mdR	stream module dynamically loadable auto-registering loadable module	kbd	-	-	-	-	0	yes	yes	yes	8	located				master.d/kbd:20
+6.5.22	kdsp	cso	character device software driver one device specification only	kdsp	53	-	-	-	0	yes	yes	yes	110 cdevsw:yes	located				master.d/kdsp:5
+6.5.22	kernel	k	kernel object, one per kernel	-	-	-	-	-	0	no	no	no	-	located				master.d/kernel:23
+6.5.22	keyboard	om	one device specification only stream module	keyboard	-	-	-	-	0	yes	yes	yes	4	located				master.d/keyboard:6
+6.5.22	kitchen_sync	nsc	semaphored software driver character device	kitchen_sync_	-	-	-	-	0	yes	yes	yes	4 cdevsw:yes	located				master.d/kitchen_sync:6
+6.5.22	kitchenstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	no	no	no	-	located				master.d/kitchenstubs:6
+6.5.22	klidbg	ox	one device specification only configurable object, not a driver	klidbg	-	-	idbg	-	0	no	no	no	0	located				master.d/klidbg:6
+6.5.22	klistio	ox	one device specification only configurable object, not a driver	-	-	-	-	-	5	yes	yes	yes	-	located				master.d/klistio:23
+6.5.22	klistiostubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/klistiostubs:6
+6.5.22	klog	osc	one device specification only software driver character device	klog	41	1	-	-	1	yes	yes	yes	13 cdevsw:yes	understood	established	Kernel message log: flags osc, prefix klog, one device at external major 41, with one stub. The kernel holds klogopen and klogcdevsw and 13 klog symbols in all.	6.5.22 master.d/klog (data line and stub); unix.IP27 klogopen, klogcdevsw	master.d/klog:6
+6.5.22	kmem	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/kmem:6
+6.5.22	kmem_debug	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	no	no	no	-	located				master.d/kmem_debug:6
+6.5.22	kona	sc	software driver character device	kona_	-	-	io,gfxs	-	1	yes	no	yes	111 cdevsw:yes	located				master.d/kona:6
+6.5.22	ksync	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/ksync:8
+6.5.22	ksync_metered	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	no	no	no	-	located				master.d/ksync_metered:8
+6.5.22	ksync_named	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	no	no	no	-	located				master.d/ksync_named:8
+6.5.22	ksync_statistics	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	no	no	no	-	located				master.d/ksync_statistics:10
+6.5.22	kthread	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	no	no	no	-	located				master.d/kthread:5
+6.5.22	l1	ox	one device specification only configurable object, not a driver	-	-	-	l1_command	-	0	no	no	yes	-	located				master.d/l1:6
+6.5.22	l1_command	ox	one device specification only configurable object, not a driver	-	-	-	l1	-	0	no	no	yes	-	located				master.d/l1_command:6
+6.5.22	ldterm	om	one device specification only stream module	ldterm	-	-	-	-	0	yes	yes	yes	2	located				master.d/ldterm:17
+6.5.22	lg1	s	software driver	lg1_	-	-	gfx	-	1	no	no	no	0	located				master.d/lg1:6
+6.5.22	llc2	fs	framework or stream device software driver	llc2	213	-	xtimer, snif	-	0	yes	yes	yes	53	located				master.d/llc2:16
+6.5.22	lm	s	software driver	lm	-	-	-	-	2	no	no	no	0	located				master.d/lm:17
+6.5.22	lockd	nox	semaphored one device specification only configurable object, not a driver	lockd_	-	-	bsd,nfs,svckudp	-	6	yes	yes	yes	8	located				master.d/lockd:17
+6.5.22	lockdstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/lockdstubs:6
+6.5.22	lofs	jns	file system type semaphored software driver	lofs_	-	-	bsd,nfs	-	0	yes	yes	yes	8	located				master.d/lofs:17
+6.5.22	lofsstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/lofsstubs:5
+6.5.22	log	orfs	one device specification only required device framework or stream device software driver	log	80	-	clone	-	0	yes	yes	yes	12	located				master.d/log:6
+6.5.22	mac	ox	one device specification only configurable object, not a driver	-	-	-	eag	-	0	yes	yes	yes	-	located				master.d/mac:6
+6.5.22	mac_access	ox	one device specification only configurable object, not a driver	-	-	-	eag	-	0	no	no	no	-	located				master.d/mac_access:6
+6.5.22	mac_autofs	ox	one device specification only configurable object, not a driver	-	-	-	mac,autofs	-	0	yes	yes	yes	-	located				master.d/mac_autofs:6
+6.5.22	mac_efs	ox	one device specification only configurable object, not a driver	-	-	-	mac,efs	-	0	yes	yes	yes	-	located				master.d/mac_efs:6
+6.5.22	mac_fd	ox	one device specification only configurable object, not a driver	-	-	-	mac,fd	-	0	yes	yes	yes	-	located				master.d/mac_fd:6
+6.5.22	mac_fifo	ox	one device specification only configurable object, not a driver	-	-	-	mac,fifofs	-	0	yes	yes	yes	-	located				master.d/mac_fifo:6
+6.5.22	mac_hwg	ox	one device specification only configurable object, not a driver	-	-	-	mac,hwgfs	-	0	yes	yes	yes	-	located				master.d/mac_hwg:6
+6.5.22	mac_ipc	ox	one device specification only configurable object, not a driver	-	-	-	ipc	-	0	yes	yes	yes	-	located				master.d/mac_ipc:6
+6.5.22	mac_nfs3	ox	one device specification only configurable object, not a driver	-	-	-	mac,nfs3	-	0	yes	yes	yes	-	located				master.d/mac_nfs3:6
+6.5.22	mac_pipe	ox	one device specification only configurable object, not a driver	-	-	-	mac,pipefs	-	0	yes	yes	yes	-	located				master.d/mac_pipe:6
+6.5.22	mac_proc	ox	one device specification only configurable object, not a driver	-	-	-	mac,proc	-	0	yes	yes	yes	-	located				master.d/mac_proc:6
+6.5.22	mac_specfs	ox	one device specification only configurable object, not a driver	-	-	-	mac,specfs	-	0	yes	yes	yes	-	located				master.d/mac_specfs:6
+6.5.22	mac_udf	ox	one device specification only configurable object, not a driver	-	-	-	mac	-	0	yes	yes	yes	-	located				master.d/mac_udf:6
+6.5.22	mac_xfs	ox	one device specification only configurable object, not a driver	-	-	-	mac,xfs,xfs_attr_fetch	-	0	yes	yes	yes	-	located				master.d/mac_xfs:6
+6.5.22	mace	nsc	semaphored software driver character device	mace_	-	-	-	-	0	no	no	no	0 cdevsw:no	located				master.d/mace:5
+6.5.22	macstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/macstubs:6
+6.5.22	mad_dd	cso	character device software driver one device specification only	mad_	-	-	kdsp	-	0	yes	yes	yes	21 cdevsw:yes	located				master.d/mad_dd:4
+6.5.22	magellan	omdR	one device specification only stream module dynamically loadable auto-registering loadable module	magellan	-	-	idev	-	0	yes	yes	yes	0	located				master.d/magellan:5
+6.5.22	mcioaud	c	character device	aud	39	-	mcioplp	-	0	no	no	no	3 cdevsw:no	located				master.d/mcioaud:5
+6.5.22	mcioplp	c	character device	plp	38	-	-	-	1	no	no	no	6 cdevsw:no	located				master.d/mcioplp:5
+6.5.22	mem	orcs	one device specification only required device character device software driver	mm	1	-	-	-	0	yes	yes	yes	18 cdevsw:yes	located				master.d/mem:7
+6.5.22	menet	nsc	semaphored software driver character device	menet_	-	-	pcibr,ioc3,nic	-	0	yes	yes	yes	4 cdevsw:yes	located				master.d/menet:6
+6.5.22	mgras	sc	software driver character device	mgras_	-	-	gfx,gfxs	-	0	yes	yes	no	1 cdevsw:no	located				master.d/mgras:6
+6.5.22	mgrasstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/mgrasstubs:6
+6.5.22	mgvstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/mgvstubs:6
+6.5.22	mhpckm	sfr	software driver framework or stream device required device	pckm	197	-	io	-	0	no	no	no	11	located				master.d/mhpckm:5
+6.5.22	midi	osfdR	one device specification only software driver framework or stream device dynamically loadable auto-registering loadable module	midi_	201	-	clone, sduart	-	0	no	no	no	41	located				master.d/midi:5
+6.5.22	mio	nsc	semaphored software driver character device	mio_	-	-	pcibr,ioc3,nic	-	0	yes	yes	yes	4 cdevsw:yes	located				master.d/mio:6
+6.5.22	mldtest	ocsdR	one device specification only character device software driver dynamically loadable auto-registering loadable module	mldtest	-	-	-	-	0	no	no	no	0 cdevsw:no	located				master.d/mldtest:2
+6.5.22	mloadidbg	ox	one device specification only configurable object, not a driver	mloadidbg	-	-	idbg	-	0	no	no	no	0	located				master.d/mloadidbg:6
+6.5.22	mouse	om	one device specification only stream module	mouse	-	-	idev	-	0	yes	yes	yes	4	located				master.d/mouse:5
+6.5.22	msg	ox	one device specification only configurable object, not a driver	msg	-	-	ipc	-	1	yes	yes	yes	19	located				master.d/msg:5
+6.5.22	namefs	oxj	one device specification only configurable object, not a driver file system type	nm_	-	-	-	-	1	yes	yes	yes	19	located				master.d/namefs:6
+6.5.22	nfs	jnsw	file system type semaphored software driver performs write-back before the strategy routine	nfs_	18	-	bsd,specfs,svckudp	-	2	yes	yes	yes	64	located				master.d/nfs:17
+6.5.22	nfs3	jnsw	file system type semaphored software driver performs write-back before the strategy routine	nfs3_	18	-	bsd,specfs,svckudp	-	1	yes	yes	yes	47	located				master.d/nfs3:17
+6.5.22	nfsidbg	ox	one device specification only configurable object, not a driver	nfsidbg	-	-	idbg,nfs	-	2	no	no	no	0	located				master.d/nfsidbg:17
+6.5.22	nfsstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/nfsstubs:6
+6.5.22	ng1	s	software driver	ng1_	-	-	gfx	-	0	no	no	no	0	located				master.d/ng1:6
+6.5.22	ng1stubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/ng1stubs:6
+6.5.22	nic	rox	required device one device specification only configurable object, not a driver	nic_	-	-	-	-	0	yes	yes	yes	21	located				master.d/nic:7
+6.5.22	nlmstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/nlmstubs:6
+6.5.22	nolocks	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	no	no	no	-	located				master.d/nolocks:6
+6.5.22	noncell	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	cell_	-	-	-	-	0	yes	yes	yes	4	located				master.d/noncell:16
+6.5.22	nsmidi	cns	character device semaphored software driver	midi_	-	-	-	-	0	yes	yes	yes	41 cdevsw:yes	located				master.d/nsmidi:6
+6.5.22	numa	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/numa:6
+6.5.22	numa_idbg	ox	one device specification only configurable object, not a driver	numa_idbg_	-	-	-	-	0	no	no	no	0	located				master.d/numa_idbg:16
+6.5.22	numaidbgstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	no	yes	-	located				master.d/numaidbgstubs:6
+6.5.22	odyssey	sc	software driver character device	odsy_	-	-	gfx,gfxs	-	0	no	yes	yes	0 cdevsw:no	located				master.d/odyssey:6
+6.5.22	odysseystubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/odysseystubs:6
+6.5.22	ohci	nsc	semaphored software driver character device	ohci_	-	-	-	-	0	no	no	yes	0 cdevsw:no	located				master.d/ohci:5
+6.5.22	ohciidbg	ox	one device specification only configurable object, not a driver	ohciidbg_	-	-	idbg, ohci	-	0	no	no	no	0	located				master.d/ohciidbg:5
+6.5.22	oncrpc	ns	semaphored software driver	onc_	-	-	bsd	-	4	yes	yes	yes	0	located				master.d/oncrpc:17
+6.5.22	oncrpcidbg	ox	one device specification only configurable object, not a driver	oncrpcidbg	-	-	idbg,oncrpc	-	0	no	no	no	0	located				master.d/oncrpcidbg:17
+6.5.22	oplock	ns	semaphored software driver	oplock	-	-	imon	-	0	yes	yes	yes	8	located				master.d/oplock:18
+6.5.22	oplockstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/oplockstubs:5
+6.5.22	os	oxr	one device specification only configurable object, not a driver required device	-	-	-	sgi,io,disp,stream,compression	-	0	yes	yes	yes	-	located				master.d/os:5
+6.5.22	partition	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	no	no	yes	-	located				master.d/partition:6
+6.5.22	partitionstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	part	-	-	-	-	0	yes	yes	yes	35	located				master.d/partitionstubs:6
+6.5.22	pci	nsc	semaphored software driver character device	pci	180	-	-	-	0	no	no	no	370 cdevsw:no	located				master.d/pci:6
+6.5.22	pciba	cdR	character device dynamically loadable auto-registering loadable module	pciba_	-	-	-	-	0	yes	yes	yes	1 cdevsw:no	located				master.d/pciba:6
+6.5.22	pcibr	nsc	semaphored software driver character device	pcibr_	-	-	-	-	0	yes	yes	yes	139 cdevsw:yes	located				master.d/pcibr:6
+6.5.22	pciio	ns	semaphored software driver	pciio_	-	-	cdl	-	0	yes	yes	yes	117	located				master.d/pciio:6
+6.5.22	pciio_ppb	nsc	semaphored software driver character device	pciio_ppb_	-	-	pciio	-	0	yes	yes	yes	9 cdevsw:yes	located				master.d/pciio_ppb:6
+6.5.22	pciiostubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/pciiostubs:6
+6.5.22	pciiox	nsc	semaphored software driver character device	pciiox_	-	-	pcibr,nic	-	0	yes	yes	yes	4 cdevsw:yes	located				master.d/pciiox:6
+6.5.22	pcimh	nsc	semaphored software driver character device	pcimh_	-	-	-	-	0	no	no	no	0 cdevsw:no	located				master.d/pcimh:6
+6.5.22	pckm	sfr	software driver framework or stream device required device	pckm	197	-	io	-	0	no	no	no	11	located				master.d/pckm:5
+6.5.22	pgrpidbg	ox	one device specification only configurable object, not a driver	pgrpidbg_	-	-	-	-	0	no	no	no	0	located				master.d/pgrpidbg:16
+6.5.22	pic	nsc	semaphored software driver character device	pic_	-	-	-	-	0	no	no	yes	0 cdevsw:no	located				master.d/pic:6
+6.5.22	pipefs	oxj	one device specification only configurable object, not a driver file system type	pipe_	-	-	fifofs	-	0	yes	yes	yes	18	located				master.d/pipefs:6
+6.5.22	pipefsstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/pipefsstubs:6
+6.5.22	pipemod	om	one device specification only stream module	pipe	-	-	-	-	0	yes	yes	yes	22	located				master.d/pipemod:16
+6.5.22	postwait	sc	software driver character device	pw	206	-	-	-	4	yes	yes	yes	4 cdevsw:no	located				master.d/postwait:6
+6.5.22	postwaitstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	pw	206	-	-	-	0	yes	yes	yes	4	located				master.d/postwaitstubs:6
+6.5.22	ppp_fram	om	one device specification only stream module	ppp_fram	-	-	-	-	0	yes	yes	yes	0	located				master.d/ppp_fram:6
+6.5.22	prf	ocs	one device specification only character device software driver	prf	7	-	-	-	0	yes	yes	yes	15 cdevsw:yes	located				master.d/prf:17
+6.5.22	prfstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/prfstubs:6
+6.5.22	proc	jox	file system type one device specification only configurable object, not a driver	pr	-	-	-	-	4	yes	yes	yes	189	located				master.d/proc:6
+6.5.22	procidbg	ox	one device specification only configurable object, not a driver	procidbg_	-	-	-	-	0	no	no	no	0	located				master.d/procidbg:16
+6.5.22	psema	ox	one device specification only configurable object, not a driver	psema	-	-	-	-	3	yes	yes	yes	14	located				master.d/psema:7
+6.5.22	ptc	fs	framework or stream device software driver	ptc	14,104,106,108,110	-	pts,clone	-	0	yes	yes	yes	5	located				master.d/ptc:5
+6.5.22	ptem	om	one device specification only stream module	ptem	-	-	-	-	0	yes	yes	yes	2	located				master.d/ptem:17
+6.5.22	ptrmap	omdR	one device specification only stream module dynamically loadable auto-registering loadable module	ptrmap	-	-	-	-	0	no	no	no	0	located				master.d/ptrmap:5
+6.5.22	pts	fs	framework or stream device software driver	pts	15,105,107,109,111	-	ptc,stty_ld	-	0	yes	yes	yes	4	located				master.d/pts:5
+6.5.22	qcntl	osc	one device specification only software driver character device	qcntl	55	-	shmiq	-	0	yes	yes	yes	10 cdevsw:yes	located				master.d/qcntl:6
+6.5.22	ql	nsc	semaphored software driver character device	ql	-	-	scsi	-	0	yes	yes	yes	26 cdevsw:yes	located				master.d/ql:6
+6.5.22	qlfc	nsc	semaphored software driver character device	qlfc_	-	-	scsi	-	0	yes	yes	yes	2 cdevsw:no	located				master.d/qlfc:6
+6.5.22	qlfc_idbg	ox	one device specification only configurable object, not a driver	qlfc_idbg_	-	-	idbg	-	0	no	no	no	0	located				master.d/qlfc_idbg:6
+6.5.22	qlfcstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/qlfcstubs:6
+6.5.22	qlidbg	ox	one device specification only configurable object, not a driver	qlidbg_	-	-	idbg	-	0	no	no	no	0	located				master.d/qlidbg:6
+6.5.22	quotas	ox	one device specification only configurable object, not a driver	qt_	-	-	-	-	0	yes	yes	yes	5	located				master.d/quotas:17
+6.5.22	quotasstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/quotasstubs:6
+6.5.22	rad1pci	cs	character device software driver	rad1pci	-	-	-	-	0	yes	no	no	18 cdevsw:yes	located				master.d/rad1pci:8
+6.5.22	rad_dd	cso	character device software driver one device specification only	rad_	-	-	kdsp	-	0	yes	yes	yes	43 cdevsw:yes	located				master.d/rad_dd:4
+6.5.22	rand	orcs	one device specification only required device character device software driver	rand	39	-	crypto	-	2	yes	yes	yes	36 cdevsw:yes	located				master.d/rand:18
+6.5.22	rrm	sop	software driver one device specification only unsemaphored, master processor only	RRM_	57	-	gfx	-	0	yes	yes	yes	8	located				master.d/rrm:6
+6.5.22	sad	fsn	framework or stream device software driver semaphored	sad	33	8	sgi,stream	-	0	yes	yes	yes	7	located				master.d/sad:8
+6.5.22	sample_gioio	nsc	semaphored software driver character device	gsamp_	-	-	-	-	0	no	no	no	0 cdevsw:no	located				master.d/sample_gioio:6
+6.5.22	sample_pciio	nsc	semaphored software driver character device	psamp_	-	-	-	-	0	no	no	no	0 cdevsw:no	located				master.d/sample_pciio:6
+6.5.22	sample_xtalk	nsc	semaphored software driver character device	xsamp_	-	-	-	-	0	no	no	no	0 cdevsw:no	located				master.d/sample_xtalk:6
+6.5.22	sat	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/sat:6
+6.5.22	satstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/satstubs:6
+6.5.22	sball	omdR	one device specification only stream module dynamically loadable auto-registering loadable module	sball	-	-	idev	-	0	yes	yes	yes	0	located				master.d/sball:5
+6.5.22	sbp2	sc	software driver character device	sbp2	-	-	ohci,scsi	-	0	no	no	yes	0 cdevsw:no	located				master.d/sbp2:6
+6.5.22	sbp2idbg	ox	one device specification only configurable object, not a driver	sbp2idbg_	-	-	idbg, sbp2	-	0	no	no	no	0	located				master.d/sbp2idbg:5
+6.5.22	scip	ns	semaphored software driver	scip	-	-	io,scsi,wd95	-	4	no	no	no	0	located				master.d/scip:6
+6.5.22	scsi	ns	semaphored software driver	scsi_	-	-	tpscutil,tsutil	-	0	yes	yes	yes	72	located				master.d/scsi:6
+6.5.22	scsiha	osc	one device specification only software driver character device	scsiha_	-	-	scsi	-	0	yes	yes	yes	6 cdevsw:yes	located				master.d/scsiha:5
+6.5.22	sduart	sfr	software driver framework or stream device required device	du	260	-	stty_ld,io	-	0	yes	yes	yes	54	located				master.d/sduart:5
+6.5.22	sem	ox	one device specification only configurable object, not a driver	sem	-	-	ipc	-	2	yes	yes	yes	33	located				master.d/sem:7
+6.5.22	serialio	fs	framework or stream device software driver	sio_	-	-	stty_ld	-	0	no	no	no	15	located				master.d/serialio:6
+6.5.22	sesmgr	ox	one device specification only configurable object, not a driver	-	-	-	ip_sec	-	0	yes	yes	yes	-	located				master.d/sesmgr:6
+6.5.22	sesmgrstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/sesmgrstubs:6
+6.5.22	sessionidbg	ox	one device specification only configurable object, not a driver	sessionidbg_	-	-	-	-	0	no	no	no	0	located				master.d/sessionidbg:16
+6.5.22	sflash	cso	character device software driver one device specification only	srflash_	-	-	-	-	0	no	yes	no	0 cdevsw:no	located				master.d/sflash:5
+6.5.22	sgi	oxr	one device specification only configurable object, not a driver required device	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/sgi:5
+6.5.22	sharena	sc	software driver character device	sharena	-	-	-	-	0	yes	yes	yes	8 cdevsw:yes	located				master.d/sharena:6
+6.5.22	shmiq	osf	one device specification only software driver framework or stream device	shmiq	54	-	clone, qcntl	-	0	yes	yes	yes	8	located				master.d/shmiq:5
+6.5.22	sio_i2c	ox	one device specification only configurable object, not a driver	i2c	-	-	i2c, elsc	-	0	yes	no	no	8	located				master.d/sio_i2c:7
+6.5.22	sio_ioc3	ox	one device specification only configurable object, not a driver	-	-	-	serialio, ioc3	-	0	no	no	no	-	located				master.d/sio_ioc3:7
+6.5.22	sio_ioc4	ox	one device specification only configurable object, not a driver	-	-	-	serialio, ioc4	-	0	no	no	no	-	located				master.d/sio_ioc4:7
+6.5.22	sio_l1	ox	one device specification only configurable object, not a driver	l1	-	-	l1	-	0	no	no	no	0	located				master.d/sio_l1:6
+6.5.22	smfd	osbcdR	one device specification only software driver block device character device dynamically loadable auto-registering loadable module	smfd	-	-	scsi, dksc	-	0	yes	yes	yes	3 cdevsw:no bdevsw:no	located				master.d/smfd:6
+6.5.22	sn0_elspec		no active data line	-	-	-	-	-	0	no	no	no	-	located				master.d/sn0_elspec:0
+6.5.22	sn0_elspec.dbg		no active data line	-	-	-	-	-	0	no	no	no	-	located				master.d/sn0_elspec.dbg:0
+6.5.22	sn0drv	ncs	semaphored character device software driver	sn0drv_	-	-	-	-	0	yes	no	no	7 cdevsw:yes	located				master.d/sn0drv:4
+6.5.22	sn1_elspec		no active data line	-	-	-	-	-	0	no	no	no	-	located				master.d/sn1_elspec:0
+6.5.22	sn1_elspec.dbg		no active data line	-	-	-	-	-	0	no	no	no	-	located				master.d/sn1_elspec.dbg:0
+6.5.22	sndrv	ncs	semaphored character device software driver	sndrv_	-	-	-	-	0	no	no	yes	2 cdevsw:no	located				master.d/sndrv:4
+6.5.22	snfs	ns	semaphored software driver	rfs_	-	-	bsd,nfs,svckudp	-	8	yes	yes	yes	20	located				master.d/snfs:17
+6.5.22	snif	fs	framework or stream device software driver	snif	117	-	bsd,io,stream	-	0	yes	yes	yes	10	located				master.d/snif:16
+6.5.22	sockmod	sm	software driver stream module	sockmod	-	-	timod	-	0	yes	yes	yes	0	located				master.d/sockmod:21
+6.5.22	spec_idbg	ox	one device specification only configurable object, not a driver	spec_idbg_	-	-	-	-	0	no	no	no	0	located				master.d/spec_idbg:16
+6.5.22	specfs	oxj	one device specification only configurable object, not a driver file system type	spec_	-	-	fifofs,graph	-	4	yes	yes	yes	81	located				master.d/specfs:6
+6.5.22	stp	ox	one device specification only configurable object, not a driver	stp	-	-	-	-	0	yes	yes	yes	12	located				master.d/stp:5
+6.5.22	stpidbg	ox	one device specification only configurable object, not a driver	stpidbg	-	-	idbg,stp	-	0	no	no	no	0	located				master.d/stpidbg:6
+6.5.22	stpstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/stpstubs:5
+6.5.22	stream	ox	one device specification only configurable object, not a driver	-	-	-	sgi,io	-	0	yes	yes	yes	-	located				master.d/stream:6
+6.5.22	stridbg	ox	one device specification only configurable object, not a driver	stridbg	-	-	idbg,stream	-	0	no	no	no	0	located				master.d/stridbg:6
+6.5.22	stty_ld	om	one device specification only stream module	stty_ld	-	-	-	-	0	yes	yes	yes	3	located				master.d/stty_ld:5
+6.5.22	suser	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	no	no	no	-	located				master.d/suser:8
+6.5.22	svckudp	ns	semaphored software driver	svckudp_	-	-	bsd,oncrpc	-	1	yes	yes	yes	0	located				master.d/svckudp:17
+6.5.22	swipestubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/swipestubs:6
+6.5.22	sysctlr	pc	unsemaphored, master processor only character device	sysc	199	1	-	-	0	no	no	no	12 cdevsw:no	located				master.d/sysctlr:5
+6.5.22	tablet	omdR	one device specification only stream module dynamically loadable auto-registering loadable module	tablet	-	-	idev	-	0	yes	yes	yes	0	located				master.d/tablet:5
+6.5.22	ticlts	fs	framework or stream device software driver	tcl	13	-	timod	-	0	yes	yes	yes	0	located				master.d/ticlts:21
+6.5.22	ticots	fs	framework or stream device software driver	tco	12	-	timod	-	0	yes	yes	yes	0	located				master.d/ticots:21
+6.5.22	ticotsord	fs	framework or stream device software driver	tcoo	24	-	-	-	0	yes	yes	yes	0	located				master.d/ticotsord:21
+6.5.22	timod	sm	software driver stream module	timod	-	-	-	-	0	yes	yes	yes	8	located				master.d/timod:21
+6.5.22	tirdwr	sm	software driver stream module	tirdwr	-	-	-	-	0	yes	yes	yes	2	located				master.d/tirdwr:21
+6.5.22	tpiicmp	sf	software driver framework or stream device	tpiicmp	21	1	tpisocket	-	0	yes	yes	yes	0	located				master.d/tpiicmp:21
+6.5.22	tpirawip	sf	software driver framework or stream device	tpirawip	20	1	tpisocket,tpiicmp	-	0	yes	yes	yes	0	located				master.d/tpirawip:21
+6.5.22	tpisocket	s	software driver	tpisocket_	-	-	clone	-	0	yes	yes	yes	0	located				master.d/tpisocket:21
+6.5.22	tpisocketstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/tpisocketstubs:6
+6.5.22	tpitcp	sf	software driver framework or stream device	tpitcp	18	1	tpisocket	-	0	yes	yes	yes	0	located				master.d/tpitcp:21
+6.5.22	tpitcp6	sf	software driver framework or stream device	tpitcp6	25	1	tpisocket	-	0	no	no	no	0	located				master.d/tpitcp6:21
+6.5.22	tpiudp	sf	software driver framework or stream device	tpiudp	19	1	tpisocket,tpitcp	-	0	yes	yes	yes	0	located				master.d/tpiudp:21
+6.5.22	tpiudp6	sf	software driver framework or stream device	tpiudp6	26	1	tpisocket,tpitcp6	-	0	no	no	no	0	located				master.d/tpiudp6:21
+6.5.22	tport	sfr	software driver framework or stream device required device	tp	46	-	stty_ld,io	-	0	yes	yes	yes	36	located				master.d/tport:6
+6.5.22	tportkbd	ox	one device specification only configurable object, not a driver	-	-	-	-	-	1	no	no	no	-	located				master.d/tportkbd:6
+6.5.22	tportpckbd	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/tportpckbd:6
+6.5.22	tportstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/tportstubs:18
+6.5.22	tpsc	oscdR	one device specification only software driver character device dynamically loadable auto-registering loadable module	tpsc	-	-	-	-	0	yes	yes	yes	14 cdevsw:no	located				master.d/tpsc:11
+6.5.22	tpscutil	os	one device specification only software driver	tpscutil	-	-	-	-	0	yes	yes	yes	0	located				master.d/tpscutil:6
+6.5.22	tpu	ocs	one device specification only character device software driver	tpu_	-	-	-	-	0	no	no	no	1 cdevsw:no	located				master.d/tpu:18
+6.5.22	tpuidbg	ox	one device specification only configurable object, not a driver	tpuidbg	-	-	idbg,tpu	-	3	no	no	no	1	located				master.d/tpuidbg:18
+6.5.22	tpusim	ocs	one device specification only character device software driver	tpusim_	-	-	tpu	-	7	no	no	no	7 cdevsw:no	located				master.d/tpusim:18
+6.5.22	tr_lli	fs	framework or stream device software driver	tri	116	-	-	-	9	no	no	no	0	located				master.d/tr_lli:5
+6.5.22	ts	oscdR	one device specification only software driver character device dynamically loadable auto-registering loadable module	ts_	-	-	-	-	0	yes	yes	yes	4 cdevsw:no	located				master.d/ts:7
+6.5.22	tsd	fs	framework or stream device software driver	tn	253	-	clone	-	0	no	no	no	0	located				master.d/tsd:6
+6.5.22	tserialio	cns	character device semaphored software driver	tsio	-	-	-	-	0	yes	yes	yes	23 cdevsw:yes	located				master.d/tserialio:6
+6.5.22	tsutil	os	one device specification only software driver	tsutil	-	-	-	-	0	yes	yes	yes	0	located				master.d/tsutil:6
+6.5.22	ude	nsc	semaphored software driver character device	ude_	-	-	-	-	0	yes	no	yes	11 cdevsw:yes	located				master.d/ude:5
+6.5.22	udf	oxj	one device specification only configurable object, not a driver file system type	udf_	-	-	sgi,specfs	-	0	yes	yes	yes	154	located				master.d/udf:6
+6.5.22	udfstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/udfstubs:6
+6.5.22	uds	ox	one device specification only configurable object, not a driver	uds	-	-	bsd	-	2	yes	yes	yes	1	located				master.d/uds:6
+6.5.22	umfs	oxj	one device specification only configurable object, not a driver file system type	umfs_	-	-	-	-	0	yes	yes	yes	3	located				master.d/umfs:6
+6.5.22	umfsidbg	ox	one device specification only configurable object, not a driver	umfsidbg	-	-	idbg,umfs	-	0	no	no	no	0	located				master.d/umfsidbg:6
+6.5.22	umfsstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/umfsstubs:6
+6.5.22	uncintf	ox	one device specification only configurable object, not a driver	-	-	-	-	-	0	no	no	no	-	located				master.d/uncintf:5
+6.5.22	uncstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/uncstubs:6
+6.5.22	universe	nsc	semaphored software driver character device	universe_	-	-	-	-	0	yes	no	yes	34 cdevsw:yes	located				master.d/universe:17
+6.5.22	usb	sc	software driver character device	usb_	-	-	-	-	0	no	no	yes	1 cdevsw:no	located				master.d/usb:6
+6.5.22	usb_comp	soc	software driver one device specification only character device	usb_comp_	-	-	usb	-	0	no	no	yes	0 cdevsw:no	located				master.d/usb_comp:6
+6.5.22	usb_pckm	sfr	software driver framework or stream device required device	usb_pckm_	-	-	io,usb	-	0	no	no	yes	0	located				master.d/usb_pckm:5
+6.5.22	usb_tablet	sfr	software driver framework or stream device required device	usb_tablet_	-	-	usb	-	0	no	no	yes	0	located				master.d/usb_tablet:4
+6.5.22	usbaudio_dd	cso	character device software driver one device specification only	usbaudio_	-	-	usb,kdsp	-	0	no	no	yes	0 cdevsw:no	located				master.d/usbaudio_dd:4
+6.5.22	usbidbg	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	no	no	no	-	located				master.d/usbidbg:6
+6.5.22	usbidbgstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	no	no	yes	-	located				master.d/usbidbgstubs:6
+6.5.22	usema	sc	software driver character device	us	47	-	-	-	1	yes	yes	yes	65 cdevsw:yes	located				master.d/usema:6
+6.5.22	userialio	cns	character device semaphored software driver	usio_	-	-	-	-	0	yes	yes	yes	0 cdevsw:no	located				master.d/userialio:6
+6.5.22	usrbus	ocs	one device specification only character device software driver	ubus	198	-	-	-	0	no	no	no	0 cdevsw:no	located				master.d/usrbus:18
+6.5.22	usrdma	ocs	one device specification only character device software driver	udma	232	-	-	-	0	no	no	no	0 cdevsw:no	located				master.d/usrdma:18
+6.5.22	usrpci	nsc	semaphored software driver character device	usrpci_	-	-	-	-	0	yes	yes	no	15 cdevsw:yes	located				master.d/usrpci:6
+6.5.22	usrvme	nsc	semaphored software driver character device	usrvme_	-	-	-	-	0	yes	no	yes	11 cdevsw:yes	located				master.d/usrvme:5
+6.5.22	usync	ox	one device specification only configurable object, not a driver	usync	-	-	-	-	3	yes	yes	yes	9	located				master.d/usync:6
+6.5.22	venice	s	software driver	venice_	-	-	io	-	4	no	no	no	0	located				master.d/venice:6
+6.5.22	vga	sc	software driver character device	vga_	-	-	tport	-	0	no	no	yes	0 cdevsw:no	located				master.d/vga:6
+6.5.22	vgastubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/vgastubs:6
+6.5.22	vidstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/vidstubs:6
+6.5.22	vme_idbg	ox	one device specification only configurable object, not a driver	vme_idbg_	-	-	-	-	0	no	no	no	0	located				master.d/vme_idbg:6
+6.5.22	vmeio	ns	semaphored software driver	vmeio_	-	-	-	-	0	yes	no	yes	55	located				master.d/vmeio:5
+6.5.22	vmestubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	no	yes	no	-	located				master.d/vmestubs:6
+6.5.22	vmeuli	c	character device	vmeuli	-	-	-	-	0	no	no	no	5 cdevsw:no	located				master.d/vmeuli:16
+6.5.22	vmidbg	ox	one device specification only configurable object, not a driver	vmidbg_	-	-	-	-	0	no	no	no	0	located				master.d/vmidbg:16
+6.5.22	wacom	omdR	one device specification only stream module dynamically loadable auto-registering loadable module	wacom	-	-	idev	-	0	yes	yes	yes	0	located				master.d/wacom:5
+6.5.22	wd93	ns	semaphored software driver	wd93	-	-	scsi	-	0	no	no	no	0	located				master.d/wd93:6
+6.5.22	wd95	ns	semaphored software driver	wd95	-	-	io,scsi	-	2	no	no	no	2	located				master.d/wd95:6
+6.5.22	xbmon	ncs	semaphored character device software driver	xbmon_	-	-	-	-	0	yes	yes	yes	13 cdevsw:yes	located				master.d/xbmon:4
+6.5.22	xbow	nsc	semaphored software driver character device	xbow_	-	-	-	-	0	yes	yes	yes	36 cdevsw:yes	located				master.d/xbow:6
+6.5.22	xbridge	nsc	semaphored software driver character device	xbridge_	-	-	-	-	0	yes	yes	yes	5 cdevsw:yes	located				master.d/xbridge:6
+6.5.22	xconn	cns	character device semaphored software driver	xconn_	265	200	-	-	0	yes	yes	yes	17 cdevsw:yes	located				master.d/xconn:5
+6.5.22	xfs	oxj	one device specification only configurable object, not a driver file system type	xfs_	-	-	sgi,specfs,io	-	0	yes	yes	yes	615	located				master.d/xfs:6
+6.5.22	xfs_attr_fetch	ox	one device specification only configurable object, not a driver	-	-	-	xfs	-	0	yes	yes	yes	-	located				master.d/xfs_attr_fetch:6
+6.5.22	xfsdmapi	ox	one device specification only configurable object, not a driver	xfsdmapi	-	-	xfs,dmi	-	0	yes	yes	yes	0	located				master.d/xfsdmapi:6
+6.5.22	xfsdmapistubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/xfsdmapistubs:6
+6.5.22	xfsidbg	ox	one device specification only configurable object, not a driver	xfsidbg	-	-	idbg,xfs	-	0	no	no	no	0	located				master.d/xfsidbg:6
+6.5.22	xfsquotas	ox	one device specification only configurable object, not a driver	xfs_qm	-	-	xfs	-	0	yes	yes	yes	25	located				master.d/xfsquotas:6
+6.5.22	xfsquotasstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/xfsquotasstubs:6
+6.5.22	xfsrt	ox	one device specification only configurable object, not a driver	xfsrt	-	-	xfs,xlv	-	0	yes	yes	yes	0	located				master.d/xfsrt:6
+6.5.22	xfsrtstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/xfsrtstubs:6
+6.5.22	xfsstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/xfsstubs:6
+6.5.22	xioba	cdR	character device dynamically loadable auto-registering loadable module	xioba_	-	-	-	-	0	yes	yes	yes	0 cdevsw:no	located				master.d/xioba:6
+6.5.22	xiovme	nsc	semaphored software driver character device	xiovme_	-	-	-	-	0	yes	no	yes	4 cdevsw:yes	located				master.d/xiovme:2
+6.5.22	xlv	sbc	software driver block device character device	xlv	192	-	bpqueue,sgi	-	1	yes	yes	yes	26 cdevsw:no bdevsw:no	located				master.d/xlv:6
+6.5.22	xlv_plex	ox	one device specification only configurable object, not a driver	-	-	-	xlv	-	0	yes	yes	yes	-	located				master.d/xlv_plex:6
+6.5.22	xlvidbg	ox	one device specification only configurable object, not a driver	xlvidbg	-	-	idbg,xlv	-	0	no	no	no	0	located				master.d/xlvidbg:6
+6.5.22	xlvplexstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/xlvplexstubs:6
+6.5.22	xlvstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/xlvstubs:6
+6.5.22	xpc	ox	one device specification only configurable object, not a driver	-	-	-	partition	-	0	no	no	yes	-	located				master.d/xpc:6
+6.5.22	xpcstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	xpc	-	-	-	-	0	yes	yes	yes	19	located				master.d/xpcstubs:6
+6.5.22	xpmem	oncs	one device specification only semaphored character device software driver	xpmem_	-	-	-	-	0	no	no	yes	0 cdevsw:no	located				master.d/xpmem:6
+6.5.22	xpmemstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	no	yes	-	located				master.d/xpmemstubs:6
+6.5.22	xswitch	ns	semaphored software driver	xswitch_	-	-	-	-	0	yes	yes	yes	15	located				master.d/xswitch:6
+6.5.22	xtalk	ns	semaphored software driver	xtalk_	-	-	cdl	-	0	yes	yes	yes	53	located				master.d/xtalk:6
+6.5.22	xtimer	s	software driver	xtimer	-	-	-	-	0	yes	yes	yes	0	located				master.d/xtimer:5
+6.5.22	xvm	sbc	software driver block device character device	xvm	268	-	xfs	-	0	yes	yes	yes	31 cdevsw:no bdevsw:no	located				master.d/xvm:6
+6.5.22	xvm_cell	s	software driver	xvm_	-	-	xvm,cell	-	0	no	no	no	31	located				master.d/xvm_cell:6
+6.5.22	xvmcellstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/xvmcellstubs:6
+6.5.22	xvmidbg	ox	one device specification only configurable object, not a driver	xvmidbg	-	-	idbg,xvm	-	0	no	no	no	0	located				master.d/xvmidbg:6
+6.5.22	xvmstubs	oxu	one device specification only configurable object, not a driver stub module, loaded after all others	-	-	-	-	-	0	yes	yes	yes	-	located				master.d/xvmstubs:6
+6.5.22	zero	orcs	one device specification only required device character device software driver	zero	37	-	-	-	0	yes	yes	yes	11 cdevsw:yes	located				master.d/zero:18

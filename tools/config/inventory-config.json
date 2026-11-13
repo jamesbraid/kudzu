@@ -6,28 +6,115 @@
   },
   "docs": {
     "prose": [
-      "docs/*.md",
-      "docs/routines/*.md",
-      "README.md"
+      "software/kernel/checkpoint-restart.md",
+      "evidence/coverage.md",
+      "software/video/crime.md",
+      "software/video/dm2-ioctl.md",
+      "software/video/dmedia-video-drivers.md",
+      "software/kernel/driver-ioctls.md",
+      "software/kernel/errnos.md",
+      "software/video/gbe.md",
+      "software/kernel/hollywood-dsp-driver.md",
+      "software/kernel/hwgraph-names.md",
+      "software/kernel/hwgraph-paths.md",
+      "software/kernel/hwgraph.md",
+      "software/kernel/input-path.md",
+      "evidence/instruction-readings-kudzu-g1.md",
+      "evidence/instruction-readings-kudzu-g2.md",
+      "evidence/instruction-readings-kudzu-g3.md",
+      "evidence/instruction-readings-kudzu-inv-hw-located.md",
+      "evidence/instruction-readings-kudzu-inv-hw-named.md",
+      "software/kernel/interrupts.md",
+      "software/kernel/ioconfig.md",
+      "software/kernel/ip27-driver-attach-interrupts.md",
+      "software/kernel/ip27-kernel-io.md",
+      "software/kernel/ip27-spinlock-word-and-cpuset-lock.md",
+      "software/kernel/ip30-kernel-functions.md",
+      "software/kernel/ip30-timer-compare-rearm.md",
+      "software/kernel/ip35-cache-error.md",
+      "software/kernel/ip35-crash-dump.md",
+      "software/kernel/ip35-graphics-eeprom-label.md",
+      "software/kernel/ip35-halt-and-reset.md",
+      "software/kernel/ip35-hub-errors.md",
+      "software/kernel/ip35-ioc3.md",
+      "software/kernel/ip35-memory-error-address-decode.md",
+      "software/kernel/ip35-node-class-and-link-checks.md",
+      "software/kernel/ip35-panic-support.md",
+      "software/kernel/ip35-pci-bridge.md",
+      "software/kernel/ip35-pci-interrupt-repost.md",
+      "software/kernel/ip35-pcibr-registers.md",
+      "software/kernel/ip35-pciio.md",
+      "software/kernel/ip35-router.md",
+      "software/kernel/ip35-rtc-and-cycle-counter.md",
+      "software/kernel/ip35-tg-driver.md",
+      "software/kernel/ip35-xtalk.md",
+      "software/kernel/kernel-debug-signatures.md",
+      "software/kernel/kernel-debugger-commands.md",
+      "software/kernel/kernel-optional-subsystems.md",
+      "software/kernel/kernel-probe-points.md",
+      "software/kernel/kernel-tracing-and-modules.md",
+      "formats/klconfig/README.md",
+      "software/video/mace-video.md",
+      "software/kernel/module-interfaces.md",
+      "software/kernel/namespace-dispatch.md",
+      "software/kernel/network-and-snapshots.md",
+      "software/kernel/network-dataplane-and-vfs.md",
+      "formats/nic_record/README.md",
+      "software/kernel/numa-text-replication.md",
+      "questions/README.md",
+      "software/kernel/page-migration.md",
+      "software/kernel/panics.md",
+      "software/kernel/pci-intr-pin.md",
+      "software/kernel/pcibr-multifunction-scan.md",
+      "software/kernel/pciio-driver-interface.md",
+      "software/kernel/process-model.md",
+      "references/documents/published-sources.md",
+      "formats/r10k_tlb/README.md",
+      "software/kernel/resource-control.md",
+      "formats/scsi/README.md",
+      "evidence/syscall-selector-crosscheck.md",
+      "software/kernel/syscalls.md",
+      "software/kernel/sysgen.md",
+      "software/kernel/syssgi.md",
+      "software/kernel/trusted-irix.md",
+      "software/userland/userland-abi-and-loader.md",
+      "software/userland/userland-libraries-and-isa.md",
+      "software/userland/userland.md",
+      "evidence/version-diffs.md",
+      "software/kernel/vfs-layering.md",
+      "evidence/routines/*.md",
+      "README.md",
+      "software/kernel/*.md",
+      "software/userland/*.md",
+      "software/video/*.md"
     ],
     "headers": [
       "include/*.h",
       "*/include/*.h"
     ],
     "tables": [
-      "docs/*/*.tsv",
+      "software/*/*.tsv",
+      "evidence/*/*.tsv",
       "*/*.tsv"
     ],
     "index": [
       "AGENTS.md",
       "README.md",
-      "IRIX_FILES.md",
-      "docs/coverage.md",
-      "docs/open-questions.md"
+      "evidence/irix-files.md",
+      "evidence/coverage.md",
+      "questions/README.md"
     ],
     "dumps": [],
     "skip": [
-      "docs/inventory/*"
+      "evidence/inventory/*",
+      "software/kernel/2106-core-time.md",
+      "software/kernel/boot-time-nsd-getpwuid.md",
+      "software/kernel/hardware-register-use.md",
+      "software/kernel/idle-and-wait-loops.md",
+      "software/kernel/xfs-mount-and-block-io.md",
+      "software/kernel/xfs-timestamps.md",
+      "software/kernel/xtalk-software.md",
+      "software/kernel/y2038-signed-time-scan.md"
     ]
   },
   "prepare": [],
@@ -62,12 +149,12 @@
         }
       ],
       "docs": [
-        "docs/interrupts.md",
-        "docs/page-migration.md",
-        "docs/ip27-kernel-io.md",
-        "docs/ip27-driver-attach-interrupts.md",
-        "docs/klconfig.md",
-        "docs/kernel-tracing-and-modules.md"
+        "software/kernel/interrupts.md",
+        "software/kernel/page-migration.md",
+        "software/kernel/ip27-kernel-io.md",
+        "software/kernel/ip27-driver-attach-interrupts.md",
+        "formats/klconfig/README.md",
+        "software/kernel/kernel-tracing-and-modules.md"
       ]
     },
     {
@@ -75,13 +162,13 @@
       "size": "0x800000",
       "physical": "0x1000000",
       "docs": [
-        "docs/interrupts.md",
-        "docs/page-migration.md",
-        "docs/ip35-hub-errors.md",
-        "docs/ip35-halt-and-reset.md",
-        "docs/ip35-cache-error.md",
-        "docs/ip35-router.md",
-        "docs/kernel-tracing-and-modules.md"
+        "software/kernel/interrupts.md",
+        "software/kernel/page-migration.md",
+        "software/kernel/ip35-hub-errors.md",
+        "software/kernel/ip35-halt-and-reset.md",
+        "software/kernel/ip35-cache-error.md",
+        "software/kernel/ip35-router.md",
+        "software/kernel/kernel-tracing-and-modules.md"
       ],
       "regions": [
         {
@@ -138,9 +225,9 @@
         }
       ],
       "docs": [
-        "docs/ip35-router.md",
-        "docs/ip35-halt-and-reset.md",
-        "docs/panics.md"
+        "software/kernel/ip35-router.md",
+        "software/kernel/ip35-halt-and-reset.md",
+        "software/kernel/panics.md"
       ]
     },
     {
@@ -148,8 +235,8 @@
       "size": "0x8000000",
       "physical": "0x18000000",
       "docs": [
-        "docs/ip35-xtalk.md",
-        "docs/nic.md"
+        "software/kernel/ip35-xtalk.md",
+        "formats/nic_record/README.md"
       ]
     },
     {
@@ -170,10 +257,10 @@
       ],
       "docs": [
         "docs/ip30-kernel-heart-routines.md",
-        "docs/ip30-kernel-functions.md",
+        "software/kernel/ip30-kernel-functions.md",
         "docs/ip30-kernel-support-routines.md",
-        "docs/interrupts.md",
-        "docs/panics.md"
+        "software/kernel/interrupts.md",
+        "software/kernel/panics.md"
       ]
     },
     {
@@ -183,7 +270,7 @@
       "docs": [
         "docs/ip30-kernel-xbow-routines.md",
         "docs/ip27-xconn.md",
-        "docs/ip35-xtalk.md"
+        "software/kernel/ip35-xtalk.md"
       ]
     },
     {
@@ -285,41 +372,41 @@
       "docs": [
         "docs/ip30-kernel-bridge-routines.md",
         "docs/ip27-kernel-bridge-routines.md",
-        "docs/ip35-pci-bridge.md",
-        "docs/ip35-pcibr-registers.md",
-        "docs/ip35-pciio.md"
+        "software/kernel/ip35-pci-bridge.md",
+        "software/kernel/ip35-pcibr-registers.md",
+        "software/kernel/ip35-pciio.md"
       ]
     },
     {
       "name": "IOC3",
       "size": "0x300000",
       "docs": [
-        "docs/ip35-ioc3.md",
-        "docs/nic.md"
+        "software/kernel/ip35-ioc3.md",
+        "formats/nic_record/README.md"
       ]
     },
     {
       "name": "IOC4",
       "size": "0x300000",
       "docs": [
-        "docs/ip35-ioc3.md"
+        "software/kernel/ip35-ioc3.md"
       ]
     },
     {
       "name": "XTALK-PIO",
       "size": "0x10000000",
       "docs": [
-        "docs/ip35-xtalk.md",
+        "software/kernel/ip35-xtalk.md",
         "docs/ip27-xconn.md",
-        "docs/ip27-kernel-io.md"
+        "software/kernel/ip27-kernel-io.md"
       ]
     },
     {
       "name": "PCI-PIO",
       "size": "0x10000000",
       "docs": [
-        "docs/ip35-pciio.md",
-        "docs/ip35-pci-bridge.md"
+        "software/kernel/ip35-pciio.md",
+        "software/kernel/ip35-pci-bridge.md"
       ]
     }
   ],
@@ -331,7 +418,7 @@
       "window": "HUB",
       "translate": false,
       "label": "local alias",
-      "why": "the calling processor's own Hub: uncached I/O alias of physical 0x01000000 (chips/hub/README.md, Addresses); kudzu docs/interrupts.md [chips 4694fd049578, tools/configs/hub.json]",
+      "why": "the calling processor's own Hub: uncached I/O alias of physical 0x01000000 (chips/hub/README.md, Addresses); kudzu software/kernel/interrupts.md [chips 4694fd049578, tools/configs/hub.json]",
       "binaries": [
         "*IP27*"
       ]
@@ -344,7 +431,7 @@
       "translate": false,
       "computed": true,
       "label": "node alias",
-      "why": "any node's Hub: 0x9200000001800000 plus the node number shifted left 32 (chips/hub/README.md, Addresses); kudzu docs/interrupts.md [chips 4694fd049578, tools/configs/hub.json]",
+      "why": "any node's Hub: 0x9200000001800000 plus the node number shifted left 32 (chips/hub/README.md, Addresses); kudzu software/kernel/interrupts.md [chips 4694fd049578, tools/configs/hub.json]",
       "binaries": [
         "*IP27*"
       ]
@@ -368,7 +455,7 @@
       "window": "BEDROCK",
       "translate": false,
       "label": "local alias",
-      "why": "the calling processor's own node controller: local register r at 0x9200000001000000 + r (docs/datasheets/ip35-address-map.md, Hub register space; chips/bedrock/README.md, Window and how it is reached); kudzu docs/interrupts.md [chips 4694fd049578, tools/configs/bedrock.json]",
+      "why": "the calling processor's own node controller: local register r at 0x9200000001000000 + r (docs/datasheets/ip35-address-map.md, Hub register space; chips/bedrock/README.md, Window and how it is reached); kudzu software/kernel/interrupts.md [chips 4694fd049578, tools/configs/bedrock.json]",
       "binaries": [
         "*IP35*"
       ]
@@ -381,7 +468,7 @@
       "translate": false,
       "computed": true,
       "label": "node alias",
-      "why": "remote register r of node n at 0x9200000001800000 + (n << 33) + r (docs/datasheets/ip35-address-map.md, Hub register space; kudzu docs/interrupts.md, IP35 interrupt section) [chips 4694fd049578, tools/configs/bedrock.json]",
+      "why": "remote register r of node n at 0x9200000001800000 + (n << 33) + r (docs/datasheets/ip35-address-map.md, Hub register space; kudzu software/kernel/interrupts.md, IP35 interrupt section) [chips 4694fd049578, tools/configs/bedrock.json]",
       "binaries": [
         "*IP35*"
       ]
@@ -659,7 +746,7 @@
       "window": "XTALK-PIO",
       "offset": null,
       "label": "crosstalk PIO mapping",
-      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (docs/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
+      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (software/kernel/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
       "binaries": [
         "*IP27*",
         "*IP30*",
@@ -672,7 +759,7 @@
       "window": "XTALK-PIO",
       "offset": null,
       "label": "crosstalk PIO mapping",
-      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (docs/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
+      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (software/kernel/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
       "binaries": [
         "*IP27*",
         "*IP30*",
@@ -685,7 +772,7 @@
       "window": "XTALK-PIO",
       "offset": null,
       "label": "crosstalk PIO mapping",
-      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (docs/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
+      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (software/kernel/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
       "binaries": [
         "*IP27*",
         "*IP30*",
@@ -698,7 +785,7 @@
       "window": "XTALK-PIO",
       "offset": null,
       "label": "crosstalk PIO mapping",
-      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (docs/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
+      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (software/kernel/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
       "binaries": [
         "*IP27*",
         "*IP30*",
@@ -711,7 +798,7 @@
       "window": "XTALK-PIO",
       "offset": null,
       "label": "crosstalk PIO mapping",
-      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (docs/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
+      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (software/kernel/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
       "binaries": [
         "*IP27*",
         "*IP30*",
@@ -724,7 +811,7 @@
       "window": "XTALK-PIO",
       "offset": null,
       "label": "crosstalk PIO mapping",
-      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (docs/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
+      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (software/kernel/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
       "binaries": [
         "*IP27*",
         "*IP30*",
@@ -737,7 +824,7 @@
       "window": "XTALK-PIO",
       "offset": null,
       "label": "crosstalk PIO mapping",
-      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (docs/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
+      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (software/kernel/ip35-xtalk.md; chips/xbow/README.md, Access sequences)",
       "binaries": [
         "*IP27*",
         "*IP30*",
@@ -750,7 +837,7 @@
       "window": "PCI-PIO",
       "offset": null,
       "label": "PCI PIO mapping",
-      "why": "a PCI PIO mapping routine returns a pointer into a device's configuration, memory or I/O space at the address its caller chose; accesses through the pointer are unresolved sites of this window (docs/ip35-pciio.md; chips/bridge/README.md, Windows above the registers)",
+      "why": "a PCI PIO mapping routine returns a pointer into a device's configuration, memory or I/O space at the address its caller chose; accesses through the pointer are unresolved sites of this window (software/kernel/ip35-pciio.md; chips/bridge/README.md, Windows above the registers)",
       "binaries": [
         "*IP27*",
         "*IP30*",
@@ -763,7 +850,7 @@
       "window": "PCI-PIO",
       "offset": null,
       "label": "PCI PIO mapping",
-      "why": "a PCI PIO mapping routine returns a pointer into a device's configuration, memory or I/O space at the address its caller chose; accesses through the pointer are unresolved sites of this window (docs/ip35-pciio.md; chips/bridge/README.md, Windows above the registers)",
+      "why": "a PCI PIO mapping routine returns a pointer into a device's configuration, memory or I/O space at the address its caller chose; accesses through the pointer are unresolved sites of this window (software/kernel/ip35-pciio.md; chips/bridge/README.md, Windows above the registers)",
       "binaries": [
         "*IP27*",
         "*IP30*",
@@ -776,7 +863,7 @@
       "window": "PCI-PIO",
       "offset": null,
       "label": "PCI PIO mapping",
-      "why": "a PCI PIO mapping routine returns a pointer into a device's configuration, memory or I/O space at the address its caller chose; accesses through the pointer are unresolved sites of this window (docs/ip35-pciio.md; chips/bridge/README.md, Windows above the registers)",
+      "why": "a PCI PIO mapping routine returns a pointer into a device's configuration, memory or I/O space at the address its caller chose; accesses through the pointer are unresolved sites of this window (software/kernel/ip35-pciio.md; chips/bridge/README.md, Windows above the registers)",
       "binaries": [
         "*IP27*",
         "*IP30*",
@@ -789,7 +876,7 @@
       "window": "PCI-PIO",
       "offset": null,
       "label": "PCI PIO mapping",
-      "why": "a PCI PIO mapping routine returns a pointer into a device's configuration, memory or I/O space at the address its caller chose; accesses through the pointer are unresolved sites of this window (docs/ip35-pciio.md; chips/bridge/README.md, Windows above the registers)",
+      "why": "a PCI PIO mapping routine returns a pointer into a device's configuration, memory or I/O space at the address its caller chose; accesses through the pointer are unresolved sites of this window (software/kernel/ip35-pciio.md; chips/bridge/README.md, Windows above the registers)",
       "binaries": [
         "*IP27*",
         "*IP30*",
@@ -802,7 +889,7 @@
       "window": "PCI-PIO",
       "offset": null,
       "label": "PCI PIO mapping",
-      "why": "a PCI PIO mapping routine returns a pointer into a device's configuration, memory or I/O space at the address its caller chose; accesses through the pointer are unresolved sites of this window (docs/ip35-pciio.md; chips/bridge/README.md, Windows above the registers)",
+      "why": "a PCI PIO mapping routine returns a pointer into a device's configuration, memory or I/O space at the address its caller chose; accesses through the pointer are unresolved sites of this window (software/kernel/ip35-pciio.md; chips/bridge/README.md, Windows above the registers)",
       "binaries": [
         "*IP27*",
         "*IP30*",
@@ -848,7 +935,15 @@
     ],
     "classes": [],
     "docs": [
-      "docs/*.md"
+      "software/*.md",
+      "formats/*.md",
+      "questions/*.md",
+      "references/*.md",
+      "evidence/coverage.md",
+      "evidence/instruction-readings-*.md",
+      "evidence/routines/*.md",
+      "evidence/syscall-selector-crosscheck.md",
+      "evidence/version-diffs.md"
     ]
   },
   "ucode": [],
@@ -1559,9 +1654,9 @@
     }
   ],
   "review_required": [
-    "docs/routines/t1-*.md",
-    "docs/routines/t2-*.md",
-    "docs/routines/kept-*.md",
-    "docs/routines/ioctl-handlers-*.md"
+    "evidence/routines/t1-*.md",
+    "evidence/routines/t2-*.md",
+    "evidence/routines/kept-*.md",
+    "evidence/routines/ioctl-handlers-*.md"
   ]
 }

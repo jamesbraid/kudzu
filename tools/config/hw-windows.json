@@ -63,12 +63,12 @@
         }
       ],
       "docs": [
-        "docs/interrupts.md",
-        "docs/page-migration.md",
-        "docs/ip27-kernel-io.md",
-        "docs/ip27-driver-attach-interrupts.md",
-        "docs/klconfig.md",
-        "docs/kernel-tracing-and-modules.md"
+        "software/kernel/interrupts.md",
+        "software/kernel/page-migration.md",
+        "software/kernel/ip27-kernel-io.md",
+        "software/kernel/ip27-driver-attach-interrupts.md",
+        "formats/klconfig/README.md",
+        "software/kernel/kernel-tracing-and-modules.md"
       ]
     },
     {
@@ -76,13 +76,13 @@
       "size": "0x800000",
       "physical": "0x1000000",
       "docs": [
-        "docs/interrupts.md",
-        "docs/page-migration.md",
-        "docs/ip35-hub-errors.md",
-        "docs/ip35-halt-and-reset.md",
-        "docs/ip35-cache-error.md",
-        "docs/ip35-router.md",
-        "docs/kernel-tracing-and-modules.md"
+        "software/kernel/interrupts.md",
+        "software/kernel/page-migration.md",
+        "software/kernel/ip35-hub-errors.md",
+        "software/kernel/ip35-halt-and-reset.md",
+        "software/kernel/ip35-cache-error.md",
+        "software/kernel/ip35-router.md",
+        "software/kernel/kernel-tracing-and-modules.md"
       ],
       "regions": [
         {
@@ -139,9 +139,9 @@
         }
       ],
       "docs": [
-        "docs/ip35-router.md",
-        "docs/ip35-halt-and-reset.md",
-        "docs/panics.md"
+        "software/kernel/ip35-router.md",
+        "software/kernel/ip35-halt-and-reset.md",
+        "software/kernel/panics.md"
       ]
     },
     {
@@ -149,8 +149,8 @@
       "size": "0x8000000",
       "physical": "0x18000000",
       "docs": [
-        "docs/ip35-xtalk.md",
-        "docs/nic.md"
+        "software/kernel/ip35-xtalk.md",
+        "formats/nic_record/README.md"
       ]
     },
     {
@@ -171,10 +171,10 @@
       ],
       "docs": [
         "docs/ip30-kernel-heart-routines.md",
-        "docs/ip30-kernel-functions.md",
+        "software/kernel/ip30-kernel-functions.md",
         "docs/ip30-kernel-support-routines.md",
-        "docs/interrupts.md",
-        "docs/panics.md"
+        "software/kernel/interrupts.md",
+        "software/kernel/panics.md"
       ]
     },
     {
@@ -184,7 +184,7 @@
       "docs": [
         "docs/ip30-kernel-xbow-routines.md",
         "docs/ip27-xconn.md",
-        "docs/ip35-xtalk.md"
+        "software/kernel/ip35-xtalk.md"
       ]
     },
     {
@@ -286,41 +286,41 @@
       "docs": [
         "docs/ip30-kernel-bridge-routines.md",
         "docs/ip27-kernel-bridge-routines.md",
-        "docs/ip35-pci-bridge.md",
-        "docs/ip35-pcibr-registers.md",
-        "docs/ip35-pciio.md"
+        "software/kernel/ip35-pci-bridge.md",
+        "software/kernel/ip35-pcibr-registers.md",
+        "software/kernel/ip35-pciio.md"
       ]
     },
     {
       "name": "IOC3",
       "size": "0x300000",
       "docs": [
-        "docs/ip35-ioc3.md",
-        "docs/nic.md"
+        "software/kernel/ip35-ioc3.md",
+        "formats/nic_record/README.md"
       ]
     },
     {
       "name": "IOC4",
       "size": "0x300000",
       "docs": [
-        "docs/ip35-ioc3.md"
+        "software/kernel/ip35-ioc3.md"
       ]
     },
     {
       "name": "XTALK-PIO",
       "size": "0x10000000",
       "docs": [
-        "docs/ip35-xtalk.md",
+        "software/kernel/ip35-xtalk.md",
         "docs/ip27-xconn.md",
-        "docs/ip27-kernel-io.md"
+        "software/kernel/ip27-kernel-io.md"
       ]
     },
     {
       "name": "PCI-PIO",
       "size": "0x10000000",
       "docs": [
-        "docs/ip35-pciio.md",
-        "docs/ip35-pci-bridge.md"
+        "software/kernel/ip35-pciio.md",
+        "software/kernel/ip35-pci-bridge.md"
       ]
     }
   ],
@@ -331,7 +331,7 @@
       "window": "HUB",
       "platform": "IP27",
       "label": "local alias",
-      "why": "the calling processor's own Hub: uncached I/O alias of physical 0x01000000 (chips/hub/README.md, Addresses); kudzu docs/interrupts.md"
+      "why": "the calling processor's own Hub: uncached I/O alias of physical 0x01000000 (chips/hub/README.md, Addresses); kudzu software/kernel/interrupts.md"
     },
     {
       "chip": "hub",
@@ -340,7 +340,7 @@
       "platform": "IP27",
       "computed": true,
       "label": "node alias",
-      "why": "any node's Hub: 0x9200000001800000 plus the node number shifted left 32 (chips/hub/README.md, Addresses); kudzu docs/interrupts.md"
+      "why": "any node's Hub: 0x9200000001800000 plus the node number shifted left 32 (chips/hub/README.md, Addresses); kudzu software/kernel/interrupts.md"
     },
     {
       "chip": "hub",
@@ -358,7 +358,7 @@
       "lo": "0x9200000001000000",
       "hi": "0x9200000001800000",
       "label": "local alias",
-      "why": "the calling processor's own node controller: local register r at 0x9200000001000000 + r (docs/datasheets/ip35-address-map.md, Hub register space; chips/bedrock/README.md, Window and how it is reached); kudzu docs/interrupts.md"
+      "why": "the calling processor's own node controller: local register r at 0x9200000001000000 + r (docs/datasheets/ip35-address-map.md, Hub register space; chips/bedrock/README.md, Window and how it is reached); kudzu software/kernel/interrupts.md"
     },
     {
       "chip": "bedrock",
@@ -369,7 +369,7 @@
       "lo": "0x9200000001800000",
       "hi": "0x9200000002000000",
       "label": "node alias",
-      "why": "remote register r of node n at 0x9200000001800000 + (n << 33) + r (docs/datasheets/ip35-address-map.md, Hub register space; kudzu docs/interrupts.md, IP35 interrupt section)"
+      "why": "remote register r of node n at 0x9200000001800000 + (n << 33) + r (docs/datasheets/ip35-address-map.md, Hub register space; kudzu software/kernel/interrupts.md, IP35 interrupt section)"
     },
     {
       "chip": "bedrock",
@@ -549,7 +549,7 @@
       "window": "XTALK-PIO",
       "platform": "all",
       "label": "crosstalk PIO mapping",
-      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (docs/ip35-xtalk.md; chips/xbow/README.md, Access sequences)"
+      "why": "a crosstalk PIO mapping routine returns a pointer into a widget's space at the offset its caller chose; the scan does not follow that argument, so accesses through the pointer are unresolved sites of this window (software/kernel/ip35-xtalk.md; chips/xbow/README.md, Access sequences)"
     },
     {
       "callees": [
@@ -563,7 +563,7 @@
       "window": "PCI-PIO",
       "platform": "all",
       "label": "PCI PIO mapping",
-      "why": "a PCI PIO mapping routine returns a pointer into a device's configuration, memory or I/O space at the address its caller chose; accesses through the pointer are unresolved sites of this window (docs/ip35-pciio.md; chips/bridge/README.md, Windows above the registers)"
+      "why": "a PCI PIO mapping routine returns a pointer into a device's configuration, memory or I/O space at the address its caller chose; accesses through the pointer are unresolved sites of this window (software/kernel/ip35-pciio.md; chips/bridge/README.md, Windows above the registers)"
     }
   ]
 }

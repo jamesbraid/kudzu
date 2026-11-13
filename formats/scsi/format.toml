@@ -2,7 +2,7 @@
 unit = "scsi"
 prefix = "SCSI"
 title = "SCSI command opcodes the CD-ROM driver selects by drive class"
-from = "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+from = "shipped IRIX binaries, per formats/scsi/README.md"
 public_from = ["shipped IRIX"]
 
 [c]

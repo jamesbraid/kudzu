@@ -2,12 +2,12 @@
 """Read sites of each sysgen tunable in the linked 6.5.30 kernels.
 
 Usage: tools/tunable_sites.py [--root root/6.5.30] [--kernels IP27 IP30 IP35]
-                                [--out docs/inventory]
+                                [--out evidence/inventory]
 
 Run from the repository root inside the toolchain container
 (retools/tools/re-run python3 tools/tunable_sites.py), with root/ populated.
 
-Input: docs/inventory/sysgen-tunables.tsv (tools/sysgen_tables.py). Every tunable name there is
+Input: evidence/inventory/sysgen-tunables.tsv (tools/sysgen_tables.py). Every tunable name there is
 looked up as a data symbol of the same name in each linked kernel. The tunables are read from the
 6.5.22 configuration files; the lookup and the sites are of the 6.5.30 kernels.
 
@@ -138,8 +138,8 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('--root', default=os.path.join(REPO, 'root', '6.5.30'))
     ap.add_argument('--kernels', nargs='+', default=list(KERNELS))
-    ap.add_argument('--out', default=os.path.join(REPO, 'docs', 'inventory'))
-    ap.add_argument('--tunables', default=os.path.join(REPO, 'docs', 'inventory', 'sysgen-tunables.tsv'))
+    ap.add_argument('--out', default=os.path.join(REPO, 'evidence', 'inventory'))
+    ap.add_argument('--tunables', default=os.path.join(REPO, 'evidence', 'inventory', 'sysgen-tunables.tsv'))
     ap.add_argument('--roles', default=os.path.join(REPO, 'tools', 'config', 'tunable-roles.json'))
     ap.add_argument('--roles-only', action='store_true',
                     help='rewrite the grade, role and status columns of the existing tunable-summary.tsv '

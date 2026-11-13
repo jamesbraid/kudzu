@@ -1,5 +1,5 @@
 {
-  "_comment": "Hand-written roles for driver and module rows in docs/inventory/sysgen-drivers.tsv. Each entry gives a grade (established: read from the configuration file and the kernel symbol table; inferred: reasoned from the module name, flags and symbols), a role in plain words, and a citation naming the release, the master file and the kernel symbols checked. A row counts as understood only with all three. Keys are module names.",
+  "_comment": "Hand-written roles for driver and module rows in evidence/inventory/sysgen-drivers.tsv. Each entry gives a grade (established: read from the configuration file and the kernel symbol table; inferred: reasoned from the module name, flags and symbols), a role in plain words, and a citation naming the release, the master file and the kernel symbols checked. A row counts as understood only with all three. Keys are module names.",
   "bsd": {
     "grade": "established",
     "role": "Socket and network-stack base module, flags ox (not a driver, one device specification). Its routines bsd_init, bsd_copyin and bsd_copyout are in the 6.5.22 IP27 kernel. Its stub list has six entries: an empty bsd_init, and getdtablesize, gethostname, sethostname, getdomainname and setdomainname, each a stub that reports no package when the module is left out.",
@@ -33,7 +33,7 @@
   "ioc3": {
     "grade": "established",
     "role": "Driver for the IOC3 I/O controller: flags nsc, prefix ioc3_, a character switch table. The kernel has ioc3_attach and ioc3_cdevsw. The chip is described in the IP35 IOC3 notes in this repository.",
-    "citation": "6.5.22 master.d/ioc3 (data line); unix.IP27 ioc3_attach, ioc3_cdevsw; docs/ip35-ioc3.md"
+    "citation": "6.5.22 master.d/ioc3 (data line); unix.IP27 ioc3_attach, ioc3_cdevsw; software/kernel/ip35-ioc3.md"
   },
   "if_eg": {
     "grade": "inferred",

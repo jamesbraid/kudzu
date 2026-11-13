@@ -2,7 +2,7 @@
 """Hardware-graph add calls in the linked 6.5.30 kernels, with the path or edge name each one passes.
 
 Usage: tools/hwgraph_sites.py extract [--show] [--json OUT]
-       tools/hwgraph_sites.py render [--out docs/inventory/hwgraph-adds.tsv]
+       tools/hwgraph_sites.py render [--out evidence/inventory/hwgraph-adds.tsv]
 
 Run from the repository root inside the toolchain environment (retools/tools/re-run python3 ...), with root/ populated.
 
@@ -12,7 +12,7 @@ name (ADD_CALLEES says which). Argument values come from the same straight-line 
 `value_at_call`); a string at a resolved address is read from the image's own data. A name that is built at run
 time (sprintf output, a register that another path sets) is reported as unresolved with the reason.
 
-render writes docs/inventory/hwgraph-adds.tsv: one row per (callee, name, routine), with the builds that
+render writes evidence/inventory/hwgraph-adds.tsv: one row per (callee, name, routine), with the builds that
 have the site and the site addresses in each. Nothing here is hand-edited.
 """
 import argparse
@@ -48,7 +48,7 @@ ADD_CALLEES = {
 # A second name argument, for the routines that take a prefix (the device name base) as well.
 PREFIX_ARG = {'hwgraph_device_add': 'a2', 'hwgraph_block_device_add': 'a2', 'hwgraph_char_device_add': 'a2',
               'if_hwgraph_add': 'a2'}
-TABLE = os.path.join(REPO, 'docs', 'inventory', 'hwgraph-adds.tsv')
+TABLE = os.path.join(REPO, 'evidence', 'inventory', 'hwgraph-adds.tsv')
 CACHE = os.path.join(REPO, '.cache', 'hwgraph-sites')
 CALL = re.compile(r'\b(?:jal|bal)\s+([0-9a-f]+)\b')
 COND_BRANCHES = re.compile(r'^(beq|bne|bnez|beqz|blez|bgtz|bltz|bgez|blt|bge|bgt|ble|b)[a-z]*$')

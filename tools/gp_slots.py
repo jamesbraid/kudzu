@@ -2,7 +2,7 @@
 """Resolve the gp-relative operands of routines that differ between the 6.5.22 and 6.5.30
 linked kernels only in those operands, and compare what each slot names.
 
-Reads docs/version-diffs-queue.tsv (rows of scope hardware-facing, class layout, kinds gp or gp,jump)
+Reads evidence/version-diffs-queue.tsv (rows of scope hardware-facing, class layout, kinds gp or gp,jump)
 and disassembles each routine in both kernels with capstone, pairs the instructions by position
 and, at every pair whose gp offsets differ, resolves gp + offset in each kernel:
 
@@ -12,7 +12,7 @@ and, at every pair whose gp offsets differ, resolves gp + offset in each kernel:
   constant   an 8-byte word that is not an address
   unknown    anything else
 
-Output is docs/version-diffs-gp-slots.tsv. Run: tools/gp_slots.py (inside retools/tools/re-run).
+Output is evidence/version-diffs-gp-slots.tsv. Run: tools/gp_slots.py (inside retools/tools/re-run).
 """
 import bisect
 import csv
@@ -22,8 +22,8 @@ import sys
 import capstone
 from elftools.elf.elffile import ELFFile
 
-QUEUE = 'docs/version-diffs-queue.tsv'
-OUT = 'docs/version-diffs-gp-slots.tsv'
+QUEUE = 'evidence/version-diffs-queue.tsv'
+OUT = 'evidence/version-diffs-gp-slots.tsv'
 POOL_SECTIONS = ('.srdata', '.sdata', '.lit8', '.lit4', '.rodata', '.data')
 
 

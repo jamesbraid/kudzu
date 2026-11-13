@@ -10,7 +10,7 @@
    "value": 196,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+   "from": "shipped IRIX binaries, per formats/scsi/README.md"
   },
   {
    "unit": "scsi",
@@ -19,7 +19,7 @@
    "value": 201,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+   "from": "shipped IRIX binaries, per formats/scsi/README.md"
   },
   {
    "unit": "scsi",
@@ -28,7 +28,7 @@
    "value": 16,
    "count": 1,
    "grade": "inferred",
-   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+   "from": "shipped IRIX binaries, per formats/scsi/README.md"
   },
   {
    "unit": "scsi",
@@ -37,7 +37,7 @@
    "value": 8,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+   "from": "shipped IRIX binaries, per formats/scsi/README.md"
   },
   {
    "unit": "scsi",
@@ -46,7 +46,7 @@
    "value": 16,
    "count": 1,
    "grade": "inferred",
-   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+   "from": "shipped IRIX binaries, per formats/scsi/README.md"
   },
   {
    "unit": "scsi",
@@ -55,7 +55,7 @@
    "value": 0,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+   "from": "shipped IRIX binaries, per formats/scsi/README.md"
   },
   {
    "unit": "scsi",
@@ -64,7 +64,7 @@
    "value": 8,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+   "from": "shipped IRIX binaries, per formats/scsi/README.md"
   },
   {
    "unit": "scsi",
@@ -73,7 +73,7 @@
    "value": 2,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+   "from": "shipped IRIX binaries, per formats/scsi/README.md"
   },
   {
    "unit": "scsi",
@@ -82,7 +82,7 @@
    "value": 5,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+   "from": "shipped IRIX binaries, per formats/scsi/README.md"
   },
   {
    "unit": "scsi",
@@ -91,7 +91,7 @@
    "value": 0,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+   "from": "shipped IRIX binaries, per formats/scsi/README.md"
   },
   {
    "unit": "scsi",
@@ -100,7 +100,7 @@
    "value": 1,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+   "from": "shipped IRIX binaries, per formats/scsi/README.md"
   },
   {
    "unit": "scsi",
@@ -109,7 +109,7 @@
    "value": 7,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+   "from": "shipped IRIX binaries, per formats/scsi/README.md"
   },
   {
    "unit": "scsi",
@@ -118,7 +118,7 @@
    "value": 2,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+   "from": "shipped IRIX binaries, per formats/scsi/README.md"
   },
   {
    "unit": "scsi",
@@ -127,7 +127,7 @@
    "value": 10,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+   "from": "shipped IRIX binaries, per formats/scsi/README.md"
   },
   {
    "unit": "scsi",
@@ -136,7 +136,7 @@
    "value": 27,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md"
+   "from": "shipped IRIX binaries, per formats/scsi/README.md"
   }
  ]
 }

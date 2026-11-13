@@ -45,7 +45,7 @@ prose_offsets = false
 
 [units.tg]
 group = "tg"
-notes_corpus = ["docs/ip35-tg-driver.md"]
+notes_corpus = ["software/kernel/ip35-tg-driver.md"]
 prose_offsets = false
 
 [units.nic_record]

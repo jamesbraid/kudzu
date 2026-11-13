@@ -10,7 +10,7 @@
    "value": 45,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+   "from": "shipped IRIX kernel binaries, per software/video/gbe.md"
   },
   {
    "unit": "gbe_board",
@@ -19,7 +19,7 @@
    "value": 46,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+   "from": "shipped IRIX kernel binaries, per software/video/gbe.md"
   },
   {
    "unit": "gbe_board",
@@ -28,7 +28,7 @@
    "value": 130,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+   "from": "shipped IRIX kernel binaries, per software/video/gbe.md"
   },
   {
    "unit": "gbe_board",
@@ -37,7 +37,7 @@
    "value": 131,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+   "from": "shipped IRIX kernel binaries, per software/video/gbe.md"
   },
   {
    "unit": "gbe_board",
@@ -46,7 +46,7 @@
    "value": 132,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+   "from": "shipped IRIX kernel binaries, per software/video/gbe.md"
   }
  ]
 }

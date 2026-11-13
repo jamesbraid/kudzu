@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!-- generated from formats/scsi/format.toml by defs-gen - do not edit, change the source -->
-<genxml unit="scsi" prefix="SCSI" title="SCSI command opcodes the CD-ROM driver selects by drive class" from="shipped IRIX binaries, per docs/scsi-cdrom-inquiry.md">
+<genxml unit="scsi" prefix="SCSI" title="SCSI command opcodes the CD-ROM driver selects by drive class" from="shipped IRIX binaries, per formats/scsi/README.md">
   <constant name="CDROM_VENDOR_C4" value="0xc4" grade="established"/>
   <constant name="CDROM_VENDOR_C9" value="0xc9" grade="established"/>
   <constant name="INQ_LEN_PRODUCT" value="0x10" grade="inferred"/>

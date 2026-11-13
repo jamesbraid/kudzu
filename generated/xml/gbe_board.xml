@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!-- generated from formats/gbe_board/format.toml by defs-gen - do not edit, change the source -->
-<genxml unit="gbe_board" prefix="GBE" title="Board description bytes the O2 kernel reads to choose GBE timing" from="shipped IRIX kernel binaries, per docs/gbe.md">
+<genxml unit="gbe_board" prefix="GBE" title="Board description bytes the O2 kernel reads to choose GBE timing" from="shipped IRIX kernel binaries, per software/video/gbe.md">
   <doc>Software table, not a register map: the two bytes of the board description that select the interlace case and a flat-panel set-up, and the set-up values the timing routine recognises. The GBE registers they steer are described in the crime repository.</doc>
   <constant name="BOARD_INTERLACE_OFF" value="0x2d" grade="established"/>
   <constant name="BOARD_PANEL_OFF" value="0x2e" grade="established"/>

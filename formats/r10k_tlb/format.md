@@ -2,7 +2,7 @@
 
 # The wired-entry layout IRIX uses in the R10000 TLB
 
-Software table, not a register map: the wired-entry layout and the page and ASID policy IRIX uses in its 64-bit kernel. The TLB entry count and ASID width of the R10000 itself are in the chips repository (unit r10000_cp0). Prose and the reasoning are in docs/r10k-tlb.md.
+Software table, not a register map: the wired-entry layout and the page and ASID policy IRIX uses in its 64-bit kernel. The TLB entry count and ASID width of the R10000 itself are in the chips repository (unit r10000_cp0). Prose and the reasoning are in formats/r10k_tlb/README.md.
 
 Unit `r10k_tlb`, macro prefix `R10K_TLB`.
 Default source: IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual.

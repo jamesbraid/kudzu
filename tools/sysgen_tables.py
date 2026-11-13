@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Driver, module and tunable tables from the kernel configuration files of one release.
 
-Usage: tools/sysgen_tables.py [--release 6.5.30] [--out docs/inventory]
+Usage: tools/sysgen_tables.py [--release 6.5.30] [--out evidence/inventory]
 
 Run from the repository root with root/ populated, inside the toolchain container
 (retools/tools/re-run python3 tools/sysgen_tables.py); the symbol check runs nm from that container.
@@ -210,7 +210,7 @@ def parse_mtune(path):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--release', default='6.5.30')
-    ap.add_argument('--out', default=os.path.join(REPO, 'docs', 'inventory'))
+    ap.add_argument('--out', default=os.path.join(REPO, 'evidence', 'inventory'))
     args = ap.parse_args()
     rel = args.release
     dirs = sysgen_dirs(rel)

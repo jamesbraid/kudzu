@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Differences between the 6.5.22 and 6.5.30 system call and syssgi selector tables.
 
-Usage: tools/version_table_diff.py [--out docs/inventory/version-table-diff.tsv]
+Usage: tools/version_table_diff.py [--out evidence/inventory/version-table-diff.tsv]
 
 Run it from the repository root, inside the toolchain container (retools/tools/re-run python3
 tools/version_table_diff.py), after retools/tools/kudzu/os_tables.py has written syscalls.tsv and
 selectors.tsv for both releases. The argument-table bytes are read from root/<release>/unix.IPnn.
 
-Inputs: docs/inventory/syscalls.tsv, docs/inventory/selectors.tsv, docs/version-diffs-queue.tsv
+Inputs: evidence/inventory/syscalls.tsv, evidence/inventory/selectors.tsv, evidence/version-diffs-queue.tsv
 (the per-routine classes of the linked kernels, written by the version-diffs pass, not by a script
 in this repository) and the two kernels of each platform.
 
@@ -78,7 +78,7 @@ def split_binary(value):
 
 
 def system_calls(rows):
-    """{(kernel, table): {release: {number: row}}} from docs/inventory/syscalls.tsv."""
+    """{(kernel, table): {release: {number: row}}} from evidence/inventory/syscalls.tsv."""
     out = collections.defaultdict(lambda: collections.defaultdict(dict))
     for r in rows:
         rel, kern = split_binary(r['binary'])
@@ -87,7 +87,7 @@ def system_calls(rows):
 
 
 def selectors(rows):
-    """{kernel: {release: {selector: row}}} from docs/inventory/selectors.tsv."""
+    """{kernel: {release: {selector: row}}} from evidence/inventory/selectors.tsv."""
     out = collections.defaultdict(lambda: collections.defaultdict(dict))
     for r in rows:
         rel, kern = split_binary(r['binary'])
@@ -238,13 +238,13 @@ def write(path, rows):
 
 
 def main():
-    out = os.path.join(REPO, 'docs', 'inventory', 'version-table-diff.tsv')
+    out = os.path.join(REPO, 'evidence', 'inventory', 'version-table-diff.tsv')
     if '--out' in sys.argv:
         out = sys.argv[sys.argv.index('--out') + 1]
-    inv = os.path.join(REPO, 'docs', 'inventory')
+    inv = os.path.join(REPO, 'evidence', 'inventory')
     sc = system_calls(read_tsv(os.path.join(inv, 'syscalls.tsv')))
     se = selectors(read_tsv(os.path.join(inv, 'selectors.tsv')))
-    queue = queue_classes(read_tsv(os.path.join(REPO, 'docs', 'version-diffs-queue.tsv')))
+    queue = queue_classes(read_tsv(os.path.join(REPO, 'evidence', 'version-diffs-queue.tsv')))
     rows = diff_system_calls(sc, queue, make_reader()) + diff_selectors(se)
     write(out, rows)
     counts = collections.Counter(r[0] for r in rows)

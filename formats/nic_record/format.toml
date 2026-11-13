@@ -3,7 +3,7 @@ unit = "nic_record"
 prefix = "NIC"
 title = "Ethernet address record the IRIX kernel reads from a one-wire part"
 doc = "Software table, not a register map: the layout the kernel checks in the record it reads from the one-wire part on an Ethernet controller. The one-wire access registers are described in the chips repository."
-from = "shipped IRIX kernel binaries, per docs/nic.md"
+from = "shipped IRIX kernel binaries, per formats/nic_record/README.md"
 public_from = ["shipped IRIX"]
 
 [constants]

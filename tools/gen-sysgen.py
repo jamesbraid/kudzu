@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Driver, object and tunable tables from the kernel configuration files of each release.
 
-Usage: tools/gen-sysgen.py [--out docs/inventory]
+Usage: tools/gen-sysgen.py [--out evidence/inventory]
 
 Run it from the repository root, inside the toolchain container (tools/re-run python3 tools/gen-sysgen.py).
 It reads every root/<release>/var/sysgen.IPnn directory that is present, and the object archives beside
@@ -208,7 +208,7 @@ def write_tsv(path, header, rows):
 
 
 def main(argv):
-    out = os.path.join(REPO, 'docs', 'inventory')
+    out = os.path.join(REPO, 'evidence', 'inventory')
     if '--out' in argv:
         out = argv[argv.index('--out') + 1]
     nm = os.environ.get('NM', 'mips64-linux-gnuabi64-nm')

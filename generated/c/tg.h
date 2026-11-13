@@ -6,7 +6,7 @@
 #include <stdint.h>
 
 
-/* word ROW_W0: 32 bits; shipped IRIX kernel binaries, per docs/ip35-tg-driver.md */
+/* word ROW_W0: 32 bits; shipped IRIX kernel binaries, per software/kernel/ip35-tg-driver.md */
 #define TG_ROW_W0_WIDTH                              32 /* established */
 #define TG_ROW_W0_VENDOR_SHIFT                       16 /* established */
 #define TG_ROW_W0_VENDOR_MASK                        0xffffu
@@ -15,7 +15,7 @@
 #define TG_ROW_W0_DEVICE_MASK                        0xffffu
 #define TG_ROW_W0_DEVICE_INPLACE                     (TG_ROW_W0_DEVICE_MASK << TG_ROW_W0_DEVICE_SHIFT)
 
-/* word ROW_W1: 32 bits; shipped IRIX kernel binaries, per docs/ip35-tg-driver.md */
+/* word ROW_W1: 32 bits; shipped IRIX kernel binaries, per software/kernel/ip35-tg-driver.md */
 #define TG_ROW_W1_WIDTH                              32 /* established */
 #define TG_ROW_W1_SUBSYS_VENDOR_SHIFT                16 /* established */
 #define TG_ROW_W1_SUBSYS_VENDOR_MASK                 0xffffu

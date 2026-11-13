@@ -3,7 +3,7 @@ unit = "klconfig"
 prefix = "KLCONFIG"
 title = "hardware configuration board record"
 doc = "Hardware configuration records: the board, component, console, memory and global-data fields the kernel reads to find boards, slots, modules and components."
-from = "shipped IRIX kernel binaries, per docs/klconfig.md"
+from = "shipped IRIX kernel binaries, per formats/klconfig/README.md"
 public_from = ["shipped IRIX"]
 
 [c]

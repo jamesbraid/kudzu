@@ -9,7 +9,7 @@
    "name": "BRD_W0",
    "width": 32,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -18,7 +18,7 @@
    "hi": 31,
    "lo": 0,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -26,7 +26,7 @@
    "name": "BRD_W1",
    "width": 32,
    "grade": "inferred",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -35,7 +35,7 @@
    "hi": 23,
    "lo": 20,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -43,7 +43,7 @@
    "name": "BRD_W1.class.node",
    "value": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -51,7 +51,7 @@
    "name": "BRD_W1.class.io",
    "value": 2,
    "grade": "inferred",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -59,7 +59,7 @@
    "name": "BRD_W1.class.router",
    "value": 3,
    "grade": "inferred",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -67,7 +67,7 @@
    "name": "BRD_W1.class.graphics",
    "value": 5,
    "grade": "inferred",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -76,7 +76,7 @@
    "hi": 19,
    "lo": 16,
    "grade": "inferred",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -84,7 +84,7 @@
    "name": "BRD_W2",
    "width": 32,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -93,7 +93,7 @@
    "hi": 21,
    "lo": 21,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -102,7 +102,7 @@
    "hi": 15,
    "lo": 8,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -110,7 +110,7 @@
    "name": "BRD_W3",
    "width": 32,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -119,7 +119,7 @@
    "hi": 15,
    "lo": 0,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -127,7 +127,7 @@
    "name": "BRD_W5",
    "width": 32,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -136,7 +136,7 @@
    "hi": 7,
    "lo": 0,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -144,7 +144,7 @@
    "name": "BRD_W8",
    "width": 32,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -153,7 +153,7 @@
    "hi": 31,
    "lo": 16,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -161,7 +161,7 @@
    "name": "COMP_W0",
    "width": 32,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -170,7 +170,7 @@
    "hi": 31,
    "lo": 24,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -178,7 +178,7 @@
    "name": "COMP_W0.struct_type.hub",
    "value": 2,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -186,7 +186,7 @@
    "name": "COMP_W0.struct_type.memory",
    "value": 3,
    "grade": "inferred",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -194,7 +194,7 @@
    "name": "COMP_W0.struct_type.io",
    "value": 5,
    "grade": "inferred",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -202,7 +202,7 @@
    "name": "COMP_W0.struct_type.router",
    "value": 9,
    "grade": "inferred",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -210,7 +210,7 @@
    "name": "COMP_W0.struct_type.graphics",
    "value": 10,
    "grade": "inferred",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -219,7 +219,7 @@
    "hi": 8,
    "lo": 8,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -227,7 +227,7 @@
    "name": "COMP_W6",
    "width": 32,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -236,7 +236,7 @@
    "hi": 31,
    "lo": 24,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -244,7 +244,7 @@
    "name": "CONS_W2",
    "width": 32,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -253,7 +253,7 @@
    "hi": 31,
    "lo": 0,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -261,7 +261,7 @@
    "name": "CONS_W3",
    "width": 32,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -270,7 +270,7 @@
    "hi": 31,
    "lo": 0,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -278,7 +278,7 @@
    "name": "CONS_W4",
    "width": 32,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -287,7 +287,7 @@
    "hi": 31,
    "lo": 0,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -295,7 +295,7 @@
    "name": "CONS_W5",
    "width": 32,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -304,7 +304,7 @@
    "hi": 31,
    "lo": 24,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -313,7 +313,7 @@
    "hi": 23,
    "lo": 0,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -321,7 +321,7 @@
    "name": "CONS_W8",
    "width": 32,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -330,7 +330,7 @@
    "hi": 31,
    "lo": 16,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -339,7 +339,7 @@
    "hi": 7,
    "lo": 0,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -347,7 +347,7 @@
    "name": "GDA_W97",
    "width": 32,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -356,7 +356,7 @@
    "hi": 31,
    "lo": 0,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -364,7 +364,7 @@
    "name": "MEM_W14",
    "width": 32,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -373,7 +373,7 @@
    "hi": 15,
    "lo": 0,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -381,7 +381,7 @@
    "name": "NODECLASS_W1",
    "width": 32,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -390,7 +390,7 @@
    "hi": 15,
    "lo": 12,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -398,7 +398,7 @@
    "name": "NODECLASS_W1.class.pebrick",
    "value": 12,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -406,7 +406,7 @@
    "name": "PEPAIR_W0",
    "width": 32,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -415,7 +415,7 @@
    "hi": 31,
    "lo": 16,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -424,7 +424,7 @@
    "hi": 15,
    "lo": 0,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -433,7 +433,7 @@
    "value": 36,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -442,7 +442,7 @@
    "value": 4,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -451,7 +451,7 @@
    "value": 1099511627775,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -460,7 +460,7 @@
    "value": 8192,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -469,7 +469,7 @@
    "value": 72,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -478,7 +478,7 @@
    "value": 64,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -487,7 +487,7 @@
    "value": 128,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -496,7 +496,7 @@
    "value": 4,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -505,7 +505,7 @@
    "value": 128,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -514,7 +514,7 @@
    "value": 392,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -523,7 +523,7 @@
    "value": 1346724459,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -532,7 +532,7 @@
    "value": 2,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -541,7 +541,7 @@
    "value": 4,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -550,7 +550,7 @@
    "value": 20,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -559,7 +559,7 @@
    "value": 8,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -568,7 +568,7 @@
    "value": 60,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -577,7 +577,7 @@
    "value": 2,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -586,7 +586,7 @@
    "value": 67108864,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -595,7 +595,7 @@
    "value": 268435456,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   },
   {
    "unit": "klconfig",
@@ -604,7 +604,7 @@
    "value": 805306368,
    "count": 1,
    "grade": "established",
-   "from": "shipped IRIX kernel binaries, per docs/klconfig.md"
+   "from": "shipped IRIX kernel binaries, per formats/klconfig/README.md"
   }
  ]
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Hardware-graph calls in the 6.5.30 kernels: every site that adds a path or an edge.
 
-Usage: tools/hwgraph-sites.py [--kernel IP27 IP30 IP35] [--out docs]
+Usage: tools/hwgraph-sites.py [--kernel IP27 IP30 IP35] [--out software/kernel]
 
 Run from the repository root inside the toolchain container, with root/6.5.30 populated
 (tools/re-run python3 tools/hwgraph-sites.py). Writes two tab-separated tables:
@@ -250,7 +250,7 @@ def edge_rows(kernels_rows):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('--kernel', nargs='*', default=sorted(KERNELS))
-    ap.add_argument('--out', default=os.path.join(REPO, 'docs'))
+    ap.add_argument('--out', default=os.path.join(REPO, 'software', 'kernel'))
     a = ap.parse_args(argv)
     allrows = []
     for k in a.kernel:
