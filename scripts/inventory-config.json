@@ -1,6 +1,9 @@
 {
   "family": "IRIX 6.5 kernel and base system",
-  "siblings": {},
+  "siblings": {
+    "chips": "../chips",
+    "crime": "../crime"
+  },
   "docs": {
     "prose": [
       "docs/*.md",

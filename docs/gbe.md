@@ -1,6 +1,6 @@
 # O2 GBE: two-wire buses, flat-panel timing words and the dual-channel option
 
-The O2 kernel reaches the GBE block through two-wire buses. This page covers the flat-panel bus, the optional second display channel that the kernel probes at the far end of that bus, and the flat-panel timing words the timing routine writes. The register offsets and constants are in the generated reference [gen/docs/gbe.md](../gen/docs/gbe.md), which is built from `defs/gbe.toml`.
+The O2 kernel reaches the GBE block through two-wire buses. This page covers the flat-panel bus, the optional second display channel that the kernel probes at the far end of that bus, and the flat-panel timing words the timing routine writes. The register offsets and constants are in the crime repository's reference for the `gbe` unit; what the kernel does with them is listed in [kernel register use](kernel/hardware-register-use.md#o2-gbe-display-back-end). The board description bytes that steer the timing are in [defs/gbe_board.toml](../defs/gbe_board.toml).
 
 Grades follow [klconfig.md](klconfig.md): "Established" means the whole routine was read in the 6.5.30 object, "Inferred" means a reasoned reading with the reasoning given, and "Unknown" means no shipped software or published source settles it. Offsets are relative to the GBE register block. The block's physical base is not given with a source here, so it is unknown on this page.
 

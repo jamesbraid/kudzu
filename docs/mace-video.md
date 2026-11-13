@@ -2,7 +2,7 @@
 
 The O2's MACE peripheral chip carries the video input and output channels, and a two-wire bus that the video driver uses to program video-port chips. The IRIX video driver also keeps a timer snapshot in the MACE timer block and loads a capture block on the GBE. This page records what the driver reaches on those blocks and what the reading could say about each register.
 
-The register offsets, widths and fields that have a stated width are in the generated reference pages, built from `defs/`: [mace_video](../gen/docs/mace_video.md) (window map and input channels), [mace_video_out](../gen/docs/mace_video_out.md) (output channel), [mace_two_wire](../gen/docs/mace_two_wire.md) (two-wire bus) and [gbe_capture](../gen/docs/gbe_capture.md) (capture block). Offsets with no stated width are in the tables below.
+The register offsets, widths and fields that have a stated width are in the crime repository's reference pages for the `mace_video_in` (input channels), `mace_video` (output channel and window map), `mace_i2c` (two-wire bus), `mace_timer` (timestamp snapshots) and `gbe` (capture block) units; what the driver does with them is listed in [kernel register use](kernel/hardware-register-use.md#o2-mace-video-and-two-wire-bus). Offsets with no stated width are in the tables below.
 
 The reading this page draws on was marked proposed and pending independent evidence review by its author. It has not had that review. Its facts are carried here at the grades below, and nothing on this page clears them for implementation.
 

@@ -1,0 +1,52 @@
+{
+ "schema": "defs-flat/1",
+ "source": "defs/gbe_board.toml",
+ "profile": "public",
+ "rows": [
+  {
+   "unit": "gbe_board",
+   "kind": "constant",
+   "name": "BOARD_INTERLACE_OFF",
+   "value": 45,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe_board",
+   "kind": "constant",
+   "name": "BOARD_PANEL_OFF",
+   "value": 46,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe_board",
+   "kind": "constant",
+   "name": "PANEL_SETUP_A",
+   "value": 130,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe_board",
+   "kind": "constant",
+   "name": "PANEL_SETUP_B",
+   "value": 131,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  },
+  {
+   "unit": "gbe_board",
+   "kind": "constant",
+   "name": "PANEL_SETUP_C",
+   "value": 132,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/gbe.md"
+  }
+ ]
+}

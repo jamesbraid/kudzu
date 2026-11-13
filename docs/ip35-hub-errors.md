@@ -118,7 +118,7 @@ Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel 
   constants 3, 7, 8 and
   10 give the third argument of `partition_handle_error`; what those kinds stand for: unknown here. Established.
 - `hubiio_crb_error_handler` (`6.5.30/unix.IP35`, address 0xc00000000005acd8, 808 bytes): scans the Hub's I/O
-  interface CRB (crosstalk request buffer) table for entries that carry an error and reports or clears each one. The bit positions it tests in each entry's three words (the shifts and masks were re-read in the instructions) are in `defs/hubio.toml`; their roles stay as stated here. `a0`
+  interface CRB (crosstalk request buffer) table for entries that carry an error and reports or clears each one. The bit positions it tests in each entry's three words (the shifts and masks were re-read in the instructions) are in the chips repository's `bedrock_ii` unit (registers `crb_a`, `crb_b` and `crb_c`); their roles stay as stated here. `a0`
   is the Hub vertex and `a1` the Hub I/O soft state, whose halfword at +10 is the NASID and whose lock at +796 is held
   for the whole scan (`mutex_spinlock_spl` with the spl-error routine `splerr`, then `mutex_spinunlock`). The register
   block is the pool word 0x9200000001c00000 (at 0xc000000001644020) plus the NASID shifted left 33. For each of the 15

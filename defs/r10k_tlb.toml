@@ -1,14 +1,12 @@
 # Hardware definitions for r10k_tlb. Edit here; gen/ is generated from this file.
 unit = "r10k_tlb"
 prefix = "R10K_TLB"
-title = "R10000 TLB geometry and the wired-entry layout IRIX uses"
-doc = "R10000 TLB geometry and the wired-entry layout IRIX uses in its 64-bit kernel. Prose and the reasoning are in docs/r10k-tlb.md."
+title = "The wired-entry layout IRIX uses in the R10000 TLB"
+doc = "Software table, not a register map: the wired-entry layout and the page and ASID policy IRIX uses in its 64-bit kernel. The TLB entry count and ASID width of the R10000 itself are in the chips repository (unit r10000_cp0). Prose and the reasoning are in docs/r10k-tlb.md."
 from = "IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual"
 public_from = ["IRIX kernel translation-handling reading"]
 
 [constants]
-ENTRIES = { value = 64, grade = "inferred", doc = "dual TLB entries, each holding two pages" }
-ASID_BITS = { value = 8, grade = "inferred", doc = "width of the ASID field in the TLB entry high word" }
 ASID_USABLE = { value = 255, grade = "inferred", doc = "ASIDs the kernel hands out; ASID 0 is reserved for the kernel and system processes" }
 BASE_PAGE_BYTES = { value = 16384, grade = "inferred", doc = "base page size of the 64-bit IRIX kernel; the 4 KB path is compiled out" }
 LARGE_PAGE_MIN_BYTES = { value = 65536, grade = "inferred", doc = "smallest large page the kernel forms" }

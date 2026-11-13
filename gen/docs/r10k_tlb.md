@@ -1,8 +1,8 @@
-# R10000 TLB geometry and the wired-entry layout IRIX uses
+# The wired-entry layout IRIX uses in the R10000 TLB
 
 <!-- generated from defs/r10k_tlb.toml by defs-gen - do not edit, change the source -->
 
-R10000 TLB geometry and the wired-entry layout IRIX uses in its 64-bit kernel. Prose and the reasoning are in docs/r10k-tlb.md.
+Software table, not a register map: the wired-entry layout and the page and ASID policy IRIX uses in its 64-bit kernel. The TLB entry count and ASID width of the R10000 itself are in the chips repository (unit r10000_cp0). Prose and the reasoning are in docs/r10k-tlb.md.
 
 Unit `r10k_tlb`, macro prefix `R10K_TLB`.
 Default source: IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual.
@@ -13,11 +13,9 @@ Every item has a grade: established, inferred or unknown. A grade says how the i
 
 | Constant | Value | Grade | Source | Description |
 |---|---|---|---|---|
-| `ASID_BITS` | 0x8 | inferred | IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual | width of the ASID field in the TLB entry high word |
 | `ASID_USABLE` | 0xff | inferred | IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual | ASIDs the kernel hands out; ASID 0 is reserved for the kernel and system processes |
 | `BASE_PAGE_BYTES` | 0x4000 | inferred | IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual | base page size of the 64-bit IRIX kernel; the 4 KB path is compiled out |
 | `BROADCAST_SHARERS` | 0x10 | inferred | IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual | address spaces with more sharers than this get a broadcast full flush instead of per-page probes |
-| `ENTRIES` | 0x40 | inferred | IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual | dual TLB entries, each holding two pages |
 | `IO_MAP_BYTES` | 0x1000000 | inferred | IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual | size of the entries installed for I/O DMA-map misses |
 | `KTEXT_BYTES` | 0x1000000 | inferred | IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual | size of the single global kernel text and data entry on the mapped kernel |
 | `LARGE_PAGE_MIN_BYTES` | 0x10000 | inferred | IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual | smallest large page the kernel forms |

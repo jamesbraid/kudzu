@@ -97,6 +97,7 @@ Every hand-written document under `docs/` and the top-level Markdown files, grou
 
 - [docs/kernel/2106-core-time.md](docs/kernel/2106-core-time.md): IRIX 6.5.30 core kernel time at 2038 and 2106
 - [docs/kernel/boot-time-nsd-getpwuid.md](docs/kernel/boot-time-nsd-getpwuid.md): getpwuid failing at boot once the clock passes 2^31
+- [docs/kernel/hardware-register-use.md](docs/kernel/hardware-register-use.md): What the IRIX kernel, libraries and X modules do with registers whose maps live in the chips and crime repositories
 - [docs/kernel/idle-and-wait-loops.md](docs/kernel/idle-and-wait-loops.md): Idle loop and look-alike wait loops in the IRIX kernels
 - [docs/kernel/xfs-mount-and-block-io.md](docs/kernel/xfs-mount-and-block-io.md): IRIX 6.5.30 XFS mount path, superblock checks and block I/O
 - [docs/kernel/xfs-timestamps.md](docs/kernel/xfs-timestamps.md): XFS inode timestamps: reads, writes, widths and signedness
@@ -125,7 +126,7 @@ Every hand-written document under `docs/` and the top-level Markdown files, grou
 
 ## Hardware definitions
 
-The hardware structures this repository specifies are described once, in TOML under `defs/`. Each unit file gives its constants, registers and fields with a grade (established, inferred or unknown) and a source. `gen/` holds what is generated from them: C headers, a Rust crate, Python decode helpers, flat JSON, a genxml export and one reference page per unit under `gen/docs/`. Do not edit `gen/`; edit the TOML and run `retools/tools/defs/defs-gen`. The `*_DECODE.h` files at the root are forwarding headers for the old include paths.
+The hardware structures this repository specifies are described once, in TOML under `defs/`. Each unit file gives its constants, registers and fields with a grade (established, inferred or unknown) and a source. `gen/` holds what is generated from them: C headers, a Rust crate, Python decode helpers, flat JSON, a genxml export and one reference page per unit under `gen/docs/`. Do not edit `gen/`; edit the TOML and run `retools/tools/defs/defs-gen`. The `*_DECODE.h` files at the root are forwarding headers for the old include paths. Register maps of the hardware IRIX drives (hub, PCI bridge, one-wire parts, R10000 timer, O2 CRIME, GBE and MACE video) are in the chips and crime repositories; what the kernel does with them is in [docs/kernel/hardware-register-use.md](docs/kernel/hardware-register-use.md).
 
 ## Running the tools
 

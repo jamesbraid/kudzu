@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!-- generated from defs/tg.toml by defs-gen - do not edit, change the source -->
 <genxml unit="tg" prefix="TG" title="gigabit Ethernet controller match table of the Origin 300/350 driver" from="shipped IRIX kernel binaries, per docs/ip35-tg-driver.md">
-  <doc>Gigabit Ethernet controller match table: the PCI vendor, device and subsystem ids the Origin 300/350 driver accepts.</doc>
+  <doc>Software table, not a register map: the PCI vendor, device and subsystem ids the Origin 300/350 gigabit Ethernet driver accepts.</doc>
   <struct name="ROW_W0" size="4" grade="established" from="shipped IRIX kernel binaries, per docs/ip35-tg-driver.md">
     <field name="vendor" start="16" size="16" type="uint" grade="established"/>
     <field name="device" start="0" size="16" type="uint" grade="established"/>

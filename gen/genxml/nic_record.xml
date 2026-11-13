@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<!-- generated from defs/nic_record.toml by defs-gen - do not edit, change the source -->
+<genxml unit="nic_record" prefix="NIC" title="Ethernet address record the IRIX kernel reads from a one-wire part" from="shipped IRIX kernel binaries, per docs/nic.md">
+  <doc>Software table, not a register map: the layout the kernel checks in the record it reads from the one-wire part on an Ethernet controller. The one-wire access registers are described in the chips repository.</doc>
+  <constant name="MAC_CRC16_RESIDUE" value="0xb001" grade="established"/>
+  <constant name="MAC_ID_BYTE0" value="0x8d" grade="established"/>
+  <constant name="MAC_ID_BYTE1" value="0xa" grade="established"/>
+  <constant name="MAC_RECORD_LEN" value="0xe" grade="established"/>
+</genxml>

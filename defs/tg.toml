@@ -2,7 +2,7 @@
 unit = "tg"
 prefix = "TG"
 title = "gigabit Ethernet controller match table of the Origin 300/350 driver"
-doc = "Gigabit Ethernet controller match table: the PCI vendor, device and subsystem ids the Origin 300/350 driver accepts."
+doc = "Software table, not a register map: the PCI vendor, device and subsystem ids the Origin 300/350 gigabit Ethernet driver accepts."
 from = "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
 public_from = ["shipped IRIX"]
 

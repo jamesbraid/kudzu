@@ -2,7 +2,7 @@
 
 <!-- generated from defs/tg.toml by defs-gen - do not edit, change the source -->
 
-Gigabit Ethernet controller match table: the PCI vendor, device and subsystem ids the Origin 300/350 driver accepts.
+Software table, not a register map: the PCI vendor, device and subsystem ids the Origin 300/350 gigabit Ethernet driver accepts.
 
 Unit `tg`, macro prefix `TG`.
 Default source: shipped IRIX kernel binaries, per docs/ip35-tg-driver.md.

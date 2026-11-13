@@ -1,6 +1,6 @@
 # O2 CRIME: identity, interrupts, renderer interface and pixel pipeline
 
-CRIME is the O2's memory controller, interrupt controller and rendering engine. The IRIX kernel, the OpenGL library and the X server write its registers in a fixed order, and this page records what they write, in that order. The offsets, identity values, interrupt inputs and field positions that have a stated width are in [gen/docs/crime.md](../gen/docs/crime.md), built from `defs/crime.toml`. Offsets with no stated width are in the tables below instead.
+CRIME is the O2's memory controller, interrupt controller and rendering engine. The IRIX kernel, the OpenGL library and the X server write its registers in a fixed order, and this page records what they write, in that order. The register offsets, identity values, interrupt inputs and field positions are in the crime repository's reference for the `crime`, `re` and `mte` units; the constants the kernel and library apply are listed with their grades in [kernel register use](kernel/hardware-register-use.md#o2-crime). The kernel's pixel-DMA request constants are in [defs/crime_dma.toml](../defs/crime_dma.toml). Offsets with no stated width are in the tables below instead.
 
 Grades follow [gbe.md](gbe.md). **Established** means the whole routine, table or section was read in a shipped binary. **Inferred** means a reasoned reading, with the reasoning given. **Unknown** means no shipped software or published source settles it.
 

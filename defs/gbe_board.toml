@@ -1,0 +1,14 @@
+# Hardware definitions for gbe_board. Edit here; gen/ is generated from this file.
+unit = "gbe_board"
+prefix = "GBE"
+title = "Board description bytes the O2 kernel reads to choose GBE timing"
+doc = "Software table, not a register map: the two bytes of the board description that select the interlace case and a flat-panel set-up, and the set-up values the timing routine recognises. The GBE registers they steer are described in the crime repository."
+from = "shipped IRIX kernel binaries, per docs/gbe.md"
+public_from = ["shipped IRIX"]
+
+[constants]
+BOARD_INTERLACE_OFF = { value = 45, grade = "established", doc = "Board description byte that selects the interlace case when non-zero. The layout of the board description is not established here." }
+BOARD_PANEL_OFF = { value = 46, grade = "established", doc = "Board description byte that selects a flat-panel set-up." }
+PANEL_SETUP_A = { value = 130, grade = "established", doc = "Panel set-up byte: fixed values for the first panel." }
+PANEL_SETUP_B = { value = 131, grade = "established", doc = "Panel set-up byte: fixed values for the second panel." }
+PANEL_SETUP_C = { value = 132, grade = "established", doc = "Panel set-up byte: fixed horizontal value, and the timing flag rewrite." }

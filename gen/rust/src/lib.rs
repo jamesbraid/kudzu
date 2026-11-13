@@ -1,20 +1,9 @@
 // generated from defs/ by defs-gen - do not edit, change the source
-pub mod crime;
+pub mod crime_dma;
 pub mod efs;
-pub mod gbe;
-pub mod gbe_capture;
-pub mod hubio;
-pub mod hubmda;
-pub mod hubmdb;
-pub mod hubni;
-pub mod hubpi;
+pub mod gbe_board;
 pub mod klconfig;
-pub mod mace_two_wire;
-pub mod mace_video;
-pub mod mace_video_out;
-pub mod nic;
-pub mod pcibr;
-pub mod r10k_timer;
+pub mod nic_record;
 pub mod r10k_tlb;
 pub mod scsi;
 pub mod tg;

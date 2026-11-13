@@ -6,13 +6,6 @@ plugin = "scripts/disk_format_checks.py"
 profile = "public"
 rust_crate = "hwdefs"
 
-# The GBE block's register offsets run past 0xffff, so the default 14-bit bound
-# is widened for every unit. The cursor glyph words end at 0x780fc, which needs
-# 19 bits. Other units stay far below it.
-[checks]
-address_bits = 19
-max_reg_offset = 0x7ffff
-
 [[banned.extra]]
 label = "shipped routine name"
 regex = '\b(?:efs|xfs|xlv|xvm)_[a-z]\w*'
@@ -50,69 +43,29 @@ prose_offsets = false
 group = "klconfig"
 prose_offsets = false
 
-[units.hubpi]
-group = "hubpi"
-
-[units.hubmda]
-group = "hubmda"
-
-[units.hubmdb]
-group = "hubmdb"
-
-[units.nic]
-group = "nic"
-prose_offsets = false
-
 [units.tg]
 group = "tg"
 notes_corpus = ["docs/ip35-tg-driver.md"]
 prose_offsets = false
 
-[units.hubio]
-group = "hubio"
-
-[units.hubni]
-group = "hubni"
+[units.nic_record]
+group = "nic_record"
 prose_offsets = false
 
-[units.pcibr]
-group = "pcibr"
+[units.crime_dma]
+group = "crime_dma"
+prose_offsets = false
+
+[units.gbe_board]
+group = "gbe_board"
 prose_offsets = false
 
 [units.scsi]
 group = "scsi"
 prose_offsets = false
 
-[units.r10k_timer]
-group = "r10k_timer"
-prose_offsets = false
-
 [units.r10k_tlb]
 group = "r10k_tlb"
-prose_offsets = false
-
-[units.gbe]
-group = "gbe"
-prose_offsets = false
-
-[units.crime]
-group = "crime"
-prose_offsets = false
-
-[units.mace_video]
-group = "mace_video"
-prose_offsets = false
-
-[units.mace_video_out]
-group = "mace_video_out"
-prose_offsets = false
-
-[units.mace_two_wire]
-group = "mace_two_wire"
-prose_offsets = false
-
-[units.gbe_capture]
-group = "gbe_capture"
 prose_offsets = false
 
 [[claims]]

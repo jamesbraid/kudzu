@@ -6,15 +6,6 @@
   {
    "unit": "r10k_tlb",
    "kind": "constant",
-   "name": "ASID_BITS",
-   "value": 8,
-   "count": 1,
-   "grade": "inferred",
-   "from": "IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual"
-  },
-  {
-   "unit": "r10k_tlb",
-   "kind": "constant",
    "name": "ASID_USABLE",
    "value": 255,
    "count": 1,
@@ -35,15 +26,6 @@
    "kind": "constant",
    "name": "BROADCAST_SHARERS",
    "value": 16,
-   "count": 1,
-   "grade": "inferred",
-   "from": "IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual"
-  },
-  {
-   "unit": "r10k_tlb",
-   "kind": "constant",
-   "name": "ENTRIES",
-   "value": 64,
    "count": 1,
    "grade": "inferred",
    "from": "IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual"

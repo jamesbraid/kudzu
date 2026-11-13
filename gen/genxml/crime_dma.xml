@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<!-- generated from defs/crime_dma.toml by defs-gen - do not edit, change the source -->
+<genxml unit="crime_dma" prefix="CRIME" title="Pixel-DMA request the IRIX kernel builds for the O2 renderer" from="shipped IRIX O2 graphics objects, per docs/crime.md">
+  <doc>Software table, not a register map: the size of the kernel's pixel-DMA request, how long it polls for idle and the ioctl request number that carries it. The CRIME registers it drives are described in the crime repository.</doc>
+  <constant name="DMA_IOCTL" value="0x55f2" grade="inferred"/>
+  <constant name="DMA_POLL_LIMIT" value="0x7a120" grade="established"/>
+  <constant name="DMA_REQ_BYTES" value="0x28" grade="established"/>
+</genxml>

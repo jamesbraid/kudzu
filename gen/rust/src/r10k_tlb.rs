@@ -1,12 +1,10 @@
 // generated from defs/r10k_tlb.toml by defs-gen - do not edit, change the source
-// R10000 TLB geometry and the wired-entry layout IRIX uses
+// The wired-entry layout IRIX uses in the R10000 TLB
 #![allow(dead_code)]
 
-pub const ASID_BITS: u32 = 0x8; // inferred
 pub const ASID_USABLE: u32 = 0xff; // inferred
 pub const BASE_PAGE_BYTES: u32 = 0x4000; // inferred
 pub const BROADCAST_SHARERS: u32 = 0x10; // inferred
-pub const ENTRIES: u32 = 0x40; // inferred
 pub const IO_MAP_BYTES: u32 = 0x1000000; // inferred
 pub const KTEXT_BYTES: u32 = 0x1000000; // inferred
 pub const LARGE_PAGE_MIN_BYTES: u32 = 0x10000; // inferred
