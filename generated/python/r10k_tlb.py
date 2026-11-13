@@ -7,7 +7,7 @@ WORDS = {}
 FIELDS = {}
 ENUMS = {}
 FIELD_ENUM = {}
-CONSTANTS = {'ASID_USABLE': {'value': 255, 'count': 1, 'stride': 1}, 'BASE_PAGE_BYTES': {'value': 16384, 'count': 1, 'stride': 1}, 'BROADCAST_SHARERS': {'value': 16, 'count': 1, 'stride': 1}, 'IO_MAP_BYTES': {'value': 16777216, 'count': 1, 'stride': 1}, 'KTEXT_BYTES': {'value': 16777216, 'count': 1, 'stride': 1}, 'LARGE_PAGE_MIN_BYTES': {'value': 65536, 'count': 1, 'stride': 1}, 'RECYCLE_TICKS_DEFAULT': {'value': 100, 'count': 1, 'stride': 1}, 'WIRED_INDEX_CPU': {'value': 0, 'count': 1, 'stride': 1}, 'WIRED_INDEX_DROPIN_FIRST': {'value': 2, 'count': 1, 'stride': 1}, 'WIRED_INDEX_DROPIN_LAST': {'value': 6, 'count': 1, 'stride': 1}, 'WIRED_INDEX_KTEXT': {'value': 1, 'count': 1, 'stride': 1}, 'WIRED_MAPPED': {'value': 7, 'count': 1, 'stride': 1}, 'WIRED_UNMAPPED': {'value': 6, 'count': 1, 'stride': 1}}
+CONSTANTS = {'ASID_USABLE': {'value': 255, 'count': 1, 'stride': 1}, 'BASE_PAGE_BYTES': {'value': 16384, 'count': 1, 'stride': 1}, 'BROADCAST_SHARERS': {'value': 16, 'count': 1, 'stride': 1}, 'IO_MAP_BYTES': {'value': 16777216, 'count': 1, 'stride': 1}, 'KTEXT_BYTES': {'value': 16777216, 'count': 1, 'stride': 1}, 'LARGE_PAGE_MIN_BYTES': {'value': 65536, 'count': 1, 'stride': 1}, 'WIRED_INDEX_CPU': {'value': 0, 'count': 1, 'stride': 1}, 'WIRED_INDEX_DROPIN_FIRST': {'value': 2, 'count': 1, 'stride': 1}, 'WIRED_INDEX_DROPIN_LAST': {'value': 6, 'count': 1, 'stride': 1}, 'WIRED_INDEX_KTEXT': {'value': 1, 'count': 1, 'stride': 1}, 'WIRED_MAPPED': {'value': 7, 'count': 1, 'stride': 1}}
 TESTS = []
 
 

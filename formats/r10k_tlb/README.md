@@ -2,22 +2,43 @@
 
 This page records how the IRIX 6.5.7 kernel drives the R10000 translation buffer on IP27 (Origin 200 and 2000): which entries it wires, how it refills and probes, and how it flushes. The configuration is the 64-bit kernel with a 16 KB base page.
 
-**Release and grade.** IRIX 6.5.7 is not one of this repository's releases (6.5.30 and 6.5.22). Nothing here is evidence about those kernels, and a fact from one release does not fill a gap in another. Every fact is graded **inferred**. The basis is a reading of the 6.5.7 kernel's translation and fault code in source form, not a shipped binary of a covered release. Where a fact states an R10000 architecture point (entry count, ASID width, the global-bit AND), it was not checked against the published R10000 manual in this import. No fact here is graded established. Each one needs a 6.5.30 or 6.5.22 binary, read in full, before it can be.
+**Release and grade.** IRIX 6.5.7 is not one of this repository's releases (6.5.30 and 6.5.22). Nothing here is evidence about those kernels, and a fact from one release does not fill a gap in another. Every fact is graded **inferred**. The basis is a reading of the 6.5.7 kernel's translation and fault code in source form, not a shipped binary of a covered release. The R10000 architecture points (entry count, ASID width, the global-bit AND, PageMask loaded by `tlbr`, the extended-context pointer) are checked against the MIPS R10000 Microprocessor User's Manual, version 2.0 of 10 October 1996, and cited below. The kernel facts marked "checked" were compared with the IRIX 6.5.30 IP27 kernel (`root/6.5.30/unix.IP27`) in a later verification pass, at the addresses given in the next section. Facts without a "checked" note are still only the reading of the 6.5.7 kernel. No fact here is graded established. Each one needs a 6.5.30 or 6.5.22 binary, read in full, before it can be.
+
+## What was checked
+
+R10000 User's Manual, version 2.0 (PDF page numbers):
+
+- PDF page 49: the TLB has 64 entries, each translating two pages, with page sizes from 4 KB to 16 MB in powers of 4.
+- PDF page 275: the ASID is an 8-bit field of EntryHi.
+- PDF page 269: the Global bit, when set in both EntryLo0 and EntryLo1, makes the processor ignore the ASID in the lookup. That is the AND the kernel relies on below.
+- PDF page 328: `tlbr` writes the entry's mask into PageMask, which is why the drop-in routine restores 16 KB afterwards.
+- PDF page 289: XContext holds a pointer into the kernel page-table window in 64-bit addressing mode.
+
+IRIX 6.5.30 IP27 kernel, read in full:
+
+- `bootstrap` (`0xc0000000000437b4`) and `start` (`0xc00000000001a8dc`) write PageMask 0x6000 (16 KB) and Wired 7.
+- `mapped_kernel_setup_tlb` (`0xc000000000043808`) writes index 1 with a 16 MB mask (0x1ffe000) and an entry that has the Global bit set.
+- `tlbdropin` (`0xc000000000019b6c`) probes with `tlbp` under the current ASID. On a hit it does `tlbr` and `tlbwi`. On a miss it does `tlbwr`. It writes PageMask 0x6000 before the write.
+- `utlbmiss` (`0xc00000000004d180`) loads the even and odd entries and executes `tlbwr`. It writes nothing else. The large-page variant `lpg_utlbmiss` (`0xc00000000004d1a8`) writes PageMask around the refill and restores 0x6000.
+- `set_tlbpid` (`0xc000000000019d68`) re-stamps the ASID into indices 6 down to 2 with `tlbr`, an EntryHi rewrite and `tlbwi`.
+- `flush_tlb` (`0xc000000000019d20`) writes an invalid entry at every index from its argument up to 63.
+
+Changes from the verification pass: the count of wired entries on an unmapped build and the clock-pacing default were regraded to unknown (see below), and the invalid-entry address was corrected.
 
 Constants are in [formats/r10k_tlb/format.toml](format.toml) and the generated page is in `formats/r10k_tlb/format.md`. The entry count and ASID width of the R10000 itself moved to the chips repository's `r10000_cp0` unit (both graded inferred there as here).
 
 ## Configuration
 
-- **Inferred.** The TLB has 64 dual entries and an 8-bit ASID field. The kernel uses 255 ASIDs and reserves ASID 0 for the kernel and system processes.
+- **Inferred.** The TLB has 64 dual entries and an 8-bit ASID field (checked against the R10000 manual, PDF pages 49 and 275). The kernel uses 255 ASIDs and reserves ASID 0 for the kernel and system processes.
 - **Inferred.** The 64-bit kernel's base page is 16 KB. The 4 KB page path belongs to the 32-bit kernel and is compiled out here.
 - **Inferred.** The PageMask register is set to 16 KB at boot and stays there as the standing value.
 
 ## Wired entries
 
-Seven entries are wired on the mapped kernel that IRIX ships for IP27, and six on an unmapped build.
+Seven entries are wired on the mapped kernel that IRIX ships for IP27 (checked: the 6.5.30 boot code writes Wired 7 on both of its paths). Unknown: how many an unmapped build wires. The 6.5.7 reading gave six, but no shipped IP27 kernel is an unmapped build and the 6.5.30 kernel has no path that writes a smaller value. Route: a shipped unmapped kernel, if one turns up.
 
 - **Index 0.** The per-CPU data area together with the running thread's user page and kernel stack. It is global, 16 KB, and rewritten at every context switch to point at the incoming thread's kernel stack. **Inferred.**
-- **Index 1, mapped kernel only.** Kernel text and data as one global 16 MB entry, installed once at boot. **Inferred.**
+- **Index 1, mapped kernel only.** Kernel text and data as one global 16 MB entry, installed once at boot. **Inferred.** (Checked: `mapped_kernel_setup_tlb`.)
 - **Indices 2 to 6.** Per-process second-level user mappings, 16 KB each and tagged with the ASID. The fast fault handler uses them as rotating drop-in slots. The kernel keeps a shadow of them in the thread's user area and replays it on the return path. **Inferred.**
 
 These are not segment-table entries. The 64-bit kernel reaches its page tables through the unmapped kernel segments and wires no segment table. **Inferred.**
@@ -60,20 +81,19 @@ Every maintenance primitive that probes or reads the TLB follows one shape: save
 
 ## Clock-paced recycle of the drop-in slots
 
-- **Inferred.** On a clock tick, if the drop-in cursor has passed the last slot and a per-address-space tick counter has reached the pacing tunable (default 100), the kernel resets both. It then allocates a fresh ASID with the invalidate flag set. That discards the running thread's non-wired translations, so it is a full flush for that thread.
-- **Inferred.** The counter advances only on clock ticks taken in user mode while the cursor is already exhausted. The fire rate is therefore at most one per 100 such ticks. At the default and a 100 Hz clock, that is at most one per second, and only for a thread that stays CPU-bound in user mode with its slots used up. It is an upper bound, not a rate every thread reaches.
+- **Unknown.** The 6.5.7 reading described a clock-tick recycle of the drop-in slots, paced by a tunable that defaulted to 100 ticks, with an upper bound of about one flush per second. The 6.5.30 IP27 kernel's tick routine (`tlb_tick_actions`, `0xc0000000001b58b8`) is different: it counts down from 8, steps a cursor up to 0x3f and then reloads it with 7. Nothing read in 6.5.30 shows a tunable or a default of 100, so the pacing figure and the rate bound derived from it are withdrawn. Route: read `tlb_tick_actions` and its caller in full and say what the cursor and the 8-tick counter drive.
 
 ## Invalidation idioms
 
-- **Inferred.** To kill one translation, probe for the page and ASID. On a hit, write an invalid entry with tlbwi. An invalid entry carries a reserved kseg0 page number and a zero EntryLo.
+- **Inferred.** To kill one translation, probe for the page and ASID. On a hit, write an invalid entry with tlbwi. An invalid entry carries an EntryHi of 0xa800000000000000 and a zero EntryLo. That address is in the unmapped 64-bit physical-window segment, so no translated access can match it (checked: `invaltlb` at `0xc000000000019ac8`, `flush_tlb` and `unmaptlb` build it with the same shift). The 6.5.7 reading called it a kseg0 page number, which the shipped code does not support.
 - **Inferred.** To kill an entry by index, write an invalid entry at that index with tlbwi, with no probe. The ASID recycle scrub uses this form.
-- **Inferred.** To flush a range, write invalid entries with tlbwi from a start index to the end. Boot and the non-wired region use this form.
-- **Inferred.** Many invalid entries carry the same reserved page number. The kernel keeps only valid translations unique.
+- **Inferred.** To flush a range, write invalid entries with tlbwi from a start index to the end. Boot and the non-wired region use this form (checked: `flush_tlb` loops from its argument to index 63).
+- **Inferred.** Many invalid entries carry the same unmappable address. The kernel keeps only valid translations unique.
 
 ## Global bit
 
 - **Inferred.** Mappings marked global: the kernel dynamic heap, the per-CPU data entry, the kernel stack page, mapped kernel text and data, the fork user area and the crash-dump maps.
-- **Inferred (kernel use). Not checked against the manual in this import.** The effective global status of an entry is the hardware AND of the two halves' global bits. The kernel relies on that AND. When only one half of a pair is present, the fault drop-in copies that half's global bit into the empty half, so the AND gives the intended result.
+- **Inferred (kernel use).** The effective global status of an entry is the hardware AND of the two halves' global bits (checked against the R10000 manual, PDF page 269). The kernel relies on that AND. When only one half of a pair is present, the fault drop-in copies that half's global bit into the empty half, so the AND gives the intended result.
 
 ## Kernel reads through ASID-tagged mappings
 
@@ -86,4 +106,4 @@ Every maintenance primitive that probes or reads the TLB follows one shape: save
 
 ## What this page does not settle
 
-The rates above are upper bounds, not measurements. This page does not say how often whole-TLB flushes happen on a running system. The flush cost depends on paths outside the TLB routines described here, and nothing in this import quantifies them.
+No rate on this page is a measurement. This page does not say how often whole-TLB flushes happen on a running system. The flush cost depends on paths outside the TLB routines described here, and nothing in this import quantifies them.
