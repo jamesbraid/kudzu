@@ -118,7 +118,7 @@ PCI bridge widget identification word, configuration address layout and interrup
 
 ## One-wire access to the identity parts
 
-Register facts: chips repository, units `ioc3_extra`, `bedrock_extra` and `hub_md_extra`; the Ethernet address record layout stays here as `defs/nic_record.toml`.
+Register facts: chips repository, units `ioc3_extra`, `bedrock_extra` and `hub_md_extra`; the Ethernet address record layout stays here as `formats/nic_record/format.toml`.
 
 Bit-serial control word for the one-wire identity parts and the hub address that reaches the same bus.
 
@@ -148,7 +148,7 @@ R10000 Count and Compare timer interrupt, from the published manual.
 
 ## O2 CRIME
 
-Register facts: crime repository, units `crime`, `re` and `mte`; the kernel's pixel-DMA request constants stay here as `defs/crime_dma.toml`.
+Register facts: crime repository, units `crime`, `re` and `mte`; the kernel's pixel-DMA request constants stay here as `formats/crime_dma/format.toml`.
 
 Offsets, identity values, interrupt inputs and renderer field layouts that the O2 kernel, OpenGL library and X server use on the CRIME block. Prose and the reasoning are in docs/crime.md.
 
@@ -268,7 +268,7 @@ Offsets, identity values, interrupt inputs and renderer field layouts that the O
 
 ## O2 GBE display back end
 
-Register facts: crime repository, unit `gbe`; the board description bytes stay here as `defs/gbe_board.toml`.
+Register facts: crime repository, unit `gbe`; the board description bytes stay here as `formats/gbe_board/format.toml`.
 
 Register offsets, packed timing words and option-probe constants that the O2 kernel writes on the GBE block.
 

@@ -1,0 +1,43 @@
+{
+ "schema": "defs-flat/1",
+ "source": "formats/nic_record/format.toml",
+ "profile": "public",
+ "rows": [
+  {
+   "unit": "nic_record",
+   "kind": "constant",
+   "name": "MAC_CRC16_RESIDUE",
+   "value": 45057,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/nic.md"
+  },
+  {
+   "unit": "nic_record",
+   "kind": "constant",
+   "name": "MAC_ID_BYTE0",
+   "value": 141,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/nic.md"
+  },
+  {
+   "unit": "nic_record",
+   "kind": "constant",
+   "name": "MAC_ID_BYTE1",
+   "value": 10,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/nic.md"
+  },
+  {
+   "unit": "nic_record",
+   "kind": "constant",
+   "name": "MAC_RECORD_LEN",
+   "value": 14,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/nic.md"
+  }
+ ]
+}

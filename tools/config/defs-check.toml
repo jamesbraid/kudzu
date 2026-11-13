@@ -1,0 +1,240 @@
+[project]
+name = "kudzu"
+plugin = "tools/disk_format_checks.py"
+
+[gen]
+profile = "public"
+rust_crate = "hwdefs"
+
+[[banned.extra]]
+label = "shipped routine name"
+regex = '\b(?:efs|xfs|xlv|xvm)_[a-z]\w*'
+
+[[banned.extra]]
+label = "shipped tool name"
+regex = '\b(?:mkfs_\w+|dvhtool|prtvtoc|xlv_labd|xfs_db|xfs_repair)\b'
+
+[units.xvm]
+group = "xvm"
+notes_corpus = ["formats/xvm/README.md"]
+prose_offsets = false
+
+[units.xlv]
+group = "xlv"
+notes_corpus = ["formats/xlv/README.md"]
+prose_offsets = false
+
+[units.efs]
+group = "efs"
+notes_corpus = ["formats/efs/README.md"]
+prose_offsets = false
+
+[units.volhdr]
+group = "volhdr"
+notes_corpus = ["formats/volhdr/README.md"]
+prose_offsets = false
+
+[units.xfs]
+group = "xfs"
+notes_corpus = ["formats/xfs/README.md"]
+prose_offsets = false
+
+[units.klconfig]
+group = "klconfig"
+prose_offsets = false
+
+[units.tg]
+group = "tg"
+notes_corpus = ["docs/ip35-tg-driver.md"]
+prose_offsets = false
+
+[units.nic_record]
+group = "nic_record"
+prose_offsets = false
+
+[units.crime_dma]
+group = "crime_dma"
+prose_offsets = false
+
+[units.gbe_board]
+group = "gbe_board"
+prose_offsets = false
+
+[units.scsi]
+group = "scsi"
+prose_offsets = false
+
+[units.r10k_tlb]
+group = "r10k_tlb"
+prose_offsets = false
+
+[[claims]]
+group = "xvm"
+label = "physical label magic and size"
+doc = "formats/xvm/README.md"
+regex = '`pl_magic` \| `(0x[0-9a-f]+)`'
+binds = [
+  ["DEFN", "XVM_PHYSLAB_MAGIC", 1],
+]
+
+[[claims]]
+group = "xvm"
+label = "label sector header magic"
+doc = "formats/xvm/README.md"
+regex = '`lh_magic` \| `(0x[0-9a-f]+)`'
+binds = [
+  ["DEFN", "XVM_LABELHDR_MAGIC", 1],
+]
+
+[[claims]]
+group = "xvm"
+label = "physical label size"
+doc = "formats/xvm/README.md"
+regex = '\(`xvm_physlab`, (\d+) bytes'
+binds = [
+  ["DEF", "XVM_PL_SIZE", 1],
+]
+
+[[claims]]
+group = "xvm"
+label = "label sector header size"
+doc = "formats/xvm/README.md"
+regex = '\(`xvm_labelhdr`, (\d+) bytes\)'
+binds = [
+  ["DEF", "XVM_LH_SIZE", 1],
+]
+
+[[claims]]
+group = "xvm"
+label = "element entry size"
+doc = "formats/xvm/README.md"
+regex = '\(`xvm_disk_ve`, (\d+) bytes'
+binds = [
+  ["DEF", "XVM_VE_SIZE", 1],
+]
+
+[[claims]]
+group = "xvm"
+label = "attribute entry size"
+doc = "formats/xvm/README.md"
+regex = '\(`xvm_disk_attr`, (\d+) bytes'
+binds = [
+  ["DEF", "XVM_ATTR_SIZE", 1],
+]
+
+[[claims]]
+group = "xlv"
+label = "label magic"
+doc = "formats/xlv/README.md"
+regex = '`magic` \| `(0x11201989)`'
+binds = [
+  ["DEFN", "XLV_LABEL_MAGIC", 1],
+]
+
+[[claims]]
+group = "xlv"
+label = "slot, header and entry sizes"
+doc = "formats/xlv/README.md"
+regex = 'Label slot \(`(0x12a0)` bytes\).*?Header \(`(0x120)` bytes\).*?Entry \(`(0x118)` bytes\)'
+binds = [
+  ["DEFN", "XLV_LABEL_BYTES", 1],
+  ["DEFN", "XLV_HDR_SIZE", 2],
+  ["DEFN", "XLV_ENTRY_SIZE", 3],
+]
+
+[[claims]]
+group = "efs"
+label = "superblock magic values"
+doc = "formats/efs/README.md"
+regex = '`0x00072959` \(old\) or `(0x0007295a)` \(new\)'
+binds = [
+  ["DEFN", "EFS_MAGIC_NEW", 1],
+]
+
+[[claims]]
+group = "efs"
+label = "old superblock magic"
+doc = "formats/efs/README.md"
+regex = '`(0x00072959)` \(old\)'
+binds = [
+  ["DEFN", "EFS_MAGIC_OLD", 1],
+]
+
+[[claims]]
+group = "efs"
+label = "directory block magic"
+doc = "formats/efs/README.md"
+regex = 'halfword \*\*`(0xbeef)`\*\*'
+binds = [
+  ["DEFN", "EFS_DIRBLK_MAGIC", 1],
+]
+
+[[claims]]
+group = "efs"
+label = "maximum extent length"
+doc = "formats/efs/README.md"
+regex = 'Maximum length is (\d+) blocks'
+binds = [
+  ["DEF", "EFS_EX_MAXLEN", 1],
+]
+
+[[claims]]
+group = "volhdr"
+label = "header magic"
+doc = "formats/volhdr/README.md"
+regex = "magic = `(0x0BE5A941)`"
+binds = [
+  ["DEFN", "DVH_MAGIC", 1],
+]
+
+[[claims]]
+group = "volhdr"
+label = "volume directory shape"
+doc = "formats/volhdr/README.md"
+regex = 'Volume directory \((0x048), (\d+) entries, (\d+) bytes each\)'
+binds = [
+  ["DEFN", "DVH_DIR_OFF", 1],
+  ["DEF", "DVH_DIR_COUNT", 2],
+  ["DEF", "DVH_DIR_STRIDE", 3],
+]
+
+[[claims]]
+group = "volhdr"
+label = "partition table shape"
+doc = "formats/volhdr/README.md"
+regex = 'Partition table \((0x138), (\d+) entries, (\d+) bytes each\)'
+binds = [
+  ["DEFN", "DVH_PART_OFF", 1],
+  ["DEF", "DVH_PART_COUNT", 2],
+  ["DEF", "DVH_PART_STRIDE", 3],
+]
+
+[[claims]]
+group = "volhdr"
+label = "partition type numbers"
+doc = "formats/volhdr/README.md"
+regex = '\| (\d+) \| xfs \|.*?\| (\d+) \| xfslog \|.*?\| (\d+) \| xlv \|.*?\| (\d+) \| xvm \|'
+binds = [
+  ["EN", "PART_W2.type", "xfs", 1],
+  ["EN", "PART_W2.type", "xfslog", 2],
+  ["EN", "PART_W2.type", "xlv", 3],
+  ["EN", "PART_W2.type", "xvm", 4],
+]
+
+[[claims]]
+group = "xfs"
+label = "superblock magic"
+doc = "formats/xfs/README.md"
+regex = "Magic: (0x58465342)"
+binds = [
+  ["DEFN", "XFS_SB_MAGIC", 1],
+]
+
+[[claims]]
+group = "xfs"
+label = "inode magic"
+doc = "formats/xfs/README.md"
+regex = '`magic` \| \| \| (0x494e)'
+binds = [
+  ["DEFN", "XFS_INO_MAGIC", 1],
+]

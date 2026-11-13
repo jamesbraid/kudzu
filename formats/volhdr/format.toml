@@ -1,0 +1,179 @@
+# Hardware definitions for volhdr. Edit here; generated/ and format.md are generated from this file.
+unit = "volhdr"
+prefix = "DVH"
+title = "SGI disk volume header"
+doc = "SGI disk volume header: magic, drive parameters, volume directory and partition table."
+from = "shipped IRIX binaries, per formats/volhdr/README.md"
+public_from = ["shipped IRIX"]
+
+[c]
+legacy_header = "VOLHDR_DECODE.h"
+legacy_guard = "VOLHDR_DECODE_H"
+
+[words.DIRENT_W2]
+width = 32
+grade = "established"
+
+[words.DIRENT_W2.fields]
+start_block = { bits = [31, 0], grade = "established" }
+
+[words.DIRENT_W3]
+width = 32
+grade = "established"
+
+[words.DIRENT_W3.fields]
+length_bytes = { bits = [31, 0], grade = "established" }
+
+[[words.DIRENT_W3.tests]]
+value = 0x41400
+expect = { length_bytes = 267264 }
+
+[words.HDR_W0]
+width = 32
+grade = "established"
+
+[words.HDR_W0.fields]
+magic = { bits = [31, 0], grade = "established" }
+
+[words.HDR_W1]
+width = 32
+grade = "established"
+
+[words.HDR_W1.fields]
+root = { bits = [31, 16], grade = "established" }
+swap = { bits = [15, 0], grade = "established" }
+
+[words.HDR_W10]
+width = 32
+grade = "established"
+
+[words.HDR_W10.fields]
+dp_secbytes = { bits = [31, 16], grade = "established" }
+
+[words.HDR_W11]
+width = 32
+grade = "inferred"
+
+[words.HDR_W11.fields]
+dp_flags = { bits = [31, 0], grade = "inferred" }
+
+[words.HDR_W126]
+width = 32
+grade = "established"
+
+[words.HDR_W126.fields]
+checksum = { bits = [31, 0], grade = "established" }
+
+[words.HDR_W17]
+width = 32
+grade = "established"
+
+[words.HDR_W17.fields]
+dp_capacity = { bits = [31, 0], grade = "established" }
+
+[words.HDR_W7]
+width = 32
+grade = "unknown"
+
+[words.HDR_W7.fields]
+dp_cylinders = { bits = [31, 16], grade = "inferred" }
+dp_head_offset = { bits = [15, 0], grade = "unknown" }
+
+[words.HDR_W8]
+width = 32
+grade = "unknown"
+
+[words.HDR_W8.fields]
+dp_heads = { bits = [31, 16], grade = "inferred" }
+dp_tag_depth = { bits = [15, 8], grade = "established" }
+dp_cyl_high = { bits = [7, 0], grade = "unknown" }
+
+[words.HDR_W9]
+width = 32
+grade = "inferred"
+
+[words.HDR_W9.fields]
+dp_sectors = { bits = [15, 0], grade = "inferred" }
+
+[words.PART_W0]
+width = 32
+grade = "established"
+
+[words.PART_W0.fields]
+nblks = { bits = [31, 0], grade = "established" }
+
+[[words.PART_W0.tests]]
+value = 0x1000
+expect = { nblks = 4096 }
+
+[[words.PART_W0.tests]]
+value = 0x40000
+expect = { nblks = 262144 }
+
+[words.PART_W1]
+width = 32
+grade = "established"
+
+[words.PART_W1.fields]
+first = { bits = [31, 0], grade = "established" }
+
+[[words.PART_W1.tests]]
+value = 0x41000
+expect = { first = 266240 }
+
+[words.PART_W2]
+width = 32
+grade = "established"
+
+[words.PART_W2.fields.type]
+bits = [31, 0]
+grade = "established"
+
+[words.PART_W2.fields.type.enums]
+volhdr = { value = 0, grade = "established" }
+trkrepl = { value = 1, grade = "inferred" }
+secrepl = { value = 2, grade = "inferred" }
+raw = { value = 3, grade = "established" }
+bsd = { value = 4, grade = "inferred" }
+sysv = { value = 5, grade = "inferred" }
+volume = { value = 6, grade = "established" }
+efs = { value = 7, grade = "established" }
+lvol = { value = 8, grade = "established" }
+rlvol = { value = 9, grade = "established" }
+xfs = { value = 10, grade = "established" }
+xfslog = { value = 11, grade = "established" }
+xlv = { value = 12, grade = "established" }
+xvm = { value = 13, grade = "established" }
+vxvm = { value = 14, grade = "established" }
+
+[[words.PART_W2.tests]]
+value = 0xa
+kind = "example"
+expect = { type = 10 }
+
+[constants]
+BOOTFILE_OFF = { value = 0x8, grade = "established" }
+CSUM_OFF = { value = 0x1f8, grade = "established", doc = "checksum word" }
+DIRENT_LEN_NAME = { value = 0x8, grade = "established" }
+DIRENT_OFF_NAME = { value = 0x0, grade = "established", doc = "file name, NUL padded, not terminated at 8 characters" }
+DIRENT_SIZE = { value = 0x10, grade = "established" }
+DIR_COUNT = { value = 0xf, grade = "established", doc = "directory entries" }
+DIR_NAME_LEN = { value = 0x8, grade = "established", doc = "name bytes in a directory entry" }
+DIR_OFF = { value = 0x48, grade = "established", doc = "start of the volume directory" }
+DIR_STRIDE = { value = 0x10, grade = "established", doc = "bytes per directory entry" }
+DP_BYTES = { value = 0x30, grade = "established" }
+DP_FLAG_TAGGED = { value = 0x40, grade = "inferred", doc = "set together with the tag depth" }
+DP_OFF = { value = 0x18, grade = "established", doc = "drive parameters, 48 bytes" }
+HDR_LEN_BOOTFILE = { value = 0x10, grade = "established" }
+HDR_OFF_BOOTFILE = { value = 0x8, grade = "established", doc = "boot file name, NUL padded, first byte 0 means none" }
+HDR_SIZE = { value = 0x200, grade = "established" }
+MAGIC = { value = 0xbe5a941, grade = "established", doc = "bytes 0b e5 a9 41" }
+PART_COUNT = { value = 0x10, grade = "established", doc = "partition entries" }
+PART_OFF = { value = 0x138, grade = "established", doc = "start of the partition table" }
+PART_SIZE = { value = 0xc, grade = "established" }
+PART_STRIDE = { value = 0xc, grade = "established", doc = "bytes per partition entry" }
+SIZE = { value = 0x200, grade = "established", doc = "bytes in the header" }
+SLOT_ROOT = { value = 0x0, grade = "established", doc = "conventional root partition slot" }
+SLOT_SWAP = { value = 0x1, grade = "established", doc = "conventional swap partition slot" }
+SLOT_VOLHDR = { value = 0x8, grade = "established", doc = "conventional volume-header partition slot" }
+SLOT_WHOLEDISK = { value = 0xa, grade = "established", doc = "conventional whole-disk partition slot" }

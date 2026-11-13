@@ -4,7 +4,7 @@ This page records how the IRIX 6.5.7 kernel drives the R10000 translation buffer
 
 **Release and grade.** IRIX 6.5.7 is not one of this repository's releases (6.5.30 and 6.5.22). Nothing here is evidence about those kernels, and a fact from one release does not fill a gap in another. Every fact is graded **inferred**. The basis is a reading of the 6.5.7 kernel's translation and fault code in source form, not a shipped binary of a covered release. Where a fact states an R10000 architecture point (entry count, ASID width, the global-bit AND), it was not checked against the published R10000 manual in this import. No fact here is graded established. Each one needs a 6.5.30 or 6.5.22 binary, read in full, before it can be.
 
-Constants are in [defs/r10k_tlb.toml](../defs/r10k_tlb.toml) and the generated page is in `gen/docs/r10k_tlb.md`. The entry count and ASID width of the R10000 itself moved to the chips repository's `r10000_cp0` unit (both graded inferred there as here).
+Constants are in [formats/r10k_tlb/format.toml](../formats/r10k_tlb/format.toml) and the generated page is in `formats/r10k_tlb/format.md`. The entry count and ASID width of the R10000 itself moved to the chips repository's `r10000_cp0` unit (both graded inferred there as here).
 
 ## Configuration
 

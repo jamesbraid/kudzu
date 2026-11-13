@@ -1,0 +1,41 @@
+# Hardware definitions for tg. Edit here; generated/ and format.md are generated from this file.
+unit = "tg"
+prefix = "TG"
+title = "gigabit Ethernet controller match table of the Origin 300/350 driver"
+doc = "Software table, not a register map: the PCI vendor, device and subsystem ids the Origin 300/350 gigabit Ethernet driver accepts."
+from = "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
+public_from = ["shipped IRIX"]
+
+[c]
+legacy_header = "TG_DECODE.h"
+legacy_guard = "TG_DECODE_H"
+
+[words.ROW_W0]
+width = 32
+grade = "established"
+
+[words.ROW_W0.fields]
+vendor = { bits = [31, 16], grade = "established" }
+device = { bits = [15, 0], grade = "established" }
+
+[words.ROW_W1]
+width = 32
+grade = "established"
+
+[words.ROW_W1.fields]
+subsys_vendor = { bits = [31, 16], grade = "established" }
+subsys_device = { bits = [15, 0], grade = "established" }
+
+[constants]
+CFG_OFF_DEVICE = { value = 0x0, grade = "established" }
+CFG_OFF_SUBSYS_DEVICE = { value = 0x2e, grade = "established" }
+CFG_OFF_SUBSYS_VENDOR = { value = 0x2c, grade = "established" }
+CFG_OFF_VENDOR = { value = 0x2, grade = "established" }
+MATCH_ROW_COUNT = { value = 0x5, grade = "established", doc = "rows the attach loop walks" }
+MATCH_ROW_STRIDE = { value = 0x10, grade = "established", doc = "bytes between table rows" }
+PCI_DEVICE_1645 = { value = 0x1645, grade = "established", doc = "three rows (subsystem 0x8010, 0x8011, 0x8012)" }
+PCI_DEVICE_1648 = { value = 0x1648, grade = "established", doc = "one row (subsystem 0x8013)" }
+PCI_DEVICE_16A8 = { value = 0x16a8, grade = "established", doc = "one row (subsystem 0x8014)" }
+PCI_SUBSYS_DEVICE_FIRST = { value = 0x8010, grade = "established", doc = "subsystem device of the first row; the rows run consecutively to 0x8014" }
+PCI_SUBSYS_VENDOR = { value = 0x10a9, grade = "established", doc = "the subsystem vendor of every row" }
+PCI_VENDOR = { value = 0x14e4, grade = "established", doc = "the vendor id of every row" }

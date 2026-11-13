@@ -1,0 +1,272 @@
+# Hardware definitions for xlv. Edit here; generated/ and format.md are generated from this file.
+unit = "xlv"
+prefix = "XLV"
+title = "XLV logical volume manager on-disk label structures"
+doc = "XLV logical volume manager on-disk label: master block, label slot header and per-partition entry."
+from = "shipped IRIX binaries, per formats/xlv/README.md"
+public_from = ["shipped IRIX"]
+
+[c]
+legacy_header = "XLV_DECODE.h"
+legacy_guard = "XLV_DECODE_H"
+
+[words.E_W0]
+width = 32
+grade = "established"
+
+[words.E_W0.fields]
+vol_flags = { bits = [31, 0], grade = "established" }
+
+[words.E_W25]
+width = 32
+grade = "unknown"
+
+[words.E_W25.fields]
+sv_flags_hi_no_err_retry = { bits = [31, 31], grade = "established" }
+sv_flags_hi_other = { bits = [30, 16], grade = "unknown" }
+sv_flags_hi_low = { bits = [15, 0], grade = "established" }
+
+[[words.E_W25.tests]]
+value = 0x80000000
+expect = { sv_flags_hi_no_err_retry = 1, sv_flags_hi_other = 0, sv_flags_hi_low = 0 }
+
+[words.E_W27]
+width = 32
+grade = "established"
+
+[words.E_W27.fields]
+time = { bits = [31, 0], grade = "established" }
+
+[words.E_W28]
+width = 32
+grade = "established"
+
+[words.E_W28.fields]
+vol_attr16 = { bits = [31, 0], grade = "established" }
+
+[words.E_W29]
+width = 32
+grade = "established"
+
+[words.E_W29.fields]
+sv_depth = { bits = [15, 0], grade = "established" }
+
+[words.E_W29.fields.sv_type]
+bits = [31, 24]
+grade = "established"
+
+[words.E_W29.fields.sv_type.enums]
+log = { value = 1, grade = "established" }
+data = { value = 2, grade = "established" }
+rt = { value = 3, grade = "established" }
+
+[words.E_W42]
+width = 32
+grade = "established"
+
+[words.E_W42.fields]
+sv_nplex = { bits = [31, 24], grade = "established" }
+plex_index = { bits = [23, 16], grade = "established" }
+plex_nve = { bits = [15, 0], grade = "established" }
+
+[words.E_W43]
+width = 32
+grade = "established"
+
+[words.E_W43.fields]
+plex_flags = { bits = [31, 16], grade = "established" }
+
+[words.E_W56]
+width = 32
+grade = "established"
+
+[words.E_W56.fields]
+ve_nparts = { bits = [15, 8], grade = "established" }
+ve_index = { bits = [7, 0], grade = "established" }
+
+[words.E_W56.fields.ve_state]
+bits = [31, 24]
+grade = "established"
+
+[words.E_W56.fields.ve_state.enums]
+empty = { value = 0, grade = "established" }
+clean = { value = 1, grade = "established" }
+active = { value = 2, grade = "established" }
+stale = { value = 3, grade = "established" }
+offline = { value = 4, grade = "established" }
+incomplete = { value = 5, grade = "established" }
+
+[words.E_W56.fields.ve_type]
+bits = [23, 16]
+grade = "established"
+
+[words.E_W56.fields.ve_type.enums]
+stripe = { value = 1, grade = "established" }
+concat = { value = 2, grade = "established" }
+
+[[words.E_W56.tests]]
+value = 0x2010302
+kind = "example"
+expect = { ve_state = 2, ve_type = 1, ve_nparts = 3, ve_index = 2 }
+
+[words.E_W57]
+width = 32
+grade = "established"
+
+[words.E_W57.fields]
+ve_stripe_unit = { bits = [31, 16], grade = "established" }
+
+[words.E_W58]
+width = 32
+grade = "established"
+
+[words.E_W58.fields]
+ve_start_hi = { bits = [31, 0], grade = "established" }
+
+[words.E_W59]
+width = 32
+grade = "established"
+
+[words.E_W59.fields]
+ve_start_lo = { bits = [31, 0], grade = "established" }
+
+[words.E_W60]
+width = 32
+grade = "established"
+
+[words.E_W60.fields]
+ve_end_hi = { bits = [31, 0], grade = "established" }
+
+[words.E_W61]
+width = 32
+grade = "established"
+
+[words.E_W61.fields]
+ve_end_lo = { bits = [31, 0], grade = "established" }
+
+[words.E_W66]
+width = 32
+grade = "established"
+
+[words.E_W66.fields]
+part_dev = { bits = [31, 0], grade = "established" }
+
+[words.E_W67]
+width = 32
+grade = "established"
+
+[words.E_W67.fields]
+part_size = { bits = [31, 0], grade = "established" }
+
+[words.E_W68]
+width = 32
+grade = "established"
+
+[words.E_W68.fields]
+part_index = { bits = [31, 24], grade = "established" }
+
+[words.LBL_W0]
+width = 32
+grade = "established"
+
+[words.LBL_W0.fields]
+magic = { bits = [31, 0], grade = "established" }
+
+[words.LBL_W1]
+width = 32
+grade = "unknown"
+
+[words.LBL_W1.fields]
+version = { bits = [31, 16], grade = "established" }
+nparts = { bits = [15, 8], grade = "established" }
+reserved = { bits = [7, 0], grade = "unknown" }
+
+[words.LBL_W2]
+width = 32
+grade = "unknown"
+
+[words.LBL_W2.fields]
+timestamp_hi = { bits = [31, 0], grade = "unknown" }
+
+[words.LBL_W3]
+width = 32
+grade = "unknown"
+
+[words.LBL_W3.fields]
+timestamp_lo = { bits = [31, 0], grade = "unknown" }
+
+[words.LBL_W4]
+width = 32
+grade = "established"
+
+[words.LBL_W4.fields]
+trans_id_hi = { bits = [31, 0], grade = "established" }
+
+[words.LBL_W5]
+width = 32
+grade = "established"
+
+[words.LBL_W5.fields]
+trans_id_lo = { bits = [31, 0], grade = "established" }
+
+[words.MASTER_W0]
+width = 32
+grade = "established"
+
+[words.MASTER_W0.fields]
+seq_hi = { bits = [31, 0], grade = "established" }
+
+[words.MASTER_W1]
+width = 32
+grade = "established"
+
+[words.MASTER_W1.fields]
+seq_lo_rest = { bits = [31, 1], grade = "established" }
+seq_lo_slot = { bits = [0, 0], grade = "established" }
+
+[constants]
+ENTRY_OFF = { value = 0x120, grade = "established", doc = "offset of entry 0 in a slot" }
+ENTRY_SIZE = { value = 0x118, grade = "established" }
+E_LEN_DATA_SV_UUID = { value = 0x10, grade = "established" }
+E_LEN_LOG_SV_UUID = { value = 0x10, grade = "established" }
+E_LEN_PART_UUID = { value = 0x10, grade = "established" }
+E_LEN_PLEX_NAME = { value = 0x20, grade = "established" }
+E_LEN_PLEX_UUID = { value = 0x10, grade = "established" }
+E_LEN_RT_SV_UUID = { value = 0x10, grade = "established" }
+E_LEN_VE_NAME = { value = 0x20, grade = "established" }
+E_LEN_VE_UUID = { value = 0x10, grade = "established" }
+E_LEN_VOL_NAME = { value = 0x20, grade = "established" }
+E_LEN_VOL_UUID = { value = 0x10, grade = "established" }
+E_OFF_DATA_SV_UUID = { value = 0x24, grade = "established" }
+E_OFF_LOG_SV_UUID = { value = 0x14, grade = "established", doc = "nil if the volume has no log subvolume" }
+E_OFF_PART_UUID = { value = 0xf8, grade = "established", doc = "nil means the entry is unused, opaque bytes" }
+E_OFF_PLEX_NAME = { value = 0x88, grade = "established" }
+E_OFF_PLEX_UUID = { value = 0x78, grade = "established", doc = "opaque bytes" }
+E_OFF_RT_SV_UUID = { value = 0x34, grade = "established" }
+E_OFF_VE_NAME = { value = 0xc0, grade = "established" }
+E_OFF_VE_UUID = { value = 0xb0, grade = "established", doc = "opaque bytes" }
+E_OFF_VOL_NAME = { value = 0x44, grade = "established", doc = "volume name, NUL padded, every byte may be used" }
+E_OFF_VOL_UUID = { value = 0x4, grade = "established", doc = "volume UUID, opaque bytes" }
+E_SIZE = { value = 0x118, grade = "established" }
+HDR_SIZE = { value = 0x120, grade = "established" }
+LABEL_BYTES = { value = 0x12a0, grade = "established", doc = "used bytes of one label slot" }
+LABEL_MAGIC = { value = 0x11201989, grade = "established", doc = "bytes 11 20 19 89" }
+LABEL_VERSION = { value = 0x2, grade = "established", doc = "the value writers store; no reader checks it" }
+LBL_LEN_NODENAME = { value = 0x108, grade = "established" }
+LBL_OFF_NODENAME = { value = 0x18, grade = "established", doc = "owning host name; writers copy 0x102 bytes" }
+LBL_SIZE = { value = 0x120, grade = "established" }
+MASTER_BYTES = { value = 0x200, grade = "established", doc = "master block size before rounding to the sector size" }
+NAME_LEN = { value = 0x20, grade = "established", doc = "bytes in a volume, plex or element name" }
+NODENAME_COPY = { value = 0x102, grade = "established", doc = "bytes the writers copy into the host name" }
+NODENAME_LEN = { value = 0x108, grade = "established", doc = "bytes reserved for the owning host name" }
+NPART = { value = 0x10, grade = "established", doc = "entries per label, one per partition" }
+PTYPE_EFS = { value = 0x7, grade = "established" }
+PTYPE_EFS_LEGACY = { value = 0x5, grade = "established", doc = "type 5 is mapped to the name efs by the shipped name table" }
+PTYPE_RAW = { value = 0x3, grade = "established" }
+PTYPE_VOLHDR = { value = 0x0, grade = "established", doc = "volume-header partition type of the header partition" }
+PTYPE_VOLUME = { value = 0x6, grade = "established", doc = "whole disk" }
+PTYPE_VXVM = { value = 0xe, grade = "established" }
+PTYPE_XFS = { value = 0xa, grade = "established" }
+PTYPE_XFSLOG = { value = 0xb, grade = "established", doc = "accepted for a log subvolume" }
+PTYPE_XLV = { value = 0xc, grade = "established", doc = "accepted for a log, data or real-time subvolume" }
+PTYPE_XVM = { value = 0xd, grade = "established" }

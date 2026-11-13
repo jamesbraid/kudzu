@@ -1,0 +1,124 @@
+{
+ "schema": "defs-flat/1",
+ "source": "formats/r10k_tlb/format.toml",
+ "profile": "public",
+ "rows": [
+  {
+   "unit": "r10k_tlb",
+   "kind": "constant",
+   "name": "ASID_USABLE",
+   "value": 255,
+   "count": 1,
+   "grade": "inferred",
+   "from": "IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual"
+  },
+  {
+   "unit": "r10k_tlb",
+   "kind": "constant",
+   "name": "BASE_PAGE_BYTES",
+   "value": 16384,
+   "count": 1,
+   "grade": "inferred",
+   "from": "IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual"
+  },
+  {
+   "unit": "r10k_tlb",
+   "kind": "constant",
+   "name": "BROADCAST_SHARERS",
+   "value": 16,
+   "count": 1,
+   "grade": "inferred",
+   "from": "IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual"
+  },
+  {
+   "unit": "r10k_tlb",
+   "kind": "constant",
+   "name": "IO_MAP_BYTES",
+   "value": 16777216,
+   "count": 1,
+   "grade": "inferred",
+   "from": "IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual"
+  },
+  {
+   "unit": "r10k_tlb",
+   "kind": "constant",
+   "name": "KTEXT_BYTES",
+   "value": 16777216,
+   "count": 1,
+   "grade": "inferred",
+   "from": "IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual"
+  },
+  {
+   "unit": "r10k_tlb",
+   "kind": "constant",
+   "name": "LARGE_PAGE_MIN_BYTES",
+   "value": 65536,
+   "count": 1,
+   "grade": "inferred",
+   "from": "IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual"
+  },
+  {
+   "unit": "r10k_tlb",
+   "kind": "constant",
+   "name": "RECYCLE_TICKS_DEFAULT",
+   "value": 100,
+   "count": 1,
+   "grade": "inferred",
+   "from": "IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual"
+  },
+  {
+   "unit": "r10k_tlb",
+   "kind": "constant",
+   "name": "WIRED_INDEX_CPU",
+   "value": 0,
+   "count": 1,
+   "grade": "inferred",
+   "from": "IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual"
+  },
+  {
+   "unit": "r10k_tlb",
+   "kind": "constant",
+   "name": "WIRED_INDEX_DROPIN_FIRST",
+   "value": 2,
+   "count": 1,
+   "grade": "inferred",
+   "from": "IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual"
+  },
+  {
+   "unit": "r10k_tlb",
+   "kind": "constant",
+   "name": "WIRED_INDEX_DROPIN_LAST",
+   "value": 6,
+   "count": 1,
+   "grade": "inferred",
+   "from": "IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual"
+  },
+  {
+   "unit": "r10k_tlb",
+   "kind": "constant",
+   "name": "WIRED_INDEX_KTEXT",
+   "value": 1,
+   "count": 1,
+   "grade": "inferred",
+   "from": "IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual"
+  },
+  {
+   "unit": "r10k_tlb",
+   "kind": "constant",
+   "name": "WIRED_MAPPED",
+   "value": 7,
+   "count": 1,
+   "grade": "inferred",
+   "from": "IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual"
+  },
+  {
+   "unit": "r10k_tlb",
+   "kind": "constant",
+   "name": "WIRED_UNMAPPED",
+   "value": 6,
+   "count": 1,
+   "grade": "inferred",
+   "from": "IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual"
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+# Hardware definitions for crime_dma. Edit here; generated/ and format.md are generated from this file.
+unit = "crime_dma"
+prefix = "CRIME"
+title = "Pixel-DMA request the IRIX kernel builds for the O2 renderer"
+doc = "Software table, not a register map: the size of the kernel's pixel-DMA request, how long it polls for idle and the ioctl request number that carries it. The CRIME registers it drives are described in the crime repository."
+from = "shipped IRIX O2 graphics objects, per docs/crime.md"
+public_from = ["shipped IRIX O2 graphics objects, per docs/crime.md"]
+
+[constants]
+DMA_REQ_BYTES = { value = 0x28, grade = "established", doc = "Size of the kernel pixel-DMA request" }
+DMA_POLL_LIMIT = { value = 500000, grade = "established", doc = "Polls the kernel makes for idle before the pixel DMA gives up" }
+DMA_IOCTL = { value = 0x55f2, grade = "inferred", doc = "Request number of the kernel pixel-DMA ioctl" }

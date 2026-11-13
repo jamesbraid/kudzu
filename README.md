@@ -111,13 +111,13 @@ Every hand-written document under `docs/` and the top-level Markdown files, grou
 - [docs/userland-abi-and-loader.md](docs/userland-abi-and-loader.md): Userland ABI and the dynamic loader
 - [docs/userland-libraries-and-isa.md](docs/userland-libraries-and-isa.md): Userland libraries and the instruction-set level
 
-### On-disk formats (docs/formats/)
+### On-disk formats (formats/)
 
-- [docs/formats/efs.md](docs/formats/efs.md): EFS on-disk format: superblock, bitmaps, inodes and extents
-- [docs/formats/volume-header.md](docs/formats/volume-header.md): SGI disk volume header (dvh) on-disk format
-- [docs/formats/xfs.md](docs/formats/xfs.md): XFS on-disk format as written by IRIX 6.5.30
-- [docs/formats/xlv.md](docs/formats/xlv.md): XLV on-disk label format, recovered from the 6.5.30 binaries
-- [docs/formats/xvm.md](docs/formats/xvm.md): XVM volume label and metadata, recovered from the binaries
+- [formats/efs/README.md](formats/efs/README.md): EFS on-disk format: superblock, bitmaps, inodes and extents
+- [formats/volhdr/README.md](formats/volhdr/README.md): SGI disk volume header (dvh) on-disk format
+- [formats/xfs/README.md](formats/xfs/README.md): XFS on-disk format as written by IRIX 6.5.30
+- [formats/xlv/README.md](formats/xlv/README.md): XLV on-disk label format, recovered from the 6.5.30 binaries
+- [formats/xvm/README.md](formats/xvm/README.md): XVM volume label and metadata, recovered from the binaries
 
 ### Not indexed one by one
 
@@ -126,7 +126,7 @@ Every hand-written document under `docs/` and the top-level Markdown files, grou
 
 ## Hardware definitions
 
-The hardware structures this repository specifies are described once, in TOML under `defs/`. Each unit file gives its constants, registers and fields with a grade (established, inferred or unknown) and a source. `gen/` holds what is generated from them: C headers, a Rust crate, Python decode helpers, flat JSON, a genxml export and one reference page per unit under `gen/docs/`. Do not edit `gen/`; edit the TOML and run `retools/tools/defs/defs-gen`. The `*_DECODE.h` files at the root are forwarding headers for the old include paths. Register maps of the hardware IRIX drives (hub, PCI bridge, one-wire parts, R10000 timer, O2 CRIME, GBE and MACE video) are in the chips and crime repositories; what the kernel does with them is in [docs/kernel/hardware-register-use.md](docs/kernel/hardware-register-use.md).
+The hardware structures this repository specifies are described once, in TOML: `formats/<name>/format.toml`. Each unit file gives its constants, registers and fields with a grade (established, inferred or unknown) and a source. `generated/` holds what is generated from them: C headers, a Rust crate, Python decode helpers, flat JSON and a genxml export, and the reference page of each unit is `format.md` beside its source. Do not edit `generated/` or `format.md`; edit the TOML and run `retools/tools/defs/defs-gen`. The `*_DECODE.h` files at the root are forwarding headers for the old include paths. Register maps of the hardware IRIX drives (hub, PCI bridge, one-wire parts, R10000 timer, O2 CRIME, GBE and MACE video) are in the chips and crime repositories; what the kernel does with them is in [docs/kernel/hardware-register-use.md](docs/kernel/hardware-register-use.md).
 
 ## Running the tools
 

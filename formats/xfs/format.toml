@@ -1,0 +1,584 @@
+# Hardware definitions for xfs. Edit here; generated/ and format.md are generated from this file.
+unit = "xfs"
+prefix = "XFS"
+title = "XFS superblock and inode core as the shipped release writes them"
+doc = "XFS superblock and inode core as the shipped release writes them."
+from = "shipped IRIX binaries, per formats/xfs/README.md"
+public_from = ["shipped IRIX"]
+
+[c]
+legacy_header = "XFS_DECODE.h"
+legacy_guard = "XFS_DECODE_H"
+
+[words.INO_W0]
+width = 32
+grade = "established"
+
+[words.INO_W0.fields]
+magic = { bits = [31, 16], grade = "established" }
+mode = { bits = [15, 0], grade = "established" }
+
+[[words.INO_W0.tests]]
+value = 0x494e41ed
+kind = "example"
+expect = { magic = 18766, mode = 16877 }
+
+[words.INO_W1]
+width = 32
+grade = "established"
+
+[words.INO_W1.fields]
+version = { bits = [31, 24], grade = "established" }
+onlink = { bits = [15, 0], grade = "established" }
+
+[words.INO_W1.fields.format]
+bits = [23, 16]
+grade = "established"
+
+[words.INO_W1.fields.format.enums]
+dev = { value = 0, grade = "established" }
+local = { value = 1, grade = "established" }
+extents = { value = 2, grade = "established" }
+btree = { value = 3, grade = "established" }
+uuid = { value = 4, grade = "established" }
+
+[[words.INO_W1.tests]]
+value = 0x2010000
+kind = "example"
+expect = { version = 2, format = 1 }
+
+[words.INO_W10]
+width = 32
+grade = "established"
+
+[words.INO_W10.fields]
+mtime_sec = { bits = [31, 0], grade = "established" }
+
+[words.INO_W11]
+width = 32
+grade = "established"
+
+[words.INO_W11.fields]
+mtime_nsec = { bits = [31, 0], grade = "established" }
+
+[words.INO_W12]
+width = 32
+grade = "established"
+
+[words.INO_W12.fields]
+ctime_sec = { bits = [31, 0], grade = "established" }
+
+[words.INO_W13]
+width = 32
+grade = "established"
+
+[words.INO_W13.fields]
+ctime_nsec = { bits = [31, 0], grade = "established" }
+
+[words.INO_W14]
+width = 32
+grade = "established"
+
+[words.INO_W14.fields]
+size_hi = { bits = [31, 0], grade = "established" }
+
+[words.INO_W15]
+width = 32
+grade = "established"
+
+[words.INO_W15.fields]
+size_lo = { bits = [31, 0], grade = "established" }
+
+[words.INO_W16]
+width = 32
+grade = "established"
+
+[words.INO_W16.fields]
+nblocks_hi = { bits = [31, 0], grade = "established" }
+
+[words.INO_W17]
+width = 32
+grade = "established"
+
+[words.INO_W17.fields]
+nblocks_lo = { bits = [31, 0], grade = "established" }
+
+[words.INO_W18]
+width = 32
+grade = "established"
+
+[words.INO_W18.fields]
+extsize = { bits = [31, 0], grade = "established" }
+
+[words.INO_W19]
+width = 32
+grade = "established"
+
+[words.INO_W19.fields]
+nextents = { bits = [31, 0], grade = "established" }
+
+[words.INO_W2]
+width = 32
+grade = "established"
+
+[words.INO_W2.fields]
+uid = { bits = [31, 0], grade = "established" }
+
+[words.INO_W20]
+width = 32
+grade = "established"
+
+[words.INO_W20.fields]
+naextents = { bits = [31, 16], grade = "established" }
+forkoff = { bits = [15, 8], grade = "established" }
+
+[words.INO_W20.fields.aformat]
+bits = [7, 0]
+grade = "established"
+
+[words.INO_W20.fields.aformat.enums]
+local = { value = 1, grade = "established" }
+extents = { value = 2, grade = "established" }
+btree = { value = 3, grade = "established" }
+
+[words.INO_W21]
+width = 32
+grade = "established"
+
+[words.INO_W21.fields]
+dmevmask = { bits = [31, 0], grade = "established" }
+
+[words.INO_W22]
+width = 32
+grade = "established"
+
+[words.INO_W22.fields]
+dmstate = { bits = [31, 16], grade = "established" }
+flags_rtinherit = { bits = [8, 8], grade = "established" }
+flags_nodump = { bits = [7, 7], grade = "established" }
+flags_noatime = { bits = [6, 6], grade = "established" }
+flags_sync = { bits = [5, 5], grade = "established" }
+flags_append = { bits = [4, 4], grade = "established" }
+flags_immutable = { bits = [3, 3], grade = "established" }
+flags_newrtbm = { bits = [2, 2], grade = "established" }
+flags_prealloc = { bits = [1, 1], grade = "established" }
+flags_realtime = { bits = [0, 0], grade = "established" }
+
+[words.INO_W23]
+width = 32
+grade = "established"
+
+[words.INO_W23.fields]
+gen = { bits = [31, 0], grade = "established" }
+
+[words.INO_W24]
+width = 32
+grade = "established"
+
+[words.INO_W24.fields]
+next_unlinked = { bits = [31, 0], grade = "established" }
+
+[words.INO_W3]
+width = 32
+grade = "established"
+
+[words.INO_W3.fields]
+gid = { bits = [31, 0], grade = "established" }
+
+[words.INO_W4]
+width = 32
+grade = "established"
+
+[words.INO_W4.fields]
+nlinkv2 = { bits = [31, 0], grade = "established" }
+
+[words.INO_W5]
+width = 32
+grade = "established"
+
+[words.INO_W5.fields]
+projid = { bits = [31, 16], grade = "established" }
+
+[words.INO_W7]
+width = 32
+grade = "established"
+
+[words.INO_W7.fields]
+flushiter = { bits = [15, 0], grade = "established" }
+
+[words.INO_W8]
+width = 32
+grade = "established"
+
+[words.INO_W8.fields]
+atime_sec = { bits = [31, 0], grade = "established" }
+
+[words.INO_W9]
+width = 32
+grade = "established"
+
+[words.INO_W9.fields]
+atime_nsec = { bits = [31, 0], grade = "established" }
+
+[words.SB_W0]
+width = 32
+grade = "established"
+
+[words.SB_W0.fields]
+magicnum = { bits = [31, 0], grade = "established" }
+
+[words.SB_W1]
+width = 32
+grade = "established"
+
+[words.SB_W1.fields]
+blocksize = { bits = [31, 0], grade = "established" }
+
+[words.SB_W12]
+width = 32
+grade = "established"
+
+[words.SB_W12.fields]
+logstart_hi = { bits = [31, 0], grade = "established" }
+
+[words.SB_W13]
+width = 32
+grade = "established"
+
+[words.SB_W13.fields]
+logstart_lo = { bits = [31, 0], grade = "established" }
+
+[words.SB_W14]
+width = 32
+grade = "established"
+
+[words.SB_W14.fields]
+rootino_hi = { bits = [31, 0], grade = "established" }
+
+[words.SB_W15]
+width = 32
+grade = "established"
+
+[words.SB_W15.fields]
+rootino_lo = { bits = [31, 0], grade = "established" }
+
+[words.SB_W16]
+width = 32
+grade = "established"
+
+[words.SB_W16.fields]
+rbmino_hi = { bits = [31, 0], grade = "established" }
+
+[words.SB_W17]
+width = 32
+grade = "established"
+
+[words.SB_W17.fields]
+rbmino_lo = { bits = [31, 0], grade = "established" }
+
+[words.SB_W18]
+width = 32
+grade = "established"
+
+[words.SB_W18.fields]
+rsumino_hi = { bits = [31, 0], grade = "established" }
+
+[words.SB_W19]
+width = 32
+grade = "established"
+
+[words.SB_W19.fields]
+rsumino_lo = { bits = [31, 0], grade = "established" }
+
+[words.SB_W2]
+width = 32
+grade = "established"
+
+[words.SB_W2.fields]
+dblocks_hi = { bits = [31, 0], grade = "established" }
+
+[words.SB_W20]
+width = 32
+grade = "established"
+
+[words.SB_W20.fields]
+rextsize = { bits = [31, 0], grade = "established" }
+
+[words.SB_W21]
+width = 32
+grade = "established"
+
+[words.SB_W21.fields]
+agblocks = { bits = [31, 0], grade = "established" }
+
+[words.SB_W22]
+width = 32
+grade = "established"
+
+[words.SB_W22.fields]
+agcount = { bits = [31, 0], grade = "established" }
+
+[words.SB_W23]
+width = 32
+grade = "established"
+
+[words.SB_W23.fields]
+rbmblocks = { bits = [31, 0], grade = "established" }
+
+[words.SB_W24]
+width = 32
+grade = "established"
+
+[words.SB_W24.fields]
+logblocks = { bits = [31, 0], grade = "established" }
+
+[words.SB_W25]
+width = 32
+grade = "inferred"
+
+[words.SB_W25.fields]
+versionnum_morebits = { bits = [31, 31], grade = "established" }
+versionnum_ci_dirs = { bits = [30, 30], grade = "inferred" }
+versionnum_dirv2 = { bits = [29, 29], grade = "established" }
+versionnum_extflg = { bits = [28, 28], grade = "established" }
+versionnum_rejected = { bits = [27, 27], grade = "established" }
+versionnum_logv2 = { bits = [26, 26], grade = "established" }
+versionnum_shared = { bits = [25, 25], grade = "established" }
+versionnum_dalign = { bits = [24, 24], grade = "established" }
+versionnum_align = { bits = [23, 23], grade = "established" }
+versionnum_quota = { bits = [22, 22], grade = "established" }
+versionnum_nlink = { bits = [21, 21], grade = "established" }
+versionnum_attr = { bits = [20, 20], grade = "established" }
+versionnum_vers = { bits = [19, 16], grade = "established" }
+sectsize = { bits = [15, 0], grade = "established" }
+
+[[words.SB_W25.tests]]
+value = 0x40000
+kind = "example"
+expect = { versionnum_vers = 4, versionnum_attr = 0, versionnum_nlink = 0 }
+
+[words.SB_W26]
+width = 32
+grade = "established"
+
+[words.SB_W26.fields]
+inodesize = { bits = [31, 16], grade = "established" }
+inopblock = { bits = [15, 0], grade = "established" }
+
+[words.SB_W3]
+width = 32
+grade = "established"
+
+[words.SB_W3.fields]
+dblocks_lo = { bits = [31, 0], grade = "established" }
+
+[words.SB_W30]
+width = 32
+grade = "established"
+
+[words.SB_W30.fields]
+blocklog = { bits = [31, 24], grade = "established" }
+sectlog = { bits = [23, 16], grade = "established" }
+inodelog = { bits = [15, 8], grade = "established" }
+inopblog = { bits = [7, 0], grade = "established" }
+
+[words.SB_W31]
+width = 32
+grade = "established"
+
+[words.SB_W31.fields]
+agblklog = { bits = [31, 24], grade = "established" }
+rextslog = { bits = [23, 16], grade = "established" }
+inprogress = { bits = [15, 8], grade = "established" }
+imax_pct = { bits = [7, 0], grade = "established" }
+
+[words.SB_W32]
+width = 32
+grade = "established"
+
+[words.SB_W32.fields]
+icount_hi = { bits = [31, 0], grade = "established" }
+
+[words.SB_W33]
+width = 32
+grade = "established"
+
+[words.SB_W33.fields]
+icount_lo = { bits = [31, 0], grade = "established" }
+
+[words.SB_W34]
+width = 32
+grade = "established"
+
+[words.SB_W34.fields]
+ifree_hi = { bits = [31, 0], grade = "established" }
+
+[words.SB_W35]
+width = 32
+grade = "established"
+
+[words.SB_W35.fields]
+ifree_lo = { bits = [31, 0], grade = "established" }
+
+[words.SB_W36]
+width = 32
+grade = "established"
+
+[words.SB_W36.fields]
+fdblocks_hi = { bits = [31, 0], grade = "established" }
+
+[words.SB_W37]
+width = 32
+grade = "established"
+
+[words.SB_W37.fields]
+fdblocks_lo = { bits = [31, 0], grade = "established" }
+
+[words.SB_W38]
+width = 32
+grade = "established"
+
+[words.SB_W38.fields]
+frextents_hi = { bits = [31, 0], grade = "established" }
+
+[words.SB_W39]
+width = 32
+grade = "established"
+
+[words.SB_W39.fields]
+frextents_lo = { bits = [31, 0], grade = "established" }
+
+[words.SB_W4]
+width = 32
+grade = "established"
+
+[words.SB_W4.fields]
+rblocks_hi = { bits = [31, 0], grade = "established" }
+
+[words.SB_W40]
+width = 32
+grade = "established"
+
+[words.SB_W40.fields]
+uquotino_hi = { bits = [31, 0], grade = "established" }
+
+[words.SB_W41]
+width = 32
+grade = "established"
+
+[words.SB_W41.fields]
+uquotino_lo = { bits = [31, 0], grade = "established" }
+
+[words.SB_W42]
+width = 32
+grade = "established"
+
+[words.SB_W42.fields]
+pquotino_hi = { bits = [31, 0], grade = "established" }
+
+[words.SB_W43]
+width = 32
+grade = "established"
+
+[words.SB_W43.fields]
+pquotino_lo = { bits = [31, 0], grade = "established" }
+
+[words.SB_W44]
+width = 32
+grade = "established"
+
+[words.SB_W44.fields]
+qflags = { bits = [31, 16], grade = "established" }
+flags_shared_ro = { bits = [8, 8], grade = "established" }
+shared_vn = { bits = [7, 0], grade = "established" }
+
+[words.SB_W45]
+width = 32
+grade = "established"
+
+[words.SB_W45.fields]
+inoalignmt = { bits = [31, 0], grade = "established" }
+
+[words.SB_W46]
+width = 32
+grade = "established"
+
+[words.SB_W46.fields]
+unit = { bits = [31, 0], grade = "established" }
+
+[words.SB_W47]
+width = 32
+grade = "established"
+
+[words.SB_W47.fields]
+width = { bits = [31, 0], grade = "established" }
+
+[words.SB_W48]
+width = 32
+grade = "established"
+
+[words.SB_W48.fields]
+dirblklog = { bits = [31, 24], grade = "established" }
+logsectlog = { bits = [23, 16], grade = "established" }
+logsectsize = { bits = [15, 0], grade = "established" }
+
+[words.SB_W49]
+width = 32
+grade = "established"
+
+[words.SB_W49.fields]
+logsunit = { bits = [31, 0], grade = "established" }
+
+[words.SB_W5]
+width = 32
+grade = "established"
+
+[words.SB_W5.fields]
+rblocks_lo = { bits = [31, 0], grade = "established" }
+
+[words.SB_W50]
+width = 32
+grade = "unknown"
+
+[words.SB_W50.fields]
+features2_high = { bits = [31, 5], grade = "unknown" }
+features2_parent = { bits = [4, 4], grade = "established" }
+features2_attr2 = { bits = [3, 3], grade = "established" }
+features2_bit2 = { bits = [2, 2], grade = "unknown" }
+features2_lazysbcount = { bits = [1, 1], grade = "established" }
+features2_bit0 = { bits = [0, 0], grade = "unknown" }
+
+[[words.SB_W50.tests]]
+value = 0x1b
+expect = { features2_bit0 = 1, features2_lazysbcount = 1, features2_attr2 = 1, features2_parent = 1 }
+
+[words.SB_W6]
+width = 32
+grade = "established"
+
+[words.SB_W6.fields]
+rextents_hi = { bits = [31, 0], grade = "established" }
+
+[words.SB_W7]
+width = 32
+grade = "established"
+
+[words.SB_W7.fields]
+rextents_lo = { bits = [31, 0], grade = "established" }
+
+[constants]
+INO_ATTR_FORK_UNIT = { value = 0x8, grade = "established", doc = "forkoff counts units of this many bytes" }
+INO_FLAGS_OFFSET = { value = 0x5a, grade = "established", doc = "the 16-bit flags word" }
+INO_FORK_OFFSET = { value = 0x64, grade = "established", doc = "start of the data fork" }
+INO_MAGIC = { value = 0x494e, grade = "established" }
+INO_SIZE = { value = 0x64, grade = "established" }
+SB_DESCRIBED_BYTES = { value = 0xcc, grade = "established", doc = "the format debugger names fields up to this end" }
+SB_LEN_FNAME = { value = 0x6, grade = "established" }
+SB_LEN_FPACK = { value = 0x6, grade = "established" }
+SB_LEN_UUID = { value = 0x10, grade = "established" }
+SB_MAGIC = { value = 0x58465342, grade = "established", doc = "bytes 58 46 53 42" }
+SB_OFF_FNAME = { value = 0x6c, grade = "established", doc = "volume name, first half" }
+SB_OFF_FPACK = { value = 0x72, grade = "established", doc = "volume name, second half; fname and fpack form one 12-byte name" }
+SB_OFF_UUID = { value = 0x20, grade = "established", doc = "opaque bytes" }
+SB_READ_BYTES = { value = 0xd0, grade = "established", doc = "bytes the kernel copies into its in-core superblock" }
+SB_SIZE = { value = 0xd0, grade = "established" }

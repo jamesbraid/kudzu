@@ -1,0 +1,167 @@
+{
+ "schema": "defs-flat/1",
+ "source": "formats/tg/format.toml",
+ "profile": "public",
+ "rows": [
+  {
+   "unit": "tg",
+   "kind": "word",
+   "name": "ROW_W0",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
+  },
+  {
+   "unit": "tg",
+   "kind": "field",
+   "name": "ROW_W0.vendor",
+   "hi": 31,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
+  },
+  {
+   "unit": "tg",
+   "kind": "field",
+   "name": "ROW_W0.device",
+   "hi": 15,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
+  },
+  {
+   "unit": "tg",
+   "kind": "word",
+   "name": "ROW_W1",
+   "width": 32,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
+  },
+  {
+   "unit": "tg",
+   "kind": "field",
+   "name": "ROW_W1.subsys_vendor",
+   "hi": 31,
+   "lo": 16,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
+  },
+  {
+   "unit": "tg",
+   "kind": "field",
+   "name": "ROW_W1.subsys_device",
+   "hi": 15,
+   "lo": 0,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
+  },
+  {
+   "unit": "tg",
+   "kind": "constant",
+   "name": "CFG_OFF_DEVICE",
+   "value": 0,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
+  },
+  {
+   "unit": "tg",
+   "kind": "constant",
+   "name": "CFG_OFF_SUBSYS_DEVICE",
+   "value": 46,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
+  },
+  {
+   "unit": "tg",
+   "kind": "constant",
+   "name": "CFG_OFF_SUBSYS_VENDOR",
+   "value": 44,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
+  },
+  {
+   "unit": "tg",
+   "kind": "constant",
+   "name": "CFG_OFF_VENDOR",
+   "value": 2,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
+  },
+  {
+   "unit": "tg",
+   "kind": "constant",
+   "name": "MATCH_ROW_COUNT",
+   "value": 5,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
+  },
+  {
+   "unit": "tg",
+   "kind": "constant",
+   "name": "MATCH_ROW_STRIDE",
+   "value": 16,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
+  },
+  {
+   "unit": "tg",
+   "kind": "constant",
+   "name": "PCI_DEVICE_1645",
+   "value": 5701,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
+  },
+  {
+   "unit": "tg",
+   "kind": "constant",
+   "name": "PCI_DEVICE_1648",
+   "value": 5704,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
+  },
+  {
+   "unit": "tg",
+   "kind": "constant",
+   "name": "PCI_DEVICE_16A8",
+   "value": 5800,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
+  },
+  {
+   "unit": "tg",
+   "kind": "constant",
+   "name": "PCI_SUBSYS_DEVICE_FIRST",
+   "value": 32784,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
+  },
+  {
+   "unit": "tg",
+   "kind": "constant",
+   "name": "PCI_SUBSYS_VENDOR",
+   "value": 4265,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
+  },
+  {
+   "unit": "tg",
+   "kind": "constant",
+   "name": "PCI_VENDOR",
+   "value": 5348,
+   "count": 1,
+   "grade": "established",
+   "from": "shipped IRIX kernel binaries, per docs/ip35-tg-driver.md"
+  }
+ ]
+}

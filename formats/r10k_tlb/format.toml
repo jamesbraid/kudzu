@@ -1,0 +1,22 @@
+# Hardware definitions for r10k_tlb. Edit here; generated/ and format.md are generated from this file.
+unit = "r10k_tlb"
+prefix = "R10K_TLB"
+title = "The wired-entry layout IRIX uses in the R10000 TLB"
+doc = "Software table, not a register map: the wired-entry layout and the page and ASID policy IRIX uses in its 64-bit kernel. The TLB entry count and ASID width of the R10000 itself are in the chips repository (unit r10000_cp0). Prose and the reasoning are in docs/r10k-tlb.md."
+from = "IRIX kernel translation-handling reading, one release outside the shipped-binary inventory; the R10000 geometry was not checked against the published manual"
+public_from = ["IRIX kernel translation-handling reading"]
+
+[constants]
+ASID_USABLE = { value = 255, grade = "inferred", doc = "ASIDs the kernel hands out; ASID 0 is reserved for the kernel and system processes" }
+BASE_PAGE_BYTES = { value = 16384, grade = "inferred", doc = "base page size of the 64-bit IRIX kernel; the 4 KB path is compiled out" }
+LARGE_PAGE_MIN_BYTES = { value = 65536, grade = "inferred", doc = "smallest large page the kernel forms" }
+IO_MAP_BYTES = { value = 16777216, grade = "inferred", doc = "size of the entries installed for I/O DMA-map misses" }
+KTEXT_BYTES = { value = 16777216, grade = "inferred", doc = "size of the single global kernel text and data entry on the mapped kernel" }
+WIRED_MAPPED = { value = 7, grade = "inferred", doc = "wired entries on the mapped kernel" }
+WIRED_UNMAPPED = { value = 6, grade = "inferred", doc = "wired entries on an unmapped kernel build" }
+WIRED_INDEX_CPU = { value = 0, grade = "inferred", doc = "wired index holding the per-CPU data area with the thread's user page and kernel stack" }
+WIRED_INDEX_KTEXT = { value = 1, grade = "inferred", doc = "wired index holding kernel text and data on the mapped kernel" }
+WIRED_INDEX_DROPIN_FIRST = { value = 2, grade = "inferred", doc = "first wired index of the per-process second-level drop-in slots" }
+WIRED_INDEX_DROPIN_LAST = { value = 6, grade = "inferred", doc = "last wired index of the per-process second-level drop-in slots" }
+BROADCAST_SHARERS = { value = 16, grade = "inferred", doc = "address spaces with more sharers than this get a broadcast full flush instead of per-page probes" }
+RECYCLE_TICKS_DEFAULT = { value = 100, grade = "inferred", doc = "default pacing tunable for the clock-driven drop-in slot recycle" }

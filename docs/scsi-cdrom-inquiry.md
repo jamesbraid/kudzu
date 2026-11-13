@@ -2,7 +2,7 @@
 
 Who reads the vendor and product fields that a CD-ROM drive returns for INQUIRY, and what they change: the SGI firmware that probes the bus, the IRIX 6.5.30 and 6.5.22 kernels, and the removable-media daemon. Every entry is graded **established** (read in full in a binary, with the address), **inferred** (a reasoned reading) or **unknown**. Addresses are locators in the file named; a PROM's addresses are the load addresses its own code uses unless the entry says the base is inferred.
 
-"Text" means the 8-byte vendor field and the 16-byte product field as INQUIRY returns them, in that order. `defs/scsi.toml` has the INQUIRY byte positions and device-type values the readers below use, and the three ten-byte texts the PROMs compare.
+"Text" means the 8-byte vendor field and the 16-byte product field as INQUIRY returns them, in that order. `formats/scsi/format.toml` has the INQUIRY byte positions and device-type values the readers below use, and the three ten-byte texts the PROMs compare.
 
 ## Firmware
 
