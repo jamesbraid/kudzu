@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Driver, object and tunable tables from the kernel configuration files of each release.
 
-Usage: scripts/gen-sysgen.py [--out docs/inventory]
+Usage: tools/gen-sysgen.py [--out docs/inventory]
 
-Run it from the repository root, inside the toolchain container (tools/re-run python3 scripts/gen-sysgen.py).
+Run it from the repository root, inside the toolchain container (tools/re-run python3 tools/gen-sysgen.py).
 It reads every root/<release>/var/sysgen.IPnn directory that is present, and the object archives beside
 it in root/<release>/usr/cpu/sysgen/IPnnboot. It writes three tab-separated tables and never copies the
 comments of the source files.

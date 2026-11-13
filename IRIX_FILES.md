@@ -19,7 +19,7 @@ Not present, wanted next:
 - `var/sysgen/` (`master.d`, `mtune`, `system`, `stune`, `sassign`): the kernel configuration files, from the same media.
 - The rest of the base libraries and applications (`lib32`, `lib64`, `usr/bin`, `usr/sbin`, `sbin`) for the later, wider scope. Only the programs and libraries that [docs/open-questions.md](docs/open-questions.md) names are held, listed next.
 
-Userland held in `root/6.5.30/`, copied from the extracted 6.5.30 overlay set (five discs) at the same install paths (products `eoe`, `x_eoe`, `dmedia_eoe`, `nfs` and `compiler_eoe`, from the media's file index). The whole userland is not held, to keep the inventory small; each file's hash is in `scripts/inventory-root.sha256`.
+Userland held in `root/6.5.30/`, copied from the extracted 6.5.30 overlay set (five discs) at the same install paths (products `eoe`, `x_eoe`, `dmedia_eoe`, `nfs` and `compiler_eoe`, from the media's file index). The whole userland is not held, to keep the inventory small; each file's hash is in `tools/config/inventory-root.sha256`.
 
 - Loader and C library: `6.5.30/lib/rld`, `6.5.30/lib32/rld` and `6.5.30/lib64/rld`; `libc.so.1` as `6.5.30/lib/libc.so.1` (o32), `6.5.30/lib32/libc.so.1`, `6.5.30/usr/lib32/mips3/libc.so.1` and `6.5.30/usr/lib32/mips4/libc.so.1` (n32, MIPS III and MIPS IV builds), and `6.5.30/usr/lib64/mips3/libc.so.1` and `6.5.30/usr/lib64/mips4/libc.so.1` (64-bit); `libm.so` in the same builds; `libpthread.so` (three ABIs), `6.5.30/usr/lib/libexc.so`, `6.5.30/usr/lib32/libCsup.so` and `6.5.30/usr/lib32/libC.so.2`. The media installs `6.5.30/lib32/libc.so.1` under a CPU-architecture selector as well (`libc.so.1.CPUARCH-R8000-CPUARCH-R10000-CPUARCH-R5000`); that copy has the content of the MIPS IV build and is not held separately.
 - X and audio: `6.5.30/usr/gfx/arch/GENERIC/Xsgi` and `6.5.30/usr/gfx/arch/IP22NG1/Xsgi` (the only two server builds on the media), `libX11.so.1` and `libXi.so` in the three ABIs, `libaudio.so.1` in the three ABIs and `6.5.30/usr/sbin/audiostate`.
@@ -36,7 +36,7 @@ Userland held in `root/6.5.30/`, copied from the extracted 6.5.30 overlay set (f
 /var/sysgen
 ```
 
-The kernel on a running system is built from the object files at install time, so `/unix` differs between systems of one platform in the modules it links; the three `unix.*` files here are the ones this repository's tables were measured on (see `scripts/inventory-root.sha256`).
+The kernel on a running system is built from the object files at install time, so `/unix` differs between systems of one platform in the modules it links; the three `unix.*` files here are the ones this repository's tables were measured on (see `tools/config/inventory-root.sha256`).
 
 ## 2. IRIX 6.5.22
 
@@ -52,14 +52,14 @@ c36d43431569902a9bdf868cb9f98ea44519a9a99e2bb68dbf1be76be0eec299  IRIX 6.5.22 In
 d2899e9aac3f6f62a446d881ccc2f214afc181c195272ab0e658ca974528557f  IRIX 6.5.22 Overlays (3 of 3).iso
 ```
 
-The hash of every extracted file is in `scripts/inventory-root.sha256` under `6.5.22/`.
+The hash of every extracted file is in `tools/config/inventory-root.sha256` under `6.5.22/`.
 
 Also present:
 
-- `unix.IP27`, `unix.IP30` and `unix.IP35`: the linked 6.5.22 kernels, in `root/6.5.22/`. This repository does not record which installed system they came from. Their SHA-256 hashes are in `scripts/inventory-root.sha256`, and [docs/version-diffs.md](docs/version-diffs.md) compares them with the 6.5.30 kernels.
+- `unix.IP27`, `unix.IP30` and `unix.IP35`: the linked 6.5.22 kernels, in `root/6.5.22/`. This repository does not record which installed system they came from. Their SHA-256 hashes are in `tools/config/inventory-root.sha256`, and [docs/version-diffs.md](docs/version-diffs.md) compares them with the 6.5.30 kernels.
 - `var/sysgen.IP27`, `var/sysgen.IP30` and `var/sysgen.IP35`: kernel configuration files (`master.d`, `mtune`, `system`, `stune`, `ioconfig`), with no object code.
 
-Userland held in `root/6.5.22/`: the same set as `root/6.5.30/`, at the same install paths. It covers the loader and C library, the two Xsgi builds with libX11, libXi and libaudio, the programs and libraries behind the optional-subsystem questions (checkpoint and restart, cpusets and miser, performance counters, the IP filter daemon, the autofs tools, the CD-ROM and SCSI control tools, `xvm`, `mkfs_xfs`), plus `6.5.22/usr/etc/automount`, `6.5.22/usr/sbin/xfs_db` and `6.5.22/usr/sbin/xfs_repair`. The files were read from the 6.5.22 overlay discs above: 56 from overlays 1 and 15 from overlays 2. The 6.5 foundation, NFS and development discs that the 6.5.22 install recipe names (`foundation1`, `foundation2`, `nfs`, `devlibs`, `devfoundation`) carry older copies of most of these paths; the overlays update them, so the overlay copy is held. Each file's size matches its installation record, and its hash is in `scripts/inventory-root.sha256` under `6.5.22/`.
+Userland held in `root/6.5.22/`: the same set as `root/6.5.30/`, at the same install paths. It covers the loader and C library, the two Xsgi builds with libX11, libXi and libaudio, the programs and libraries behind the optional-subsystem questions (checkpoint and restart, cpusets and miser, performance counters, the IP filter daemon, the autofs tools, the CD-ROM and SCSI control tools, `xvm`, `mkfs_xfs`), plus `6.5.22/usr/etc/automount`, `6.5.22/usr/sbin/xfs_db` and `6.5.22/usr/sbin/xfs_repair`. The files were read from the 6.5.22 overlay discs above: 56 from overlays 1 and 15 from overlays 2. The 6.5 foundation, NFS and development discs that the 6.5.22 install recipe names (`foundation1`, `foundation2`, `nfs`, `devlibs`, `devfoundation`) carry older copies of most of these paths; the overlays update them, so the overlay copy is held. Each file's size matches its installation record, and its hash is in `tools/config/inventory-root.sha256` under `6.5.22/`.
 
 - Where one path has two CPU-specific builds on the media, the first build in the disc's order is held. For `6.5.22/lib32/libc.so.1` that is the copy that also sits at `6.5.22/usr/lib32/mips3/libc.so.1`, as in 6.5.30. The other build is the one at `6.5.22/usr/lib32/mips4/libc.so.1`. The second builds of `6.5.22/usr/sbin/cpr` (32-bit; the held build is 64-bit, as in 6.5.30), `6.5.22/usr/lib32/mips4/libm.so` and `6.5.22/usr/lib64/mips4/libm.so` are not held.
 - Not held: `usr/sbin/xfs_io` and `usr/sbin/xfs_quota`. Neither is on the 6.5.22 discs above or on the 6.5 installation tools disc. The 6.5.30 root holds both.

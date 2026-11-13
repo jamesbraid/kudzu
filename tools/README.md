@@ -10,7 +10,7 @@ Everything runs in a container built from `retools/tools/Containerfile`, so the 
 
 `retools/tools/re-run COMMAND` runs COMMAND in the image with this repository mounted at `/work`, `root/` included. Set `RE_ENGINE` to the container command to use instead of `podman` (a wrapper that selects a particular Podman service works). `retools/tools/re-run --ghidra COMMAND` uses the optional Ghidra 12.1.3 image from `retools/tools/Containerfile.ghidra`, which has `analyzeHeadless` and the BSim support; `retools/tools/re-run --ghidra-export OBJECT` decompiles an ELF object or kernel to JSON under `.cache/ghidra-export/`. Decompiler output is navigation, not evidence. The Ghidra scripts are in `retools/ghidra/scripts/`. [README-analysis.md](../retools/tools/README-analysis.md) describes the `.mdebug` importer and the syscall and syssgi extractors.
 
-The container definitions, wrappers, Ghidra helpers and the shared scripts (inventory, fact sheet, syscall extractors) are the `retools/` submodule (sgi-retools), run by their `retools/tools/` path from the repository root. `retools/tools/kudzu/os_tables.py`, `retools/tools/kudzu/gen-scope.py` and `scripts/scope.json` are specific to this repository and are not shared. This directory holds only `check-os-tables` and `setup-clone.sh`.
+The container definitions, wrappers, Ghidra helpers and the shared scripts (inventory, fact sheet, syscall extractors) are the `retools/` submodule (sgi-retools), run by their `retools/tools/` path from the repository root. `retools/tools/kudzu/os_tables.py`, `retools/tools/kudzu/gen-scope.py` and `tools/config/scope.json` are specific to this repository and are not shared. This directory also holds the repository's own table generators (`errno_table.py`, `sysgen_tables.py` and the like), and `config/` holds their data.
 
 ## Checking for copied reference source before a push
 
@@ -30,6 +30,6 @@ The check is `tools/fingerprint` in the project that owns the stored reference i
 
 `tools/fingerprint --help` (there) lists the options. A prose lead is about a dozen words in a row shared with a comment or string of the reference; a name lead is ranked by how few reference files hold the name, rarest first. Read each one.
 
-Add a name you have read and judged benign to `scripts/copy-check-allow.txt`, one per line.
+Add a name you have read and judged benign to `tools/config/copy-check-allow.txt`, one per line.
 
 The tool does not catch text reworded or code renamed after copying, and it only compares with the reference tree it has indexed.

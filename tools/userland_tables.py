@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Base user-space rows: docs/inventory/userland.tsv, one row per binary in scripts/userland-roles.json.
+"""Base user-space rows: docs/inventory/userland.tsv, one row per binary in tools/config/userland-roles.json.
 
-Usage: scripts/userland_tables.py [--release 6.5.30] [--out docs/inventory]
+Usage: tools/userland_tables.py [--release 6.5.30] [--out docs/inventory]
 
 Run from the repository root with root/ populated, inside the toolchain container
-(retools/tools/re-run python3 scripts/userland_tables.py); the readers come from that container.
+(retools/tools/re-run python3 tools/userland_tables.py); the readers come from that container.
 
-Input: root/<release>/<install path> for every key of scripts/userland-roles.json. The
+Input: root/<release>/<install path> for every key of tools/config/userland-roles.json. The
 ELF facts (class, type, ABI from the header flags, interpreter, section headers and the
 count of undefined dynamic symbols) are read from the file itself. The package, type,
 interfaces, role, grade and citation come from the roles file and nowhere else.
@@ -24,7 +24,7 @@ import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 READELF = os.environ.get('READELF', 'mips64-linux-gnuabi64-readelf')
-ROLES = os.path.join(REPO, 'scripts', 'userland-roles.json')
+ROLES = os.path.join(REPO, 'tools', 'config', 'userland-roles.json')
 
 EF_MIPS_ABI2 = 0x00000020       # N32
 EF_MIPS_ABI_O32 = 0x00001000    # O32

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Exported dynamic symbols of the 6.5.30 core user libraries, as TSV tables.
 
-Usage: uv run --with pyelftools python -I scripts/userland_symbols.py MEDIA_ROOT OUT_DIR
+Usage: uv run --with pyelftools python -I tools/userland_symbols.py MEDIA_ROOT OUT_DIR
 
 MEDIA_ROOT is a directory that mirrors the 6.5.30 install paths (usr/lib32/mips3/libc.so.1 and so
 on). For each library and ABI it writes OUT_DIR/<lib>-<abi>.tsv with one row per exported symbol

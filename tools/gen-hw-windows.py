@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Write the windows, bases and gp_literals sections of scripts/inventory-config.json from scripts/hw-windows.json.
+"""Write the windows, bases and gp_literals sections of tools/config/inventory-config.json from tools/config/hw-windows.json.
 
-Usage: scripts/gen-hw-windows.py [--check] [--chips PATH]
+Usage: tools/gen-hw-windows.py [--check] [--chips PATH]
 
 hw-windows.json says which register windows the inventory scan looks for in the kernels and how code
 reaches them. The addresses, pointer arguments and pointer-returning routines that the system-chip
@@ -18,8 +18,8 @@ import subprocess
 import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CFG = os.path.join(REPO, 'scripts', 'inventory-config.json')
-SRC = os.path.join(REPO, 'scripts', 'hw-windows.json')
+CFG = os.path.join(REPO, 'tools', 'config', 'inventory-config.json')
+SRC = os.path.join(REPO, 'tools', 'config', 'hw-windows.json')
 
 
 def num(x):
@@ -148,7 +148,7 @@ def main():
     text = json.dumps(cfg, indent=2) + '\n'
     if '--check' in sys.argv[1:]:
         if open(CFG).read() != text:
-            sys.exit('scripts/inventory-config.json is out of date: run scripts/gen-hw-windows.py')
+            sys.exit('tools/config/inventory-config.json is out of date: run tools/gen-hw-windows.py')
         print('config matches hw-windows.json')
         return
     open(CFG, 'w').write(text)

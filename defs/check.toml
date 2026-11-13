@@ -1,6 +1,6 @@
 [project]
 name = "kudzu"
-plugin = "scripts/disk_format_checks.py"
+plugin = "tools/disk_format_checks.py"
 
 [gen]
 profile = "public"

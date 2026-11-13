@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Hardware-graph add calls in the linked 6.5.30 kernels, with the path or edge name each one passes.
 
-Usage: scripts/hwgraph_sites.py extract [--show] [--json OUT]
-       scripts/hwgraph_sites.py render [--out docs/inventory/hwgraph-adds.tsv]
+Usage: tools/hwgraph_sites.py extract [--show] [--json OUT]
+       tools/hwgraph_sites.py render [--out docs/inventory/hwgraph-adds.tsv]
 
 Run from the repository root inside the toolchain environment (retools/tools/re-run python3 ...), with root/ populated.
 

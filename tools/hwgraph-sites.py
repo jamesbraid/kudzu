@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Hardware-graph calls in the 6.5.30 kernels: every site that adds a path or an edge.
 
-Usage: scripts/hwgraph-sites.py [--kernel IP27 IP30 IP35] [--out docs]
+Usage: tools/hwgraph-sites.py [--kernel IP27 IP30 IP35] [--out docs]
 
 Run from the repository root inside the toolchain container, with root/6.5.30 populated
-(tools/re-run python3 scripts/hwgraph-sites.py). Writes two tab-separated tables:
+(tools/re-run python3 tools/hwgraph-sites.py). Writes two tab-separated tables:
 
   hwgraph-sites.tsv  one row per call to a graph-add primitive: kernel, call address, routine,
                      primitive, the argument that carries the name, the name as the call
@@ -37,7 +37,7 @@ import subprocess
 import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(REPO, 'scripts'))
+sys.path.insert(0, os.path.join(REPO, 'tools'))
 import facts  # noqa: E402
 
 KERNELS = {'IP27': 'root/6.5.30/unix.IP27', 'IP30': 'root/6.5.30/unix.IP30', 'IP35': 'root/6.5.30/unix.IP35'}

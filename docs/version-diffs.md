@@ -4,7 +4,7 @@ This page compares the routines of the IRIX 6.5.22 and 6.5.30 kernels. It covers
 
 ## Inputs
 
-- The 6.5.22 linked kernels are in `root/6.5.22/`. Their SHA-256 hashes were added to `scripts/inventory-root.sha256`; they match a direct hash of the files. This repository does not record which installed system they came from.
+- The 6.5.22 linked kernels are in `root/6.5.22/`. Their SHA-256 hashes were added to `tools/config/inventory-root.sha256`; they match a direct hash of the files. This repository does not record which installed system they came from.
 - The scope rule now names the 6.5.22 linked kernels with the same name rule as 6.5.30 (`retools/tools/kudzu/gen-scope.py`). Before this, the 6.5.22 kernel rows were all counted as in scope.
 - `var/sysgen.IP27`, `var/sysgen.IP30` and `var/sysgen.IP35` in 6.5.22 hold configuration files and no object code. They are not compared.
 
@@ -45,7 +45,7 @@ Identical is zero: no routine keeps both its name and its address with the same 
 | `unix.IP30` | 5,221 | 412 | 151 | 633 |
 | `unix.IP35` | 6,240 | 490 | 185 | 812 |
 
-Hardware-facing routines are those whose names start with a prefix in the narrow rule of [scripts/scope.json](../scripts/scope.json): the hardware graph, KLCONFIG, interrupts, NUMA, the crossbow, Heart and Bridge drivers and the panic entry points.
+Hardware-facing routines are those whose names start with a prefix in the narrow rule of [tools/config/scope.json](../tools/config/scope.json): the hardware graph, KLCONFIG, interrupts, NUMA, the crossbow, Heart and Bridge drivers and the panic entry points.
 
 | Kernel | Layout | Immediate | Code | Size | Added | Removed |
 |---|---:|---:|---:|---:|---:|---:|
@@ -137,7 +137,7 @@ A linked-kernel row is labelled established when the whole body has no calls, ad
 
 ## What the moved gp slots name
 
-The 1,186 hardware-facing routines whose class is layout and whose differences include gp offsets (106 with gp offsets alone, 1,080 with gp offsets and jump targets) were checked slot by slot with `scripts/gp_slots.py`; the result is [version-diffs-gp-slots.tsv](version-diffs-gp-slots.tsv), one row per differing gp-relative operand of each routine (2,396 rows in 1,182 routines).
+The 1,186 hardware-facing routines whose class is layout and whose differences include gp offsets (106 with gp offsets alone, 1,080 with gp offsets and jump targets) were checked slot by slot with `tools/gp_slots.py`; the result is [version-diffs-gp-slots.tsv](version-diffs-gp-slots.tsv), one row per differing gp-relative operand of each routine (2,396 rows in 1,182 routines).
 
 Method. Both copies of a routine have the same instruction sequence, so the instructions are paired by position. At each pair whose gp offset differs, gp plus the offset is resolved in each kernel (gp from the kernel's `.MIPS.options` record): a symbol at that address is a variable; a pointer-sized word in a literal or data section is a pool word, named by the symbol or the string it points to; any other word is a constant, compared by value (four-byte accesses compare the word). A pool word that points to a routine or table with no symbol is compared by its first 32 bytes with call targets, gp offsets and pointers masked.
 
@@ -166,7 +166,7 @@ The hardware-facing code and size rows are the first to read. The layout rows of
 
 ## System call and syssgi selector tables
 
-The two system call tables (`sysent` and `irix5_64_sysent`) and the `syssgi` selector dispatch were extracted from the three linked kernels of both releases, with [retools/tools/syscall_table.py](../retools/tools/syscall_table.py) and [retools/tools/syssgi_selectors.py](../retools/tools/syssgi_selectors.py) through `retools/tools/kudzu/os_tables.py`. The rows are in [syscalls.tsv](inventory/syscalls.tsv) and [selectors.tsv](inventory/selectors.tsv), where the release is the prefix of the `binary` column. The differences are one row each in [version-table-diff.tsv](inventory/version-table-diff.tsv), written by [scripts/version_table_diff.py](../scripts/version_table_diff.py). Its `grade` column means: **established**, read from the tables or the argument-table bytes; **class-only**, the routine differs by the byte class in the queue and its body was not read; **heuristic**, taken from the extractor's own reading of a compare tree or of the first call in a block, so the row is a lead to read, not a finding.
+The two system call tables (`sysent` and `irix5_64_sysent`) and the `syssgi` selector dispatch were extracted from the three linked kernels of both releases, with [retools/tools/syscall_table.py](../retools/tools/syscall_table.py) and [retools/tools/syssgi_selectors.py](../retools/tools/syssgi_selectors.py) through `retools/tools/kudzu/os_tables.py`. The rows are in [syscalls.tsv](inventory/syscalls.tsv) and [selectors.tsv](inventory/selectors.tsv), where the release is the prefix of the `binary` column. The differences are one row each in [version-table-diff.tsv](inventory/version-table-diff.tsv), written by [tools/version_table_diff.py](../tools/version_table_diff.py). Its `grade` column means: **established**, read from the tables or the argument-table bytes; **class-only**, the routine differs by the byte class in the queue and its body was not read; **heuristic**, taken from the extractor's own reading of a compare tree or of the first call in a block, so the row is a lead to read, not a finding.
 
 ### System calls
 

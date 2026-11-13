@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Differences between the 6.5.22 and 6.5.30 system call and syssgi selector tables.
 
-Usage: scripts/version_table_diff.py [--out docs/inventory/version-table-diff.tsv]
+Usage: tools/version_table_diff.py [--out docs/inventory/version-table-diff.tsv]
 
 Run it from the repository root, inside the toolchain container (retools/tools/re-run python3
-scripts/version_table_diff.py), after retools/tools/kudzu/os_tables.py has written syscalls.tsv and
+tools/version_table_diff.py), after retools/tools/kudzu/os_tables.py has written syscalls.tsv and
 selectors.tsv for both releases. The argument-table bytes are read from root/<release>/unix.IPnn.
 
 Inputs: docs/inventory/syscalls.tsv, docs/inventory/selectors.tsv, docs/version-diffs-queue.tsv

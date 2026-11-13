@@ -138,6 +138,6 @@ The host needs Podman, git and python3. Everything else runs in a container; [to
     retools/tools/re-run python3 retools/tools/kudzu/os_tables.py     # system calls, structures, panic sites, formats
     tools/check-os-tables                                     # fail if the committed tables are stale
 
-The generated tables are in [docs/inventory/](docs/inventory/README.md). `git status --short docs` shows nothing after a run when your `root/` matches `scripts/inventory-root.sha256`.
+The generated tables are in [docs/inventory/](docs/inventory/README.md). `git status --short docs` shows nothing after a run when your `root/` matches `tools/config/inventory-root.sha256`.
 
 Licence: BSD-3-Clause, see [LICENSE](LICENSE). The scripts descend from gr4's and keep its notice in [retools/tools/LICENSE-gr4](retools/tools/LICENSE-gr4).

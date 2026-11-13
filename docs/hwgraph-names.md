@@ -5,7 +5,7 @@ This page lists the names that the 6.5.30 IP27, IP30 and IP35 kernels put into t
 records what `hinv` prints from that tree and what the `ioconfig` configuration files say about
 device numbering. The generated tables are [hwgraph-sites.tsv](hwgraph-sites.tsv), one row per
 call that adds a name, and [hwgraph-edges.tsv](hwgraph-edges.tsv), one row per distinct name.
-[scripts/hwgraph-sites.py](../scripts/hwgraph-sites.py) makes both from the kernel binaries.
+[tools/hwgraph-sites.py](../tools/hwgraph-sites.py) makes both from the kernel binaries.
 
 Grades. "established" means the call was read in a routine the fact sheet covers, and the name it
 passes is a literal string or a format that a `sprintf` in the same routine builds. "inferred"

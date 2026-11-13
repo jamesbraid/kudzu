@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Count MIPS ISA-level instructions in the executable sections of ELF files.
 
-Usage: uv run --with pyelftools --with numpy python -I scripts/userland_isa.py MODE ARGS...
+Usage: uv run --with pyelftools --with numpy python -I tools/userland_isa.py MODE ARGS...
   scan OUT.tsv ROOT FILE...         one row per file (FILE paths are relative to ROOT)
   funcs FILE OUT.tsv                per-function rows of a kernel with a symbol table
 

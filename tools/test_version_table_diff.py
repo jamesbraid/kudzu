@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Tests of the release comparison in version_table_diff.py. They need no kernel image.
 
-Run from the repository root: python3 scripts/test_version_table_diff.py
+Run from the repository root: python3 tools/test_version_table_diff.py
 """
 import os
 import sys

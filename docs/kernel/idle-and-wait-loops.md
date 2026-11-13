@@ -4,7 +4,7 @@ How a CPU with nothing to run waits in the IRIX 6.5 kernels, how it is woken, an
 
 ## What this covers and what exists already
 
-Kernels read (SHA-256 prefixes are those in `scripts/inventory-root.sha256`):
+Kernels read (SHA-256 prefixes are those in `tools/config/inventory-root.sha256`):
 
 | Build | Image | SHA-256 | Text segment as linked |
 |---|---|---|---|

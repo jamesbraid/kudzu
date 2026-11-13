@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Driver, module and tunable tables from the kernel configuration files of one release.
 
-Usage: scripts/sysgen_tables.py [--release 6.5.30] [--out docs/inventory]
+Usage: tools/sysgen_tables.py [--release 6.5.30] [--out docs/inventory]
 
 Run from the repository root with root/ populated, inside the toolchain container
-(retools/tools/re-run python3 scripts/sysgen_tables.py); the symbol check runs nm from that container.
+(retools/tools/re-run python3 tools/sysgen_tables.py); the symbol check runs nm from that container.
 
 Input, per machine directory root/<release>/var/sysgen.IPnn/ (IP27, IP30, IP35):
   master.d/<module>   one driver configuration file per module. The first data line is
@@ -20,7 +20,7 @@ Outputs (both tab-separated, deterministic):
   sysgen-drivers.tsv   one row per master.d module: flags, prefix, external major numbers,
                        device count, dependencies, stub count, the machines that configure it,
                        the kernel symbol check of the prefix and the grade from
-                       scripts/sysgen-roles.json (a role and a citation make a row understood).
+                       tools/config/sysgen-roles.json (a role and a citation make a row understood).
   sysgen-tunables.tsv  one row per tunable line of the mtune files: block, class, name, default,
                        minimum, maximum, the form the line used and the machines that configure
                        its module.
@@ -237,7 +237,7 @@ def main():
     symbols = kernel_symbols(kernel) if os.path.exists(kernel) else []
     kernel_names = set(symbols)
 
-    roles_path = os.path.join(REPO, 'scripts', 'sysgen-roles.json')
+    roles_path = os.path.join(REPO, 'tools', 'config', 'sysgen-roles.json')
     roles = json.load(open(roles_path)) if os.path.exists(roles_path) else {}
 
     drv_rows = []
