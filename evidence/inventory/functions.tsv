@@ -28560,11 +28560,11 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200048d0	120	unmaptlb	dwarf+symtab	a269846f62a2		in	named-only	software/kernel/page-migration.md#what-a-re-implementation-would-need-from-the-running-system	What a re-implementation would need from the running system
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020004948	60	invaltlb	dwarf+symtab	f2054c56d400		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020004984	104	tlbwired	dwarf+symtab	f403c3f9f437		in	named-only	software/kernel/numa-text-replication.md#4-rewriting-executable-kernel-pages-after-mlreset	4. Rewriting executable kernel pages after `mlreset`
-6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200049ec	220	tlbdropin	dwarf+symtab	caa81380afdb		in	named-only		
+6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000200049ec	220	tlbdropin	dwarf+symtab	caa81380afdb		in	named-only	formats/r10k_tlb/README.md#what-was-checked	What was checked
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020004ac8	92	tlbdrop2in	dwarf+symtab	79cf9fc6d74b		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020004b24	124	tlbdropin_lpgs	dwarf+symtab	fd8da05b957a		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020004ba0	72	flush_tlb	dwarf+symtab	7f3480fd64a9		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020004be8	76	set_tlbpid	dwarf+symtab	63a6a942c92d		in	named-only		
+6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020004be8	76	set_tlbpid	dwarf+symtab	63a6a942c92d		in	named-only	formats/r10k_tlb/README.md#what-was-checked	What was checked
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020004c34	104	tlbfind	dwarf+symtab	c970e2a4d174		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020004c9c	12	tlbgetpid	dwarf+symtab	a03867a769cb		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020004ca8	72	tlbgetent	dwarf+symtab	b0104b97985e		in	named-only		
@@ -33541,7 +33541,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020154ecc	8	nopkg	dwarf+symtab	6bc8e674fbf7		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020154ed4	44	noreach	dwarf+symtab	40899dc898f5		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020154f00	8	nullsys	dwarf+symtab	87506497337c		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020154f08	264	buserror_intr	dwarf+symtab	1485f2fec4f6		in	named-only	software/kernel/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020154f08	264	buserror_intr	dwarf+symtab	1485f2fec4f6		in	named-only	software/video/crime.md#error-and-interrupt-inputs	Error and interrupt inputs
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020155010	868	tlbmiss	dwarf+symtab	0fa739f68811		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa800000020155374	316	tlbmod	dwarf+symtab	e3307b1f6af2		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/unix.IP30	shared-kernel	n64	.text	0xa8000000201554b0	456	emulate_branch	dwarf+symtab	2080d26966eb		in	named-only	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -40770,7 +40770,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000040860	120	unmaptlb	dwarf+symtab	0a0867810079		in	named-only	software/kernel/page-migration.md#what-a-re-implementation-would-need-from-the-running-system	What a re-implementation would need from the running system
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc0000000000408d8	60	invaltlb	dwarf+symtab	f2054c56d400		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000040914	104	tlbwired	dwarf+symtab	3c25f226b9e5		in	named-only	software/kernel/numa-text-replication.md#4-rewriting-executable-kernel-pages-after-mlreset	4. Rewriting executable kernel pages after `mlreset`
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000004097c	220	tlbdropin	dwarf+symtab	f3348f309aef		in	named-only		
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000004097c	220	tlbdropin	dwarf+symtab	f3348f309aef		in	named-only	formats/r10k_tlb/README.md#what-was-checked	What was checked
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000040a58	92	tlbdrop2in	dwarf+symtab	79cf9fc6d74b		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000040ab4	124	tlbdropin_lpgs	dwarf+symtab	fd8da05b957a		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc000000000040b30	72	flush_tlb	dwarf+symtab	7f3480fd64a9		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -47475,7 +47475,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000021ef00	8	nopkg	dwarf+symtab	6bc8e674fbf7		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000021ef08	44	noreach	dwarf+symtab	12c9e38cb837		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000021ef34	8	nullsys	dwarf+symtab	87506497337c		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000021ef3c	272	buserror_intr	dwarf+symtab	65821c4929c0		in	named-only	software/kernel/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000021ef3c	272	buserror_intr	dwarf+symtab	65821c4929c0		in	named-only	software/video/crime.md#error-and-interrupt-inputs	Error and interrupt inputs
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000021f04c	880	tlbmiss	dwarf+symtab	6fa6efac68d6		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000021f3bc	428	tlbmod	dwarf+symtab	baa07c37f9f1		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/unix.IP35	shared-kernel	n64	.text	0xc00000000021f568	456	emulate_branch	dwarf+symtab	e68318a68650		in	named-only	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -59708,10 +59708,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x858	236	elocore_exl_18	symtab	5c4a77267609	shared-address	in	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x944	92	_invaltlb	dwarf+symtab	15fcad934355		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0x9a0	164	tlbwired	dwarf+symtab	95794fea73c2		in	named-only	software/kernel/numa-text-replication.md#4-rewriting-executable-kernel-pages-after-mlreset	4. Rewriting executable kernel pages after `mlreset`
-6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xa44	404	tlbdropin	dwarf+symtab	65fab4c79535		in	named-only		
+6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xa44	404	tlbdropin	dwarf+symtab	65fab4c79535		in	named-only	formats/r10k_tlb/README.md#what-was-checked	What was checked
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xbd8	252	tlbdrop2in	dwarf+symtab	c55f9c554999		in	named-only	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xcd4	80	flush_tlb	dwarf+symtab	7b57c464c22b		in	named-only	software/kernel/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
-6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xd24	128	set_tlbpid	dwarf+symtab	82debffea6b7		in	named-only		
+6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xd24	128	set_tlbpid	dwarf+symtab	82debffea6b7		in	named-only	formats/r10k_tlb/README.md#what-was-checked	What was checked
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xda4	248	tlbfind	dwarf+symtab	3e50bc337c1f		in	named-only		
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xe9c	12	tlbgetpid	dwarf+symtab	5522d9383584		in	named-only		
 6.5.22/usr/cpu/sysgen/IP22boot/kernel.o	shared-kernel	n32	.text	0xea8	156	tlbgetent	dwarf+symtab	30518b0d3497		in	named-only		
@@ -65530,7 +65530,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x3528	8	nopkg	dwarf+symtab	6bc8e674fbf7		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x3530	44	noreach	dwarf+symtab	c37ae14a87a2		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x355c	8	nullsys	dwarf+symtab	87506497337c		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x3564	268	buserror_intr	dwarf+symtab	26882243f715		in	named-only	software/kernel/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x3564	268	buserror_intr	dwarf+symtab	26882243f715		in	named-only	software/video/crime.md#error-and-interrupt-inputs	Error and interrupt inputs
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x3670	696	tlbmiss	dwarf+symtab	c4123e263008		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x3928	444	tlbmod	dwarf+symtab	373caad18774		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP22boot/os.a(trap.o)	shared-kernel	n32	.text	0x3ae4	452	emulate_branch	dwarf+symtab	9a6d30628fe1		in	named-only	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -83293,7 +83293,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x3220	8	nopkg	dwarf+symtab	6bc8e674fbf7		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x3228	44	noreach	dwarf+symtab	9a6cda84acb5		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x3254	8	nullsys	dwarf+symtab	87506497337c		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x325c	272	buserror_intr	dwarf+symtab	899c19eec4e3		in	named-only	software/kernel/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x325c	272	buserror_intr	dwarf+symtab	899c19eec4e3		in	named-only	software/video/crime.md#error-and-interrupt-inputs	Error and interrupt inputs
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x336c	880	tlbmiss	dwarf+symtab	659a6e45fc56		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x36dc	428	tlbmod	dwarf+symtab	e4c171ace7e3		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x3888	456	emulate_branch	dwarf+symtab	126598d30eab		in	named-only	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -95020,11 +95020,11 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x750	120	unmaptlb	dwarf+symtab	a269846f62a2		in	named-only	software/kernel/page-migration.md#what-a-re-implementation-would-need-from-the-running-system	What a re-implementation would need from the running system
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x7c8	60	invaltlb	dwarf+symtab	f2054c56d400		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x804	104	tlbwired	dwarf+symtab	f403c3f9f437		in	named-only	software/kernel/numa-text-replication.md#4-rewriting-executable-kernel-pages-after-mlreset	4. Rewriting executable kernel pages after `mlreset`
-6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x86c	220	tlbdropin	dwarf+symtab	caa81380afdb		in	named-only		
+6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x86c	220	tlbdropin	dwarf+symtab	caa81380afdb		in	named-only	formats/r10k_tlb/README.md#what-was-checked	What was checked
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x948	92	tlbdrop2in	dwarf+symtab	79cf9fc6d74b		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x9a4	124	tlbdropin_lpgs	dwarf+symtab	fd8da05b957a		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xa20	72	flush_tlb	dwarf+symtab	7f3480fd64a9		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xa68	76	set_tlbpid	dwarf+symtab	63a6a942c92d		in	named-only		
+6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xa68	76	set_tlbpid	dwarf+symtab	63a6a942c92d		in	named-only	formats/r10k_tlb/README.md#what-was-checked	What was checked
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xab4	104	tlbfind	dwarf+symtab	c970e2a4d174		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xb1c	12	tlbgetpid	dwarf+symtab	a03867a769cb		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xb28	72	tlbgetent	dwarf+symtab	b0104b97985e		in	named-only		
@@ -100802,7 +100802,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x31f4	8	nopkg	dwarf+symtab	6bc8e674fbf7		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x31fc	44	noreach	dwarf+symtab	fd26bd48e0ec		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x3228	8	nullsys	dwarf+symtab	87506497337c		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x3230	264	buserror_intr	dwarf+symtab	0f032f5712cf		in	named-only	software/kernel/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x3230	264	buserror_intr	dwarf+symtab	0f032f5712cf		in	named-only	software/video/crime.md#error-and-interrupt-inputs	Error and interrupt inputs
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x3338	868	tlbmiss	dwarf+symtab	ecf249b8d951		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x369c	316	tlbmod	dwarf+symtab	2900c5368327		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x37d8	456	emulate_branch	dwarf+symtab	a50cafd12a74		in	named-only	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -110854,10 +110854,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x7f8	172	unmaptlb	dwarf+symtab	655ef2d328bb		in	named-only	software/kernel/page-migration.md#what-a-re-implementation-would-need-from-the-running-system	What a re-implementation would need from the running system
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x8a4	96	invaltlb	dwarf+symtab	77c8882b31cb		in	named-only	software/kernel/numa-text-replication.md#4-rewriting-executable-kernel-pages-after-mlreset	4. Rewriting executable kernel pages after `mlreset`
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x904	160	tlbwired	dwarf+symtab	84b27176deed		in	named-only	software/kernel/numa-text-replication.md#4-rewriting-executable-kernel-pages-after-mlreset	4. Rewriting executable kernel pages after `mlreset`
-6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x9a4	324	tlbdropin	dwarf+symtab	435f56847073		in	named-only		
+6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x9a4	324	tlbdropin	dwarf+symtab	435f56847073		in	named-only	formats/r10k_tlb/README.md#what-was-checked	What was checked
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xae8	176	tlbdrop2in	dwarf+symtab	12e4633be43d		in	named-only	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xb98	92	flush_tlb	dwarf+symtab	8a4125e37d2b		in	named-only	software/kernel/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
-6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xbf4	136	set_tlbpid	dwarf+symtab	a86ca2c3d806		in	named-only		
+6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xbf4	136	set_tlbpid	dwarf+symtab	a86ca2c3d806		in	named-only	formats/r10k_tlb/README.md#what-was-checked	What was checked
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xc7c	180	tlbfind	dwarf+symtab	6e003f4c2c6d		in	named-only		
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xd30	12	tlbgetpid	dwarf+symtab	5522d9383584		in	named-only		
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xd3c	160	tlbgetent	dwarf+symtab	a10b65c90a8e		in	named-only		
@@ -111134,8 +111134,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x9f18	52	crimestray	dwarf+funcnames	f83e6405ae8b		in	located	evidence/instruction-readings-kudzu-g2.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x9f4c	36	crmerr_intr	dwarf+symtab	b1f452e5d4f9		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x9f70	128	set_hwperf_intr	dwarf+symtab	a1c1ca8f8334		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x9ff0	220	synthclock	dwarf+symtab	1de465b95fe4		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa0cc	216	synthackkgclock	dwarf+symtab	c2819ce19a11		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x9ff0	220	synthclock	dwarf+symtab	1de465b95fe4		in	named-only	software/video/crime.md#error-and-interrupt-inputs	Error and interrupt inputs
+6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa0cc	216	synthackkgclock	dwarf+symtab	c2819ce19a11		in	named-only	software/video/crime.md#error-and-interrupt-inputs	Error and interrupt inputs
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa1a4	48	is_thd	dwarf+funcnames	37ace133b894		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa1d4	108	crimegang	dwarf+symtab	cb3a138505af		in	located	evidence/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa240	64	crime_intr_enable	dwarf+symtab	296e46e5ca75		in	located	evidence/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -112904,7 +112904,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x250	360	mvptransfer_nextiep	dwarf+funcnames	8dcc47552625		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x3b8	364	mvptransfer_nextcep	dwarf+funcnames	ff3e61964f36		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x524	856	mvptransfer_start_dma	dwarf+funcnames	e8cf2ee395ba		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x87c	196	mvptransfer_stop_dma	dwarf+symtab	1dc54c807368		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x87c	196	mvptransfer_stop_dma	dwarf+symtab	1dc54c807368		in	named-only	software/video/mace-video.md#channel-registers	Channel registers
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x940	132	mvptransfer_alloc_next_read	dwarf+funcnames	4367db6211d6		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x9c4	220	mvptransfer_get_next_write	dwarf+funcnames	6dbc95e01eca		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xaa0	736	mvptransfer_getbuffs	dwarf+funcnames	21b8dfa72701		in	undocumented		
@@ -112915,7 +112915,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x12a4	792	mvptransfer_bufferdone	dwarf+funcnames	52b2578c1e79		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x15bc	484	mvptransfer_sendbuff	dwarf+funcnames	d5d4585c59d7		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x17a0	56	mvptransfer_continuing	dwarf+funcnames	d05f9d984537		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x17d8	172	mvptransfer_enablechannel	dwarf+symtab	83a1f5789e9a		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x17d8	172	mvptransfer_enablechannel	dwarf+symtab	83a1f5789e9a		in	named-only	software/video/mace-video.md#channel-registers	Channel registers
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x1884	348	mvptransfer_getustmsc	dwarf+funcnames	1a48f534e248		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x19e0	2028	mvptransfer_screen_interrupt	dwarf+symtab	5c87e3afdb96		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x21cc	160	mvptransfer_fix_output	dwarf+funcnames	bc0048dd677d		in	undocumented		
@@ -113012,7 +113012,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x84e4	8	mvpdebug_unload	dwarf+symtab	78aa5094d5ec		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x84ec	52	mvpi2c_printerror	dwarf+symtab	9cd18d002f24		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x8520	76	mvpi2c_register_av	dwarf+symtab	a2f2c1825181		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x856c	204	mvpi2c_config	dwarf+symtab	7b0f998f058a		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x856c	204	mvpi2c_config	dwarf+symtab	7b0f998f058a		in	named-only	software/video/mace-video.md#two-wire-bus	Two-wire bus
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x8638	40	mvpi2c_read_config	dwarf+symtab	6e339ff2d43a		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x8660	184	mvpi2c_reset	dwarf+symtab	fc6ed6259da6		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x8718	88	mvpi2c_fastmode	dwarf+symtab	1500ccda3e8f		in	undocumented		
@@ -113055,9 +113055,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xb8c0	36	mvpreg_setup_timing	dwarf+symtab	e722b5dacacb		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xb8e4	44	mvpreg_cdto_wait	dwarf+funcnames	5423dfdb56f8		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xb910	1184	mvpreg_setpassthru	dwarf+symtab	4ea98e31c63c		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xbdb0	188	mvpreg_init	dwarf+symtab	ecd36a9c2148		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xbdb0	188	mvpreg_init	dwarf+symtab	ecd36a9c2148		in	named-only	software/video/mace-video.md#window-map	Window map
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xbe6c	8	mvpreg_unload	dwarf+symtab	78aa5094d5ec		in	undocumented		
-6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xbe74	1776	mvpreg_syncpath_controls	dwarf+symtab	dc242cbe7e80		in	undocumented		
+6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xbe74	1776	mvpreg_syncpath_controls	dwarf+symtab	dc242cbe7e80		in	named-only	software/video/mace-video.md#gbe-capture-block	GBE capture block
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xc564	144	mvpreg_gettiming	dwarf+funcnames	800bc84e48a1		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xc5f4	960	mvpreg_syncdevice_controls	dwarf+symtab	353a98a0402c		in	undocumented		
 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xc9b4	128	mvp_pio_read64	dwarf+symtab	1b82094aa278	shared-address	in	undocumented		
@@ -116199,7 +116199,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32a0	8	nopkg	dwarf+symtab	6bc8e674fbf7		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32a8	44	noreach	dwarf+symtab	9dba57ad68c2		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32d4	8	nullsys	dwarf+symtab	87506497337c		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32dc	268	buserror_intr	dwarf+symtab	26882243f715		in	named-only	software/kernel/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32dc	268	buserror_intr	dwarf+symtab	26882243f715		in	named-only	software/video/crime.md#error-and-interrupt-inputs	Error and interrupt inputs
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x33e8	776	tlbmiss	dwarf+symtab	81389fa346ab		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x36f0	580	tlbmod	dwarf+symtab	548ffac0093b		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x3934	452	emulate_branch	dwarf+symtab	b36a025183ac		in	named-only	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -126273,7 +126273,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x6e0	120	unmaptlb	dwarf+symtab	0a0867810079		in	named-only	software/kernel/page-migration.md#what-a-re-implementation-would-need-from-the-running-system	What a re-implementation would need from the running system
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x758	60	invaltlb	dwarf+symtab	f2054c56d400		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x794	104	tlbwired	dwarf+symtab	3c25f226b9e5		in	named-only	software/kernel/numa-text-replication.md#4-rewriting-executable-kernel-pages-after-mlreset	4. Rewriting executable kernel pages after `mlreset`
-6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x7fc	220	tlbdropin	dwarf+symtab	f3348f309aef		in	named-only		
+6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x7fc	220	tlbdropin	dwarf+symtab	f3348f309aef		in	named-only	formats/r10k_tlb/README.md#what-was-checked	What was checked
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x8d8	92	tlbdrop2in	dwarf+symtab	79cf9fc6d74b		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x934	124	tlbdropin_lpgs	dwarf+symtab	fd8da05b957a		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x9b0	72	flush_tlb	dwarf+symtab	7f3480fd64a9		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -133179,7 +133179,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x3134	8	nopkg	dwarf+symtab	6bc8e674fbf7		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x313c	44	noreach	dwarf+symtab	9a6cda84acb5		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x3168	8	nullsys	dwarf+symtab	87506497337c		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x3170	272	buserror_intr	dwarf+symtab	719f74f0c531		in	named-only	software/kernel/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x3170	272	buserror_intr	dwarf+symtab	719f74f0c531		in	named-only	software/video/crime.md#error-and-interrupt-inputs	Error and interrupt inputs
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x3280	880	tlbmiss	dwarf+symtab	3a5e015a686a		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x35f0	428	tlbmod	dwarf+symtab	1038b4bea209		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.22/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x379c	456	emulate_branch	dwarf+symtab	126598d30eab		in	named-only	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -200049,7 +200049,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a749c	8	nopkg	dwarf+symtab	6bc8e674fbf7		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a74a4	44	noreach	dwarf+symtab	821982557cac		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a74d0	8	nullsys	dwarf+symtab	87506497337c		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a74d8	272	buserror_intr	dwarf+symtab	818590bcf7b1		in	named-only	software/kernel/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a74d8	272	buserror_intr	dwarf+symtab	818590bcf7b1		in	named-only	software/video/crime.md#error-and-interrupt-inputs	Error and interrupt inputs
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a75e8	880	tlbmiss	dwarf+symtab	6bb1420242c8		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a7958	428	tlbmod	dwarf+symtab	859d3466e532		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/unix.IP27	shared-kernel	n64	.text	0xc0000000001a7b04	456	emulate_branch	dwarf+symtab	cfa0c09b0307		in	named-only	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -207678,11 +207678,11 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020010b00	120	unmaptlb	dwarf+symtab	a269846f62a2		in	named-only	software/kernel/page-migration.md#what-a-re-implementation-would-need-from-the-running-system	What a re-implementation would need from the running system
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020010b78	60	invaltlb	dwarf+symtab	f2054c56d400		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020010bb4	104	tlbwired	dwarf+symtab	f403c3f9f437		in	named-only	software/kernel/numa-text-replication.md#4-rewriting-executable-kernel-pages-after-mlreset	4. Rewriting executable kernel pages after `mlreset`
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020010c1c	220	tlbdropin	dwarf+symtab	caa81380afdb		in	named-only		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020010c1c	220	tlbdropin	dwarf+symtab	caa81380afdb		in	named-only	formats/r10k_tlb/README.md#what-was-checked	What was checked
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020010cf8	92	tlbdrop2in	dwarf+symtab	79cf9fc6d74b		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020010d54	124	tlbdropin_lpgs	dwarf+symtab	fd8da05b957a		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020010dd0	72	flush_tlb	dwarf+symtab	7f3480fd64a9		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020010e18	76	set_tlbpid	dwarf+symtab	63a6a942c92d		in	named-only		
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020010e18	76	set_tlbpid	dwarf+symtab	63a6a942c92d		in	named-only	formats/r10k_tlb/README.md#what-was-checked	What was checked
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020010e64	104	tlbfind	dwarf+symtab	c970e2a4d174		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020010ecc	12	tlbgetpid	dwarf+symtab	a03867a769cb		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa800000020010ed8	72	tlbgetent	dwarf+symtab	b0104b97985e		in	named-only		
@@ -212854,7 +212854,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016eccc	8	nopkg	dwarf+symtab	6bc8e674fbf7		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016ecd4	44	noreach	dwarf+symtab	9da689aad98e		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016ed00	8	nullsys	dwarf+symtab	87506497337c		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016ed08	264	buserror_intr	dwarf+symtab	38b557cc293a		in	named-only	software/kernel/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016ed08	264	buserror_intr	dwarf+symtab	38b557cc293a		in	named-only	software/video/crime.md#error-and-interrupt-inputs	Error and interrupt inputs
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016ee10	868	tlbmiss	dwarf+symtab	3711df08659b		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016f174	316	tlbmod	dwarf+symtab	002f30ca81e6		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/unix.IP30	shared-kernel	n64	.text	0xa80000002016f2b0	456	emulate_branch	dwarf+symtab	bf622ec24a43		in	named-only	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -220761,7 +220761,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000040a90	120	unmaptlb	dwarf+symtab	0a0867810079		in	named-only	software/kernel/page-migration.md#what-a-re-implementation-would-need-from-the-running-system	What a re-implementation would need from the running system
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000040b08	60	invaltlb	dwarf+symtab	f2054c56d400		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000040b44	104	tlbwired	dwarf+symtab	3c25f226b9e5		in	named-only	software/kernel/numa-text-replication.md#4-rewriting-executable-kernel-pages-after-mlreset	4. Rewriting executable kernel pages after `mlreset`
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000040bac	220	tlbdropin	dwarf+symtab	f3348f309aef		in	named-only		
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000040bac	220	tlbdropin	dwarf+symtab	f3348f309aef		in	named-only	formats/r10k_tlb/README.md#what-was-checked	What was checked
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000040c88	92	tlbdrop2in	dwarf+symtab	79cf9fc6d74b		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000040ce4	124	tlbdropin_lpgs	dwarf+symtab	fd8da05b957a		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000040d60	72	flush_tlb	dwarf+symtab	7f3480fd64a9		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -227831,7 +227831,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000256040	8	nopkg	dwarf+symtab	6bc8e674fbf7		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000256048	44	noreach	dwarf+symtab	3164133a7ecd		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc000000000256074	8	nullsys	dwarf+symtab	87506497337c		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000025607c	272	buserror_intr	dwarf+symtab	6c37c9f4fcd9		in	named-only	software/kernel/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000025607c	272	buserror_intr	dwarf+symtab	6c37c9f4fcd9		in	named-only	software/video/crime.md#error-and-interrupt-inputs	Error and interrupt inputs
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc00000000025618c	880	tlbmiss	dwarf+symtab	0106025691f8		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002564fc	424	tlbmod	dwarf+symtab	f55663074929		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/unix.IP35	shared-kernel	n64	.text	0xc0000000002566a4	456	emulate_branch	dwarf+symtab	2bc240778418		in	named-only	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -249372,7 +249372,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x3220	8	nopkg	dwarf+symtab	6bc8e674fbf7		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x3228	44	noreach	dwarf+symtab	00e955d84f14		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x3254	8	nullsys	dwarf+symtab	87506497337c		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x325c	272	buserror_intr	dwarf+symtab	899c19eec4e3		in	named-only	software/kernel/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x325c	272	buserror_intr	dwarf+symtab	899c19eec4e3		in	named-only	software/video/crime.md#error-and-interrupt-inputs	Error and interrupt inputs
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x336c	880	tlbmiss	dwarf+symtab	bbd04489d9d0		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x36dc	428	tlbmod	dwarf+symtab	32a6dddbce3f		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP27boot/os.a(trap.o)	shared-kernel	n64	.text	0x3888	456	emulate_branch	dwarf+symtab	9ded9d71da83		in	named-only	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -261984,11 +261984,11 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x980	120	unmaptlb	dwarf+symtab	a269846f62a2		in	named-only	software/kernel/page-migration.md#what-a-re-implementation-would-need-from-the-running-system	What a re-implementation would need from the running system
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0x9f8	60	invaltlb	dwarf+symtab	f2054c56d400		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xa34	104	tlbwired	dwarf+symtab	f403c3f9f437		in	named-only	software/kernel/numa-text-replication.md#4-rewriting-executable-kernel-pages-after-mlreset	4. Rewriting executable kernel pages after `mlreset`
-6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xa9c	220	tlbdropin	dwarf+symtab	caa81380afdb		in	named-only		
+6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xa9c	220	tlbdropin	dwarf+symtab	caa81380afdb		in	named-only	formats/r10k_tlb/README.md#what-was-checked	What was checked
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xb78	92	tlbdrop2in	dwarf+symtab	79cf9fc6d74b		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xbd4	124	tlbdropin_lpgs	dwarf+symtab	fd8da05b957a		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xc50	72	flush_tlb	dwarf+symtab	7f3480fd64a9		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xc98	76	set_tlbpid	dwarf+symtab	63a6a942c92d		in	named-only		
+6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xc98	76	set_tlbpid	dwarf+symtab	63a6a942c92d		in	named-only	formats/r10k_tlb/README.md#what-was-checked	What was checked
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xce4	104	tlbfind	dwarf+symtab	c970e2a4d174		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xd4c	12	tlbgetpid	dwarf+symtab	a03867a769cb		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP30boot/kernel.o	shared-kernel	n64	.text	0xd58	72	tlbgetent	dwarf+symtab	b0104b97985e		in	named-only		
@@ -267844,7 +267844,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x31f4	8	nopkg	dwarf+symtab	6bc8e674fbf7		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x31fc	44	noreach	dwarf+symtab	007966372108		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x3228	8	nullsys	dwarf+symtab	87506497337c		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x3230	264	buserror_intr	dwarf+symtab	0f032f5712cf		in	named-only	software/kernel/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x3230	264	buserror_intr	dwarf+symtab	0f032f5712cf		in	named-only	software/video/crime.md#error-and-interrupt-inputs	Error and interrupt inputs
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x3338	868	tlbmiss	dwarf+symtab	b3007c0bc8f3		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x369c	316	tlbmod	dwarf+symtab	f9c14c0ddcc7		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP30boot/os.a(trap.o)	shared-kernel	n64	.text	0x37d8	456	emulate_branch	dwarf+symtab	d5cc70f4dcb9		in	named-only	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -279323,10 +279323,10 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x800	172	unmaptlb	dwarf+symtab	655ef2d328bb		in	named-only	software/kernel/page-migration.md#what-a-re-implementation-would-need-from-the-running-system	What a re-implementation would need from the running system
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x8ac	96	invaltlb	dwarf+symtab	77c8882b31cb		in	named-only	software/kernel/numa-text-replication.md#4-rewriting-executable-kernel-pages-after-mlreset	4. Rewriting executable kernel pages after `mlreset`
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x90c	160	tlbwired	dwarf+symtab	45075db6b023		in	named-only	software/kernel/numa-text-replication.md#4-rewriting-executable-kernel-pages-after-mlreset	4. Rewriting executable kernel pages after `mlreset`
-6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x9ac	324	tlbdropin	dwarf+symtab	54e7c4896037		in	named-only		
+6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x9ac	324	tlbdropin	dwarf+symtab	54e7c4896037		in	named-only	formats/r10k_tlb/README.md#what-was-checked	What was checked
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xaf0	176	tlbdrop2in	dwarf+symtab	4f7a3ddc5add		in	named-only	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xba0	92	flush_tlb	dwarf+symtab	8a4125e37d2b		in	named-only	software/kernel/ip30-kernel-functions.md#bridge-error-handling-pcibro	Bridge error handling: `pcibr.o`
-6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xbfc	136	set_tlbpid	dwarf+symtab	a86ca2c3d806		in	named-only		
+6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xbfc	136	set_tlbpid	dwarf+symtab	a86ca2c3d806		in	named-only	formats/r10k_tlb/README.md#what-was-checked	What was checked
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xc84	180	tlbfind	dwarf+symtab	6e003f4c2c6d		in	named-only		
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xd38	12	tlbgetpid	dwarf+symtab	5522d9383584		in	named-only		
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xd44	160	tlbgetent	dwarf+symtab	a10b65c90a8e		in	named-only		
@@ -279603,8 +279603,8 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x9f20	52	crimestray	dwarf+funcnames	f83e6405ae8b		in	located	evidence/instruction-readings-kudzu-g2.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x9f54	36	crmerr_intr	dwarf+symtab	b1f452e5d4f9		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x9f78	128	set_hwperf_intr	dwarf+symtab	a1c1ca8f8334		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x9ff8	220	synthclock	dwarf+symtab	1de465b95fe4		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa0d4	216	synthackkgclock	dwarf+symtab	c2819ce19a11		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0x9ff8	220	synthclock	dwarf+symtab	1de465b95fe4		in	named-only	software/video/crime.md#error-and-interrupt-inputs	Error and interrupt inputs
+6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa0d4	216	synthackkgclock	dwarf+symtab	c2819ce19a11		in	named-only	software/video/crime.md#error-and-interrupt-inputs	Error and interrupt inputs
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa1ac	48	is_thd	dwarf+funcnames	37ace133b894		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa1dc	108	crimegang	dwarf+symtab	cb3a138505af		in	located	evidence/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	shared-kernel	n32	.text	0xa248	64	crime_intr_enable	dwarf+symtab	296e46e5ca75		in	located	evidence/instruction-readings-kudzu-g1.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -281598,7 +281598,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x250	360	mvptransfer_nextiep	dwarf+funcnames	8dcc47552625		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x3b8	364	mvptransfer_nextcep	dwarf+funcnames	ff3e61964f36		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x524	856	mvptransfer_start_dma	dwarf+funcnames	e8cf2ee395ba		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x87c	196	mvptransfer_stop_dma	dwarf+symtab	1dc54c807368		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x87c	196	mvptransfer_stop_dma	dwarf+symtab	1dc54c807368		in	named-only	software/video/mace-video.md#channel-registers	Channel registers
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x940	132	mvptransfer_alloc_next_read	dwarf+funcnames	4367db6211d6		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x9c4	220	mvptransfer_get_next_write	dwarf+funcnames	6dbc95e01eca		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xaa0	736	mvptransfer_getbuffs	dwarf+funcnames	21b8dfa72701		in	undocumented		
@@ -281609,7 +281609,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x12a4	792	mvptransfer_bufferdone	dwarf+funcnames	52b2578c1e79		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x15bc	484	mvptransfer_sendbuff	dwarf+funcnames	d5d4585c59d7		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x17a0	56	mvptransfer_continuing	dwarf+funcnames	d05f9d984537		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x17d8	172	mvptransfer_enablechannel	dwarf+symtab	83a1f5789e9a		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x17d8	172	mvptransfer_enablechannel	dwarf+symtab	83a1f5789e9a		in	named-only	software/video/mace-video.md#channel-registers	Channel registers
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x1884	348	mvptransfer_getustmsc	dwarf+funcnames	1a48f534e248		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x19e0	2028	mvptransfer_screen_interrupt	dwarf+symtab	5c87e3afdb96		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x21cc	160	mvptransfer_fix_output	dwarf+funcnames	bc0048dd677d		in	undocumented		
@@ -281706,7 +281706,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x84e4	8	mvpdebug_unload	dwarf+symtab	78aa5094d5ec		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x84ec	52	mvpi2c_printerror	dwarf+symtab	9cd18d002f24		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x8520	76	mvpi2c_register_av	dwarf+symtab	a2f2c1825181		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x856c	204	mvpi2c_config	dwarf+symtab	7b0f998f058a		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x856c	204	mvpi2c_config	dwarf+symtab	7b0f998f058a		in	named-only	software/video/mace-video.md#two-wire-bus	Two-wire bus
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x8638	40	mvpi2c_read_config	dwarf+symtab	6e339ff2d43a		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x8660	184	mvpi2c_reset	dwarf+symtab	fc6ed6259da6		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0x8718	88	mvpi2c_fastmode	dwarf+symtab	1500ccda3e8f		in	undocumented		
@@ -281749,9 +281749,9 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xb8c0	36	mvpreg_setup_timing	dwarf+symtab	e722b5dacacb		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xb8e4	44	mvpreg_cdto_wait	dwarf+funcnames	5423dfdb56f8		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xb910	1184	mvpreg_setpassthru	dwarf+symtab	4ea98e31c63c		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xbdb0	188	mvpreg_init	dwarf+symtab	ecd36a9c2148		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xbdb0	188	mvpreg_init	dwarf+symtab	ecd36a9c2148		in	named-only	software/video/mace-video.md#window-map	Window map
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xbe6c	8	mvpreg_unload	dwarf+symtab	78aa5094d5ec		in	undocumented		
-6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xbe74	1776	mvpreg_syncpath_controls	dwarf+symtab	dc242cbe7e80		in	undocumented		
+6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xbe74	1776	mvpreg_syncpath_controls	dwarf+symtab	dc242cbe7e80		in	named-only	software/video/mace-video.md#gbe-capture-block	GBE capture block
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xc564	144	mvpreg_gettiming	dwarf+funcnames	800bc84e48a1		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xc5f4	960	mvpreg_syncdevice_controls	dwarf+symtab	353a98a0402c		in	undocumented		
 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	shared-kernel	n32	.text	0xc9b4	128	mvp_pio_read64	dwarf+symtab	1b82094aa278	shared-address	in	undocumented		
@@ -285118,7 +285118,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32a0	8	nopkg	dwarf+symtab	6bc8e674fbf7		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32a8	44	noreach	dwarf+symtab	ed914c3f4f08		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32d4	8	nullsys	dwarf+symtab	87506497337c		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32dc	268	buserror_intr	dwarf+symtab	26882243f715		in	named-only	software/kernel/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x32dc	268	buserror_intr	dwarf+symtab	26882243f715		in	named-only	software/video/crime.md#error-and-interrupt-inputs	Error and interrupt inputs
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x33e8	776	tlbmiss	dwarf+symtab	6c763e88b26c		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x36f0	580	tlbmod	dwarf+symtab	86aa7d6be0cc		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP32boot/os.a(trap.o)	shared-kernel	n32	.text	0x3934	452	emulate_branch	dwarf+symtab	538b6f765e26		in	named-only	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -297410,7 +297410,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x910	120	unmaptlb	dwarf+symtab	0a0867810079		in	named-only	software/kernel/page-migration.md#what-a-re-implementation-would-need-from-the-running-system	What a re-implementation would need from the running system
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x988	60	invaltlb	dwarf+symtab	f2054c56d400		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0x9c4	104	tlbwired	dwarf+symtab	3c25f226b9e5		in	named-only	software/kernel/numa-text-replication.md#4-rewriting-executable-kernel-pages-after-mlreset	4. Rewriting executable kernel pages after `mlreset`
-6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xa2c	220	tlbdropin	dwarf+symtab	f3348f309aef		in	named-only		
+6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xa2c	220	tlbdropin	dwarf+symtab	f3348f309aef		in	named-only	formats/r10k_tlb/README.md#what-was-checked	What was checked
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xb08	92	tlbdrop2in	dwarf+symtab	79cf9fc6d74b		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xb64	124	tlbdropin_lpgs	dwarf+symtab	fd8da05b957a		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP35boot/kernel.o	shared-kernel	n64	.text	0xbe0	72	flush_tlb	dwarf+symtab	7f3480fd64a9		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
@@ -304379,7 +304379,7 @@ binary	role	abi	elf_section	address	size	name	source	code_sha	rejected	scope	sta
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x3130	8	nopkg	dwarf+symtab	6bc8e674fbf7		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x3138	44	noreach	dwarf+symtab	00e955d84f14		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x3164	8	nullsys	dwarf+symtab	87506497337c		in	located	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts
-6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x316c	272	buserror_intr	dwarf+symtab	719f74f0c531		in	named-only	software/kernel/ip30-kernel-functions.md#ioc3-serial-ports-the-ioc3-driver	IOC3 serial ports: the `ioc3` driver
+6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x316c	272	buserror_intr	dwarf+symtab	719f74f0c531		in	named-only	software/video/crime.md#error-and-interrupt-inputs	Error and interrupt inputs
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x327c	880	tlbmiss	dwarf+symtab	976b7d433183		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x35ec	424	tlbmod	dwarf+symtab	48cb7b0a0268		in	named-only	evidence/version-diffs-queue.tsv	
 6.5.30/usr/cpu/sysgen/IP35boot/os.a(trap.o)	shared-kernel	n64	.text	0x3794	456	emulate_branch	dwarf+symtab	9ded9d71da83		in	named-only	evidence/instruction-readings-kudzu-g3.md#instruction-readings-from-hostfacts	Instruction readings from hostfacts

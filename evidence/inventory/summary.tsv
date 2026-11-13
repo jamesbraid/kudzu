@@ -1,7 +1,7 @@
 table	rows	out_of_scope	understood	understood_with_open	understood_distinct	templated	located	named_only	undocumented	no_software_dependency	pct_understood	pct_located_or_better	pct_mentioned	pct_done	unresolved_sites	truncated	audited_real_pct	audited_sample	audited_date	computes	reused	multi_unit	shared_address	address_unknown	input
 binaries	7737	0	1	0	1	1	1	872	6863	0	0.0	0.0	11.3	0.0							0				
-functions	242521	115978	3037	206	1971	27225	29874	144307	65303	0	1.3	13.6	73.1	1.3			100.0	6	2026-11-02		0	163	2722	0	
-functions (distinct names)	24901	25609	1006	68	964	6829	7232	7023	9640	0	4.0	33.1	61.3	4.0							0				
+functions	242521	115978	3037	206	1971	27225	29874	144321	65289	0	1.3	13.6	73.1	1.3			100.0	6	2026-11-02		0	163	2722	0	
+functions (distinct names)	24901	25609	1006	68	964	6829	7232	7030	9633	0	4.0	33.1	61.3	4.0							0				
 mmio	176	0	4	0	3	0	0	101	71	0	2.3	2.3	59.7	2.3	2121						0				
 tokens	0	0	0	0	0	0	0	0	0	0	0.0	0.0	0.0	0.0							0				
 ioctls	7	0	2	0	1	5	5	0	0	0	28.6	100.0	100.0	28.6							0				
@@ -2642,7 +2642,7 @@ functions in 6.5.22/usr/cpu/sysgen/IP32boot/kbd.o	42	0	0	0	0	0	0	0	42	0	0.0	0.0	
 functions in 6.5.22/usr/cpu/sysgen/IP32boot/kdsp.a(kdsp_di.o)	132	0	0	0	0	0	0	87	45	0	0.0	0.0	65.9	0.0							0	0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP32boot/kdsp.a(kdsp_events.o)	25	0	0	0	0	0	0	21	4	0	0.0	0.0	84.0	0.0							0	0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP32boot/kdsp.a(audutil.o)	94	0	0	0	0	0	0	12	82	0	0.0	0.0	12.8	0.0							0	0	26	0	
-functions in 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	811	0	31	0	20	78	85	510	185	0	3.8	14.3	77.2	3.8							0	0	141	0	
+functions in 6.5.22/usr/cpu/sysgen/IP32boot/kernel.o	811	0	31	0	20	78	85	512	183	0	3.8	14.3	77.4	3.8							0	0	141	0	
 functions in 6.5.22/usr/cpu/sysgen/IP32boot/keyboard.a(pckbd.o)	14	0	0	0	0	0	0	2	12	0	0.0	0.0	14.3	0.0							0	0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP32boot/kitchenstubs.a(kitchenstubs.o)	5	0	0	0	0	0	0	5	0	0	0.0	0.0	100.0	0.0							0	0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP32boot/klog.o	7	0	0	0	0	0	0	7	0	0	0.0	0.0	100.0	0.0							0	0	0	0	
@@ -2678,7 +2678,7 @@ functions in 6.5.22/usr/cpu/sysgen/IP32boot/mhpckm.o	24	0	1	0	1	1	1	19	3	0	4.2	8
 functions in 6.5.22/usr/cpu/sysgen/IP32boot/mloadidbg.o	10	0	0	0	0	0	9	0	1	0	0.0	90.0	90.0	0.0							0	0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP32boot/mouse.a(pcmouse.o)	5	0	0	0	0	0	0	2	3	0	0.0	0.0	40.0	0.0							0	0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP32boot/msg.o	11	0	0	0	0	0	0	11	0	0	0.0	0.0	100.0	0.0							0	0	0	0	
-functions in 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	169	0	0	0	0	0	0	1	168	0	0.0	0.0	0.6	0.0							0	0	2	0	
+functions in 6.5.22/usr/cpu/sysgen/IP32boot/mvp.o	169	0	0	0	0	0	0	6	163	0	0.0	0.0	3.6	0.0							0	0	2	0	
 functions in 6.5.22/usr/cpu/sysgen/IP32boot/namefs.a(namevfs.o)	12	0	0	0	0	0	0	12	0	0	0.0	0.0	100.0	0.0							0	0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP32boot/namefs.a(namevno.o)	21	0	0	0	0	0	0	9	12	0	0.0	0.0	42.9	0.0							0	0	0	0	
 functions in 6.5.22/usr/cpu/sysgen/IP32boot/nfs.a(nfs_vfsops.o)	10	0	0	0	0	0	0	8	2	0	0.0	0.0	80.0	0.0							0	0	0	0	
@@ -5908,7 +5908,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP32boot/kbd.o	42	0	0	0	0	0	0	0	42	0	0.0	0.0	
 functions in 6.5.30/usr/cpu/sysgen/IP32boot/kdsp.a(kdsp_di.o)	132	0	0	0	0	0	0	87	45	0	0.0	0.0	65.9	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP32boot/kdsp.a(kdsp_events.o)	25	0	0	0	0	0	0	21	4	0	0.0	0.0	84.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP32boot/kdsp.a(audutil.o)	94	0	0	0	0	0	0	12	82	0	0.0	0.0	12.8	0.0							0	0	26	0	
-functions in 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	811	0	31	0	21	78	85	510	185	0	3.8	14.3	77.2	3.8							0	0	141	0	
+functions in 6.5.30/usr/cpu/sysgen/IP32boot/kernel.o	811	0	31	0	21	78	85	512	183	0	3.8	14.3	77.4	3.8							0	0	141	0	
 functions in 6.5.30/usr/cpu/sysgen/IP32boot/keyboard.a(pckbd.o)	14	0	0	0	0	0	0	2	12	0	0.0	0.0	14.3	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP32boot/kitchenstubs.a(kitchenstubs.o)	5	0	0	0	0	0	0	5	0	0	0.0	0.0	100.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP32boot/klog.o	7	0	0	0	0	0	0	7	0	0	0.0	0.0	100.0	0.0							0	0	0	0	
@@ -5952,7 +5952,7 @@ functions in 6.5.30/usr/cpu/sysgen/IP32boot/mhpckm.o	24	0	1	0	1	1	1	19	3	0	4.2	8
 functions in 6.5.30/usr/cpu/sysgen/IP32boot/mloadidbg.o	10	0	0	0	0	0	9	0	1	0	0.0	90.0	90.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP32boot/mouse.a(pcmouse.o)	5	0	0	0	0	0	0	2	3	0	0.0	0.0	40.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP32boot/msg.o	11	0	0	0	0	0	0	11	0	0	0.0	0.0	100.0	0.0							0	0	0	0	
-functions in 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	169	0	0	0	0	0	0	1	168	0	0.0	0.0	0.6	0.0							0	0	2	0	
+functions in 6.5.30/usr/cpu/sysgen/IP32boot/mvp.o	169	0	0	0	0	0	0	6	163	0	0.0	0.0	3.6	0.0							0	0	2	0	
 functions in 6.5.30/usr/cpu/sysgen/IP32boot/namefs.a(namevfs.o)	12	0	0	0	0	0	0	12	0	0	0.0	0.0	100.0	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP32boot/namefs.a(namevno.o)	21	0	0	0	0	0	0	9	12	0	0.0	0.0	42.9	0.0							0	0	0	0	
 functions in 6.5.30/usr/cpu/sysgen/IP32boot/nfs.a(bootparam_xdr.o)	9	0	0	0	0	0	0	9	0	0	0.0	0.0	100.0	0.0							0	0	0	0	
