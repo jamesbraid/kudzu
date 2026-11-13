@@ -55,9 +55,9 @@ Rows in scope are the ones the finish line counts; rows out of scope are listed 
 
 | Table | In scope | Out of scope | Documented | Undocumented |
 |---|---:|---:|---:|---:|
-| [syscalls](inventory/syscalls.tsv) | 2844 | 0 | 2394 | 450 |
+| [syscalls](inventory/syscalls.tsv) | 2844 | 0 | 2418 | 426 |
 | [structs](inventory/structs.tsv) | 343 | 5037 | 277 | 66 |
-| [panics](inventory/panics.tsv) | 6987 | 0 | 5086 | 1901 |
+| [panics](inventory/panics.tsv) | 6987 | 0 | 5140 | 1847 |
 | [selectors](inventory/selectors.tsv) | 18 | 5499 | 18 | 0 |
 | [formats](inventory/formats.tsv) | 29 | 0 | 15 | 14 |
 
