@@ -1,78 +1,78 @@
-[submodule "m2c"]
-	path = m2c
+[submodule "references/code/m2c"]
+	path = references/code/m2c
 	url = https://github.com/techomancer/m2c.git
 	branch = irixn32
-[submodule "spimdisasm"]
-	path = spimdisasm
+[submodule "references/code/spimdisasm"]
+	path = references/code/spimdisasm
 	url = https://github.com/Decompollaborate/spimdisasm.git
-[submodule "libdwarf-code"]
-	path = libdwarf-code
+[submodule "references/code/libdwarf"]
+	path = references/code/libdwarf
 	url = https://github.com/davea42/libdwarf-code.git
-[submodule "ogl-sample"]
-	path = ogl-sample
+[submodule "references/code/ogl-sample"]
+	path = references/code/ogl-sample
 	url = https://github.com/jrmuizel/ogl-sample.git
-[submodule "linux"]
-	path = linux
+[submodule "references/code/linux"]
+	path = references/code/linux
 	url = https://github.com/torvalds/linux.git
-[submodule "linux-irix-compat"]
-	path = linux-irix-compat
+[submodule "references/code/linux-2008-07-15"]
+	path = references/code/linux-2008-07-15
 	url = https://github.com/torvalds/linux.git
-[submodule "linux-2.5.40"]
-	path = linux-2.5.40
+[submodule "references/code/linux-2.5.40"]
+	path = references/code/linux-2.5.40
 	url = https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git
-[submodule "linux-2.4.37"]
-	path = linux-2.4.37
+[submodule "references/code/linux-2.4.37"]
+	path = references/code/linux-2.4.37
 	url = https://github.com/xtreamerdev/linux-mips.git
-[submodule "linux-ip30"]
-	path = linux-ip30
+[submodule "references/code/linux-ip30"]
+	path = references/code/linux-ip30
 	url = https://github.com/jaaron/linux-mips-ip30.git
-[submodule "netbsd"]
-	path = netbsd
+[submodule "references/code/netbsd"]
+	path = references/code/netbsd
 	url = https://github.com/NetBSD/src.git
-[submodule "netbsd-compat-irix"]
-	path = netbsd-compat-irix
+[submodule "references/code/netbsd-2011-04-26"]
+	path = references/code/netbsd-2011-04-26
 	url = https://github.com/NetBSD/src.git
-[submodule "openbsd"]
-	path = openbsd
+[submodule "references/code/openbsd"]
+	path = references/code/openbsd
 	url = https://github.com/openbsd/src.git
-[submodule "mame"]
-	path = mame
+[submodule "references/code/mame"]
+	path = references/code/mame
 	url = https://github.com/mamedev/mame.git
-[submodule "gxemul"]
-	path = gxemul
+[submodule "references/code/gxemul"]
+	path = references/code/gxemul
 	url = https://github.com/retroprom/gxemul.git
-[submodule "qemu-irix"]
-	path = qemu-irix
+[submodule "references/code/qemu-irix"]
+	path = references/code/qemu-irix
 	url = https://github.com/n64decomp/qemu-irix.git
-[submodule "xiri"]
-	path = xiri
+[submodule "references/code/xiri"]
+	path = references/code/xiri
 	url = https://github.com/salvogendut/xiri.git
-[submodule "binutils-gdb"]
-	path = binutils-gdb
+[submodule "references/code/binutils-gdb"]
+	path = references/code/binutils-gdb
 	url = https://sourceware.org/git/binutils-gdb.git
-[submodule "gcc"]
-	path = gcc
+[submodule "references/code/gcc"]
+	path = references/code/gcc
 	url = https://github.com/gcc-mirror/gcc.git
-[submodule "xfsprogs"]
-	path = xfsprogs
+[submodule "references/code/xfsprogs-1.0.0"]
+	path = references/code/xfsprogs-1.0.0
 	url = https://git.kernel.org/pub/scm/fs/xfs/xfsprogs-dev.git
-[submodule "pcp"]
-	path = pcp
+[submodule "references/code/pcp"]
+	path = references/code/pcp
 	url = https://github.com/performancecopilot/pcp.git
-[submodule "fam"]
-	path = fam
+[submodule "references/code/fam"]
+	path = references/code/fam
 	url = https://github.com/saminigod/fam.git
-[submodule "open64"]
-	path = open64
+[submodule "references/code/open64"]
+	path = references/code/open64
 	url = https://github.com/open64-compiler/open64.git
-[submodule "bsd44-lite2"]
-	path = bsd44-lite2
+[submodule "references/code/bsd44-lite2"]
+	path = references/code/bsd44-lite2
 	url = https://github.com/sergev/4.4BSD-Lite2.git
-[submodule "illumos-gate"]
-	path = illumos-gate
+[submodule "references/code/illumos-gate"]
+	path = references/code/illumos-gate
 	url = https://github.com/illumos/illumos-gate.git
-[submodule "irix-657m-src"]
-	path = irix-657m-src
+[submodule "references/code/irix-657m-src"]
+	path = references/code/irix-657m-src
 	url = https://github.com/calmsacibis995/irix-657m-src.git
 [submodule "retools"]
 	path = retools
