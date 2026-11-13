@@ -38,11 +38,9 @@ The share of understood rows that an independent audit found real when it re-der
 |---|---:|---:|---|
 | functions | 100.0% | 6 | 2026-11-02 |
 
-Cross-workspace role check: skipped.
+Cross-workspace role check: compared 980 entries with the entries of chips and crime for the same function and capped 0 at located (the role text is the sibling's, at least 90% alike, and states no offset, immediate value or callee address of its own build).
 
-Skipped: sibling (none) (no sibling workspace configured). Rows are graded without it.
-
-Inputs (also in [summary.tsv](inventory/summary.tsv)): root manifest 3e48bad82ea245ea, 2935 files.
+Inputs (also in [summary.tsv](inventory/summary.tsv)): root manifest 3e48bad82ea245ea, 2935 files; sibling chips 89338278b9d9; sibling crime 58304a1b07b3.
 
 Function rows rejected as ambiguous, at most named-only: 163 whose name is defined in several compilation units, 2722 whose address another name shares (a row can be in both).
 
