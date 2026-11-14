@@ -200,6 +200,25 @@ These offsets and fields are exactly the interrupt destination pair of the shipp
 3. The driver finds its registers with `xtalk_piotrans_addr(vertex, 0, offset, size, 0)` or `xtalk_pio_addr`, a DMA map with `xtalk_dmamap_alloc`, an interrupt with `xtalk_intr_alloc` followed by `xtalk_intr_connect` with a set function that writes the widget's destination registers, and its error handler with `xwidget_error_register`.
 4. The widget number, the master and the part are available through `xwidget_info_get(vertex)` and its accessors, and the user-visible name through `xwidget_name_get`.
 
+<!--
+Question: when an IRIX kernel finds a PCI card behind a crosstalk bridge, which layer does what before a driver's attach routine runs?
+Evidence: software/kernel/xtalk-software.md (sections 3, 5.1 and 7), software/kernel/pcibr-multifunction-scan.md (sections 1 to 3).
+Steps 1 and 2 are read on IP27 and IP35; IP30 probes differently (xtalk-software.md, 5.2).
+-->
+```mermaid
+flowchart TD
+    A["io_init_node reads the widget ID word: part, revision, manufacturer"] --> B["xwidget_register stores the record"]
+    B --> C["xio registry (part, mfgr): attach of each matching driver"]
+    C --> D["Bridge-family driver attach creates the pci vertex"]
+    D --> E["pcibr_slot_info_init: probe function 0, then 1 to 7 if header type bit 7 is set"]
+    E --> F["pciio_device_info_register: one hwgraph vertex per function, slot plus letter"]
+    F --> G["pciio_device_attach, then cdl_add_connpt in the pci registry (vendor, device)"]
+    G --> H["cdl_call_attach: attach of each matching driver"]
+    G -. "no driver took it" .-> I["unknown/pci/vendor/.../instance edge"]
+    J["driver registered later: cdl_add_driver"] -.-> H
+```
+
+
 Step 2 contains one open point: the manual says attach receives "the hardware graph connection point vertex", while `xwidget_register` adds `vertex` itself to the registry; whether these are the same object for the vertices `io_xswitch_widget_init` creates (the widget path is created with `hwgraph_path_add` and the registry receives that handle, while the master is set on `hwgraph_connectpt_get` of it) is unknown (test in the table below).
 
 ## 8. Unknowns and discriminating tests
