@@ -5,7 +5,7 @@ The label and metadata that SGI's XVM volume manager (the successor to XLV) keep
 Companion files, same directory:
 
 - `xvm-disk.h`: the structures below as a C header (compiles with `gcc -std=c11 -fsyntax-only`; sizes are asserted).
-- `formats/xvm/format.toml`: the same structures as the repository's hardware definitions. The generated C, Rust and reference page are under `gen/`. The checks tie its constants and field positions to the tables on this page, so the two cannot drift apart.
+- `formats/xvm/format.toml`: the same structures as the repository's hardware definitions. The generated C, Rust and reference page are under `generated/`. The checks tie its constants and field positions to the tables on this page, so the two cannot drift apart.
 - `xvm-check.py`: re-derives the checkable facts from the binaries (`uv run --script xvm-check.py XVM_LABEL_O SGI_XVM_KO`). Passes 21 checks on ProPack 4 GA, SP2 and SP4 modules; run against the ProPack 6 module it stops at the first table lookup because that release replaced the swap tables with code (see [Linux ProPack differences](#linux-propack-differences)).
 
 ## Grades

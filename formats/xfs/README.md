@@ -2,7 +2,7 @@
 
 What the shipped IRIX 6.5.30 XFS code and tools write to and accept from disk, read from binaries only: superblock versions 1 to 4, directories v1 and v2, inodes v1 and v2, the attribute fork (including SGI's ACL, MAC and capability attributes), and the realtime subvolume. Everything is big-endian. No IRIX source, headers or comments were read. Names are symbols or strings that appear in the shipped binaries. Prose and tables are my own wording.
 
-Companion: `formats/xfs/format.toml` states the layout as the repository's hardware definitions. The generated C, Rust and reference page are under `gen/`. The checks tie its constants and field positions to the tables on this page.
+Companion: `formats/xfs/format.toml` states the layout as the repository's hardware definitions. The generated C, Rust and reference page are under `generated/`. The checks tie its constants and field positions to the tables on this page.
 
 Grades: **established** = read directly in instructions or in a tool's own data tables; **inferred** = follows from what was read but a link is missing; **unknown** = not settled. A grade applies to the row or sentence it sits on.
 

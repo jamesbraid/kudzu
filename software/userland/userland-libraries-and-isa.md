@@ -8,7 +8,7 @@ Two questions about the shipped user space that other projects ask before they p
 - **6.5.22 user space** is the same read from the 6.5.22 Installation Tools and Overlays discs (the product is `eoe_6522m`). Only those three discs are held. The 6.5.22 patch sets and the applications and complementary discs are not, so anything a later 6.5.22 patch changed is not seen here.
 - **Kernels** are the linked `6.5.30/unix.IP35`, `6.5.30/unix.IP27` and their 6.5.22 counterparts in `root/`, plus the kernel objects in `usr/cpu/sysgen/IP27boot/` and `IP35boot/` for both releases.
 - Signatures come from the published IRIX manual pages (`pthread_create(3P)`, `poll(2)`, `mmap(2)` and the others named below). No header was opened.
-- Method: `tools/userland_symbols.py` writes the export tables from `.dynsym`; `tools/userland_isa.py` classifies every aligned word of every executable section by its encoding. Both are re-runnable. `scripts/hostfacts.py` and Capstone were used on a few routines to read the instructions behind a count.
+- Method: `tools/userland_symbols.py` writes the export tables from `.dynsym`; `tools/userland_isa.py` classifies every aligned word of every executable section by its encoding. Both are re-runnable. `retools/tools/hostfacts.py` and Capstone were used on a few routines to read the instructions behind a count.
 
 Grades are as in [AGENTS.md](../../AGENTS.md): established (shown by the binary or a published manual), inferred (with what it rests on) or unknown.
 

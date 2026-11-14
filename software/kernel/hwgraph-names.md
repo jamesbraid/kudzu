@@ -3,8 +3,8 @@
 This page lists the names that the 6.5.30 IP27, IP30 and IP35 kernels put into the hardware graph
 (the `/hw` tree): path components, edge names and the path formats built from them. It also
 records what `hinv` prints from that tree and what the `ioconfig` configuration files say about
-device numbering. The generated tables are [hwgraph-sites.tsv](hwgraph-sites.tsv), one row per
-call that adds a name, and [hwgraph-edges.tsv](hwgraph-edges.tsv), one row per distinct name.
+device numbering. The generated tables are `hwgraph-sites.tsv`, one row per
+call that adds a name, and `hwgraph-edges.tsv`, one row per distinct name.
 [tools/hwgraph-sites.py](../../tools/hwgraph-sites.py) makes both from the kernel binaries.
 
 Grades. "established" means the call was read in a routine the fact sheet covers, and the name it
@@ -45,7 +45,7 @@ fix; the rest are inferred. Each site is in one of two forms: a path (`hwgraph_p
 char and block device adds, where each component becomes a vertex and an edge), or an edge name
 (`hwgraph_edge_add`).
 
-[hwgraph-edges.tsv](hwgraph-edges.tsv) has 146 distinct names: 127 literals and 19 formats. Names
+`hwgraph-edges.tsv` has 146 distinct names: 127 literals and 19 formats. Names
 used on one kernel only:
 
 - IP27 only: `elsc`, `machdep`, `mgras`, `mmsc_control`, `nvram`, `rad1.%d`, `rad1_b`, `rps`,

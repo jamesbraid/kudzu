@@ -10,7 +10,7 @@ processors; those are a consumer's own question against a running kernel, not
 a fact this binary settles, and are left as an open question below.
 
 Evidence is `6.5.30/unix.IP35` (Origin 300/350, Onyx 300/350 class), read with
-`retools/scripts/hostfacts.py` and a capstone-based disassembler script
+`retools/tools/hostfacts.py` and a capstone-based disassembler script
 written for this page. Grades follow [AGENTS.md](../../AGENTS.md): **established**
 is read in the binary; **inferred** says what it rests on; **unknown** says
 what would settle it. Register names are the kernel's own n64 ABI names
