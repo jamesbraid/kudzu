@@ -40,7 +40,7 @@ The share of understood rows that an independent audit found real when it re-der
 
 Cross-workspace role check: compared 981 entries with the entries of chips and crime for the same function and capped 0 at located (the role text is the sibling's, at least 90% alike, and states no offset, immediate value or callee address of its own build).
 
-Inputs (also in [summary.tsv](inventory/summary.tsv)): root manifest 3e48bad82ea245ea, 2935 files; sibling chips 89338278b9d9; sibling crime 58304a1b07b3.
+Inputs (also in [summary.tsv](inventory/summary.tsv)): root manifest 3e48bad82ea245ea, 2935 files; sibling chips 8afa1cb8326a; sibling crime 58304a1b07b3.
 
 Function rows rejected as ambiguous, at most named-only: 163 whose name is defined in several compilation units, 2722 whose address another name shares (a row can be in both).
 
