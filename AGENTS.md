@@ -12,14 +12,14 @@ Platforms: IP27 (Origin 200/2000, Onyx2), IP30 (Octane), IP35 (Origin 300/350, O
 
 ## 2. Evidence
 
-The **shipped 6.5.30 and 6.5.22 binaries are the target.** Each fact is taken from the highest source that states it, in the [evidence order](#evidence-order) at the end of this file, and graded by that source. A fact from a source tree is established once it is confirmed against what shipped, at an address, offset or symbol in a 6.5.30 or 6.5.22 binary. The trees differ from the shipped releases, so an unconfirmed tree fact is graded inferred or unknown.
+The **shipped 6.5.30 and 6.5.22 binaries are the target.** Each fact is taken from the highest source that states it, in the [evidence order](#evidence-order) at the end of this file, and graded by that source. A fact the IRIX source tree defines is established, and is cited by path in that tree. Where a shipped 6.5.30 or 6.5.22 binary confirms it, cite the binary too, at an address, offset or symbol. The trees differ from the shipped releases, so cite the release a source fact was read from.
 
 The public IRIX 6.5.7m tree (`references/code/irix-657m-src`) and the other trees in [references/documents/published-sources.md](references/documents/published-sources.md) are sources under that order. Published SGI documents and man pages, public drivers and emulators, and other reverse-engineering projects rank below them. A note from another project may confirm or contradict a fact, but never supplies one alone.
 
 Rules for what is written down:
 
 - Findings go in your own words, graded **established** (read in full in a source or a binary: the whole function body, table or section, with a citation that names its binary and address), **inferred** (a reasoned reading; say the reasoning) or **unknown**. Anything unlabelled is unknown. Never reword an entry to change its grade.
-- No source text, file structure, comments or internal identifiers from any source tree go into the repository. That includes source file paths and directory layouts: a DWARF record that names the file a structure was declared in is not copied. Symbol names that are present in the shipped binaries' own symbol tables or debug information are fine, and so are names in published headers and manuals.
+- No source text, comments or internal identifiers from any source tree go into the repository. A source file path is cited as the evidence for a fact, not copied as a layout of the tree. Symbol names that are present in the shipped binaries' own symbol tables or debug information are fine, and so are names in published headers and manuals.
 - A fact that no software reveals is labelled "unknown: no shipped software or published source depends on it", with the routes tried. A reimplementer then chooses a value and documents the choice.
 - There is no exposure or provenance record in this repository. The guard is the check described in section 5.
 - Do not paste proprietary binaries, disassembly of whole files, or source into the repository. Short quoted instruction sequences and tables derived from the binaries are fine.
