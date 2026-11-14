@@ -12,13 +12,13 @@ Platforms: IP27 (Origin 200/2000, Onyx2), IP30 (Octane), IP35 (Origin 300/350, O
 
 ## 2. Evidence
 
-The **shipped 6.5.30 and 6.5.22 binaries are the evidence.** A fact is established only at an address, offset or symbol in a binary of one of those releases.
+The **shipped 6.5.30 and 6.5.22 binaries are the target.** Each fact is taken from the highest source that states it, in the [evidence order](#evidence-order) at the end of this file, and graded by that source. A fact from a source tree is established once it is confirmed against what shipped, at an address, offset or symbol in a 6.5.30 or 6.5.22 binary. The trees differ from the shipped releases, so an unconfirmed tree fact is graded inferred or unknown.
 
-Readers may use anything else as a **hint** to find where to look: published SGI documents and man pages, public drivers and emulators, other reverse-engineering projects, and even old leaked source, including the public IRIX 6.5.7m tree (`references/code/irix-657m-src`) and the other trees in [references/documents/published-sources.md](references/documents/published-sources.md). A hint is never evidence. The targets are 6.5.22 and 6.5.30, which differ from every source tree, so every fact a hint suggests must be confirmed at an address in a 6.5.30 or 6.5.22 binary, or graded inferred or unknown.
+The public IRIX 6.5.7m tree (`references/code/irix-657m-src`) and the other trees in [references/documents/published-sources.md](references/documents/published-sources.md) are sources under that order. Published SGI documents and man pages, public drivers and emulators, and other reverse-engineering projects rank below them. A note from another project may confirm or contradict a fact, but never supplies one alone.
 
 Rules for what is written down:
 
-- Findings go in your own words, graded **established** (read in full in a binary: the whole function body, table or section, with address), **inferred** (a reasoned reading; say the reasoning) or **unknown**. Anything unlabelled is unknown. Never reword an entry to change its grade.
+- Findings go in your own words, graded **established** (read in full in a source or a binary: the whole function body, table or section, with a citation that names its binary and address), **inferred** (a reasoned reading; say the reasoning) or **unknown**. Anything unlabelled is unknown. Never reword an entry to change its grade.
 - No source text, file structure, comments or internal identifiers from any source tree go into the repository. That includes source file paths and directory layouts: a DWARF record that names the file a structure was declared in is not copied. Symbol names that are present in the shipped binaries' own symbol tables or debug information are fine, and so are names in published headers and manuals.
 - A fact that no software reveals is labelled "unknown: no shipped software or published source depends on it", with the routes tried. A reimplementer then chooses a value and documents the choice.
 - There is no exposure or provenance record in this repository. The guard is the check described in section 5.
@@ -60,3 +60,17 @@ An open question is not a stopping point: record it in `questions/README.md` wit
 ## 7. Working here
 
 Commit small and often, straight to `main`. Subjects are lowercase, component-prefixed imperatives (`kernel: document the klconfig board walk`); bodies say why. Take a cluster of related rows, take each to `understood`, regenerate, commit.
+
+## Evidence order
+
+For a register or behaviour fact, take it from the highest source that states it and grade it by that source:
+
+1. IRIX source (public `irix-657m-src` tree): read it, write the fact in your own words, never copy source text, cite the path in the tree. A fact it defines is `established`.
+2. Shipped binaries (PROMs, kernels, libraries): confirm the source matches what shipped, and the release differences (6.5.7 source, 6.5.22 and 6.5.30 binaries).
+3. Public Linux, OpenBSD and NetBSD headers and drivers: `established` once the IRIX source confirms them.
+4. Published SGI and vendor manuals.
+5. Notes from other projects (Origami datasheets, QEMU manual pages, emulator code): may confirm or contradict, never supply a fact. A fact resting only on one stays `unknown`, with the note named.
+
+Reset values: `established` when the source states a power-on default or PROM code relies on a reset state; `inferred` when the PROM depends on a value before its first write (cite the PROM address); a read after firmware initialisation is not a reset value and can only rule values out; otherwise `unknown`. A physical hardware read is a last resort, needs the repository owner's approval, and counts as a reset value only for a register firmware provably never writes. Emulator runs are model behaviour, never hardware evidence.
+
+Full text and the checks that enforce it: `retools/tools/README-analysis.md#evidence-order`.
