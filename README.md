@@ -1,151 +1,78 @@
 # kudzu
 
-Reverse-engineering and specification repository for SGI IRIX 6.5.30 and 6.5.22.
+How IRIX 6.5.30 and 6.5.22 boot and drive SGI hardware, from the kernel's side. If you want to know what the
+kernel expects to find before it will attach a driver, this is where to look.
 
-It starts with the hardware-facing and boot-critical kernel: the PROM interface and KLCONFIG parsing, hardware-graph construction, interrupt routing, NUMA and memory initialisation, the topology checks that panic or skip nodes, the device attach framework, and a debugging map of structure layouts, entry points and panic and assert sites. The long-term scope is all of IRIX and its add-ons: the full kernel, CXFS, ONC RPC and NFS, the base applications and libraries.
+Worked out from the shipped kernels (`unix.IP27`, `unix.IP30`, `unix.IP35` and the boot objects), the public
+IRIX 6.5.7m source, SGI manuals and the Linux and BSD drivers. Nothing here probes a machine. Every fact notes
+where it came from and whether it's established, inferred or still unknown.
 
-There is no reimplementation here. The findings are specifications that datasheets, drivers and debuggers elsewhere can use.
+## What's covered
 
-The layout follows the sibling repositories for graphics and chip reverse engineering. Proprietary IRIX binaries are not tracked: copy them from your own media into the ignored `root/` directory as [evidence/irix-files.md](evidence/irix-files.md) describes. [AGENTS.md](AGENTS.md) has the scope rule, the evidence rules and the finish line; [evidence/coverage.md](evidence/coverage.md) is the map of what is covered; [questions/README.md](questions/README.md) lists what the binaries have not yet answered; [references/documents/published-sources.md](references/documents/published-sources.md) says which public trees are pinned and why.
+- **Boot and hardware discovery:** KLCONFIG as the kernels walk it, building the hardware graph, Hub interrupt
+  routing and the crosstalk layer.
+- **PCI and I/O bridges:** the PCI layer, the Bridge, XBridge and PIC provider, slot scans and driver attach.
+- **Platform kernels:** IP27, IP30 and IP35 errors, halt and reset, IOC3, routers and timers.
+- **O2 video:** CRIME, GBE and MACE video as the drivers use them, plus the DM2 and DIVO boards.
+- **On-disk and board formats:** EFS, XFS, XLV, XVM, the volume header, KLCONFIG, one-wire board IDs and more.
+- **System interface:** system calls, `syssgi` selectors, panic sites, and what changed between 6.5.22 and
+  6.5.30 ([evidence/version-diffs.md](evidence/version-diffs.md)).
+- **Userland:** base programs, the ABI and the loader, one line each for now.
 
-## Start here
+The kernel pages are under [software/kernel/](software/kernel/), the formats under [formats/](formats/README.md).
 
-- To use the findings in code (tool authors and driver writers), take the generated C headers and the Rust crate from [generated/c](generated/c) and [generated/rust](generated/rust).
-- To understand a disk format, a record or a kernel table, read its directory under [formats/](formats/): `README.md` explains it, `format.toml` holds every graded field and `format.md` is the generated table.
-- How IRIX drives the hardware and what the kernel and the base system do (interrupts, the hardware graph, the device drivers, system calls, the userland) is under [software/](software/): [software/kernel/](software/kernel/), [software/video/](software/video/) and [software/userland/](software/userland/).
-- What is covered is [evidence/coverage.md](evidence/coverage.md). The routine readings, the generated inventory tables and the cross-checks are in [evidence/](evidence/), the open questions in [questions/README.md](questions/README.md), the published sources in [references/documents/](references/documents/) and the pinned public source trees, as submodules, in [references/code/](references/code/).
-- The repository's own generators and their settings are in [tools/](tools/); the shared toolkit is the `retools/` submodule.
+## Using it
 
-## Document index
+The headers and the crate live in [generated/](generated/). Don't edit them; they're built from the
+`format.toml` files under `formats/`.
 
-Every hand-written document under `software/`, `formats/`, `evidence/`, `questions/` and `references/`, and the top-level Markdown files, grouped by area. Generated pages are not listed one by one; the lines at the end say which they are.
+To run the checks yourself:
 
-### Project files
+```sh
+git clone https://github.com/jamesbraid/kudzu && cd kudzu
+tools/setup-clone.sh --root /path/to/your/irix/files
+retools/tools/re-run retools/tools/defs/ci-check
+```
 
-- [AGENTS.md](AGENTS.md): Scope, evidence rules, layout and checks for the IRIX 6.5 specification
-- [evidence/irix-files.md](evidence/irix-files.md): IRIX files needed for this repository
-- [evidence/coverage.md](evidence/coverage.md): Coverage map and measured totals for the inventory tables
-- [questions/README.md](questions/README.md): Questions the binaries have not yet answered, with routes tried
-- [references/documents/published-sources.md](references/documents/published-sources.md): Public source trees pinned as hints, not evidence, with reasons
-- [evidence/version-diffs.md](evidence/version-diffs.md): IRIX 6.5.22 against 6.5.30: routine-level differences
+You'll need Podman, git, python3 and your own IRIX files. [evidence/irix-files.md](evidence/irix-files.md) lists
+which ones.
 
-### Hardware, boot and device layers
+## How far along
 
-- [formats/klconfig/README.md](formats/klconfig/README.md): KLCONFIG as the kernel reads it
-- [software/kernel/hwgraph.md](software/kernel/hwgraph.md): Hardware graph construction from KLCONFIG board lists
-- [software/kernel/hwgraph-paths.md](software/kernel/hwgraph-paths.md): Hardware-graph path and edge names in the 6.5.30 kernels
-- [software/kernel/interrupts.md](software/kernel/interrupts.md): Hub interrupt routing as the kernel programs it
-- [software/video/gbe.md](software/video/gbe.md): O2 GBE two-wire buses, flat-panel timing words and the dual-channel option probe
-- [software/video/crime.md](software/video/crime.md): O2 CRIME: identity, interrupt inputs, renderer interface buffer, TLBs and the pixel pipeline as the shipped IRIX graphics code drives them
-- [software/video/mace-video.md](software/video/mace-video.md): O2 MACE video: input and output channels, the GBE capture block, the two-wire bus and timer snapshots as the IRIX video driver uses them
-- [software/kernel/ioconfig.md](software/kernel/ioconfig.md): Device unit numbers and the ioconfig file
-- [software/kernel/input-path.md](software/kernel/input-path.md): Input events from a serial tablet module through the shared-memory queue to Xsgi
-- [formats/nic_record/README.md](formats/nic_record/README.md): Board identity read from Dallas 1-Wire number-in-a-can parts
-- [software/kernel/pci-intr-pin.md](software/kernel/pci-intr-pin.md): PCI interrupt pins on the IP35 bridges
-- [software/kernel/pciio-driver-interface.md](software/kernel/pciio-driver-interface.md): PCI driver interface: space codes, flag bits, endianness, interrupt target, id registry
-- [software/kernel/pcibr-multifunction-scan.md](software/kernel/pcibr-multifunction-scan.md): PCI slot scan: multi-function cards, vertex names, PCI-to-PCI bridge functions
-- [software/kernel/sysgen.md](software/kernel/sysgen.md): Kernel configuration tables: driver files, tunables and link directives
+Still a long way to go on the functions; most of the kernel outside the paths above isn't read yet. The open questions are in [questions/](questions/README.md).
+If you spot a mistake or have a manual we don't, [open an issue](https://github.com/jamesbraid/kudzu/issues).
 
-### Generic kernel
+<!-- coverage:begin (copied from evidence/coverage.md; regenerate with: retools/tools/re-run python3 retools/tools/inventory.py && retools/tools/re-run python3 retools/tools/kudzu/os_tables.py) -->
+| Table | Rows | Understood | Located or better |
+|---|---:|---:|---:|
+| binaries | 7737 | 0.0% | 0.0% |
+| functions | 242521 | 1.3% | 13.6% |
+| mmio | 176 | 2.3% | 2.3% |
+| ioctls | 7 | 28.6% | 100.0% |
 
-- [software/kernel/checkpoint-restart.md](software/kernel/checkpoint-restart.md): Checkpoint and restart in the IRIX kernels
-- [software/kernel/driver-ioctls.md](software/kernel/driver-ioctls.md): Driver control requests: IP30 kernel dispatch
-- [software/kernel/errnos.md](software/kernel/errnos.md): Error numbers returned by each system call handler and selector
-- [software/kernel/kernel-debug-signatures.md](software/kernel/kernel-debug-signatures.md): Kernel routine signatures from debug information
-- [software/kernel/kernel-debugger-commands.md](software/kernel/kernel-debugger-commands.md): Commands the optional kernel debugger registers in its objects
-- [software/kernel/kernel-optional-subsystems.md](software/kernel/kernel-optional-subsystems.md): Kernel features that are stubbed, empty, absent or ship separately
-- [software/kernel/kernel-probe-points.md](software/kernel/kernel-probe-points.md): Kernel probe points: a function reference table
-- [software/kernel/kernel-tracing-and-modules.md](software/kernel/kernel-tracing-and-modules.md): Kernel tracing, loadable modules and runtime code patching
-- [software/kernel/module-interfaces.md](software/kernel/module-interfaces.md): Loadable kernel modules and performance counters
-- [software/kernel/namespace-dispatch.md](software/kernel/namespace-dispatch.md): Namespace dispatch: pointer tables and where the code lives
-- [software/kernel/network-and-snapshots.md](software/kernel/network-and-snapshots.md): Network addressing and filtering; XVM and XFS copy-on-write primitives
-- [software/kernel/network-dataplane-and-vfs.md](software/kernel/network-dataplane-and-vfs.md): Network dataplane and virtual file system attachment points
-- [software/kernel/page-migration.md](software/kernel/page-migration.md): Page migration and cross-partition communication in the 6.5.30 kernels
-- [software/kernel/numa-text-replication.md](software/kernel/numa-text-replication.md): Kernel text replication, user page replication and node numbering after start-up (IP27 and IP35)
-- [formats/r10k_tlb/README.md](formats/r10k_tlb/README.md): R10000 TLB geometry and how IRIX 6.5.7 on IP27 uses its wired entries, refills, probes and flushes
-- [software/kernel/process-model.md](software/kernel/process-model.md): Process model, groups, root directories and privilege checks
-- [software/kernel/resource-control.md](software/kernel/resource-control.md): Resource control and NUMA placement: cpusets, miser, limits
-- [formats/scsi/README.md](formats/scsi/README.md): The INQUIRY vendor and product text of a SCSI CD-ROM
-- [software/kernel/syscalls.md](software/kernel/syscalls.md): System call handlers, one entry per native table handler
-- [evidence/syscall-selector-crosscheck.md](evidence/syscall-selector-crosscheck.md): Syscall and syssgi tables cross-checked against public lists
-- [software/kernel/syssgi.md](software/kernel/syssgi.md): syssgi selectors, one at a time, starting with NUMA and memory
-- [software/kernel/trusted-irix.md](software/kernel/trusted-irix.md): Trusted IRIX (CMW, B1, MLS): what shipped and what it could isolate
-- [software/kernel/vfs-layering.md](software/kernel/vfs-layering.md): Loopback file system and the layering interfaces of the VFS
+| Kernel table (in scope) | Rows | Documented |
+|---|---:|---:|
+| syscalls | 2844 | 2418 |
+| structs | 343 | 277 |
+| panics | 6987 | 5140 |
+| selectors | 18 | 18 |
+| formats | 29 | 15 |
+<!-- coverage:end -->
 
-### IP27 kernel
+## License
 
-- [software/kernel/ip27-driver-attach-interrupts.md](software/kernel/ip27-driver-attach-interrupts.md): IP27 kernel: driver attach and interrupt routines
-- [software/kernel/ip27-kernel-io.md](software/kernel/ip27-kernel-io.md): IP27 kernel: I/O bridge, hub and device routines
+[BSD 3-Clause](LICENSE). The `retools/` scripts started life as gr4's and keep its notice. No SGI binaries in
+here; bring your own.
 
-### IP30 kernel
+## Credits
 
-- [software/kernel/ip30-kernel-functions.md](software/kernel/ip30-kernel-functions.md): IP30 kernel: one entry per routine
-- [software/kernel/ip30-timer-compare-rearm.md](software/kernel/ip30-timer-compare-rearm.md): IP30 scheduler clock: CP0 Compare re-arm and a pull-in defect
+James Braid, plus a lot of Claude and Codex reading MIPS kernel disassembly so I didn't have to.
 
-### IP35 kernel
+Thanks to -
 
-- [software/kernel/ip35-cache-error.md](software/kernel/ip35-cache-error.md): Cache error handling in the IP35 kernel
-- [software/kernel/ip35-crash-dump.md](software/kernel/ip35-crash-dump.md): Crash dump of the IP35 kernel: the Hub information pass
-- [software/kernel/ip35-halt-and-reset.md](software/kernel/ip35-halt-and-reset.md): IP35 kernel halt, power-off and reboot paths
-- [software/kernel/ip35-hub-errors.md](software/kernel/ip35-hub-errors.md): Hub error handling in the IP35 kernel
-- [software/kernel/ip35-ioc3.md](software/kernel/ip35-ioc3.md): IOC3 driver routines of the IP35 kernel
-- [software/kernel/ip35-memory-error-address-decode.md](software/kernel/ip35-memory-error-address-decode.md): IP35 kernel readers of the memory-controller configuration word
-- [software/kernel/ip35-node-class-and-link-checks.md](software/kernel/ip35-node-class-and-link-checks.md): IP35 node class register, flash configuration block and link-up bit
-- [software/kernel/ip35-panic-support.md](software/kernel/ip35-panic-support.md): Panic and assertion support in the IP35 kernel
-- [software/kernel/ip35-pci-bridge.md](software/kernel/ip35-pci-bridge.md): PCI bridge driver routines of the IP35 kernel
-- [software/kernel/ip35-pci-interrupt-repost.md](software/kernel/ip35-pci-interrupt-repost.md): How a PCI interrupt is re-posted after its handlers finish
-- [software/kernel/ip35-pcibr-registers.md](software/kernel/ip35-pcibr-registers.md): Bridge register accessors in the IP35 pcibr object
-- [software/kernel/ip35-pciio.md](software/kernel/ip35-pciio.md): Generic PCI layer routines of the IP35 kernel
-- [software/kernel/ip35-router.md](software/kernel/ip35-router.md): Router driver routines of the IP35 kernel
-- [software/kernel/ip35-rtc-and-cycle-counter.md](software/kernel/ip35-rtc-and-cycle-counter.md): How the IP35 kernel reads the real-time counter's period and exposes the cycle counter
-- [software/kernel/ip35-tg-driver.md](software/kernel/ip35-tg-driver.md): What the gigabit Ethernet tg driver expects of its controller
-- [software/kernel/ip35-xtalk.md](software/kernel/ip35-xtalk.md): Crosstalk layer entry points of the IP35 kernel
-
-### Kernel topic notes
-
-- [software/kernel/2106-core-time.md](software/kernel/2106-core-time.md): IRIX 6.5.30 core kernel time at 2038 and 2106
-- [software/kernel/boot-time-nsd-getpwuid.md](software/kernel/boot-time-nsd-getpwuid.md): getpwuid failing at boot once the clock passes 2^31
-- [software/kernel/hardware-register-use.md](software/kernel/hardware-register-use.md): What the IRIX kernel, libraries and X modules do with registers whose maps live in the chips and crime repositories
-- [software/kernel/idle-and-wait-loops.md](software/kernel/idle-and-wait-loops.md): Idle loop and look-alike wait loops in the IRIX kernels
-- [software/kernel/xfs-mount-and-block-io.md](software/kernel/xfs-mount-and-block-io.md): IRIX 6.5.30 XFS mount path, superblock checks and block I/O
-- [software/kernel/xfs-timestamps.md](software/kernel/xfs-timestamps.md): XFS inode timestamps: reads, writes, widths and signedness
-- [software/kernel/xtalk-software.md](software/kernel/xtalk-software.md): Software side of the crosstalk link in IRIX
-- [software/kernel/y2038-signed-time-scan.md](software/kernel/y2038-signed-time-scan.md): Signed 32-bit time scan across the shipped 6.5.30 binaries
-
-### Userland
-
-- [software/userland/userland.md](software/userland/userland.md): IRIX 6.5.30 base user-space programs, one entry each
-- [software/video/dmedia-video-drivers.md](software/video/dmedia-video-drivers.md): host software for the DMediaPro DM2 (XT-DIGVID) and DIVO video boards: drivers, ML and VL modules, daemons, firmware download
-- [software/userland/userland-abi-and-loader.md](software/userland/userland-abi-and-loader.md): Userland ABI and the dynamic loader
-- [software/userland/userland-libraries-and-isa.md](software/userland/userland-libraries-and-isa.md): Userland libraries and the instruction-set level
-
-### On-disk formats (formats/)
-
-- [formats/efs/README.md](formats/efs/README.md): EFS on-disk format: superblock, bitmaps, inodes and extents
-- [formats/volhdr/README.md](formats/volhdr/README.md): SGI disk volume header (dvh) on-disk format
-- [formats/xfs/README.md](formats/xfs/README.md): XFS on-disk format as written by IRIX 6.5.30
-- [formats/xlv/README.md](formats/xlv/README.md): XLV on-disk label format, recovered from the 6.5.30 binaries
-- [formats/xvm/README.md](formats/xvm/README.md): XVM volume label and metadata, recovered from the binaries
-
-### Not indexed one by one
-
-- Generated, not indexed one by one: the 46 layout pages in `software/kernel/structs/` (each says it is generated by `scripts/struct_fields.py`) and `software/kernel/panics.md`.
-- Instruction-reading notes `evidence/instruction-readings-kudzu-g1.md` and `evidence/instruction-readings-kudzu-g2.md`, not indexed.
-
-## Hardware definitions
-
-The hardware structures this repository specifies are described once, in TOML: `formats/<name>/format.toml`. Each unit file gives its constants, registers and fields with a grade (established, inferred or unknown) and a source. `generated/` holds what is generated from them: C headers, a Rust crate, Python decode helpers, flat JSON and a genxml export, and the reference page of each unit is `format.md` beside its source. Do not edit `generated/` or `format.md`; edit the TOML and run `retools/tools/defs/defs-gen`. Register maps of the hardware IRIX drives (hub, PCI bridge, one-wire parts, R10000 timer, O2 CRIME, GBE and MACE video) are in the chips and crime repositories; what the kernel does with them is in [software/kernel/hardware-register-use.md](software/kernel/hardware-register-use.md).
-
-## Running the tools
-
-After cloning, run `git submodule update --init retools`: the container definitions and shared scripts are in it, under `retools/tools/` (shared) and `retools/tools/kudzu/` (this repository's). Run them from the repository root by that path. The other submodules are public reference trees and are large; initialise them only when you want them ([tools/README.md](tools/README.md) describes `tools/setup-clone.sh`, which links `root/` and fetches the public-source submodules).
-
-The host needs Podman, git and python3. Everything else runs in a container; [tools/README.md](tools/README.md) has the commands:
-
-    retools/tools/re-run python3 retools/tools/inventory.py             # binaries, functions, ioctls, scope
-    retools/tools/re-run python3 retools/tools/kudzu/os_tables.py     # system calls, structures, panic sites, formats
-    tools/check-os-tables                                     # fail if the committed tables are stale
-
-The generated tables are in [evidence/inventory/](evidence/inventory/README.md). `git status --short evidence` shows nothing after a run when your `root/` matches `tools/config/inventory-root.sha256`.
-
-Licence: BSD-3-Clause, see [LICENSE](LICENSE). The scripts descend from gr4's and keep its notice in [retools/tools/LICENSE-gr4](retools/tools/LICENSE-gr4).
+* Dominik Behr ([@techomancer](https://github.com/techomancer)) for [gr2](https://github.com/techomancer/gr2)
+  and [gr4](https://github.com/techomancer/gr4), where the layout and working style come from
+* The Linux-MIPS, NetBSD and OpenBSD folks, whose SGI ports get checked against constantly
+* The XFS developers, whose xfsprogs still documents the on-disk format
+* The binutils, GCC and Open64 people, whose tools make sense of IRIX's ELF and DWARF
+* Everyone keeping SGI manuals, `hinv` dumps and IRIX media online
