@@ -48,7 +48,9 @@ argument. **Established** for all arithmetic below (all three read in full).
   untouched): the eight 1 GB slots of a node are permuted only within each group of four that share bit 32.
   Established for these three routines.
 - None of the loads above is followed by a store back to the word. The kernel's IP35 slot-size routine (0xc00000000004f408) XORs the slot number with a halfword at +58 of the memory
-  component ([klconfig.md](../../formats/klconfig/README.md)); that this halfword equals S is **inferred**, and the PROM store that fills it
-  was not found (see the chips repository's `docs/questions/ip35-prom-memory-bank-config.md` item 4).
+  component ([klconfig.md](../../formats/klconfig/README.md)). That halfword is S: the IP35 PROM's KLCONFIG builder stores bits 33:32 of the word there
+  (`ip35prom` 6.210 at 0x1fc54788) and records the bank sizes in the word's lane order, so the kernel's XOR turns lane order into software slot order
+  (chips repository, `platforms/ip35/memory-population.md`). A node whose bank 0 is empty therefore sizes and addresses memory correctly with no
+  kernel change; a reader that places entry i of the size array at i GB without the XOR does not. Established for both sides.
 - Software that never reads bits 33:32 sees no effect of S except in this error decode, so an implementation that gets S wrong
   mislabels error reports and nothing else, provided the access path itself applies the XOR.
