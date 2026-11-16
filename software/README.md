@@ -12,6 +12,7 @@
 | [driver-ioctls.md](kernel/driver-ioctls.md) | Driver control requests: IP30 kernel dispatch | Request dispatch of control-call entries in the IRIX 6.5.30 IP30 kernel (`6.5.30/unix.IP30`, a linked 64-bit MIPS... |
 | [errnos.md](kernel/errnos.md) | Error numbers returned by handlers | For each native system call handler and each `syssgi` selector of the 6.5.30 kernels, this page and its table list... |
 | [hardware-register-use.md](kernel/hardware-register-use.md) | How the IRIX kernel uses registers owned by other repositories | The register maps for the hardware that IRIX drives (the hub, the PCI bridge, the one-wire parts, the R10000 timer... |
+| [headless-keyboard-ip22-ip32.md](kernel/headless-keyboard-ip22-ip32.md) | Indy, Indigo2 and O2 kernels with no PS/2 keyboard or mouse | Question. |
 | [hollywood-dsp-driver.md](kernel/hollywood-dsp-driver.md) | SGI Hollywood DSP audio driver and its user interface | Not the Sonic Solutions HDSP PCI audio card, which is a different product. |
 | [hwgraph-names.md](kernel/hwgraph-names.md) | Hardware-graph names in the 6.5.30 kernels | This page lists the names that the 6.5.30 IP27, IP30 and IP35 kernels put into the hardware graph (the `/hw` tree)... |
 | [hwgraph-paths.md](kernel/hwgraph-paths.md) | Hardware-graph path and edge names in the 6.5.30 kernels | Which names the 6.5.30 kernels put into the hardware graph, where each one is added, and which path shapes each... |
