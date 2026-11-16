@@ -42,8 +42,8 @@ This pair is why the answers differ between gettimeofday and stat (see A2).
 * `time` itself is a 32-bit signed int (`lw`/`sw`) set by `init_timebase` (0x27864) as `time = rtodc()`.
 
 ### rtodc and wtodc (the reason the value goes negative)
-* `rtodc` (0x2a2b8, 0x52c bytes): reads BCD fields in two register layouts (see [ip35-tod-clock.md](ip35-tod-clock.md); an earlier
-  reading here said three chip types, which the 2026-11 re-read corrected), year = BCD value + 1968 (constant 0x7b0). So the
+* `rtodc` (0x2a2b8, 0x52c bytes): reads BCD fields in one of two register layouts, chosen by the IOC's PCI id (see
+  [ip35-tod-clock.md](ip35-tod-clock.md); an earlier reading here said three chip types, which a re-read corrected), year = BCD value + 1968 (constant 0x7b0). So the
   chip can only express 1968-2067 and the kernel never checks the year. Range checks are only on
   sec<60, min<60, hour<24, mday<32, month<13 (signed `slti`). It accumulates seconds in 32-bit
   `mult/addu` (days loop from year 1970 with 400/100/4 leap rules) and returns the 32-bit sum
