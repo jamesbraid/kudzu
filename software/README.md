@@ -73,6 +73,12 @@
 | [xtalk-software.md](kernel/xtalk-software.md) | The software side of the crosstalk link in IRIX | How the IRIX 6.5 kernel sees the XIO (Crosstalk) link: the provider layer, widget discovery, the table that ties a... |
 | [y2038-signed-time-scan.md](kernel/y2038-signed-time-scan.md) | Year-2038 signed 32-bit time scan across the shipped IRIX 6.5.30 binaries | An independent re-check against the shipped binaries changed this note. |
 
+## standalone
+
+| Page | Title | Summary |
+|---|---|---|
+| [sash-console.md](standalone/sash-console.md) | sash64 install dialog with console=g and no graphics board (Octane, 6.5.30) | Question. |
+
 ## userland
 
 | Page | Title | Summary |
