@@ -44,6 +44,7 @@
 | [ip35-router.md](kernel/ip35-router.md) | Router driver routines of the IP35 kernel | Routines of the NUMAlink router code in the IRIX 6.5.30 IP35 kernel (`6.5.30/unix.IP35`, a linked 64-bit image with... |
 | [ip35-rtc-and-cycle-counter.md](kernel/ip35-rtc-and-cycle-counter.md) | IP35: how the kernel reads the real-time counter's period and exposes the cycle counter | Scope. |
 | [ip35-tg-driver.md](kernel/ip35-tg-driver.md) | IP35: what the gigabit Ethernet driver (`tg`) expects of its controller at attach and open | Scope. |
+| [ip35-tod-clock.md](kernel/ip35-tod-clock.md) | IP35: the kernel's time-of-day clock reader and writer | Scope. |
 | [ip35-xtalk.md](kernel/ip35-xtalk.md) | Crosstalk layer entry points of the IP35 kernel | Routines of the machine-independent crosstalk layer (`xtalk`) in the IRIX 6.5.30 IP35 kernel (`6.5.30/unix.IP35`, a... |
 | [kernel-debug-signatures.md](kernel/kernel-debug-signatures.md) | Kernel routine signatures from debug information | Each entry gives what the IRIX 6.5.30 debug information records for one routine: its return type and its formal... |
 | [kernel-debugger-commands.md](kernel/kernel-debugger-commands.md) | Kernel debugger command tables | The commands the optional kernel debugger registers, read from the relocatable objects `idbg.o` and the `*idbg`... |
