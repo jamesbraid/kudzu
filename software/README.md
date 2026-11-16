@@ -31,6 +31,7 @@
 | [ip35-crash-dump.md](kernel/ip35-crash-dump.md) | Crash dump of the IP35 kernel: the Hub information pass | Routines of the IRIX 6.5.30 IP35 kernel (`6.5.30/unix.IP35`, a linked 64-bit image with DWARF, 13,104,040 bytes... |
 | [ip35-graphics-eeprom-label.md](kernel/ip35-graphics-eeprom-label.md) | IP35 kernel: the graphics board EEPROM label path (6.5.30) | Question. |
 | [ip35-halt-and-reset.md](kernel/ip35-halt-and-reset.md) | IP35 kernel halt, power-off and reboot paths | How the IRIX 6.5.30 IP35 kernel (`6.5.30/unix.IP35`, linked 64-bit image with a symbol table and DWARF) takes the... |
+| [ip35-headless-input.md](kernel/ip35-headless-input.md) | IP35 kernel with no PS/2 keyboard or mouse: probe, console choice, USB | How the IRIX 6.5.30 IP35 kernel (`6.5.30/unix.IP35`, sha256 begins `412a1aae553a3483`) finds that a PS/2 keyboard or... |
 | [ip35-hub-errors.md](kernel/ip35-hub-errors.md) | Hub error handling in the IP35 kernel | Routines of the Hub (node controller) error code in the IRIX 6.5.30 IP35 kernel (`6.5.30/unix.IP35`, a linked 64-bit... |
 | [ip35-ioc3.md](kernel/ip35-ioc3.md) | IOC3 driver routines of the IP35 kernel | Routines of the IOC3 PCI I/O controller code in the IRIX 6.5.30 IP35 kernel (`6.5.30/unix.IP35`, a linked 64-bit... |
 | [ip35-memory-error-address-decode.md](kernel/ip35-memory-error-address-decode.md) | IP35 kernel: the readers of the memory-controller configuration word | The IRIX 6.5.30 IP35 kernel (`6.5.30/unix.IP35`, linked 64-bit image with a symbol table) sizes memory from the node... |
