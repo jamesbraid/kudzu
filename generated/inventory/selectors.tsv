@@ -133,7 +133,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	131	0xc00000000023227c			out	undocumented
 6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	132	0xc00000000023226c	xlv_next_config_request		out	undocumented
 6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	133	0xc00000000023225c	xlv_attr_get_cursor		out	undocumented
-6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	134	0xc000000000232248	xlv_attr_get		out	undocumented
+6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	134	0xc000000000232248	xlv_attr_get		out	documented
 6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	135	0xc000000000232234	xlv_attr_set		out	undocumented
 6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	136	0xc000000000232220	btool_size		out	documented
 6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	137	0xc000000000232210	btool_getinfo		out	documented
@@ -145,7 +145,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	143	0xc00000000023217c	xfs_itable	yes	out	documented
 6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	144	0xc000000000232314	0xc000000000235810	yes	out	undocumented
 6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	145	0xc000000000232314	0xc000000000235810	yes	out	undocumented
-6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	146	0xc000000000232164	path_to_handle		out	undocumented
+6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	146	0xc000000000232164	path_to_handle		out	documented
 6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	147	0xc00000000023214c	path_to_fshandle		out	undocumented
 6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	148	0xc000000000232134	fd_to_handle		out	undocumented
 6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	149	0xc000000000232118	cap_able		out	documented
@@ -202,9 +202,9 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	200	0xc000000000231314		yes	out	undocumented
 6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	201	0xc000000000231314		yes	out	undocumented
 6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	202	0xc000000000231db0	kaio_user_init		out	undocumented
-6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	203	0xc000000000231d9c	kaio_rw		out	undocumented
-6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	204	0xc000000000231d88	kaio_rw		out	undocumented
-6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	205	0xc000000000231d74	kaio_suspend		out	undocumented
+6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	203	0xc000000000231d9c	kaio_rw		out	documented
+6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	204	0xc000000000231d88	kaio_rw		out	documented
+6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	205	0xc000000000231d74	kaio_suspend		out	documented
 6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	206	0xc000000000231d5c	dba_getstats		out	undocumented
 6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	207	0xc000000000231d3c			out	undocumented
 6.5.22/unix.IP27	jumptable 0xc0000000003e9c50	208	0xc000000000231d20	pmoctl		out	documented
@@ -1372,7 +1372,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.22/unix.IP30	jumptable 0xa800000020365fc0	131	0xa8000000201d07b8			out	undocumented
 6.5.22/unix.IP30	jumptable 0xa800000020365fc0	132	0xa8000000201d07a8	xlv_next_config_request		out	undocumented
 6.5.22/unix.IP30	jumptable 0xa800000020365fc0	133	0xa8000000201d0798	xlv_attr_get_cursor		out	undocumented
-6.5.22/unix.IP30	jumptable 0xa800000020365fc0	134	0xa8000000201d0784	xlv_attr_get		out	undocumented
+6.5.22/unix.IP30	jumptable 0xa800000020365fc0	134	0xa8000000201d0784	xlv_attr_get		out	documented
 6.5.22/unix.IP30	jumptable 0xa800000020365fc0	135	0xa8000000201d0770	xlv_attr_set		out	undocumented
 6.5.22/unix.IP30	jumptable 0xa800000020365fc0	136	0xa8000000201d075c	btool_size		out	documented
 6.5.22/unix.IP30	jumptable 0xa800000020365fc0	137	0xa8000000201d074c	btool_getinfo		out	documented
@@ -1384,7 +1384,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.22/unix.IP30	jumptable 0xa800000020365fc0	143	0xa8000000201d06b8	xfs_itable	yes	out	documented
 6.5.22/unix.IP30	jumptable 0xa800000020365fc0	144	0xa8000000201d0850	0xa8000000201d3940	yes	out	undocumented
 6.5.22/unix.IP30	jumptable 0xa800000020365fc0	145	0xa8000000201d0850	0xa8000000201d3940	yes	out	undocumented
-6.5.22/unix.IP30	jumptable 0xa800000020365fc0	146	0xa8000000201d06a0	path_to_handle		out	undocumented
+6.5.22/unix.IP30	jumptable 0xa800000020365fc0	146	0xa8000000201d06a0	path_to_handle		out	documented
 6.5.22/unix.IP30	jumptable 0xa800000020365fc0	147	0xa8000000201d0688	path_to_fshandle		out	undocumented
 6.5.22/unix.IP30	jumptable 0xa800000020365fc0	148	0xa8000000201d0670	fd_to_handle		out	undocumented
 6.5.22/unix.IP30	jumptable 0xa800000020365fc0	149	0xa8000000201d0654	cap_able		out	documented
@@ -1441,9 +1441,9 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.22/unix.IP30	jumptable 0xa800000020365fc0	200	0xa8000000201cfa28		yes	out	undocumented
 6.5.22/unix.IP30	jumptable 0xa800000020365fc0	201	0xa8000000201cfa28		yes	out	undocumented
 6.5.22/unix.IP30	jumptable 0xa800000020365fc0	202	0xa8000000201d0314	kaio_user_init		out	undocumented
-6.5.22/unix.IP30	jumptable 0xa800000020365fc0	203	0xa8000000201d0300	kaio_rw		out	undocumented
-6.5.22/unix.IP30	jumptable 0xa800000020365fc0	204	0xa8000000201d02ec	kaio_rw		out	undocumented
-6.5.22/unix.IP30	jumptable 0xa800000020365fc0	205	0xa8000000201d02d8	kaio_suspend		out	undocumented
+6.5.22/unix.IP30	jumptable 0xa800000020365fc0	203	0xa8000000201d0300	kaio_rw		out	documented
+6.5.22/unix.IP30	jumptable 0xa800000020365fc0	204	0xa8000000201d02ec	kaio_rw		out	documented
+6.5.22/unix.IP30	jumptable 0xa800000020365fc0	205	0xa8000000201d02d8	kaio_suspend		out	documented
 6.5.22/unix.IP30	jumptable 0xa800000020365fc0	206	0xa8000000201d02c0	dba_getstats		out	undocumented
 6.5.22/unix.IP30	jumptable 0xa800000020365fc0	207	0xa8000000201d02a0			out	undocumented
 6.5.22/unix.IP30	jumptable 0xa800000020365fc0	208	0xa8000000201d0284	pmoctl		out	documented
@@ -2593,7 +2593,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.22/unix.IP35	compare	143	0xc0000000002a7e58			out	undocumented
 6.5.22/unix.IP35	compare	144	0xc0000000002a840c	0xc0000000002acbc4	yes	out	documented
 6.5.22/unix.IP35	compare	145	0xc0000000002a8404			out	undocumented
-6.5.22/unix.IP35	compare	146	0xc0000000002aa12c	path_to_handle		out	undocumented
+6.5.22/unix.IP35	compare	146	0xc0000000002aa12c	path_to_handle		out	documented
 6.5.22/unix.IP35	compare	147	0xc0000000002a858c			out	undocumented
 6.5.22/unix.IP35	compare	148	0xc0000000002a9d04	fd_to_handle		out	undocumented
 6.5.22/unix.IP35	compare	149	0xc0000000002a8d48			out	undocumented
@@ -2647,7 +2647,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.22/unix.IP35	compare	202	0xc0000000002a9608	kaio_user_init		out	undocumented
 6.5.22/unix.IP35	compare	203	0xc0000000002a8dd0			out	undocumented
 6.5.22/unix.IP35	compare	204	0xc0000000002a7888			out	undocumented
-6.5.22/unix.IP35	compare	205	0xc0000000002a7f64	kaio_suspend		out	undocumented
+6.5.22/unix.IP35	compare	205	0xc0000000002a7f64	kaio_suspend		out	documented
 6.5.22/unix.IP35	compare	206	0xc0000000002a8c7c			out	undocumented
 6.5.22/unix.IP35	compare	207	0xc0000000002a8558			out	undocumented
 6.5.22/unix.IP35	compare	208	0xc0000000002a94e8			out	undocumented
@@ -2871,7 +2871,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	131	0xc000000000232880			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	132	0xc000000000232870	xlv_next_config_request		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	133	0xc000000000232860	xlv_attr_get_cursor		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	134	0xc00000000023284c	xlv_attr_get		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	134	0xc00000000023284c	xlv_attr_get		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	135	0xc000000000232838	xlv_attr_set		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	136	0xc000000000232824	btool_size		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	137	0xc000000000232814	btool_getinfo		out	documented
@@ -2883,7 +2883,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	143	0xc000000000232780	xfs_itable	yes	out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	144	0xc000000000232918	0xc000000000235f84	yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	145	0xc000000000232918	0xc000000000235f84	yes	out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	146	0xc000000000232768	path_to_handle		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	146	0xc000000000232768	path_to_handle		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	147	0xc000000000232750	path_to_fshandle		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	148	0xc000000000232738	fd_to_handle		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	149	0xc00000000023271c	cap_able		out	documented
@@ -2940,9 +2940,9 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	200	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	201	0xc000000000231848		yes	out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	202	0xc0000000002323b4	kaio_user_init		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	203	0xc0000000002323a0	kaio_rw		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	204	0xc00000000023238c	kaio_rw		out	undocumented
-6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	205	0xc000000000232378	kaio_suspend		out	undocumented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	203	0xc0000000002323a0	kaio_rw		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	204	0xc00000000023238c	kaio_rw		out	documented
+6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	205	0xc000000000232378	kaio_suspend		out	documented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	206	0xc000000000232360	dba_getstats		out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	207	0xc000000000232340			out	undocumented
 6.5.30/unix.IP27	jumptable 0xc0000000003e9f08	208	0xc000000000232324	pmoctl		out	documented
@@ -4132,7 +4132,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	131	0xa8000000201ec870			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	132	0xa8000000201ec860	xlv_next_config_request		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	133	0xa8000000201ec850	xlv_attr_get_cursor		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	134	0xa8000000201ec83c	xlv_attr_get		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	134	0xa8000000201ec83c	xlv_attr_get		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	135	0xa8000000201ec828	xlv_attr_set		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	136	0xa8000000201ec814	btool_size		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	137	0xa8000000201ec804	btool_getinfo		out	documented
@@ -4144,7 +4144,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	143	0xa8000000201ec770	xfs_itable	yes	out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	144	0xa8000000201ec908	0xa8000000201efb8c	yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	145	0xa8000000201ec908	0xa8000000201efb8c	yes	out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	146	0xa8000000201ec758	path_to_handle		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	146	0xa8000000201ec758	path_to_handle		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	147	0xa8000000201ec740	path_to_fshandle		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	148	0xa8000000201ec728	fd_to_handle		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	149	0xa8000000201ec70c	cap_able		out	documented
@@ -4201,9 +4201,9 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	200	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	201	0xa8000000201eba10		yes	out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	202	0xa8000000201ec3cc	kaio_user_init		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	203	0xa8000000201ec3b8	kaio_rw		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	204	0xa8000000201ec3a4	kaio_rw		out	undocumented
-6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	205	0xa8000000201ec390	kaio_suspend		out	undocumented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	203	0xa8000000201ec3b8	kaio_rw		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	204	0xa8000000201ec3a4	kaio_rw		out	documented
+6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	205	0xa8000000201ec390	kaio_suspend		out	documented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	206	0xa8000000201ec378	dba_getstats		out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	207	0xa8000000201ec358			out	undocumented
 6.5.30/unix.IP30	jumptable 0xa8000000203d7b10	208	0xa8000000201ec33c	pmoctl		out	documented
@@ -5418,7 +5418,7 @@ binary	group	selector	target	first_call	shared	scope	status
 6.5.30/unix.IP35	compare	199	0xc0000000002e0c14			out	undocumented
 6.5.30/unix.IP35	compare	202	0xc0000000002e193c	kaio_user_init		out	undocumented
 6.5.30/unix.IP35	compare	203	0xc0000000002e1968			out	undocumented
-6.5.30/unix.IP35	compare	204	0xc0000000002e29f4	kaio_rw		out	undocumented
+6.5.30/unix.IP35	compare	204	0xc0000000002e29f4	kaio_rw		out	documented
 6.5.30/unix.IP35	compare	205	0xc0000000002e1290			out	undocumented
 6.5.30/unix.IP35	compare	206	0xc0000000002e2a3c	dba_getstats		out	undocumented
 6.5.30/unix.IP35	compare	207	0xc0000000002e1a48			out	undocumented

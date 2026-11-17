@@ -54,7 +54,7 @@ If you spot a mistake or have a manual we don't, [open an issue](https://github.
 |---|---:|---:|
 | syscalls | 2844 | 2418 |
 | structs | 343 | 277 |
-| panics | 6987 | 5140 |
+| panics | 6987 | 5175 |
 | selectors | 18 | 18 |
 | formats | 29 | 15 |
 <!-- coverage:end -->
