@@ -63,6 +63,7 @@
 | [pciio-driver-interface.md](kernel/pciio-driver-interface.md) | PCI driver interface: space codes, flag bits, endianness, interrupt target, id registry | What a third-party IRIX PCI driver observes when it calls the generic PCI layer (`pciio`) and the Bridge-family... |
 | [process-model.md](kernel/process-model.md) | Process model and isolation | How the IRIX 6.5.30 kernel creates processes, groups them, stores a process's root directory and decides whether a... |
 | [resource-control.md](kernel/resource-control.md) | Resource control and NUMA placement | What the IRIX 6.5.30 kernels offer for confining work to processors and nodes (cpusets), for batch scheduling... |
+| [syscall-selector-crosscheck.md](kernel/syscall-selector-crosscheck.md) | Cross-check of the syscall and syssgi tables against public lists | `retools/tools/syscall_table.py` and `retools/tools/syssgi_selectors.py` read the tables from the linked 6.5.30... |
 | [syscalls.md](kernel/syscalls.md) | System call handlers | One entry per handler of the native system call table, in call-number order. |
 | [sysgen.md](kernel/sysgen.md) | Kernel configuration tables (sysgen) | The kernel build reads a small set of configuration files per machine: one driver file per module (`master.d`)... |
 | [syssgi.md](kernel/syssgi.md) | syssgi selectors | `syssgi` is the IRIX system call that multiplexes machine-specific operations behind one selector number. |
