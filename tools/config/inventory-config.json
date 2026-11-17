@@ -7,7 +7,7 @@
   "docs": {
     "prose": [
       "software/kernel/checkpoint-restart.md",
-      "evidence/coverage.md",
+      "COVERAGE.md",
       "software/video/crime.md",
       "software/video/dm2-ioctl.md",
       "software/video/dmedia-video-drivers.md",
@@ -19,11 +19,11 @@
       "software/kernel/hwgraph-paths.md",
       "software/kernel/hwgraph.md",
       "software/kernel/input-path.md",
-      "evidence/instruction-readings-kudzu-g1.md",
-      "evidence/instruction-readings-kudzu-g2.md",
-      "evidence/instruction-readings-kudzu-g3.md",
-      "evidence/instruction-readings-kudzu-inv-hw-located.md",
-      "evidence/instruction-readings-kudzu-inv-hw-named.md",
+      "devices/*/readings/*.md",
+      "platforms/*/readings/*.md",
+      "software/*/readings/*.md",
+      "software/*/*/readings/*.md",
+      "references/*.md",
       "software/kernel/interrupts.md",
       "software/kernel/ioconfig.md",
       "software/kernel/ip27-driver-attach-interrupts.md",
@@ -72,7 +72,7 @@
       "formats/r10k_tlb/README.md",
       "software/kernel/resource-control.md",
       "formats/scsi/README.md",
-      "evidence/syscall-selector-crosscheck.md",
+      "software/kernel/syscall-selector-crosscheck.md",
       "software/kernel/syscalls.md",
       "software/kernel/sysgen.md",
       "software/kernel/syssgi.md",
@@ -80,9 +80,8 @@
       "software/userland/userland-abi-and-loader.md",
       "software/userland/userland-libraries-and-isa.md",
       "software/userland/userland.md",
-      "evidence/version-diffs.md",
+      "COVERAGE.md",
       "software/kernel/vfs-layering.md",
-      "evidence/routines/*.md",
       "README.md",
       "software/kernel/*.md",
       "software/userland/*.md",
@@ -94,19 +93,19 @@
     ],
     "tables": [
       "software/*/*.tsv",
-      "evidence/*/*.tsv",
+      "generated/*/*.tsv",
       "*/*.tsv"
     ],
     "index": [
       "AGENTS.md",
       "README.md",
-      "evidence/irix-files.md",
-      "evidence/coverage.md",
+      "references/irix-files.md",
+      "COVERAGE.md",
       "questions/README.md"
     ],
     "dumps": [],
     "skip": [
-      "evidence/inventory/*",
+      "generated/inventory/*",
       "software/kernel/2106-core-time.md",
       "software/kernel/boot-time-nsd-getpwuid.md",
       "software/kernel/hardware-register-use.md",
@@ -939,11 +938,14 @@
       "formats/*.md",
       "questions/*.md",
       "references/*.md",
-      "evidence/coverage.md",
-      "evidence/instruction-readings-*.md",
-      "evidence/routines/*.md",
-      "evidence/syscall-selector-crosscheck.md",
-      "evidence/version-diffs.md"
+      "COVERAGE.md",
+      "devices/*/readings/*.md",
+      "platforms/*/readings/*.md",
+      "software/*/readings/*.md",
+      "software/*/*/readings/*.md",
+      "references/*.md",
+      "software/kernel/syscall-selector-crosscheck.md",
+      "COVERAGE.md"
     ]
   },
   "ucode": [],
@@ -1652,11 +1654,5 @@
         ".srdata"
       ]
     }
-  ],
-  "review_required": [
-    "evidence/routines/t1-*.md",
-    "evidence/routines/t2-*.md",
-    "evidence/routines/kept-*.md",
-    "evidence/routines/ioctl-handlers-*.md"
   ]
 }

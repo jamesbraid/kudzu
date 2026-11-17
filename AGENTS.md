@@ -4,9 +4,9 @@ This repository documents how IRIX 6.5.30 and 6.5.22 work, from the shipped bina
 
 ## 1. Scope
 
-The long-term scope is all of IRIX and its add-ons: the full kernel, CXFS, ONC RPC and NFS, the base applications and libraries. The inventory may list every binary of the releases so it can grow to that. **In scope now** is the whole kernel: the linked kernels (`unix.IP27`, `unix.IP30`, `unix.IP35`) and every object of the platform boot directories, hardware-facing subsystems first (PROM interface, KLCONFIG, hardware graph, interrupts, NUMA and memory, topology checks, device attach), then the generic kernel. The rule for each binary group is in [tools/config/scope.json](tools/config/scope.json), reported in [evidence/inventory/scope.tsv](evidence/inventory/scope.tsv).
+The long-term scope is all of IRIX and its add-ons: the full kernel, CXFS, ONC RPC and NFS, the base applications and libraries. The inventory may list every binary of the releases so it can grow to that. **In scope now** is the whole kernel: the linked kernels (`unix.IP27`, `unix.IP30`, `unix.IP35`) and every object of the platform boot directories, hardware-facing subsystems first (PROM interface, KLCONFIG, hardware graph, interrupts, NUMA and memory, topology checks, device attach), then the generic kernel. The rule for each binary group is in [tools/config/scope.json](tools/config/scope.json), reported in [generated/inventory/scope.tsv](generated/inventory/scope.tsv).
 
-User-space binaries and optional subsystems are out of scope **for now**: they stay in the inventory as `out` and move in when a rule in `scope.json` changes. A function, structure or call site that matches an in-scope rule counts toward the finish line in section 6; one that does not is still listed so the totals stay honest. Platforms: IP27 (Origin 200/2000, Onyx2), IP30 (Octane), IP35 (Origin 300/350, Onyx 300/350) and IP32 (O2) where the media has them. 6.5.30 is the primary release; 6.5.22 has its kernel object archives, its linked IP27, IP30 and IP35 kernels and the userland set that the file list lists, in `root/` too ([evidence/irix-files.md](evidence/irix-files.md), [evidence/version-diffs.md](evidence/version-diffs.md)). A fact from one release or platform does not fill a gap in another.
+User-space binaries and optional subsystems are out of scope **for now**: they stay in the inventory as `out` and move in when a rule in `scope.json` changes. A function, structure or call site that matches an in-scope rule counts toward the finish line in section 6; one that does not is still listed so the totals stay honest. Platforms: IP27 (Origin 200/2000, Onyx2), IP30 (Octane), IP35 (Origin 300/350, Onyx 300/350) and IP32 (O2) where the media has them. 6.5.30 is the primary release; 6.5.22 has its kernel object archives, its linked IP27, IP30 and IP35 kernels and the userland set that the file list lists, in `root/` too ([references/irix-files.md](references/irix-files.md), [COVERAGE.md](COVERAGE.md)). A fact from one release or platform does not fill a gap in another.
 
 ## 2. Evidence
 
@@ -23,9 +23,9 @@ The shipped binaries are the target. The public IRIX 6.5.7m tree (`references/co
 
 - `root/` is gitignored: `root/<release>/` mirrors each install, with the linked kernels as `root/<release>/unix.IPnn`.
 - `software/` holds findings about IRIX: `kernel/` (one page per subsystem, platform or topic; `structs/` is generated), `video/` and `userland/`.
-- `evidence/` holds what backs them: [coverage.md](evidence/coverage.md), the generated [inventory](evidence/inventory/README.md), routine readings, instruction readings and cross-checks. [questions/README.md](questions/README.md) lists open questions.
+- Per-routine readings sit under `software/*/readings/`, one page per binary. [COVERAGE.md](COVERAGE.md) holds the tallies, `generated/inventory/` ([README](generated/inventory/README.md)) the generated tables, and `references/` the lists of what is held. [questions/README.md](questions/README.md) lists open questions.
 - `formats/<name>/` holds one unit per disk, board or kernel table: `format.toml` is the source, `README.md` the prose, `format.md` the generated page. Each item carries a grade and a source. Register maps of hardware IRIX drives live in the chips and crime repositories; [hardware-register-use.md](software/kernel/hardware-register-use.md) keeps what the kernel does with them.
-- `generated/` (C, Rust, Python, JSON, XML) comes from the TOML and is never edited. Change the TOML, run `retools/tools/defs/defs-gen`, commit both.
+- `generated/` (C, Rust, Python, JSON, XML, plus the inventory and version-diff tables) is written by tools and never edited. For the C, Rust, Python, JSON and XML, change the TOML, run `retools/tools/defs/defs-gen`, commit both.
 - `tools/` has this repository's generators (`errno_table.py`, `gen-hw-windows.py`, `check-os-tables`, `setup-clone.sh`) and `tools/config/` their settings (`scope.json`, `inventory-config.json`). The shared toolkit is the `retools/` submodule; `retools/tools/kudzu/` has the tables specific to this repository. Run everything from the repository root.
 - `references/code/` holds pinned public source submodules.
 
@@ -60,3 +60,21 @@ For a register or behaviour fact, take it from the highest source that states it
 Reset values: `established` when the source states a power-on default or PROM code relies on a reset state; `inferred` when the PROM depends on a value before its first write (cite the PROM address); a read after firmware initialisation is not a reset value and can only rule values out; otherwise `unknown`. A physical hardware read is a last resort, needs the repository owner's approval, and counts as a reset value only for a register firmware provably never writes. Emulator runs are model behaviour, never hardware evidence.
 
 Full text and the checks that enforce it: `retools/tools/README-analysis.md#evidence-order`.
+
+## Where new work goes
+
+There is no `evidence/` directory. File each page by what it is about:
+
+- `devices/<chip>/`, `platforms/<board>/`, `formats/<name>/`, `software/<area>/`: a note about one device, platform,
+  format or software component.
+- `<subject>/readings/<binary>.md`: per-routine readings of one binary, filed under the subject it explains (a driver
+  object under its chip, a kernel object under `software/kernel/<platform>/`). `retools/tools/reading_round.py` files
+  its entries there; `tools/config/readings-subjects.json` says which subject a binary belongs to.
+- `references/`: what we hold and cite: binary, PROM and firmware lists with checksums, scope lists, source lists.
+  Code submodules stay under `references/code/`.
+- `generated/`: tool output that is regenerated and never hand-edited (`generated/inventory/`, diff tables, symbol
+  tables, register output). Hand-kept audit tables sit in `generated/inventory/audits.tsv` by exception.
+- `COVERAGE.md` at the root: progress tallies. The inventory block in it is rewritten by `retools/tools/inventory.py`.
+- `questions/`: open questions.
+
+`retools/tools/defs/ci-check` fails when an `evidence/` directory comes back.

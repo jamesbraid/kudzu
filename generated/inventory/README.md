@@ -62,7 +62,7 @@ Some static functions have code in the binary, and a name in its debug informati
 | `scope.tsv` | binary group | the in-scope rule and its counts |
 | `summary-os.tsv` | table above | in-scope and out-of-scope counts and documentation status |
 
-For these tables `status` is `documented` when the name appears in backticks in a documentation page (under `software/`, `formats/`, `evidence/` or `questions/`), and `undocumented` otherwise. The shared five-level grading applies to `binaries.tsv`, `functions.tsv` and `ioctls.tsv`; moving these tables to it is future work.
+For these tables `status` is `documented` when the name appears in backticks in a documentation page (under `software/`, `formats/`, `references/` or `questions/`), and `undocumented` otherwise. The shared five-level grading applies to `binaries.tsv`, `functions.tsv` and `ioctls.tsv`; moving these tables to it is future work.
 
 ## Tables from tools/sysgen_tables.py
 

@@ -1,7 +1,7 @@
 # The latest independent audit of each table: an auditor who did not write the entries drew a random sample of rows graded understood
 # and re-derived each from the binaries or the cited specification. real = the entry held up, shallow = true but derived from a name or
 # credited without behaviour of its own, wrong = contradicted. sample is small: read it with the percentage. The last row of a table with
-# the latest date is the one summary.tsv and evidence/coverage.md show.
+# the latest date is the one summary.tsv and COVERAGE.md show.
 table	date	sample	real	shallow	wrong	note
 functions	2026-11-02	6	6	0	0	sample of 6 klconfig, hardware graph, NIC and serial-number routine entries (seed 20261102 over the entries of those pages): is_master_baseio, klhwg_mem_invent_info, nic_vmc_check, nic_bridge_vertex_info, board_serial_number_get and hubdev_unregister re-derived from the instruction listings, symbol tables and strings of the 6.5.30 kernels; all held
 syscalls	2026-11-02	6	6	0	0	sample of 6 handler entries (same seed): profil, nice, getitimer, unlink, utssys and setregid re-derived from the 6.5.30 IP35 listings; all held; the getitimer entry listed two arguments of its helper call in the wrong order, reworded
