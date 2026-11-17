@@ -1,6 +1,6 @@
 # syssgi selectors
 
-`syssgi` is the IRIX system call that multiplexes machine-specific operations behind one selector number. This page documents the selectors one at a time, starting with the ones that touch NUMA, memory, partitions, timers and the front-panel hardware. The table of every selector the kernels reach is [selectors.tsv](../../evidence/inventory/selectors.tsv); the numbering is compared with public lists in [syscall-selector-crosscheck.md](../../evidence/syscall-selector-crosscheck.md). The public `SGI_*` names below come from NetBSD's IRIX compatibility header and are hints only: each selector is confirmed from the shipped kernels.
+`syssgi` is the IRIX system call that multiplexes machine-specific operations behind one selector number. This page documents the selectors one at a time, starting with the ones that touch NUMA, memory, partitions, timers and the front-panel hardware. The table of every selector the kernels reach is [selectors.tsv](../../generated/inventory/selectors.tsv); the numbering is compared with public lists in [syscall-selector-crosscheck.md](syscall-selector-crosscheck.md). The public `SGI_*` names below come from NetBSD's IRIX compatibility header and are hints only: each selector is confirmed from the shipped kernels.
 
 Evidence is the 6.5.30 linked kernels `6.5.30/unix.IP27`, `6.5.30/unix.IP30` and `6.5.30/unix.IP35`. The 6.5.22 linked kernels are not analysed on this page; the sibling row at the end names their copies of `part_operation`, and nothing else here is claimed for them.
 
@@ -197,7 +197,7 @@ These selectors call into the optional security packages. In the 6.5.30 kernels 
 
 ### The same routines in the 6.5.22 builds
 
-The 6.5.22 copies of the routines above. Each row is a routine whose bytes match a 6.5.30 routine on the same page; the note gives the SHA-256 prefix of the bytes (first 12 hex digits). A linked-kernel row is established when the whole body has no calls, address constants or gp accesses; the others are inferred, because the 6.5.22 target of each constant or call was not checked. An object row compares section bytes, not relocated code, so it is inferred. The comparison is in [version-diffs.md](../../evidence/version-diffs.md).
+The 6.5.22 copies of the routines above. Each row is a routine whose bytes match a 6.5.30 routine on the same page; the note gives the SHA-256 prefix of the bytes (first 12 hex digits). A linked-kernel row is established when the whole body has no calls, address constants or gp accesses; the others are inferred, because the 6.5.22 target of each constant or call was not checked. An object row compares section bytes, not relocated code, so it is inferred. The comparison is in [version-diffs.md](../../COVERAGE.md).
 
 | Routine | Binary | Address | Size | Note | Label |
 |---|---|---|---|---|---|

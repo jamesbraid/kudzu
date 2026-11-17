@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Base user-space rows: evidence/inventory/userland.tsv, one row per binary in tools/config/userland-roles.json.
+"""Base user-space rows: generated/inventory/userland.tsv, one row per binary in tools/config/userland-roles.json.
 
-Usage: tools/userland_tables.py [--release 6.5.30] [--out evidence/inventory]
+Usage: tools/userland_tables.py [--release 6.5.30] [--out generated/inventory]
 
 Run from the repository root with root/ populated, inside the toolchain container
 (retools/tools/re-run python3 tools/userland_tables.py); the readers come from that container.
@@ -110,7 +110,7 @@ def clean(value):
 def main(argv):
     ap = argparse.ArgumentParser()
     ap.add_argument('--release', default='6.5.30')
-    ap.add_argument('--out', default=os.path.join(REPO, 'evidence', 'inventory'))
+    ap.add_argument('--out', default=os.path.join(REPO, 'generated', 'inventory'))
     opts = ap.parse_args(argv)
 
     with open(ROLES) as f:

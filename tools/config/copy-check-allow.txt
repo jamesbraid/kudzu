@@ -2,7 +2,7 @@
 # reading where it comes from.
 #
 # Names of the public Linux and NetBSD system-call tables that
-# evidence/syscall-selector-crosscheck.md compares with the kernel.
+# software/kernel/syscall-selector-crosscheck.md compares with the kernel.
 GET_CONTEXT_NAME
 SGI_
 #
@@ -19,7 +19,7 @@ undocumented
 XORs
 ABIs
 # Public selector names in NetBSD's irix_syssgi.h (IRIX_SGI_SYSID,
-# IRIX_SGI_FO_SWITCH), listed by evidence/syscall-selector-crosscheck.md and used
+# IRIX_SGI_FO_SWITCH), listed by software/kernel/syscall-selector-crosscheck.md and used
 # in a test fixture.
 SGI_SYSID
 FO_SWITCH
@@ -27,7 +27,7 @@ FO_SWITCH
 glColor3fv
 XDrawLine
 # The file name of a kernel object on the installation media, quoted from the
-# inventory tables in evidence/coverage.md.
+# inventory tables in COVERAGE.md.
 shareIIstubs
 # Exported symbol names of the shipped user-space libraries (libc, libpthread, libm and
 # the portable-ABI libc and libdl), read from their dynamic symbol tables for

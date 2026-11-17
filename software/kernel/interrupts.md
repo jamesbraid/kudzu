@@ -398,7 +398,7 @@ The IP35 `hardwired_intr` table (`.data` at `0xc000000001531598`) has the IP27 e
 
 ### The same routines in the 6.5.22 builds
 
-The 6.5.22 copies of the routines above. Each row is a routine whose bytes match a 6.5.30 routine on the same page; the note gives the SHA-256 prefix of the bytes (first 12 hex digits). A linked-kernel row is established when the whole body has no calls, address constants or gp accesses; the others are inferred, because the 6.5.22 target of each constant or call was not checked. An object row compares section bytes, not relocated code, so it is inferred. The comparison is in [version-diffs.md](../../evidence/version-diffs.md).
+The 6.5.22 copies of the routines above. Each row is a routine whose bytes match a 6.5.30 routine on the same page; the note gives the SHA-256 prefix of the bytes (first 12 hex digits). A linked-kernel row is established when the whole body has no calls, address constants or gp accesses; the others are inferred, because the 6.5.22 target of each constant or call was not checked. An object row compares section bytes, not relocated code, so it is inferred. The comparison is in [version-diffs.md](../../COVERAGE.md).
 
 | Routine | Binary | Address | Size | Note | Label |
 |---|---|---|---|---|---|

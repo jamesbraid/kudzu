@@ -1,6 +1,6 @@
 # Cross-check of the syscall and syssgi tables against public lists
 
-`retools/tools/syscall_table.py` and `retools/tools/syssgi_selectors.py` read the tables from the linked 6.5.30 kernels (IP27, IP30, IP35). Every row in [syscalls.tsv](inventory/syscalls.tsv) and [selectors.tsv](inventory/selectors.tsv) comes from the kernel image. The public lists below are used only to check numbering. A disagreement is a finding to explain, not a correction of the kernel's row.
+`retools/tools/syscall_table.py` and `retools/tools/syssgi_selectors.py` read the tables from the linked 6.5.30 kernels (IP27, IP30, IP35). Every row in [syscalls.tsv](../../generated/inventory/syscalls.tsv) and [selectors.tsv](../../generated/inventory/selectors.tsv) comes from the kernel image. The public lists below are used only to check numbering. A disagreement is a finding to explain, not a correction of the kernel's row.
 
 Public sources (copies are not kept in this repository):
 
@@ -106,7 +106,7 @@ The kernel's selectors are compared with the `IRIX_SGI_*` values of NetBSD's the
 | IP27 (jump table) | 1261 | 162 | 91 | 24 | 11 |
 | IP30 (jump table) | 1261 | 158 | 95 | 24 | 11 |
 
-The IP35 tree reaches selector 8194 (`0x2002`); the IP27 and IP30 jump tables stop at 1260 and NetBSD's header has no value there. On the selectors where IP35 and IP27 both have a case of their own, 78 of the 82 that name a first call name the same one (IP30: 74 of 78). `first_call` is a heuristic, see the [inventory README](inventory/README.md).
+The IP35 tree reaches selector 8194 (`0x2002`); the IP27 and IP30 jump tables stop at 1260 and NetBSD's header has no value there. On the selectors where IP35 and IP27 both have a case of their own, 78 of the 82 that name a first call name the same one (IP30: 74 of 78). `first_call` is a heuristic, see the [inventory README](../../generated/inventory/README.md).
 
 ### Disagreements
 

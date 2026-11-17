@@ -6,7 +6,7 @@ Two questions about the 6.5.30 kernel, asked for a plan that wants containers an
 
 Linked kernels: `6.5.30/unix.IP35` and `6.5.30/unix.IP27`. Kernel objects: `6.5.30/usr/cpu/sysgen/IP35boot/` (`xvm.a`, `xfs.a`, `xfsquotas.a`, `ipfilter.o`, `snif.a`). Object-relative addresses are offsets into the member's `.text`; the linked kernel's addresses are virtual.
 
-Routines were read from the symbol table and disassembly; the `syssgi` selector rows are from [selectors.tsv](../../evidence/inventory/selectors.tsv) and the case code at the cited address. Public names for selectors and ioctl codes are hints from published headers and manuals, not read from the binary.
+Routines were read from the symbol table and disassembly; the `syssgi` selector rows are from [selectors.tsv](../../generated/inventory/selectors.tsv) and the case code at the cited address. Public names for selectors and ioctl codes are hints from published headers and manuals, not read from the binary.
 
 IP27 compared with IP35: for `in_control`, `in_pcbbind`, `in_pcbsetaddrx`, `arprequest`, `sfmatch`, `snoop_match`, `snoop_input2`, `ifa_ifwithaddr`, `ip_ctloutput`, `xfs_swapext`, `xfs_swap_extents`, `xfs_fsoperations`, `xfs_mk_sharedro` and `xfs_clear_sharedro` the instruction text is equal once call targets, branch targets and gp displacements are masked (`in_control` differs in eight instructions, all the gp displacement of the address-count words, and `arprequest` in the gp displacement of one `daddiu`). Nothing below differs on IP27 unless stated. Established.
 

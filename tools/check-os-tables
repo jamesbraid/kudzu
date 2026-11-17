@@ -1,5 +1,5 @@
 #!/bin/sh
-# Check that evidence/inventory/ and the kernel-table block of evidence/coverage.md are what
+# Check that generated/inventory/ and the kernel-table block of COVERAGE.md are what
 # retools/tools/kudzu/os_tables.py generates now. They go stale when a documentation page changes (the
 # status columns read the pages) or tools/config/scope.json does; regenerate with
 #

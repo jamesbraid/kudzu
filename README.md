@@ -16,7 +16,7 @@ where it came from and whether it's established, inferred or still unknown.
 - **O2 video:** CRIME, GBE and MACE video as the drivers use them, plus the DM2 and DIVO boards.
 - **On-disk and board formats:** EFS, XFS, XLV, XVM, the volume header, KLCONFIG, one-wire board IDs and more.
 - **System interface:** system calls, `syssgi` selectors, panic sites, and what changed between 6.5.22 and
-  6.5.30 ([evidence/version-diffs.md](evidence/version-diffs.md)).
+  6.5.30 ([COVERAGE.md](COVERAGE.md)).
 - **Userland:** base programs, the ABI and the loader, one line each for now.
 
 The kernel pages are under [software/kernel/](software/kernel/), the formats under [formats/](formats/README.md).
@@ -34,7 +34,7 @@ tools/setup-clone.sh --root /path/to/your/irix/files
 retools/tools/re-run retools/tools/defs/ci-check
 ```
 
-You'll need Podman, git, python3 and your own IRIX files. [evidence/irix-files.md](evidence/irix-files.md) lists
+You'll need Podman, git, python3 and your own IRIX files. [references/irix-files.md](references/irix-files.md) lists
 which ones.
 
 ## How far along
@@ -42,7 +42,7 @@ which ones.
 Still a long way to go on the functions; most of the kernel outside the paths above isn't read yet. The open questions are in [questions/](questions/README.md).
 If you spot a mistake or have a manual we don't, [open an issue](https://github.com/jamesbraid/kudzu/issues).
 
-<!-- coverage:begin (copied from evidence/coverage.md; regenerate with: retools/tools/re-run python3 retools/tools/inventory.py && retools/tools/re-run python3 retools/tools/kudzu/os_tables.py) -->
+<!-- coverage:begin (copied from COVERAGE.md; regenerate with: retools/tools/re-run python3 retools/tools/inventory.py && retools/tools/re-run python3 retools/tools/kudzu/os_tables.py) -->
 | Table | Rows | Understood | Located or better |
 |---|---:|---:|---:|
 | binaries | 7737 | 0.0% | 0.0% |
