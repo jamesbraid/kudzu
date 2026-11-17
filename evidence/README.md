@@ -27,7 +27,7 @@
 | [kept-kudzu-b030.md](routines/kept-kudzu-b030.md) | Tier-1 routine readings kept from t1/kudzu-b30 | Entries that were on this kept branch and not on main. |
 | [kept-kudzu-b031.md](routines/kept-kudzu-b031.md) | Tier-1 routine readings kept from t1/kudzu-b31 | Entries that were on this kept branch and not on main. |
 | [kept-kudzu-b037.md](routines/kept-kudzu-b037.md) | Tier-1 routine readings kept from t1/kudzu-b37 | Entries that were on this kept branch and not on main. |
-| [t1-kudzu-b000.md](routines/t1-kudzu-b000.md) | Tier-1 routine readings, kudzu batch 0 | Role statements for the first 25 routines of the tier-1 list, written from the rendered instructions only: loads... |
+| [t1-kudzu-b000.md](../software/kernel/ip27/readings/6.5.22-unix.IP27-tier1-batch0.md) | Tier-1 routine readings, kudzu batch 0 | Role statements for the first 25 routines of the tier-1 list, written from the rendered instructions only: loads... |
 | [t1-kudzu-b001.md](routines/t1-kudzu-b001.md) | Tier-1 kudzu routine roles, batch 1 | Role statements for 25 routines of the shipped IP27 kernel `6.5.22/unix.IP27`, the first batch of the tier-1... |
 | [t1-kudzu-b002.md](routines/t1-kudzu-b002.md) | Routine role reads, kudzu batch 2 | These entries say what 25 routines of the IP30 kernel image do, read from the instruction facts rendered for each one. |
 | [t1-kudzu-b003.md](routines/t1-kudzu-b003.md) | Tier-1 routine readings, batch 3 | These role statements cover 25 routines from the ranked tier-1 list, positions 75 to 99. |

@@ -1,0 +1,8 @@
+{
+ "default": "software/kernel",
+ "rules": [
+  {"match": "/(IP\\d+)boot/(?:mgras|odyssey|gfxs|crime)\\.a\\(", "dir": "software/video/{1}"},
+  {"match": "unix\\.(IP\\d+)$", "dir": "software/kernel/{1}"},
+  {"match": "/(IP\\d+)boot/", "dir": "software/kernel/{1}"}
+ ]
+}
