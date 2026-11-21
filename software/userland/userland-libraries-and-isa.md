@@ -166,3 +166,7 @@ IRIX n32 user space does not assume MIPS IV: most n32 programs and the loader ar
 ## Open questions
 
 These are also in [open-questions.md](../../questions/README.md): the binding between libc's thread stubs and libpthread, 6.5.22 patch contents, and the run-time guards in the kernel.
+
+## Review note
+
+Independent review, 2026-11-21 (Sonnet, not the author). Checked against `var/inst/machfile` on the 6.5.30 media: the board-to-CPU table and the processor-implementation rows (0x04, 0x20, 0x21 to R4000; 0x10 to R8000; 0x09, 0x0e, 0x0f to R10000; 0x23, 0x27 to R5000) match. Checked against the disc manifests: the libc rules hold for 6.5.30 (`eoe_6530m`), and the libm rules hold for 6.5.22 (`compiler_eoe_741_6522m`, including the separate R8000 builds); the 6.5.30 compiler manifest that the page names is not on the discs this workspace could open (only the first 6.5.30 overlay disc), so the 6.5.30 libm rules rest on the 6.5.22 manifest plus the file names and sizes under the 6.5.30 media tree (880,608 and 891,180 bytes, `.CPUARCH-R8000` suffix). The IP19 double-match remark is right: its processor row is R4000 and its mode is 64-bit.

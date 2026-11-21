@@ -175,3 +175,7 @@ Each of these tests `ckpt_enabled` (a load from the global at 0xc00000000163c1b0
 
 - IP27 (`6.5.30/unix.IP27`) carries the same routines with the same sizes: `ckpt_sys` 0xc0000000003660b0 (648 bytes, 23-entry table at 0xc0000000003fba50 in the same order), `ckpt_restartreturn` 0xc000000000366338 (560 bytes), `ckpt_prioctl` 0xc000000000364ff0 (560 bytes), `ckpt_prioctl_thread` 0xc000000000365220 (728 bytes), `ckpt_prioctl_attr` 0xc000000000361b80 (96 bytes), `ckpt_init` 0xc0000000003616a4, `ckpt_vp_open` 0xc0000000003616c8, `ckpt_enabled` 0xc0000000014caa68. The sub-command table is compared by the sequence of target blocks the fact sheet lists and matches IP35 entry for entry; the `/proc` tables were not dumped on IP27. IP30 has its own copy (`ckpt_sys` is selector 178's target at 0xa8000000201ec524). Read for the sizes and addresses, reasoned for the equality of the `/proc` tables.
 - 6.5.22: `ckpt_sys` is 632 bytes and has 22 sub-commands (0 to 21); the object `ckpt_sys.o` lacks `ckpt_grow` and the `grow` reference. Sub-command 22 is new in 6.5.30. The other two objects have the same symbols. Read for the symbols and the table size on IP35; the `/proc` tables of 6.5.22 were not compared.
+
+## Review note
+
+Independent review, 2026-11-21 (Sonnet, not the author). The vnode-type names and values (0 VNON, 2 VDIR, 5 VLNK, 7 VBAD, 8 VSOCK) match the standard enumeration order the page quotes; I did not re-read them from the debug information, so that row is not independently confirmed here.
