@@ -3,9 +3,9 @@
 
 Questions the binaries have not yet answered. Each entry names the routes already tried and the next route. When a question is answered, move the answer into the owning document and delete the entry; when every route is exhausted, label the fact "unknown: no shipped software or published source depends on it" there and delete the entry.
 
-## Triage (2026-11-01)
+## Triage (2026-11-21)
 
-Six entries at the date of this triage: 2 software-now, 3 missing-input, 1 hardware-only. Sections added later list their own questions with a class in each row.
+116 entries at this triage: 72 software-now, 35 missing-input, 9 hardware-only. The count is the six entries in this section plus the 110 classed table rows below.
 
 Route classes:
 
@@ -15,7 +15,7 @@ Route classes:
 
 Premises corrected in place, with the check that corrected them:
 
-- The 6.5.22 IP27, IP30 and IP35 linked kernels are held and in the inventory; [version-diffs.md](../COVERAGE.md) compares them with 6.5.30.
+- The 6.5.22 IP27, IP30 and IP35 linked kernels are held and in the inventory; [COVERAGE.md](../COVERAGE.md) compares them with 6.5.30.
 - Panic messages are resolved for 361 of the 890 call sites, not none (row 3).
 
 Software-now, in order:
