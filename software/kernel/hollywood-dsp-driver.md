@@ -209,4 +209,4 @@ What this settles. The library does not choose between `hdsp` and `kdsp`: it ope
 
 ## Review note
 
-Independent review, 2026-11-21 (Sonnet, not the author). A fresh string search of every held 6.5.30 and 6.5.22 file under `usr`, `sbin`, `lib`, `lib32` and `lib64` for `hdsp` and `kdsp` finds the same set the page lists: `libaudio.so.1` (three ABIs in each release), the IP22 NG1 `Xsgi` in each release, and the kernel objects under `usr/cpu/sysgen`. The grade stands.
+Independent review, 2026-11-21 (not the author). A fresh string search of every held 6.5.30 and 6.5.22 file under `usr`, `sbin`, `lib`, `lib32` and `lib64` for `hdsp` and `kdsp` finds the same set the page lists: `libaudio.so.1` (three ABIs in each release), the IP22 NG1 `Xsgi` in each release, and the kernel objects under `usr/cpu/sysgen`. The grade stands.

@@ -211,4 +211,4 @@ These are recorded in [open-questions.md](../../questions/README.md).
 
 ## Review note
 
-Independent review, 2026-11-21 (Sonnet, not the author). The `sysmp` extractor counts added by the same-day pass were not re-run; the table sizes already on this page were not contradicted by anything read for the `sysget` review in [kernel-tracing-and-modules.md](kernel-tracing-and-modules.md).
+Independent review, 2026-11-21 (not the author). The `sysmp` extractor counts added by the same-day pass were not re-run; the table sizes already on this page were not contradicted by anything read for the `sysget` review in [kernel-tracing-and-modules.md](kernel-tracing-and-modules.md).

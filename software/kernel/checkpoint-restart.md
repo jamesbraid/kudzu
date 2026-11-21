@@ -178,4 +178,4 @@ Each of these tests `ckpt_enabled` (a load from the global at 0xc00000000163c1b0
 
 ## Review note
 
-Independent review, 2026-11-21 (Sonnet, not the author). The vnode-type names and values (0 VNON, 2 VDIR, 5 VLNK, 7 VBAD, 8 VSOCK) match the standard enumeration order the page quotes; I did not re-read them from the debug information, so that row is not independently confirmed here.
+Independent review, 2026-11-21 (not the author). The vnode-type names and values (0 VNON, 2 VDIR, 5 VLNK, 7 VBAD, 8 VSOCK) match the standard enumeration order the page quotes; I did not re-read them from the debug information, so that row is not independently confirmed here.

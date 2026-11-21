@@ -247,4 +247,4 @@ Open questions are recorded in [open-questions.md](../../questions/README.md): t
 
 ## Review note
 
-Independent review, 2026-11-21 (Sonnet, not the author). The install rules for the n32 and n64 libc files and the base-product `usr/lib*/libc.so.1` links were re-read from the `.idb` manifests of the 6.5.22 and base discs (`eoe`, `eoe_6522m`) and of the 6.5.30 overlay disc (`eoe_6530m`): the CPU gating, the link and real-file swap between `mips3` and `mips4`, the file sizes and the absence of the interpreter links from the overlay manifest all hold. The manifests are still not in this repository.
+Independent review, 2026-11-21 (not the author). The install rules for the n32 and n64 libc files and the base-product `usr/lib*/libc.so.1` links were re-read from the `.idb` manifests of the 6.5.22 and base discs (`eoe`, `eoe_6522m`) and of the 6.5.30 overlay disc (`eoe_6530m`): the CPU gating, the link and real-file swap between `mips3` and `mips4`, the file sizes and the absence of the interpreter links from the overlay manifest all hold. The manifests are still not in this repository.
