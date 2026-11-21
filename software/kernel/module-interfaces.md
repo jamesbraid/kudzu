@@ -101,7 +101,26 @@ The per-thread form goes through one more command, 0x71ff, with a 16-byte block 
 
 ### System call and userland
 
-The tail of `syssgi` (0xc0000000002e0310; the routine runs past its recorded size) holds a sub-command switch that copies a 196-byte (0xc4) block in and uses the same counter block at +1160. Not known: which selector number reaches it. Not known: how `perfex` and `libperfex` drive the interface, since neither is in `root/`; the published `perfex(1)`, `libperfex(3)` and `proc(4)` pages describe the /proc route, and the kernel side above matches it.
+The tail of `syssgi` (0xc0000000002e0310; the routine runs past its recorded size) holds a sub-command switch that copies a 196-byte (0xc4) block in and uses the same counter block at +1160. The sub-command switch is its own routine, `syssgi_eventctr` (0xc0000000002e4d2c, named in the debug information), called from only one place, the case for `syssgi` selector 174 (call at 0xc0000000002e0f88). The tested value is the second word of the argument block (the first argument after the selector, `ld 8(a0)` at 0xc0000000002e4d34); the user pointers are the next two words (+16, +24), and a node or processor number is the low half or word of the +16 word. Established. The 196-byte block is copied in for sub-commands 1, 2 and 64 only:
+
+| Sub-command | Action | Privilege | Established at |
+|---|---|---|---|
+| 1 | per-process profiling: copy in the block from +16, then `evc_profil` | none | 0xc0000000002e51d0 |
+| 2 | enable system-wide counters: copy in the block, `hwperf_enable_sys_counters` | capability bit 37 | 0xc0000000002e5154 |
+| 4 | read one CPU's counters (cpu in the +16 word), 256-byte copy-out to +24 | none | 0xc0000000002e4f30 |
+| 5 | stop the calling thread's counters (clears mode bit 0x8, sets 0x100) | none | 0xc0000000002e4e24 |
+| 6 | restart them (sets 0x8, clears 0x100) | none | 0xc0000000002e50f4 |
+| 8 | disable system-wide counters | capability bit 37 | 0xc0000000002e4fd4 |
+| 16 | read system-wide counters, 256 bytes to +16 | none | 0xc0000000002e5008 |
+| 32 | system counter control info, 64 bytes to +16 | none | 0xc0000000002e5064 |
+| 64 | change system-wide control: copy in the block, `hwperf_change_sys_control` | capability bit 37 | 0xc0000000002e4f60 |
+| 256, 257, 258 | enable, disable and read hub error counts for the node in +16 | none | 0xc0000000002e5140, 0xc0000000002e50d8, 0xc0000000002e4df8 |
+| 264, 265, 266, 267 | memory-controller counters: enable, disable, get control, get counts (336 bytes) | none | 0xc0000000002e5020 to 0xc0000000002e5300 |
+| 300, 301, 302, 303 | I/O counters: enable, disable, get counts (512 bytes), get control | none | 0xc0000000002e4fa4 to 0xc0000000002e5378 |
+| 259 to 263 | print a kernel message and fail with 22 | none | 0xc0000000002e4f0c |
+| 0, 3, 7, 9 to 15, others | fail with 22 | none | |
+
+The 196-byte block is a count word at +192 (checked to be at most 64 in `hwperf_enable_counters`, 0xc00000000007f994) after 192 bytes that `r1nk_perf_init_counters` (0xc00000000007ad38) reads as 32 halfword control words at +2*i and 32 word thresholds at +64+4*i. The result word of the enable and change calls is read from 200 bytes after the start of the local copy. Established for the offsets; what the halfword bits select is not traced, nor the mapping of event slots to hardware counters. Not known: how `perfex` and `libperfex` drive the interface, since neither is in `root/`; the published `perfex(1)`, `libperfex(3)` and `proc(4)` pages describe the /proc route, and the kernel side above matches it.
 
 ### Argument block and selectable events
 

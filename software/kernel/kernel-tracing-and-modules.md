@@ -63,7 +63,36 @@ The requests group as follows: run control and stops: `prioctl_piocrun`, `prioct
 
 All of these except `prioctl_piocsetevctrs` are reached by a direct call from `prioctl` (calls at 0xc0000000004347ac to 0xc000000000434bf0); `prioctl_piocsetevctrs` is called from `prioctl_thread` (0xc000000000434de0). `prioctl` also calls `cap_able_cred` (twice, 0xc0000000004345f8 and 0xc000000000434764) and `ckpt_prioctl`. The counter requests call `hwperf_get_counters` (0xc000000000080038), `piocenevctrsex` and `uthread_apply`, so they use the `hwperf` layer below. Established for the dispatch and the names. [module-interfaces.md](module-interfaces.md) decodes the dispatch (the command minus 0x7102 indexes a 254-entry jump table) and gives the codes of the counter requests (0x71e9 to 0x71f1 and 0x71fc). The codes of the other requests and the meaning of each flag are not decoded here (unknown, see [open questions](../../questions/README.md)). IP27 has the same routines at different addresses (`prioctl` 0xc00000000035b588, 1968 bytes; `prioctl_thread` 0xc00000000035bd38, 4500 bytes; `prioctl_piocsentry_exit` 0xc000000000359f60, 444 bytes; `prioctl_piocenevctrs` 0xc00000000035a83c, 292 bytes).
 
-The request table has 254 slots, starting at request 0x7102: `prioctl` computes the slot as the request minus 0x7102, bounds it at 254, and jumps through the table. The table is at 0xc0000000004e05c0 in `6.5.30/unix.IP35`, read through the word at gp+296, with gp = 0xc000000001643770 from the start sequence at 0xc000000000041c24. 213 slots hold the common exit at 0xc000000000434590, so 41 requests reach 38 distinct arms. The slots that reach an arm, as offsets from 0x7102, are 0 to 4, 6, 7, 10 to 22, 27, 32, 33, 36, 37, 41, 98, 100, 231 to 233, 235 to 241, 248, 250 and 253. **Established** for the table and this grouping. Which request each arm serves and the flag it sets are **unknown**: the table carries no names, and the request names need a published `proc(4)` page, which was not checked this pass.
+The request table has 254 slots, starting at request 0x7102: `prioctl` computes the slot as the request minus 0x7102, bounds it at 254, and jumps through the table. The table is at 0xc0000000004e05c0 in `6.5.30/unix.IP35`, read through the word at gp+296, with gp = 0xc000000001643770 from the start sequence at 0xc000000000041c24. 213 slots hold the common exit at 0xc000000000434590, so 41 requests reach 38 distinct arms. The slots that reach an arm, as offsets from 0x7102, are 0 to 4, 6, 7, 10 to 22, 27, 32, 33, 36, 37, 41, 98, 100, 231 to 233, 235 to 241, 248, 250 and 253. **Established** for the table and this grouping. A request first passes a per-request flag word that `prioctl` fills (0xc000000000435e70): without bit 0x1 it fails with 22; requests with bit 0x200 go to `prioctl_thread`, those without bit 0x40 reach `prioctl_thread` through 0xc000000000434740, and only requests with bit 0x40 are looked up in this table (bit 0x400 sends it to `ckpt_prioctl` instead). So the 41 slots are the short requests. Each arm's callee is named in the debug information. The request code is 0x7102 plus the slot, and the arms group as below. **Established** for code to handler; the PIOC names are **Inferred**: no published `proc(4)` page was found in the Library (searches for the request names returned only strings of kernel dumps), so the names come from the handler names and from the ordering of the codes 0x7102 to 0x7118 (stop, wait for stop, run, get and set signal trace, kill, unkill, max signal, action, get and set fault, clear fault, get and set entry, get and set exit, set and reset inherit-on-fork, set and reset run-on-last-close), which follows the SVR4 numbering; the arms in that range agree with it one for one.
+
+| Code | Arm | Evidence |
+|---|---|---|
+| 0x7102 | stop: an indirect call through a table of the process record, then falls into the next arm (0xc000000000434780) | PIOCSTOP, inferred |
+| 0x7103 | `prioctl_piocwstop` (0xc000000000434798) | wait for stop |
+| 0x7104 | `prioctl_piocrun` | run |
+| 0x7105, 0x7106 | `prioctl_piocgtrace`, `prioctl_piocstrace` | signal trace get, set |
+| 0x7108, 0x7109 | `prioctl_piockill`, `prioctl_piocunkill` | |
+| 0x710c | copies the constant 64 to the user (0xc000000000434b68) | maximum signal number |
+| 0x710d | `prioctl_piocaction` | |
+| 0x710e, 0x710f | `prioctl_piocgfault`, `prioctl_piocsfault` | fault trace get, set |
+| 0x7110 | `uthread_apply` over all threads with a routine at gp+304 (0xc000000000434b0c) | clear pending fault, inferred |
+| 0x7111, 0x7113 | `prioctl_piocgentry_exit` | system call entry set get, exit set get |
+| 0x7112, 0x7114 | `prioctl_piocsentry_exit` | entry set, exit set |
+| 0x7115, 0x7116 | under the process bit lock, set and clear bit 0x1 of the flag word at process +2752 | inherit-on-fork set, reset |
+| 0x7117, 0x7118 | the same lock, set and clear bit 0x2 of that word | run-on-last-close set, reset |
+| 0x711d | `prioctl_piocnice` | |
+| 0x7122, 0x7123 | `prioctl_pioccred`, `prioctl_piocgroups` | |
+| 0x7126, 0x7127 | `prioctl_piocset`, `prioctl_piocreset` | mode flags |
+| 0x712b | `prioctl_piocusage` | |
+| 0x7164 | copies in 4 bytes, ignores them, 14 on a fault (0xc00000000043494c) | name unknown |
+| 0x7166 | `prioctl_piocgetnode` | |
+| 0x71e9 to 0x71f1 | the counter requests, [module-interfaces.md](module-interfaces.md) | |
+| 0x71f2, 0x71f3 | return the constant 1008 (0xc000000000434868) | meaning of 1008 unknown |
+| 0x71fa | `prioctl_piocgetptimer` | |
+| 0x71fc | `prioctl_piocacinfo` | |
+| 0x71ff | `prioctl_piocthread` | |
+
+The 6.5.22 IP35 kernel has the same 41 slots (table at 0xc000000000487978, read through gp-1648; `prioctl` 0xc0000000003ee454) and the same handler for every slot, compared by the callee names. The flag bit each setter changes in the thread record was not followed; the bit-lock arms are the only ones read to the store.
 
 The process side of the stop mechanism is `prstop_proc` (0xc00000000042ee20, 572 bytes), `prwstop_proc`, `prfault` (0xc00000000042d988, 976 bytes, called from `postsysactions` at 0xc000000000255574), `prfork`, `prexit`, and `prblocktrace` (0xc00000000042e99c). The routine that actually stops a thread is `stop` (0xc00000000026afe8), which `presysactions` and `postsysactions` call. Established for the calls.
 
@@ -82,7 +111,23 @@ Two kernel services read counters and tables for a monitoring tool; both go thro
 - `sysmp` (`6.5.30/unix.IP35`, 0xc0000000002ee5a4, 5200 bytes; system call 1056) calls `sysget_mpsa1` (0xc0000000002cb60c, 224 bytes) at 0xc0000000002ef2d4 and `sysget_mpsa` (0xc0000000002cb6ec, 132 bytes) at 0xc0000000002ef2ec. Both call `phost_sysget` (0xc0000000002ca568, 68 bytes), which indexes the table below by an id and calls the handler. Established.
 - `sysget` (`6.5.30/unix.IP35`, 0xc0000000002ca5ac, 624 bytes; system call 1226, five arguments) takes an id in the first argument block word, accepts 1 to 38 (otherwise 22), finds the same table at the doubleword at 0xc000000001641ac0 (which holds 0xc0000000015977f8), copies in a 0x4c-byte request, and calls the handler with the id, the user buffers and flags. An entry whose handler pointer is null returns 2, and so does one whose first word is zero (the branch at 0xc0000000002ca604). Established.
 
-The table has 38 entries of 16 bytes (a word, a word of flags, a handler pointer). Thirty entries have a handler: ids 1 to 6, 9, 13 to 18, 20, 21, 23, 24, 31 to 33, 36 and 38 use `sysget_pda` (0xc0000000002ca81c, 1972 bytes), ids 8, 10, 26, 35 and 37 use `sysget_gen` (0xc0000000002cbb30, 796 bytes), id 25 uses `sysget_node` (0xc0000000002cc000, 1100 bytes), id 34 uses `sysget_node64` (0xc0000000002cc44c, 1100 bytes) and id 28 uses `sysget_ksym` (0xc0000000002cbe4c, 436 bytes). Ids 7, 11, 12, 19, 22, 27, 29 and 30 are empty; id 10 has a handler but a zero first word, so `sysget` returns 2 for it as for an empty entry (listed here as populated, not reachable through `sysget`). `sysget_pda` reads per-processor data, `sysget_node` per-node data, `sysget_gen` copies general tables under a mutex through `update_rminfo`; `sysget` itself special-cases id 28 (0x1c) to look a name up with `ksym_find` (0xc0000000002ca438; the call is at 0xc0000000002ca7c0). Established for the table and the handlers' names and callees; what each id returns is not read. The IP27 table (doubleword at 0xc0000000014d0720, table at 0xc00000000146ce88) has the same 22, 5, 1, 1, 1 split and the same empty ids; `sysget_node` and `sysget_node64` are 1092 bytes there.
+The table has 38 entries of 16 bytes (a word, a word of flags, a handler pointer). Thirty entries have a handler: ids 1 to 6, 9, 13 to 18, 20, 21, 23, 24, 31 to 33, 36 and 38 use `sysget_pda` (0xc0000000002ca81c, 1972 bytes), ids 8, 10, 26, 35 and 37 use `sysget_gen` (0xc0000000002cbb30, 796 bytes), id 25 uses `sysget_node` (0xc0000000002cc000, 1100 bytes), id 34 uses `sysget_node64` (0xc0000000002cc44c, 1100 bytes) and id 28 uses `sysget_ksym` (0xc0000000002cbe4c, 436 bytes). Ids 7, 11, 12, 19, 22, 27, 29 and 30 are empty; id 10 has a handler but a zero first word, so `sysget` returns 2 for it as for an empty entry (listed here as populated, not reachable through `sysget`). `sysget_pda` reads per-processor data, `sysget_node` per-node data, `sysget_gen` copies general tables under a mutex through `update_rminfo`; `sysget` itself special-cases id 28 (0x1c) to look a name up with `ksym_find` (0xc0000000002ca438; the call is at 0xc0000000002ca7c0). Established for the table and the handlers' names and callees; what each id returns is decoded in the table below. In `sysget_pda` the id picks the source through a second table of 39 words (0xc0000000004d0150, read through gp-7352); the per-record size is the first word of the entry (the handler multiplies it by the processor count and allocates the reply with `kmem_zalloc`), so Established for the size and source, Inferred for the meaning of each record:
+
+| Id | Record size | Source |
+|---|---|---|
+| 1, 3, 4, 5, 6, 9, 13, 20, 32 | 0x118, 0x54, 0x18, 0x40, 0x64, 0xa8, 0x48, 0x128, 0x2c | per-processor statistics area converted by `sysget_ksa_to_stats` and summed by `addinfo` |
+| 2, 36 | 0xc0, 0x168 | `addminfo`, `addminfo64` (memory counters) |
+| 14, 38 | 0x1300, 0x13c8 | `m_allocstats` (mbuf allocation) |
+| 15, 16, 17, 18 | 0x20, 0x90, 0x1c, 0x88 | `nfs_getrcstat`, `nfs_getclstat`, `nfs_getrsstat`, `nfs_getsvstat` |
+| 21, 24 | 0x90, 0x88 | `nfs_getclstat3`, `nfs_getsvstat3` |
+| 23 | 0x144 | `cachefs_getstat` |
+| 31 | 0x98 | `in_pcb_sockstats` |
+| 33 | 0x90 | a pointer at +1400 of the per-processor record |
+| 8, 26, 35, 37 | 0x30, 0x1c, 0x60, 0x38 | `sysget_gen` (general tables; 10 has a zero size) |
+| 25, 34 | 0x20, 0x30 | `sysget_node`, `sysget_node64` |
+| 28 | any | `sysget_ksym` by name |
+
+Which PCP agent reads which id was not checked. The IP27 table (doubleword at 0xc0000000014d0720, table at 0xc00000000146ce88) has the same 22, 5, 1, 1, 1 split and the same empty ids; `sysget_node` and `sysget_node64` are 1092 bytes there.
 
 - `ksym_add` (`6.5.30/unix.IP35`, 0xc0000000002ca2b4, 388 bytes) adds an entry to a private list under a mutex (it initialises two mutexes, named "sgt_ksym" and "sgt_rm64"); `msginit`, `gfxinit`, `udf_init` and `ksym_init` call it. `ksym_find` (0xc0000000002ca438, 140 bytes) finds an entry by name with `strcmp` and prints "ksym_find: %s not found" on a miss. `ksym_init` (0xc0000000002ca4c4, 164 bytes) calls `ksym_add` once and then looks up "tunetable" and "tunename". So the kernel keeps a small private symbol list for `sysget` that is separate from the full symbol table. Established.
 
@@ -265,4 +310,4 @@ The loader, the registry and the tracing machinery are the same code on both pla
 
 ## Unknowns
 
-These are recorded in [open-questions.md](../../questions/README.md): the numeric `/proc` request codes and the `prfioctl` command numbers, the layout of the 0x88-byte module request, the meaning of the cache-operation flag bits, which `sysget` ids a monitoring agent reads, the debugger's command table, the register behind offset 0x90 of the interrupt block, and whether a store to kernel text through the XKPHYS alias is seen by another node's replica.
+These are recorded in [open-questions.md](../../questions/README.md): the flags each `/proc` setter changes and the `prfioctl` command numbers, the layout of the 0x88-byte module request, the meaning of the cache-operation flag bits, which `sysget` ids a monitoring agent reads, the debugger's command table, the register behind offset 0x90 of the interrupt block, and whether a store to kernel text through the XKPHYS alias is seen by another node's replica.
