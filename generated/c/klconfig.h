@@ -1,4 +1,6 @@
 /* generated from formats/klconfig/format.toml by defs-gen - do not edit, change the source */
+/* defs-gen 2 */
+/* input sha256 4d503d269fda4337fde38a693574aee9686a6cf353c393ad5b70d5c92cc85946 */
 /* hardware configuration board record */
 #ifndef KLCONFIG_GEN_H
 #define KLCONFIG_GEN_H

@@ -1,4 +1,6 @@
 {
+ "generator": "defs-gen 2",
+ "input_sha256": "4d503d269fda4337fde38a693574aee9686a6cf353c393ad5b70d5c92cc85946",
  "schema": "defs-flat/1",
  "source": "formats/klconfig/format.toml",
  "profile": "public",

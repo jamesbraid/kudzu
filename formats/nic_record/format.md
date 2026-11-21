@@ -1,4 +1,6 @@
 <!-- generated from formats/nic_record/format.toml by defs-gen - do not edit, change the source -->
+<!-- defs-gen 2 -->
+<!-- input sha256 7f4b674c39738affdd49c6ad896fb92909bcb0e486a3d9f9a6f921b0c0d4a546 -->
 
 # Ethernet address record the IRIX kernel reads from a one-wire part
 

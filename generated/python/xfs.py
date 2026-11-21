@@ -1,4 +1,6 @@
 """generated from formats/xfs/format.toml by defs-gen - do not edit, change the source
+defs-gen 2
+input sha256 a786c29b84bce530b714884988edc863b5e5ba368df5e42dd030a8777831d0b6
 XFS superblock and inode core as the shipped release writes them"""
 
 UNIT = 'xfs'

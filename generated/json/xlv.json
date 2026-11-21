@@ -1,4 +1,6 @@
 {
+ "generator": "defs-gen 2",
+ "input_sha256": "a6e79aeb72748ebce2201d2b58e35e94c7ce2ed71a21a8e4c75f334f3a03b3c6",
  "schema": "defs-flat/1",
  "source": "formats/xlv/format.toml",
  "profile": "public",

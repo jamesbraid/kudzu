@@ -1,4 +1,6 @@
 /* generated from formats/efs/format.toml by defs-gen - do not edit, change the source */
+/* defs-gen 2 */
+/* input sha256 d58e5bc7f012ff34afcb5f798e82f354920166e0833c2bf940129bff3078b5e6 */
 /* Extent File System on-disk structures */
 #ifndef EFS_GEN_H
 #define EFS_GEN_H

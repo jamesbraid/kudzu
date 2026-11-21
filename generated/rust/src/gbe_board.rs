@@ -1,4 +1,6 @@
 // generated from formats/gbe_board/format.toml by defs-gen - do not edit, change the source
+// defs-gen 2
+// input sha256 52f1ee3ca8aa0d166a1c5f288dac65a9e4fc594d5e742564a75ae2398c4b693c
 // Board description bytes the O2 kernel reads to choose GBE timing
 #![allow(dead_code)]
 

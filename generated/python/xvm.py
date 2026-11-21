@@ -1,4 +1,6 @@
 """generated from formats/xvm/format.toml by defs-gen - do not edit, change the source
+defs-gen 2
+input sha256 e9f8bb2f4cd6f0216ca53b1be68668510992fd03842c044fa95252de8ec25d53
 XVM volume manager on-disk label structures"""
 
 UNIT = 'xvm'
