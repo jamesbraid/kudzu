@@ -20,7 +20,7 @@ Conventions are those of [syssgi.md](syssgi.md) and [syscalls.md](syscalls.md): 
 
 - `sysmp` (`6.5.30/unix.IP35`, 0xc0000000002ee5a4, 5200 bytes; system call 1056) multiplexes processor and scheduler operations the way `syssgi` does for machine operations. It compares the selector (the doubleword at +0) unsigned with 55 (`sltiu` at 0xc0000000002ee65c) and jumps through a 55-entry table at 0xc0000000004d22e8; an out-of-range selector, and any entry that is a gap, ends at 0xc0000000002ee67c with error 22. Selectors 16, 17, 18, 22, 23, 24, 25, 26, 50, 51, 52 and 53 first check the low word of `arg1` against `numcpus` (the word at gp+0x2820, 0xc000000001645f90) and return 22 when it is negative or not below it (0xc0000000002ee640 to 0xc0000000002ee6a0). Established. The selector table was extracted with `retools/tools/syssgi_selectors.py --function sysmp`; the sysmp table is otherwise not yet in the inventory, see the open question at the end.
 
-`sysmp` on IP27 is at 0xc00000000023e908 (5124 bytes), with a 54-entry table at 0xc0000000003ed888 (largest selector 53). IP35 has one more selector, 54, whose case code (0xc0000000002ee6bc) makes no call. Established.
+`sysmp` on IP27 is at 0xc00000000023e908 (5124 bytes), with a 54-entry table at 0xc0000000003ed888 (largest selector 53). IP35 has one more selector, 54, whose case code (0xc0000000002ee6bc) makes no call. Established. The selector extractor (`syssgi_selectors.py --function sysmp`, 2026-11-21) reads the same counts: 55 rows in `6.5.30/unix.IP35` and `6.5.22/unix.IP35`, 54 in `6.5.30/unix.IP27`, `6.5.22/unix.IP27` and `6.5.30/unix.IP30`.
 
 Handlers for the selectors this page needs (IP35 case code; the callee is read from the case, the argument roles from the loads it makes):
 

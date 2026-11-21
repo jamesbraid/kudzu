@@ -191,8 +191,11 @@ image coming from a user-space file. All of this is **inferred**; the image name
   chips repository's audio drivers page).
 - The audio library and its applications: `libaudio.so.1` opens the device (below). Of the other held programs, `audiostate` has no `hdsp` string, imports
   `open`, `ioctl` and the library's `al*` calls, and names `/dev/graphics` for its panel code; the IP22 NG1 `Xsgi` carries the same three device-node strings
-  as the library (statically included library code, Inferred from the identical strings). Whether any other 6.5.30 program opens the nodes directly is **unknown**
-  (only a small part of the userland is held).
+  as the library (statically included library code, Inferred from the identical strings). A strings search (2026-11-21) of every held 6.5.30 and 6.5.22 file under `usr`, `sbin`, `lib`,
+  `lib32` and `lib64` for `hdsp` or `kdsp` finds only `libaudio.so.1` (three ABIs), the IP22 NG1 `Xsgi` and the kernel objects.
+  The `dsp` text in `mediad`, `scsicontrol`, `cpuset`, `hinv` and `dev_cdrom.so` is part of other names, not a node path.
+  **Established** for the strings. A program that builds a node name at run time is not excluded, so whether one opens
+  the nodes is **unknown**.
 
 ## What libaudio opens
 
