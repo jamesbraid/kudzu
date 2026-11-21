@@ -63,34 +63,36 @@ The requests group as follows: run control and stops: `prioctl_piocrun`, `prioct
 
 All of these except `prioctl_piocsetevctrs` are reached by a direct call from `prioctl` (calls at 0xc0000000004347ac to 0xc000000000434bf0); `prioctl_piocsetevctrs` is called from `prioctl_thread` (0xc000000000434de0). `prioctl` also calls `cap_able_cred` (twice, 0xc0000000004345f8 and 0xc000000000434764) and `ckpt_prioctl`. The counter requests call `hwperf_get_counters` (0xc000000000080038), `piocenevctrsex` and `uthread_apply`, so they use the `hwperf` layer below. Established for the dispatch and the names. [module-interfaces.md](module-interfaces.md) decodes the dispatch (the command minus 0x7102 indexes a 254-entry jump table) and gives the codes of the counter requests (0x71e9 to 0x71f1 and 0x71fc). The codes of the other requests and the meaning of each flag are not decoded here (unknown, see [open questions](../../questions/README.md)). IP27 has the same routines at different addresses (`prioctl` 0xc00000000035b588, 1968 bytes; `prioctl_thread` 0xc00000000035bd38, 4500 bytes; `prioctl_piocsentry_exit` 0xc000000000359f60, 444 bytes; `prioctl_piocenevctrs` 0xc00000000035a83c, 292 bytes).
 
-The request table has 254 slots, starting at request 0x7102: `prioctl` computes the slot as the request minus 0x7102, bounds it at 254, and jumps through the table. The table is at 0xc0000000004e05c0 in `6.5.30/unix.IP35`, read through the word at gp+296, with gp = 0xc000000001643770 from the start sequence at 0xc000000000041c24. 213 slots hold the common exit at 0xc000000000434590, so 41 requests reach 38 distinct arms. The slots that reach an arm, as offsets from 0x7102, are 0 to 4, 6, 7, 10 to 22, 27, 32, 33, 36, 37, 41, 98, 100, 231 to 233, 235 to 241, 248, 250 and 253. **Established** for the table and this grouping. A request first passes a per-request flag word that `prioctl` fills (0xc000000000435e70): without bit 0x1 it fails with 22; requests with bit 0x200 go to `prioctl_thread`, those without bit 0x40 reach `prioctl_thread` through 0xc000000000434740, and only requests with bit 0x40 are looked up in this table (bit 0x400 sends it to `ckpt_prioctl` instead). So the 41 slots are the short requests. Each arm's callee is named in the debug information. The request code is 0x7102 plus the slot, and the arms group as below. **Established** for code to handler; the PIOC names are **Inferred**: no published `proc(4)` page was found in the Library (searches for the request names returned only strings of kernel dumps), so the names come from the handler names and from the ordering of the codes 0x7102 to 0x7118 (stop, wait for stop, run, get and set signal trace, kill, unkill, max signal, action, get and set fault, clear fault, get and set entry, get and set exit, set and reset inherit-on-fork, set and reset run-on-last-close), which follows the SVR4 numbering; the arms in that range agree with it one for one.
+The request table has 254 slots, starting at request 0x7102: `prioctl` computes the slot as the request minus 0x7102, bounds it at 254, and jumps through the table. The table is at 0xc0000000004e05c0 in `6.5.30/unix.IP35`, read through the word at gp+296, with gp = 0xc000000001643770 from the start sequence at 0xc000000000041c24. 213 slots hold the common exit at 0xc000000000434590, so 41 requests reach 38 distinct arms. The slots that reach an arm, as offsets from 0x7102, are 0 to 4, 6, 7, 10 to 22, 27, 32, 33, 36, 37, 41, 98, 100, 231 to 233, 235 to 241, 248, 250 and 253. **Established** for the table and this grouping. A request first passes a per-request flag word that `prioctl` fills (0xc000000000435e70): without bit 0x1 it fails with 22; requests with bit 0x200 go to `prioctl_thread`, those without bit 0x40 reach `prioctl_thread` through 0xc000000000434740, and only requests with bit 0x40 are looked up in this table (bit 0x400 sends it to `ckpt_prioctl` instead). So the 41 slots are the short requests. Each arm's callee is named in the debug information. The request code is 0x7102 plus the slot, and the arms group as below. **Established** for code to handler. The published names come from the `proc(4)` page of the 6.5.30 media (`usr/share/catman/p_man/cat4/proc`; the 6.5 base copy lacks `PIOCTHREAD`, `PIOCGETPTIMER`, `PIOCGUTID`, `PIOCREAD` and the four per-thread counter sub-commands, and is otherwise the same set of names). The page names each request but gives no request number, so the number-to-name step is **Inferred** from two things: the handler symbol names, which spell the PIOC name in lower case where the arm has its own routine (name match, called "by handler" below), and the SVR4 `/proc` numbering (stop 2, wait for stop 3, run 4, get and set signal trace 5 and 6, kill 8, unkill 9, maximum signal 12, action 13, get and set fault 14 and 15, clear fault 16, get and set entry 17 and 18, get and set exit 19 and 20, then fork and run-on-last-close set and reset 21 to 24), with which every arm in 0x7102 to 0x7118 agrees one for one. Behaviour agreement with the page is noted where it exists.
 
-| Code | Arm | Evidence |
+| Code | Arm | Name and evidence |
 |---|---|---|
-| 0x7102 | stop: an indirect call through a table of the process record, then falls into the next arm (0xc000000000434780) | PIOCSTOP, inferred |
-| 0x7103 | `prioctl_piocwstop` (0xc000000000434798) | wait for stop |
-| 0x7104 | `prioctl_piocrun` | run |
-| 0x7105, 0x7106 | `prioctl_piocgtrace`, `prioctl_piocstrace` | signal trace get, set |
-| 0x7108, 0x7109 | `prioctl_piockill`, `prioctl_piocunkill` | |
-| 0x710c | copies the constant 64 to the user (0xc000000000434b68) | maximum signal number |
-| 0x710d | `prioctl_piocaction` | |
-| 0x710e, 0x710f | `prioctl_piocgfault`, `prioctl_piocsfault` | fault trace get, set |
-| 0x7110 | `uthread_apply` over all threads with a routine at gp+304 (0xc000000000434b0c) | clear pending fault, inferred |
-| 0x7111, 0x7113 | `prioctl_piocgentry_exit` | system call entry set get, exit set get |
-| 0x7112, 0x7114 | `prioctl_piocsentry_exit` | entry set, exit set |
-| 0x7115, 0x7116 | under the process bit lock, set and clear bit 0x1 of the flag word at process +2752 | inherit-on-fork set, reset |
-| 0x7117, 0x7118 | the same lock, set and clear bit 0x2 of that word | run-on-last-close set, reset |
-| 0x711d | `prioctl_piocnice` | |
-| 0x7122, 0x7123 | `prioctl_pioccred`, `prioctl_piocgroups` | |
-| 0x7126, 0x7127 | `prioctl_piocset`, `prioctl_piocreset` | mode flags |
-| 0x712b | `prioctl_piocusage` | |
-| 0x7164 | copies in 4 bytes, ignores them, 14 on a fault (0xc00000000043494c) | name unknown |
-| 0x7166 | `prioctl_piocgetnode` | |
-| 0x71e9 to 0x71f1 | the counter requests, [module-interfaces.md](module-interfaces.md) | |
-| 0x71f2, 0x71f3 | return the constant 1008 (0xc000000000434868) | meaning of 1008 unknown |
-| 0x71fa | `prioctl_piocgetptimer` | |
-| 0x71fc | `prioctl_piocacinfo` | |
-| 0x71ff | `prioctl_piocthread` | |
+| 0x7102 | stop: an indirect call through a table of the process record, then falls into the next arm (0xc000000000434780) | `PIOCSTOP`. Inferred (numbering); the page says it stops the process and waits, which is what an arm that stops and then falls into the wait arm does |
+| 0x7103 | `prioctl_piocwstop` (0xc000000000434798) | `PIOCWSTOP` by handler. Established |
+| 0x7104 | `prioctl_piocrun` | `PIOCRUN` by handler. Established |
+| 0x7105, 0x7106 | `prioctl_piocgtrace`, `prioctl_piocstrace` | `PIOCGTRACE`, `PIOCSTRACE` by handler. Established |
+| 0x7108, 0x7109 | `prioctl_piockill`, `prioctl_piocunkill` | `PIOCKILL`, `PIOCUNKILL` by handler. Established |
+| 0x710c | copies the constant 64 to the user (0xc000000000434b68) | `PIOCMAXSIG`. Inferred (numbering); the page says it returns the largest signal number through an int, and 64 fits |
+| 0x710d | `prioctl_piocaction` | `PIOCACTION` by handler. Established |
+| 0x710e, 0x710f | `prioctl_piocgfault`, `prioctl_piocsfault` | `PIOCGFAULT`, `PIOCSFAULT` by handler. Established |
+| 0x7110 | `uthread_apply` over all threads with a routine at gp+304 (0xc000000000434b0c) | `PIOCCFAULT`. Inferred (numbering); the page says it clears the current fault without sending the signal |
+| 0x7111, 0x7113 | `prioctl_piocgentry_exit` | `PIOCGENTRY`, `PIOCGEXIT`. Inferred: the routine is shared and the entry-versus-exit choice follows the numbering (get entry 17, get exit 19) |
+| 0x7112, 0x7114 | `prioctl_piocsentry_exit` | `PIOCSENTRY`, `PIOCSEXIT`. Inferred, same reason |
+| 0x7115, 0x7116 | under the process bit lock, set and clear bit 0x1 of the flag word at process +2752 | `PIOCSFORK`, `PIOCRFORK`. Inferred (numbering); the page documents the same inherit-on-fork mode only as the `PR_FORK` flag of `PIOCSET` and `PIOCRESET`, and does not list these two requests |
+| 0x7117, 0x7118 | the same lock, set and clear bit 0x2 of that word | `PIOCSRLC`, `PIOCRRLC`. Inferred, as above, for the `PR_RLC` (run-on-last-close) mode |
+| 0x711d | `prioctl_piocnice` | `PIOCNICE` by handler. Established |
+| 0x7122, 0x7123 | `prioctl_pioccred`, `prioctl_piocgroups` | `PIOCCRED`, `PIOCGROUPS` by handler. Established |
+| 0x7126, 0x7127 | `prioctl_piocset`, `prioctl_piocreset` | `PIOCSET`, `PIOCRESET` by handler. Established; the page's modes (`PR_FORK`, `PR_RLC`, `PR_KLC`) are the flags they take |
+| 0x712b | `prioctl_piocusage` | `PIOCUSAGE` by handler. Established |
+| 0x7164 | copies in 4 bytes, ignores them, 14 on a fault (0xc00000000043494c) | `PIOCTLBMISS`. Inferred: the page gives it a single int argument (the mode `TLB_COUNT` or `TLB_STD`) and no result, and the other documented requests that take a bare int (`PIOCKILL`, `PIOCUNKILL`, `PIOCNICE`) have their own slots here. That this kernel ignores the value is read; why is not |
+| 0x7166 | `prioctl_piocgetnode` | `PIOCGETINODE`. Inferred: the page documents a request that returns the device, inode number and generation of an open descriptor, and the kernel's name differs from it by one letter; the arm's body was not read |
+| 0x71e9 to 0x71f1 | the counter requests, [module-interfaces.md](module-interfaces.md) | their names there; the page names only the per-thread forms (`PIOCENEVCTRTHREADS` and the get, set and release forms), which are `PIOCTHREAD` sub-commands, not slots of this table |
+| 0x71f2, 0x71f3 | return the constant 1008 (0xc000000000434868) | `PIOCGETSN0EXTREFCNTRS` and `PIOCGETSN0REFCNTRS`, which of the two is which unknown. Inferred: the page documents exactly these two as Origin (SN0) memory reference-counter reads whose example uses the ioctl return value as the generation number, so a fixed return fits a kernel for a machine without those counters. The value 1008 itself is unexplained |
+| 0x71fa | `prioctl_piocgetptimer` | `PIOCGETPTIMER` by handler. Established |
+| 0x71fc | `prioctl_piocacinfo` | `PIOCACINFO` by handler. Established |
+| 0x71ff | `prioctl_piocthread` | `PIOCTHREAD` by handler. Established |
+
+Names the page documents that are not slots of this table are served by `prioctl_thread` or the other flag-bit paths above: `PIOCSTATUS`, `PIOCPSINFO`, the register, map, watch-point, hold-mask and signal requests, and `PIOCREAD`. `PIOCOPENPD` is documented as not implemented on SGI machines. The 0x7165 that `perfex` sends inside `PIOCTHREAD` ("Get thread failed", [module-interfaces.md](module-interfaces.md)) is, by the page's list of thread sub-commands, probably `PIOCGUTID` (get thread ids). Inferred.
 
 The 6.5.22 IP35 kernel has the same 41 slots (table at 0xc000000000487978, read through gp-1648; `prioctl` 0xc0000000003ee454) and the same handler for every slot, compared by the callee names. The flag bit each setter changes in the thread record was not followed; the bit-lock arms are the only ones read to the store.
 
