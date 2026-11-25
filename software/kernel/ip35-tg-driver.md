@@ -76,17 +76,22 @@ public Linux `tg3` names for the offsets the code reaches. Grades: established (
 
 - Established: `tg_init_card` (0xaff0 to 0xb140 for this part) first waits for HOSTCC_MODE (BAR + 0x3c00) to read zero, 20 tries of
   1 ms (0xaff0 to 0xb018). It zeroes the during-interrupt registers 0x3c18, 0x3c1c, 0x3c20 and 0x3c24 (0xb0a8 to 0xb0bc), writes the
-  statistics tick register 0x3c28 as 1,000,000 (0xb118 to 0xb120), and finally writes HOSTCC_MODE = 0x402 (0xb134 to 0xb138): enable and
-  the public "clear ticks on send BD events" bit (0x400); the receive clear-tick bit (0x200) is not set. `tg_set_coal` (0xb85c to 0xb878)
-  writes the receive tick register 0x3c08 from record +0xd0, the receive max-frames register 0x3c10 from +0xcc and the send max-frames
-  register 0x3c14 from +0x14c; the send tick register 0x3c0c takes an argument.
-- Established: on the path taken when the record byte at +0x3b is 1 (0xb3a4 to 0xb3fc; the byte is stored at 0xaadc from a flag test whose
-  source was not traced, so which path a given board takes is unknown) the initial receive ticks are 28 (0x1c, microseconds in the
-  controller's unit), the receive max frames 2, the adaptive bounds 28 to 896 ticks (record +0xc0, +0xc4) and a first step of 14 (record +0xa4
-  starts at 14): `tg_rx_coal_incr` (0xd678 to 0xd71c) adds a step to the ticks within bounds held in the record,
-  and `tg_recv` (0xce44 to 0xceb4) lowers them. A lone frame after a quiet period therefore waits at most 28 microseconds; under load
-  the first rise is to 42. The progression after the first step was not worked out (unknown). The other path takes the starting
-  values from record words +0x75c to +0x77c, which were not traced (unknown).
+  statistics tick register 0x3c28 as 1,000,000 (0xb118 to 0xb120), and writes HOSTCC_MODE = 0x402 (0xb134 to 0xb138): enable and
+  the public "clear ticks on send BD events" bit (0x400); the receive clear-tick bit (0x200) is not set. It then ORs in 0x100 (32-byte
+  status block, 0xb14c to 0xb170) unless the record's halfword at +0x38 (configuration dword 0x68 bits 31:16, the chip id, stored by `if_tgattach` at 0x92d8) has a
+  high byte of 0x70 or 0x71, so the value left in HOSTCC_MODE for a BCM5701 (chip id 0x0105) is 0x502. `tg_set_coal` (0xb85c to 0xb878) writes the receive tick register 0x3c08
+  from record +0xd0, the receive max-frames register 0x3c10 from +0xcc, the send tick register 0x3c0c from +0x150 and the send max-frames
+  register 0x3c14 from +0x14c.
+- Established: the record byte at +0x3b selects between two ways of filling those words. It is stored once in this object, as zero, at
+  0xaadc (every path into that store has zeroed the register it stores, and the record is allocated zeroed), so the path for a byte of 1
+  (0xb3a4 to 0xb3fc; initial receive ticks 28, receive max frames 2, adaptive bounds 28 to 896 ticks in record +0xc0 and +0xc4, a first
+  step of 14 in +0xa4, and the 0x200 bit ORed into HOSTCC_MODE at 0xb404) never runs here, and neither does the adaptive code in
+  `tg_rx_coal_incr` (0xd678 to 0xd71c) and `tg_recv` (0xce44 to 0xceb4) that the same byte gates. That no other object sets the byte is
+  inferred, since the record is private to the driver.
+- Established: the path that runs (0xb030 to 0xb0a4) takes the four values from record words +0x774, +0x75c, +0x77c and +0x764 (receive
+  ticks, receive max frames, send ticks, send max frames). This object only reads them. A zero word takes the default: at a standard MTU
+  receive 900 microseconds and 130 frames, send 4500 microseconds and 64 frames; with an MTU above 1500, 336, 32, 256 and 32 (0xb370 to
+  0xb3a0 and 0xb6c4 to 0xb6dc). A lone frame after a quiet period therefore waits at most 900 microseconds, not 28.
 - Inferred: with those settings a frame on an idle ring is reported as soon as its DMA ends, because the controller's tick timer restarts
   only after a status-block update (Broadcom 57XX-PG105-R, printed pages 62 to 63 and 453; see chips
   `docs/questions/ip35-bcm5701-completion-latency.md`).
