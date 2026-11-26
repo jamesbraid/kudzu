@@ -80,8 +80,8 @@ A client learns its minor with the "find minor" request (below), then opens that
   (the second word is the write position for rings the application fills).
 - How the DSP and the driver update head, tail and the request and fill words, and what the request and fill words mean to the DSP, are read from the 6.5 `indigo_dd.o` (the host side) and the
   microcode (the DSP side) in chips `platforms/ip20/audio-rings.md`: the host writes the tail of the ring it fills and the head of the ring it drains; the DSP does the opposite by DMA; the request word
-  is set by a host that is about to sleep and cleared by the interrupt routine; the fill word is a threshold in words the DSP compares before it interrupts. **Established** for the host side,
-  **inferred** for the DSP side (decoded, not run). `kdsp` leaves the rest to the device back ends (`rad_dd`, `a3_dd` and the others).
+  is set by a host that is about to sleep and cleared by the interrupt routine; the fill word is a threshold in words the DSP compares before it interrupts. **Established** for both sides (the host side in
+  `indigo_dd.o` and `kdsp_di.o`, the DSP side by a full read of four sites in the microcode, re-checked 2026-11-26; see that page for the measure and its direction). `kdsp` leaves the rest to the device back ends (`rad_dd`, `a3_dd` and the others).
 
 ## ioctl requests
 
@@ -173,12 +173,18 @@ meaning of the remaining fields **unknown**.
 
 ## Interrupts
 
-- `kdsp` has no hardware interrupt handler of its own: its init creates a timer callback (the symbol `kdsp_timercallback`) and the ring state is moved by
-  the back ends' interrupt routines. **Inferred** (symbol names only; the callback was not read).
+- `kdsp` has no hardware interrupt handler of its own: its init creates a timer callback (`kdsp_timercallback`, `kdsp_di.o` `0x0`, 1,192 bytes) and the ring state is moved by
+  the back ends' interrupt routines. The callback walks every port: for a ring whose request word (header word 2) is set it forms the same measure the DSP uses and, when it is below the fill mark (header word 3), clears the
+  request word and flags the port for a wakeup that `wake_rbs` (`0xd14`) delivers with `pollwakeup`; the rule is in chips `platforms/ip20/audio-rings.md`. **Established** (read 2026-11-26 in the 6.5 base media's `kdsp.a`; the
+  one-location slack the callback subtracts, port record `+0x160`, was not extracted).
 - `hdsp`, from the private header (**inferred**): three sources on the controller (end of DMA, DSP wrote the transmit word, DSP read the receive word), a
   per-ring "interrupt service routine" function pointer in the ring record, and eight named routines for moving data between rings and the DSP
   (to/from CPU, folded/unfolded, kernel/user ring). Priority is the highest (`splhi`). The register-level wiring is in chips.
-- What the DSP-write interrupt does, whether the driver polls the handshake word, and how DMA is chained across rings are **unknown**.
+- What the DSP-write interrupt does, for the Indigo drivers (**established**, `indigo_dd.o` `hdspintr` `0x118c` and 5.3 `hdsp.o` `hdspintr` `0x1000180c`, read 2026-11-26): the interrupt routine tests the controller's status register; for the
+  "DSP wrote the transmit word" bit it clears that bit, reads the handshake word, and treats a value below 30 as a ring id (wake the sleeper on the matching control ring, clearing the sleep flag and the ring's request word) and a value of 30 or
+  more as the microcode's alive word (the activate sleep is woken, state 2); a "DSP read the receive word" or "end of DMA" bit is only cleared. The driver does not poll the handshake word. A
+  sample ring is not woken by this interrupt in 6.5 but by the timer callback above. How DMA is chained across rings is the DSP's, not the driver's (chips `platforms/ip20/audio-microcode.md`). The 5.3 object has only the unfolded ring movers
+  (`hrb_write_unfolded`, `hrb_read_unfolded`) and the 6.5 `indigo_dd.o` calls only those; no host path selects the folded DMA mode.
 
 ## Firmware download
 
