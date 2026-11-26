@@ -10,7 +10,7 @@ is in chips (`platforms/ip20/audio.md`, `audio-rings.md`, `audio-microcode.md`, 
 
 - The `hdsp` driver object **is held**, though not in the 6.5.22 or 6.5.30 trees: IRIX 5.3's `usr/cpu/sysgen/IP20boot/hdsp.o` (and the `IP12boot` copy) come from the 5.3 install media's
   `eoe1` subsystem, and the audio user programs `dsploader` and the microcode `hdsp.lod` from its `dmedia_eoe` subsystem. The 6.5 base media carries `IP20boot/indigo_dd.o` (an N32 relocatable with its
-  symbol table) and `IP20boot/kdsp.a`, plus the same `dsploader` and `hdsp.lod`. An earlier revision of this page said the object was not held for any release; that held only for the 6.5.22 and 6.5.30
+  symbol table) and `IP20boot/kdsp.a`, plus a 6.5 build of `dsploader` and the identical `hdsp.lod`. An earlier revision of this page said the object was not held for any release; that held only for the 6.5.22 and 6.5.30
   trees, whose `var/sysgen.IP27`, `IP30` and `IP35` carry only the configuration entry (`master.d/hdsp`: character device, prefix `hdsp`, major 53, comment "Hollywood DSP"). **Established**
   (read on 2026-11-25; the full reading is in chips `platforms/ip20/audio.md`, one reader with a MIPS decoder, not Ghidra).
 - `kdsp` is held. Its master entry says "use instead of hdsp", gives the same major number 53 and flags `cso`, plus a thread class `audio`. The two
@@ -185,8 +185,9 @@ meaning of the remaining fields **unknown**.
 **Established** for the Indigo drivers; **unknown** for the other kdsp back ends. The microcode is `/usr/etc/audio/hdsp.lod`, a 6,418-word DSP56000-family load file identical in the 5.3 and
 6.5 packages, and the loader is `/usr/etc/audio/dsploader`. `etc/init.d/audio` (linked as `etc/rc2.d/S83audio`) runs `dsploader -a hdsp.lod` in the foreground; the loader opens
 `/dev/hdsp/hdsp0control`, maps the DSP SRAM window through `/dev/mmem`, issues the reset request, copies the words into the window with plain stores, then issues the activate request, which
-returns only when the DSP has written a handshake word of 30 or more. The kdsp framework's ioctl handler reaches the driver's reset and activate operations through two adjacent arms (in
-`kdsp_di.o`, `kdspioctl`; their ioctl numbers inferred from order). The activate operation stores 9 to the HPC1 control register, waits 50 microseconds, builds the command and reply rings, stores 8
+returns only when the DSP has written a handshake word of 30 or more. The kdsp framework's ioctl handler reaches the driver's reset and activate operations through its jump table (in
+`kdsp_di.o`, `kdspioctl`: request 0 calls the subsystem table's `+0x11c` slot and request 1 its `+0x120` slot, each for the control minor only; the table is a copy of `indigo_dd.o`'s `.data` template, where
+those slots are `dsp_reset` and `dsp_activate`; **established**, read in the 6.5 base media's `IP20boot/kdsp.a`). The activate operation stores 9 to the HPC1 control register, waits 50 microseconds, builds the command and reply rings, stores 8
 and sleeps with no timeout. See chips `platforms/ip20/audio.md` and `audio-rings.md`.
 
 ## What else uses the interface
