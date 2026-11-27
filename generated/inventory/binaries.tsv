@@ -3961,7 +3961,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.22/usr/etc/mount_autofs	userland-base	userland	executable	n32	22028	a02829e0e8c06a07		6	dynsym	0	0	undocumented		
 6.5.22/usr/gfx/arch/GENERIC/Xsgi	userland-programs	userland	executable	n32	3122192	37629d4166bc9355		2943	dynsym	0	0	undocumented		
 6.5.22/usr/gfx/arch/IP22NG1/Xsgi	userland-programs	userland	executable	n32	4819928	b44d41e9ebd48469		3852	dynsym	0	0	undocumented		
-6.5.22/usr/lib/devicelib/dev_cdrom.so	userland-libraries	userland	shared-object	n32	37128	392e487886f584fa		61	dynsym+dwarf	0	0	named-only	questions/README.md#triage-2026-11-01	Triage (2026-11-01)
+6.5.22/usr/lib/devicelib/dev_cdrom.so	userland-libraries	userland	shared-object	n32	37128	392e487886f584fa		61	dynsym+dwarf	0	0	named-only	questions/README.md#triage-2026-11-21	Triage (2026-11-21)
 6.5.22/usr/lib/libX11.so.1	userland-libraries	userland	shared-object	o32	1655188	039f8201a6044c58		2181	dynsym+mdebug	0	0	undocumented		
 6.5.22/usr/lib/libXi.so	userland-libraries	userland	shared-object	o32	78432	4bfe40a2080f6484		52	dynsym+mdebug	0	0	undocumented		
 6.5.22/usr/lib/libaudio.so.1	userland-libraries	userland	shared-object	o32	173680	ac7e695707407db7		178	dynsym+mdebug	0	0	undocumented		
@@ -7377,7 +7377,7 @@ binary	group	role	kind	abi	bytes	sha256	copies	functions	address_source	access_s
 6.5.30/usr/etc/eventmond	userland-base	userland	executable	n32	159128	edf94f779e9a580d		130	dynsym	0	0	named-only	software/userland/userland.md#6530usretceventmond	`6.5.30/usr/etc/eventmond`
 6.5.30/usr/etc/exportfs	userland-base	userland	executable	n32	73192	8edb27d96991ef73		40	dynsym	0	0	understood	software/userland/userland.md#6530usretcexportfs	`6.5.30/usr/etc/exportfs`
 6.5.30/usr/etc/ipfilterd	userland-base	userland	executable	n32	170040	dfd0928e310bd371		197	dynsym	0	0	named-only	references/irix-files.md#1-irix-6530-primary	1. IRIX 6.5.30 (primary)
-6.5.30/usr/etc/mediad	userland-base	userland	executable	n32	222192	d38efd64c2bb819f		438	dynsym	0	0	named-only	questions/README.md#triage-2026-11-01	Triage (2026-11-01)
+6.5.30/usr/etc/mediad	userland-base	userland	executable	n32	222192	d38efd64c2bb819f		438	dynsym	0	0	named-only	software/kernel/hollywood-dsp-driver.md#what-else-uses-the-interface	What else uses the interface
 6.5.30/usr/etc/miser	userland-base	userland	executable	n32	126940	733a8d13f7e207d1		165	dynsym	0	0	named-only	references/irix-files.md#1-irix-6530-primary	1. IRIX 6.5.30 (primary)
 6.5.30/usr/etc/mmscd	userland-base	userland	executable	n32	41672	f670e794ef6faa77		37	dynsym	0	0	named-only	software/userland/userland-abi-and-loader.md#how-a-program-is-started	How a program is started
 6.5.30/usr/etc/mount_autofs	userland-base	userland	executable	n32	67716	d5c3d6d671b699d8		6	dynsym	0	0	named-only	references/irix-files.md#1-irix-6530-primary	1. IRIX 6.5.30 (primary)

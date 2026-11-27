@@ -140,9 +140,9 @@ HUB-PI	0x58		r8	8	4	hub_error_init;save_hub_pi_error	local alias;node register p
 HUB-PI	0x90		w8	34	8	cpuintr;dbgintr;gfx_flow_detach_me;intpend0;intpend1;intr_clear_bits;+2 more	local alias	6.5.22/unix.IP27:cpuintr	named-only	software/kernel/interrupts.md#hub-interrupt-routing-as-the-kernel-programs-it	Hub interrupt routing as the kernel programs it
 HUB-PI	0x98		r8	42	8	cpuintr;dbgintr;gfx_flow_detach_me;intpend0;intpend1;intr_clear_bits;+2 more	local alias	6.5.22/unix.IP27:cpuintr	named-only	software/kernel/interrupts.md#hub-interrupt-routing-as-the-kernel-programs-it	Hub interrupt routing as the kernel programs it
 HUB-PI	0xa0		r8	16	4	check_ni_errors;chkdebug;intpend1	local alias	6.5.22/unix.IP27:check_ni_errors	named-only	software/kernel/interrupts.md#hub-interrupt-routing-as-the-kernel-programs-it	Hub interrupt routing as the kernel programs it
-HUB-PI	0x118		w8	8	4	prof_intr;startkgclock	local alias	6.5.22/unix.IP27:prof_intr	undocumented		
+HUB-PI	0x118		w8	8	4	prof_intr;startkgclock	local alias	6.5.22/unix.IP27:prof_intr	named-only	software/kernel/kernel-tracing-and-modules.md#reading-kernel-counters-from-user-space	Reading kernel counters from user space
 HUB-PI	0x120		w8	4	4	acktmoclock	local alias	6.5.22/unix.IP27:acktmoclock	undocumented		
-HUB-PI	0x128		w8	4	4	acktmoclock	local alias	6.5.22/unix.IP27:acktmoclock	undocumented		
+HUB-PI	0x128		w8	4	4	acktmoclock	local alias	6.5.22/unix.IP27:acktmoclock	named-only	software/kernel/kernel-tracing-and-modules.md#reading-kernel-counters-from-user-space	Reading kernel counters from user space
 HUB-PI	0x130		w8	4	4	ackkgclock	local alias	6.5.22/unix.IP27:ackkgclock	named-only	software/kernel/page-migration.md#hub-window-read-and-clear-sequence-acknowledge-and-re-arm	Hub window: read and clear sequence, acknowledge and re-arm
 HUB-PI	0x138		w8	4	4	ackkgclock	local alias	6.5.22/unix.IP27:ackkgclock	named-only	software/kernel/page-migration.md#candidate-decode-and-dispatch	Candidate decode and dispatch
 HUB-PI	0x150		w8	8	4	slowkgclock;startkgclock	local alias	6.5.22/unix.IP27:slowkgclock	named-only	software/kernel/ip27-kernel-io.md#ioc3-serial-and-router-set-up	IOC3 serial and router set-up
