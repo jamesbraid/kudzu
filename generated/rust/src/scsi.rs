@@ -1,8 +1,10 @@
-// generated from formats/scsi/format.toml by defs-gen - do not edit, change the source
-// defs-gen 2
+// @generated from formats/scsi/format.toml by defs-gen - do not edit, change the source
+// defs-gen 4
 // input sha256 b36bbb028c18444c0e5a2957686dba5300661ea31a9ea1d590f82cf31ceb0a19
 // SCSI command opcodes the CD-ROM driver selects by drive class
 #![allow(dead_code)]
+#![allow(clippy::doc_markdown)]
+#![cfg_attr(rustfmt, rustfmt_skip)]
 
 pub const CDROM_VENDOR_C4: u32 = 0xc4; // established
 pub const CDROM_VENDOR_C9: u32 = 0xc9; // established

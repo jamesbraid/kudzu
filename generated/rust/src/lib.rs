@@ -1,7 +1,8 @@
-// generated from devices/ and formats/ by defs-gen - do not edit, change the source
-// defs-gen 2
+// @generated from devices/ and formats/ by defs-gen - do not edit, change the source
+// defs-gen 4
 // input sha256 8c66be8570adcfd47090131d9ee5093bb7ad2469e772c41776f51bda6858ca77
 #![no_std]
+#![cfg_attr(rustfmt, rustfmt_skip)]
 pub mod crime_dma;
 pub mod efs;
 pub mod gbe_board;

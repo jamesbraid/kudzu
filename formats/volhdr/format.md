@@ -1,5 +1,5 @@
 <!-- generated from formats/volhdr/format.toml by defs-gen - do not edit, change the source -->
-<!-- defs-gen 2 -->
+<!-- defs-gen 4 -->
 <!-- input sha256 72ca8cc3e3f94f54398417931ec8bafcd636d8dfbafe3db0cac2c5d4255ea4f8 -->
 
 # SGI disk volume header

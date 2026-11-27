@@ -1,5 +1,5 @@
 """generated from formats/tg/format.toml by defs-gen - do not edit, change the source
-defs-gen 2
+defs-gen 4
 input sha256 8b7c457a81e4080fa3959af9292aee68bd35b8b4ba58fea1ac4b196d545df335
 gigabit Ethernet controller match table of the Origin 300/350 driver"""
 

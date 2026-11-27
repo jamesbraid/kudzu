@@ -1,5 +1,5 @@
 {
- "generator": "defs-gen 2",
+ "generator": "defs-gen 4",
  "input_sha256": "72ca8cc3e3f94f54398417931ec8bafcd636d8dfbafe3db0cac2c5d4255ea4f8",
  "schema": "defs-flat/1",
  "source": "formats/volhdr/format.toml",

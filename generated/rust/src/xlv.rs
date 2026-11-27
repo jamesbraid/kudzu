@@ -1,8 +1,10 @@
-// generated from formats/xlv/format.toml by defs-gen - do not edit, change the source
-// defs-gen 2
+// @generated from formats/xlv/format.toml by defs-gen - do not edit, change the source
+// defs-gen 4
 // input sha256 a6e79aeb72748ebce2201d2b58e35e94c7ce2ed71a21a8e4c75f334f3a03b3c6
 // XLV logical volume manager on-disk label structures
 #![allow(dead_code)]
+#![allow(clippy::doc_markdown)]
+#![cfg_attr(rustfmt, rustfmt_skip)]
 
 /// (established)
 pub mod e_w0 {

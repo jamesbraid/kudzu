@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!-- generated from formats/crime_dma/format.toml by defs-gen - do not edit, change the source -->
-<!-- defs-gen 2 -->
+<!-- defs-gen 4 -->
 <!-- input sha256 1c0d7ab4eb6184ac8f03b109f1584e4607422790445fe2ffa0805859a3106dbf -->
 <genxml unit="crime_dma" prefix="CRIME" title="Pixel-DMA request the IRIX kernel builds for the O2 renderer" from="shipped IRIX O2 graphics objects, per software/video/crime.md">
   <doc>Software table, not a register map: the size of the kernel's pixel-DMA request, how long it polls for idle and the ioctl request number that carries it. The CRIME registers it drives are described in the crime repository.</doc>

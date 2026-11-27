@@ -1,8 +1,10 @@
-// generated from formats/xvm/format.toml by defs-gen - do not edit, change the source
-// defs-gen 2
+// @generated from formats/xvm/format.toml by defs-gen - do not edit, change the source
+// defs-gen 4
 // input sha256 e9f8bb2f4cd6f0216ca53b1be68668510992fd03842c044fa95252de8ec25d53
 // XVM volume manager on-disk label structures
 #![allow(dead_code)]
+#![allow(clippy::doc_markdown)]
+#![cfg_attr(rustfmt, rustfmt_skip)]
 
 /// (established)
 pub mod attr_perm_w6 {

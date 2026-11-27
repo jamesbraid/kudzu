@@ -1,8 +1,10 @@
-// generated from formats/efs/format.toml by defs-gen - do not edit, change the source
-// defs-gen 2
+// @generated from formats/efs/format.toml by defs-gen - do not edit, change the source
+// defs-gen 4
 // input sha256 d58e5bc7f012ff34afcb5f798e82f354920166e0833c2bf940129bff3078b5e6
 // Extent File System on-disk structures
 #![allow(dead_code)]
+#![allow(clippy::doc_markdown)]
+#![cfg_attr(rustfmt, rustfmt_skip)]
 
 /// (established)
 pub mod db_w0 {
