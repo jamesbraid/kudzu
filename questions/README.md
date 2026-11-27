@@ -234,3 +234,13 @@ Questions left by [vfs-layering.md](../software/kernel/vfs-layering.md). Rows ma
 | `divo_ioctl.o`, `divo_dma.o`, `divo_intr.o`, the on-board firmware mailbox and `divofw`. | software now | [dmedia-video-drivers.md](../software/video/dmedia-video-drivers.md) |
 | How `hinv` turns an `INV_VIDEO` inventory entry into its printed line (the program is not in `root/6.5.30`). | missing release or binary | [dmedia-video-drivers.md](../software/video/dmedia-video-drivers.md) |
 
+
+## Video format files
+
+| Question | Class | Owner | Routes tried | Next route |
+|---|---|---|---|---|
+| The layout of the Express (GR2) `.u` files beyond width, height and interlace flag, and of the Newport (NG1) `.u` tables and the first and fifth header values. | software now | [video-format-files.md](../software/video/video-format-files.md) | Strings of `gr2.so` and `ng1.so`, the 6.5 base files; the header values compared across files. | Read `expLoadTimingTable`, `rex3WriteTimingTable`, `rex3LoadTimingTable`; compare with the Express and Newport register pages. |
+| Contents of Voyager format and combination files. | missing release or binary | [video-format-files.md](../software/video/video-format-files.md) | `setmon` and `odyssey.so` name `VOYAGER/{vfo,cmb}`; the media holds only `VOYAGER/*.bin`. | A media set with those directories. |
+| Whether the 6.5.22 sets, and the 6.5.30 IMPACT, KONA and compositor files against the 6.5 base files, differ the way the O2 files do (new PLL scalars at rule revision 1.6). | software now | [video-format-files.md](../software/video/video-format-files.md) | Symbol-by-symbol comparison of the O2 files of both trees. | Extract the 6.5.22 files and run the same comparison for every family. |
+| Which build of `gfxinit`, `odyssey.so` and `konal.so` each sibling repository reads: their recorded hashes differ from the plain 6.5.30 tree (`konal.so` has the same size and different bytes). | software now | [video-format-files.md](../software/video/video-format-files.md) | sha256 of the plain 6.5.30 tree against each repository's `inventory-root.sha256`. | Name the media set of each `root/` and compare the pairs byte by byte. |
+| The `vfc(1G)` page and the rule-language grammar. | missing release or binary | [video-format-files.md](../software/video/video-format-files.md) | Both media trees; the shipped `.vfs` and `.def` samples and the `vfc` usage strings. | A held `vfc(1G)` page. |
