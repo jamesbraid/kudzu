@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <!-- generated from formats/nic_record/format.toml by defs-gen - do not edit, change the source -->
-<!-- defs-gen 4 -->
+<!-- SPDX-License-Identifier: BSD-3-Clause -->
+<!-- defs-gen 5 -->
 <!-- input sha256 7f4b674c39738affdd49c6ad896fb92909bcb0e486a3d9f9a6f921b0c0d4a546 -->
 <genxml unit="nic_record" prefix="NIC" title="Ethernet address record the IRIX kernel reads from a one-wire part" from="shipped IRIX kernel binaries, per formats/nic_record/README.md">
   <doc>Software table, not a register map: the layout the kernel checks in the record it reads from the one-wire part on an Ethernet controller. The one-wire access registers are described in the chips repository.</doc>

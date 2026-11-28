@@ -1,5 +1,6 @@
 // @generated from formats/r10k_tlb/format.toml by defs-gen - do not edit, change the source
-// defs-gen 4
+// SPDX-License-Identifier: BSD-3-Clause
+// defs-gen 5
 // input sha256 d7b6d0493f2d5ba86caa56678e4ca4a5206dd452b65a3dc96839d93e7773954d
 // The wired-entry layout IRIX uses in the R10000 TLB
 #![allow(dead_code)]

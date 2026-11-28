@@ -4,7 +4,7 @@ plugin = "tools/disk_format_checks.py"
 
 [gen]
 profile = "public"
-rust_crate = "hwdefs"
+rust_crate = "kudzu-defs"
 
 [[banned.extra]]
 label = "shipped routine name"

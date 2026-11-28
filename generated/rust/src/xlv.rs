@@ -1,5 +1,6 @@
 // @generated from formats/xlv/format.toml by defs-gen - do not edit, change the source
-// defs-gen 4
+// SPDX-License-Identifier: BSD-3-Clause
+// defs-gen 5
 // input sha256 a6e79aeb72748ebce2201d2b58e35e94c7ce2ed71a21a8e4c75f334f3a03b3c6
 // XLV logical volume manager on-disk label structures
 #![allow(dead_code)]

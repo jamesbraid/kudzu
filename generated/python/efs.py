@@ -1,5 +1,6 @@
 """generated from formats/efs/format.toml by defs-gen - do not edit, change the source
-defs-gen 4
+SPDX-License-Identifier: BSD-3-Clause
+defs-gen 5
 input sha256 d58e5bc7f012ff34afcb5f798e82f354920166e0833c2bf940129bff3078b5e6
 Extent File System on-disk structures"""
 

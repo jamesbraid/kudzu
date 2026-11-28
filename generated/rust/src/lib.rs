@@ -1,5 +1,6 @@
 // @generated from devices/ and formats/ by defs-gen - do not edit, change the source
-// defs-gen 4
+// SPDX-License-Identifier: BSD-3-Clause
+// defs-gen 5
 // input sha256 8c66be8570adcfd47090131d9ee5093bb7ad2469e772c41776f51bda6858ca77
 #![no_std]
 #![cfg_attr(rustfmt, rustfmt_skip)]

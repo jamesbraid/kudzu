@@ -1,6 +1,7 @@
 /* generated from formats/scsi/format.toml by defs-gen - do not edit, change the
  * source */
-/* defs-gen 4 */
+/* SPDX-License-Identifier: BSD-3-Clause */
+/* defs-gen 5 */
 /* input sha256 b36bbb028c18444c0e5a2957686dba5300661ea31a9ea1d590f82cf31ceb0a19 */
 /* SCSI command opcodes the CD-ROM driver selects by drive class */
 #ifndef SCSI_GEN_H

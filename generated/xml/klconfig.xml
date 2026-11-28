@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <!-- generated from formats/klconfig/format.toml by defs-gen - do not edit, change the source -->
-<!-- defs-gen 4 -->
+<!-- SPDX-License-Identifier: BSD-3-Clause -->
+<!-- defs-gen 5 -->
 <!-- input sha256 4d503d269fda4337fde38a693574aee9686a6cf353c393ad5b70d5c92cc85946 -->
 <genxml unit="klconfig" prefix="KLCONFIG" title="hardware configuration board record" from="shipped IRIX kernel binaries, per formats/klconfig/README.md">
   <doc>Hardware configuration records: the board, component, console, memory and global-data fields the kernel reads to find boards, slots, modules and components.</doc>

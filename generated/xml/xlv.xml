@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <!-- generated from formats/xlv/format.toml by defs-gen - do not edit, change the source -->
-<!-- defs-gen 4 -->
+<!-- SPDX-License-Identifier: BSD-3-Clause -->
+<!-- defs-gen 5 -->
 <!-- input sha256 a6e79aeb72748ebce2201d2b58e35e94c7ce2ed71a21a8e4c75f334f3a03b3c6 -->
 <genxml unit="xlv" prefix="XLV" title="XLV logical volume manager on-disk label structures" from="shipped IRIX binaries, per formats/xlv/README.md">
   <doc>XLV logical volume manager on-disk label: master block, label slot header and per-partition entry.</doc>
